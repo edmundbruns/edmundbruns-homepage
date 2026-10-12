@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#8a4317">
+<meta name="description" content="SOL Geschichte Jahrgang 5, Modul 005: Warum wurden Menschen sesshaft?">
+<title>SOL Geschichte 5 | Modul 005 | Warum wurden Menschen sesshaft?</title>
+<style>
+:root{--ink:#2a1c12;--paper:#fff;--cream:#f4ebe3;--soft:#f4ebe3;--bg:#f7f2ea;--green:#8a4317;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#e2d6ca;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #2a1c1214;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#2e1a0e,#8a4317);color:#fdf8f3;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#fdf8f3;color:#2e1a0e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#f6ebe1;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#8a4317,#d29a3a);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#3a2a1e;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow);min-width:0}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#3a2a1e}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.legend{font-weight:750;color:#3a2a1e}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#6a5a4c}
+.btn{background:var(--green);color:#fdf8f3;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff;min-width:0}
+@media(max-width:480px){.task{padding:12px 10px}}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#6a5a4c;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+fieldset{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#f6e7da}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zones.z4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.zones.z3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.task>label.legend{display:block;margin:8px 0 4px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px;cursor:pointer}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:650;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;max-width:100%;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .nr{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--green)}
+.orow span.t{flex:1;font-weight:650;min-width:0}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;flex:0 0 auto}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+@media(max-width:520px){.orow{flex-wrap:wrap}.orow span.t{flex:1 1 calc(100% - 44px)}.orow button:first-of-type{margin-left:auto}}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px;overflow:hidden}
+svg.pic{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d18aa)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#45362a}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#2e2118;color:#f4ebe3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#8c8178;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+blockquote.q{margin:10px 0;padding:10px 14px;border-left:4px solid var(--green);background:#fff;border-radius:0 10px 10px 0}
+blockquote.q p{margin:.35rem 0}
+.orig{font-size:.9rem;color:#6a5a4c;font-style:italic}
+.cloze{line-height:2.4}
+.cloze select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;min-height:44px}
+.cloze select.ok{border-color:var(--ok);background:var(--okbg)}
+.cloze select.no{border-color:var(--bad);background:var(--badbg)}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{background:var(--cream);font-weight:800}
+.tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+.tblwrap{overflow-x:auto;max-width:100%}
+.wort{font-size:.9rem;color:#45362a}
+.merk{background:#fff8ea;border:2px solid #e2c48d;border-radius:14px;padding:12px 14px;margin:12px 0}
+.merk b.k{display:block;color:var(--gold-text);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:2px}
+.fund{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px;align-items:start;margin:10px 0}
+@media(max-width:640px){.fund{grid-template-columns:minmax(0,1fr)}}
+.facts{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.facts li{border:1px solid var(--line);border-radius:10px;padding:7px 10px;background:#fff}
+.facts li b{color:var(--green)}
+.wq{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 7px;font-weight:800;margin-right:4px}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#6a5a4c;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 5 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Frühe Menschen und Hochkulturen · Zeitreise 005</div>
+    <h1>Warum wurden Menschen sesshaft?</h1>
+    <p>Hunderttausende Jahre lang zogen Menschen umher. Dann begannen sie, Felder anzulegen, Tiere zu halten und feste Häuser zu bauen. Warum taten sie das? In diesem Modul verfolgst du den Weg des Ackerbaus vom Vorderen Orient bis ins Emsland.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>005</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 11 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#klima">Die Welt wird wärmer</a>
+ <a href="#ausbreitung">Der Weg nach Europa</a>
+ <a href="#wandel">Vom Jäger zum Bauern</a>
+ <a href="#quelle">Die Quelle</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 5a"><span class="hint">Möglich sind zum Beispiel 5a, Klasse 5a, R5a oder nur 5.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0;grid-column:1/-1"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul><li>Du erklärst mit einer Ursache-Folge-Kette, warum Menschen sesshaft wurden.</li><li>Du verfolgst auf einer Karte den Weg des Ackerbaus bis ins Emsland.</li><li>Du vergleichst das Leben von Jägern und Sammlern mit dem der ersten Bauern.</li><li>Du lernst den Begriff Neolithische Revolution kennen.</li><li>Du untersuchst Großsteingräber im Hümmling als echte Sachquelle.</li></ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Zeitreise starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Zeitreise 005</span>
+ <p><strong>Fall:</strong> Chronos hat eine Erklärung auf eine Karteikarte geschrieben: <em>„Die Menschen wurden sesshaft, weil sie eines Tages keine Lust mehr hatten, herumzulaufen.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Finde die wirklichen Gründe heraus. Am Ende entscheidest du, ob Chronos' Erklärung reicht.</p>
+</div>
+<p><strong>Zum Einstieg:</strong> Denk an dein Frühstück. Brot, Müsli, Milch, Käse. Fast alles davon gibt es nur, weil Menschen vor über 10.000 Jahren angefangen haben, Getreide anzubauen und Tiere zu halten. Ohne diese Erfindung gäbe es kein Dorf, keine Stadt und auch kein Rhede.</p>
+<div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Ich finde meine Erklärung eigentlich sehr gut. Ich habe auch keine Lust mehr herumzulaufen, und ich sitze seit Jahrhunderten im Archiv. Aber gut, prüf sie ruhig.</p></div></div>
+<p><strong>Leitfrage:</strong> Warum wurden Menschen sesshaft?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Ursachenforscherin</span>
+ <span class="abz" id="abz2">Kartenleser</span>
+ <span class="abz" id="abz3">Steinkundige</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p><div class="task"><span class="tag">Vermutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D1. Wo begannen Menschen zuerst damit, Getreide anzubauen?</legend><div class="opts"><label><input type="radio" name="d1" value="a"><span>Im Vorderen Orient, im sogenannten Fruchtbaren Halbmond</span></label><label><input type="radio" name="d1" value="b"><span>Im Emsland</span></label><label><input type="radio" name="d1" value="c"><span>Am Nordpol</span></label></div></fieldset></div><div class="task"><span class="tag">Richtig oder falsch</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D2. Sesshaft heißt: Man lebt dauerhaft an einem festen Ort.</legend><div class="opts"><label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label><label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label></div></fieldset></div><div class="task"><span class="tag">Schätzfrage</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D3. Welches Tier lebte schon als Begleiter bei den Menschen, bevor es Bauern gab?</legend><div class="opts"><label><input type="radio" name="d3" value="a"><span>Der Hund</span></label><label><input type="radio" name="d3" value="b"><span>Die Katze</span></label><label><input type="radio" name="d3" value="c"><span>Das Huhn</span></label></div></fieldset></div><button class="btn" type="button" id="dCheck">Einschätzung auswerten</button><div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="klima">
+<h2>Die Welt wird wärmer</h2>
+<p>Um 9700 v. Chr. ging die letzte Eiszeit zu Ende. Es wurde wärmer. In Europa wuchsen Wälder, Mammuts und Rentiere verschwanden aus unserer Gegend. Im <strong>Vorderen Orient</strong>, in den heutigen Ländern Türkei, Syrien, Irak, Israel und Jordanien, wuchsen nun viele wilde Getreidepflanzen. Diese Gegend nennt man wegen ihrer Form den <strong>Fruchtbaren Halbmond</strong>.</p><div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Stell dir vor, vor deiner Haustür wächst plötzlich jeden Sommer ein riesiges Feld mit wildem Getreide. Würdest du dann noch umherziehen? Ich jedenfalls würde mir einen gemütlichen Platz suchen und bleiben.</p></div></div><div class="task"><span class="tag">Ursache-Folge-Kette</span><p><strong>Auftrag:</strong> Bringe die Kette in die richtige Reihenfolge. Sie beginnt mit der Ursache und endet mit der Folge.</p><div class="order" id="ketteList" aria-label="Liste zum Ordnen"></div><button class="btn" type="button" id="ketteCheck">Reihenfolge prüfen</button><button class="btn sec" type="button" id="ketteReset">Neu mischen</button><div class="fb" id="ketteFb" role="status" aria-live="polite"></div></div><div class="notice"><strong>Gut zu wissen:</strong> Fachleute streiten bis heute, welche Ursache am wichtigsten war. Manche betonen das Klima, andere das Wachstum der Gruppen oder religiöse Treffpunkte, an denen sich viele Menschen versammelten. Sicher ist: Es gab nicht nur einen einzigen Grund.</div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Die Kette beginnt mit dem Wetter, also dem Klima. Am Ende stehen die Dörfer.</div>
+</section>
+
+<section class="card" id="ausbreitung">
+<h2>Der Weg des Ackerbaus nach Europa</h2>
+<p>Ackerbau und Viehzucht breiteten sich langsam aus. Bauern zogen mit ihren Tieren und ihrem Saatgut weiter und gründeten neue Dörfer. Bis die neue Lebensweise im Emsland ankam, vergingen über 5000 Jahre.</p><div class="svgwrap"><svg class="pic" style="max-width:660px;margin:auto" viewBox="0 0 400 246" role="img" aria-label="Schematische Karte von Europa und dem Vorderen Orient. Der Ackerbau beginnt ab etwa 9500 vor Christus im Fruchtbaren Halbmond und breitet sich über Anatolien und den Balkan nach Mitteleuropa aus. Ins Emsland kommt er um 4000 vor Christus.">
+<defs><marker id="pf5" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#aa6d18"/></marker></defs>
+<rect width="400" height="246" fill="#efe6d2"/>
+<path d="M0.0 245.7 L-18.2 245.7 L-18.2 -8.2 L0.0 -8.2 L0.0 37.7 L24.2 31.1 L23.0 16.4 L12.1 6.6 L0.0 13.1 L0.0 37.7 L0.0 102.4 L12.1 100.7 L36.4 103.2 L49.7 103.2 L53.3 81.9 L45.5 71.3 L32.7 65.5 L31.5 60.6 L51.5 59.8 L50.9 51.6 L61.8 52.4 L70.3 41.8 L75.8 40.1 L82.4 37.7 L86.7 31.1 L89.7 24.6 L100.0 20.5 L112.1 18.8 L113.3 12.3 L109.7 4.1 L110.9 -4.1 L0.0 -4.1 L0.0 37.7 Z" fill="#cfe3ee"/><path d="M0.0 102.4 L12.1 100.7 L6.7 107.3 L7.3 122.8 L3.0 141.7 L6.7 155.6 L15.8 154.0 L21.8 157.2 L26.7 163.8 L24.8 165.4 L19.4 180.2 L9.1 185.9 L2.4 209.7 L1.2 217.0 L-6.1 229.3 L-18.2 237.5 L-18.2 98.3 L0.0 98.3 Z" fill="#cfe3ee"/><path d="M26.7 163.8 L33.9 158.1 L48.5 157.2 L57.6 145.0 L61.8 135.1 L58.8 131.9 L66.1 122.8 L80.0 115.5 L79.4 106.5 L87.9 103.2 L100.0 105.7 L109.1 99.1 L115.2 95.0 L122.4 99.1 L127.3 109.7 L135.2 117.1 L145.5 122.8 L155.2 131.0 L157.6 140.9 L155.2 147.4 L158.2 147.4 L164.2 139.2 L172.7 130.2 L160.6 120.4 L146.7 111.4 L135.8 96.6 L135.2 86.8 L143.6 84.4 L151.5 93.4 L166.7 106.5 L178.2 115.5 L178.2 127.8 L187.9 143.3 L192.1 157.2 L200.6 160.5 L199.4 150.7 L206.1 145.8 L197.6 128.6 L204.2 129.4 L208.5 123.7 L218.2 124.5 L220.0 130.2 L224.2 143.3 L226.1 152.3 L232.1 157.2 L246.1 157.2 L257.6 163.0 L270.3 157.2 L278.8 158.9 L277.6 175.3 L272.7 188.4 L268.5 202.3 L256.4 203.1 L242.4 202.3 L230.3 205.6 L212.1 199.0 L200.0 191.6 L182.4 194.9 L177.0 210.5 L163.6 203.9 L153.3 194.1 L128.5 186.7 L121.8 177.7 L127.9 170.4 L123.6 158.1 L120.0 153.2 L109.1 156.4 L78.8 157.2 L54.5 167.1 L43.0 170.4 L27.9 164.6 Z" fill="#cfe3ee"/><path d="M230.3 120.4 L233.9 103.2 L240.0 88.5 L247.3 77.8 L260.6 81.9 L263.6 90.1 L275.2 89.3 L281.8 87.6 L292.1 74.5 L298.8 73.7 L286.7 90.1 L300.6 101.6 L312.7 117.9 L303.0 122.8 L283.0 120.4 L272.7 114.7 L262.4 114.7 L248.5 122.0 L237.0 121.2 Z" fill="#cfe3ee"/><path d="M345.5 95.0 L358.8 78.6 L372.7 74.5 L381.8 85.2 L371.5 95.0 L380.0 110.6 L379.4 122.0 L387.3 125.3 L387.3 153.2 L371.5 158.1 L359.4 150.7 L357.6 140.9 L361.2 126.9 L355.2 116.3 L348.5 106.5 Z" fill="#cfe3ee"/><path d="M350.9 212.9 L355.8 213.8 L364.8 212.1 L368.5 221.1 L372.1 230.1 L384.8 240.8 L400.0 241.6 L400.0 245.7 L389.7 258.8 L375.8 262.1 L370.9 244.9 L364.8 246.5 L360.6 235.9 L353.9 225.2 Z" fill="#cfe3ee"/><path d="M257.6 213.8 L263.6 229.3 L269.1 229.3 L272.1 217.0 L270.9 229.3 L277.6 245.7 L281.8 245.7 L266.7 245.7 L264.2 235.1 Z" fill="#cfe3ee"/><path d="M124.2 -4.9 L124.8 4.1 L126.7 13.1 L135.8 13.1 L146.7 17.2 L160.6 12.3 L173.3 13.1 L179.4 13.1 L188.5 8.2 L188.5 -4.9 Z" fill="#cfe3ee"/><path d="M26.1 48.3 L39.4 45.9 L69.1 39.3 L70.9 27.0 L62.4 21.3 L59.4 13.1 L50.9 3.3 L47.3 -4.9 L24.2 -4.9 L30.9 8.2 L42.4 9.0 L41.2 21.3 L32.7 22.1 L35.2 30.3 L29.1 35.2 L41.2 37.7 L27.9 41.8 Z" fill="#efe6d2" stroke="#b7a98a" stroke-width="1"/><path d="M0.0 36.0 L24.2 31.1 L23.0 16.4 L12.1 6.6 L0.0 13.9 Z" fill="#efe6d2" stroke="#b7a98a" stroke-width="1"/><path d="M109.7 -4.9 L109.7 4.1 L112.7 9.0 L121.2 10.6 L126.7 0.8 L124.2 -4.9 Z" fill="#efe6d2" stroke="#b7a98a" stroke-width="1"/><path d="M203.0 169.5 L220.0 169.5 L218.2 172.0 L206.1 172.0 Z" fill="#efe6d2" stroke="#b7a98a" stroke-width="1"/><path d="M256.4 171.2 L270.3 166.3 L266.1 175.3 L257.0 174.4 Z" fill="#efe6d2" stroke="#b7a98a" stroke-width="1"/><path d="M135.8 146.6 L155.2 145.0 L152.1 158.1 L135.8 149.1 Z" fill="#efe6d2" stroke="#b7a98a" stroke-width="1"/><path d="M111.5 123.7 L120.0 122.8 L118.8 139.2 L111.5 139.2 Z" fill="#efe6d2" stroke="#b7a98a" stroke-width="1"/><path d="M112.7 107.3 L118.2 107.3 L117.6 119.6 L113.3 117.1 Z" fill="#efe6d2" stroke="#b7a98a" stroke-width="1"/>
+<path d="M271.5 200.7 L277.6 176.1 L284.8 158.9 L300.0 153.2 L318.2 154.0 L330.3 167.1 L342.4 186.7 L351.5 203.1" fill="none" stroke="#5f9a3a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+<polyline points="290.9,159.7 260.6,142.5 218.2,126.1 187.9,106.5 163.6,72.1 139.4,53.2 115.2,36.9 106.7,27.8" fill="none" stroke="#aa6d18" stroke-width="3.5" stroke-dasharray="7 5" marker-end="url(#pf5)"/>
+<g id="hHalbmond" class="hot" data-task="ausbreitung" tabindex="0" role="button" aria-label="Fruchtbarer Halbmond"><circle cx="297.0" cy="167.1" r="17" fill="#fff" fill-opacity=".01"/><circle cx="297.0" cy="167.1" r="7" fill="#fff" stroke="#8a4317" stroke-width="3"/><circle cx="297.0" cy="167.1" r="3" fill="#8a4317"/><text x="297.0" y="207.1" text-anchor="middle" font-size="14" font-weight="800" fill="#2a1c12" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Fruchtbarer Halbmond</text><text x="297.0" y="223.1" text-anchor="middle" font-size="13" fill="#8a4317" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">ab etwa 9500 v. Chr.</text></g><g id="hAnatolien" class="hot" data-task="ausbreitung" tabindex="0" role="button" aria-label="Anatolien, heute Türkei"><circle cx="260.6" cy="139.2" r="17" fill="#fff" fill-opacity=".01"/><circle cx="260.6" cy="139.2" r="7" fill="#fff" stroke="#8a4317" stroke-width="3"/><circle cx="260.6" cy="139.2" r="3" fill="#8a4317"/><text x="260.6" y="127.19999999999999" text-anchor="middle" font-size="14" font-weight="800" fill="#2a1c12" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Anatolien</text></g><g id="hBalkan" class="hot" data-task="ausbreitung" tabindex="0" role="button" aria-label="Griechenland und Balkan"><circle cx="193.9" cy="118.8" r="17" fill="#fff" fill-opacity=".01"/><circle cx="193.9" cy="118.8" r="7" fill="#fff" stroke="#8a4317" stroke-width="3"/><circle cx="193.9" cy="118.8" r="3" fill="#8a4317"/><text x="183.9" y="122.8" text-anchor="end" font-size="14" font-weight="800" fill="#2a1c12" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Balkan</text><text x="183.9" y="138.8" text-anchor="end" font-size="13" fill="#8a4317" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">um 6500 v. Chr.</text></g><g id="hMittel" class="hot" data-task="ausbreitung" tabindex="0" role="button" aria-label="Mitteleuropa"><circle cx="139.4" cy="53.2" r="17" fill="#fff" fill-opacity=".01"/><circle cx="139.4" cy="53.2" r="7" fill="#fff" stroke="#8a4317" stroke-width="3"/><circle cx="139.4" cy="53.2" r="3" fill="#8a4317"/><text x="149.4" y="71.2" text-anchor="start" font-size="14" font-weight="800" fill="#2a1c12" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Mitteleuropa</text><text x="149.4" y="87.2" text-anchor="start" font-size="13" fill="#8a4317" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">um 5500 v. Chr.</text></g><g id="hEms" class="hot" data-task="ausbreitung" tabindex="0" role="button" aria-label="Emsland"><circle cx="104.8" cy="26.2" r="17" fill="#fff" fill-opacity=".01"/><circle cx="104.8" cy="26.2" r="7" fill="#fff" stroke="#8a4317" stroke-width="3"/><circle cx="104.8" cy="26.2" r="3" fill="#8a4317"/><text x="115.8" y="17.2" text-anchor="start" font-size="14" font-weight="800" fill="#2a1c12" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Emsland</text><text x="115.8" y="33.2" text-anchor="start" font-size="13" fill="#8a4317" font-weight="700" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">um 4000 v. Chr.</text></g>
+<text x="60" y="160" font-size="14" font-style="italic" fill="#4f7d99">Mittelmeer</text>
+<text x="6" y="104" font-size="13" fill="#4f7d99" font-style="italic">Atlantik</text>
+<text x="392" y="240" text-anchor="end" font-size="12" fill="#6a5a4c">Schematische Karte, Daten gerundet</text>
+</svg></div><div class="legendlist" aria-hidden="true"><span>Karte: eigene schematische Darstellung</span><span>Grün: Fruchtbarer Halbmond</span><span>Gestrichelter Pfeil: Weg des Ackerbaus</span></div><div class="task"><span class="tag">Kartenarbeit</span><h3>Suchauftrag auf der Karte</h3><p id="ausbreitungTask">Tippe im Bild auf den gesuchten Ort.</p><div class="chips" id="ausbreitungAlt" aria-label="Auswahl, gleichwertig zum Antippen im Bild"></div><button class="btn sec" type="button" id="ausbreitungReset">Aufgabe zurücksetzen</button><div class="fb" id="ausbreitungFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="wandel">
+<h2>Vom Jäger zum Bauern: Was ändert sich?</h2>
+<p>Mit dem Ackerbau begann die <strong>Jungsteinzeit</strong>. Die Menschen bauten Getreide wie Emmer, Einkorn und Gerste an. Sie hielten Rinder, Schafe, Ziegen und Schweine. Sie stellten Gefäße aus gebranntem Ton her und bauten feste Häuser.</p><div class="task"><span class="tag">Vergleich</span><p><strong>Auftrag:</strong> Ordne jede Karte zu. Was gehört zu den Jägern und Sammlern, was zu den Bauern, was gab es bei beiden?</p><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Eine falsch abgelegte Karte kannst du wieder antippen und neu ablegen.</p><div class="chips" id="vergleichPieces" aria-label="Karten zum Zuordnen"></div><div class="zones z3"><div class="zone" data-task="vergleich" data-zone="jaeger" tabindex="0" role="button" aria-label="Ablegen bei Jäger und Sammler (Altsteinzeit)"><h4>Jäger und Sammler (Altsteinzeit)</h4><div class="drop"></div></div><div class="zone" data-task="vergleich" data-zone="bauer" tabindex="0" role="button" aria-label="Ablegen bei Bauern (Jungsteinzeit)"><h4>Bauern (Jungsteinzeit)</h4><div class="drop"></div></div><div class="zone" data-task="vergleich" data-zone="beide" tabindex="0" role="button" aria-label="Ablegen bei Bei beiden"><h4>Bei beiden</h4><div class="drop"></div></div></div><button class="btn" type="button" id="vergleichCheck">Zuordnung prüfen</button><button class="btn sec" type="button" id="vergleichReset">Zurücksetzen</button><div class="fb" id="vergleichFb" role="status" aria-live="polite"></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Alles, was man nicht mitnehmen kann, wie Häuser und Felder, gehört zu den Bauern. Was beide brauchten, kommt in die Mitte.</div></div><div class="svgwrap"><svg class="pic" style="max-width:620px;margin:auto" viewBox="0 0 400 220" role="img" aria-label="Zeichnung eines jungsteinzeitlichen Langhauses mit Strohdach und Lehmwänden, davor ein Getreidefeld, ein Rind und ein Mensch zum Größenvergleich.">
+<rect width="400" height="220" fill="#eef3f6"/>
+<path d="M0 150 H400 V220 H0Z" fill="#b9cf8f"/>
+<path d="M40 150 L64 86 H336 L360 150 Z" fill="#d6b45e" stroke="#7a5a24" stroke-width="2.5"/>
+<path d="M70 92 H330 M62 108 H340 M54 124 H348 M48 140 H354" stroke="#b8963e" stroke-width="1.5"/>
+<rect x="60" y="150" width="280" height="36" fill="#c9a27a" stroke="#6e4a2a" stroke-width="2.5"/>
+<path d="M100 150 V186 M140 150 V186 M180 150 V186 M220 150 V186 M260 150 V186 M300 150 V186" stroke="#6e4a2a" stroke-width="3"/>
+<rect x="190" y="160" width="20" height="26" fill="#4a2a12"/>
+<g stroke="#c9a96a" stroke-width="2"><path d="M10 212 v-18 M16 212 v-20 M22 212 v-17 M28 212 v-19 M34 212 v-18"/></g>
+<g fill="#e0c070"><ellipse cx="10" cy="192" rx="2" ry="4"/><ellipse cx="16" cy="190" rx="2" ry="4"/><ellipse cx="22" cy="193" rx="2" ry="4"/><ellipse cx="28" cy="191" rx="2" ry="4"/><ellipse cx="34" cy="192" rx="2" ry="4"/></g>
+<g fill="#7a4a2a"><ellipse cx="372" cy="196" rx="16" ry="9"/><path d="M386 192 l8 -4 l2 6 l-8 4Z"/><path d="M360 202 v10 M366 203 v10 M378 203 v10 M384 202 v10" stroke="#7a4a2a" stroke-width="3"/></g>
+<circle cx="334" cy="196" r="4" fill="#e3b98f"/><path d="M330 212 L331 200 h6 L338 212Z" fill="#8a4317"/>
+<g font-size="14" fill="#2a1c12" font-weight="700" paint-order="stroke" stroke="#eef3f6" stroke-width="4" stroke-linejoin="round">
+<text x="200" y="74" text-anchor="middle">Dach aus Stroh oder Schilf</text>
+<text x="200" y="22" text-anchor="middle" font-size="15">Langhaus, oft 20 bis 40 Meter lang</text></g>
+<text x="190" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="#2a1c12" paint-order="stroke" stroke="#b9cf8f" stroke-width="4">Wände aus Holz, Flechtwerk und Lehm</text>
+</svg></div><div class="legendlist" aria-hidden="true"><span>Rekonstruktionszeichnung: eigene Darstellung nach Grundrissen aus Ausgrabungen</span></div><div class="task"><span class="tag">Forschen wie Archäologen</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">W1. Von den Langhäusern findet man heute meist nur dunkle Verfärbungen im Boden, dort wo die Holzpfosten standen. Wie wissen Forscher dann, wie groß die Häuser waren?</legend><div class="opts"><label><input type="radio" name="haus" value="a"><span>Sie messen die Abstände der Pfostenlöcher. So erkennen sie den Grundriss des Hauses.</span></label><label><input type="radio" name="haus" value="b"><span>Es gibt Fotos aus der Jungsteinzeit.</span></label><label><input type="radio" name="haus" value="c"><span>Die Bauern haben die Maße aufgeschrieben.</span></label></div></fieldset><button class="btn" type="button" id="hausCheck">Prüfen</button><div class="fb" id="hausFb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Lückentext</span><p><strong>Ein schwieriges Wort:</strong> Wähle in jeder Lücke das passende Wort.</p><p class="cloze">Den Übergang zum Ackerbau nennt man die Neolithische <select id="begriff_0" aria-label="Lücke 1"><option value="">bitte wählen</option><option value="Reise">Reise</option><option value="Erfindung">Erfindung</option><option value="Revolution">Revolution</option></select>. Das Wort „neolithisch“ bedeutet <select id="begriff_1" aria-label="Lücke 2"><option value="">bitte wählen</option><option value="jungsteinzeitlich">jungsteinzeitlich</option><option value="eiszeitlich">eiszeitlich</option><option value="steinhart">steinhart</option></select>. Eine echte Revolution über Nacht war es aber nicht. Die Veränderung dauerte <select id="begriff_2" aria-label="Lücke 3"><option value="">bitte wählen</option><option value="nur ein Jahr">nur ein Jahr</option><option value="zehn Jahre">zehn Jahre</option><option value="viele tausend Jahre">viele tausend Jahre</option></select>. Der wichtigste Grund für die Sesshaftigkeit: Felder und <select id="begriff_3" aria-label="Lücke 4"><option value="">bitte wählen</option><option value="Zelte">Zelte</option><option value="Speere">Speere</option><option value="Vorräte">Vorräte</option></select> kann man nicht einfach mitnehmen.</p><button class="btn" type="button" id="begriffCheck">Prüfen</button><div class="fb" id="begriffFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: Großsteingräber im Hümmling</h2>
+<p>Die ersten Bauern im Emsland haben Spuren hinterlassen, die man bis heute sehen kann. Sie sind über 5000 Jahre alt.</p><div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>Sachquelle: die Großsteingräber von Groß Berßen im Hümmling, Landkreis Emsland.</strong> Sie liegen an der „Straße der Megalithkultur“, einem Weg zu über 70 Großsteingräbern zwischen Osnabrück und Oldenburg.</p>
+ <ul class="facts">
+  <li><b>Was ist es?</b> Gräber aus riesigen Steinen. Große Tragsteine stehen in einer Reihe, darauf liegen schwere Decksteine. Darunter ist die Grabkammer.</li>
+  <li><b>Wann gebaut?</b> In der Jungsteinzeit, etwa zwischen 3500 und 2800 v. Chr.</li>
+  <li><b>Wer hat sie gebaut?</b> Bauern der sogenannten Trichterbecherkultur. Den Namen haben Forscher ihnen nach ihren Tonbechern mit trichterförmigem Rand gegeben.</li>
+  <li><b>Woraus?</b> Aus Findlingen, also aus Felsbrocken, die das Eis einer Eiszeit aus Skandinavien mitgebracht hat. Ein Deckstein kann mehrere Tonnen wiegen.</li>
+  <li><b>Wozu?</b> Es waren Gemeinschaftsgräber. Über viele Jahre wurden dort Tote bestattet, oft mit Tongefäßen und Steinbeilen als Beigaben.</li>
+ </ul>
+ <p class="hint">Eines der Gräber heißt „Königsgrab“. Diesen Namen haben ihm erst Menschen viel später gegeben. Angaben nach dem Forschungsstand.</p>
+</div><div class="svgwrap"><svg class="pic" style="max-width:600px;margin:auto" viewBox="0 0 400 210" role="img" aria-label="Zeichnung eines Großsteingrabs: große Tragsteine stehen in einer Reihe, darauf liegen schwere Decksteine. Darunter ist die Grabkammer. Daneben steht ein Kind zum Größenvergleich.">
+<rect width="400" height="210" fill="#eef3f6"/>
+<path d="M0 160 H400 V210 H0Z" fill="#b9cf8f"/>
+<g fill="#a59b8c" stroke="#4f4a44" stroke-width="2.5">
+<path d="M70 160 q-4 -40 10 -50 q18 -4 22 10 q4 20 2 40Z"/><path d="M120 160 q-2 -44 12 -52 q18 0 20 14 q2 20 0 38Z"/>
+<path d="M172 160 q-2 -46 14 -50 q16 2 18 16 q2 18 -2 34Z"/><path d="M222 160 q-4 -42 12 -50 q18 2 20 16 q0 18 -2 34Z"/>
+<path d="M272 160 q-2 -40 12 -48 q16 2 18 14 q2 18 -2 34Z"/>
+<path d="M64 112 q20 -34 96 -30 q30 6 28 26 q-50 10 -124 4Z" fill="#8f877b"/>
+<path d="M176 108 q30 -36 110 -24 q24 10 18 26 q-60 8 -128 -2Z" fill="#8f877b"/>
+</g>
+<rect x="104" y="128" width="170" height="32" fill="#4a3a2a" opacity=".55"/>
+<circle cx="340" cy="124" r="7" fill="#e3b98f" stroke="#5b2c0f" stroke-width="1.5"/><path d="M333 160 L334 134 h12 L347 160Z" fill="#8a4317"/>
+<g font-size="17" font-weight="700" fill="#2a1c12" paint-order="stroke" stroke="#eef3f6" stroke-width="4" stroke-linejoin="round">
+<text x="120" y="66" text-anchor="middle">Decksteine</text><text x="340" y="110" text-anchor="middle">Kind</text>
+<text x="200" y="190" text-anchor="middle">Grabkammer zwischen den Tragsteinen</text></g>
+<path d="M200 172 V150" stroke="#2a1c12" stroke-width="2"/>
+</svg></div><div class="legendlist" aria-hidden="true"><span>Zeichnung: eigene schematische Darstellung, kein bestimmtes Grab</span></div><div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Diese Steine sind älter als die Pyramiden in Ägypten! Und sie stehen nur eine knappe Autostunde von Rhede entfernt. Ich finde, das ist einen Ausflug wert.</p></div></div><div class="task"><span class="tag">Quellenarbeit</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S1. Was können wir aus den Großsteingräbern schließen? Wähle alle richtigen Aussagen aus.</legend><div class="opts"><label><input type="checkbox" name="s1" value="bleiben"><span>Die Menschen lebten lange an einem Ort. Wer umherzieht, baut keine riesigen Steingräber.</span></label><label><input type="checkbox" name="s1" value="gemeinsam"><span>Viele Menschen mussten zusammenarbeiten, um die schweren Steine zu bewegen.</span></label><label><input type="checkbox" name="s1" value="tote"><span>Den Menschen war es wichtig, wie sie ihre Toten bestatteten.</span></label><label><input type="checkbox" name="s1" value="namen"><span>Wie die Menschen hießen, die hier begraben wurden.</span></label><label><input type="checkbox" name="s1" value="metall"><span>Die Menschen hatten Kräne aus Metall.</span></label></div></fieldset><button class="btn" type="button" id="s1Check">Prüfen</button><button class="btn sec" type="button" id="s1Reset">Zurücksetzen</button><div class="fb" id="s1Fb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Quellenkritik</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S2. Ein Grab trägt den Namen „Königsgrab“. Was bedeutet das für deine Quellenarbeit?</legend><div class="opts"><label><input type="radio" name="s2" value="a"><span>Hier lag sicher ein König aus der Jungsteinzeit.</span></label><label><input type="radio" name="s2" value="b"><span>Der Name wurde viel später ausgedacht. Er ist eine Deutung von späteren Menschen und keine Information aus der Jungsteinzeit.</span></label><label><input type="radio" name="s2" value="c"><span>Der Name zeigt, dass die Menschen damals schon Könige hatten und schreiben konnten.</span></label></div></fieldset><button class="btn" type="button" id="s2Check">Prüfen</button><div class="fb" id="s2Fb" role="status" aria-live="polite"></div></div><div class="task" data-lw="weiter"><span class="tag">Weiterdenken · Vermutung</span><label class="legend" for="q2">Q2. Ein Deckstein wiegt mehrere Tonnen. Wie könnten Menschen ohne Metall und Maschinen so schwere Steine bewegt haben? Stelle eine Vermutung auf und begründe sie.</label><textarea id="q2" placeholder="Ich vermute, dass die Menschen ... benutzt haben, weil ..."></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p><button class="btn" type="button" id="q2Check">Antwort prüfen</button><div class="fb" id="q2Fb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Sesshaft</summary><div class="body">Dauerhaft an einem festen Ort leben, zum Beispiel in einem Dorf.</div></details><details class="gloss"><summary>Jungsteinzeit</summary><div class="body">Die Zeit nach der Altsteinzeit, in der die Menschen Ackerbau und Viehzucht betrieben. Werkzeuge waren noch aus Stein. Im Emsland begann sie um 4000 v. Chr.</div></details><details class="gloss"><summary>Neolithische Revolution</summary><div class="body">Der Übergang vom Jagen und Sammeln zu Ackerbau und Viehzucht. „Neolithisch“ heißt jungsteinzeitlich. Die Veränderung dauerte viele tausend Jahre.</div></details><details class="gloss"><summary>Fruchtbarer Halbmond</summary><div class="body">Ein Gebiet im Vorderen Orient in Form eines Halbmonds. Dort begannen Menschen ab etwa 9500 v. Chr. mit Ackerbau.</div></details><details class="gloss"><summary>Ackerbau und Viehzucht</summary><div class="body">Getreide und andere Pflanzen anbauen und Tiere wie Rinder, Schafe, Ziegen und Schweine halten.</div></details><details class="gloss"><summary>Emmer und Einkorn</summary><div class="body">Alte Getreidearten, aus denen später unser Weizen gezüchtet wurde.</div></details><details class="gloss"><summary>Langhaus</summary><div class="body">Ein langes Haus aus Holz, Flechtwerk und Lehm, in dem die ersten Bauern in Mitteleuropa wohnten.</div></details><details class="gloss"><summary>Großsteingrab</summary><div class="body">Ein Grab aus riesigen Steinen aus der Jungsteinzeit. Man nennt es auch Hünengrab oder Megalithgrab.</div></details><details class="gloss"><summary>Findling</summary><div class="body">Ein großer Felsbrocken, den das Eis einer Eiszeit aus Skandinavien mitgebracht hat.</div></details><h3>Woher stammen die Texte?</h3><details class="gloss"><summary>Nachweise der Quellen und Zahlen</summary><div class="body"><ul><li>Großsteingräber an der Straße der Megalithkultur (Emsland, Osnabrücker Land, Oldenburger Land): über 70 Gräber, Bauzeit etwa 3500 bis 2800 v. Chr.; in Groß Berßen (Gemeinde im Hümmling, Samtgemeinde Sögel) unter anderem das „Königsgrab“ (Groß Berßen VIII) und das „Wappengrab“.</li><li>Trichterbecherkultur: etwa 4200 bis 2800 v. Chr., erste bäuerliche Kultur im Norden Mitteleuropas; Bau der Großsteingräber etwa 3500 bis 2800 v. Chr.</li><li>Beginn des Ackerbaus im Fruchtbaren Halbmond: ab etwa 9500 v. Chr. Linearbandkeramik, erste Bauern in Mitteleuropa: etwa 5500 bis 4900 v. Chr., Langhäuser etwa 20 bis 40 Meter lang. Jungsteinzeit in Griechenland ab etwa 6500 v. Chr.</li><li>Ende der letzten Eiszeit: etwa 9700 v. Chr.</li><li>Karte, Langhaus und Großsteingrab sind eigene schematische Zeichnungen. Die Karte ist stark vereinfacht und nicht maßstabsgetreu.</li></ul></div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p><div id="selfcheck"><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann erklären, warum Menschen sesshaft wurden, und mehrere Gründe nennen.</legend><div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann auf einer Karte zeigen, wo der Ackerbau begann und wie er nach Europa kam.</legend><div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann an einem Großsteingrab zeigen, was eine Sachquelle über die ersten Bauern verrät.</legend><div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte"><span class="stamp">Zu prüfen</span><p>Auf Chronos' Karteikarte steht: <em>„Die Menschen wurden sesshaft, weil sie eines Tages keine Lust mehr hatten, herumzulaufen.“</em></p></div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0;margin:0"><legend class="legend">A1. Wie entscheidest du?</legend><div class="opts"><label><input type="radio" name="a1" value="a"><span>Die Erklärung reicht. Die Menschen haben sich das an einem Tag so überlegt.</span></label><label><input type="radio" name="a1" value="b"><span>Die Erklärung reicht nicht. Nach der Eiszeit wurde es wärmer, es wuchs viel wildes Getreide, die Menschen legten Vorräte und Felder an. Das passierte langsam über viele tausend Jahre.</span></label><label><input type="radio" name="a1" value="c"><span>Die Menschen wurden sesshaft, weil sie Metall entdeckt hatten.</span></label></div></fieldset>
+ <button class="btn" type="button" id="a1Check">Entscheidung prüfen</button>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine kurze Nachricht mit zwei bis vier Sätzen. Erkläre, warum Menschen sesshaft wurden. Nenne mindestens zwei Ursachen und verbinde sie mit „weil“ oder „deshalb“.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, deine Erklärung reicht nicht, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Nach der Eiszeit wurde es wärmer, deshalb ...“ · „Die Menschen legten Vorräte an, weil ...“ · „Felder kann man nicht mitnehmen, also ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Begründung prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="fb" id="buildFb" role="status" aria-live="polite"></div>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" id="printBtn">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+</main></div>
+<footer>SOL Geschichte 5 · Modul 005 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-5" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-5"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={"modul": "005", "titel": "Warum wurden Menschen sesshaft?", "bereich": "Frühe Menschen und Hochkulturen", "version": "1.0.0", "key": "sol-geschichte-5-005", "endpoint": "https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec", "next": "Weiter geht es mit Modul 006: Wie veränderten Ackerbau und Viehzucht das Zusammenleben?", "badges": [{"id": "abz1", "name": "Ursachenforscherin", "tasks": ["kette"]}, {"id": "abz2", "name": "Kartenleser", "tasks": ["ausbreitung"]}, {"id": "abz3", "name": "Steinkundige", "tasks": ["s1", "s2"]}, {"id": "abz4", "name": "Begründer", "tasks": ["a2"]}], "startOk": "Alles bereit. Chronos hat seinen Wanderstock schon weggestellt. Es geht weiter mit der Mission."};
+const TASKS=[{"id": "kette", "typ": "order", "items": ["Die Eiszeit geht zu Ende, und es wird wärmer.", "Im Fruchtbaren Halbmond wächst viel wildes Getreide.", "Die Menschen sammeln die Körner und legen Vorräte an.", "Sie bleiben länger an einem Ort und säen selbst Körner aus.", "Aus Sammlern werden Bauern, die in festen Dörfern leben."], "ok": "Genau. Das ist die Ursache-Folge-Kette der Sesshaftigkeit: Das wärmere Klima brachte viel wildes Getreide. Wer Vorräte hatte, blieb, und wer blieb, konnte Felder anlegen. Daraus entstanden die ersten Dörfer.", "hint": "Frage dich bei jedem Schritt: Was musste vorher passiert sein?", "name": "Ursache-Folge-Kette Sesshaftigkeit", "komp": ["ursachen_folgen"]}, {"id": "ausbreitung", "typ": "hot", "finds": [{"z": "hHalbmond", "tipp": "Wo begannen Menschen zuerst mit Ackerbau und Viehzucht?", "ok": "Richtig, im Fruchtbaren Halbmond. Hier begann der Ackerbau ab etwa 9500 v. Chr."}, {"z": "hMittel", "tipp": "Wo legten um 5500 v. Chr. die ersten Bauern in Mitteleuropa ihre Felder an?", "ok": "Genau. Um 5500 v. Chr. erreichten die ersten Bauern Mitteleuropa, zum Beispiel das heutige Süddeutschland und Österreich."}, {"z": "hEms", "tipp": "Wo kam die neue Lebensweise erst um 4000 v. Chr. an, ganz in unserer Nähe?", "ok": "Richtig, im Emsland und in Norddeutschland. Hier lebten die Menschen noch lange als Jäger, Sammler und Fischer. Erst um 4000 v. Chr. setzte sich der Ackerbau durch."}], "alle": [{"id": "hHalbmond", "n": 39}, {"id": "hAnatolien", "n": "Anatolien"}, {"id": "hBalkan", "n": 22}, {"id": "hMittel", "n": 13}, {"id": "hEms", "n": 7.3}], "done": "Alle drei gefunden. Der Ackerbau brauchte über 5000 Jahre vom Fruchtbaren Halbmond bis ins Emsland.", "name": "Karte lesen", "komp": ["zeit_raum"]}, {"id": "vergleich", "typ": "zuord", "pieces": [{"k": "vergleichk1", "t": "Zelte aus Fellen, die man mitnehmen kann", "z": "jaeger"}, {"k": "vergleichk2", "t": "Den Tierherden hinterherziehen", "z": "jaeger"}, {"k": "vergleichk3", "t": "Langhäuser aus Holz und Lehm", "z": "bauer"}, {"k": "vergleichk4", "t": "Felder mit Emmer und Gerste", "z": "bauer"}, {"k": "vergleichk5", "t": "Rinder, Schafe und Ziegen halten", "z": "bauer"}, {"k": "vergleichk6", "t": "Vorräte in Tongefäßen lagern", "z": "bauer"}, {"k": "vergleichk7", "t": "Feuer nutzen", "z": "beide"}, {"k": "vergleichk8", "t": "Werkzeuge aus Stein herstellen", "z": "beide"}], "ok": "Alles richtig. Vieles änderte sich: feste Häuser, Felder, Haustiere, Tongefäße. Aber manches blieb: Feuer und Steinwerkzeuge gab es weiterhin. Deshalb heißt die neue Zeit auch Jungsteinzeit.", "hint": "Frage dich: Braucht man dafür einen festen Wohnort? Dann gehört es zu den Bauern.", "name": "Jäger und Bauern vergleichen", "komp": ["fachwissen"], "zones": ["jaeger", "bauer", "beide"]}, {"id": "haus", "typ": "mc", "richtig": "a", "fb": {"a": "Richtig. Die Pfostenlöcher zeigen den Grundriss. Wie das Dach genau aussah, wissen wir aber nicht sicher. Deshalb ist jede Zeichnung eines Langhauses eine Darstellung, eine Rekonstruktion.", "b": "Nein, Fotos gibt es erst seit knapp 200 Jahren.", "c": "Nein, in der Jungsteinzeit gab es bei uns noch keine Schrift."}, "name": "Langhaus rekonstruieren", "komp": ["quellenarbeit", "fachwissen"], "zusatz": false}, {"id": "begriff", "typ": "luecke", "richtig": ["Revolution", "jungsteinzeitlich", "viele tausend Jahre", "Vorräte"], "ok": "Alles richtig. Man nennt es Revolution, weil sich das Leben der Menschen völlig verändert hat. Aber es geschah ganz langsam.", "hint": "Lies den Satz vor und nach jeder Lücke genau.", "name": "Neolithische Revolution", "komp": ["fachwissen", "zeit_raum"]}, {"id": "s1", "typ": "multi", "richtig": ["bleiben", "gemeinsam", "tote"], "ok": "Richtig. Die Gräber zeigen: Die Menschen waren sesshaft, arbeiteten in großen Gruppen zusammen und ehrten ihre Toten. Namen verraten Steine nicht, denn eine Schrift gab es bei uns noch nicht.", "hinweis": {"namen": "Das verraten die Steine nicht. In der Jungsteinzeit gab es bei uns noch keine Schrift.", "metall": "Nein, Metall kannten die Menschen in der Jungsteinzeit noch nicht. Sie mussten die Steine mit Muskelkraft, Holz und Seilen bewegen."}, "fehlt": "Es fehlen noch # zutreffende Antworten. ", "tipp": "Frage dich: Was zeigen die Steine wirklich?", "name": "Großsteingrab auswerten", "komp": ["quellenarbeit", "ursachen_folgen"]}, {"id": "s2", "typ": "mc", "richtig": "b", "fb": {"a": "Vorsicht. Ob es damals Könige gab, wissen wir nicht. Der Name stammt erst aus viel späterer Zeit.", "b": "Genau. Namen wie „Königsgrab“ oder „Hünengrab“ haben sich Menschen viel später ausgedacht. Früher glaubte man sogar, Riesen, also Hünen, hätten die Steine aufgestellt. Solche Namen sind spätere Deutungen, keine Quelle aus der Bauzeit.", "c": "Nein. Eine Schrift gab es bei uns in der Jungsteinzeit noch nicht. Der Name ist viel jünger."}, "name": "Name und Quelle", "komp": ["quellenarbeit", "perspektivitaet"], "zusatz": false}, {"id": "q2", "typ": "text", "krit": {"min": 50, "worte": 12, "need": 2, "saetze": 1, "gruppen": [{"w": ["holz", "rolle", "baumstamm", "stamm", "seil", "schlitten", "hebel", "rampe", "erde", "balken", "stange"], "miss": "Nenne ein Hilfsmittel, zum Beispiel Baumstämme, Seile oder einen Schlitten."}, {"w": ["viele", "gemeinsam", "zusammen", "gruppe", "menschen", "ochs", "rind", "tiere", "dorf"], "miss": "Erkläre, wer die Kraft aufbrachte, zum Beispiel viele Menschen gemeinsam oder Rinder."}], "ok": "Sehr gute Vermutung. Versuche von heutigen Forschern zeigen: Mit Holzschlitten, Baumstämmen, Seilen und vielen Helfern lassen sich solche Steine bewegen. Vielleicht halfen auch Rinder. Ganz sicher wissen wir es nicht."}, "name": "Weiterdenken Steine bewegen", "komp": ["ursachen_folgen"], "zusatz": true}];
+const DIAG={"fragen": [{"n": "d1", "r": "a"}, {"n": "d2", "r": "r"}, {"n": "d3", "r": "a"}], "alle": "Drei von drei. Sehr gut! Der Lernweg Weiterdenken könnte dir Spaß machen.", "fast": "Zwei von drei. Gute Grundlage. Im Modul erfährst du mehr über die ersten Bauern.", "wenig": "Du hast # von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.", "extra": [{"n": "d3", "v": "b", "m": "Ein Hinweis vorab: Der Hund stammt vom Wolf ab und begleitete Menschen schon in der Altsteinzeit. Katzen kamen erst später zu den Bauern."}]};
+const ABS={"ok": ["b"], "fb": {"a": "Denk an die Ursache-Folge-Kette: Es war kein Entschluss an einem Tag, sondern eine lange Entwicklung mit mehreren Ursachen. Wähle noch einmal.", "b": "Sehr gut entschieden. Du nennst mehrere Ursachen und erkennst, dass es lange dauerte. Begründe das jetzt in A2.", "c": "Nein, Metall kam erst viel später. Die ersten Bauern hatten noch Werkzeuge aus Stein. Wähle noch einmal."}, "krit": {"min": 60, "worte": 14, "need": 2, "saetze": 2, "gruppen": [{"w": ["eiszeit", "warm", "klima", "wetter"], "miss": "Nenne das Klima als Ursache: Nach der Eiszeit wurde es wärmer."}, {"w": ["getreide", "korn", "korner", "emmer", "gerste", "feld", "acker", "vorrat", "saen", "pflanz", "anbau"], "miss": "Erkläre die Rolle von Getreide, Vorräten oder Feldern."}, {"w": ["tier", "rind", "schaf", "ziege", "viehzucht", "haus", "dorf", "langhaus", "lange", "tausend", "langsam"], "miss": "Ergänze noch etwas: Tiere, Häuser und Dörfer, oder dass es sehr lange dauerte."}], "ok": "Sehr gut. Du nennst mehrere Ursachen und verbindest sie. Genau so erklärt man Geschichte: nicht mit einem einzigen Grund, sondern mit einer Kette von Ursachen und Folgen. Abzeichen Begründer freigeschaltet."}};
+const S={lernweg:"standard",done:{},punkte:{},placed:{},order:{},hot:{},fbs:{},texts:{},sent:false,built:false};
+const TMAP={};TASKS.forEach(t=>TMAP[t.id]=t);
+const PFLICHT=TASKS.filter(t=>!t.zusatz);
+const SCHRITTE=["start","diagnose"].concat(PFLICHT.map(t=>t.id),["lerncheck","abschluss"]);
+const MAXP=PFLICHT.length+3;
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function fbT(tid,msg,art){S.fbs[tid]={m:msg,a:art};fb("#"+tid+"Fb",msg,art);}
+function fbTClear(tid){delete S.fbs[tid];fbClear("#"+tid+"Fb");}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+function val(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","trotzdem","aber","jedoch","obwohl","wahrend","einerseits","andererseits"];
+function mische(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ (CFG.badges||[]).forEach(b=>{const e=document.getElementById(b.id);if(e)e.classList.toggle("on",b.tasks.every(k=>k==="a2"?(S.punkte.a2||0)>=1:!!S.done[k]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];S.punkte[k]=0;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Denkaufgabe zum Thema."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 5a."};
+ const m=t.match(/(?:^|[^0-9])5([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 5. Schreibe zum Beispiel 5a, Klasse 5b oder nur 5."};
+ return{ok:true,wert:"5"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb",CFG.startOk,"ok");
+ location.hash="mission";
+});
+
+/* ---------- Einstieg ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const fr=DIAG.fragen, offenD=fr.filter(f=>!val(f.n));
+ if(offenD.length){fb("#dFb","Beantworte bitte zuerst alle drei Fragen. Raten ist ausdrücklich erlaubt.","hint");return;}
+ const r=fr.filter(f=>val(f.n)===f.r).length;
+ let m=r===fr.length?DIAG.alle:(r===fr.length-1?DIAG.fast:DIAG.wenig.replace("#",r));
+ (DIAG.extra||[]).forEach(x=>{if(val(x.n)===x.v)m+=" "+x.m;});
+ fb("#dFb",m,r>=2?"ok":"hint");S.fbs.d={m:m,a:r>=2?"ok":"hint"};
+ fertig("diagnose");
+});
+
+/* ---------- Auswahl ---------- */
+function initMc(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const v=val(t.id);
+  if(!v){fbT(t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+  const ok=v===t.richtig, m=(t.fb&&t.fb[v])||(ok?"Richtig.":"Noch nicht.");
+  if(ok){fbT(t.id,m,"ok");fertig(t.id,1);}else{fbT(t.id,m,"hint");if(!t.zusatz)offen(t.id);}
+ });
+}
+function initMulti(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+  if(!sel.length){fbT(t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+  const fehlt=t.richtig.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!t.richtig.includes(x));
+  if(!fehlt.length&&!zuviel.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);return;}
+  let m="";
+  zuviel.forEach(z=>{if(t.hinweis&&t.hinweis[z])m+=t.hinweis[z]+" ";});
+  if(fehlt.length)m+=(fehlt.length===1?"Es fehlt noch eine zutreffende Antwort. ":t.fehlt.replace("#",fehlt.length));
+  fbT(t.id,(m+(t.tipp||"")).trim(),"hint");offen(t.id);
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);fbTClear(t.id);offen(t.id);});
+}
+
+/* ---------- Zuordnen mit Antippen oder Ziehen ---------- */
+let gew=null;
+function pieceHtml(t,p,cls){return '<button type="button" class="piece'+(cls?" "+cls:"")+'" draggable="true" data-task="'+t.id+'" data-k="'+p.k+'" aria-pressed="'+(gew&&gew.k===p.k?"true":"false")+'">'+p.t+'<\/button>';}
+function zeichneZ(t){
+ const pl=S.placed[t.id]||(S.placed[t.id]={});
+ const offenP=t.pieces.filter(p=>!pl[p.k]);
+ $("#"+t.id+"Pieces").innerHTML=offenP.map(p=>pieceHtml(t,p)).join("")||'<span class="hint">Alle Karten sind zugeordnet.<\/span>';
+ $$('.zone[data-task="'+t.id+'"] .drop').forEach(d=>d.innerHTML="");
+ t.pieces.forEach(p=>{const z=pl[p.k];if(z){const d=document.querySelector('.zone[data-task="'+t.id+'"][data-zone="'+z+'"] .drop');
+  if(d)d.insertAdjacentHTML("beforeend",pieceHtml(t,p,S.done[t.id]?"ok":""));}});
+ $$('.piece[data-task="'+t.id+'"]').forEach(b=>{
+  b.addEventListener("click",e=>{e.stopPropagation();
+   if(gew&&gew.k===b.dataset.k){gew=null;b.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gew={task:t.id,k:b.dataset.k};b.setAttribute("aria-pressed","true");
+   fbT(t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  b.addEventListener("dragstart",e=>{gew={task:t.id,k:b.dataset.k};try{e.dataTransfer.setData("text/plain",b.dataset.k);}catch(x){}});
+ });
+}
+function ablegen(t,zone){
+ if(!gew||gew.task!==t.id){fbT(t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[t.id][gew.k]=zone;gew=null;
+ if(S.done[t.id]){offen(t.id);}
+ zeichneZ(t);fbTClear(t.id);speichern();
+}
+function initZuord(t){
+ $$('.zone[data-task="'+t.id+'"]').forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.target!==z)return;if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");ablegen(t,z.dataset.zone);});
+ });
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const pl=S.placed[t.id], rest=t.pieces.filter(p=>!pl[p.k]);
+  if(rest.length){fbT(t.id,"Es sind noch "+rest.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+  let r=0;
+  t.pieces.forEach(p=>{const ok=pl[p.k]===p.z;if(ok)r++;const el=document.querySelector('.piece[data-k="'+p.k+'"]');if(el){el.classList.remove("ok","no");el.classList.add(ok?"ok":"no");}});
+  if(r===t.pieces.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.pieces.length+" stimmen bereits. Die grün umrandeten Karten sitzen richtig. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.placed[t.id]={};gew=null;offen(t.id);zeichneZ(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Reihenfolge ---------- */
+function zeichneO(t,fokus){
+ const o=S.order[t.id], fertigO=!!S.done[t.id];
+ $("#"+t.id+"List").innerHTML=o.map((i,pos)=>
+  '<div class="orow'+(fertigO?" ok":"")+'"><span class="nr" aria-hidden="true">'+(pos+1)+'<\/span><span class="t">'+t.items[i]+'<\/span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben: '+t.items[i].replace(/"/g,"")+'">&#8593;<\/button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten: '+t.items[i].replace(/"/g,"")+'">&#8595;<\/button><\/div>').join("");
+ $$("#"+t.id+"List button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=o.length)return;
+  [o[p],o[n]]=[o[n],o[p]];if(S.done[t.id])offen(t.id);zeichneO(t,{pos:n,dir:d});speichern();}));
+ if(fokus){const b=document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"][data-dir="'+fokus.dir+'"]')||document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"]');if(b)b.focus();}
+}
+function mischeO(t){const idx=t.items.map((_,i)=>i);let o;do{o=mische(idx);}while(o.join()===idx.join());S.order[t.id]=o;}
+function initOrder(t){
+ if(!S.order[t.id]||S.order[t.id].length!==t.items.length)mischeO(t);
+ zeichneO(t);
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const o=S.order[t.id], r=o.filter((v,i)=>v===i).length;
+  if(r===o.length){S.done[t.id]=true;zeichneO(t);fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+o.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{offen(t.id);mischeO(t);zeichneO(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Bild- und Kartenarbeit ---------- */
+function hotAufgabe(t){
+ const idx=S.hot[t.id]||0;
+ t.finds.forEach((f,i)=>{const el=document.getElementById(f.z);if(el)el.classList.toggle("found",i<idx);});
+ if(idx>=t.finds.length){$("#"+t.id+"Task").textContent=t.done;$("#"+t.id+"Alt").innerHTML="";return;}
+ const z=t.finds[idx];
+ $("#"+t.id+"Task").textContent="Suchauftrag "+(idx+1)+" von "+t.finds.length+": "+z.tipp;
+ $("#"+t.id+"Alt").innerHTML=t.alle.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.n+'<\/button>').join("");
+ $$("#"+t.id+"Alt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));
+}
+function hotWahl(t,id){
+ const idx=S.hot[t.id]||0, z=t.finds[idx]; if(!z)return;
+ if(id===z.z){
+  S.hot[t.id]=idx+1;
+  if(idx+1>=t.finds.length){fbT(t.id,z.ok+" Damit hast du alle "+t.finds.length+" gefunden.","ok");fertig(t.id,1);}
+  else{fbT(t.id,z.ok,"ok");}
+  hotAufgabe(t);speichern();
+ }else{
+  const g=t.alle.find(x=>x.id===id);
+  fbT(t.id,"Das ist „"+(g?g.n:"ein anderer Ort")+"“. Lies die Beschreibung noch einmal genau und sieh dir das Bild an.","hint");speichern();
+ }
+}
+function initHot(t){
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+  g.addEventListener("click",()=>hotWahl(t,g.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.hot[t.id]=0;offen(t.id);fbTClear(t.id);hotAufgabe(t);speichern();});
+ hotAufgabe(t);
+}
+
+/* ---------- Lückentext ---------- */
+function initLuecke(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  let r=0,leer=0;
+  t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}const ok=s.value===w;if(ok)r++;s.classList.add(ok?"ok":"no");});
+  if(leer){fbT(t.id,"Fülle zuerst alle "+t.richtig.length+" Lücken aus. Noch offen: "+leer+".","hint");return;}
+  if(r===t.richtig.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.richtig.length+" Lücken stimmen. Die rot markierten musst du noch einmal prüfen. "+t.hint,"hint");offen(t.id);}
+ });
+ t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.addEventListener("change",()=>{s.classList.remove("ok","no");});});
+}
+
+/* ---------- Freitexte ---------- */
+function bewerte(roh,k){
+ const t=norm(roh), wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<(k.min||40)||wort<(k.worte||10))return{p:0,lab:"zu knapp",msg:k.knapp||"Deine Antwort ist noch sehr kurz. Schreibe mindestens zwei vollständige Sätze."};
+ const treffer=k.gruppen.filter(g=>hat(t,g.w)), fehl=k.gruppen.filter(g=>!hat(t,g.w));
+ const verkn=k.nover||hat(t,VERKN), genug=saetze(roh)>=(k.saetze||2), need=k.need||k.gruppen.length;
+ if(treffer.length>=need&&verkn&&genug)return{p:1,lab:"vollständig",msg:k.ok};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(treffer.length<need)m+=fehl.slice(0,2).map(g=>g.miss).join(" ")+" ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „deshalb“ oder „dadurch“. ";
+ if(!genug)m+=(k.zuwenig||("Schreibe mindestens "+(k.saetze||2)+" vollständige Sätze. "));
+ return{p:(treffer.length>=1?0.5:0.25),lab:"teilweise",msg:m.trim()};
+}
+function initText(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const r=bewerte($("#"+t.id).value,t.krit);
+  S.texts[t.id]=r.lab;fbT(t.id,r.msg,r.p>=1?"ok":"hint");
+  if(!t.zusatz){if(r.p>=1)fertig(t.id,1);else offen(t.id);}else speichern();
+ });
+}
+
+/* ---------- Abschlussmission ---------- */
+function pruefeAbschluss(){
+ const a1=val("a1");
+ if(a1&&S.a2geprueft&&(S.punkte.a2||0)>0)fertig("abschluss");else{delete S.done.abschluss;fortschritt();speichern();}
+}
+$("#a1Check").addEventListener("click",()=>{
+ const v=val("a1");
+ if(!v){fbT("a1","Bitte wähle zuerst eine Entscheidung aus.","hint");return;}
+ const ok=ABS.ok.includes(v);S.punkte.a1=ok?1:0;
+ fbT("a1",ABS.fb[v]||"",ok?"ok":"hint");pruefeAbschluss();
+});
+$("#a2Check").addEventListener("click",()=>{
+ const r=bewerte($("#a2").value,ABS.krit);
+ S.punkte.a2=r.p>=1?1:(r.p>0?0.5:0);S.a2lab=r.lab;S.a2geprueft=true;
+ fbT("a2",r.msg,r.p>=1?"ok":"hint");pruefeAbschluss();
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3].map(i=>val("lc"+i)||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;S.punkte.lerncheck=0;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return PFLICHT.reduce((s,t)=>s+(S.punkte[t.id]||0),0)+(S.punkte.a1||0)+(S.punkte.a2||0)+(S.punkte.lerncheck||0);}
+function kompetenz(k){const ts=PFLICHT.filter(t=>(t.komp||[]).includes(k));if(k==="historisches_urteil")return eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1&&ts.every(t=>(S.punkte[t.id]||0)>=1));return eins(ts.length>0&&ts.every(t=>(S.punkte[t.id]||0)>=1));}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=Math.round(punkteGesamt()*10)/10, pct=Math.round(pkt/MAXP*100);
+ const luecken=[];
+ PFLICHT.forEach(t=>{if(!((S.punkte[t.id]||0)>=1))luecken.push(t.name);});
+ if(!((S.punkte.a1||0)>=1))luecken.push("Abschlussentscheidung");
+ if(!((S.punkte.a2||0)>=1))luecken.push("Begründung");
+ const erg={};PFLICHT.forEach(t=>erg[t.id]=S.punkte[t.id]||0);
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ const pfl={};PFLICHT.forEach(t=>pfl[t.id]={correct:(S.punkte[t.id]||0)>=1});
+ pfl.entscheidung={correct:(S.punkte.a1||0)>=1};pfl.begruendung={correct:(S.punkte.a2||0)>=1};
+ const zus={},zusB={};TASKS.filter(t=>t.zusatz).forEach(t=>{const e=document.getElementById(t.id);if(e&&e.tagName==="TEXTAREA"){zus[t.id]=e.value.trim();zusB[t.id]=S.texts[t.id]||"nicht bearbeitet";}else{zusB[t.id]=(S.punkte[t.id]||0)>=1?"richtig":"nicht gelöst";}});
+ if(!S.abgabeId)S.abgabeId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2);
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"5",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:Object.assign({leitfrage:$("#a2").value.trim(),begruendung:$("#a2").value.trim(),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},zus),
+  bewertung_freitexte:Object.assign({begruendung:S.a2lab||"nicht bearbeitet"},zusB),
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:MAXP,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:{fachwissen:kompetenz("fachwissen"),zeit_raum:kompetenz("zeit_raum"),quellenarbeit:kompetenz("quellenarbeit"),
+   ursachen_folgen:kompetenz("ursachen_folgen"),perspektivitaet:kompetenz("perspektivitaet"),historisches_urteil:kompetenz("historisches_urteil")},
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:MAXP,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:S.abgabeId};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 5, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(still){
+ if(!pflichtOk(!still)){if(!still)location.hash="start";return null;}
+ if(!val("a1")){if(!still){fb("#buildFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung (A1).","bad");location.hash="abschluss";}return null;}
+ if(!lerncheckWerte().every(Boolean)){if(!still){fb("#buildFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";}return null;}
+ S.punkte.a1=ABS.ok.includes(val("a1"))?1:0;
+ fbClear("#buildFb");
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?CFG.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter: "+CFG.next:"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const zeilen=PFLICHT.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":<\/strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)<\/li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ S.built=true;fortschritt();speichern();if(!still)location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>ergebnisBauen(false));
+$("#printBtn").addEventListener("click",()=>window.print());
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+async function senden(){
+ const p=ergebnisBauen(true)||ergebnisBauen(false);
+ if(!p)return;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+TASKS.forEach(t=>{
+ if(t.typ==="mc")initMc(t);else if(t.typ==="multi")initMulti(t);
+ else if(t.typ==="zuord"){initZuord(t);zeichneZ(t);}
+ else if(t.typ==="order")initOrder(t);else if(t.typ==="hot")initHot(t);
+ else if(t.typ==="luecke")initLuecke(t);else if(t.typ==="text")initText(t);
+});
+Object.entries(S.fbs||{}).forEach(([k,v])=>{if(k==="d")fb("#dFb",v.m,v.a);else fb("#"+k+"Fb",v.m,v.a);});
+TASKS.filter(t=>t.typ==="luecke"&&S.done[t.id]).forEach(t=>t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);if(s&&s.value===w)s.classList.add("ok");}));
+fortschritt();
+if(S.built)ergebnisBauen(true);
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

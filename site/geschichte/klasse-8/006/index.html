@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#37546b">
+<meta name="description" content="SOL Geschichte Jahrgang 8, Modul 006: Welche Antworten gab es auf die soziale Frage?">
+<title>SOL Geschichte 8 | Modul 006 | Welche Antworten gab es auf die soziale Frage?</title>
+<style>
+:root{--ink:#14232d;--paper:#fff;--cream:#e7ecf0;--soft:#e7ecf0;--bg:#f4f2ec;--green:#37546b;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#d4d8dc;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #14232d14;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#18242e,#37546b);color:#f6f9fb;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#f6f9fb;color:#18242e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#e6eef3;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#2c4a60,#b87824);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#28343d;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow);min-width:0}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#28343d}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.legend{font-weight:750;color:#28343d}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#56616a}
+.btn{background:var(--green);color:#f6f9fb;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff;min-width:0}
+@media(max-width:480px){.task{padding:12px 10px}}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#56616a;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+fieldset{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#e6edf3}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zones.z4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.zones.z3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.task>label.legend{display:block;margin:8px 0 4px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px;cursor:pointer}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:650;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;max-width:100%;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .nr{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--green)}
+.orow span.t{flex:1;font-weight:650;min-width:0}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;flex:0 0 auto}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px;overflow:hidden}
+svg.pic{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d18aa)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#36434c}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#1f2a33;color:#e7eef3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#80878d;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+blockquote.q{margin:10px 0;padding:10px 14px;border-left:4px solid var(--green);background:#fff;border-radius:0 10px 10px 0}
+blockquote.q p{margin:.35rem 0}
+.orig{font-size:.9rem;color:#56616a;font-style:italic}
+.cloze{line-height:2.4}
+.cloze select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;min-height:44px}
+.cloze select.ok{border-color:var(--ok);background:var(--okbg)}
+.cloze select.no{border-color:var(--bad);background:var(--badbg)}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{background:var(--cream);font-weight:800}
+.tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+.tblwrap{overflow-x:auto;max-width:100%}
+.wort{font-size:.9rem;color:#36434c}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#56616a;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 8 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Industrialisierung und soziale Frage · Akte 006</div>
+    <h1>Welche Antworten gab es auf die soziale Frage?</h1>
+    <p>Lange Arbeitstage, enge Wohnungen, Kinderarbeit und keine Absicherung bei Krankheit: Diese Not vieler Arbeiterfamilien nannte man die soziale Frage. Arbeiter, Unternehmer, Kirchen und der Staat gaben ganz unterschiedliche Antworten.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>006</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 11 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#akteure">Vier Antworten</a>
+ <a href="#bismarck">Zuckerbrot und Peitsche</a>
+ <a href="#quelle">Die Quellen</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 8a"><span class="hint">Möglich sind zum Beispiel 8a, Klasse 8a, R8a oder nur 8.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul><li>Du ordnest Antworten von Arbeitern, Unternehmern, Kirchen und Staat zu.</li><li>Du unterscheidest Revolution und Reform.</li><li>Du erklärst, warum Bismarck Sozialgesetze einführte.</li><li>Du wertest die Kaiserliche Botschaft von 1881 und eine Rede von Alfred Krupp aus.</li><li>Du beurteilst, ob die soziale Frage gelöst wurde.</li></ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Ermittlung starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Akte 006</span>
+ <p><strong>Fall:</strong> Auf einer Karteikarte steht: <em>„Erst der Staat hat die soziale Frage gelöst.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Untersuche, wer welche Antworten gab und was sie bewirkten. Am Ende entscheidest du, ob die Karte stimmt.</p>
+</div>
+<p><strong>Zum Einstieg:</strong> Auf deinem späteren Lohnzettel wirst du Abzüge für Kranken-, Renten- und Unfallversicherung finden. Die Grundlage dafür wurde vor rund 140 Jahren gelegt. Aber wer hat sie erkämpft, und warum?</p>
+<div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e7ecf0" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#37546b"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#37546b"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div><div><p class="who">Chronos, Archivar</p><p>In meiner Akte steht nur ein Name: Bismarck. Das kommt mir verdächtig einfach vor. Wer hat noch mitgeredet?</p></div></div>
+<p><strong>Leitfrage:</strong> Welche Antworten gab es auf die soziale Frage?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Akteurskenner</span>
+ <span class="abz" id="abz2">Zusammenhänge</span>
+ <span class="abz" id="abz3">Quellenprüfer</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p><div class="task"><span class="tag">Wortbedeutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D1. Was meint der Begriff „soziale Frage“?</legend><div class="opts"><label><input type="radio" name="d1" value="a"><span>Eine Umfrage unter Schülerinnen und Schülern</span></label><label><input type="radio" name="d1" value="b"><span>Die Not vieler Arbeiter in der Industrialisierung und die Frage, wie man sie lindern kann</span></label><label><input type="radio" name="d1" value="c"><span>Die Frage, wer mit wem befreundet ist</span></label></div></fieldset></div><div class="task"><span class="tag">Richtig oder falsch</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D2. Eine gesetzliche Krankenversicherung für Arbeiter gibt es in Deutschland seit dem 19. Jahrhundert.</legend><div class="opts"><label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label><label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label></div></fieldset></div><div class="task"><span class="tag">Vermutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D3. Was ist eine Gewerkschaft?</legend><div class="opts"><label><input type="radio" name="d3" value="a"><span>Ein Zusammenschluss von Arbeitnehmern, die gemeinsam für bessere Löhne und Arbeitsbedingungen eintreten</span></label><label><input type="radio" name="d3" value="b"><span>Ein Verband der Fabrikbesitzer</span></label><label><input type="radio" name="d3" value="c"><span>Eine Behörde des Staates</span></label></div></fieldset></div><button class="btn" type="button" id="dCheck">Einschätzung auswerten</button><div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="akteure">
+<h2>Vier Gruppen, vier Antworten</h2>
+<p>Auf die soziale Frage antworteten ganz verschiedene Gruppen. Die Arbeiter selbst schlossen sich zusammen. Manche Unternehmer sorgten für ihre Belegschaft. Kirchen halfen aus christlicher Überzeugung. Und schließlich handelte der Staat. Ordne jede Karte zu.</p><div class="task"><span class="tag">Zuordnen</span><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Eine falsch abgelegte Karte kannst du wieder antippen und neu ablegen.</p><div class="chips" id="akteurePieces" aria-label="Karten zum Zuordnen"></div><div class="zones z4"><div class="zone" data-task="akteure" data-zone="arbeiter" tabindex="0" role="button" aria-label="Ablegen bei Arbeiterbewegung"><h4>Arbeiterbewegung</h4><div class="drop"></div></div><div class="zone" data-task="akteure" data-zone="unternehmer" tabindex="0" role="button" aria-label="Ablegen bei Unternehmer"><h4>Unternehmer</h4><div class="drop"></div></div><div class="zone" data-task="akteure" data-zone="kirchen" tabindex="0" role="button" aria-label="Ablegen bei Kirchen"><h4>Kirchen</h4><div class="drop"></div></div><div class="zone" data-task="akteure" data-zone="staat" tabindex="0" role="button" aria-label="Ablegen bei Staat"><h4>Staat</h4><div class="drop"></div></div></div><button class="btn" type="button" id="akteureCheck">Zuordnung prüfen</button><button class="btn sec" type="button" id="akteureReset">Zurücksetzen</button><div class="fb" id="akteureFb" role="status" aria-live="polite"></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Kolping war katholischer Priester, Ketteler katholischer Bischof von Mainz. Auf evangelischer Seite gründete Johann Hinrich Wichern 1848 die Innere Mission.</div></div><div class="akte"><span class="stamp">Quelle</span><p><strong>Karl Marx und Friedrich Engels, „Manifest der Kommunistischen Partei“, London 1848, Schluss.</strong></p><blockquote class="q"><p>„Die Proletarier haben nichts in ihr zu verlieren als ihre Ketten. Sie haben eine Welt zu gewinnen. Proletarier aller Länder, vereinigt euch!“</p></blockquote><p class="wort"><strong>Worterklärungen:</strong> Proletarier = Arbeiter, die nichts besitzen außer ihrer Arbeitskraft · „in ihr“ = in der Revolution</p></div><div class="task"><span class="tag">Auswahl mit Erklärung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">M1. Was wollten Marx und Engels?</legend><div class="opts"><label><input type="radio" name="marx" value="a"><span>Mit den Unternehmern freundlich über bessere Fabrikordnungen verhandeln</span></label><label><input type="radio" name="marx" value="b"><span>Die Arbeiter aller Länder sollten sich zusammenschließen und die bestehende Ordnung durch eine Revolution umstürzen. Fabriken sollten nicht mehr Einzelnen gehören.</span></label><label><input type="radio" name="marx" value="c"><span>Zurück zum Handwerk und die Maschinen abschaffen</span></label></div></fieldset><button class="btn" type="button" id="marxCheck">Prüfen</button><div class="fb" id="marxFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="bismarck">
+<h2>Bismarck: Verbot und Versicherung</h2>
+<p>Reichskanzler Otto von Bismarck fürchtete die wachsende Arbeiterbewegung. Er verfolgte zwei Wege zugleich. Historiker fassen das oft mit dem Schlagwort „Zuckerbrot und Peitsche“ zusammen.</p><div class="svgwrap"><svg class="pic" viewBox="0 0 380 627" role="img" aria-label="Zeitleiste von 1848 bis 1890 zu Arbeiterbewegung und Sozialgesetzen" style="max-width:520px;margin:auto"><rect width="380" height="627" fill="#fbfaf6"/><line x1="78" y1="16" x2="78" y2="615" stroke="#37546b" stroke-width="4"/><circle cx="78" cy="53" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="59" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1848</text><text x="100" y="47" font-size="19" fill="#14232d">Marx und Engels:</text><text x="100" y="70" font-size="19" fill="#14232d">Kommunistisches Manifest</text><circle cx="78" cy="121" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="127" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1849</text><text x="100" y="115" font-size="19" fill="#14232d">Kolping gründet in Köln</text><text x="100" y="138" font-size="19" fill="#14232d">einen Gesellenverein</text><circle cx="78" cy="189" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="195" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1863</text><text x="100" y="183" font-size="19" fill="#14232d">Lassalle gründet eine erste</text><text x="100" y="206" font-size="19" fill="#14232d">Arbeiterpartei</text><circle cx="78" cy="257" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="263" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1875</text><text x="100" y="251" font-size="19" fill="#14232d">Zusammenschluss zweier</text><text x="100" y="274" font-size="19" fill="#14232d">Arbeiterparteien in Gotha</text><circle cx="78" cy="325" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="331" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1878</text><text x="100" y="319" font-size="19" fill="#14232d">Sozialistengesetz verbietet</text><text x="100" y="342" font-size="19" fill="#14232d">sozialdemokratische Vereine</text><circle cx="78" cy="382" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="388" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1883</text><text x="100" y="387" font-size="19" fill="#14232d">Krankenversicherung</text><circle cx="78" cy="426" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="432" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1884</text><text x="100" y="432" font-size="19" fill="#14232d">Unfallversicherung</text><circle cx="78" cy="483" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="489" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1889</text><text x="100" y="477" font-size="19" fill="#14232d">Invaliditäts- und</text><text x="100" y="500" font-size="19" fill="#14232d">Altersversicherung</text><circle cx="78" cy="562" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="568" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1890</text><text x="100" y="545" font-size="19" fill="#14232d">Ende des</text><text x="100" y="568" font-size="19" fill="#14232d">Sozialistengesetzes, Name</text><text x="100" y="591" font-size="19" fill="#14232d">SPD</text></svg></div><div class="legendlist" aria-hidden="true"><span>Zeitleiste: eigene Darstellung</span></div><div class="task"><span class="tag">Ursache-Folge-Kette</span><p><strong>Auftrag:</strong> Bringe die Kette in die richtige Reihenfolge. Die Zeitleiste hilft dir.</p><div class="order" id="ketteList" aria-label="Liste zum Ordnen"></div><button class="btn" type="button" id="ketteCheck">Reihenfolge prüfen</button><button class="btn sec" type="button" id="ketteReset">Neu mischen</button><div class="fb" id="ketteFb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Lückentext</span><p><strong>Wer zahlte was?</strong> Wähle in jeder Lücke das passende Wort.</p><p class="cloze">Die Krankenversicherung von 1883 bezahlten zu zwei Dritteln die <select id="versicherung_0" aria-label="Lücke 1"><option value="">bitte wählen</option><option value="Arbeiter">Arbeiter</option><option value="Gemeinden">Gemeinden</option><option value="Kirchen">Kirchen</option></select> und zu einem Drittel die Arbeitgeber. Die Unfallversicherung von 1884 bezahlten die <select id="versicherung_1" aria-label="Lücke 2"><option value="">bitte wählen</option><option value="Arbeiter">Arbeiter</option><option value="Arbeitgeber">Arbeitgeber</option><option value="Kirchen">Kirchen</option></select> allein. Eine Altersrente gab es ab 1889, aber erst ab einem Alter von <select id="versicherung_2" aria-label="Lücke 3"><option value="">bitte wählen</option><option value="50">50</option><option value="60">60</option><option value="70">70</option></select> Jahren. Das erreichten damals nur wenige. Eine Versicherung gegen <select id="versicherung_3" aria-label="Lücke 4"><option value="">bitte wählen</option><option value="Unfälle">Unfälle</option><option value="Krankheit">Krankheit</option><option value="Arbeitslosigkeit">Arbeitslosigkeit</option></select> kam erst 1927.</p><button class="btn" type="button" id="versicherungCheck">Prüfen</button><div class="fb" id="versicherungFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quellen: Der Kaiser und ein Unternehmer</h2>
+<p>Chronos hat zwei Quellen gefunden, in denen Mächtige zu den Arbeitern sprechen oder über sie. Keine von beiden stammt von Arbeitern selbst.</p><div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>Kaiserliche Botschaft vom 17. November 1881 (Auszug).</strong> Kaiser Wilhelm I. war krank. Deshalb verlas Reichskanzler Bismarck die Botschaft bei der Eröffnung des Reichstags. Gerichtet war sie an die Abgeordneten, und über die Zeitungen an die ganze Öffentlichkeit.</p>
+ <blockquote class="q">
+ <p>„Schon im Februar dieses Jahres haben Wir Unsere Ueberzeugung aussprechen lassen, daß die Heilung der sozialen Schäden nicht ausschließlich im Wege der Repression sozialdemokratischer Ausschreitungen, sondern gleichmäßig auf dem der positiven Förderung des Wohles der Arbeiter zu suchen sein werde. […]</p>
+ <p>Aber auch diejenigen, welche durch Alter oder Invalidität erwerbsunfähig werden, haben der Gesammtheit gegenüber einen begründeten Anspruch auf ein höheres Maß staatlicher Fürsorge, als ihnen bisher hat zu Theil werden können.“</p>
+ </blockquote>
+ <p class="wort"><strong>Worterklärungen:</strong> Wir, Unsere = der Kaiser spricht von sich in der Mehrzahl · soziale Schäden = Missstände in der Gesellschaft · Repression = Unterdrückung · Ausschreitungen = gemeint sind die Tätigkeiten der Sozialdemokraten · positive Förderung = aktive Unterstützung · Invalidität = Arbeitsunfähigkeit durch Krankheit oder Unfall · erwerbsunfähig = nicht mehr fähig, Geld zu verdienen</p>
+</div><div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e7ecf0" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#37546b"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#37546b"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div><div><p class="who">Chronos, Archivar</p><p>Achte auf das Wort „ausschließlich“. Es verrät, dass es neben der Fürsorge noch einen zweiten Weg gab.</p></div></div><div class="task"><span class="tag">Quellenarbeit</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S1. Was sagt die Kaiserliche Botschaft? Wähle alle zutreffenden Aussagen aus.</legend><div class="opts"><label><input type="checkbox" name="s1" value="unterdr"><span>Unterdrückung der Sozialdemokratie allein reicht nicht, um die Missstände zu heilen.</span></label><label><input type="checkbox" name="s1" value="wohl"><span>Der Staat soll das Wohl der Arbeiter aktiv fördern.</span></label><label><input type="checkbox" name="s1" value="alter"><span>Alte und Arbeitsunfähige haben Anspruch auf mehr staatliche Fürsorge.</span></label><label><input type="checkbox" name="s1" value="regieren"><span>Die Sozialdemokraten sollen mitregieren.</span></label><label><input type="checkbox" name="s1" value="lohn"><span>Die Arbeiter sollen höhere Löhne bekommen.</span></label></div></fieldset><button class="btn" type="button" id="s1Check">Prüfen</button><button class="btn sec" type="button" id="s1Reset">Zurücksetzen</button><div class="fb" id="s1Fb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Quellenkritik</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S2. Warum spricht der Kaiser überhaupt von „Repression sozialdemokratischer Ausschreitungen“?</legend><div class="opts"><label><input type="radio" name="s2" value="a"><span>Er wollte die Sozialdemokraten loben.</span></label><label><input type="radio" name="s2" value="b"><span>Seit 1878 galt das Sozialistengesetz. Die Regierung wollte die Sozialdemokratie schwächen und die Arbeiter durch Fürsorge an den Staat binden.</span></label><label><input type="radio" name="s2" value="c"><span>Die Sozialdemokraten hatten den Reichstag gestürmt.</span></label></div></fieldset><button class="btn" type="button" id="s2Check">Prüfen</button><div class="fb" id="s2Fb" role="status" aria-live="polite"></div></div><div class="akte">
+ <span class="stamp">Zweite Quelle</span>
+ <p><strong>Alfred Krupp, „Ein Wort an meine Angehörigen“, 11. Februar 1877 (Auszug).</strong> Die Ansprache wurde gedruckt und an alle Beschäftigten der Krupp-Werke in Essen verteilt.</p>
+ <blockquote class="q">
+ <p>„Ich habe den Mut gehabt, für die Verbesserung der Lage der Arbeiter Wohnungen zu bauen, worin bereits 20 000 Seelen untergebracht sind, ihnen Schulen zu gründen und Einrichtungen zu treffen zur billigen Beschaffung von allem Bedarf. […]</p>
+ <p>Genießet, was Euch beschieden ist. Nach getaner Arbeit verbleibt im Kreise der Eurigen, bei den Eltern, bei der Frau und den Kindern und sinnt über Haushalt und Erziehung. Das sei Eure Politik, dabei werdet Ihr frohe Stunden erleben. Aber für die große Landespolitik erspart Euch die Aufregung. Höhere Politik treiben erfordert mehr freie Zeit und Einblick in die Verhältnisse, als dem Arbeiter verliehen ist.“</p>
+ </blockquote>
+ <p class="wort"><strong>Worterklärungen:</strong> Seelen = Menschen · was Euch beschieden ist = was ihr bekommen habt · im Kreise der Eurigen = bei eurer Familie</p>
+</div><div class="task"><span class="tag">Perspektive</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S3. Wie sah Alfred Krupp seine Arbeiter?</legend><div class="opts"><label><input type="radio" name="q1" value="a"><span>Als gleichberechtigte Partner, mit denen er über alles verhandelte</span></label><label><input type="radio" name="q1" value="b"><span>Er sorgte für sie wie ein strenger Vater, erwartete aber Gehorsam und wollte nicht, dass sie sich politisch einmischen.</span></label><label><input type="radio" name="q1" value="c"><span>Er unterstützte die Sozialdemokratie und die Gewerkschaften.</span></label></div></fieldset><button class="btn" type="button" id="q1Check">Prüfen</button><div class="fb" id="q1Fb" role="status" aria-live="polite"></div></div><div class="task" data-lw="weiter"><span class="tag">Weiterdenken · Vergleich</span><label class="legend" for="q2">Weiterdenken. Vergleiche die Antwort Krupps mit der Antwort einer Gewerkschaft. Was ist der wichtigste Unterschied? Welche Antwort hätte dir als Arbeiterin oder Arbeiter damals mehr geholfen?</label><textarea id="q2" placeholder="Der wichtigste Unterschied ist, dass ... Mir hätte eher ... geholfen, weil ..."></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p><button class="btn" type="button" id="q2Check">Antwort prüfen</button><div class="fb" id="q2Fb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Soziale Frage</summary><div class="body">Die Not vieler Arbeiterfamilien in der Industrialisierung: lange Arbeitszeiten, niedrige Löhne, enge Wohnungen, Kinderarbeit und keine Absicherung. Dazu die Frage, wie man sie lösen kann.</div></details><details class="gloss"><summary>Proletariat</summary><div class="body">Bei Marx die Klasse der Arbeiter, die nichts besitzen außer ihrer Arbeitskraft.</div></details><details class="gloss"><summary>Gewerkschaft</summary><div class="body">Zusammenschluss von Arbeitnehmern, um gemeinsam bessere Löhne und Arbeitsbedingungen durchzusetzen.</div></details><details class="gloss"><summary>Streik</summary><div class="body">Arbeiter legen gemeinsam die Arbeit nieder, um Forderungen durchzusetzen.</div></details><details class="gloss"><summary>Sozialdemokratie, SPD</summary><div class="body">Politische Bewegung der Arbeiter. Aus zwei Parteien entstand 1875 die Sozialistische Arbeiterpartei, die sich 1890 in SPD umbenannte.</div></details><details class="gloss"><summary>Sozialistengesetz</summary><div class="body">Gesetz von 1878 bis 1890, das sozialdemokratische Vereine, Versammlungen und Zeitungen verbot. Wählen konnte man die Sozialdemokraten weiterhin.</div></details><details class="gloss"><summary>Sozialversicherung</summary><div class="body">Gesetzliche Versicherungen gegen Krankheit (1883), Unfall (1884) sowie Invalidität und Alter (1889). Beiträge zahlen Arbeitnehmer und Arbeitgeber.</div></details><details class="gloss"><summary>Patriarchalisch</summary><div class="body">Wie ein strenger Familienvater: Der Unternehmer sorgt für seine Leute und verlangt dafür Gehorsam.</div></details><details class="gloss"><summary>Kolpingwerk</summary><div class="body">Von dem katholischen Priester Adolph Kolping begründete Gesellenvereine mit Wohnheimen, Bildung und Gemeinschaft. Es gibt sie bis heute.</div></details><details class="gloss"><summary>Innere Mission</summary><div class="body">1848 von dem evangelischen Theologen Johann Hinrich Wichern angestoßene Hilfe für Arme und Notleidende, ein Vorläufer der Diakonie.</div></details><h3>Woher stammen die Texte?</h3><details class="gloss"><summary>Nachweise der Quellen und Zahlen</summary><div class="body"><ul><li>Kaiserliche Botschaft vom 17. November 1881, nach: Verhandlungen des Reichstags, V. Legislaturperiode, I. Session 1881. Abdruck bei German History in Documents and Images (GHDI). Wortlaut mit alter Rechtschreibung.</li><li>Alfred Krupp, Ansprache vom 11. Februar 1877, nach: Wilhelm Berdow (Hg.), Alfred Krupps Briefe 1826 bis 1887, Berlin 1928. Abdruck bei GHDI.</li><li>Karl Marx und Friedrich Engels, Manifest der Kommunistischen Partei, London 1848, Schlusssätze.</li><li>Daten: Sozialistengesetz 1878 bis 1890, Krankenversicherung 1883, Unfallversicherung 1884, Invaliditäts- und Altersversicherung 1889 (Rente ab 70 Jahren), Arbeitslosenversicherung 1927. Bei der Reichstagswahl 1890 erhielt die SPD die meisten Stimmen.</li><li>Die Zeitleiste ist eine eigene Darstellung.</li></ul></div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p><div id="selfcheck"><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann vier Gruppen nennen, die Antworten auf die soziale Frage gaben.</legend><div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann Bismarcks Sozialpolitik und ihre Absicht erklären.</legend><div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann Quellen verschiedener Personen vergleichen und ihre Sichtweise erkennen.</legend><div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte"><span class="stamp">Zu prüfen</span><p>Auf der Karteikarte steht: <em>„Erst der Staat hat die soziale Frage gelöst.“</em></p></div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0;margin:0"><legend class="legend">A1. Wie entscheidest du?</legend><div class="opts"><label><input type="radio" name="a1" value="a"><span>Die Karte stimmt so. Nur Bismarck hat etwas getan.</span></label><label><input type="radio" name="a1" value="b"><span>Der Staat leistete mit der Sozialversicherung einen wichtigen Beitrag. Aber Arbeiterbewegung, Kirchen und einige Unternehmer hatten schon vorher Antworten gegeben, und gelöst war die Frage 1889 noch lange nicht.</span></label><label><input type="radio" name="a1" value="c"><span>Der Staat hat überhaupt nichts getan.</span></label><label><input type="radio" name="a1" value="d"><span>Am wichtigsten war die Arbeiterbewegung. Ohne ihren Druck hätte Bismarck keine Sozialgesetze gemacht.</span></label></div></fieldset>
+ <button class="btn" type="button" id="a1Check">Entscheidung prüfen</button>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine Nachricht. Erkläre in drei bis fünf Sätzen, welche Antworten es auf die soziale Frage gab. Nenne den Staat und mindestens eine weitere Gruppe und beurteile, ob die Frage damit gelöst war.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, nicht nur der Staat hat geantwortet, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Der Staat führte ab 1883 ... ein, weil ...“ · „Schon vorher hatten ... “ · „Gelöst war die soziale Frage aber noch nicht, denn ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Begründung prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="fb" id="buildFb" role="status" aria-live="polite"></div>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" id="printBtn">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+</main></div>
+<footer>SOL Geschichte 8 · Modul 006 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-8" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-8"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={"modul": "006", "titel": "Welche Antworten gab es auf die soziale Frage?", "bereich": "Industrialisierung und soziale Frage", "version": "1.0.0", "key": "sol-geschichte-8-006", "endpoint": "https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec", "next": "Weiter geht es mit Modul 007: Lerncheck: Industrialisierung und soziale Frage.", "badges": [{"id": "abz1", "name": "Akteurskenner", "tasks": ["akteure"]}, {"id": "abz2", "name": "Zusammenhänge", "tasks": ["kette", "versicherung"]}, {"id": "abz3", "name": "Quellenprüfer", "tasks": ["s1", "s2", "q1"]}, {"id": "abz4", "name": "Begründer", "tasks": ["a2"]}], "startOk": "Alles bereit. Chronos wartet schon. Es geht weiter mit der Mission."};
+const TASKS=[{"id": "akteure", "typ": "zuord", "pieces": [{"k": "akteurek1", "t": "Gewerkschaften fordern höhere Löhne und kürzere Arbeitszeiten, notfalls mit Streik", "z": "arbeiter"}, {"k": "akteurek2", "t": "1875 schließen sich zwei Arbeiterparteien zusammen, daraus wird später die SPD", "z": "arbeiter"}, {"k": "akteurek3", "t": "Alfred Krupp baut Werkswohnungen, Schulen und billige Läden für seine Arbeiter", "z": "unternehmer"}, {"k": "akteurek4", "t": "Firmen gründen eigene Krankenkassen für ihre Beschäftigten", "z": "unternehmer"}, {"k": "akteurek5", "t": "Adolph Kolping gründet Gesellenvereine mit Wohnheimen für junge Handwerker", "z": "kirchen"}, {"k": "akteurek6", "t": "Bischof Ketteler fordert 1864, Christen müssten sich für die Arbeiter einsetzen", "z": "kirchen"}, {"k": "akteurek7", "t": "Ein Gesetz von 1883 führt eine Krankenversicherung für Arbeiter ein", "z": "staat"}, {"k": "akteurek8", "t": "1889 entsteht eine Versicherung für Invalidität und Alter", "z": "staat"}], "ok": "Alle acht richtig. Die Antworten unterschieden sich stark: Selbsthilfe und Kampf bei den Arbeitern, Fürsorge von oben bei Unternehmern wie Krupp, Hilfe aus dem Glauben bei den Kirchen und Gesetze beim Staat.", "hint": "Frage dich bei jeder Karte: Wer handelt hier? Arbeiter für sich selbst, ein Fabrikbesitzer, ein Mann der Kirche oder Regierung und Parlament?", "name": "Akteure zuordnen", "komp": ["fachwissen", "perspektivitaet"], "zones": ["arbeiter", "unternehmer", "kirchen", "staat"]}, {"id": "marx", "typ": "mc", "richtig": "b", "fb": {"a": "Das wäre eine Reform in kleinen Schritten. Marx und Engels hielten das für unzureichend. Lies den Schluss noch einmal: Wovon ist die Rede?", "b": "Richtig. Marx und Engels wollten eine Revolution und eine Gesellschaft ohne Privateigentum an Fabriken. Viele Arbeiter in Deutschland setzten später eher auf Reformen: Gewerkschaften, Wahlen und Gesetze. Über den richtigen Weg wurde in der Arbeiterbewegung lange gestritten.", "c": "Nein. Marx und Engels wollten die Maschinen nicht abschaffen. Sie wollten, dass sie allen gehören."}, "name": "Revolution oder Reform", "komp": ["fachwissen", "perspektivitaet"], "zusatz": false}, {"id": "kette", "typ": "order", "items": ["Die Arbeiterbewegung wächst, sozialdemokratische Abgeordnete ziehen in den Reichstag ein.", "Bismarck fürchtet einen Umsturz und setzt 1878 das Sozialistengesetz durch.", "Die Sozialdemokraten werden trotzdem nicht schwächer, sie gewinnen weiter Wähler.", "Der Kaiser kündigt 1881 im Reichstag Gesetze zum Schutz der Arbeiter an.", "Von 1883 bis 1889 entstehen Kranken-, Unfall- und Rentenversicherung.", "1890 endet das Sozialistengesetz. Die SPD erhält bei der Wahl die meisten Stimmen."], "ok": "Genau. Erst kam das Verbot, die Peitsche. Als es nicht wirkte, kam die Versicherung dazu, das Zuckerbrot. Die Arbeiter sollten an den Staat gebunden werden. Die SPD wurde trotzdem immer stärker.", "hint": "Frage dich: Was musste zuerst da sein, damit Bismarck reagierte? Und was folgte, als das Verbot nicht half?", "name": "Ursache und Folge", "komp": ["ursachen_folgen", "zeit_raum"]}, {"id": "versicherung", "typ": "luecke", "richtig": ["Arbeiter", "Arbeitgeber", "70", "Arbeitslosigkeit"], "ok": "Alles richtig. Die Sozialversicherung war ein großer Fortschritt und ein Vorbild für viele Länder. Sie war aber anfangs knapp: Die Rente war niedrig und kam spät, und gegen Arbeitslosigkeit gab es noch keinen Schutz.", "hint": "Tipp: Bei Unfällen in der Fabrik sah man den Betrieb in der Verantwortung.", "name": "Sozialversicherung", "komp": ["fachwissen"]}, {"id": "s1", "typ": "multi", "richtig": ["unterdr", "wohl", "alter"], "ok": "Genau. Die Botschaft kündigt Fürsorge an, hält aber an der Unterdrückung der Sozialdemokratie fest. Von Löhnen oder Mitbestimmung ist keine Rede.", "hinweis": {"regieren": "Im Gegenteil. Die Botschaft spricht von „Repression“, also Unterdrückung der Sozialdemokraten.", "lohn": "Davon steht nichts im Text. Es geht um Hilfe bei Alter, Invalidität, Unfall und Krankheit."}, "fehlt": "Es fehlen noch # zutreffende Antworten. ", "tipp": "", "name": "Botschaft auswerten", "komp": ["quellenarbeit"]}, {"id": "s2", "typ": "mc", "richtig": "b", "fb": {"a": "Nein. „Repression“ heißt Unterdrückung. Lob klingt anders.", "b": "Richtig. Die Botschaft zeigt beide Wege der Regierung: Unterdrückung und Fürsorge. Die Fürsorge war ernst gemeint, sie hatte aber auch ein politisches Ziel. Die Arbeiter sollten sich vom Staat und nicht von der SPD Hilfe erwarten.", "c": "Nein, das geschah nicht. Die Sozialdemokraten waren eine Partei mit Abgeordneten im Reichstag."}, "name": "Quellenkritik", "komp": ["quellenarbeit", "ursachen_folgen"], "zusatz": false}, {"id": "q1", "typ": "mc", "richtig": "b", "fb": {"a": "Nein. Krupp sagt den Arbeitern, Politik solle nicht ihre Sache sein. Gleichberechtigung sieht anders aus.", "b": "Richtig. Man nennt diese Haltung patriarchalisch: Der Unternehmer sorgt für Wohnungen und Schulen und verlangt dafür Treue und Gehorsam. Für viele Familien waren Krupps Wohnungen ein echter Fortschritt, mitbestimmen durften sie aber nicht.", "c": "Nein. In derselben Rede warnt Krupp sogar scharf vor der Sozialdemokratie."}, "name": "Perspektive eines Unternehmers", "komp": ["perspektivitaet", "quellenarbeit"], "zusatz": false}, {"id": "q2", "typ": "text", "krit": {"min": 80, "worte": 18, "need": 2, "gruppen": [{"w": ["oben", "vater", "fursorge", "gehorsam", "krupp", "bestimm", "geschenk", "abhang"], "miss": "Beschreibe Krupps Antwort: Fürsorge von oben gegen Gehorsam."}, {"w": ["selbst", "gemeinsam", "zusammen", "streik", "fordern", "mitbestimm", "rechte", "gewerkschaft"], "miss": "Beschreibe die Antwort der Gewerkschaft: Arbeiter handeln gemeinsam selbst."}], "ok": "Gut verglichen. Bei Krupp kam die Hilfe von oben und hing vom Wohlwollen des Unternehmers ab. Gewerkschaften setzten auf Selbsthilfe und Rechte, die man gemeinsam erkämpft. Beide Wege hatten Vorteile und Grenzen."}, "name": "Weiterdenken Vergleich", "komp": ["perspektivitaet", "historisches_urteil"], "zusatz": true}];
+const DIAG={"fragen": [{"n": "d1", "r": "b"}, {"n": "d2", "r": "r"}, {"n": "d3", "r": "a"}], "alle": "Drei von drei. Deine Vermutungen passen gut. Der Lernweg Weiterdenken könnte für dich spannend sein.", "fast": "Zwei von drei. Gute Grundlage.", "wenig": "Du hast # von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da."};
+const ABS={"ok": ["b", "d"], "fb": {"a": "Prüfe das noch einmal. Denke an Gewerkschaften, Kolping, Ketteler und Krupp. Und war mit einer Rente ab 70 die Not wirklich gelöst?", "b": "Gut entschieden. Du würdigst den Staat und siehst trotzdem die anderen Akteure und die Grenzen. Begründe das jetzt in A2.", "c": "Das stimmt nicht. Die Sozialversicherung war ein großer Schritt, auch wenn sie anfangs knapp war.", "d": "Ein begründbares Urteil. Du siehst, dass Bismarck auch aus Angst vor der Arbeiterbewegung handelte. Begründe das jetzt in A2."}, "krit": {"min": 80, "worte": 20, "need": 3, "saetze": 3, "gruppen": [{"w": ["staat", "bismarck", "versicher", "kaiser", "gesetz", "1883", "rente"], "miss": "Nenne die Antwort des Staates, die Sozialversicherung."}, {"w": ["gewerkschaft", "spd", "partei", "arbeiterbeweg", "kirche", "kolping", "ketteler", "wichern", "krupp", "unternehm", "marx"], "miss": "Nenne mindestens eine weitere Gruppe, etwa Gewerkschaften, Kirchen oder Unternehmer."}, {"w": ["nicht gelost", "nicht ganz", "noch nicht", "70", "arbeitslos", "knapp", "sozialistengesetz", "unterdr", "absicht", "binden", "zuckerbrot", "peitsche", "druck", "angst"], "miss": "Beurteile, ob die Frage gelöst war, oder nenne Bismarcks Absicht."}], "ok": "Sehr gut. Du nennst mehrere Akteure und beurteilst die Grenzen. Genau das ist der Kern: Viele gaben Antworten, der Staat setzte einen Meilenstein, gelöst war die soziale Frage damit aber noch nicht. Abzeichen Begründer freigeschaltet."}};
+const S={lernweg:"standard",done:{},punkte:{},placed:{},order:{},hot:{},fbs:{},texts:{},sent:false,built:false};
+const TMAP={};TASKS.forEach(t=>TMAP[t.id]=t);
+const PFLICHT=TASKS.filter(t=>!t.zusatz);
+const SCHRITTE=["start","diagnose"].concat(PFLICHT.map(t=>t.id),["lerncheck","abschluss"]);
+const MAXP=PFLICHT.length+3;
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function fbT(tid,msg,art){S.fbs[tid]={m:msg,a:art};fb("#"+tid+"Fb",msg,art);}
+function fbTClear(tid){delete S.fbs[tid];fbClear("#"+tid+"Fb");}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+function val(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","trotzdem","aber","jedoch","obwohl","wahrend","einerseits","andererseits"];
+function mische(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ (CFG.badges||[]).forEach(b=>{const e=document.getElementById(b.id);if(e)e.classList.toggle("on",b.tasks.every(k=>k==="a2"?(S.punkte.a2||0)>=1:!!S.done[k]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];S.punkte[k]=0;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich anspruchsvolle Aufgaben, zum Beispiel eine zweite Quelle."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 8a."};
+ const m=t.match(/(?:^|[^0-9])8([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 8. Schreibe zum Beispiel 8a, Klasse 8b oder nur 8."};
+ return{ok:true,wert:"8"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb",CFG.startOk,"ok");
+ location.hash="mission";
+});
+
+/* ---------- Einstieg ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const fr=DIAG.fragen, offenD=fr.filter(f=>!val(f.n));
+ if(offenD.length){fb("#dFb","Beantworte bitte zuerst alle drei Fragen. Raten ist ausdrücklich erlaubt.","hint");return;}
+ const r=fr.filter(f=>val(f.n)===f.r).length;
+ let m=r===fr.length?DIAG.alle:(r===fr.length-1?DIAG.fast:DIAG.wenig.replace("#",r));
+ (DIAG.extra||[]).forEach(x=>{if(val(x.n)===x.v)m+=" "+x.m;});
+ fb("#dFb",m,r>=2?"ok":"hint");S.fbs.d={m:m,a:r>=2?"ok":"hint"};
+ fertig("diagnose");
+});
+
+/* ---------- Auswahl ---------- */
+function initMc(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const v=val(t.id);
+  if(!v){fbT(t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+  const ok=v===t.richtig, m=(t.fb&&t.fb[v])||(ok?"Richtig.":"Noch nicht.");
+  if(ok){fbT(t.id,m,"ok");fertig(t.id,1);}else{fbT(t.id,m,"hint");if(!t.zusatz)offen(t.id);}
+ });
+}
+function initMulti(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+  if(!sel.length){fbT(t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+  const fehlt=t.richtig.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!t.richtig.includes(x));
+  if(!fehlt.length&&!zuviel.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);return;}
+  let m="";
+  zuviel.forEach(z=>{if(t.hinweis&&t.hinweis[z])m+=t.hinweis[z]+" ";});
+  if(fehlt.length)m+=(fehlt.length===1?"Es fehlt noch eine zutreffende Antwort. ":t.fehlt.replace("#",fehlt.length));
+  fbT(t.id,(m+(t.tipp||"")).trim(),"hint");offen(t.id);
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);fbTClear(t.id);offen(t.id);});
+}
+
+/* ---------- Zuordnen mit Antippen oder Ziehen ---------- */
+let gew=null;
+function pieceHtml(t,p,cls){return '<button type="button" class="piece'+(cls?" "+cls:"")+'" draggable="true" data-task="'+t.id+'" data-k="'+p.k+'" aria-pressed="'+(gew&&gew.k===p.k?"true":"false")+'">'+p.t+'<\/button>';}
+function zeichneZ(t){
+ const pl=S.placed[t.id]||(S.placed[t.id]={});
+ const offenP=t.pieces.filter(p=>!pl[p.k]);
+ $("#"+t.id+"Pieces").innerHTML=offenP.map(p=>pieceHtml(t,p)).join("")||'<span class="hint">Alle Karten sind zugeordnet.<\/span>';
+ $$('.zone[data-task="'+t.id+'"] .drop').forEach(d=>d.innerHTML="");
+ t.pieces.forEach(p=>{const z=pl[p.k];if(z){const d=document.querySelector('.zone[data-task="'+t.id+'"][data-zone="'+z+'"] .drop');
+  if(d)d.insertAdjacentHTML("beforeend",pieceHtml(t,p,S.done[t.id]?"ok":""));}});
+ $$('.piece[data-task="'+t.id+'"]').forEach(b=>{
+  b.addEventListener("click",e=>{e.stopPropagation();
+   if(gew&&gew.k===b.dataset.k){gew=null;b.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gew={task:t.id,k:b.dataset.k};b.setAttribute("aria-pressed","true");
+   fbT(t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  b.addEventListener("dragstart",e=>{gew={task:t.id,k:b.dataset.k};try{e.dataTransfer.setData("text/plain",b.dataset.k);}catch(x){}});
+ });
+}
+function ablegen(t,zone){
+ if(!gew||gew.task!==t.id){fbT(t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[t.id][gew.k]=zone;gew=null;
+ if(S.done[t.id]){offen(t.id);}
+ zeichneZ(t);fbTClear(t.id);speichern();
+}
+function initZuord(t){
+ $$('.zone[data-task="'+t.id+'"]').forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.target!==z)return;if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");ablegen(t,z.dataset.zone);});
+ });
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const pl=S.placed[t.id], rest=t.pieces.filter(p=>!pl[p.k]);
+  if(rest.length){fbT(t.id,"Es sind noch "+rest.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+  let r=0;
+  t.pieces.forEach(p=>{const ok=pl[p.k]===p.z;if(ok)r++;const el=document.querySelector('.piece[data-k="'+p.k+'"]');if(el){el.classList.remove("ok","no");el.classList.add(ok?"ok":"no");}});
+  if(r===t.pieces.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.pieces.length+" stimmen bereits. Die grün umrandeten Karten sitzen richtig. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.placed[t.id]={};gew=null;offen(t.id);zeichneZ(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Reihenfolge ---------- */
+function zeichneO(t,fokus){
+ const o=S.order[t.id], fertigO=!!S.done[t.id];
+ $("#"+t.id+"List").innerHTML=o.map((i,pos)=>
+  '<div class="orow'+(fertigO?" ok":"")+'"><span class="nr" aria-hidden="true">'+(pos+1)+'<\/span><span class="t">'+t.items[i]+'<\/span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben: '+t.items[i].replace(/"/g,"")+'">&#8593;<\/button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten: '+t.items[i].replace(/"/g,"")+'">&#8595;<\/button><\/div>').join("");
+ $$("#"+t.id+"List button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=o.length)return;
+  [o[p],o[n]]=[o[n],o[p]];if(S.done[t.id])offen(t.id);zeichneO(t,{pos:n,dir:d});speichern();}));
+ if(fokus){const b=document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"][data-dir="'+fokus.dir+'"]')||document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"]');if(b)b.focus();}
+}
+function mischeO(t){const idx=t.items.map((_,i)=>i);let o;do{o=mische(idx);}while(o.join()===idx.join());S.order[t.id]=o;}
+function initOrder(t){
+ if(!S.order[t.id]||S.order[t.id].length!==t.items.length)mischeO(t);
+ zeichneO(t);
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const o=S.order[t.id], r=o.filter((v,i)=>v===i).length;
+  if(r===o.length){S.done[t.id]=true;zeichneO(t);fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+o.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{offen(t.id);mischeO(t);zeichneO(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Bild- und Kartenarbeit ---------- */
+function hotAufgabe(t){
+ const idx=S.hot[t.id]||0;
+ t.finds.forEach((f,i)=>{const el=document.getElementById(f.z);if(el)el.classList.toggle("found",i<idx);});
+ if(idx>=t.finds.length){$("#"+t.id+"Task").textContent=t.done;$("#"+t.id+"Alt").innerHTML="";return;}
+ const z=t.finds[idx];
+ $("#"+t.id+"Task").textContent="Suchauftrag "+(idx+1)+" von "+t.finds.length+": "+z.tipp;
+ $("#"+t.id+"Alt").innerHTML=t.alle.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.n+'<\/button>').join("");
+ $$("#"+t.id+"Alt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));
+}
+function hotWahl(t,id){
+ const idx=S.hot[t.id]||0, z=t.finds[idx]; if(!z)return;
+ if(id===z.z){
+  S.hot[t.id]=idx+1;
+  if(idx+1>=t.finds.length){fbT(t.id,z.ok+" Damit hast du alle "+t.finds.length+" gefunden.","ok");fertig(t.id,1);}
+  else{fbT(t.id,z.ok,"ok");}
+  hotAufgabe(t);speichern();
+ }else{
+  const g=t.alle.find(x=>x.id===id);
+  fbT(t.id,"Das ist „"+(g?g.n:"ein anderer Ort")+"“. Lies die Beschreibung noch einmal genau und sieh dir das Bild an.","hint");speichern();
+ }
+}
+function initHot(t){
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+  g.addEventListener("click",()=>hotWahl(t,g.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.hot[t.id]=0;offen(t.id);fbTClear(t.id);hotAufgabe(t);speichern();});
+ hotAufgabe(t);
+}
+
+/* ---------- Lückentext ---------- */
+function initLuecke(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  let r=0,leer=0;
+  t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}const ok=s.value===w;if(ok)r++;s.classList.add(ok?"ok":"no");});
+  if(leer){fbT(t.id,"Fülle zuerst alle "+t.richtig.length+" Lücken aus. Noch offen: "+leer+".","hint");return;}
+  if(r===t.richtig.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.richtig.length+" Lücken stimmen. Die rot markierten musst du noch einmal prüfen. "+t.hint,"hint");offen(t.id);}
+ });
+ t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.addEventListener("change",()=>{s.classList.remove("ok","no");});});
+}
+
+/* ---------- Freitexte ---------- */
+function bewerte(roh,k){
+ const t=norm(roh), wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<(k.min||40)||wort<(k.worte||10))return{p:0,lab:"zu knapp",msg:k.knapp||"Deine Antwort ist noch sehr kurz. Schreibe mindestens zwei vollständige Sätze."};
+ const treffer=k.gruppen.filter(g=>hat(t,g.w)), fehl=k.gruppen.filter(g=>!hat(t,g.w));
+ const verkn=hat(t,VERKN), genug=saetze(roh)>=(k.saetze||2), need=k.need||k.gruppen.length;
+ if(treffer.length>=need&&verkn&&genug)return{p:1,lab:"vollständig",msg:k.ok};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(treffer.length<need)m+=fehl.slice(0,2).map(g=>g.miss).join(" ")+" ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „deshalb“ oder „dadurch“. ";
+ if(!genug)m+="Schreibe mindestens "+(k.saetze||2)+" vollständige Sätze. ";
+ return{p:(treffer.length>=1?0.5:0.25),lab:"teilweise",msg:m.trim()};
+}
+function initText(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const r=bewerte($("#"+t.id).value,t.krit);
+  S.texts[t.id]=r.lab;fbT(t.id,r.msg,r.p>=1?"ok":"hint");
+  if(!t.zusatz){if(r.p>=1)fertig(t.id,1);else offen(t.id);}else speichern();
+ });
+}
+
+/* ---------- Abschlussmission ---------- */
+function pruefeAbschluss(){
+ const a1=val("a1");
+ if(a1&&S.a2geprueft&&(S.punkte.a2||0)>0)fertig("abschluss");else{delete S.done.abschluss;fortschritt();speichern();}
+}
+$("#a1Check").addEventListener("click",()=>{
+ const v=val("a1");
+ if(!v){fbT("a1","Bitte wähle zuerst eine Entscheidung aus.","hint");return;}
+ const ok=ABS.ok.includes(v);S.punkte.a1=ok?1:0;
+ fbT("a1",ABS.fb[v]||"",ok?"ok":"hint");pruefeAbschluss();
+});
+$("#a2Check").addEventListener("click",()=>{
+ const r=bewerte($("#a2").value,ABS.krit);
+ S.punkte.a2=r.p>=1?1:(r.p>0?0.5:0);S.a2lab=r.lab;S.a2geprueft=true;
+ fbT("a2",r.msg,r.p>=1?"ok":"hint");pruefeAbschluss();
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3].map(i=>val("lc"+i)||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;S.punkte.lerncheck=0;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return PFLICHT.reduce((s,t)=>s+(S.punkte[t.id]||0),0)+(S.punkte.a1||0)+(S.punkte.a2||0)+(S.punkte.lerncheck||0);}
+function kompetenz(k){const ts=PFLICHT.filter(t=>(t.komp||[]).includes(k));if(k==="historisches_urteil")return eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1&&ts.every(t=>(S.punkte[t.id]||0)>=1));return eins(ts.length>0&&ts.every(t=>(S.punkte[t.id]||0)>=1));}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=Math.round(punkteGesamt()*10)/10, pct=Math.round(pkt/MAXP*100);
+ const luecken=[];
+ PFLICHT.forEach(t=>{if(!((S.punkte[t.id]||0)>=1))luecken.push(t.name);});
+ if(!((S.punkte.a1||0)>=1))luecken.push("Abschlussentscheidung");
+ if(!((S.punkte.a2||0)>=1))luecken.push("Begründung");
+ const erg={};PFLICHT.forEach(t=>erg[t.id]=S.punkte[t.id]||0);
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ const pfl={};PFLICHT.forEach(t=>pfl[t.id]={correct:(S.punkte[t.id]||0)>=1});
+ pfl.entscheidung={correct:(S.punkte.a1||0)>=1};pfl.begruendung={correct:(S.punkte.a2||0)>=1};
+ const zus={},zusB={};TASKS.filter(t=>t.zusatz).forEach(t=>{const e=document.getElementById(t.id);if(e&&e.tagName==="TEXTAREA"){zus[t.id]=e.value.trim();zusB[t.id]=S.texts[t.id]||"nicht bearbeitet";}else{zusB[t.id]=(S.punkte[t.id]||0)>=1?"richtig":"nicht gelöst";}});
+ if(!S.abgabeId)S.abgabeId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2);
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"8",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:Object.assign({leitfrage:$("#a2").value.trim(),begruendung:$("#a2").value.trim(),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},zus),
+  bewertung_freitexte:Object.assign({begruendung:S.a2lab||"nicht bearbeitet"},zusB),
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:MAXP,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:{fachwissen:kompetenz("fachwissen"),zeit_raum:kompetenz("zeit_raum"),quellenarbeit:kompetenz("quellenarbeit"),
+   ursachen_folgen:kompetenz("ursachen_folgen"),perspektivitaet:kompetenz("perspektivitaet"),historisches_urteil:kompetenz("historisches_urteil")},
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:MAXP,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:S.abgabeId};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 8, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(still){
+ if(!pflichtOk(!still)){if(!still)location.hash="start";return null;}
+ if(!val("a1")){if(!still){fb("#buildFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung (A1).","bad");location.hash="abschluss";}return null;}
+ if(!lerncheckWerte().every(Boolean)){if(!still){fb("#buildFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";}return null;}
+ S.punkte.a1=ABS.ok.includes(val("a1"))?1:0;
+ fbClear("#buildFb");
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?CFG.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter: "+CFG.next:"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const zeilen=PFLICHT.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":<\/strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)<\/li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ S.built=true;fortschritt();speichern();if(!still)location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>ergebnisBauen(false));
+$("#printBtn").addEventListener("click",()=>window.print());
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+async function senden(){
+ const p=ergebnisBauen(true)||ergebnisBauen(false);
+ if(!p)return;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+TASKS.forEach(t=>{
+ if(t.typ==="mc")initMc(t);else if(t.typ==="multi")initMulti(t);
+ else if(t.typ==="zuord"){initZuord(t);zeichneZ(t);}
+ else if(t.typ==="order")initOrder(t);else if(t.typ==="hot")initHot(t);
+ else if(t.typ==="luecke")initLuecke(t);else if(t.typ==="text")initText(t);
+});
+Object.entries(S.fbs||{}).forEach(([k,v])=>{if(k==="d")fb("#dFb",v.m,v.a);else fb("#"+k+"Fb",v.m,v.a);});
+TASKS.filter(t=>t.typ==="luecke"&&S.done[t.id]).forEach(t=>t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);if(s&&s.value===w)s.classList.add("ok");}));
+fortschritt();
+if(S.built)ergebnisBauen(true);
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

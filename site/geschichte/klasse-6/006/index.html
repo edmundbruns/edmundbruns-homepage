@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#254c3b">
+<meta name="description" content="SOL Geschichte Jahrgang 6, Modul 006: Welche Bedeutung hatten Kirche und Klöster?">
+<title>SOL Geschichte 6 | Modul 006 | Welche Bedeutung hatten Kirche und Klöster?</title>
+<style>
+:root{--ink:#102d2f;--paper:#fff;--cream:#e6eeea;--soft:#e6eeea;--bg:#f5f2ea;--green:#1d6b4f;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#d5d8d0;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #102d2f14;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#0d2426,#1d6b4f);color:#f7fbf9;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#f7fbf9;color:#0d2426;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:40px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#e8f2ee;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#2f6047,#b87824);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#2b3a33;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow)}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#2b3a33}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px}
+.field label,.legend{font-weight:750;color:#2b3a33}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#5b6660}
+.btn{background:var(--green);color:#f7fbf9;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#5b6660;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#e9f2ec}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:700;min-height:44px;display:inline-flex;align-items:center;gap:6px}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow span{flex:1;font-weight:650}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px}
+svg.burg{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.hot{transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d1899)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#3a463f}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#1d2b24;color:#e8f0ea;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#8b9089;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+.teacher{background:#f6f2ff;border-color:#ddd3f5}
+.doc{background:#f5f7f6}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#5b6660;font-size:.9rem}
+.easy body,body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 6 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Mittelalterliche Lebenswelten · Ermittlungsakte 006</div>
+    <h1>Welche Bedeutung hatten Kirche und Klöster?</h1>
+    <p>Klöster waren mehr als stille Gebetshäuser. Hinter ihren Mauern wurde gebetet, gearbeitet, geschrieben und geheilt. In diesem Modul findest du heraus, welche Rolle Kirche und Klöster im Leben der Menschen wirklich spielten.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>006</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 9 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#lage">Der Klosterplan</a>
+ <a href="#funktionen">Was ein Kloster leistete</a>
+ <a href="#menschen">Wer lebte im Kloster?</a>
+ <a href="#ursachen">Ursache und Folge</a>
+ <a href="#quelle">Die Benediktsregel</a>
+ <a href="#medien">Ora et labora?</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 6a"><span class="hint">Möglich sind zum Beispiel 6a, Klasse 6a, R6a oder nur 6.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul>
+ <li>Du beschreibst, welche Aufgaben Klöster neben dem Gebet hatten.</li>
+ <li>Du erklärst den Tagesablauf nach der Benediktsregel.</li>
+ <li>Du benennst, wer zu einer Klostergemeinschaft gehörte.</li>
+ <li>Du wertest die Benediktsregel als Quelle aus.</li>
+ <li>Du prüfst, ob der Merkspruch „ora et labora“ wirklich von Benedikt stammt.</li>
+</ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Ermittlung starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Akte 006</span>
+ <p><strong>Fall:</strong> Auf Chronos' Karteikarte steht: <em>„Klöster waren reine Gebetshäuser. Mit dem Alltag der Menschen hatten sie nichts zu tun.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Finde heraus, welche Rolle Kirche und Klöster im Leben der Menschen wirklich spielten. Am Ende entscheidest du über die Karte.</p>
+</div>
+<div class="chronos">
+ <div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e6eeea" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#1d6b4f"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#1d6b4f"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div>
+ <div><p class="who">Chronos, Archivar</p><p>Ich habe eine alte Klausel gelesen, nach der ein Kloster Gäste aufnehmen und Kranke pflegen musste. Warum sollte ein Gebetshaus so etwas tun? Da fehlt etwas in meiner Karte, ich komme nur nicht darauf.</p></div>
+</div>
+<p><strong>Leitfrage:</strong> Welche Bedeutung hatten Kirche und Klöster im Mittelalter?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Planleser</span>
+ <span class="abz" id="abz2">Ordnungssinn</span>
+ <span class="abz" id="abz3">Quellenprüfer</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet.</p>
+<div class="task">
+ <span class="tag">Schätzfrage</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">D1. Wie verbrachte ein Benediktinermönch einen typischen Tag?</legend>
+  <div class="opts">
+   <label><input type="radio" name="d1" value="a"><span>In einem festen Wechsel aus Gebet, Arbeit und Lesung</span></label>
+   <label><input type="radio" name="d1" value="b"><span>Fast ausschließlich mit Beten, den ganzen Tag</span></label>
+   <label><input type="radio" name="d1" value="c"><span>Fast nur mit Feldarbeit, kaum Gebet</span></label>
+  </div>
+ </fieldset>
+</div>
+<div class="task">
+ <span class="tag">Richtig oder falsch</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">D2. In vielen Klöstern wurden Bücher von Hand abgeschrieben und dadurch über Jahrhunderte bewahrt.</legend>
+  <div class="opts">
+   <label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label>
+   <label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label>
+  </div>
+ </fieldset>
+</div>
+<div class="task">
+ <span class="tag">Vermutung</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">D3. Was war neben Gebet und Arbeit eine wichtige Aufgabe vieler Klöster?</legend>
+  <div class="opts">
+   <label><input type="radio" name="d3" value="a"><span>Die Versorgung von Kranken, Armen und Reisenden</span></label>
+   <label><input type="radio" name="d3" value="b"><span>Die Ausbildung von Rittern zum Kampf</span></label>
+   <label><input type="radio" name="d3" value="c"><span>Der Betrieb großer Handelsflotten</span></label>
+  </div>
+ </fieldset>
+</div>
+<button class="btn" type="button" id="dCheck">Einschätzung auswerten</button>
+<div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="lage">
+<h2>Der Klosterplan</h2>
+<p>Chronos hat einen Grundriss gefunden, aber die Beschriftungen fehlen. Tippe im Bild auf den gesuchten Raum. Du kannst auch die Knöpfe darunter benutzen, das ist gleichwertig.</p>
+<div class="svgwrap">
+ <svg class="burg" viewBox="0 0 680 460" role="img" aria-label="Schematischer Klostergrundriss: die Klosterkirche im Norden, darunter der Kreuzgang mit Garten, rechts die Schreibstube und der Schlafsaal, unten der Speisesaal, links das Gästehaus mit Krankenpflege.">
+  <defs>
+   <linearGradient id="parch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf9f0"/><stop offset="1" stop-color="#f4ecda"/></linearGradient>
+  </defs>
+  <rect width="680" height="460" fill="url(#parch)"/>
+  <rect x="8" y="8" width="664" height="444" rx="14" fill="none" stroke="#e0d4b8" stroke-width="2"/>
+  <!-- Kompass -->
+  <g aria-hidden="true" transform="translate(52 52)"><circle r="20" fill="#fffdf6" stroke="#c9b99a" stroke-width="1.5"/><path d="M0 -14 L6 4 L0 -1 L-6 4 Z" fill="#9b352d"/><text x="0" y="-24" font-size="12" font-weight="800" fill="#5b6660" text-anchor="middle">N</text></g>
+  <!-- Verbindungsgänge (neutral) -->
+  <g fill="#e9dfc6" stroke="#b4a684" stroke-width="1.5">
+   <rect x="322" y="150" width="36" height="26"/>
+   <rect x="432" y="228" width="26" height="30"/>
+   <rect x="222" y="228" width="30" height="30"/>
+   <rect x="322" y="322" width="36" height="28"/>
+  </g>
+
+  <!-- KLOSTERKIRCHE (Norden) -->
+  <g id="hKirche" class="hot" tabindex="0" role="button" aria-label="Klosterkirche">
+   <path d="M232 78 h176 a34 34 0 0 1 0 68 h-176 Z" fill="#f7eed6" stroke="#9a8a63" stroke-width="3"/>
+   <path d="M258 78 v68 M300 78 v68 M342 78 v68 M384 78 v68" stroke="#d8c9a4" stroke-width="1.6"/>
+   <path d="M240 100 a8 8 0 0 1 16 0 v14 h-16 Z" fill="#cde0ef" stroke="#7f95a8" stroke-width="1.4"/>
+   <path d="M300 100 a8 8 0 0 1 16 0 v14 h-16 Z" fill="#cde0ef" stroke="#7f95a8" stroke-width="1.4"/>
+   <path d="M360 100 a8 8 0 0 1 16 0 v14 h-16 Z" fill="#cde0ef" stroke="#7f95a8" stroke-width="1.4"/>
+   <circle cx="424" cy="112" r="9" fill="#e7d6a6" stroke="#9a8a63" stroke-width="1.6"/>
+   <g stroke="#8f5a12" stroke-width="4" stroke-linecap="round"><path d="M320 78 v-22"/><path d="M309 66 h22"/></g>
+   <rect x="312" y="146" width="16" height="8" fill="#8a7859"/>
+  </g>
+
+  <!-- KREUZGANG mit Garten (Mitte) -->
+  <g id="hKreuzgang" class="hot" tabindex="0" role="button" aria-label="Kreuzgang mit Innenhof und Garten">
+   <rect x="252" y="176" width="176" height="146" rx="4" fill="#eef0e0" stroke="#9a8a63" stroke-width="2.5"/>
+   <rect x="276" y="200" width="128" height="98" fill="#cfe0b3" stroke="#9a8a63" stroke-width="2"/>
+   <g stroke="#b8ab86" stroke-width="1.5" fill="none">
+    <path d="M258 190 q7 -8 14 0 M272 190 q7 -8 14 0 M286 190 q7 -8 14 0 M300 190 q7 -8 14 0 M314 190 q7 -8 14 0"/>
+    <path d="M258 314 q7 8 14 0 M272 314 q7 8 14 0 M286 314 q7 8 14 0"/>
+   </g>
+   <circle cx="342" cy="252" r="6" fill="#e7d6a6" stroke="#8a7859" stroke-width="1.5"/>
+   <path d="M336 252 h12" stroke="#8a7859" stroke-width="1.5"/>
+   <g transform="translate(312 244)"><rect x="-2" y="0" width="4" height="14" fill="#8a6a45"/><circle cx="0" cy="-4" r="11" fill="#5f9a4e" stroke="#3f7a35" stroke-width="1.5"/></g>
+  </g>
+
+  <!-- SCHREIBSTUBE / SKRIPTORIUM (Osten, oben) -->
+  <g id="hSkript" class="hot" tabindex="0" role="button" aria-label="Schreibstube, das Skriptorium">
+   <rect x="458" y="176" width="150" height="70" rx="4" fill="#f0e6cf" stroke="#9a8a63" stroke-width="3"/>
+   <path d="M512 224 q16 -10 30 0 v-30 q-16 -10 -30 0 Z" fill="#fffdf6" stroke="#8a7859" stroke-width="1.8"/>
+   <path d="M542 194 q16 -10 30 0 v30 q-16 -10 -30 0 Z" fill="#fffdf6" stroke="#8a7859" stroke-width="1.8"/>
+   <path d="M542 196 v28" stroke="#8a7859" stroke-width="1.6"/>
+   <path d="M566 236 l20 -26" stroke="#8f5a12" stroke-width="2.4" stroke-linecap="round"/>
+   <path d="M586 210 l4 -5 -1 6 -6 1 Z" fill="#8f5a12"/>
+   <circle cx="490" cy="228" r="5" fill="#3a463f"/>
+  </g>
+
+  <!-- SCHLAFSAAL / DORMITORIUM (Osten, unten) -->
+  <g id="hDorm" class="hot" tabindex="0" role="button" aria-label="Schlafsaal, das Dormitorium">
+   <rect x="458" y="252" width="150" height="70" rx="4" fill="#e8e2d3" stroke="#9a8a63" stroke-width="3"/>
+   <g fill="#cbb98f" stroke="#8a7859" stroke-width="1.6">
+    <rect x="474" y="272" width="52" height="30" rx="3"/><rect x="478" y="276" width="16" height="12" rx="2" fill="#fffdf6"/>
+    <rect x="540" y="272" width="52" height="30" rx="3"/><rect x="544" y="276" width="16" height="12" rx="2" fill="#fffdf6"/>
+   </g>
+  </g>
+
+  <!-- SPEISESAAL / REFEKTORIUM (Süden) -->
+  <g id="hRefek" class="hot" tabindex="0" role="button" aria-label="Speisesaal, das Refektorium">
+   <rect x="252" y="350" width="176" height="66" rx="4" fill="#e8e2d3" stroke="#9a8a63" stroke-width="3"/>
+   <rect x="288" y="372" width="104" height="22" rx="3" fill="#cbb98f" stroke="#8a7859" stroke-width="1.6"/>
+   <g fill="#fffdf6" stroke="#8a7859" stroke-width="1.3"><circle cx="308" cy="383" r="6"/><circle cx="340" cy="383" r="6"/><circle cx="372" cy="383" r="6"/></g>
+   <path d="M280 372 v22 M400 372 v22" stroke="#8a7859" stroke-width="2"/>
+  </g>
+
+  <!-- GÄSTEHAUS und KRANKENPFLEGE (Westen) -->
+  <g id="hGast" class="hot" tabindex="0" role="button" aria-label="Gästehaus und Krankenpflege">
+   <rect x="64" y="176" width="158" height="146" rx="4" fill="#efe0dd" stroke="#9b352d" stroke-width="3"/>
+   <rect x="86" y="210" width="70" height="34" rx="3" fill="#cbb98f" stroke="#8a7859" stroke-width="1.6"/>
+   <rect x="90" y="214" width="20" height="14" rx="2" fill="#fffdf6" stroke="#8a7859" stroke-width="1.2"/>
+   <g fill="#c23b30"><rect x="170" y="206" width="10" height="30" rx="2"/><rect x="160" y="216" width="30" height="10" rx="2"/></g>
+   <path d="M120 268 c-14 -14 -34 4 0 26 c34 -22 14 -40 0 -26 Z" fill="#e0837b" stroke="#9b352d" stroke-width="1.5"/>
+  </g>
+
+  <text x="24" y="446" font-size="14" fill="#5b6660">Schematischer Grundriss, kein reales Kloster</text>
+ </svg>
+</div>
+<div class="task">
+ <span class="tag">Planarbeit</span>
+ <h3>Suchauftrag</h3>
+ <p id="hotTask">Tippe im Bild auf den gesuchten Raum.</p>
+ <div class="chips" id="hotAlt" aria-label="Räume auswählen, gleichwertig zum Antippen im Plan"></div>
+ <button class="btn sec" type="button" id="hotReset">Aufgabe zurücksetzen</button>
+ <div class="fb" id="hotFb" role="status" aria-live="polite"></div>
+</div>
+<details class="gloss"><summary>Überraschender Fund aus dem Archiv</summary><div class="body">Ein Kloster war wie ein kleines Dorf mit eigener Ordnung. Fast alles war um einen Innenhof, den Kreuzgang, angeordnet: die Kirche für das Gebet, die Schreibstube für die Bücher, der Speisesaal, der Schlafsaal und ein Gästehaus. So konnten die Mönche beten, arbeiten und Gäste versorgen, ohne das Gelände zu verlassen.</div></details>
+</section>
+
+<section class="card" id="funktionen">
+<h2>Was ein Kloster leistete</h2>
+<p>Ordne jede Karte dem passenden Bereich zu. Du kannst ziehen oder antippen und dann das Ziel antippen.</p>
+<div class="chips" id="pieces" aria-label="Karten zum Zuordnen"></div>
+<div class="zones" id="zones">
+ <div class="zone" data-zone="gebet" tabindex="0" role="button" aria-label="Ablegen bei Gebet und Gottesdienst"><h4>Gebet und Gottesdienst</h4><div class="drop"></div></div>
+ <div class="zone" data-zone="arbeit" tabindex="0" role="button" aria-label="Ablegen bei Arbeit und Wirtschaft"><h4>Arbeit und Wirtschaft</h4><div class="drop"></div></div>
+ <div class="zone" data-zone="wissen" tabindex="0" role="button" aria-label="Ablegen bei Bildung und Wissen"><h4>Bildung und Wissen</h4><div class="drop"></div></div>
+ <div class="zone" data-zone="fuersorge" tabindex="0" role="button" aria-label="Ablegen bei Fürsorge und Gäste"><h4>Fürsorge und Gäste</h4><div class="drop"></div></div>
+</div>
+<button class="btn" type="button" id="zCheck">Zuordnung prüfen</button>
+<button class="btn sec" type="button" id="zReset">Zurücksetzen</button>
+<div class="fb" id="zFb" role="status" aria-live="polite"></div>
+<div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Frage dich bei jeder Karte: Geht es ums Beten und den Gottesdienst, ums Arbeiten und Wirtschaften, ums Lernen und Bewahren von Wissen, oder um die Sorge für andere Menschen?</div>
+</section>
+
+<section class="card" id="menschen">
+<h2>Wer lebte im Kloster?</h2>
+<p>In und um ein Kloster lebten unterschiedliche Menschen. Nicht alle hatten dieselben Aufgaben, und längst nicht jeder war Mönch.</p>
+<div class="task">
+ <span class="tag">Mehrfachauswahl</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">M1. Wähle alle aus, die typischerweise zu einer Klostergemeinschaft oder ihrem Umfeld gehörten.</legend>
+  <div class="opts">
+   <label><input type="checkbox" name="m1" value="moenche"><span>Mönche oder Nonnen</span></label>
+   <label><input type="checkbox" name="m1" value="abt"><span>Ein Abt oder eine Äbtissin als Leitung</span></label>
+   <label><input type="checkbox" name="m1" value="laienbrueder"><span>Laienbrüder für die Arbeit auf dem Klostergut</span></label>
+   <label><input type="checkbox" name="m1" value="ritterheer"><span>Ein eigenes Ritterheer für Eroberungen</span></label>
+   <label><input type="checkbox" name="m1" value="koenigshof"><span>Der König mit seinem Hofstaat, dauerhaft</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="m1Check">Prüfen</button>
+ <button class="btn sec" type="button" id="m1Reset">Zurücksetzen</button>
+ <div class="fb" id="m1Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ursachen">
+<h2>Ursache und Folge</h2>
+<p>Bringe die Kette in die richtige Reihenfolge. Sie beginnt mit der Regel und endet damit, dass altes Wissen erhalten blieb.</p>
+<div class="order" id="chain"></div>
+<button class="btn" type="button" id="cCheck">Kette prüfen</button>
+<button class="btn sec" type="button" id="cReset">Neu mischen</button>
+<div class="fb" id="cFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: Die Benediktsregel</h2>
+<p>Chronos hat den Text herausgesucht, der das Klosterleben im Abendland über Jahrhunderte prägte.</p>
+<div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>Die Regel des heiligen Benedikt (Regula Benedicti), um 540 verfasst von Benedikt von Nursia für sein Kloster auf dem Monte Cassino.</strong></p>
+ <p><em>Inhaltsangabe, kein Wortlaut:</em> Die Regel ordnet das gemeinsame Leben. Sie legt feste Zeiten für das gemeinsame Gebet über den Tag fest, das Stundengebet. Sie schreibt vor, dass die Mönche mit ihren eigenen Händen arbeiten und täglich in heiligen Schriften lesen sollen. Gäste sollen aufgenommen werden, als käme Christus selbst. Wer in die Gemeinschaft eintritt, verspricht Beständigkeit, klösterlichen Lebenswandel und Gehorsam. Niemand soll eigenen Besitz haben, alles gehört der Gemeinschaft.</p>
+</div>
+<div class="task">
+ <span class="tag">Quellenarbeit</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">S1. Was schreibt die Regel vor? Wähle alle zutreffenden Punkte aus.</legend>
+  <div class="opts">
+   <label><input type="checkbox" name="s1" value="gebet"><span>Feste Zeiten für das gemeinsame Gebet</span></label>
+   <label><input type="checkbox" name="s1" value="arbeit"><span>Arbeit mit den eigenen Händen</span></label>
+   <label><input type="checkbox" name="s1" value="lesen"><span>Tägliches Lesen in heiligen Schriften</span></label>
+   <label><input type="checkbox" name="s1" value="gaeste"><span>Gäste aufzunehmen</span></label>
+   <label><input type="checkbox" name="s1" value="besitz"><span>Dass jeder Mönch möglichst viel eigenen Besitz ansammelt</span></label>
+   <label><input type="checkbox" name="s1" value="kampf"><span>Die Ausbildung im Schwertkampf</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="s1Check">Prüfen</button>
+ <button class="btn sec" type="button" id="s1Reset">Zurücksetzen</button>
+ <div class="fb" id="s1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Quellenkritik</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">S2. Von der Regel ist <strong>kein Original</strong> aus Benedikts Hand erhalten. Der Text ist nur in späteren Abschriften überliefert. Um 816 gab Benedikt von Aniane ihr eine einheitliche Fassung. Was folgt daraus?</legend>
+  <div class="opts">
+   <label><input type="radio" name="s2" value="a"><span>Man muss damit rechnen, dass beim Abschreiben und Vereinheitlichen später Kleinigkeiten verändert wurden, und mehrere Handschriften vergleichen</span></label>
+   <label><input type="radio" name="s2" value="b"><span>Der Text ist damit wertlos</span></label>
+   <label><input type="radio" name="s2" value="c"><span>Das spielt keine Rolle, Abschriften sind immer wortgleich</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="s2Check">Prüfen</button>
+ <div class="fb" id="s2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="medien">
+<h2>Ora et labora?</h2>
+<p>„Ora et labora“, bete und arbeite. Diesen Spruch findest du auf Klostermauern, in Schulbüchern und auf Postkarten. Sieh ihn dir genauer an.</p>
+<div class="notice warn"><strong>Fachlich wichtig:</strong> Der Merkspruch „ora et labora“ steht so <strong>nicht in der Benediktsregel</strong>. Er ist eine spätere Kurzformel, die erst im Spätmittelalter geprägt wurde. Der vollständige spätere Spruch lautet <em>„Ora et labora et lege, Deus adest sine mora“</em>, also „Bete und arbeite und lies, so ist Gott ohne Verzug da“. Der Inhalt, der Dreiklang aus Gebet, Arbeit und Lesung, entspricht der Regel. Die knappe Formel selbst stammt aber nicht von Benedikt.</div>
+<div class="task">
+ <span class="tag">Medienkritik</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">Q1. Wie beurteilst du den Spruch „ora et labora“?</legend>
+  <div class="opts">
+   <label><input type="radio" name="q1" value="a"><span>Er fasst die Regel richtig zusammen, ist aber selbst eine spätere Formel und kein Zitat Benedikts</span></label>
+   <label><input type="radio" name="q1" value="b"><span>Er ist ein wörtlicher Satz aus der Benediktsregel von 540</span></label>
+   <label><input type="radio" name="q1" value="c"><span>Er ist frei erfunden und hat mit den Klöstern nichts zu tun</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="q1Check">Prüfen</button>
+ <div class="fb" id="q1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task" data-lw="weiter">
+ <span class="tag">Weiterdenken · Perspektive</span>
+ <label class="legend" for="q2">Q2. Die Regel verlangt Gebet <em>und</em> Arbeit <em>und</em> Lesung. Der kurze Spruch „ora et labora“ nennt nur zwei davon. Was fehlt, und warum war gerade das für die Klöster so wichtig? Begründe kurz.</label>
+ <textarea id="q2" placeholder="In der Kurzformel fehlt ..., und das war wichtig, weil ..."></textarea>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn" type="button" id="q2Check">Antwort prüfen</button>
+ <div class="fb" id="q2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Kloster</summary><div class="body">Eine Gemeinschaft von Mönchen oder Nonnen, die nach einer festen Regel zusammenleben, meist abgeschieden hinter Mauern.</div></details>
+<details class="gloss"><summary>Benediktsregel</summary><div class="body">Um 540 von Benedikt von Nursia verfasste Ordnung für das Klosterleben. Sie regelt Gebet, Arbeit, Lesung und das Zusammenleben und wurde für das abendländische Mönchtum grundlegend.</div></details>
+<details class="gloss"><summary>Stundengebet</summary><div class="body">Feste Gebetszeiten, über den Tag und teils die Nacht verteilt. Die Mönche kamen mehrmals täglich zum gemeinsamen Gebet zusammen.</div></details>
+<details class="gloss"><summary>Skriptorium</summary><div class="body">Die Schreibstube eines Klosters. Hier schrieben Mönche Bücher von Hand ab. So blieben viele Texte der Antike überhaupt erhalten.</div></details>
+<details class="gloss"><summary>Abt und Äbtissin</summary><div class="body">Die gewählte Leitung eines Klosters. Der Abt oder die Äbtissin sorgte für die Einhaltung der Regel.</div></details>
+<details class="gloss"><summary>Zehnt</summary><div class="body">Eine Abgabe von etwa einem Zehntel des Ertrags an die Kirche. Sie zeigt, wie eng Kirche und Alltag verbunden waren.</div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der vier Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p>
+<div id="selfcheck">
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann erklären, welche Aufgaben Klöster neben dem Gebet hatten.</legend>
+  <div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div>
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann den Tagesablauf nach der Benediktsregel beschreiben.</legend>
+  <div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div>
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann die Benediktsregel als Quelle auswerten und einordnen.</legend>
+  <div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div>
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann prüfen, ob ein bekannter Merkspruch wirklich aus der Zeit stammt.</legend>
+  <div class="scale"><label><input type="radio" name="lc4" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc4" value="Geht schon">Geht schon</label><label><input type="radio" name="lc4" value="Sicher">Sicher</label></div></fieldset></div>
+</div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte">
+ <span class="stamp">Zu prüfen</span>
+ <p>Auf Chronos' Karteikarte steht: <em>„Klöster waren reine Gebetshäuser. Mit dem Alltag der Menschen hatten sie nichts zu tun.“</em></p>
+</div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">A1. Wie entscheidest du?</legend>
+  <div class="opts">
+   <label><input type="radio" name="a1" value="ok"><span>Die Karte stimmt so.</span></label>
+   <label><input type="radio" name="a1" value="teil"><span>Die Karte ist zu einfach. Klöster beteten zwar viel, waren aber auch Orte der Arbeit, der Bildung und der Fürsorge für die Menschen.</span></label>
+   <label><input type="radio" name="a1" value="falsch"><span>Die Karte ist völlig falsch. In Klöstern wurde gar nicht gebetet.</span></label>
+  </div>
+ </fieldset>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine kurze Nachricht. Erkläre in zwei bis vier Sätzen, welche Bedeutung Kirche und Klöster wirklich hatten. Nenne mindestens zwei verschiedene Aufgaben und ein Beispiel aus der Regel oder dem Klosterplan.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, deine Karte muss ergänzt werden, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Klöster beteten zwar viel, aber ...“ · „Außerdem arbeiteten die Mönche, zum Beispiel ...“ · „Wichtig war auch die Fürsorge, denn ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Nachricht prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 9</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" onclick="window.print()">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <details class="gloss"><summary>Vollständigen Datenüberblick anzeigen</summary><div class="body"><pre class="pay" id="payloadView"></pre></div></details>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card teacher" id="lehrkraft">
+<h2>Hinweise für die Lehrkraft</h2>
+<div class="grid2">
+ <div><h3>Fachlich</h3><ul>
+  <li>Jahrgang 6, Oberschule Niedersachsen</li>
+  <li>Themenbereich: Mittelalterliche Lebenswelten</li>
+  <li>Kern: Kirche und Klöster als Orte von Gebet, Arbeit, Bildung und Fürsorge, Benediktsregel, Quellenkritik</li>
+  <li>Anschluss an Modul 005: Neben Burg und Stadt tritt das Kloster als dritter prägender Ort</li>
+  <li>Vorbereitung auf Modul 007: Wie begegneten sich Christentum, Judentum und Islam?</li>
+ </ul></div>
+ <div><h3>Kompetenzen</h3><ul>
+  <li>Sachkompetenz: Aufgaben der Klöster unterscheiden, Fachbegriffe</li>
+  <li>Methodenkompetenz: Planarbeit, Quellenauswertung, Ursache-Folge-Kette</li>
+  <li>Urteilskompetenz: Aussage prüfen und begründet korrigieren</li>
+  <li>Orientierungskompetenz: Bedeutung der Klöster für Wissensbewahrung einordnen</li>
+  <li>Medienkompetenz: den Merkspruch „ora et labora“ auf seine Herkunft prüfen</li>
+ </ul></div>
+</div>
+<h3>Differenzierung</h3>
+<ul>
+ <li><strong>Sicher werden:</strong> Hilfekasten bei der Zuordnung, Satzanfänge für die Abschlussmission</li>
+ <li><strong>Standard:</strong> vollständige Aufgabenfolge</li>
+ <li><strong>Weiterdenken:</strong> Zusatzaufgabe Q2 zur fehlenden Lesung in der Kurzformel</li>
+</ul>
+<h3>Typische Fehlvorstellungen</h3>
+<ul>
+ <li>Klöster seien reine Gebetshäuser ohne Bezug zum Alltag gewesen</li>
+ <li>„Ora et labora“ sei ein wörtliches Zitat Benedikts</li>
+ <li>Mönche hätten nur gebetet und nicht gearbeitet</li>
+ <li>Wissen der Antike sei im Mittelalter einfach verloren gegangen</li>
+</ul>
+</section>
+
+<section class="card doc" id="doku">
+<h2>Quellen und fachliche Grundlage</h2>
+<ul>
+ <li>Schriftliche Quelle: Regula Benedicti (Benediktsregel), verfasst um 540 von Benedikt von Nursia. Im Modul als Inhaltsangabe wiedergegeben, nicht im Wortlaut. Die Regel umfasst einen Prolog und 73 Kapitel und regelt unter anderem das Stundengebet (Kap. 8 bis 20), die tägliche Handarbeit und Lesung (Kap. 48), die Aufnahme von Gästen (Kap. 53) sowie die Gelübde (Kap. 58).</li>
+ <li>Wichtig und im Modul thematisiert: Von der Regel ist kein Original aus Benedikts Hand erhalten. Der Text ist nur in späteren Abschriften überliefert. Um 816 gab Benedikt von Aniane ihr eine einheitliche Fassung.</li>
+ <li>Der Merkspruch „ora et labora“ steht so nicht in der Regel. Er ist eine spätere Kurzformel, in der vollständigen Form „Ora et labora et lege, Deus adest sine mora“ überliefert. Der Inhalt entspricht der Regel, die knappe Formel selbst wird Benedikt nur zugeschrieben.</li>
+ <li>Alle Abbildungen sind eigene schematische Zeichnungen. Sie zeigen kein reales Kloster und sind keine historischen Quellen.</li>
+ <li>Es werden keine wörtlichen Zitate erfunden und keine erfundenen Quellen verwendet.</li>
+ <li>Version 1.0.0, 26.07.2026. Keine externen Bibliotheken, keine Cookies, kein Tracking.</li>
+</ul>
+</section>
+</main></div>
+<footer>SOL Geschichte 6 · Modul 006 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-6" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-6"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={modul:"006",titel:"Welche Bedeutung hatten Kirche und Klöster?",
+ bereich:"Mittelalterliche Lebenswelten",version:"1.0.0",
+ key:"sol-geschichte-006",
+ endpoint:"https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec",
+ maxPunkte:9};
+const S={lernweg:"standard",done:{},punkte:{},hotIdx:0,hotOk:0,placed:{},chain:[],sent:false,q2:"nicht bearbeitet"};
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","dazu"];
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+const SCHRITTE=["start","diagnose","hot","zuord","m1","chain","s1","q1","lerncheck","a2"];
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ $("#abz1").classList.toggle("on",!!S.done.hot);
+ $("#abz2").classList.toggle("on",!!(S.done.zuord&&S.done.chain));
+ $("#abz3").classList.toggle("on",!!(S.done.q1&&S.done.s1));
+ $("#abz4").classList.toggle("on",S.punkte.a2>=1);
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge. Einige Zusatzaufgaben werden ausgeblendet.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Aufgabe zur Kurzformel."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 6a."};
+ const m=t.match(/6([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 6. Schreibe zum Beispiel 6a, Klasse 6b oder nur 6."};
+ return{ok:true,wert:"6"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb","Alles bereit. Chronos wartet schon. Es geht weiter mit der Mission.","ok");
+ location.hash="mission";
+});
+
+/* ---------- Startdiagnose ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const g=n=>(document.querySelector('input[name="'+n+'"]:checked')||{}).value;
+ const a=[g("d1")==="a",g("d2")==="r",g("d3")==="a"];
+ const r=a.filter(Boolean).length;
+ let m;
+ if(r===3)m="Drei von drei. Deine Vermutungen passen gut. Der Lernweg Weiterdenken könnte für dich spannend sein.";
+ else if(r===2)m="Zwei von drei. Gute Grundlage. Achte im Modul besonders darauf, wie viele verschiedene Aufgaben ein Kloster gleichzeitig hatte.";
+ else m="Du hast "+r+" von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.";
+ if(g("d1")!=="a")m+=" Ein Hinweis vorab: Der Tag im Kloster war ein fester Wechsel aus Gebet, Arbeit und Lesung.";
+ fb("#dFb",m,r>=2?"ok":"hint");
+ fertig("diagnose");
+});
+
+/* ---------- Planarbeit: Räume finden ---------- */
+const HOT=[
+ {id:"hKirche",name:"Klosterkirche",tipp:"Gesucht ist der größte Bau. Hier kamen die Mönche mehrmals täglich zum gemeinsamen Gebet zusammen.",sich:"Richtig. Die Klosterkirche war das Herz des Klosters. Um sie herum ordnete sich der Tag mit dem Stundengebet."},
+ {id:"hSkript",name:"Schreibstube (Skriptorium)",tipp:"Gesucht ist der helle Raum mit den Schreibpulten. Hier schrieben Mönche Bücher von Hand ab und bewahrten so altes Wissen.",sich:"Richtig. Im Skriptorium wurden Texte abgeschrieben. Dadurch blieben viele Werke der Antike überhaupt erhalten."},
+ {id:"hGast",name:"Gästehaus und Krankenpflege",tipp:"Gesucht ist der Bereich, in dem Reisende, Arme und Kranke aufgenommen und versorgt wurden.",sich:"Richtig. Die Benediktsregel verlangte, Gäste aufzunehmen, als käme Christus selbst. Viele Klöster pflegten auch Kranke."}
+];
+const ALLEHOT=[{id:"hKirche",name:"Klosterkirche"},{id:"hSkript",name:"Schreibstube"},{id:"hGast",name:"Gästehaus"},{id:"hKreuzgang",name:"Kreuzgang"},{id:"hRefek",name:"Speisesaal"},{id:"hDorm",name:"Schlafsaal"}];
+function hotAufgabe(){
+ if(S.hotIdx>=HOT.length){
+  $("#hotTask").textContent="Alle drei Räume gefunden. Chronos hat die Beschriftungen wieder eingeklebt.";
+  $("#hotAlt").innerHTML="";return;
+ }
+ const z=HOT[S.hotIdx];
+ $("#hotTask").textContent="Suchauftrag "+(S.hotIdx+1)+" von 3: Finde den Raum, der zu dieser Beschreibung passt. "+z.tipp;
+ $("#hotAlt").innerHTML=ALLEHOT.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.name+'</button>').join("");
+ $$("#hotAlt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(b.dataset.hot)));
+}
+function hotWahl(id){
+ const z=HOT[S.hotIdx]; if(!z)return;
+ const el=document.getElementById(id);
+ if(id===z.id){
+  S.hotOk++; S.hotIdx++;
+  if(el)el.style.filter="drop-shadow(0 0 6px #17633b)";
+  fb("#hotFb",z.sich,"ok");
+  if(S.hotIdx>=HOT.length){fertig("hot",1);fb("#hotFb",z.sich+" Damit sind alle drei gefunden. Abzeichen Planleser freigeschaltet.","ok");}
+  hotAufgabe();
+ }else{
+  const gew=ALLEHOT.find(x=>x.id===id);
+  fb("#hotFb","Das ist „"+(gew?gew.name:"unbekannt")+"“. "+z.tipp,"hint");
+ }
+ speichern();
+}
+$$(".hot").forEach(g=>{
+ g.addEventListener("click",()=>hotWahl(g.id));
+ g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(g.id);}});
+});
+$("#hotReset").addEventListener("click",()=>{
+ S.hotIdx=0;S.hotOk=0;delete S.done.hot;delete S.punkte.hot;
+ $$(".hot").forEach(g=>g.style.filter="");
+ fbClear("#hotFb");hotAufgabe();fortschritt();speichern();
+});
+
+/* ---------- Zuordnung mit Ziehen oder Antippen ---------- */
+const KARTEN=[
+ {id:"k1",text:"Stundengebet zu festen Zeiten",zone:"gebet"},
+ {id:"k2",text:"Die Messe für die Menschen der Umgebung",zone:"gebet"},
+ {id:"k3",text:"Anbau von Getreide, Wein und Kräutern",zone:"arbeit"},
+ {id:"k4",text:"Rodung von Wäldern und Urbarmachung von Land",zone:"arbeit"},
+ {id:"k5",text:"Bücher abschreiben und in der Bibliothek sammeln",zone:"wissen"},
+ {id:"k6",text:"Unterricht in Lesen, Schreiben und Latein",zone:"wissen"},
+ {id:"k7",text:"Kranke im Hospital pflegen",zone:"fuersorge"},
+ {id:"k8",text:"Reisende und Arme aufnehmen und speisen",zone:"fuersorge"}
+];
+let gewaehlt=null;
+function karteHtml(k){return '<button type="button" class="piece" draggable="true" data-k="'+k.id+'" aria-pressed="false">'+k.text+'</button>';}
+function zeichneKarten(){
+ const offen=KARTEN.filter(k=>!S.placed[k.id]);
+ $("#pieces").innerHTML=offen.map(karteHtml).join("")||'<span class="hint">Alle Karten sind zugeordnet.</span>';
+ $$("#zones .drop").forEach(d=>d.innerHTML="");
+ KARTEN.forEach(k=>{const z=S.placed[k.id];
+  if(z){const d=document.querySelector('.zone[data-zone="'+z+'"] .drop');if(d)d.insertAdjacentHTML("beforeend",karteHtml(k));}});
+ bindeKarten();
+}
+function bindeKarten(){
+ $$(".piece").forEach(p=>{
+  p.addEventListener("click",()=>{
+   const zoneVonKarte=S.placed[p.dataset.k];
+   if(gewaehlt&&gewaehlt!==p.dataset.k&&zoneVonKarte){ablegen(zoneVonKarte);return;}
+   if(gewaehlt===p.dataset.k){gewaehlt=null;p.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gewaehlt=p.dataset.k;p.setAttribute("aria-pressed","true");
+   fb("#zFb","Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  p.addEventListener("dragstart",e=>{gewaehlt=p.dataset.k;e.dataTransfer.setData("text/plain",p.dataset.k);});
+ });
+}
+function ablegen(zone){
+ if(!gewaehlt){fb("#zFb","Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[gewaehlt]=zone;gewaehlt=null;zeichneKarten();fbClear("#zFb");speichern();
+}
+$$(".zone").forEach(z=>{
+ z.addEventListener("click",()=>ablegen(z.dataset.zone));
+ z.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(z.dataset.zone);}});
+ z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+ z.addEventListener("dragleave",()=>z.classList.remove("over"));
+ z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");
+  const id=e.dataTransfer.getData("text/plain")||gewaehlt;if(id){S.placed[id]=z.dataset.zone;gewaehlt=null;zeichneKarten();speichern();}});
+});
+$("#zCheck").addEventListener("click",()=>{
+ const offen=KARTEN.filter(k=>!S.placed[k.id]);
+ if(offen.length){fb("#zFb","Es sind noch "+offen.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+ let richtig=0;
+ KARTEN.forEach(k=>{
+  const el=document.querySelector('.piece[data-k="'+k.id+'"]');
+  const ok=S.placed[k.id]===k.zone; if(ok)richtig++;
+  if(el)el.classList.add(ok?"ok":"no");
+ });
+ if(richtig===KARTEN.length){fertig("zuord",1);
+  fb("#zFb","Alle acht richtig. Genau das zeigt die Bedeutung der Klöster: Sie beteten, wirtschafteten, bewahrten Wissen und sorgten für andere Menschen, alles an einem Ort.","ok");}
+ else{fb("#zFb",richtig+" von 8 stimmen bereits. Die grün umrandeten Karten sitzen richtig. Prüfe bei den rot umrandeten: Geht es ums Beten, ums Arbeiten und Wirtschaften, ums Wissen, oder um die Sorge für andere?","hint");}
+ speichern();
+});
+$("#zReset").addEventListener("click",()=>{S.placed={};gewaehlt=null;delete S.done.zuord;delete S.punkte.zuord;zeichneKarten();fbClear("#zFb");fortschritt();speichern();});
+
+/* ---------- Mehrfachauswahl ---------- */
+$("#m1Check").addEventListener("click",()=>{
+ const sel=$$('input[name="m1"]:checked').map(i=>i.value);
+ const soll=["moenche","abt","laienbrueder"];
+ const fehlt=soll.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!soll.includes(x));
+ if(!fehlt.length&&!zuviel.length){fertig("m1",1);
+  fb("#m1Fb","Richtig. Zur Gemeinschaft gehörten die Mönche oder Nonnen, an ihrer Spitze der Abt oder die Äbtissin, und die Laienbrüder, die vor allem die Arbeit auf dem Klostergut leisteten.","ok");}
+ else{let m="";
+  if(zuviel.includes("ritterheer"))m+="Ein eigenes Ritterheer für Eroberungen gehörte nicht zum Kloster. Klöster waren Orte des Gebets und der Arbeit. ";
+  if(zuviel.includes("koenigshof"))m+="Der König reiste mit seinem Hof umher und wohnte nicht dauerhaft im Kloster. ";
+  if(fehlt.length)m+="Es fehlen noch "+fehlt.length+" Gruppen, die wirklich dazugehörten. ";
+  fb("#m1Fb",m+"Denke daran, wer im Kloster lebte und die Arbeit machte.","hint");}
+ speichern();
+});
+$("#m1Reset").addEventListener("click",()=>{$$('input[name="m1"]').forEach(i=>i.checked=false);delete S.done.m1;delete S.punkte.m1;fbClear("#m1Fb");fortschritt();speichern();});
+
+/* ---------- Ursache-Folge-Kette ---------- */
+const KETTE=[
+ "Benedikt von Nursia schreibt um 540 eine Regel für das gemeinsame Klosterleben.",
+ "Viele Klöster übernehmen die Regel und ordnen den Tag nach Gebet, Arbeit und Lesung.",
+ "In den Schreibstuben schreiben Mönche Bücher ab und sammeln sie in Bibliotheken.",
+ "So bleibt altes Wissen über Jahrhunderte erhalten und wird weitergegeben."
+];
+function zeichneKette(){
+ $("#chain").innerHTML=S.chain.map((i,pos)=>
+  '<div class="orow"><span>'+KETTE[i]+'</span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben">&#8593;</button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten">&#8595;</button></div>').join("");
+ $$("#chain button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=S.chain.length)return;
+  const t=S.chain[p];S.chain[p]=S.chain[n];S.chain[n]=t;zeichneKette();speichern();}));
+}
+function mischeKette(){
+ do{S.chain=[0,1,2,3].sort(()=>Math.random()-.5);}while(S.chain.join("")==="0123");
+ zeichneKette();
+}
+$("#cCheck").addEventListener("click",()=>{
+ const ok=S.chain.join("")==="0123";
+ if(ok){fertig("chain",1);fb("#cFb","Genau. Am Anfang steht die Regel, nicht das fertige Buch. Erst durch das geordnete Klosterleben und die Schreibstuben blieb altes Wissen über die Jahrhunderte erhalten.","ok");}
+ else{
+  const richtigePos=S.chain.filter((v,i)=>v===i).length;
+  fb("#cFb",richtigePos+" von 4 stehen schon an der richtigen Stelle. Frage dich: Was war zuerst da, die Regel oder die Bibliothek? Und was musste geschehen, bevor Bücher gesammelt werden konnten?","hint");}
+ speichern();
+});
+$("#cReset").addEventListener("click",()=>{mischeKette();delete S.done.chain;delete S.punkte.chain;fbClear("#cFb");fortschritt();speichern();});
+
+/* ---------- Quellenarbeit Benediktsregel ---------- */
+$("#s1Check").addEventListener("click",()=>{
+ const sel=$$('input[name="s1"]:checked').map(i=>i.value);
+ const soll=["gebet","arbeit","lesen","gaeste"];
+ const fehlt=soll.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!soll.includes(x));
+ if(!fehlt.length&&!zuviel.length){fertig("s1",1);
+  fb("#s1Fb","Genau. Die Regel verlangt festes Gebet, Arbeit mit den Händen, tägliche Lesung und die Aufnahme von Gästen. Gerade dieser Dreiklang aus Beten, Arbeiten und Lesen machte die Klöster zu Orten des Wissens.","ok");}
+ else{let m="";
+  if(zuviel.includes("besitz"))m+="Das Gegenteil ist richtig: Niemand sollte eigenen Besitz haben, alles gehörte der Gemeinschaft. ";
+  if(zuviel.includes("kampf"))m+="Schwertkampf stand nicht in der Regel, das gehörte zum Rittertum, nicht ins Kloster. ";
+  if(fehlt.includes("gaeste"))m+="Ein wichtiger Punkt der Regel betrifft die Gäste. ";
+  else if(fehlt.length)m+="Lies noch einmal, was die Regel über den Tagesablauf sagt. ";
+  fb("#s1Fb",m+"Es sind vier richtige Punkte.","hint");}
+ speichern();
+});
+$("#s1Reset").addEventListener("click",()=>{$$('input[name="s1"]').forEach(i=>i.checked=false);delete S.done.s1;delete S.punkte.s1;fbClear("#s1Fb");fortschritt();speichern();});
+$("#s2Check").addEventListener("click",()=>{
+ const v=(document.querySelector('input[name="s2"]:checked')||{}).value;
+ if(v==="a"){S.punkte.s2=1;fortschritt();
+  fb("#s2Fb","Richtig. Weil kein Original erhalten ist und der Text später vereinheitlicht wurde, vergleichen Fachleute mehrere Handschriften. Die Regel bleibt eine sehr wertvolle Quelle, man muss nur wissen, dass man Abschriften vor sich hat.","ok");}
+ else if(v==="b"){fb("#s2Fb","Nicht ganz. Eine späte Abschrift macht eine Quelle nicht wertlos. Fast alle mittelalterlichen Texte kennen wir nur als Abschrift. Man muss sie nur sorgfältig prüfen.","hint");}
+ else if(v){fb("#s2Fb","Noch nicht. Überlege, was beim Abschreiben von Hand und beim späteren Vereinheitlichen passieren kann.","hint");}
+ else{fb("#s2Fb","Bitte wähle zuerst eine Antwort aus.","hint");}
+ speichern();
+});
+
+/* ---------- Medienkritik ---------- */
+$("#q1Check").addEventListener("click",()=>{
+ const v=(document.querySelector('input[name="q1"]:checked')||{}).value;
+ if(v==="a"){fertig("q1",1);
+  fb("#q1Fb","Richtig. Der Spruch fasst die Regel gut zusammen, ist aber selbst eine spätere Kurzformel und kein Zitat Benedikts. Der vollständige Spruch nennt sogar drei Dinge: beten, arbeiten und lesen. Merksätze sind praktisch, aber sie sind keine Quellen.","ok");}
+ else if(v){fb("#q1Fb","Noch nicht. Zwei Dinge sind zu trennen: Passt der Inhalt zur Regel, und stammt die knappe Formel wirklich von Benedikt? Lies den Hinweiskasten noch einmal.","hint");}
+ else{fb("#q1Fb","Bitte wähle zuerst eine Antwort aus.","hint");}
+ speichern();
+});
+$("#q2Check")&&$("#q2Check").addEventListener("click",()=>{
+ const t=norm($("#q2").value);
+ if(t.length<40){S.q2="zu knapp";fb("#q2Fb","Deine Antwort ist noch sehr kurz. Nenne zuerst, was in der Kurzformel fehlt, und erkläre dann mit „weil“, warum das wichtig war.","hint");speichern();return;}
+ const lesung=hat(t,["lese","lesung","lege","schrift","buch","bibel","abschreib","bildung","wissen","bibliothek"]);
+ const verkn=hat(t,VERKN);
+ if(lesung&&verkn){S.q2="plausibel";fb("#q2Fb","Sehr gut. Genau, in der Kurzformel fehlt die Lesung. Gerade das Lesen und Abschreiben machte die Klöster zu Orten, an denen altes Wissen bewahrt und weitergegeben wurde.","ok");}
+ else if(lesung){S.q2="teilweise plausibel";fb("#q2Fb","Du hast erkannt, dass die Lesung fehlt. Ergänze jetzt noch eine Begründung, warum gerade das Lesen für die Klöster so wichtig war. Beginne mit „weil ...“.","hint");}
+ else{S.q2="noch nicht ausreichend";fb("#q2Fb","Vergleiche die kurze Formel mit dem vollständigen Spruch. Welches der drei Dinge, beten, arbeiten, lesen, fehlt in „ora et labora“? Nenne es und begründe.","hint");}
+ speichern();
+});
+
+/* ---------- Abschlussmission ---------- */
+function a2Bewerten(){
+ const roh=$("#a2").value, t=norm(roh);
+ if(t.length<50)return{p:0,lab:"zu knapp",msg:"Chronos braucht mehr als einen Satz. Schreibe zwei bis vier Sätze. Beginne mit: „Klöster beteten zwar viel, aber ...“ und ergänze dann eine zweite Aufgabe."};
+ const gebet=hat(t,["gebet","beten","gottesdienst","messe","stundengebet"]);
+ const arbeit=hat(t,["arbeit","feld","acker","wein","kraut","rodung","hand","wirtschaft","gut"]);
+ const wissen=hat(t,["buch","abschreib","schreib","bildung","wissen","schule","latein","bibliothek","lesen","lese"]);
+ const fuersorge=hat(t,["arm","krank","reisend","gast","gaeste","hospital","pflege","fursorg","versorg"]);
+ const verkn=hat(t,VERKN);
+ const genugSaetze=saetze(roh)>=2;
+ const wort=t.split(/\s+/).filter(Boolean).length;
+ if(wort<12)return{p:0,lab:"zu knapp",msg:"Das sind noch sehr wenige Wörter. Nenne mindestens zwei verschiedene Aufgaben der Klöster."};
+ const treffer=[gebet,arbeit,wissen,fuersorge].filter(Boolean).length;
+ if(treffer>=2&&verkn&&genugSaetze)
+  return{p:1,lab:"vollständig",msg:"Sehr gut. Du hast mehrere Aufgaben der Klöster verbunden statt nur eine zu nennen. Genau darum ging es: Kirche und Klöster waren Orte des Gebets, aber zugleich der Arbeit, der Bildung und der Fürsorge. Abzeichen Begründer freigeschaltet."};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(treffer<2)m+="Nenne mindestens zwei verschiedene Aufgaben, zum Beispiel Gebet und Bücherabschreiben oder Arbeit und Krankenpflege. ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „dadurch“ oder „deshalb“. ";
+ if(!genugSaetze)m+="Schreibe mindestens zwei Sätze. ";
+ return{p:.5,lab:"teilweise",msg:m.trim()};
+}
+$("#a2Check").addEventListener("click",()=>{
+ const r=a2Bewerten();
+ fb("#a2Fb",r.msg,r.p>=1?"ok":"hint");
+ S.punkte.a2=r.p;S.a2lab=r.lab;
+ if(r.p>0)fertig("a2",r.p);else{fortschritt();speichern();}
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3,4].map(i=>(document.querySelector('input[name="lc'+i+'"]:checked')||{}).value||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ const v=lerncheckWerte();
+ if(v.every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;delete S.punkte.lerncheck;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ // Bewusst ohne CSS.escape: das ist nicht in allen Browsern verfuegbar und
+ // wuerde die gesamte Wiederherstellung abbrechen lassen.
+ Object.entries(d.radios||{}).forEach(([n,v])=>{
+  $$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;
+  const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return ["hot","zuord","m1","chain","s1","q1","a1","a2","lerncheck"].reduce((s,k)=>s+(S.punkte[k]||0),0);}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=punkteGesamt(), pct=Math.round(pkt/CFG.maxPunkte*100);
+ const luecken=[];
+ [["hot","Orte auf dem Klosterplan"],["zuord","Was ein Kloster leistete"],["m1","Klostergemeinschaft"],["chain","Ursache und Folge"],["s1","Benediktsregel"],["q1","Merkspruch prüfen"],["a1","Abschlussentscheidung"],["a2","Begründung"]]
+  .forEach(([k2,n])=>{if(!(S.punkte[k2]>=1))luecken.push(n);});
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"6",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:{orte:S.punkte.hot||0,zuordnung:S.punkte.zuord||0,bewohner:S.punkte.m1||0,
+   ursache_folge:S.punkte.chain||0,quellenarbeit:S.punkte.s1||0,medienkritik:S.punkte.q1||0,entscheidung:S.punkte.a1||0,
+   begruendung:S.punkte.a2||0,lerncheck:S.punkte.lerncheck||0},
+  freitexte:{leitfrage:$("#a2").value.trim(),
+   nachricht_an_chronos:$("#a2").value.trim(),
+   sachquelle_weiterdenken:($("#q2")?$("#q2").value.trim():""),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},
+  bewertung_freitexte:{begruendung:S.a2lab||"nicht bearbeitet",sachquelle:S.q2||"nicht bearbeitet"},
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:CFG.maxPunkte,prozent:pct,
+  auffaelligkeiten:luecken,
+  /* --- Felder im Schema der bestehenden Geschichtsreihe ---
+     aufgaben ist ein Objekt mit correct-Feldern, daraus berechnet das Apps Script
+     aufgaben_richtig und aufgaben_gesamt. Die Kompetenzen sind 0 oder 1, nicht Prozent. --- */
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:{
+   orte_auf_dem_plan:{correct:(S.punkte.hot||0)>=1},
+   zuordnung:{correct:(S.punkte.zuord||0)>=1},
+   gemeinschaft:{correct:(S.punkte.m1||0)>=1},
+   wirkungskette:{correct:(S.punkte.chain||0)>=1},
+   quelle_regel:{correct:(S.punkte.s1||0)>=1},
+   quellenkritik:{correct:(S.punkte.s2||0)>=1},
+   merkspruch:{correct:(S.punkte.q1||0)>=1},
+   entscheidung:{correct:(S.punkte.a1||0)>=1},
+   begruendung:{correct:(S.punkte.a2||0)>=1}
+  },
+  kompetenzen:{
+   fachwissen:eins((S.punkte.hot||0)>=1&&(S.punkte.m1||0)>=1),
+   zeit_raum:eins((S.punkte.s2||0)>=1),
+   quellenarbeit:eins((S.punkte.s1||0)>=1),
+   ursachen_folgen:eins((S.punkte.chain||0)>=1),
+   perspektivitaet:eins((S.punkte.q1||0)>=1),
+   historisches_urteil:eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1)
+  },
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:CFG.maxPunkte,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:(crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2)};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 6, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(){
+ if(!pflichtOk(true)){location.hash="start";return null;}
+ const a1=(document.querySelector('input[name="a1"]:checked')||{}).value;
+ if(a1==="teil"){S.punkte.a1=1;}else if(a1){S.punkte.a1=0;}
+ if(!a1){fb("#sendFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung zur Karteikarte.","bad");location.hash="abschluss";return null;}
+ if(!lerncheckWerte().every(Boolean)){fb("#sendFb","Bitte fülle zuerst alle vier Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";return null;}
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80
+  ?"Du kannst mit Modul 007 zur Begegnung von Christentum, Judentum und Islam weiterarbeiten."
+  :(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+".":"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const namen={orte:"Orte auf dem Klosterplan",zuordnung:"Was ein Kloster leistete",bewohner:"Klostergemeinschaft",ursache_folge:"Ursache und Folge",quellenarbeit:"Benediktsregel",medienkritik:"Merkspruch prüfen",entscheidung:"Abschlussentscheidung",begruendung:"Begründung",lerncheck:"Lerncheck"};
+ $("#analyse").innerHTML=Object.entries(p.ergebnisse).map(([k,v])=>
+  "<li><strong>"+namen[k]+":</strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)</li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ $("#payloadView").textContent=JSON.stringify(p,null,2);
+ fortschritt();speichern();location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",ergebnisBauen);
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+let letzterPayload=null;
+async function senden(){
+ const p=letzterPayload||ergebnisBauen();
+ if(!p)return; letzterPayload=p;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").filter(s=>!s.classList.contains("teacher")&&!s.classList.contains("doc")).map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+if(!S.chain||S.chain.length!==4)mischeKette();else zeichneKette();
+zeichneKarten();hotAufgabe();fortschritt();
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

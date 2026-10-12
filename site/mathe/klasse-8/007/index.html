@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modul 007 · Sachaufgaben mit Gleichungen | SOL Mathematik 8</title>
+<meta name="description" content="Wie viele Monate war Lea im Fitnessstudio? Wie alt ist Elif? Du lernst, aus einem Text eine Gleichung zu machen und die Antwort sicher zu finden.">
+<link rel="canonical" href="https://www.edmundbruns.com/mathe/klasse-8/007/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3d2a73">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{--brand:#5b3fa0;--brand2:#3d2a73;--soft:#efeafb;--ink:#1c1830;--muted:#5a5670;--line:#d6d0e6;--paper:#f6f4fb;--card:#fff;
+--good:#166534;--goodbg:#ecfdf3;--bad:#991b1b;--badbg:#fff1f1;--warn:#8a4b06;--warnbg:#fff7e6;--focus:#f59e0b;--r:16px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+body.easy{font-size:19px;line-height:1.8;letter-spacing:.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+a{color:var(--brand)}:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.hero{background:linear-gradient(120deg,var(--brand2),var(--brand));color:#fff;padding:22px 0 30px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:.95rem}.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{background:#fff;color:var(--ink);border:0;border-radius:10px;padding:8px 12px;font:inherit;font-weight:600;font-size:.88rem;cursor:pointer}
+.hero-main{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;opacity:.85;margin:0}
+.hero h1{font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.1;margin:.2em 0 .3em}
+.lead{margin:0;max-width:640px;opacity:.95}
+.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:12px 20px;text-align:center;min-width:150px;display:flex;flex-direction:column}
+.badge strong{font-size:2rem;line-height:1.2}
+.progress{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.prog-in{display:flex;align-items:center;gap:14px;padding:10px 18px}
+.track{flex:1;height:10px;background:#e6e1f2;border-radius:9px;overflow:hidden}#bar{height:100%;width:0;background:var(--brand);transition:width .4s}
+#progText{font-size:.85rem;font-weight:700;white-space:nowrap}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:22px;padding-top:22px;padding-bottom:30px;align-items:start}
+#nav{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;position:sticky;top:60px;display:flex;flex-direction:column}
+#nav a{text-decoration:none;color:var(--ink);font-weight:600;padding:8px 12px;border-radius:10px;font-size:.95rem}
+#nav a.done::after{content:" ✓";color:var(--good)}#nav a.active{background:var(--soft);color:var(--brand2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.sec h2{margin:0 0 .6em;font-size:1.6rem}.sec h3{margin:1.2em 0 .4em}
+.facts,.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 18px}
+.facts>div,.summary>div{background:var(--soft);border:1px solid #ddd3f3;border-radius:12px;padding:10px 12px}
+.facts b,.summary b{display:block;font-size:.85rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inp{display:block;margin:0 0 14px}.inp>span:first-child{display:block;font-weight:700;margin-bottom:4px}
+.inp small{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
+input[type=text],input[type=email],input:not([type]),input[inputmode]{width:100%;font:inherit;padding:11px 12px;border:2px solid #b9b2cc;border-radius:10px;background:#fff;color:var(--ink)}
+input:disabled{background:#f2f0f6}
+.inrow{display:flex;align-items:center;gap:8px}.inrow input{max-width:260px}.unit{font-weight:700}
+.inputs{display:flex;flex-wrap:wrap;gap:4px 18px}.inputs .inp{min-width:180px}
+fieldset{border:0;padding:0;margin:0 0 12px}legend{font-weight:700;margin-bottom:6px}
+.ways{display:flex;flex-wrap:wrap;gap:8px}.ways legend{width:100%}
+.way,.chip,.opt{position:relative;cursor:pointer}
+.way input,.chip input{position:absolute;opacity:0;pointer-events:none}
+.way span,.chip span{display:inline-block;border:2px solid #b9b2cc;border-radius:12px;padding:9px 14px;font-weight:700;background:#fff}
+.way input:checked+span,.chip input:checked+span{border-color:var(--brand);background:var(--soft);box-shadow:0 0 0 2px var(--brand) inset}
+.way input:focus-visible+span,.chip input:focus-visible+span{outline:3px solid var(--focus)}
+.chip span{padding:6px 12px;font-size:.92rem;margin:0 6px 6px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;background:#fff}
+.opt input{margin-top:5px;accent-color:var(--brand);width:18px;height:18px}
+.note{background:var(--soft);border-left:5px solid var(--brand);padding:10px 14px;border-radius:10px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:11px;padding:10px 18px;background:var(--brand);color:#fff;cursor:pointer}
+.btn:hover{background:var(--brand2)}.btn.ghost{background:#ece8f5;color:var(--ink)}.btn.ghost:hover{background:#ddd5ee}
+.btn.big{padding:13px 26px;font-size:1.05rem}.btn:disabled{opacity:.55;cursor:default}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
+.fb{margin:10px 0 0;min-height:1em}.fb:empty{display:none}
+.fb.good,.fb.bad,.fb.hint{padding:10px 14px;border-radius:10px}
+.fb.good{background:var(--goodbg);color:var(--good)}.fb.bad{background:var(--badbg);color:var(--bad)}.fb.hint{background:var(--warnbg);color:var(--warn)}
+.fb ul{margin:.4em 0 0;padding-left:1.2em}
+.task{border:1px solid var(--line);border-left:6px solid var(--brand);border-radius:14px;padding:16px 18px;margin:14px 0;background:#fdfcff}
+.task.solved{border-left-color:var(--good)}
+.thead{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font-size:.75rem;font-weight:700;background:var(--soft);color:var(--brand2);border-radius:20px;padding:2px 10px}.tag.plain{background:#eee}.tag.ok{background:var(--goodbg);color:var(--good)}
+.q{margin:0 0 10px}.hints .hint{background:#fffbea;border:1px solid #f5e3a3;border-radius:10px;padding:8px 12px;margin-top:8px}.hint.sol{background:#f0f9ff;border-color:#bfe0f5}
+.merk{background:var(--soft);border:2px solid var(--brand);border-radius:14px;padding:12px 16px;margin:14px 0}.merk b:first-child{color:var(--brand2)}
+.goals li{margin:.3em 0}.terms div{margin:0 0 8px}.terms dt{font-weight:700}.terms dd{margin:0;color:var(--muted)}
+.steps li{margin:8px 0;padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.story{font-size:1.02rem}.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;margin-bottom:14px;background:#000}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.95em;margin:0 .15em;line-height:1.15}
+.frac>span:first-child{border-bottom:2px solid currentColor;padding:0 .2em}
+.big-math{font-size:1.35rem;font-weight:700}
+.lc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.viz{width:100%;max-width:520px;height:auto;display:block;margin:8px 0}
+.ctl{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:10px 0}.ctl label{font-weight:700}
+.ctl input[type=range]{width:220px;accent-color:var(--brand)}
+.ctl select{font:inherit;padding:8px;border-radius:10px;border:2px solid #b9b2cc}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:34px;color:var(--muted);font-size:.9rem}
+table.tab{border-collapse:collapse;margin:10px 0}table.tab td,table.tab th{border:1px solid var(--line);padding:6px 12px;text-align:center}table.tab th{background:var(--soft)}
+@media (max-width:860px){.layout{grid-template-columns:1fr}#nav{position:static;flex-direction:row;overflow-x:auto;gap:4px;padding:8px;-webkit-overflow-scrolling:touch}#nav a{white-space:nowrap}
+.hero-main{flex-direction:column;align-items:flex-start}.badge{flex-direction:row;gap:10px;align-items:baseline;min-width:0}.badge strong{font-size:1.3rem}}
+@media (max-width:620px){body{font-size:16px}.card{padding:18px}.facts,.summary{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.inrow input{max-width:none}.pager .btn{padding:10px 12px}}
+@media print{.hero,.progress,#nav,.tools,.actions,.pager,.foot{display:none!important}.layout{display:block}.sec{display:block!important}.sec[hidden]{display:none!important}#sec-ergebnis{display:block!important}body{background:#fff}}
+
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body>
+<div id="app"><noscript><p style="padding:20px">Dieses Lernmodul braucht JavaScript. Bitte aktiviere JavaScript in deinem Browser.</p></noscript></div>
+<script>
+/* SOL Mathe 8 · Rechenhilfen (Brüche, Terme, Zufall). Läuft im Browser und in Node. */
+var M = (function () {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a || 1; }
+  function lcm(a, b) { return Math.abs(a * b) / gcd(a, b); }
+  function rnd(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function nz(a, b) { var v; do { v = rnd(a, b); } while (v === 0); return v; }
+
+  /* Bruch {n,d} immer mit d>0 */
+  function F(n, d) { if (d === undefined) d = 1; if (d === 0) throw new Error('Nenner 0'); if (d < 0) { n = -n; d = -d; } return { n: n, d: d }; }
+  function red(f) { var g = gcd(f.n, f.d); return F(f.n / g, f.d / g); }
+  function fmul(a, b) { return red(F(a.n * b.n, a.d * b.d)); }
+  function fdiv(a, b) { return red(F(a.n * b.d, a.d * b.n)); }
+  function fadd(a, b) { return red(F(a.n * b.d + b.n * a.d, a.d * b.d)); }
+  function feq(a, b) { return a.n * b.d === b.n * a.d; }
+  function isReduced(f) { return gcd(f.n, f.d) === 1; }
+  function fstr(f) { f = red(f); return f.d === 1 ? String(f.n) : f.n + '/' + f.d; }
+  function fhtml(f, keep) {
+    if (!keep) f = red(f);
+    if (f.d === 1) return '<span class="num">' + fmtNum(f.n) + '</span>';
+    var s = f.n < 0 ? '−' : '';
+    return s + '<span class="frac"><span>' + Math.abs(f.n) + '</span><span>' + f.d + '</span></span>';
+  }
+  function fmtNum(x, dec) {
+    if (dec === undefined) { var r = Math.round(x * 1e6) / 1e6; dec = (String(r).split('.')[1] || '').length; }
+    var s = Math.abs(x).toFixed(dec).replace('.', ',');
+    var parts = s.split(','); parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return (x < 0 ? '−' : '') + parts.join(',');
+  }
+
+  function clean(s) {
+    return String(s == null ? '' : s).trim()
+      .replace(/[−–—]/g, '-').replace(/[·×⋅]/g, '*').replace(/:/g, '/').replace(/÷/g, '/')
+      .replace(/\s+/g, ' ');
+  }
+  /* Zahl aus Eingabe: "1,5" "1.5" "-3" "1 000" ; null wenn keine Zahl */
+  function parseNum(s) {
+    s = clean(s).replace(/\s(?=\d{3}\b)/g, '').replace(/(mm²|cm²|dm²|m²|cm³|dm³|m³|mm|cm|dm|km|m|€|%|°|grad)$/i, '').trim();
+    if (!/^[+-]?(\d+([.,]\d+)?|[.,]\d+)$/.test(s)) return null;
+    return parseFloat(s.replace(',', '.'));
+  }
+  /* Bruch aus Eingabe: "3/4", "-3/4", "1 1/2", "0,75", "2" ; null wenn ungültig */
+  function parseFrac(s) {
+    s = clean(s);
+    var m;
+    if ((m = s.match(/^([+-])?\s*(\d+)\s+(\d+)\s*\/\s*(\d+)$/))) { var d = +m[4]; if (!d) return null; var f = F(+m[2] * d + +m[3], d); if (m[1] === '-') f.n = -f.n; f.mixed = true; return f; }
+    if ((m = s.match(/^([+-])?\s*\(?\s*(\d+)\s*\/\s*(\d+)\s*\)?$/))) { if (!+m[3]) return null; var g = F(+m[2], +m[3]); if (m[1] === '-') g.n = -g.n; return g; }
+    var x = parseNum(s); if (x === null) return null;
+    var den = 1; while (Math.abs(x * den - Math.round(x * den)) > 1e-9 && den < 1e6) den *= 10;
+    var r = red(F(Math.round(x * den), den)); r.decimal = true; return r;
+  }
+
+  /* ---------- Terme: Parser und Auswertung ---------- */
+  function tokenize(s) {
+    s = clean(s).toLowerCase().replace(/²/g, '^2').replace(/³/g, '^3').replace(/,/g, '.');
+    var out = [], i = 0;
+    while (i < s.length) {
+      var c = s[i];
+      if (c === ' ') { i++; continue; }
+      if (/[0-9.]/.test(c)) { var j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++; var num = s.slice(i, j); if (!/^\d*\.?\d+$|^\d+\.$/.test(num)) throw new Error('Zahl'); out.push({ t: 'n', v: parseFloat(num) }); i = j; continue; }
+      if (/[a-z]/.test(c)) { out.push({ t: 'v', v: c }); i++; continue; }
+      if ('+-*/^()'.indexOf(c) >= 0) { out.push({ t: c }); i++; continue; }
+      throw new Error('Zeichen ' + c);
+    }
+    /* implizite Multiplikation: 3x, 2(, )(, x(, )x, xy */
+    var res = [];
+    for (var k = 0; k < out.length; k++) {
+      var a = out[k - 1], b = out[k];
+      if (a && (a.t === 'n' || a.t === 'v' || a.t === ')') && (b.t === 'n' || b.t === 'v' || b.t === '(') && !(a.t === 'n' && b.t === 'n')) res.push({ t: '*' });
+      res.push(b);
+    }
+    return res;
+  }
+  function parseTerm(s) {
+    var tk = tokenize(s), p = 0;
+    if (!tk.length) throw new Error('leer');
+    function peek() { return tk[p]; }
+    function eat(t) { if (!tk[p] || tk[p].t !== t) throw new Error('erwartet ' + t); p++; }
+    function expr() { var n = term(); while (peek() && (peek().t === '+' || peek().t === '-')) { var op = tk[p++].t; n = { op: op, a: n, b: term() }; } return n; }
+    function term() { var n = unary(); while (peek() && (peek().t === '*' || peek().t === '/')) { var op = tk[p++].t; n = { op: op, a: n, b: unary() }; } return n; }
+    function unary() { if (peek() && (peek().t === '-' || peek().t === '+')) { var op = tk[p++].t; var u = unary(); return op === '-' ? { op: 'neg', a: u } : u; } return power(); }
+    function power() { var b = atom(); if (peek() && peek().t === '^') { p++; var e = unary(); return { op: '^', a: b, b: e }; } return b; }
+    function atom() {
+      var t = peek(); if (!t) throw new Error('Ende');
+      if (t.t === 'n') { p++; return { num: t.v }; }
+      if (t.t === 'v') { p++; return { v: t.v }; }
+      if (t.t === '(') { p++; var e = expr(); eat(')'); return e; }
+      throw new Error('unerwartet');
+    }
+    var tree = expr(); if (p !== tk.length) throw new Error('Rest');
+    return tree;
+  }
+  function evalTree(n, env) {
+    if (n.num !== undefined) return n.num;
+    if (n.v !== undefined) { if (!(n.v in env)) throw new Error('Variable ' + n.v); return env[n.v]; }
+    var a = evalTree(n.a, env);
+    if (n.op === 'neg') return -a;
+    var b = evalTree(n.b, env);
+    switch (n.op) { case '+': return a + b; case '-': return a - b; case '*': return a * b; case '/': return a / b; case '^': return Math.pow(a, b); }
+    throw new Error('op');
+  }
+  function varsOf(n, set) { set = set || {}; if (!n) return set; if (n.v) set[n.v] = 1; varsOf(n.a, set); varsOf(n.b, set); return set; }
+  /* gleichwertige Terme? prüft an mehreren Stellen */
+  function termEq(s1, s2) {
+    var t1, t2; try { t1 = parseTerm(s1); t2 = parseTerm(s2); } catch (e) { return false; }
+    var vs = Object.keys(Object.assign(varsOf(t1), varsOf(t2)));
+    var pts = [-2.5, -1.3, 0.7, 1.9, 3.1, 4.6];
+    for (var i = 0; i < pts.length; i++) {
+      var env = {}; vs.forEach(function (v, k) { env[v] = pts[(i + k * 2) % pts.length] + k * 0.37; });
+      var a = evalTree(t1, env), b = evalTree(t2, env);
+      if (!isFinite(a) || !isFinite(b) || Math.abs(a - b) > 1e-7 * Math.max(1, Math.abs(a))) return false;
+    }
+    return true;
+  }
+  function termValid(s) { try { parseTerm(s); return true; } catch (e) { return false; } }
+  /* Term schön darstellen: 3x^2 -> 3x², * -> · */
+  function tpretty(s) { return String(s).replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\*/g, '·').replace(/-/g, '−'); }
+  /* lineares Glied a·x mit Vorzeichen für Ausgabe */
+  function mono(c, v, first) {
+    if (c === 0) return first ? '0' : '';
+    var sign = c < 0 ? (first ? '−' : ' − ') : (first ? '' : ' + ');
+    var a = Math.abs(c), core = v ? ((a === 1 ? '' : a) + v) : String(a);
+    return sign + core;
+  }
+  function poly(coeffs) { /* [[c,'x²'],[c,'x'],[c,'']] */
+    var s = '', first = true;
+    coeffs.forEach(function (p) { if (p[0] === 0) return; s += mono(p[0], p[1], first); first = false; });
+    return s || '0';
+  }
+
+  function check(inp, raw) {
+    raw = String(raw == null ? '' : raw).trim();
+    if (inp.kind === 'mc') return raw === '' ? { ok: false, empty: true } : { ok: +raw === inp.answer };
+    if (!raw) return { ok: false, empty: true };
+    if (inp.kind === 'num') { var x = parseNum(raw); if (x === null) return { ok: false, msg: 'Gib eine Zahl ein, zum Beispiel 12 oder 3,5.' }; return { ok: Math.abs(x - inp.answer) <= (inp.tol != null ? inp.tol : 1e-9) }; }
+    if (inp.kind === 'frac') {
+      var f = parseFrac(raw); if (!f) return { ok: false, msg: 'Schreibe den Bruch so: 3/4. Ein gemischter Bruch geht so: 1 1/2.' };
+      var ans = F(inp.answer.n, inp.answer.d);
+      if (!feq(f, ans)) return { ok: false };
+      if (inp.reduce && !f.decimal && !f.mixed && !isReduced(f)) return { ok: false, almost: true, msg: 'Richtig gerechnet. Kürze das Ergebnis noch vollständig.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'term') {
+      if (!termValid(raw)) return { ok: false, msg: 'Der Term ist nicht lesbar. Beispiel: 3x + 12 oder 4(x − 2). Für „hoch 2“ schreibst du x^2.' };
+      if (!termEq(raw, inp.answer)) return { ok: false };
+      if (inp.form === 'expanded' && /\(/.test(raw)) return { ok: false, almost: true, msg: 'Der Term ist gleichwertig, aber noch nicht ausmultipliziert. Löse die Klammer auf.' };
+      if (inp.form === 'factored') { var tr = parseTerm(raw); while (tr.op === 'neg') tr = tr.a; if (!/\(/.test(raw) || (tr.op !== '*' && tr.op !== '^')) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht als Produkt geschrieben. Schreibe den Term als Produkt mit Klammer.' }; }
+      if (inp.form === 'factored' && !/\(/.test(raw)) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht ausgeklammert. Schreibe den Term als Produkt mit Klammer.' };
+      if (inp.factor) {
+        var z = clean(raw).toLowerCase().replace(/\s+/g, '').replace(/\*/g, ''), fct = String(inp.factor).toLowerCase().replace(/\s+/g, '');
+        if (!(z.indexOf(fct + '(') === 0 || (z.slice(-fct.length - 1) === ')' + fct && z.charAt(0) === '('))) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch mehr ausklammern. Klammere den größten gemeinsamen Faktor aus.' };
+      }
+      if (inp.form === 'simplified' && inp.maxTerms && (clean(raw).replace(/^[-+]/, '').split(/[+-]/).length > inp.maxTerms)) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch weiter zusammenfassen.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'text') { var opts = [].concat(inp.answer).map(function (a) { return String(a).toLowerCase(); }); return { ok: opts.indexOf(raw.toLowerCase()) >= 0 }; }
+    return { ok: false };
+  }
+  return { check: check, gcd: gcd, lcm: lcm, rnd: rnd, nz: nz, pick: pick, shuffle: shuffle, F: F, red: red, fmul: fmul, fdiv: fdiv, fadd: fadd, feq: feq,
+    isReduced: isReduced, fstr: fstr, fhtml: fhtml, fmtNum: fmtNum, clean: clean, parseNum: parseNum, parseFrac: parseFrac,
+    parseTerm: parseTerm, evalTree: evalTree, termEq: termEq, termValid: termValid, tpretty: tpretty, mono: mono, poly: poly };
+})();
+if (typeof module !== 'undefined') module.exports = M;
+
+</script>
+<script>
+window.CONFIG = {"jahrgang": "8", "endpoint": "https://script.google.com/macros/s/AKfycbxpbjq4u7xOEi94XymjPmODt4KIoBf1XvAVzBK-DMk21X8usQOQyz3LMQd5k41h41Ru/exec", "iservDomain": "", "version": "1.0.0", "backUrl": "../index.html"};
+/* Modul 007 · Sachaufgaben mit Gleichungen */
+var MODULE = (function () {
+  var T = M.tpretty, poly = M.poly;
+  function show(s) { return '<span class="big-math">' + s + '</span>'; }
+  function sd(A, B) { return T(poly([[A, 'x'], [B, '']])); }
+  function num(n) { return T(String(n)); }
+  function eur(x) { return M.fmtNum(x) + ' €'; }
+  function lin(A, B) { var s = ''; if (A) s += (A === 1 ? '' : A === -1 ? '-' : A) + 'x'; if (B) s += (B > 0 && A ? '+' : '') + B; return s || '0'; }
+  function termIn(label, ans, ph) { return { kind: 'term', label: label, answer: ans, placeholder: ph || 'z. B. 3x + 7' }; }
+  /* Lösungszeilen für A x + B = C x + D */
+  function solve(A, B, C, D) {
+    var L = [], a = A - C, r = D - B;
+    if (C) L.push(sd(a, B) + ' = ' + num(D) + ' &nbsp; <small>| ' + (C > 0 ? '− ' : '+ ') + (Math.abs(C) === 1 ? '' : Math.abs(C)) + 'x</small>');
+    if (B) L.push(sd(a, 0) + ' = ' + num(r) + ' &nbsp; <small>| ' + (B > 0 ? '− ' + B : '+ ' + -B) + '</small>');
+    if (a !== 1) L.push('x = ' + num(r / a) + ' &nbsp; <small>| : ' + (a < 0 ? '(' + num(a) + ')' : a) + '</small>');
+    return L.join('<br>');
+  }
+  /* Rechteck-Skizze */
+  function rectSketch(top, side) {
+    return '<svg class="viz" viewBox="0 0 300 150" role="img" aria-label="Rechteck" style="max-width:320px"><rect x="60" y="20" width="200" height="100" fill="#efeafb" stroke="#3d2a73" stroke-width="2.5"/>' +
+      '<text x="160" y="140" font-size="14" font-weight="700" text-anchor="middle" fill="#3d2a73">' + top + '</text><text x="52" y="75" font-size="14" font-weight="700" text-anchor="end" fill="#3d2a73">' + side + '</text>' +
+      '<text x="296" y="146" font-size="10" text-anchor="end" fill="#5a5670">Skizze nicht maßstabsgetreu</text></svg>';
+  }
+  function triSketch(base, leg) {
+    return '<svg class="viz" viewBox="0 0 300 170" role="img" aria-label="Gleichschenkliges Dreieck" style="max-width:320px"><polygon points="70,140 230,140 150,20" fill="#efeafb" stroke="#3d2a73" stroke-width="2.5" stroke-linejoin="round"/>' +
+      '<text x="150" y="160" font-size="14" font-weight="700" text-anchor="middle" fill="#3d2a73">' + base + '</text><text x="98" y="78" font-size="14" font-weight="700" text-anchor="end" fill="#3d2a73">' + leg + '</text><text x="202" y="78" font-size="14" font-weight="700" fill="#3d2a73">' + leg + '</text>' +
+      '<text x="296" y="166" font-size="10" text-anchor="end" fill="#5a5670">Skizze nicht maßstabsgetreu</text></svg>';
+  }
+
+  var gen = {
+    welche: function () {
+      var a = M.rnd(2, 6), b = M.rnd(2, 9), x = M.rnd(2, 12), t = M.pick([1, 2]), c, text, right, wrong;
+      if (a === b) b = b + 1;
+      if (t === 1) { c = a * x + b; text = 'Multipliziere eine Zahl mit ' + a + ' und addiere dann ' + b + '. Du erhältst ' + c + '.'; right = a + 'x + ' + b + ' = ' + c; wrong = [a + '(x + ' + b + ') = ' + c, b + 'x + ' + a + ' = ' + c, 'x + ' + a + ' · ' + b + ' = ' + c]; }
+      else { c = a * (x + b); text = 'Addiere zu einer Zahl ' + b + ' und multipliziere die Summe mit ' + a + '. Du erhältst ' + c + '.'; right = a + '(x + ' + b + ') = ' + c; wrong = [a + 'x + ' + b + ' = ' + c, b + '(x + ' + a + ') = ' + c, 'x + ' + b + ' · ' + a + ' = ' + c]; }
+      var opts = M.shuffle([right].concat(wrong));
+      return { skill: 'Gleichung zum Text finden', level: 1, q: '<b>Zahlenrätsel:</b> ' + text + '<br>Welche Gleichung passt? Die gesuchte Zahl heißt x.', inputs: [{ kind: 'mc', label: 'Passende Gleichung', options: opts, answer: opts.indexOf(right) }],
+        hints: ['Übersetze Schritt für Schritt. Was passiert <b>zuerst</b> mit der Zahl x?', t === 1 ? 'Zuerst wird x mit ' + a + ' multipliziert: ' + a + 'x. Danach wird ' + b + ' addiert.' : 'Zuerst wird ' + b + ' addiert: x + ' + b + '. Die <b>Summe</b> wird dann mit ' + a + ' multipliziert. Dafür brauchst du eine Klammer.', 'Kontrolle: Die gesuchte Zahl ist ' + x + '. Setze sie in die Gleichungen ein. Nur bei einer kommt ' + c + ' heraus.'],
+        solution: 'Richtig ist ' + right + '. Probe mit x = ' + x + ': ' + (t === 1 ? a + ' · ' + x + ' + ' + b : a + ' · (' + x + ' + ' + b + ')') + ' = ' + c + '.',
+        verify: function () { return (t === 1 ? a * x + b : a * (x + b)) === c ? true : 'Probe'; } };
+    },
+    zahl: function (lvl) {
+      if (lvl < 2) {
+        var a = M.rnd(2, 7), b = M.rnd(3, 15), x = M.rnd(2, 15), sub = Math.random() < 0.5, c = sub ? a * x - b : a * x + b;
+        var word = ['', '', 'Das Doppelte', 'Das Dreifache', 'Das Vierfache', 'Das Fünffache', 'Das Sechsfache', 'Das Siebenfache'][a];
+        return { skill: 'Zahlenrätsel lösen', level: lvl, q: '<b>Zahlenrätsel:</b> ' + word + ' einer Zahl, ' + (sub ? 'vermindert um ' : 'vermehrt um ') + b + ', ergibt ' + c + '.<br>a) Schreibe die linke Seite der Gleichung als Term mit x.<br>b) Wie heißt die Zahl?',
+          inputs: [termIn('a) Term', lin(a, sub ? -b : b)), { kind: 'num', answer: x, label: 'b) Die Zahl ist' }],
+          hints: [word + ' einer Zahl ist ' + a + 'x. „' + (sub ? 'Vermindert' : 'Vermehrt') + ' um ' + b + '“ heißt ' + (sub ? '− ' : '+ ') + b + '.', 'Die Gleichung lautet ' + sd(a, sub ? -b : b) + ' = ' + c + '.', 'Löse: ' + (sub ? '+ ' : '− ') + b + ' auf beiden Seiten, dann : ' + a + '. Antwortsatz: „Die Zahl heißt …“'],
+          solution: sd(a, sub ? -b : b) + ' = ' + c + '<br>' + solve(a, sub ? -b : b, 0, c) + '<br>Antwort: Die Zahl heißt ' + x + '. Probe: ' + a + ' · ' + x + (sub ? ' − ' : ' + ') + b + ' = ' + c + '.',
+          verify: function () { return (sub ? a * x - b : a * x + b) === c ? true : 'Probe'; },
+          mistakes: function (v) { var y = M.parseNum(v[1]); if (y !== null && Math.abs(y - (sub ? (c - b) / a : (c + b) / a)) < 1e-9) return 'Prüfe die Umformung: Um ' + (sub ? '− ' : '+ ') + b + ' wegzubekommen, rechnest du auf beiden Seiten ' + (sub ? '+ ' : '− ') + b + '.'; return null; } };
+      }
+      var p, q, r, u, xx;
+      do { p = M.rnd(2, 4); r = M.rnd(p + 1, 7); q = M.rnd(1, 15); xx = M.rnd(2, 12); u = r * xx - p * xx - q; } while (u <= 0 || u > 30);
+      /* p·x + q = r·x − u */
+      return { skill: 'Zahlenrätsel mit x auf beiden Seiten', level: lvl, q: '<b>Zahlenrätsel:</b> Wenn du eine Zahl mit ' + p + ' multiplizierst und ' + q + ' addierst, erhältst du dasselbe, wie wenn du die Zahl mit ' + r + ' multiplizierst und ' + u + ' subtrahierst.<br>a) Term für den ersten Teil („mit ' + p + ' multiplizieren und ' + q + ' addieren“)<br>b) Term für den zweiten Teil<br>c) Wie heißt die Zahl?',
+        inputs: [termIn('a) erster Term', lin(p, q)), termIn('b) zweiter Term', lin(r, -u)), { kind: 'num', answer: xx, label: 'c) Die Zahl ist' }],
+        hints: ['Erster Teil: ' + sd(p, q) + '. Zweiter Teil: ' + sd(r, -u) + '.', '„Dasselbe“ heißt: Beide Terme sind gleich. ' + sd(p, q) + ' = ' + sd(r, -u) + '.', 'Bringe die x-Glieder auf die Seite mit dem größeren x-Glied: − ' + p + 'x. Antwortsatz nicht vergessen.'],
+        solution: sd(p, q) + ' = ' + sd(r, -u) + '<br>' + q + ' = ' + sd(r - p, -u) + ' &nbsp; <small>| − ' + p + 'x</small><br>' + (q + u) + ' = ' + sd(r - p, 0) + ' &nbsp; <small>| + ' + u + '</small><br>' + (r - p === 1 ? '' : 'x = ' + xx + ' &nbsp; <small>| : ' + (r - p) + '</small><br>') + 'Antwort: Die Zahl heißt ' + xx + '. Probe: ' + p + ' · ' + xx + ' + ' + q + ' = ' + (p * xx + q) + ' und ' + r + ' · ' + xx + ' − ' + u + ' = ' + (r * xx - u) + '.',
+        verify: function () { return p * xx + q === r * xx - u ? true : 'Probe'; } };
+    },
+    folge: function (lvl) {
+      var even = lvl >= 3, x = even ? 2 * M.rnd(3, 40) : M.rnd(5, 60), d = even ? 2 : 1, S = 3 * x + 3 * d;
+      return { skill: 'Aufeinanderfolgende Zahlen', level: lvl, q: 'Die Summe von drei aufeinanderfolgenden ' + (even ? '<b>geraden</b> ' : '') + 'Zahlen ist ' + S + '.<br>a) Die kleinste Zahl heißt x. Schreibe die Summe der drei Zahlen als Term.<br>b) Wie heißt die kleinste Zahl?',
+        inputs: [termIn('a) Summe', '3x+' + 3 * d), { kind: 'num', answer: x, label: 'b) kleinste Zahl' }],
+        hints: ['Die drei Zahlen heißen x, x + ' + d + ' und x + ' + 2 * d + '.', 'Summe: x + (x + ' + d + ') + (x + ' + 2 * d + ') = 3x + ' + 3 * d + '. Gleichung: 3x + ' + 3 * d + ' = ' + S + '.', 'Löse und nenne alle drei Zahlen im Antwortsatz.'],
+        solution: 'x + (x + ' + d + ') + (x + ' + 2 * d + ') = ' + S + '<br>3x + ' + 3 * d + ' = ' + S + '<br>' + solve(3, 3 * d, 0, S) + '<br>Antwort: Die Zahlen heißen ' + x + ', ' + (x + d) + ' und ' + (x + 2 * d) + '. Probe: ' + x + ' + ' + (x + d) + ' + ' + (x + 2 * d) + ' = ' + S + '.',
+        verify: function () { return x + (x + d) + (x + 2 * d) === S ? true : 'Probe'; },
+        mistakes: function (v) { var y = M.parseNum(v[1]); if (y !== null && y === S / 3) return 'Das ist die mittlere Zahl. Gefragt ist die kleinste.'; return null; } };
+    },
+    umfang: function (lvl) {
+      var kind = lvl >= 2 ? M.pick(['rechteck', 'dreieck', 'mal']) : 'rechteck', x, d, U, q, inp, sol, sketch, other, ver, otherLabel;
+      if (kind === 'rechteck') {
+        x = M.rnd(3, 20); d = M.rnd(2, 9); U = 2 * (x + x + d);
+        sketch = rectSketch('Länge: x + ' + d, 'x');
+        q = 'Ein Rechteck ist ' + d + ' cm länger als breit. Sein Umfang beträgt ' + U + ' cm.';
+        inp = termIn('a) Umfang als Term', '4x+' + 2 * d, 'z. B. 2(x + x + 3)'); other = x + d; otherLabel = 'c) Länge';
+        sol = '2 · (x + x + ' + d + ') = ' + U + '<br>4x + ' + 2 * d + ' = ' + U + '<br>' + solve(4, 2 * d, 0, U) + '<br>Antwort: Das Rechteck ist ' + x + ' cm breit und ' + (x + d) + ' cm lang. Probe: 2 · (' + x + ' + ' + (x + d) + ') = ' + U + ' cm.';
+        ver = function () { return 2 * (x + x + d) === U; };
+      } else if (kind === 'mal') {
+        x = M.rnd(2, 15); d = M.rnd(2, 4); U = 2 * (x + d * x);
+        sketch = rectSketch('Länge: ' + d + 'x', 'x');
+        q = 'Ein Rechteck ist ' + d + '-mal so lang wie breit. Sein Umfang beträgt ' + U + ' cm.';
+        inp = termIn('a) Umfang als Term', (2 + 2 * d) + 'x', 'z. B. 2(x + 3x)'); other = d * x; otherLabel = 'c) Länge';
+        sol = '2 · (x + ' + d + 'x) = ' + U + '<br>' + (2 + 2 * d) + 'x = ' + U + '<br>x = ' + x + ' &nbsp; <small>| : ' + (2 + 2 * d) + '</small><br>Antwort: Das Rechteck ist ' + x + ' cm breit und ' + d * x + ' cm lang. Probe: 2 · (' + x + ' + ' + d * x + ') = ' + U + ' cm.';
+        ver = function () { return 2 * (x + d * x) === U; };
+      } else {
+        x = M.rnd(3, 20); d = M.rnd(1, 8); U = x + 2 * (x + d);
+        sketch = triSketch('Basis: x', 'x + ' + d);
+        q = 'In einem gleichschenkligen Dreieck ist jeder Schenkel ' + d + ' cm länger als die Basis. Der Umfang beträgt ' + U + ' cm.';
+        inp = termIn('a) Umfang als Term', '3x+' + 2 * d, 'z. B. x + 2(x + 3)'); other = x + d; otherLabel = 'c) Schenkel';
+        sol = 'x + 2 · (x + ' + d + ') = ' + U + '<br>3x + ' + 2 * d + ' = ' + U + '<br>' + solve(3, 2 * d, 0, U) + '<br>Antwort: Die Basis ist ' + x + ' cm lang, jeder Schenkel ' + (x + d) + ' cm. Probe: ' + x + ' + ' + (x + d) + ' + ' + (x + d) + ' = ' + U + ' cm.';
+        ver = function () { return x + 2 * (x + d) === U; };
+      }
+      return { skill: 'Gleichungen bei Umfängen', level: lvl, q: q + sketch + 'a) Die ' + (kind === 'dreieck' ? 'Basis' : 'Breite') + ' heißt x. Schreibe den Umfang als Term mit x.<br>b) Wie lang ist die ' + (kind === 'dreieck' ? 'Basis' : 'Breite') + '?<br>' + otherLabel + '?',
+        inputs: [inp, { kind: 'num', answer: x, label: 'b) ' + (kind === 'dreieck' ? 'Basis' : 'Breite'), unit: 'cm' }, { kind: 'num', answer: other, label: otherLabel, unit: 'cm' }],
+        hints: [kind === 'dreieck' ? 'Der Umfang ist die Summe aller drei Seiten: Basis + Schenkel + Schenkel.' : 'Der Umfang eines Rechtecks ist 2 · (Länge + Breite).', 'Umfang als Term: ' + T(inp.answer.replace('+', ' + ')) + '. Setze ihn gleich ' + U + '.', 'Löse die Gleichung. Berechne danach die zweite Seite und schreibe einen Antwortsatz mit beiden Längen.'],
+        solution: sol,
+        verify: function () { return ver() ? true : 'Probe'; },
+        mistakes: function (v) { var y = M.parseNum(v[1]); if (y !== null && kind === 'rechteck' && y === (U - d) / 2) return 'Ein Rechteck hat zwei Längen und zwei Breiten. Der Umfang ist 2 · (x + x + ' + d + ').'; return null; } };
+    },
+    kosten: function (lvl) {
+      var ctx = M.pick([
+        { g: [20, 25, 30, 40], r: [15, 18, 20, 25], t: function (g, r) { return 'Ein Fitnessstudio verlangt ' + eur(g) + ' Anmeldegebühr und ' + eur(r) + ' pro Monat.'; }, who: 'Lea hat insgesamt', unit: 'Monate', ask: 'Wie viele Monate war Lea Mitglied?', ans: 'Monate' },
+        { g: [30, 35, 40, 45], r: [38, 42, 45, 50], t: function (g, r) { return 'Ein Elektriker berechnet ' + eur(g) + ' für die Anfahrt und ' + eur(r) + ' pro Arbeitsstunde.'; }, who: 'Die Rechnung beträgt', unit: 'Stunden', ask: 'Wie viele Stunden hat er gearbeitet?', ans: 'Stunden' },
+        { g: [4, 5, 6], r: [8, 9, 11, 12], t: function (g, r) { return 'In einer Kletterhalle kostet das Ausleihen der Schuhe einmalig ' + eur(g) + '. Jeder Besuch kostet ' + eur(r) + '.'; }, who: 'Tim hat insgesamt', unit: 'Besuche', ask: 'Wie oft war Tim klettern?', ans: 'Besuche' }]);
+      var g = M.pick(ctx.g), r = M.pick(ctx.r), x = M.rnd(3, 12), S = g + r * x;
+      return { skill: 'Kosten mit Grundgebühr', level: lvl, q: ctx.t(g, r) + ' ' + ctx.who + ' ' + eur(S) + (ctx.who.indexOf('Rechnung') >= 0 ? '.' : ' bezahlt.') + '<br>a) x ist die Anzahl der ' + ctx.unit + '. Schreibe die Gesamtkosten als Term.<br>b) ' + ctx.ask,
+        inputs: [termIn('a) Kosten in €', lin(r, g), 'z. B. 15x + 20'), { kind: 'num', answer: x, label: 'b) Anzahl ' + ctx.ans }],
+        hints: ['Die Grundgebühr ' + eur(g) + ' fällt nur einmal an. Der Betrag ' + eur(r) + ' kommt für jede Einheit dazu: ' + r + 'x.', 'Kosten: ' + sd(r, g) + '. Gleichung: ' + sd(r, g) + ' = ' + S + '.', 'Ziehe ' + g + ' ab und teile durch ' + r + '. Antwortsatz nicht vergessen.'],
+        solution: sd(r, g) + ' = ' + S + '<br>' + solve(r, g, 0, S) + '<br>Antwort: ' + x + ' ' + ctx.ans + '. Probe: ' + g + ' € + ' + x + ' · ' + r + ' € = ' + eur(S) + '.',
+        verify: function () { return g + r * x === S ? true : 'Probe'; },
+        mistakes: function (v) { var y = M.parseNum(v[1]); if (y !== null && Math.abs(y - S / r) < 1e-9) return 'Die Grundgebühr ' + eur(g) + ' wird nur einmal bezahlt. Ziehe sie zuerst ab.'; if (M.termValid(v[0]) && M.termEq(v[0], lin(g, r))) return 'Bei a) ist der Betrag pro Einheit (' + eur(r) + ') der Faktor vor x. Die Grundgebühr kommt einmal dazu.'; return null; } };
+    },
+    alter: function () {
+      var m, k, n, x, tries = 0;
+      do { m = M.rnd(3, 5); k = m - M.rnd(1, 2); n = M.rnd(2, 15); x = n * (k - 1) / (m - k); tries++; } while (tries < 500 && (k < 2 || x !== Math.round(x) || x < 4 || x > 14 || m * x > 52 || m * x < 24));
+      var names = M.pick([['Frau Kaya', 'ihre Tochter Elif', 'Frau Kaya', 'sie'], ['Herr Brandt', 'sein Sohn Jan', 'Herrn Brandt', 'er'], ['Tante Rosa', 'ihr Neffe Paul', 'Tante Rosa', 'sie']]);
+      var right = m + 'x + ' + n + ' = ' + k + '(x + ' + n + ')', wrong = [m + 'x + ' + n + ' = ' + k + 'x + ' + n, m + '(x + ' + n + ') = ' + k + 'x', m + 'x = ' + k + '(x + ' + n + ')'];
+      var opts = M.shuffle([right].concat(wrong));
+      var who = names[1].split(' ').pop();
+      return { skill: 'Altersrätsel', level: 3, q: names[0] + ' ist heute ' + m + '-mal so alt wie ' + names[1] + '. In ' + n + ' Jahren ist ' + names[3] + ' nur noch ' + k + '-mal so alt wie ' + who + '.<br>a) ' + who + ' ist heute x Jahre alt. Welche Gleichung passt?<br>b) Wie alt ist ' + who + ' heute?<br>c) Wie alt ist ' + names[0] + ' heute?',
+        inputs: [{ kind: 'mc', label: 'a) Gleichung', options: opts, answer: opts.indexOf(right) }, { kind: 'num', answer: x, label: 'b) ' + who, unit: 'Jahre' }, { kind: 'num', answer: m * x, label: 'c) ' + names[0], unit: 'Jahre' }],
+        hints: ['Lege eine Tabelle an: heute ' + who + ' x, ' + names[0] + ' ' + m + 'x. In ' + n + ' Jahren: x + ' + n + ' und ' + m + 'x + ' + n + '.', 'In ' + n + ' Jahren gilt: Alter von ' + names[2] + ' = ' + k + ' · Alter von ' + who + '. Also ' + right + '.', 'Löse: ' + m + 'x + ' + n + ' = ' + k + 'x + ' + k * n + '. Antwortsatz mit beiden Altersangaben.'],
+        solution: '<table class="tab"><tr><th></th><th>heute</th><th>in ' + n + ' Jahren</th></tr><tr><th>' + who + '</th><td>x</td><td>x + ' + n + '</td></tr><tr><th>' + names[0] + '</th><td>' + m + 'x</td><td>' + m + 'x + ' + n + '</td></tr></table>' + right + '<br>' + sd(m, n) + ' = ' + sd(k, k * n) + '<br>' + solve(m, n, k, k * n) + '<br>Antwort: ' + who + ' ist heute ' + x + ' Jahre alt, ' + names[0] + ' ' + m * x + ' Jahre. Probe: In ' + n + ' Jahren sind sie ' + (x + n) + ' und ' + (m * x + n) + ' Jahre alt, und ' + k + ' · ' + (x + n) + ' = ' + k * (x + n) + '.',
+        verify: function () { return m * x + n === k * (x + n) && x > 0 ? true : 'Probe'; } };
+    },
+    aufteilen: function (lvl) {
+      var f = M.rnd(2, 3), d = M.rnd(3, 15), x = M.rnd(5, 40), S = x + f * x + x + d;
+      var nm = M.pick([['Ali', 'Ben', 'Cem'], ['Lara', 'Mona', 'Nele'], ['Finn', 'Gül', 'Hanna']]);
+      var what = M.pick([['Geld für den Flohmarktstand', '€'], ['Punkte beim Quiz', 'Punkte']]);
+      return { skill: 'Aufteilen mit Gleichungen', level: lvl, q: nm[0] + ', ' + nm[1] + ' und ' + nm[2] + ' haben zusammen ' + S + ' ' + what[1] + ' ' + (what[1] === '€' ? 'für ihren Flohmarktstand eingenommen' : 'beim Quiz gesammelt') + '. ' + nm[1] + ' hat ' + (f === 2 ? 'doppelt' : 'dreimal') + ' so viel wie ' + nm[0] + '. ' + nm[2] + ' hat ' + d + ' ' + what[1] + ' mehr als ' + nm[0] + '.<br>a) ' + nm[0] + ' hat x ' + what[1] + '. Schreibe die Summe aller drei Beträge als Term.<br>b) Wie viel hat ' + nm[0] + '?<br>c) Wie viel hat ' + nm[2] + '?',
+        inputs: [termIn('a) Summe', lin(f + 2, d), 'z. B. x + 2x + (x + 5)'), { kind: 'num', answer: x, label: 'b) ' + nm[0], unit: what[1] === '€' ? '€' : undefined }, { kind: 'num', answer: x + d, label: 'c) ' + nm[2], unit: what[1] === '€' ? '€' : undefined }],
+        hints: [nm[0] + ': x. ' + nm[1] + ': ' + f + 'x. ' + nm[2] + ': x + ' + d + '.', 'Summe: x + ' + f + 'x + x + ' + d + ' = ' + sd(f + 2, d) + '. Gleichung: ' + sd(f + 2, d) + ' = ' + S + '.', 'Löse die Gleichung. Rechne dann den Betrag von ' + nm[2] + ' aus und schreibe einen Antwortsatz.'],
+        solution: 'x + ' + f + 'x + (x + ' + d + ') = ' + S + '<br>' + sd(f + 2, d) + ' = ' + S + '<br>' + solve(f + 2, d, 0, S) + '<br>Antwort: ' + nm[0] + ' hat ' + x + ' ' + what[1] + ', ' + nm[1] + ' hat ' + f * x + ' ' + what[1] + ', ' + nm[2] + ' hat ' + (x + d) + ' ' + what[1] + '. Probe: ' + x + ' + ' + f * x + ' + ' + (x + d) + ' = ' + S + '.',
+        verify: function () { return x + f * x + x + d === S ? true : 'Probe'; },
+        mistakes: function (v) { var y = M.parseNum(v[1]); if (y !== null && Math.abs(y - S / 3) < 1e-9) return 'Die drei bekommen nicht gleich viel. Stelle zuerst eine Gleichung auf: x + ' + f + 'x + (x + ' + d + ') = ' + S + '.'; return null; } };
+    },
+    tarif: function () {
+      var g, a, b, x; do { g = M.pick([12, 15, 18, 20, 24, 30, 36]); a = M.rnd(2, 6); b = a + M.rnd(1, 6); x = g / (b - a); } while (x !== Math.round(x) || x < 3 || x > 15);
+      var right = g + ' + ' + a + 'x = ' + b + 'x', wrong = [g + 'x + ' + a + ' = ' + b + 'x', g + ' + ' + b + 'x = ' + a + 'x', '(' + g + ' + ' + a + ')x = ' + b + 'x'];
+      var opts = M.shuffle([right].concat(wrong));
+      return { skill: 'Angebote vergleichen', level: 3, q: 'Ein Fahrradverleih hat zwei Angebote. <b>Angebot A:</b> ' + g + ' € Grundgebühr und ' + a + ' € pro Stunde. <b>Angebot B:</b> keine Grundgebühr, ' + b + ' € pro Stunde.<br>a) Bei x Stunden kosten beide gleich viel. Welche Gleichung passt?<br>b) Nach wie vielen Stunden kosten beide gleich viel?',
+        inputs: [{ kind: 'mc', label: 'a) Gleichung', options: opts, answer: opts.indexOf(right) }, { kind: 'num', answer: x, label: 'b) Stunden' }],
+        hints: ['Kosten A: ' + g + ' + ' + a + 'x. Kosten B: ' + b + 'x.', '„Gleich viel“ heißt: ' + right + '.', 'Ziehe ' + a + 'x ab: ' + g + ' = ' + (b - a === 1 ? 'x' : (b - a) + 'x') + '.' + (b - a === 1 ? '' : ' Teile durch ' + (b - a) + '.') + ' Antwortsatz: „Nach … Stunden …“'],
+        solution: right + '<br>' + g + ' = ' + sd(b - a, 0) + ' &nbsp; <small>| − ' + a + 'x</small><br>' + (b - a === 1 ? '' : 'x = ' + x + ' &nbsp; <small>| : ' + (b - a) + '</small><br>') + 'Antwort: Nach ' + x + ' Stunden kosten beide Angebote gleich viel, nämlich ' + b * x + ' €. Wer länger fährt, nimmt besser Angebot A.',
+        verify: function () { return g + a * x === b * x ? true : 'Probe'; } };
+    },
+    sparen: function () {
+      var a, b, s, t, A, B;
+      do { a = M.pick([20, 30, 40, 50, 60]); s = M.rnd(3, 9); b = M.pick([100, 120, 140, 150, 160, 180]); t = M.rnd(2, 6); } while ((b - a) % (s + t) !== 0 || (b - a) / (s + t) < 3 || (b - a) / (s + t) > 15);
+      var w = (b - a) / (s + t), amount = a + s * w;
+      return { skill: 'Zwei Entwicklungen vergleichen', level: 3, q: 'Mia hat ' + a + ' € gespart und legt jede Woche ' + s + ' € dazu. Tom hat ' + b + ' € gespart, gibt aber jede Woche ' + t + ' € für Snacks aus.<br>a) Nach wie vielen Wochen haben beide gleich viel Geld?<br>b) Wie viel Geld hat dann jeder?',
+        inputs: [{ kind: 'num', answer: w, label: 'a) Wochen' }, { kind: 'num', answer: amount, label: 'b) Betrag', unit: '€' }],
+        hints: ['Mia nach x Wochen: ' + a + ' + ' + s + 'x. Tom nach x Wochen: ' + b + ' − ' + t + 'x.', 'Gleich viel: ' + a + ' + ' + s + 'x = ' + b + ' − ' + t + 'x. Addiere ' + t + 'x auf beiden Seiten.', (s + t) + 'x = ' + (b - a) + '. Teile, setze dann x in einen der Terme ein. Antwortsatz!'],
+        solution: a + ' + ' + s + 'x = ' + b + ' − ' + t + 'x<br>' + a + ' + ' + (s + t) + 'x = ' + b + ' &nbsp; <small>| + ' + t + 'x</small><br>' + (s + t) + 'x = ' + (b - a) + ' &nbsp; <small>| − ' + a + '</small><br>x = ' + w + ' &nbsp; <small>| : ' + (s + t) + '</small><br>Antwort: Nach ' + w + ' Wochen haben beide ' + amount + ' € (Mia: ' + a + ' + ' + s + ' · ' + w + ' = ' + amount + ', Tom: ' + b + ' − ' + t + ' · ' + w + ' = ' + (b - t * w) + ').',
+        verify: function () { return a + s * w === b - t * w ? true : 'Probe'; } };
+    }
+  };
+
+  return {
+    id: '007', title: 'Sachaufgaben mit Gleichungen', bereich: 'Terme und Gleichungen', minutes: '45 bis 60',
+    vorkenntnisse: 'Gleichungen mit Klammern lösen (Modul 006), Terme aufstellen',
+    lead: 'Wie viele Monate war Lea im Fitnessstudio? Wie alt ist Elif? Du lernst, aus einem Text eine Gleichung zu machen und die Antwort sicher zu finden.',
+    einstieg: { html: '<p>Die Klasse 8c plant eine Fahrt. Der Bus kostet <b>120 €</b> Grundpreis und zusätzlich <b>9 €</b> pro Person. Die Klassenkasse hat genau <b>345 €</b>.</p><p class="note">Wie viele Personen können mitfahren?</p><p>Solche Fragen kannst du mit einer Gleichung lösen: 120 + 9x = 345. In diesem Modul übst du den ganzen Weg: Text lesen, Variable festlegen, Gleichung aufstellen, lösen, prüfen und einen Antwortsatz schreiben.</p>' },
+    ziele: ['Ich lege fest, wofür die Variable x steht.', 'Ich übersetze Texte in Terme und Gleichungen.', 'Ich löse die Gleichung und mache die Probe am Text.', 'Ich schreibe einen vollständigen Antwortsatz.', 'Ich löse Zahlenrätsel, Alters-, Umfangs- und Kostenaufgaben.'],
+    fachwoerter: [['Variable', 'Ein Buchstabe, meist x, für die gesuchte Zahl. Lege immer fest, wofür x steht.'], ['Gleichung aufstellen', 'Den Text in eine Gleichung übersetzen: Was ist gleich groß?'], ['Grundgebühr', 'Ein fester Betrag, der nur einmal bezahlt wird, egal wie viel man nutzt.'], ['Antwortsatz', 'Ein ganzer Satz, der die Frage aus dem Text beantwortet, mit Einheit.']],
+    diagnose: [
+      { q: 'Wie schreibt man „das Dreifache einer Zahl x, vermehrt um 5“?', options: ['3x + 5', '3(x + 5)', 'x + 3 + 5', 'Weiß ich noch nicht'], answer: 0, why: 'Zuerst das Dreifache: 3x. Dann + 5.', review: 'Terme aufstellen (Klasse 7)' },
+      { q: 'Löse: 4(x − 2) = 2x + 6', options: ['x = 7', 'x = 4', 'x = 1', 'Weiß ich noch nicht'], answer: 0, why: '4x − 8 = 2x + 6 ⇒ 2x = 14 ⇒ x = 7.', review: 'Gleichungen mit Klammern (Modul 006)' },
+      { q: 'Wie berechnet man den Umfang eines Rechtecks mit Länge a und Breite b?', options: ['2 · (a + b)', 'a · b', 'a + b', 'Weiß ich noch nicht'], answer: 0, why: 'Zwei Längen und zwei Breiten: 2a + 2b = 2(a + b).', review: 'Umfang von Rechtecken' },
+      { q: 'Jan ist heute x Jahre alt. Wie alt ist er in 5 Jahren?', options: ['x + 5', '5x', 'x − 5', 'Weiß ich noch nicht'], answer: 0, why: 'In 5 Jahren kommen 5 Jahre dazu: x + 5.', review: 'Terme mit Variablen deuten' }],
+    erklaerung:
+      '<h3>1. Der Weg vom Text zur Antwort</h3><div class="merk"><b>Merke: Fünf Schritte</b><ol><li><b>Variable festlegen:</b> Was ist gesucht? „x = Anzahl der Personen“.</li><li><b>Terme aufstellen:</b> Schreibe alle Größen aus dem Text mit x.</li><li><b>Gleichung aufstellen:</b> Was ist gleich groß?</li><li><b>Lösen</b> mit Äquivalenzumformungen.</li><li><b>Probe am Text</b> und <b>Antwortsatz</b>.</li></ol></div>' +
+      '<h3>2. Das Beispiel vom Anfang</h3><p>x = Anzahl der Personen. Kosten: 120 + 9x. Das Geld reicht genau: 120 + 9x = 345.</p><p>9x = 225 &nbsp; <small>| − 120</small><br>x = 25 &nbsp; <small>| : 9</small></p><p><b>Probe:</b> 120 € + 25 · 9 € = 120 € + 225 € = 345 €. <b>Antwort:</b> Es können 25 Personen mitfahren.</p>' +
+      '<h3>3. Typische Textbausteine</h3><table class="tab"><tr><th>Text</th><th>Term</th></tr><tr><td>das Doppelte von x</td><td>2x</td></tr><tr><td>um 4 größer als x</td><td>x + 4</td></tr><tr><td>um 3 vermindert</td><td>− 3</td></tr><tr><td>die Summe aus x und 5, mal 2</td><td>2(x + 5)</td></tr><tr><td>in 6 Jahren (Alter)</td><td>x + 6</td></tr><tr><td>drei aufeinanderfolgende Zahlen</td><td>x, x + 1, x + 2</td></tr></table>' +
+      '<h3>4. Tipp: Tabelle oder Skizze</h3><p>Bei Altersaufgaben hilft eine Tabelle mit „heute“ und „später“. Bei Figuren hilft eine Skizze, in die du x einträgst.</p>' + rectSketch('Länge: x + 4', 'x') +
+      '<p>Ist ein Rechteck 4 cm länger als breit und hat 40 cm Umfang, dann gilt: 2 · (x + x + 4) = 40, also 4x + 8 = 40 und x = 8. Es ist 8 cm breit und 12 cm lang.</p>' +
+      '<p class="note"><b>Wichtig:</b> Prüfe die Lösung immer am <b>Text</b>, nicht nur an deiner Gleichung. Denn auch die Gleichung kann falsch aufgestellt sein.</p>',
+    entdecken: {
+      html: '<p>Ein Busunternehmen verlangt einen Grundpreis und einen Preis pro Person. Stelle die Werte ein. Die Gleichung und ihre Lösung passen sich an.</p><div class="ctl"><label>Grundpreis = <b id="v_g"></b> <input type="range" id="r_g" min="60" max="200" step="20" value="120"></label><label>pro Person = <b id="v_p"></b> <input type="range" id="r_p" min="5" max="15" step="1" value="9"></label><label>Klassenkasse = <b id="v_k"></b> <input type="range" id="r_k" min="210" max="495" step="15" value="345"></label></div><div id="e_g"></div><div id="e_txt"></div>',
+      init: function (root, done) {
+        var n = 0;
+        function draw() {
+          var g = +root.querySelector('#r_g').value, p = +root.querySelector('#r_p').value, k = +root.querySelector('#r_k').value;
+          root.querySelector('#v_g').textContent = g + ' €'; root.querySelector('#v_p').textContent = p + ' €'; root.querySelector('#v_k').textContent = k + ' €';
+          var x = (k - g) / p, full = Math.floor(x + 1e-9);
+          /* Balken: Grundpreis + Personen bis 30 */
+          var W = 320, maxv = Math.max(k, g + p * (full + 1)), u = W / maxv, s = '<svg class="viz" viewBox="0 0 340 110" role="img" aria-label="Kostenbalken" style="max-width:520px">';
+          s += '<rect x="10" y="14" width="' + g * u + '" height="30" fill="#5b3fa0"/><text x="' + (10 + g * u / 2) + '" y="34" font-size="12" fill="#fff" text-anchor="middle" font-weight="700">' + (g * u >= 72 ? 'Grundpreis' : 'G') + '</text>';
+          for (var i = 0; i < full; i++) s += '<rect x="' + (10 + (g + i * p) * u) + '" y="14" width="' + p * u + '" height="30" fill="' + (i % 2 ? '#f6d9a8' : '#fbe7c6') + '" stroke="#d97706" stroke-width="0.6"/>';
+          s += '<rect x="10" y="56" width="' + k * u + '" height="22" fill="#efeafb" stroke="#3d2a73" stroke-width="2"/><text x="14" y="72" font-size="12" font-weight="700" fill="#3d2a73">Klassenkasse ' + k + ' €</text>';
+          s += '<text x="10" y="100" font-size="11" fill="#5a5670">Jedes helle Kästchen ist eine Person: ' + Math.max(full, 0) + ' Personen.</text></svg>';
+          root.querySelector('#e_g').innerHTML = s;
+          var exact = Math.abs(x - Math.round(x)) < 1e-9;
+          root.querySelector('#e_txt').innerHTML = '<p class="big-math">' + g + ' + ' + p + 'x = ' + k + '</p><p>' + p + 'x = ' + (k - g) + ' &nbsp; <small>| − ' + g + '</small><br>x ' + (Math.abs(x - Math.round(x)) < 1e-9 ? '= ' : '≈ ') + M.fmtNum(Math.round(x * 100) / 100) + ' &nbsp; <small>| : ' + p + '</small></p>' +
+            '<p class="note">' + (x < 0 ? 'Die Kasse reicht nicht einmal für den Grundpreis.' : exact ? 'Das Geld reicht <b>genau</b> für ' + x + ' Personen.' : 'Die Lösung ist keine ganze Zahl. Im Antwortsatz musst du abrunden: Es können <b>' + full + ' Personen</b> mitfahren. Es bleiben ' + (k - g - full * p) + ' € übrig.') + '</p>';
+        }
+        root.querySelectorAll('input[type=range]').forEach(function (r) { r.addEventListener('input', function () { draw(); n++; if (n >= 3) done('Gut beobachtet: Die Gleichung beschreibt die Situation. Ob die Lösung sinnvoll ist, entscheidest du am Text, zum Beispiel durch Abrunden bei Personen.'); }); });
+        draw();
+      }
+    },
+    beispiel: { title: 'Altersrätsel', q: 'Ein Vater ist heute 4-mal so alt wie seine Tochter. In 6 Jahren ist er nur noch 3-mal so alt wie sie. Wie alt sind beide heute?',
+      steps: ['Variable festlegen: x = Alter der Tochter heute. Dann ist der Vater heute 4x Jahre alt.', 'In 6 Jahren: Tochter x + 6, Vater 4x + 6. Gleichung: 4x + 6 = 3(x + 6).', 'Lösen: 4x + 6 = 3x + 18 &nbsp; <small>| − 3x</small> ⇒ x + 6 = 18 &nbsp; <small>| − 6</small> ⇒ x = 12.', 'Probe am Text: Heute 12 und 48 Jahre. In 6 Jahren 18 und 54 Jahre, und 3 · 18 = 54. Stimmt.', 'Antwortsatz: Die Tochter ist heute 12 Jahre alt, der Vater 48 Jahre.'] },
+    tasks: { gen: gen, plan: { G: ['welche:1', 'zahl:1', 'kosten:2', 'umfang:1'], S: ['welche:1', 'zahl:1', 'kosten:2', 'umfang:2', 'folge:2'], E: ['zahl:2', 'umfang:2', 'folge:3', 'alter:3', 'aufteilen:2', 'tarif:3'] },
+      extra: 'sparen', test: ['welche:1', 'zahl:1', 'kosten:2', 'umfang:2', 'folge:2', 'aufteilen:2'] },
+    lerncheck: ['Ich lege fest, wofür x steht.', 'Ich stelle zu einem Text eine passende Gleichung auf.', 'Ich löse die Gleichung und mache die Probe am Text.', 'Ich schreibe einen Antwortsatz mit Einheit.']
+  };
+})();
+
+window.MODULE = MODULE;
+</script>
+<script>
+/* SOL Mathe 8 · Lern-Engine. Erwartet window.MODULE und window.CONFIG. */
+(function () {
+  'use strict';
+  var MOD = window.MODULE, CFG = window.CONFIG;
+  var KEY = 'sol8-' + MOD.id;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  /* Anzeige-Feinschliff: echtes Minuszeichen und 1x → x, nur im Text, nie in Attributen */
+  function nice(h) { return String(h == null ? '' : h).split(/(<[^>]*>)/).map(function (p) { return p.charAt(0) === '<' ? p : p.replace(/(^|[\s(=:\[{>])-(?=\d)/g, '$1\u2212').replace(/(^|[\s(=:+\u2212·>])1x(?![\w²³^])/g, '$1x'); }).join(''); }
+  function h(tag, attrs, html) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }); if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  var SECTIONS = [
+    ['start', 'Start'], ['einstieg', 'Einstieg'], ['ziele', 'Lernziele'], ['diagnose', 'Startdiagnose'], ['erklaerung', 'Erklärung'],
+    ['entdecken', 'Ausprobieren'], ['beispiel', 'Beispiel'], ['ueben', 'Üben'], ['weiterdenken', 'Weiterdenken'], ['test', 'Abschlusstest'],
+    ['lerncheck', 'Mein Lerncheck'], ['ergebnis', 'Ergebnis']
+  ];
+  var REQUIRED = ['einstieg', 'diagnose', 'erklaerung', 'entdecken', 'ueben', 'test', 'lerncheck'];
+  function req() { return S.way === 'E' ? REQUIRED.slice(0, 5).concat(['weiterdenken'], REQUIRED.slice(5)) : REQUIRED; }
+  var WAYS = { G: 'Sicher · G', S: 'Standard · G/E', E: 'Weiterdenken · E' };
+  var WAY_INFO = { G: 'Sicher: weniger Aufgaben, Tipps sind sofort sichtbar. Weiterdenken ist freiwillig.', S: 'Standard: du bearbeitest alle Pflichtaufgaben und kannst Tipps öffnen.', E: 'Weiterdenken: mehr und schwierigere Aufgaben. Die Weiterdenken-Aufgabe ist Pflicht.' };
+  var LC_SCALE = ['Sicher', 'Meistens', 'Mit Hilfe', 'Noch nicht'];
+
+  /* ---------- Zustand ---------- */
+  var S = load() || { v: 1, lerncode: '', klasse: '', email: '', way: 'S', started: false, sec: 'start', done: {}, diag: {}, diagChecked: false,
+    slots: [], extra: null, test: null, lc: {}, stats: { attempts: 0, firstTry: 0, hints: 0, solutions: 0 }, startedAt: null, sent: false, abgabeId: null };
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
+  function load() { try { var d = JSON.parse(localStorage.getItem(KEY) || 'null'); return d && d.v === 1 ? d : null; } catch (e) { return null; } }
+  function mark(k) { if (!S.done[k]) { S.done[k] = true; save(); progress(); navState(); } }
+
+  /* ---------- Normalisierung Lernende ---------- */
+  function normCode(v) { var t = String(v || '').toUpperCase().replace(/[^A-ZÄÖÜ]/g, ''); return t.length === 2 ? t : ''; }
+  function normKlasse(v) { var m = String(v || '').toLowerCase().replace(/[^a-z0-9]/g, '').match(new RegExp(CFG.jahrgang + '([a-z]?)$')); return m ? CFG.jahrgang + m[1] : ''; }
+  function emailOk(v) { v = String(v || '').trim(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) return false; return !CFG.iservDomain || v.toLowerCase().slice(-CFG.iservDomain.length - 1) === '@' + CFG.iservDomain.toLowerCase(); }
+
+  /* ---------- Aufgaben prüfen ---------- */
+  var checkInput = M.check;
+  function renderInputs(task, prefix, values) {
+    return task.inputs.map(function (inp, i) {
+      var id = prefix + '-' + i, val = values && values[i] != null ? values[i] : '';
+      if (inp.kind === 'mc') {
+        return '<fieldset class="mc"><legend>' + (inp.label || 'Wähle aus') + '</legend>' + inp.options.map(function (o, k) {
+          return '<label class="opt"><input type="radio" name="' + id + '" value="' + k + '"' + (String(val) === String(k) ? ' checked' : '') + '><span>' + o + '</span></label>';
+        }).join('') + '</fieldset>';
+      }
+      var mode = inp.kind === 'term' || inp.kind === 'text' ? 'text' : 'decimal';
+      return '<label class="inp"><span>' + (inp.label || 'Ergebnis') + '</span><span class="inrow"><input id="' + id + '" inputmode="' + mode + '" autocomplete="off" spellcheck="false" value="' + esc(val) + '"' + (inp.placeholder ? ' placeholder="' + esc(inp.placeholder) + '"' : '') + '>' + (inp.unit ? '<b class="unit">' + inp.unit + '</b>' : '') + '</span></label>';
+    }).join('');
+  }
+  function readInputs(task, prefix, root) {
+    return task.inputs.map(function (inp, i) {
+      if (inp.kind === 'mc') { var c = $('input[name="' + prefix + '-' + i + '"]:checked', root); return c ? c.value : ''; }
+      var e = $('#' + prefix + '-' + i, root); return e ? e.value : '';
+    });
+  }
+  /* Reproduzierbarer Zufall: gleiche Startzahl, gleiche Aufgabe (damit Fehlerhinweise nach dem Neuladen erhalten bleiben) */
+  function seeded(seed, fn) {
+    var orig = Math.random, s = seed >>> 0;
+    Math.random = function () { s = (s + 0x6D2B79F5) >>> 0; var t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+    try { return fn(); } finally { Math.random = orig; }
+  }
+  function revive(t) {
+    if (!t || t.seed == null || typeof t.mistakes === 'function' || !MOD.tasks.gen[t.key]) return t;
+    try { var r = gen(t.key, t.level, t.seed); if (r.q === t.q && r.mistakes) t.mistakes = r.mistakes; } catch (e) { }
+    return t;
+  }
+  function gen(key, level, seed) { if (seed == null) seed = Math.floor(Math.random() * 4294967296); var t = seeded(seed, function () { return MOD.tasks.gen[key](level || 2); }); t.seed = seed; t.key = key; t.level = t.level || level || 2; t.q = nice(t.q); t.solution = nice(t.solution); t.hints = (t.hints || []).map(nice); t.inputs.forEach(function (i) { if (i.options) i.options = i.options.map(nice); }); return t; }
+
+  /* ---------- Fortschritt und Navigation ---------- */
+  function progress() {
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    $('#bar').style.width = Math.round(n / req().length * 100) + '%';
+    $('#progText').textContent = n + ' von ' + req().length + ' Pflichtschritten';
+  }
+  function navState() {
+    $$('#nav a').forEach(function (a) { var k = a.dataset.sec; a.classList.toggle('active', k === S.sec); a.classList.toggle('done', !!S.done[k]); a.setAttribute('aria-current', k === S.sec ? 'step' : 'false'); });
+  }
+  function go(sec, noScroll) {
+    if (!S.started && sec !== 'start') { show('start'); fb('#startFb', 'Bitte trage zuerst Lerncode, Klasse und IServ-Adresse ein und tippe auf „Start“.', 'bad'); return; }
+    show(sec); if (!noScroll) { var m = $('#main'); if (m.getBoundingClientRect().top < 0) m.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function show(sec) {
+    S.sec = sec; save();
+    $$('.sec').forEach(function (s) { s.hidden = s.id !== 'sec-' + sec; });
+    navState();
+    if (RENDER[sec]) RENDER[sec]();
+    try { history.replaceState(null, '', '#' + sec); } catch (e) { }
+  }
+  function fb(sel, msg, kind) { var e = $(sel); if (!e) return; e.className = 'fb ' + (kind || ''); e.innerHTML = msg; }
+  function pager(sec) {
+    var i = SECTIONS.findIndex(function (s) { return s[0] === sec; });
+    var prev = SECTIONS[i - 1], next = SECTIONS[i + 1];
+    return '<div class="pager">' + (prev && i > 1 ? '<button class="btn ghost" data-go="' + prev[0] + '">← ' + prev[1] + '</button>' : '<span></span>') +
+      (next ? '<button class="btn" data-go="' + next[0] + '">' + next[1] + ' →</button>' : '') + '</div>';
+  }
+
+  /* ---------- Abschnitte ---------- */
+  var RENDER = {};
+  function buildShell() {
+    var app = $('#app');
+    app.innerHTML =
+      '<header class="hero"><div class="wrap hero-in"><div class="hero-top"><span class="brand">SOL Mathematik ' + CFG.jahrgang + ' · Oberschule Niedersachsen</span>' +
+      '<span class="tools"><button class="tbtn" id="easyBtn" aria-pressed="false">Leichter lesen</button><button class="tbtn" id="readBtn">Vorlesen</button><button class="tbtn" id="stopBtn">Stopp</button></span></div>' +
+      '<div class="hero-main"><div><p class="eyebrow">' + MOD.bereich + '</p><h1>' + MOD.title + '</h1><p class="lead">' + MOD.lead + '</p></div>' +
+      '<div class="badge"><span>Modul</span><strong>' + MOD.id + '</strong><span>' + MOD.minutes + ' Minuten</span></div></div></div></header>' +
+      '<div class="progress"><div class="wrap prog-in"><div class="track"><div id="bar"></div></div><span id="progText"></span></div></div>' +
+      '<div class="wrap layout"><nav id="nav" aria-label="Abschnitte">' + SECTIONS.map(function (s) { return '<a href="#' + s[0] + '" data-sec="' + s[0] + '">' + s[1] + '</a>'; }).join('') + '</nav>' +
+      '<main id="main">' + SECTIONS.map(function (s) { return '<section class="sec card" id="sec-' + s[0] + '" hidden aria-labelledby="h-' + s[0] + '"></section>'; }).join('') + '</main></div>' +
+      '<footer class="foot wrap"><a href="' + CFG.backUrl + '">← Zur Übersicht Klasse ' + CFG.jahrgang + '</a><span>© Dr. Edmund Bruns · CC BY-NC 4.0</span></footer>';
+    $('#nav').addEventListener('click', function (e) { var a = e.target.closest('a'); if (!a) return; e.preventDefault(); go(a.dataset.sec); });
+    app.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) { e.preventDefault(); go(b.dataset.go); } });
+    $('#easyBtn').addEventListener('click', function () { var on = document.body.classList.toggle('easy'); this.setAttribute('aria-pressed', String(on)); });
+    $('#readBtn').addEventListener('click', function () { if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); var sec = $('#sec-' + S.sec); var u = new SpeechSynthesisUtterance(sec.innerText.replace(/[←→]/g, '')); u.lang = 'de-DE'; u.rate = 0.95; speechSynthesis.speak(u); });
+    $('#stopBtn').addEventListener('click', function () { if ('speechSynthesis' in window) speechSynthesis.cancel(); });
+  }
+
+  RENDER.start = function () {
+    var s = $('#sec-start'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-start">Bevor du beginnst</h2>' +
+      '<div class="facts"><div><b>Klasse</b>' + CFG.jahrgang + '</div><div><b>Vorkenntnisse</b>' + MOD.vorkenntnisse + '</div><div><b>Du brauchst</b>Heft, Stift und dieses Gerät</div></div>' +
+      '<div class="grid2"><label class="inp"><span>Lerncode *</span><input id="lerncode" maxlength="2" autocomplete="off" placeholder="z. B. MS" value="' + esc(S.lerncode) + '"><small>Erster Buchstabe deines Vornamens und erster Buchstabe deines Nachnamens. Beispiel: Mia Schulte → MS</small></label>' +
+      '<label class="inp"><span>Klasse *</span><input id="klasse" maxlength="12" autocomplete="off" placeholder="z. B. ' + CFG.jahrgang + 'a" value="' + esc(S.klasse) + '"><small>„' + CFG.jahrgang + 'a“, „Klasse ' + CFG.jahrgang + 'a“ oder nur „' + CFG.jahrgang + '“ sind möglich.</small></label></div>' +
+      '<label class="inp"><span>IServ-E-Mail-Adresse *</span><input id="email" type="email" autocomplete="email" placeholder="vorname.nachname@…" value="' + esc(S.email) + '"><small>Deine Schul-Adresse aus IServ. Sie wird nur mit deinem Ergebnis an deine Lehrkraft übertragen.</small></label>' +
+      '<fieldset class="ways"><legend>Mein Lernweg</legend>' + Object.keys(WAYS).map(function (k) { return '<label class="way"><input type="radio" name="way" value="' + k + '"' + (S.way === k ? ' checked' : '') + '><span>' + WAYS[k] + '</span></label>'; }).join('') + '</fieldset>' +
+      '<p class="note" id="wayInfo">' + WAY_INFO[S.way] + '</p>' +
+      '<div class="actions"><button class="btn big" id="startBtn">Start</button>' + (S.started ? '<button class="btn ghost" id="resetBtn">Neu beginnen</button>' : '') + '</div><p class="fb" id="startFb" role="status"></p>';
+    $$('input[name=way]', s).forEach(function (r) { r.addEventListener('change', function () { if (S.slots.length && S.slots.some(function (x) { return x.solved; })) { fb('#startFb', 'Hinweis: Wenn du den Lernweg änderst, werden deine Übungsaufgaben neu zusammengestellt.', 'hint'); } $('#wayInfo').textContent = WAY_INFO[this.value]; }); });
+    ['lerncode', 'klasse', 'email'].forEach(function (id) { $('#' + id).addEventListener('input', function () { S[id] = this.value; save(); }); });
+    $('#startBtn').addEventListener('click', function () {
+      var c = normCode($('#lerncode').value), k = normKlasse($('#klasse').value), e = $('#email').value.trim();
+      if (!c) return fb('#startFb', 'Der Lerncode besteht aus genau zwei Buchstaben, zum Beispiel MS.', 'bad');
+      if (!k) return fb('#startFb', 'Diese Klasse gehört nicht zu Jahrgang ' + CFG.jahrgang + '. Schreibe zum Beispiel ' + CFG.jahrgang + 'a oder nur ' + CFG.jahrgang + '.', 'bad');
+      if (!emailOk(e)) return fb('#startFb', CFG.iservDomain ? 'Bitte gib deine IServ-Adresse ein. Sie endet auf @' + CFG.iservDomain + '.' : 'Bitte gib eine gültige IServ-E-Mail-Adresse ein.', 'bad');
+      var w = ($('input[name=way]:checked', s) || {}).value || 'S';
+      if (w !== S.way) { S.slots = []; S.extra = null; S.done.ueben = false; }
+      S.lerncode = c; S.klasse = k; S.email = e; S.way = w; S.started = true; if (!S.startedAt) S.startedAt = Date.now();
+      $('#lerncode').value = c; $('#klasse').value = k; save(); go('einstieg');
+    });
+    var rb = $('#resetBtn'); if (rb) rb.addEventListener('click', function () { if (!confirm('Wirklich neu beginnen? Dein bisheriger Stand in diesem Modul wird gelöscht.')) return; try { localStorage.removeItem(KEY); } catch (e) { } location.hash = ''; location.reload(); });
+  };
+
+  RENDER.einstieg = function () {
+    var s = $('#sec-einstieg'); if (s.dataset.r) return; s.dataset.r = 1;
+    var v = MOD.einstieg.video;
+    s.innerHTML = '<h2 id="h-einstieg">Einstieg</h2>' + (v ? '<div class="video"><iframe src="' + v.src + '" title="' + esc(v.title) + '" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' : '') +
+      '<div class="story">' + MOD.einstieg.html + '</div>' + pager('einstieg');
+    mark('einstieg');
+  };
+  RENDER.ziele = function () {
+    var s = $('#sec-ziele'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-ziele">Das lernst du in diesem Modul</h2><ul class="goals">' + MOD.ziele.map(function (z) { return '<li>' + z + '</li>'; }).join('') + '</ul>' +
+      (MOD.fachwoerter ? '<h3>Fachwörter</h3><dl class="terms">' + MOD.fachwoerter.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl>' : '') + pager('ziele');
+  };
+  RENDER.diagnose = function () {
+    var s = $('#sec-diagnose'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-diagnose">Startdiagnose</h2><p>Finde heraus, was du schon kannst. Das ist kein Test, es zählt nur für dich.</p>' +
+      MOD.diagnose.map(function (d, i) { return '<div class="task"><p class="q"><b>' + (i + 1) + '.</b> ' + d.q + '</p>' + d.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="dg' + i + '" value="' + k + '"' + (S.diag[i] === k ? ' checked' : '') + '><span>' + o + '</span></label>'; }).join('') + '<p class="fb" id="dgfb' + i + '"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="dgBtn">Auswerten</button></div><div class="fb" id="dgSum" role="status"></div>' + pager('diagnose');
+    $$('input[type=radio]', s).forEach(function (r) { r.addEventListener('change', function () { S.diag[+this.name.slice(2)] = +this.value; save(); }); });
+    $('#dgBtn').addEventListener('click', function () { evalDiag(true); });
+    if (S.diagChecked) evalDiag(false);
+  };
+  function evalDiag(user) {
+    var missing = MOD.diagnose.some(function (d, i) { return S.diag[i] == null; });
+    if (missing && user) return fb('#dgSum', 'Beantworte bitte alle Fragen. Wenn du etwas nicht weißt, wähle „Weiß ich noch nicht“.', 'bad');
+    var pts = 0, tips = [];
+    MOD.diagnose.forEach(function (d, i) { var ok = S.diag[i] === d.answer; if (ok) pts++; else if (d.review) tips.push(d.review); fb('#dgfb' + i, (ok ? '✓ ' : '✗ ') + d.why, ok ? 'good' : 'bad'); });
+    S.diagChecked = true; S.diagPts = pts; save(); mark('diagnose');
+    fb('#dgSum', '<b>' + pts + ' von ' + MOD.diagnose.length + ' richtig.</b> ' + (pts === MOD.diagnose.length ? 'Super, die Grundlagen sitzen. Du kannst auch den Lernweg „Weiterdenken“ wählen.' : 'Das solltest du dir vorher noch einmal ansehen:<ul>' + tips.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>'), pts === MOD.diagnose.length ? 'good' : 'hint');
+  }
+  RENDER.erklaerung = function () {
+    var s = $('#sec-erklaerung'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-erklaerung">Erklärung</h2>' + MOD.erklaerung + '<div class="actions"><button class="btn" id="exOk">Verstanden</button></div><p class="fb" id="exFb"></p>' + pager('erklaerung');
+    $('#exOk').addEventListener('click', function () { mark('erklaerung'); fb('#exFb', 'Prima. Probiere es jetzt selbst aus.', 'good'); });
+    if (S.done.erklaerung) fb('#exFb', '✓ Erledigt', 'good');
+  };
+  RENDER.entdecken = function () {
+    var s = $('#sec-entdecken'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-entdecken">Ausprobieren</h2><div id="explore">' + MOD.entdecken.html + '</div><p class="fb" id="enFb"></p>' + pager('entdecken');
+    MOD.entdecken.init($('#explore'), function (msg) { mark('entdecken'); if (msg) fb('#enFb', msg, 'good'); });
+  };
+  RENDER.beispiel = function () {
+    var s = $('#sec-beispiel'); if (s.dataset.r) return; s.dataset.r = 1;
+    var B = MOD.beispiel;
+    s.innerHTML = '<h2 id="h-beispiel">Beispiel: ' + B.title + '</h2><div class="task"><p class="q">' + B.q + '</p><ol class="steps" id="bsSteps"></ol><div class="actions"><button class="btn" id="bsNext">Nächster Schritt</button></div></div>' + pager('beispiel');
+    var i = 0; $('#bsNext').addEventListener('click', function () { if (i < B.steps.length) { $('#bsSteps').appendChild(h('li', null, B.steps[i])); i++; } if (i >= B.steps.length) { this.disabled = true; this.textContent = 'Alle Schritte gezeigt'; } });
+  };
+
+  /* Üben */
+  function plan() { return MOD.tasks.plan[S.way] || MOD.tasks.plan.S; }
+  RENDER.ueben = function () {
+    var s = $('#sec-ueben');
+    var p = plan();
+    if (S.slots.length !== p.length) { S.slots = p.map(function (k) { var parts = k.split(':'); return { key: parts[0], level: +(parts[1] || 2), task: gen(parts[0], +(parts[1] || 2)), solved: false, tries: 0, hints: 0, shown: false, values: [] }; }); save(); }
+    s.innerHTML = '<h2 id="h-ueben">Üben</h2><p>Bearbeite alle ' + p.length + ' Aufgaben. Bei jeder Aufgabe kannst du Tipps öffnen. Mit „Neue Aufgabe“ bekommst du neue Zahlen.</p><div id="slots"></div><div class="fb" id="ubSum" role="status"></div>' + pager('ueben');
+    var box = $('#slots'); S.slots.forEach(function (sl, i) { box.appendChild(slotCard(sl, i)); });
+    ubSum();
+  };
+  function levelTag(l) { return ['', 'Grundlage', 'Standard', 'Knobeln'][l] || ''; }
+  function slotCard(sl, i) {
+    var t = sl.task, c = h('div', { class: 'task' + (sl.solved ? ' solved' : ''), id: 'slot' + i });
+    var showHints = S.way === 'G' ? 1 : 0;
+    c.innerHTML = '<div class="thead"><span class="tag">' + levelTag(sl.level) + '</span><span class="tag plain">Aufgabe ' + (i + 1) + '</span>' + (sl.solved ? '<span class="tag ok">✓ gelöst</span>' : '') + '</div>' +
+      '<div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 's' + i, sl.values) + '</div>' +
+      '<div class="actions"><button class="btn" data-a="check">Prüfen</button><button class="btn ghost" data-a="hint">Tipp</button><button class="btn ghost" data-a="new">Neue Aufgabe</button></div>' +
+      '<div class="hints"></div><p class="fb" role="status"></p>';
+    var hintsBox = $('.hints', c);
+    function drawHints() { hintsBox.innerHTML = t.hints.slice(0, Math.max(sl.hints, showHints)).map(function (x, k) { return '<div class="hint"><b>Tipp ' + (k + 1) + ':</b> ' + x + '</div>'; }).join('') + (sl.shown ? '<div class="hint sol"><b>Lösungsweg:</b> ' + t.solution + '</div>' : ''); }
+    drawHints();
+    c.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-a]'); if (!b) return;
+      var a = b.dataset.a, f = $('.fb', c);
+      if (a === 'check') {
+        var vals = readInputs(t, 's' + i, c); sl.values = vals;
+        var res = t.inputs.map(function (inp, k) { return checkInput(inp, vals[k]); });
+        if (res.some(function (r) { return r.empty; })) { f.className = 'fb bad'; f.textContent = 'Fülle bitte alle Felder aus.'; return; }
+        sl.tries++; S.stats.attempts++;
+        var ok = res.every(function (r) { return r.ok; });
+        if (ok) {
+          if (!sl.solved) { sl.solved = true; if (sl.tries === 1 && !sl.hints && !sl.shown) S.stats.firstTry++; }
+          if (sl === S.extra) mark('weiterdenken');
+          f.className = 'fb good'; f.innerHTML = '✓ Richtig! ' + (t.praise || '');
+          c.classList.add('solved'); var hd = $('.thead', c); if (!$('.tag.ok', hd)) hd.appendChild(h('span', { class: 'tag ok' }, '✓ gelöst'));
+        } else {
+          var msg = (res.filter(function (r) { return r.msg; })[0] || {}).msg;
+          var spec = !msg && t.mistakes ? t.mistakes(vals) : null;
+          f.className = 'fb ' + (res.some(function (r) { return r.almost; }) ? 'hint' : 'bad');
+          f.innerHTML = msg || spec || (sl.tries >= 2 ? 'Noch nicht. Öffne einen Tipp, der hilft dir weiter.' : 'Noch nicht richtig. Prüfe deine Rechnung noch einmal.');
+        }
+        save(); ubSum();
+      } else if (a === 'hint') {
+        if (Math.max(sl.hints, showHints) < t.hints.length) { sl.hints = Math.max(sl.hints, showHints) + 1; S.stats.hints++; }
+        else if (!sl.shown) { sl.shown = true; S.stats.solutions++; }
+        drawHints(); save();
+        b.textContent = sl.shown ? 'Lösungsweg gezeigt' : (Math.max(sl.hints, showHints) >= t.hints.length ? 'Lösungsweg zeigen' : 'Weiterer Tipp');
+      } else if (a === 'new') {
+        if (!sl.solved && !sl.shown && sl.tries < 2) { f.className = 'fb hint'; f.textContent = 'Versuche die Aufgabe erst zweimal oder öffne den Lösungsweg. Dann bekommst du eine neue.'; return; }
+        var wasSolved = sl.solved;
+        var nt = gen(sl.key, sl.level); sl.task = nt; sl.tries = 0; sl.hints = 0; sl.shown = false; sl.values = []; sl.solved = false; if (wasSolved) sl.solved = false;
+        save(); c.replaceWith(slotCard(sl, i)); ubSum();
+      }
+    });
+    return c;
+  }
+  function ubSum() {
+    var n = S.slots.filter(function (x) { return x.solved; }).length;
+    if (n === S.slots.length && n > 0) { mark('ueben'); fb('#ubSum', '<b>Alle ' + n + ' Aufgaben gelöst.</b> Weiter geht es mit „Weiterdenken“ oder direkt mit dem Abschlusstest.', 'good'); }
+    else fb('#ubSum', n + ' von ' + S.slots.length + ' Aufgaben gelöst.', '');
+  }
+
+  RENDER.weiterdenken = function () {
+    var s = $('#sec-weiterdenken');
+    if (!S.extra) { S.extra = { task: gen(MOD.tasks.extra, 3), solved: false, hints: 0, shown: false, values: [], tries: 0 }; save(); }
+    var sl = S.extra, t = sl.task;
+    s.innerHTML = '<h2 id="h-weiterdenken">Weiterdenken</h2><p>' + (S.way === 'E' ? 'Diese Aufgabe ist für deinen Lernweg Pflicht.' : 'Diese Aufgabe ist freiwillig. Sie zeigt dir, ob du das Thema auch in neuen Situationen nutzen kannst.') + '</p>';
+    var c = slotCard(sl, 'x'); s.appendChild(c); s.insertAdjacentHTML('beforeend', pager('weiterdenken'));
+  };
+
+  /* Abschlusstest */
+  RENDER.test = function () {
+    var s = $('#sec-test');
+    if (!S.test) { S.test = { items: MOD.tasks.test.map(function (k) { var p = k.split(':'); return gen(p[0], +(p[1] || 2)); }), values: [], done: false, pts: 0, runs: 0, best: 0, details: [] }; save(); }
+    var T = S.test;
+    s.innerHTML = '<h2 id="h-test">Abschlusstest</h2><p>' + T.items.length + ' Aufgaben ohne Tipps. Rechne im Heft mit und trage dann deine Ergebnisse ein. Du wertest den Test einmal aus.</p>' +
+      T.items.map(function (t, i) { return '<div class="task" id="ti' + i + '"><div class="thead"><span class="tag plain">Aufgabe ' + (i + 1) + '</span></div><div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 't' + i, T.values[i]) + '</div><p class="fb"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="tBtn"' + (T.done ? ' disabled' : '') + '>Test auswerten</button>' + (T.done ? '<button class="btn ghost" id="tNew">Noch einmal mit neuen Aufgaben</button>' : '') + '</div><div class="fb" id="tSum" role="status"></div>' + pager('test');
+    T.items.forEach(function (t, i) { $$('input', $('#ti' + i)).forEach(function (el) { el.addEventListener('input', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); el.addEventListener('change', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); }); });
+    $('#tBtn').addEventListener('click', function () {
+      var vals = T.items.map(function (t, i) { return readInputs(t, 't' + i, $('#ti' + i)); });
+      var empty = vals.some(function (v) { return v.some(function (x) { return String(x).trim() === ''; }); });
+      if (empty && !confirm('Du hast noch nicht alle Felder ausgefüllt. Trotzdem auswerten?')) return;
+      T.values = vals; T.done = true; T.runs++; save(); showTest();
+      $('#tBtn').disabled = true;
+      if (!$('#tNew')) { var nb = h('button', { class: 'btn ghost', id: 'tNew' }, 'Noch einmal mit neuen Aufgaben'); $('#tBtn').after(nb); bindNew(); }
+    });
+    function bindNew() { var n = $('#tNew'); if (n) n.addEventListener('click', function () { if (!confirm('Neuer Test mit neuen Zahlen? Dein bestes Ergebnis bleibt gespeichert.')) return; var best = T.best, runs = T.runs; S.test = null; save(); RENDER.test(); S.test.best = best; S.test.runs = runs; save(); }); }
+    bindNew();
+    if (T.done) showTest();
+  };
+  function showTest() {
+    var T = S.test, pts = 0;
+    T.details = T.items.map(function (t, i) {
+      var res = t.inputs.map(function (inp, k) { return checkInput(inp, (T.values[i] || [])[k]); });
+      var ok = res.every(function (r) { return r.ok; }); if (ok) pts++;
+      var f = $('#ti' + i + ' .fb'); f.className = 'fb ' + (ok ? 'good' : 'bad'); f.innerHTML = ok ? '✓ Richtig' : '✗ Nicht richtig. <b>Lösung:</b> ' + t.solution;
+      $$('#ti' + i + ' input').forEach(function (e) { e.disabled = true; });
+      return { aufgabe: i + 1, skill: t.skill || t.key, richtig: ok };
+    });
+    T.pts = pts; T.best = Math.max(T.best || 0, pts); save(); mark('test');
+    var pct = Math.round(pts / T.items.length * 100);
+    fb('#tSum', '<b>' + pts + ' von ' + T.items.length + ' Aufgaben richtig (' + pct + ' %).</b> ' + verdict(pct), pct >= 80 ? 'good' : pct >= 50 ? 'hint' : 'bad');
+  }
+  function verdict(p) { return p >= 80 ? 'Sehr gut, du beherrschst das Thema.' : p >= 50 ? 'Ein guter Stand. Übe die falschen Aufgabentypen noch einmal.' : 'Arbeite die Erklärung und die Übungen noch einmal durch und nutze die Tipps.'; }
+
+  RENDER.lerncheck = function () {
+    var s = $('#sec-lerncheck'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-lerncheck">Mein Lerncheck</h2><p>Wie sicher bist du? Sei ehrlich, das hilft dir und deiner Lehrkraft.</p>' +
+      MOD.lerncheck.map(function (l, i) { return '<fieldset class="lc"><legend>' + l + '</legend>' + LC_SCALE.map(function (x, k) { return '<label class="chip"><input type="radio" name="lc' + i + '" value="' + k + '"' + (S.lc[i] === k ? ' checked' : '') + '><span>' + x + '</span></label>'; }).join('') + '</fieldset>'; }).join('') +
+      '<p class="fb" id="lcFb" role="status"></p>' + pager('lerncheck');
+    $$('input', s).forEach(function (r) { r.addEventListener('change', function () { S.lc[+this.name.slice(2)] = +this.value; save(); lcState(); }); });
+    lcState();
+  };
+  function lcState() { var n = MOD.lerncheck.filter(function (l, i) { return S.lc[i] != null; }).length; if (n === MOD.lerncheck.length) { mark('lerncheck'); fb('#lcFb', '✓ Lerncheck ausgefüllt.', 'good'); } else fb('#lcFb', n + ' von ' + MOD.lerncheck.length + ' Aussagen bewertet.', ''); }
+
+  /* Ergebnis und Abgabe */
+  function minutes() { return S.startedAt ? Math.max(1, Math.round((Date.now() - S.startedAt) / 60000)) : 0; }
+  function payload() {
+    var T = S.test || { pts: 0, items: [], details: [] };
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    if (!S.abgabeId) { S.abgabeId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); save(); }
+    return {
+      schema_version: '2.0', fach: 'Mathematik', jahrgang: String(CFG.jahrgang), modul_id: MOD.id, modul_titel: MOD.title, dateiversion: CFG.version,
+      lerncode: S.lerncode, klasse: S.klasse, email: S.email, lernweg: WAYS[S.way],
+      bearbeitungsstand: Math.round(n / req().length * 100), pflichtschritte: req().filter(function (k) { return S.done[k]; }),
+      diagnose_punkte: S.diagPts || 0, diagnose_max: MOD.diagnose.length,
+      uebungen_geloest: S.slots.filter(function (x) { return x.solved; }).length, uebungen_gesamt: S.slots.length,
+      uebungen_erster_versuch: S.stats.firstTry, tipps_genutzt: S.stats.hints, loesungswege_genutzt: S.stats.solutions,
+      weiterdenken_geloest: !!(S.extra && S.extra.solved),
+      test_punkte: T.done ? T.pts : 0, test_max: T.items.length, test_prozent: T.done && T.items.length ? Math.round(T.pts / T.items.length * 100) : 0,
+      test_durchlaeufe: T.runs || 0, test_details: T.details || [],
+      lerncheck: MOD.lerncheck.map(function (l, i) { return { aussage: l, einschaetzung: S.lc[i] != null ? LC_SCALE[S.lc[i]] : '' }; }),
+      bearbeitungszeit_min: minutes(), abgabe_id: S.abgabeId, zeitstempel_client: new Date().toISOString()
+    };
+  }
+  RENDER.ergebnis = function () {
+    var s = $('#sec-ergebnis'), p = payload();
+    var missing = req().filter(function (k) { return !S.done[k]; }).map(function (k) { return SECTIONS.find(function (x) { return x[0] === k; })[1]; });
+    s.innerHTML = '<h2 id="h-ergebnis">Mein Ergebnis</h2>' +
+      '<div class="summary"><div><b>Lerncode</b>' + esc(p.lerncode) + ' · ' + esc(p.klasse) + '</div><div><b>Bearbeitet</b>' + p.bearbeitungsstand + ' %</div><div><b>Abschlusstest</b>' + p.test_punkte + ' von ' + p.test_max + ' (' + p.test_prozent + ' %)</div><div><b>Übungen</b>' + p.uebungen_geloest + ' von ' + p.uebungen_gesamt + ' gelöst</div><div><b>Tipps genutzt</b>' + p.tipps_genutzt + '</div><div><b>Zeit</b>ca. ' + p.bearbeitungszeit_min + ' Min.</div></div>' +
+      (missing.length ? '<p class="fb hint">Noch offen: ' + missing.join(', ') + '. Du kannst trotzdem senden.</p>' : '<p class="fb good">Alle Pflichtschritte erledigt. Stark!</p>') +
+      '<p class="note">' + (S.test && S.test.done ? verdict(p.test_prozent) : 'Bearbeite den Abschlusstest, damit deine Lehrkraft sieht, was du kannst.') + '</p>' +
+      '<div class="actions"><button class="btn big" id="sendBtn">Ergebnis an die Lehrkraft senden</button><button class="btn ghost" id="copyBtn">Zusammenfassung kopieren</button><button class="btn ghost" onclick="window.print()">Drucken</button></div>' +
+      '<p class="fb" id="sendFb" role="status">' + (S.sent ? '✓ Bereits gesendet. Du kannst nach Änderungen erneut senden.' : '') + '</p>' + pager('ergebnis');
+    $('#sendBtn').addEventListener('click', send);
+    $('#copyBtn').addEventListener('click', function () {
+      var t = 'SOL Mathe ' + CFG.jahrgang + ' · Modul ' + MOD.id + ' ' + MOD.title + '\nLerncode: ' + p.lerncode + ' (' + p.klasse + ')\nBearbeitet: ' + p.bearbeitungsstand + ' %\nTest: ' + p.test_punkte + '/' + p.test_max + '\nÜbungen: ' + p.uebungen_geloest + '/' + p.uebungen_gesamt + '\nTipps: ' + p.tipps_genutzt;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { fb('#sendFb', 'Zusammenfassung kopiert.', 'good'); }, function () { prompt('Zum Kopieren markieren:', t); });
+    });
+  };
+  function isLive() { return /(?:edmundbruns\.com|pages\.dev)$/.test(location.hostname); }
+  function send() {
+    if (!S.started || !normCode(S.lerncode) || !normKlasse(S.klasse) || !emailOk(S.email)) { go('start'); return fb('#startFb', 'Bitte prüfe Lerncode, Klasse und IServ-Adresse.', 'bad'); }
+    var p = payload(), btn = $('#sendBtn');
+    if (!isLive() || !CFG.endpoint || CFG.endpoint.indexOf('script.google.com') < 0) { console.log('[SOL8] Vorschau, Payload:', p); return fb('#sendFb', 'Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an deine Lehrkraft.', 'hint'); }
+    btn.disabled = true; fb('#sendFb', 'Wird gesendet …', '');
+    window.ebSend(CFG.endpoint, p).then(function (r) {
+      btn.disabled = false;
+      if (r.ok) { S.sent = true; save(); fb('#sendFb', 'Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen.', 'good'); }
+      else fb('#sendFb', 'Nicht gespeichert: ' + esc(r.msg) + ' Dein Stand bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann noch einmal auf Senden.', 'bad');
+    });
+  }
+
+  /* ---------- Start ---------- */
+  (S.slots || []).forEach(function (sl) { revive(sl.task); });
+  if (S.extra) revive(S.extra.task);
+  if (S.test && S.test.items) S.test.items.forEach(revive);
+  buildShell(); progress();
+  var hash = (location.hash || '').slice(1);
+  var startSec = SECTIONS.some(function (s) { return s[0] === hash; }) ? hash : (S.started ? S.sec : 'start');
+  show(S.started ? startSec : 'start');
+  window.SOL8 = { state: function () { return S; }, payload: payload, checkInput: checkInput, gen: gen };
+})();
+
+</script>
+</body>
+</html>

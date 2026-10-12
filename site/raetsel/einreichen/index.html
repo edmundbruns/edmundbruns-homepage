@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+
+<!-- Mirrored from bruns-homepage.pages.dev/raetsel/einreichen/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Aug 2026 17:19:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <script>try{var d=document.documentElement,s=localStorage;if(s.getItem('eb-theme')==='dark')d.dataset.theme='dark';if(s.getItem('eb-reading')==='easy')d.dataset.reading='easy';}catch(e){}</script>
+  <link rel="manifest" href="../../manifest.html">
+  <meta name="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rätsel einreichen | Dr. Edmund Bruns</title>
+  <meta name="description" content="Reiche dein eigenes Rätsel ein. Passende Einsendungen werden auf der Rätselseite veröffentlicht.">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <style>
+    .page-hero{ padding: clamp(40px,5vw,64px) 0 8px; }
+    .rform{ background:var(--cream); border:1px solid var(--line); border-radius:var(--radius); padding:22px 22px 26px; box-shadow:0 12px 34px rgba(23,37,31,.06); max-width:720px; }
+    .rform label{ display:block; font-weight:700; margin:14px 0 5px; }
+    .rform input, .rform select, .rform textarea{ width:100%; font:inherit; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:12px; padding:.7rem .8rem; }
+    html[data-theme="dark"] .rform input, html[data-theme="dark"] .rform select, html[data-theme="dark"] .rform textarea{ background:#0f1c1a; }
+    .rform textarea{ min-height:96px; resize:vertical; }
+    .rrow{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media(max-width:560px){ .rrow{ grid-template-columns:1fr; } }
+    .hint{ color:var(--muted); font-size:.85rem; margin:4px 0 0; }
+    .rsubmit{ margin-top:18px; display:inline-flex; align-items:center; gap:8px; border:1px solid var(--ink); background:var(--ink); color:#fff; font:inherit; font-weight:750; border-radius:999px; padding:.7rem 1.3rem; cursor:pointer; }
+    .rsubmit:hover{ background:var(--accent); }
+    .note{ background:var(--accent-soft); border-radius:14px; padding:14px 16px; margin:0 0 18px; color:#3b4740; font-size:.92rem; }
+    .feedback{ margin-top:12px; font-weight:700; }
+    .feedback.bad{ color:#b23b2e; }
+    .hidden{ position:absolute; left:-9999px; }
+  </style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="site-header" id="siteHeader">
+    <nav class="nav shell" aria-label="Hauptnavigation">
+      <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">EB</span><span>Dr. Edmund Bruns</span></a>
+      <a class="nav-home" href="../../index.html"><svg class="home-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Startseite</span></a>
+    </nav>
+  </header>
+  <main id="inhalt">
+    <section class="page-hero shell">
+      <div class="eyebrow">Von SchülerInnen für SchülerInnen</div>
+      <h1>Dein <em>Rätsel</em> einreichen</h1>
+      <p class="lead">Du hast ein gutes Rätsel erfunden? Reiche es hier ein. Herr Bruns schaut es sich an und veröffentlicht passende Rätsel auf der Rätselseite.</p>
+    </section>
+    <section class="section" style="padding-top:6px">
+      <div class="shell">
+        <div class="note"><strong>Kurz vorab:</strong> Bitte keine echten Namen von Mitschülerinnen oder Mitschülern und nichts Verletzendes. Deine Angaben gehen nur an Herrn Bruns. Name und E-Mail sind freiwillig.</div>
+        <form class="rform" id="rform" novalidate>
+          <p class="hidden"><label>Bitte frei lassen <input name="bot-field"></label></p>
+          <div class="rrow">
+            <div><label for="rname">Name oder Kürzel (freiwillig)</label><input id="rname" name="name_oder_lerncode" autocomplete="off"></div>
+            <div><label for="rklasse">Klasse (freiwillig)</label><input id="rklasse" name="klasse" autocomplete="off"></div>
+          </div>
+          <label for="rtitel">Titel des Rätsels *</label>
+          <input id="rtitel" name="raetsel_titel" required>
+          <label for="rtyp">Art des Rätsels</label>
+          <select id="rtyp" name="raetsel_typ">
+            <option>Scherzfrage</option><option>Rösselsprung</option><option>Suchsel</option><option>Kreuzworträtsel</option>
+            <option>Zahlenrätsel</option><option>Labyrinth</option><option>Bilderrätsel</option><option>Sonstiges</option>
+          </select>
+          <label for="rtext">Das Rätsel *</label>
+          <textarea id="rtext" name="raetsel_text" required placeholder="Schreibe hier dein Rätsel auf."></textarea>
+          <label for="rloes">Die Lösung *</label>
+          <textarea id="rloes" name="loesung" required placeholder="Wie lautet die Lösung?"></textarea>
+          <label for="rmail">E-Mail (nur wenn du bei Veröffentlichung genannt werden möchtest)</label>
+          <input id="rmail" name="email" type="email" autocomplete="off">
+          <input type="hidden" name="modul_id" value="RAETSEL_EINREICHUNG">
+          <input type="hidden" name="modul_titel" value="Rätsel-Einreichung">
+          <button class="rsubmit" type="submit">Rätsel absenden</button>
+          <div class="feedback" id="rfb" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-grid shell"><div><div class="footer-title">Rätsel von euch.</div><div class="footer-note">Einsendungen werden gesichtet und passende Rätsel veröffentlicht.</div></div>
+    <div class="footer-links"><a href="../index.html">Zur Rätselseite</a><a href="../../index.html">Start</a><a href="../../datenschutz/index.html">Datenschutz</a></div></div>
+    <div class="copyright shell"><span>&copy; <span data-year></span> Dr. Edmund Bruns</span></div>
+  </footer>
+  <a class="backtop" href="#top" aria-label="Nach oben">&uarr;</a>
+  <script src="../../assets/site.js"></script>
+  <script defer src="../../assets/search.js"></script>
+  <script defer src="../../assets/ux.js"></script>
+  <script>
+  (function(){
+    var WEBHOOK_URL="https://script.google.com/macros/s/AKfycbzuFNplwjV9jw-Qli9yIffCBio6IBbCPgI-ZUg_GiWCNUetAa8G_4nfB8V-yWFgfwXErA/exec";
+    var form=document.getElementById('rform'), fb=document.getElementById('rfb');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var t=form.raetsel_titel.value.trim(), x=form.raetsel_text.value.trim(), l=form.loesung.value.trim();
+      if(!t||!x||!l){ fb.className='feedback bad'; fb.textContent='Bitte Titel, Rätsel und Lösung ausfüllen.'; return; }
+      if(form['bot-field'].value){ return; }
+      fb.className='feedback'; fb.textContent='Wird gesendet …';
+      var payload={ zeitpunkt_iso:new Date().toISOString() };
+      new FormData(form).forEach(function(v,k){ if(k!=='bot-field') payload[k]=v; });
+      var btn=form.querySelector('button[type=submit]'); if(btn) btn.disabled=true;
+      window.ebSend(WEBHOOK_URL,payload).then(function(r){
+        if(r.ok){ window.location.href='danke.html'; return; }
+        if(btn) btn.disabled=false;
+        fb.className='feedback bad'; fb.textContent='Nicht gesendet: '+r.msg+' Deine Eingaben sind noch da. Versuche es bitte noch einmal.';
+      });
+    });
+  })();
+  </script>
+</body>
+
+<!-- Mirrored from bruns-homepage.pages.dev/raetsel/einreichen/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Aug 2026 17:19:29 GMT -->
+</html>

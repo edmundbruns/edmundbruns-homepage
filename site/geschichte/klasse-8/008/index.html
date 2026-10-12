@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#37546b">
+<meta name="description" content="SOL Geschichte Jahrgang 8, Modul 008: Was bedeutete Nation im 19. Jahrhundert?">
+<title>SOL Geschichte 8 | Modul 008 | Was bedeutete Nation im 19. Jahrhundert?</title>
+<style>
+:root{--ink:#172430;--paper:#fff;--cream:#e7edf2;--soft:#e7edf2;--bg:#f2f4f6;--green:#37546b;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#d3dae1;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #18242e14;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#18242e,#37546b);color:#f5f8fa;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#f5f8fa;color:#18242e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0;overflow-wrap:break-word}
+.hero p{margin:.4rem 0;color:#e6edf3;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#37546b,#b87824);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#24384a;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+main{min-width:0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow)}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#24384a}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.zitat{border-left:4px solid var(--gold);margin:10px 0;padding:6px 0 6px 14px;font-family:Georgia,"Times New Roman",serif;font-size:1.06rem}
+.zitat p{margin:.35rem 0}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px}
+.field label,.legend{font-weight:750;color:#24384a}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid #b9c3cc;border-radius:12px;background:#fff;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#55606a}
+.btn{background:var(--green);color:#f5f8fa;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:650}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.fb ul{margin:.4rem 0 0;padding-left:1.2rem;font-weight:600}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#55606a;letter-spacing:.04em}
+.fs{border:0;padding:0;margin:0;min-width:0}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px;color:var(--ink)}
+.chip[aria-pressed=true]{border-color:var(--green);background:#e6edf3}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zone{border:2px dashed #b9c3cc;border-radius:14px;padding:10px;background:#fff;min-height:104px}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:700;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0;padding:0;list-style:none}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .onum{flex:0 0 28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;color:var(--green);font-size:.9rem}
+.orow span{flex:1;font-weight:650;min-width:0}
+.orow button{flex:0 0 44px;width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;color:var(--ink)}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+.srow{display:grid;grid-template-columns:1fr minmax(150px,230px);gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0;background:#fff}
+.srow .why{grid-column:1/-1;font-size:.9rem;color:var(--warn);display:none}
+.srow .why.show{display:block}
+@media(max-width:560px){.srow{grid-template-columns:1fr}}
+.srow.wide{grid-template-columns:1fr}
+.task label.legend{display:block;margin:8px 0 6px}
+select.ok{border:2px solid var(--ok);background:var(--okbg)}
+select.no{border:2px solid var(--bad);background:var(--badbg)}
+.luecke{line-height:2.5;margin:8px 0}
+.luecke select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;vertical-align:middle}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px}
+.svgwrap.narrow{max-width:520px;margin-left:auto;margin-right:auto}
+svg.bild{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d1899)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#3a4855}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#1b2833;color:#e8eef3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#6f7a84;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+.szene{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;align-items:center}
+.factbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.factbox div{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.factbox b{display:block;color:var(--green)}
+table.vgl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.95rem}
+table.vgl th,table.vgl td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+table.vgl th{background:var(--cream);color:var(--green)}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#55606a;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 8 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Nation und politische Teilhabe · Ermittlungsakte 008</div>
+    <h1>Was bedeutete Nation im 19. Jahrhundert?</h1>
+    <p>Nach 1815 gab es kein Deutschland als Staat, sondern fast 40 Einzelstaaten. Trotzdem sprachen immer mehr Menschen von einer deutschen Nation. Du findest heraus, was sie damit meinten, warum sie dafür sangen und feierten, und warum die Fürsten davor Angst hatten.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>008</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 Schritte</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#ordnung">Wer will was?</a>
+ <a href="#kette">Ursache und Folge</a>
+ <a href="#hambach">Hambacher Fest</a>
+ <a href="#zeitleiste">Zeitleiste</a>
+ <a href="#begriff">Was ist Nation?</a>
+ <a href="#quelle">Die Quelle</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 8a"><span class="hint">Möglich sind zum Beispiel 8a, Klasse 8a, R8a oder nur 8.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field fs"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul>
+ <li>Du erklärst, was der Wiener Kongress und der Deutsche Bund für die Deutschen bedeuteten.</li>
+ <li>Du beschreibst die Ziele der Nationalbewegung: Einheit und Freiheit.</li>
+ <li>Du ordnest Wartburgfest, Hambacher Fest und weitere Ereignisse zeitlich ein.</li>
+ <li>Du untersuchst ein Lied als historische Quelle und erkennst, dass sich Bedeutungen wandeln.</li>
+ <li>Du unterscheidest Quelle und Darstellung.</li>
+</ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Ermittlung starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Akte 008</span>
+ <p><strong>Fall:</strong> Im Jahr 1820 will ein Händler aus Rhede im Emsland Waren nach Münster bringen. Die Strecke ist nicht weit. Trotzdem überquert er eine Staatsgrenze. Rhede gehört zum Königreich Hannover, Münster zum Königreich Preußen. An der Grenze steht ein Zollhaus, auf der anderen Seite gelten andere Gesetze und andere Münzen.</p>
+ <p><strong>Dein Auftrag:</strong> Damals träumten viele Menschen von einem gemeinsamen Deutschland. Finde heraus, was sie mit „Nation“ meinten. Am Ende prüfst du eine Karteikarte von Chronos.</p>
+</div><div class="svgwrap"><svg class="bild" viewBox="0 0 640 230" role="img" aria-label="Schematische Szene: Ein Fuhrwerk fährt auf einer Straße aus dem Königreich Hannover, zu dem das Emsland gehört, zur Grenze des Königreichs Preußen. An der Grenze stehen ein Schlagbaum und ein Zollhaus.">
+ <rect width="640" height="230" fill="#f7f8fa"/>
+ <rect x="0" y="0" width="300" height="230" fill="#eef2e6"/>
+ <rect x="340" y="0" width="300" height="230" fill="#eae8f1"/>
+ <path d="M320 0 V230" stroke="#9b352d" stroke-width="3" stroke-dasharray="9 7"/>
+ <rect x="0" y="150" width="640" height="34" fill="#d8cdb8"/>
+ <text x="16" y="34" font-size="24" font-weight="700" fill="#24384a">Kgr. Hannover</text>
+ <text x="16" y="62" font-size="20" fill="#3a4855">mit Rhede im Emsland</text>
+ <text x="356" y="34" font-size="24" font-weight="700" fill="#24384a">Kgr. Preußen</text>
+ <text x="356" y="62" font-size="20" fill="#3a4855">mit Münster</text>
+ <g transform="translate(70,112)"><rect x="0" y="0" width="92" height="40" rx="5" fill="#a77b4f" stroke="#6b4a2b" stroke-width="2"/><path d="M6 0 q40 -30 80 0" fill="#efe6d4" stroke="#8a7d63" stroke-width="2"/><circle cx="20" cy="44" r="11" fill="#5c4632"/><circle cx="74" cy="44" r="11" fill="#5c4632"/><path d="M92 22 h34" stroke="#6b4a2b" stroke-width="4"/><g fill="#7a5a3a" stroke="#5a3f27" stroke-width="1.5"><ellipse cx="152" cy="20" rx="26" ry="11"/><path d="M170 14 L184 -6 L192 -2 L180 20 Z"/><ellipse cx="192" cy="-4" rx="10" ry="6" transform="rotate(25 192 -4)"/></g><path d="M134 28 v20 M142 28 v20 M162 28 v20 M170 28 v20" stroke="#5a3f27" stroke-width="4"/><path d="M127 18 q-8 6 -6 16" stroke="#5a3f27" stroke-width="3" fill="none"/></g>
+ <rect x="268" y="96" width="38" height="54" fill="#cfc4ad" stroke="#6f675c" stroke-width="2"/><path d="M262 96 l25 -20 l25 20 z" fill="#9c3b33"/>
+ <text x="287" y="130" font-size="15" text-anchor="middle" fill="#24384a" font-weight="700">Zoll</text>
+ <rect x="312" y="128" width="8" height="34" fill="#55606a"/>
+ <path d="M316 132 L420 132" stroke="#9b352d" stroke-width="7"/><path d="M336 132 h14 M364 132 h14 M392 132 h14" stroke="#ffffff" stroke-width="7"/>
+ <text x="490" y="215" font-size="16" fill="#55606a" text-anchor="middle">schematisch, nicht maßstabsgetreu</text>
+</svg></div><div class="chronos">
+ <div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e7edf2" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#37546b"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#37546b"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div>
+ <div><p class="who">Chronos, Archivar</p><p>Eine Staatsgrenze zwischen Rhede und Münster, wer hätte das gedacht? Ich habe auf meine Karteikarte geschrieben, dass Nation damals nur ein schönes Gefühl beim Singen war. Ob das stimmt? Prüf das für mich. Und sieh dir genau an, was die Leute auf ihren Festen gefordert haben.</p></div>
+</div>
+<p><strong>Leitfrage:</strong> Was bedeutete Nation im 19. Jahrhundert?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Spurenleser</span>
+ <span class="abz" id="abz2">Ordnungssinn</span>
+ <span class="abz" id="abz3">Quellenprüfer</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p>
+<div id="dBox"></div>
+<div class="field"><label for="dText">Was verbindest du heute mit dem Wort „Nation“? Schreibe ein oder zwei Gedanken auf.</label><textarea id="dText" placeholder="Meine Vermutung: ..."></textarea></div>
+<button class="btn" type="button" id="dCheck">Einschätzung auswerten</button>
+<div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+
+<section class="card" id="ordnung">
+<h2>Europa nach Napoleon: Wer will was?</h2>
+<p>1814 und 1815 trafen sich Kaiser, Könige und ihre Minister in Wien zum <strong>Wiener Kongress</strong>. Nach den Kriegen gegen Napoleon ordneten sie Europa neu. Statt eines deutschen Staates entstand der <strong>Deutsche Bund</strong>: ein lockerer Zusammenschluss von fast 40 Staaten, jeder mit eigenem Fürsten, eigenen Gesetzen und eigenen Münzen. Die Fürsten wollten die alte Ordnung wiederherstellen. Man nennt das <strong>Restauration</strong>.</p>
+<p>Viele Menschen waren enttäuscht. Sie hatten in den Befreiungskriegen gegen Napoleon gekämpft und gehofft, dass danach ein gemeinsames Deutschland mit mehr Rechten für die Bürger entsteht. Diese Menschen bildeten die <strong>Nationalbewegung</strong>. Ihr Motto lässt sich in zwei Wörtern sagen: <strong>Einheit und Freiheit</strong>.</p>
+<div class="task" data-task="zuord" id="t-zuord"></div>
+</section>
+
+<section class="card" id="kette">
+<h2>Vom Kriegsende bis zur Zensur</h2>
+<p>Ereignisse hängen zusammen. Das eine löst das andere aus. Bringe die Kette in die richtige Reihenfolge.</p>
+<div class="task" data-task="kette" id="t-kette"></div>
+<div class="notice"><strong>Wartburgfest 1817:</strong> Am 18. Oktober 1817 trafen sich mehr als 500 Studenten auf der Wartburg bei Eisenach. Sie erinnerten an 300 Jahre Reformation und an den Sieg über Napoleon bei Leipzig 1813. Am Abend verbrannten einige von ihnen Bücher und Gegenstände, die für die alte Ordnung standen, zum Beispiel einen Zopf und einen Korporalstock. Die Studenten waren in <strong>Burschenschaften</strong> organisiert.</div>
+</section>
+
+<section class="card" id="hambach">
+<h2>Das Hambacher Fest 1832</h2>
+<p>Am 27. Mai 1832 zogen 20.000 bis 30.000 Menschen zur Schlossruine bei Hambach in der Pfalz. Es war die bis dahin größte politische Versammlung in Deutschland. Die Veranstalter hatten mit etwa 1.000 Gästen gerechnet. Es kamen Handwerker, Bauern, Studenten, Frauen und Männer, dazu Gäste aus Frankreich und Polen.</p>
+<div class="svgwrap"><svg class="bild" viewBox="0 0 640 360" role="img" aria-label="Schematische Zeichnung des Hambacher Festes 1832: eine Burgruine auf einem Hügel, eine große Menschenmenge, ein Redner auf einem Podest und mehrere Fahnen. Die Bereiche sind antippbar.">
+ <rect width="640" height="360" fill="#f3f6f9"/>
+ <path d="M0 250 Q160 150 330 160 Q500 170 640 240 V360 H0 Z" fill="#dde6d4"/>
+ <g class="hot" data-task="hot" id="h008Schloss" tabindex="0" role="button" aria-label="Burgruine auf dem Hügel">
+  <rect x="270" y="88" width="120" height="72" fill="#c9bea9" stroke="#6f675c" stroke-width="3"/>
+  <rect x="250" y="62" width="34" height="98" fill="#bfb39c" stroke="#6f675c" stroke-width="3"/>
+  <path d="M250 62 h8 v-8 h9 v8 h8 v-8 h9 v8" fill="none" stroke="#6f675c" stroke-width="3"/>
+  <rect x="300" y="110" width="14" height="22" fill="#55606a"/><rect x="340" y="110" width="14" height="22" fill="#55606a"/>
+ </g>
+ <g class="hot" data-task="hot" id="h008Fahne" tabindex="0" role="button" aria-label="Große dreifarbige Fahne mit Aufschrift">
+  <rect x="404" y="40" width="5" height="122" fill="#5c4632"/>
+  <rect x="409" y="42" width="150" height="20" fill="#1c1c1c"/>
+  <rect x="409" y="62" width="150" height="20" fill="#b3261e"/>
+  <rect x="409" y="82" width="150" height="20" fill="#e2b33b"/>
+  <text x="484" y="76" font-size="10.5" text-anchor="middle" fill="#fff" font-weight="700">Deutschlands Wiedergeburt</text>
+  <rect x="400" y="36" width="164" height="128" fill="#000" opacity="0"/>
+ </g>
+ <g class="hot" data-task="hot" id="h008Polen" tabindex="0" role="button" aria-label="Kleinere zweifarbige Fahne in Weiß und Rot">
+  <rect x="164" y="128" width="4" height="86" fill="#5c4632"/>
+  <rect x="168" y="130" width="58" height="16" fill="#ffffff" stroke="#999" stroke-width="1"/>
+  <rect x="168" y="146" width="58" height="16" fill="#c8102e"/>
+  <rect x="156" y="122" width="78" height="96" fill="#000" opacity="0"/>
+ </g>
+ <g class="hot" data-task="hot" id="h008Redner" tabindex="0" role="button" aria-label="Redner auf einem Podest">
+  <rect x="440" y="196" width="76" height="38" fill="#a77b4f" stroke="#6b4a2b" stroke-width="2"/>
+  <circle cx="478" cy="160" r="11" fill="#37546b"/>
+  <path d="M462 196 q16 -34 32 0 z" fill="#37546b"/>
+  <path d="M490 178 l22 -18" stroke="#37546b" stroke-width="6" stroke-linecap="round"/>
+  <rect x="436" y="144" width="86" height="94" fill="#000" opacity="0"/>
+ </g>
+ <g class="hot" data-task="hot" id="h008Menge" tabindex="0" role="button" aria-label="Große Menschenmenge">
+  <rect x="30" y="236" width="400" height="104" fill="#000" opacity="0"/>
+  <g fill="#55606a">
+   <circle cx="50" cy="262" r="9"/><circle cx="80" cy="256" r="9"/><circle cx="110" cy="264" r="9"/><circle cx="140" cy="254" r="9"/><circle cx="170" cy="262" r="9"/><circle cx="200" cy="256" r="9"/><circle cx="230" cy="264" r="9"/><circle cx="260" cy="254" r="9"/><circle cx="290" cy="262" r="9"/><circle cx="320" cy="256" r="9"/><circle cx="350" cy="264" r="9"/><circle cx="380" cy="256" r="9"/><circle cx="410" cy="262" r="9"/>
+   <circle cx="64" cy="296" r="10"/><circle cx="96" cy="290" r="10"/><circle cx="128" cy="298" r="10"/><circle cx="160" cy="290" r="10"/><circle cx="192" cy="298" r="10"/><circle cx="224" cy="290" r="10"/><circle cx="256" cy="298" r="10"/><circle cx="288" cy="290" r="10"/><circle cx="320" cy="298" r="10"/><circle cx="352" cy="290" r="10"/><circle cx="384" cy="298" r="10"/>
+  </g>
+  <g fill="#7f8b96"><rect x="40" y="270" width="380" height="14" rx="7"/><rect x="50" y="306" width="350" height="16" rx="8"/></g>
+ </g>
+ <text x="630" y="350" font-size="17" text-anchor="end" fill="#55606a">Eigene Zeichnung, keine historische Abbildung</text>
+</svg></div>
+<div class="task" data-task="hot" id="t-hot"></div>
+<details class="gloss"><summary>Woher kommen die Farben Schwarz, Rot und Gold?</summary><div class="body">Im Krieg gegen Napoleon trugen Freiwillige des Lützowschen Freikorps schwarze Uniformen mit roten Aufschlägen und goldfarbenen Knöpfen. Die Burschenschaften übernahmen diese Farben. Spätestens seit dem Hambacher Fest 1832 standen Schwarz, Rot und Gold für Einheit und Freiheit. Heute sind es die Farben der Bundesrepublik Deutschland.</div></details>
+</section>
+
+<section class="card" id="zeitleiste">
+<h2>Die Zeitleiste der Nationalbewegung</h2>
+<p>Ordne jedem Ereignis das passende Jahr zu. Der Zeitstrahl hilft dir beim Überblick.</p>
+<div class="svgwrap"><svg class="bild" viewBox="0 0 640 140" role="img" aria-label="Zeitstrahl von 1810 bis 1850 mit Markierungen in den Jahren 1815, 1817, 1819, 1832, 1837 und 1841">
+ <rect width="640" height="140" fill="#f7f8fa"/>
+ <path d="M30 80 H612" stroke="#37546b" stroke-width="4"/><path d="M612 72 l14 8 l-14 8 z" fill="#37546b"/>
+ <g font-size="20" fill="#24384a" text-anchor="middle">
+  <path d="M40 72 v16 M180 72 v16 M320 72 v16 M460 72 v16 M600 72 v16" stroke="#37546b" stroke-width="2"/>
+  <text x="40" y="118">1810</text><text x="180" y="118">1820</text><text x="320" y="118">1830</text><text x="460" y="118">1840</text><text x="600" y="118">1850</text>
+ </g>
+ <g fill="#aa6d18"><circle cx="110" cy="80" r="7"/><circle cx="138" cy="80" r="7"/><circle cx="166" cy="80" r="7"/><circle cx="348" cy="80" r="7"/><circle cx="418" cy="80" r="7"/><circle cx="474" cy="80" r="7"/></g>
+ <g font-size="17" fill="#3a4855" text-anchor="middle"><path d="M110 73 V56 M138 73 V30 M166 73 V56" stroke="#aa6d18" stroke-width="1.5"/><text x="96" y="50">1815</text><text x="138" y="22">1817</text><text x="184" y="50">1819</text><text x="348" y="56">1832</text><text x="418" y="56">1837</text><text x="478" y="56">1841</text></g>
+</svg></div>
+<div class="task" data-task="jahre" id="t-jahre"></div>
+<div class="notice warn"><strong>Ganz in der Nähe:</strong> Das Emsland gehörte seit 1815 zum Königreich Hannover. 1837 hob König Ernst August von Hannover die Verfassung des Landes auf. Sieben Professoren der Universität Göttingen protestierten dagegen, darunter die Brüder Jacob und Wilhelm Grimm. Der König entließ alle sieben, drei mussten das Land verlassen. Die <strong>Göttinger Sieben</strong> wurden in ganz Deutschland bewundert.</div>
+</section>
+
+<section class="card" id="begriff">
+<h2>Was ist eigentlich eine Nation?</h2>
+<p>Das Wort „Nation“ klingt einfach. Im 19. Jahrhundert steckte darin politischer Sprengstoff. Vervollständige den Merktext.</p>
+<div class="task" data-task="luecke" id="t-luecke"></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: ein Lied von 1841</h2>
+<p>Lieder waren im 19. Jahrhundert ein wichtiges Mittel, um Gedanken zu verbreiten. Man konnte sie auswendig lernen, auf Festen singen und weitergeben, auch wenn Zeitungen zensiert wurden.</p>
+<div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>August Heinrich Hoffmann von Fallersleben, „Das Lied der Deutschen“</strong>, geschrieben am 26. August 1841 auf Helgoland, erster Druck am 1. September 1841 in Hamburg. Melodie: Joseph Haydn. Rechtschreibung leicht angepasst.</p>
+ <div class="zitat"><p><em>Aus der 1. Strophe:</em><br>„Deutschland, Deutschland über alles,<br>Über alles in der Welt,<br>Wenn es stets zu Schutz und Trutze<br>Brüderlich zusammenhält,<br>Von der Maas bis an die Memel,<br>Von der Etsch bis an den Belt.“</p>
+ <p><em>3. Strophe:</em><br>„Einigkeit und Recht und Freiheit<br>Für das deutsche Vaterland!<br>Danach lasst uns alle streben<br>Brüderlich mit Herz und Hand!<br>Einigkeit und Recht und Freiheit<br>Sind des Glückes Unterpfand.<br>Blüh im Glanze dieses Glückes,<br>Blühe, deutsches Vaterland!“</p></div>
+</div>
+<div class="chronos">
+ <div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e7edf2" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#37546b"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#37546b"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div>
+ <div><p class="who">Chronos, Archivar</p><p>Ein Lied ist eine Quelle wie ein Brief. Frage also: Wer hat es geschrieben, wann, für wen und warum? Und achte darauf: Wörter können ihre Bedeutung verändern, wenn Menschen sie später anders benutzen.</p></div>
+</div>
+<div class="task" data-task="wfragen" id="t-wfragen"></div>
+<div class="task" data-task="ueberalles" id="t-ueberalles"></div>
+<div class="notice warn"><strong>Gut zu wissen:</strong> Viele Regierungen unterdrückten das Lied, in Preußen, Hannover und Österreich fiel es der Zensur zum Opfer. 1922 wurde es Nationalhymne der Weimarer Republik. In der NS-Zeit wurde nur die erste Strophe gesungen und als Anspruch auf Macht über andere verstanden. Seit 1952 ist die dritte Strophe die Nationalhymne der Bundesrepublik.</div>
+<div class="akte">
+ <span class="stamp">Zweite Quelle</span>
+ <p><strong>Johann Georg August Wirth, Rede auf dem Hambacher Fest</strong>, 27. Mai 1832. In seiner Rede rief er:</p>
+ <div class="zitat"><p>„Hoch! Dreimal hoch leben die vereinigten Freistaaten Deutschlands!“</p></div>
+ <p class="hint">Ein Freistaat ist ein Staat ohne König oder Fürsten, also eine Republik.</p>
+</div>
+<div class="task" data-task="wirth" id="t-wirth"></div>
+<div class="task" data-task="darst" id="t-darst"></div>
+<div class="task" data-task="hymne" id="t-hymne" data-lw="weiter"></div>
+</section>
+
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<p>Tippe auf ein Wort, um die Erklärung zu öffnen.</p>
+<details class="gloss"><summary>Nation</summary><div class="body">Eine große Gruppe von Menschen, die sich durch Sprache, Geschichte und Kultur verbunden fühlt und oft einen eigenen Staat möchte.</div></details>
+<details class="gloss"><summary>Nationalbewegung</summary><div class="body">Menschen im 19. Jahrhundert, die einen gemeinsamen deutschen Staat mit Verfassung und Freiheitsrechten forderten. Ihr Motto: Einheit und Freiheit.</div></details>
+<details class="gloss"><summary>Wiener Kongress</summary><div class="body">Treffen der europäischen Herrscher und Diplomaten 1814 und 1815 in Wien. Dort wurde Europa nach Napoleon neu geordnet.</div></details>
+<details class="gloss"><summary>Deutscher Bund</summary><div class="body">Lockerer Bund von fast 40 deutschen Staaten ab 1815. Jeder Staat behielt seinen Fürsten. Es gab keine gemeinsame Regierung, die die Menschen wählen konnten.</div></details>
+<details class="gloss"><summary>Restauration</summary><div class="body">Wiederherstellung der alten Ordnung mit der Macht der Fürsten nach 1815.</div></details>
+<details class="gloss"><summary>Burschenschaft</summary><div class="body">Studentische Vereinigung, die nach 1815 für Einheit und Freiheit eintrat.</div></details>
+<details class="gloss"><summary>Zensur</summary><div class="body">Kontrolle von Zeitungen, Büchern und Liedern durch den Staat. Unerwünschte Texte wurden verboten.</div></details>
+<details class="gloss"><summary>Verfassung</summary><div class="body">Grundgesetz eines Staates. Es regelt, wer regiert und welche Rechte die Menschen haben.</div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p>
+<div id="selfcheck"></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte">
+ <span class="stamp">Zu prüfen</span>
+ <p>Auf Chronos' Karteikarte steht: <em>„Nation war im 19. Jahrhundert nur ein schönes Gefühl beim Singen. Mit Politik hatte das nichts zu tun.“</em></p>
+</div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset class="fs"><legend class="legend">A1. Wie entscheidest du über die Karteikarte?</legend>
+  <div class="opts" id="a1Box"></div>
+ </fieldset>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine Nachricht. Erkläre in drei bis fünf Sätzen, was Nation für die Menschen im 19. Jahrhundert bedeutete. Nenne mindestens ein Ereignis oder eine Quelle als Beleg.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, deine Karte muss ergänzt werden, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Für die Nationalbewegung bedeutete Nation ...“ · „Sie forderte Einheit, weil ...“ · „Außerdem wollte sie Freiheit, zum Beispiel ...“ · „Ein Beleg dafür ist ...“ · „Deshalb hatten die Fürsten Angst, denn ...“</p>
+ <p class="hint">So prüft Chronos deinen Text: mindestens drei Sätze, Verknüpfungswörter wie „weil“ oder „deshalb“, mindestens zwei Fachbegriffe und beide Seiten der Frage. Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Nachricht prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" onclick="window.print()">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+</main></div>
+<footer>SOL Geschichte 8 · Modul 008 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-8" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-8"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const M={"tasks": [{"id": "zuord", "type": "zuord", "key": "perspektiven", "name": "Fürsten und Nationalbewegung", "tag": "Perspektivwechsel", "titel": "Wer wollte was?", "frage": "Ordne jede Karte zu: Passt sie zu den Fürsten nach 1815 oder zur Nationalbewegung?", "zones": [{"id": "fuersten", "t": "Fürsten und Regierungen"}, {"id": "nation", "t": "Nationalbewegung"}], "cards": [{"id": "c1", "t": "Die alte Ordnung soll wiederhergestellt werden", "z": "fuersten"}, {"id": "c2", "t": "Jeder Staat behält seinen eigenen Herrscher", "z": "fuersten"}, {"id": "c3", "t": "Zeitungen werden vor dem Druck kontrolliert", "z": "fuersten"}, {"id": "c4", "t": "Studenten werden überwacht", "z": "fuersten"}, {"id": "c5", "t": "Ein gemeinsamer Staat für alle Deutschen", "z": "nation"}, {"id": "c6", "t": "Eine Verfassung, die Rechte der Bürger festschreibt", "z": "nation"}, {"id": "c7", "t": "Freie Meinung und freie Presse", "z": "nation"}, {"id": "c8", "t": "Fahnen in Schwarz, Rot und Gold", "z": "nation"}], "hilfe": "Frage bei jeder Karte: Wer hat davon einen Vorteil? Wer seine Macht behalten will, ist gegen Veränderungen. Wer mehr Rechte will, fordert sie.", "ok": "Alle richtig. Du siehst den Gegensatz: Die Fürsten wollten ihre Macht sichern. Die Nationalbewegung wollte Einheit und Freiheit. Für die Fürsten war das gefährlich, denn ein deutscher Nationalstaat hätte viele Throne überflüssig gemacht.", "hint": "Prüfe die rot markierten Karten: Geht es um Macht behalten und kontrollieren oder um Einheit und mehr Rechte?"}, {"id": "kette", "type": "order", "key": "wirkungskette", "name": "Wirkungskette 1813 bis 1819", "tag": "Ursache und Folge", "titel": "Eine Kette von Ursachen und Folgen", "frage": "Bringe die fünf Schritte in die richtige Reihenfolge. Nutze die Pfeile.", "oben": "die erste Ursache.", "unten": "die letzte Folge.", "items": ["Napoleon beherrscht große Teile Deutschlands.", "In den Befreiungskriegen 1813 bis 1815 kämpfen Freiwillige aus vielen Staaten gemeinsam.", "Der Wiener Kongress schafft keinen deutschen Staat, sondern den Deutschen Bund.", "Enttäuschte Studenten fordern auf dem Wartburgfest 1817 Einheit und Freiheit.", "Die Fürsten beschließen 1819 die Karlsbader Beschlüsse mit Zensur und Überwachung."], "hilfe": "Die Kette beginnt mit der fremden Herrschaft und endet mit der Antwort der Fürsten.", "ok": "Genau. Der gemeinsame Kampf gegen Napoleon weckte ein Gemeinschaftsgefühl. Der Wiener Kongress enttäuschte diese Hoffnung. Die Studenten protestierten, und die Fürsten antworteten mit Zensur. Das ist eine typische Ursache-Folge-Kette.", "hint": "Was kam zuerst: die Hoffnung, die Enttäuschung, der Protest oder die Strafe?"}, {"id": "hot", "type": "hot", "key": "bildarbeit", "name": "Hambacher Fest", "tag": "Bildarbeit", "targets": [{"id": "h008Fahne", "tipp": "Finde das Zeichen, das die Teilnehmer für Einheit und Freiheit mitbrachten. Es trägt eine Aufschrift.", "ok": "Richtig. Die Fahne in Schwarz, Rot und Gold trug die Aufschrift „Deutschlands Wiedergeburt“. Eine solche Fahne aus Hambach ist bis heute erhalten."}, {"id": "h008Redner", "tipp": "Finde die Stelle, an der politische Forderungen laut ausgesprochen wurden.", "ok": "Richtig. Rund 20 Reden wurden gehalten, unter anderem von Johann Georg August Wirth und Philipp Jakob Siebenpfeiffer."}, {"id": "h008Polen", "tipp": "Finde den Hinweis darauf, dass es nicht nur um Deutschland ging. Gesucht ist ein Zeichen einer anderen Nation.", "ok": "Richtig. Die weiß-rote Fahne steht für Polen. Polen hatte 1830 und 1831 vergeblich gegen die russische Herrschaft gekämpft. Die Festgäste zeigten Solidarität: Freie Nationen sollten in Europa friedlich nebeneinander leben."}], "all": [{"id": "h008Schloss", "name": "Burgruine"}, {"id": "h008Fahne", "name": "Große Fahne"}, {"id": "h008Polen", "name": "Kleine Fahne"}, {"id": "h008Redner", "name": "Redner"}, {"id": "h008Menge", "name": "Menschenmenge"}], "fertig": "Alle drei Stellen gefunden.", "ok": "Das Hambacher Fest zeigt: Nation bedeutete damals Einheit, Freiheit und ein friedliches Europa freier Völker. Die Fürsten sahen darin eine Gefahr und verboten danach politische Vereine und Versammlungen."}, {"id": "jahre", "type": "sel", "key": "zeitleiste", "name": "Zeitleiste", "tag": "Zeitleiste", "titel": "Wann war das?", "frage": "Wähle zu jedem Ereignis das passende Jahr.", "choices": ["1815", "1817", "1819", "1832", "1837", "1841"], "rows": [{"t": "Wiener Kongress endet, der Deutsche Bund wird gegründet", "ok": "1815", "fb": "Der Wiener Kongress tagte 1814 und 1815."}, {"t": "Wartburgfest der Burschenschaften", "ok": "1817", "fb": "300 Jahre nach Luthers Thesen von 1517."}, {"t": "Karlsbader Beschlüsse: Zensur und Überwachung", "ok": "1819", "fb": "Zwei Jahre nach dem Wartburgfest."}, {"t": "Hambacher Fest mit 20.000 bis 30.000 Menschen", "ok": "1832", "fb": "Das Fest fand im Mai statt, zwei Jahre nach der Revolution in Frankreich von 1830."}, {"t": "Protest der Göttinger Sieben in Hannover", "ok": "1837", "fb": "Sieh im Kasten unter der Aufgabe nach."}, {"t": "Hoffmann von Fallersleben schreibt „Das Lied der Deutschen“", "ok": "1841", "fb": "Das Lied ist die Quelle weiter unten."}], "hilfe": "Zwei Daten kannst du dir merken: Das Wartburgfest war 300 Jahre nach der Reformation 1517. Das Lied der Deutschen steht in der Quelle weiter unten.", "ok": "Alle Jahre stimmen. Du siehst: Die Nationalbewegung war über Jahrzehnte aktiv, obwohl die Fürsten sie immer wieder unterdrückten.", "hint": "Nutze die Hinweise unter den rot markierten Zeilen."}, {"id": "luecke", "type": "sel", "key": "begriff_nation", "name": "Begriff Nation", "tag": "Lückentext", "titel": "Merktext Nation", "frage": "Wähle in jeder Lücke das passende Wort.", "text": "Eine Nation ist eine große Gruppe von Menschen, die sich durch eine gemeinsame {}, Geschichte und Kultur verbunden fühlt. Die Nationalbewegung wollte für diese Menschen einen gemeinsamen {}. Er sollte eine {} haben, die die Rechte der Bürger schützt. Weil die Bewegung Einheit und {} zugleich forderte, sahen die Fürsten in ihr eine {} für ihre Macht.", "gaps": [{"opts": ["Sprache", "Religion", "Armee"], "ok": "Sprache"}, {"opts": ["König", "Staat", "Verein"], "ok": "Staat"}, {"opts": ["Verfassung", "Burg", "Kirche"], "ok": "Verfassung"}, {"opts": ["Ordnung", "Freiheit", "Zensur"], "ok": "Freiheit"}, {"opts": ["Hilfe", "Gefahr", "Freude"], "ok": "Gefahr"}], "hilfe": "Denke an das Motto der Nationalbewegung: Einheit und Freiheit.", "ok": "Richtig. Wichtig: Eine Nation ist eine Gemeinschaft, an die Menschen glauben. Ein Staat ist etwas anderes, nämlich ein Gebiet mit Regierung und Gesetzen. Die Nationalbewegung wollte beides zusammenbringen.", "hint": "Lies den ganzen Satz noch einmal laut. Passt das Wort zum Motto Einheit und Freiheit?"}, {"id": "wfragen", "type": "sel", "key": "quelle_wfragen", "name": "Quellenarbeit Lied", "tag": "Quellenarbeit", "titel": "Die W-Fragen an die Quelle", "wide": true, "frage": "Beantworte die Fragen an das Lied. Wähle jeweils die passende Antwort.", "choices": ["Hoffmann von Fallersleben", "1841, vor der Reichsgründung", "Menschen in allen deutschen Staaten", "Er wünschte sich Einheit und Freiheit", "Ein Kaiser"], "rows": [{"t": "Wer hat das Lied geschrieben?", "ok": "Hoffmann von Fallersleben", "fb": "Der Name steht in der Quellenangabe."}, {"t": "Wann ist es entstanden?", "ok": "1841, vor der Reichsgründung", "fb": "Achte auf das Datum in der Quellenangabe."}, {"t": "Für wen war es gedacht?", "ok": "Menschen in allen deutschen Staaten", "fb": "Das Lied spricht von „uns allen“ und vom „deutschen Vaterland“, nicht von einem bestimmten Fürstenstaat."}, {"t": "Warum hat er es geschrieben?", "ok": "Er wünschte sich Einheit und Freiheit", "fb": "Lies die dritte Strophe: Welche drei Wörter stehen am Anfang?"}], "hilfe": "Die Antworten auf „Wer“ und „Wann“ stehen in der Quellenangabe über dem Liedtext. „Warum“ findest du in der dritten Strophe.", "ok": "Gut gearbeitet. Das Lied stammt aus einer Zeit, in der es keinen deutschen Staat gab. Es drückt eine Sehnsucht aus, keine Wirklichkeit.", "hint": "Ein Hinweis: „Ein Kaiser“ passt zu keiner Frage. Im Lied kommt kein Kaiser vor."}, {"id": "ueberalles", "type": "mc", "key": "quelle_deutung", "name": "Deutung „über alles“", "tag": "Quellenkritik", "frage": "Was meinte Hoffmann von Fallersleben 1841 mit „Deutschland über alles“ am wahrscheinlichsten?", "opts": [{"v": "a", "t": "Ein geeintes Deutschland ist wichtiger als die vielen einzelnen Fürstenstaaten.", "ok": true, "fb": "Richtig. 1841 richtete sich der Satz gegen die Zersplitterung in fast 40 Staaten. Wichtiger als Hannover, Bayern oder Preußen sollte das gemeinsame Vaterland sein. Später, besonders in der NS-Zeit, wurde der Satz als Herrschaftsanspruch über andere Völker missbraucht. Das zeigt: Man muss eine Quelle aus ihrer Zeit heraus verstehen."}, {"v": "b", "t": "Deutschland soll alle anderen Länder der Welt beherrschen.", "fb": "So wurde die Zeile später verstanden, vor allem in der NS-Zeit. Für 1841 passt das nicht: Lies die dritte Strophe. Dort geht es um Einigkeit, Recht und Freiheit, nicht um Eroberung."}, {"v": "c", "t": "Der König von Preußen steht über allen Menschen.", "fb": "Im Lied kommt kein König vor. Der Dichter wurde sogar 1842 als Professor in Breslau entlassen, weil seine Lieder den Regierungen zu politisch waren."}]}, {"id": "wirth", "type": "multi", "key": "quelle_wirth", "name": "Rede von Wirth", "tag": "Zweite Quelle", "frage": "Welche Forderungen stecken in Wirths Ruf? Wähle alle zutreffenden aus.", "opts": [{"v": "einheit", "t": "Die deutschen Staaten sollen sich vereinigen.", "ok": true}, {"v": "republik", "t": "Deutschland soll ohne Fürsten regiert werden.", "ok": true}, {"v": "kaiser", "t": "Ein Kaiser soll an die Spitze treten.", "fb": "Ein Freistaat ist ausdrücklich ein Staat ohne Monarchen, also auch ohne Kaiser."}, {"v": "krieg", "t": "Deutschland soll gegen Frankreich Krieg führen.", "fb": "Davon steht im Ruf nichts. Auf dem Fest waren sogar Gäste aus Frankreich."}], "hilfe": "Achte auf zwei Wörter: „vereinigten“ und „Freistaaten“.", "ok": "Richtig. Wirth wollte Einheit und eine Republik. Das war radikal: Er stellte die Herrschaft aller Fürsten in Frage. Nach dem Fest wurde er angeklagt und später zu einer Haftstrafe verurteilt.", "hint": "Lies den Hinweis unter dem Zitat noch einmal."}, {"id": "darst", "type": "mc", "key": "quelle_darstellung", "name": "Quelle und Darstellung", "tag": "Quelle oder Darstellung?", "frage": "Der Text „Das Hambacher Fest 1832“ oben auf dieser Seite und das Lied von 1841: Was ist eine Quelle, was eine Darstellung?", "opts": [{"v": "a", "t": "Das Lied ist eine Quelle, denn es stammt aus der Zeit selbst. Der Text über das Fest ist eine Darstellung, denn er wurde heute über die Vergangenheit geschrieben.", "ok": true, "fb": "Genau. Quellen stammen aus der untersuchten Zeit. Darstellungen schreiben Menschen später, zum Beispiel Historikerinnen oder Schulbuchautoren. Auch die Zeichnung vom Fest ist eine Darstellung."}, {"v": "b", "t": "Beides sind Quellen, weil beide vom 19. Jahrhundert handeln.", "fb": "Nicht ganz. Entscheidend ist nicht, wovon ein Text handelt, sondern wann und von wem er gemacht wurde."}, {"v": "c", "t": "Beides sind Darstellungen, weil man beides heute lesen kann.", "fb": "Auch eine Quelle kann man heute lesen. Entscheidend ist, wann sie entstanden ist."}]}, {"id": "hymne", "type": "frei", "key": "gegenwart_hymne", "name": "Weiterdenken Hymne", "tag": "Weiterdenken · Gegenwartsbezug", "frage": "Heute singt man bei Länderspielen nur die dritte Strophe. Erkläre, warum man sich 1952 so entschieden hat. Nutze dein Wissen über den Bedeutungswandel der ersten Strophe.", "platz": "Man singt nur die dritte Strophe, weil ...", "min": 60, "kurz": "Deine Antwort ist noch sehr kurz. Erkläre zuerst, wie die erste Strophe in der NS-Zeit verstanden wurde, und dann, was die dritte Strophe ausdrückt.", "gruppen": [{"w": ["ns", "nationalsozial", "hitler", "missbrauch", "erober", "herrsch", "macht"], "tipp": "Erkläre, wie die erste Strophe in der NS-Zeit benutzt wurde."}, {"w": ["einigkeit", "recht", "freiheit", "demokrat"], "tipp": "Nenne, welche Werte die dritte Strophe ausdrückt."}], "gut": "Stark begründet. Du hast verstanden, dass ein Text seine Wirkung verändern kann, wenn er in eine neue Zeit gerät. Die dritte Strophe passt zu den Werten einer Demokratie."}], "badges": [{"n": "Spurenleser", "ids": ["hot"]}, {"n": "Ordnungssinn", "ids": ["kette", "jahre"]}, {"n": "Quellenprüfer", "ids": ["wfragen", "ueberalles"]}, {"n": "Begründer", "ids": ["a2"]}], "diag": [{"tag": "Schätzfrage", "frage": "Gab es 1820 einen deutschen Staat mit einer gemeinsamen Regierung?", "opts": [{"v": "a", "t": "Ja, mit einem Kaiser in Berlin"}, {"v": "b", "t": "Nein, es gab viele einzelne Staaten"}, {"v": "c", "t": "Ja, mit einem gewählten Parlament"}], "ok": "b", "tipp": "Vorab: 1820 gab es fast 40 deutsche Staaten, aber keinen gemeinsamen Staat."}, {"tag": "Richtig oder falsch", "frage": "Die Farben Schwarz, Rot und Gold gibt es erst seit 1949.", "opts": [{"v": "r", "t": "Das stimmt"}, {"v": "f", "t": "Das stimmt nicht"}], "ok": "f", "tipp": "Die Farben sind viel älter, du lernst ihre Herkunft kennen."}, {"tag": "Vermutung", "frage": "Was wünschten sich viele Menschen nach 1815 vor allem?", "opts": [{"v": "a", "t": "Einheit und mehr Freiheit"}, {"v": "b", "t": "Mehr Macht für die Fürsten"}, {"v": "c", "t": "Die Rückkehr Napoleons"}], "ok": "a"}], "a1": [{"v": "ok", "t": "Die Karte stimmt. Es ging nur um Gefühle und Lieder.", "ok": false, "fb": "Lieder und Feste waren wichtig. Aber denk an Wirths Ruf in Hambach und an die Karlsbader Beschlüsse: Wenn es nur um Gefühle gegangen wäre, hätten die Fürsten keine Zensur gebraucht."}, {"v": "teil", "t": "Die Karte stimmt nur zum Teil. Gefühl und Lieder gehörten dazu, aber Nation war zugleich eine politische Forderung nach Einheit und Freiheit.", "ok": true, "fb": "Gefühl und Politik gehörten zusammen. Lieder, Fahnen und Feste machten politische Forderungen sichtbar und verbreiteten sie."}, {"v": "falsch", "t": "Die Karte ist falsch. Eine deutsche Nation gab es gar nicht, also auch kein Gefühl.", "ok": false, "fb": "Einen deutschen Staat gab es nicht. Aber viele Menschen fühlten sich als Teil einer Nation. Genau deshalb forderten sie einen gemeinsamen Staat."}], "a2": {"start": "Beginne mit: „Für die Nationalbewegung bedeutete Nation ...“", "fach": [["nation", "Nation"], ["einheit", "Einheit"], ["freiheit", "Freiheit"], ["verfassung", "Verfassung"], ["deutscher bund", "Deutscher Bund"], ["wiener kongress", "Wiener Kongress"], ["zensur", "Zensur"], ["burschenschaft", "Burschenschaft"], ["furst", "Fürsten"], ["karlsbad", "Karlsbader Beschlüsse"], ["nationalbewegung", "Nationalbewegung"]], "fachTipp": "Einheit, Freiheit, Verfassung, Deutscher Bund oder Zensur", "themen": [{"w": ["einheit", "einig", "gemeinsam", "vereinig", "ein staat", "einen staat"], "gut": "Du nennst die Forderung nach Einheit.", "tipp": "Nenne die Forderung nach Einheit, also einem gemeinsamen Staat."}, {"w": ["freiheit", "verfassung", "recht", "pressefrei", "meinung", "mitbestimm", "republik"], "gut": "Du nennst die Forderung nach Freiheit und Rechten.", "tipp": "Nenne auch die Forderung nach Freiheit, zum Beispiel Verfassung oder freie Presse."}, {"w": ["wartburg", "hambach", "lied", "fallersleben", "wirth", "schwarz", "1817", "1832", "1841", "gottinger", "karlsbad"], "gut": "Du belegst deine Aussage mit einem Ereignis oder einer Quelle.", "tipp": "Belege deine Aussage mit einem Ereignis oder einer Quelle, zum Beispiel dem Hambacher Fest oder dem Lied von 1841."}], "voll": "Sehr gut begründet. Du zeigst, dass Nation im 19. Jahrhundert Gefühl und politisches Programm zugleich war."}, "lc": ["Ich kann erklären, was die Nationalbewegung mit Einheit und Freiheit meinte.", "Ich kann Wartburgfest, Hambacher Fest und das Lied der Deutschen zeitlich einordnen.", "Ich kann an einem Lied zeigen, dass man Quellen aus ihrer Zeit heraus verstehen muss."], "komp": {"fachwissen": ["luecke"], "zeit_raum": ["jahre"], "quellenarbeit": ["wfragen", "wirth"], "ursachen_folgen": ["kette"], "perspektivitaet": ["zuord", "ueberalles"]}, "next": "Weiter geht es mit Modul 009: Warum scheiterte die Revolution von 1848/49?"};
+const CFG={modul:"008",titel:"Was bedeutete Nation im 19. Jahrhundert?",
+ bereich:"Nation und politische Teilhabe",version:"1.0.0",
+ key:"sol-geschichte-8-008",
+ endpoint:"https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec",
+ maxPunkte:0};
+const TASKS=M.tasks.filter(t=>t.type!=="frei");
+const FREI=M.tasks.filter(t=>t.type==="frei");
+CFG.maxPunkte=TASKS.length+3;
+const S={lernweg:"standard",done:{},punkte:{},z:{},ord:{},hot:{},frei:{},a2lab:"",sent:false};
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbHtml(id,html,art){const e=$(id);if(!e)return;e.innerHTML=html;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(norm(w)));}
+function saetze(t){return String(t).split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","aber","trotzdem","jedoch","obwohl","wahrend","zum beispiel"];
+function radioWert(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+function taskById(id){return M.tasks.find(t=>t.id===id);}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+const SCHRITTE=["start","diagnose"].concat(TASKS.map(t=>t.id),["lerncheck","a1","a2"]);
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ M.badges.forEach((b,i)=>{const e=$("#abz"+(i+1));if(e)e.classList.toggle("on",b.ids.every(id=>id==="a2"?(S.punkte.a2||0)>=1:!!S.done[id]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];delete S.punkte[k];fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Aufgabe."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 8a."};
+ const m=t.match(/(?:^|[^0-9])8([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 8. Schreibe zum Beispiel 8a, Klasse 8b oder nur 8."};
+ return{ok:true,wert:"8"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb","Alles bereit. Chronos wartet schon. Es geht weiter mit der Mission.","ok");
+ location.hash="mission";
+});
+
+/* ---------- Startdiagnose ---------- */
+$("#dBox").innerHTML=M.diag.map((q,i)=>'<div class="task"><span class="tag">'+q.tag+'</span><fieldset class="fs"><legend class="legend">D'+(i+1)+'. '+q.frage+'</legend><div class="opts">'+
+ q.opts.map(o=>'<label><input type="radio" name="d'+(i+1)+'" value="'+o.v+'"><span>'+o.t+'</span></label>').join("")+'</div></fieldset></div>').join("");
+$("#dCheck").addEventListener("click",()=>{
+ const w=M.diag.map((q,i)=>radioWert("d"+(i+1)));
+ if(w.some(v=>!v)){fb("#dFb","Beantworte bitte alle drei Fragen. Raten ist ausdrücklich erlaubt, es gibt keine Noten.","hint");return;}
+ const r=M.diag.filter((q,i)=>w[i]===q.ok).length;
+ let m;
+ if(r===3)m="Drei von drei. Deine Vermutungen passen gut. Der Lernweg Weiterdenken könnte für dich spannend sein.";
+ else if(r===2)m="Zwei von drei. Eine gute Grundlage. Im Modul findest du heraus, was noch fehlt.";
+ else m="Du hast "+r+" von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.";
+ M.diag.forEach((q,i)=>{if(w[i]!==q.ok&&q.tipp)m+=" "+q.tipp;});
+ fb("#dFb",m,r>=2?"ok":"hint");
+ fertig("diagnose");
+});
+
+/* ---------- Aufgaben aufbauen ---------- */
+function kopf(t){return '<span class="tag">'+t.tag+'</span>'+(t.titel?'<h3>'+t.titel+'</h3>':'');}
+function hilfe(t){return t.hilfe?'<div class="notice" data-lw="sicher"><strong>Hilfe:</strong> '+t.hilfe+'</div>':'';}
+function knoepfe(t,reset){return hilfe(t)+'<div class="no-print"><button class="btn" type="button" data-act="check">'+(t.btn||"Prüfen")+'</button>'+(reset?'<button class="btn sec" type="button" data-act="reset">'+reset+'</button>':'')+'</div><div class="fb" id="fb-'+t.id+'" role="status" aria-live="polite"></div>';}
+function geloest(t,msg){fertig(t.id,1);fb("#fb-"+t.id,msg||t.ok,"ok");}
+const R={}, C={}, X={}, D={};
+
+/* Einfachauswahl mit erklärender Rückmeldung zu jeder Antwort */
+R.mc=t=>kopf(t)+'<fieldset class="fs"><legend class="legend">'+t.frage+'</legend><div class="opts">'+t.opts.map(o=>'<label><input type="radio" name="'+t.id+'" value="'+o.v+'"><span>'+o.t+'</span></label>').join("")+'</div></fieldset>'+knoepfe(t);
+C.mc=t=>{const v=radioWert(t.id);
+ if(!v){fb("#fb-"+t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+ const o=t.opts.find(x=>x.v===v);
+ if(o.ok)geloest(t,o.fb);else{offen(t.id);fb("#fb-"+t.id,o.fb,"hint");}};
+
+/* Mehrfachauswahl */
+R.multi=t=>kopf(t)+'<fieldset class="fs"><legend class="legend">'+t.frage+'</legend><div class="opts">'+t.opts.map(o=>'<label><input type="checkbox" name="'+t.id+'" value="'+o.v+'"><span>'+o.t+'</span></label>').join("")+'</div></fieldset>'+knoepfe(t,"Zurücksetzen");
+C.multi=t=>{const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+ if(!sel.length){fb("#fb-"+t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+ const soll=t.opts.filter(o=>o.ok).map(o=>o.v);
+ const fehlt=soll.filter(v=>!sel.includes(v)), zuviel=sel.filter(v=>!soll.includes(v));
+ if(!fehlt.length&&!zuviel.length){geloest(t);return;}
+ offen(t.id);
+ let m=zuviel.map(v=>(t.opts.find(o=>o.v===v)||{}).fb).filter(Boolean).join(" ");
+ if(fehlt.length)m+=(m?" ":"")+(fehlt.length===1?"Eine richtige Antwort fehlt noch.":"Es fehlen noch "+fehlt.length+" richtige Antworten.");
+ fb("#fb-"+t.id,(m+" "+(t.hint||"")).trim(),"hint");};
+X.multi=t=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);offen(t.id);fbClear("#fb-"+t.id);};
+
+/* Zuordnen: antippen oder ziehen */
+const gewaehlt={};
+R.zuord=t=>kopf(t)+'<p>'+t.frage+'</p><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Beides zählt gleich.</p><div class="chips pool" aria-label="Karten zum Zuordnen"></div><div class="zones">'+
+ t.zones.map(z=>'<div class="zone" data-zone="'+z.id+'" tabindex="0" role="button" aria-label="Ablegen bei '+z.t+'"><h4>'+z.t+'</h4><div class="drop"></div></div>').join("")+'</div>'+knoepfe(t,"Zurücksetzen");
+function pieceHtml(c){return '<button type="button" class="piece" draggable="true" data-k="'+c.id+'" aria-pressed="false">'+c.t+'</button>';}
+D.zuord=t=>{const el=$("#t-"+t.id), pl=S.z[t.id]||(S.z[t.id]={});
+ const pool=t.cards.filter(c=>!pl[c.id]);
+ $(".pool",el).innerHTML=pool.map(pieceHtml).join("")||'<span class="hint">Alle Karten sind zugeordnet.</span>';
+ $$(".drop",el).forEach(d=>d.innerHTML="");
+ t.cards.forEach(c=>{const z=pl[c.id];if(z){const d=el.querySelector('.zone[data-zone="'+z+'"] .drop');if(d)d.insertAdjacentHTML("beforeend",pieceHtml(c));}});
+ $$(".piece",el).forEach(p=>{
+  p.addEventListener("click",e=>{e.stopPropagation();
+   if(gewaehlt[t.id]===p.dataset.k){gewaehlt[t.id]=null;p.setAttribute("aria-pressed","false");return;}
+   $$(".piece",el).forEach(x=>x.setAttribute("aria-pressed","false"));
+   gewaehlt[t.id]=p.dataset.k;p.setAttribute("aria-pressed","true");
+   fb("#fb-"+t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört.","hint");});
+  p.addEventListener("dragstart",e=>{gewaehlt[t.id]=p.dataset.k;e.dataTransfer.setData("text/plain",p.dataset.k);});
+ });};
+function ablegen(t,zone){
+ if(!gewaehlt[t.id]){fb("#fb-"+t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.z[t.id][gewaehlt[t.id]]=zone;gewaehlt[t.id]=null;
+ if(S.done[t.id])offen(t.id);
+ D.zuord(t);fbClear("#fb-"+t.id);speichern();}
+function bindZuord(t){const el=$("#t-"+t.id);
+ $$(".zone",el).forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");const id=e.dataTransfer.getData("text/plain");if(id)gewaehlt[t.id]=id;ablegen(t,z.dataset.zone);});
+ });}
+C.zuord=t=>{const el=$("#t-"+t.id), pl=S.z[t.id]||{};
+ const rest=t.cards.filter(c=>!pl[c.id]).length;
+ if(rest){fb("#fb-"+t.id,"Es "+(rest===1?"ist noch eine Karte":"sind noch "+rest+" Karten")+" übrig. Ordne zuerst alle zu.","hint");return;}
+ let r=0;t.cards.forEach(c=>{const ok=pl[c.id]===c.z;if(ok)r++;const p=el.querySelector('.piece[data-k="'+c.id+'"]');if(p)p.classList.add(ok?"ok":"no");});
+ if(r===t.cards.length)geloest(t);
+ else{offen(t.id);fb("#fb-"+t.id,r+" von "+t.cards.length+" Karten stimmen schon. Die grün umrandeten sitzen richtig. "+t.hint,"hint");}};
+X.zuord=t=>{S.z[t.id]={};gewaehlt[t.id]=null;offen(t.id);D.zuord(t);fbClear("#fb-"+t.id);};
+
+/* Reihenfolge und Wirkungskette */
+R.order=t=>kopf(t)+'<p>'+t.frage+'</p>'+(t.oben?'<p class="hint"><strong>Oben:</strong> '+t.oben+' <strong>Unten:</strong> '+t.unten+'</p>':'')+'<ol class="order"></ol>'+knoepfe(t,"Neu mischen");
+function mische(t){const n=t.items.length;let a;do{a=[...Array(n).keys()].sort(()=>Math.random()-.5);}while(a.every((v,i)=>v===i));S.ord[t.id]=a;}
+D.order=(t,fokus)=>{const el=$("#t-"+t.id),a=S.ord[t.id];
+ $(".order",el).innerHTML=a.map((i,pos)=>'<li class="orow"><b class="onum" aria-hidden="true">'+(pos+1)+'</b><span>'+t.items[i]+'</span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Schritt '+(pos+1)+' nach oben schieben">&#8593;</button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Schritt '+(pos+1)+' nach unten schieben">&#8595;</button></li>').join("");
+ $$(".order button",el).forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;if(n<0||n>=a.length)return;
+  const x=a[p];a[p]=a[n];a[n]=x;if(S.done[t.id])offen(t.id);fbClear("#fb-"+t.id);D.order(t,[n,d]);speichern();}));
+ if(fokus){const b=el.querySelector('button[data-mv="'+fokus[0]+'"][data-dir="'+fokus[1]+'"]');if(b)b.focus();}};
+C.order=t=>{const el=$("#t-"+t.id),a=S.ord[t.id];
+ if(a.every((v,i)=>v===i)){$$(".orow",el).forEach(r=>r.classList.add("ok"));geloest(t);return;}
+ offen(t.id);const r=a.filter((v,i)=>v===i).length;
+ fb("#fb-"+t.id,r+" von "+a.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");};
+X.order=t=>{mische(t);offen(t.id);D.order(t);fbClear("#fb-"+t.id);};
+
+/* Bildarbeit: Bereiche in einer Grafik finden */
+R.hot=t=>kopf(t)+'<p class="hotq" id="hq-'+t.id+'"></p><div class="chips alt" aria-label="Bereiche auswählen, gleichwertig zum Antippen im Bild"></div>'+knoepfe(t,"Aufgabe zurücksetzen").replace('<button class="btn" type="button" data-act="check">'+(t.btn||"Prüfen")+'</button>','');
+D.hot=t=>{const el=$("#t-"+t.id),i=S.hot[t.id]||0;
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>g.classList.remove("found"));
+ t.targets.slice(0,i).forEach(z=>{const g=document.getElementById(z.id);if(g)g.classList.add("found");});
+ if(i>=t.targets.length){$("#hq-"+t.id).textContent=t.fertig;$(".alt",el).innerHTML="";return;}
+ const z=t.targets[i];
+ $("#hq-"+t.id).textContent="Suchauftrag "+(i+1)+" von "+t.targets.length+": "+z.tipp;
+ $(".alt",el).innerHTML=t.all.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.name+'</button>').join("");
+ $$(".alt .chip",el).forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));};
+function hotWahl(t,id){const i=S.hot[t.id]||0,z=t.targets[i];if(!z)return;
+ if(id===z.id){S.hot[t.id]=i+1;
+  if(i+1>=t.targets.length){D.hot(t);geloest(t,z.ok+" "+t.ok);}else{fb("#fb-"+t.id,z.ok,"ok");D.hot(t);speichern();}}
+ else{const g=t.all.find(x=>x.id===id);fb("#fb-"+t.id,"Das ist der Bereich „"+(g?g.name:"unbekannt")+"“. "+z.tipp,"hint");}}
+function bindHot(t){$$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+ g.addEventListener("click",()=>hotWahl(t,g.id));
+ g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});});}
+X.hot=t=>{S.hot[t.id]=0;offen(t.id);D.hot(t);fbClear("#fb-"+t.id);};
+
+/* Auswahllisten: Lückentext oder Zuordnung in Zeilen (z. B. Perspektiven) */
+function selHtml(id,opts,lab){return '<select id="'+id+'" aria-label="'+lab+'"><option value="">bitte wählen</option>'+opts.map(o=>'<option>'+o+'</option>').join("")+'</select>';}
+R.sel=t=>{let body;
+ if(t.text){let i=0;body='<p class="luecke">'+t.text.replace(/\{\}/g,()=>{const g=t.gaps[i];const s=selHtml(t.id+"-"+i,g.opts,"Lücke "+(i+1));i++;return s;})+'</p>';}
+ else body=t.rows.map((r,i)=>'<div class="srow'+(t.wide?' wide':'')+'"><span id="'+t.id+'-l'+i+'">'+r.t+'</span>'+selHtml(t.id+"-"+i,t.choices,"Auswahl zu Zeile "+(i+1))+'<span class="why" id="'+t.id+'-w'+i+'">'+(r.fb||"")+'</span></div>').join("");
+ return kopf(t)+'<p>'+t.frage+'</p>'+body+knoepfe(t,"Zurücksetzen");};
+function selListe(t){return t.text?t.gaps.map(g=>g.ok):t.rows.map(r=>r.ok);}
+C.sel=t=>{const soll=selListe(t);let leer=0,r=0;
+ soll.forEach((ok,i)=>{const s=$("#"+t.id+"-"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}
+  const gut=s.value===ok;if(gut)r++;s.classList.add(gut?"ok":"no");
+  const w=$("#"+t.id+"-w"+i);if(w)w.classList.toggle("show",!gut&&!!w.textContent);});
+ if(leer){offen(t.id);fb("#fb-"+t.id,(leer===1?"Eine Auswahl fehlt":"Es fehlen noch "+leer+" Auswahlen")+". Wähle überall etwas aus.","hint");return;}
+ if(r===soll.length){$$(".why",$("#t-"+t.id)).forEach(w=>w.classList.remove("show"));geloest(t);}
+ else{offen(t.id);fb("#fb-"+t.id,r+" von "+soll.length+" stimmen schon. Die grün umrandeten sind richtig. "+(t.hint||""),"hint");}};
+X.sel=t=>{selListe(t).forEach((o,i)=>{const s=$("#"+t.id+"-"+i);s.value="";s.classList.remove("ok","no");const w=$("#"+t.id+"-w"+i);if(w)w.classList.remove("show");});offen(t.id);fbClear("#fb-"+t.id);};
+
+/* Weiterdenken: offene Antwort mit Kriterien (nicht in der Punktzahl) */
+R.frei=t=>kopf(t)+(t.vorspann||"")+'<label class="legend" for="'+t.id+'Text">'+t.frage+'</label><textarea id="'+t.id+'Text" placeholder="'+(t.platz||"")+'"></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>'+knoepfe(Object.assign({},t,{btn:"Antwort prüfen"}));
+C.frei=t=>{const roh=$("#"+t.id+"Text").value,tx=norm(roh);
+ if(tx.length<t.min){S.frei[t.id]="zu knapp";fb("#fb-"+t.id,t.kurz,"hint");speichern();return;}
+ const fehl=t.gruppen.filter(g=>!hat(tx,g.w));const verkn=hat(tx,VERKN);
+ if(!fehl.length&&verkn){S.frei[t.id]="plausibel";fb("#fb-"+t.id,t.gut,"ok");}
+ else{S.frei[t.id]=fehl.length<t.gruppen.length?"teilweise plausibel":"noch nicht ausreichend";
+  fb("#fb-"+t.id,"Ein guter Anfang. "+fehl.map(g=>g.tipp).join(" ")+(verkn?"":" Verbinde deine Gedanken mit „weil“, „deshalb“ oder „aber“."),"hint");}
+ speichern();};
+
+M.tasks.forEach(t=>{const el=$("#t-"+t.id);if(!el)return;
+ el.innerHTML=R[t.type](t);
+ el.addEventListener("click",e=>{const b=e.target.closest("[data-act]");if(!b||!el.contains(b))return;
+  if(b.dataset.act==="check")C[t.type](t);else if(X[t.type])X[t.type](t);});
+ if(t.type==="zuord")bindZuord(t);
+ if(t.type==="hot")bindHot(t);});
+
+/* ---------- Abschlussmission ---------- */
+$("#a1Box").innerHTML=M.a1.map(o=>'<label><input type="radio" name="a1" value="'+o.v+'"><span>'+o.t+'</span></label>').join("");
+function a1Werten(zeigen){const v=radioWert("a1");if(!v)return;const o=M.a1.find(x=>x.v===v);
+ S.punkte.a1=o.ok?1:0;S.done.a1=true;
+ if(zeigen)fb("#a1Fb",(o.ok?"Diese Entscheidung lässt sich gut begründen. ":"Prüfe das noch einmal. ")+o.fb,o.ok?"ok":"hint");
+ fortschritt();speichern();}
+$("#a1Box").addEventListener("change",()=>a1Werten(true));
+function a2Bewerten(){
+ const roh=$("#a2").value, t=norm(roh), A=M.a2;
+ const wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<50||wort<12)return{p:0,lab:"zu knapp",html:"Chronos braucht mehr als einen kurzen Satz. Schreibe drei bis fünf Sätze. "+A.start};
+ const n=saetze(roh);
+ const verk=VERKN.filter(w=>t.includes(w));
+ const fach=[...new Set(A.fach.filter(f=>t.includes(norm(f[0]))).map(f=>f[1]))];
+ const fehl=A.themen.filter(th=>!hat(t,th.w));
+ const gut=[], noch=[];
+ if(n>=3)gut.push("Du hast "+n+" Sätze geschrieben.");else noch.push("Du hast "+n+" Satz"+(n===1?"":"e")+" geschrieben. Ziel sind mindestens drei.");
+ if(verk.length)gut.push("Du verknüpfst deine Gedanken, zum Beispiel mit „"+verk[0]+"“.");else noch.push("Verbinde deine Aussagen mit „weil“, „deshalb“ oder „aber“.");
+ if(fach.length>=2)gut.push("Du nutzt Fachbegriffe: "+fach.slice(0,4).join(", ")+".");else noch.push("Nutze mindestens zwei Fachbegriffe, zum Beispiel "+A.fachTipp+"."+(fach.length?" Gefunden habe ich: "+fach.join(", ")+".":""));
+ A.themen.forEach(th=>{if(hat(t,th.w))gut.push(th.gut);else noch.push(th.tipp);});
+ const voll=!noch.length;
+ const li=a=>"<ul>"+a.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+ let html=voll?A.voll:"Du bist auf einem guten Weg.";
+ if(gut.length)html+="<br><strong>Das gelingt dir schon:</strong>"+li(gut);
+ if(noch.length)html+="<strong>Das kannst du noch verbessern:</strong>"+li(noch);
+ return{p:voll?1:.5,lab:voll?"vollständig":"teilweise",html:html};
+}
+$("#a2Check").addEventListener("click",()=>{
+ const r=a2Bewerten();
+ fbHtml("#a2Fb",r.html,r.p>=1?"ok":"hint");
+ S.punkte.a2=r.p;S.a2lab=r.lab;
+ if(r.p>0)fertig("a2",r.p);else{delete S.done.a2;fortschritt();speichern();}
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return M.lc.map((x,i)=>radioWert("lc"+(i+1))||"");}
+$("#selfcheck").innerHTML=M.lc.map((x,i)=>'<div class="task"><fieldset class="fs"><legend class="legend">'+x+'</legend><div class="scale">'+
+ ["Noch unsicher","Geht schon","Sicher"].map(v=>'<label><input type="radio" name="lc'+(i+1)+'" value="'+v+'">'+v+'</label>').join("")+'</div></fieldset></div>').join("");
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else offen("lerncheck");
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function ok1(id){return (S.punkte[id]||0)>=1;}
+function punkteGesamt(){return TASKS.concat([{id:"a1"},{id:"a2"},{id:"lerncheck"}]).reduce((s,t)=>s+(S.punkte[t.id]||0),0);}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=punkteGesamt(), pct=Math.round(pkt/CFG.maxPunkte*100);
+ const luecken=TASKS.filter(t=>!ok1(t.id)).map(t=>t.name);
+ if(!ok1("a1"))luecken.push("Abschlussentscheidung");
+ if(!ok1("a2"))luecken.push("Begründung");
+ const erg={},pfl={};
+ TASKS.forEach(t=>{erg[t.key]=S.punkte[t.id]||0;pfl[t.key]={correct:ok1(t.id)};});
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ pfl.entscheidung={correct:ok1("a1")};pfl.begruendung={correct:ok1("a2")};
+ const komp={};Object.entries(M.komp).forEach(([n,ids])=>komp[n]=eins(ids.every(ok1)));
+ komp.historisches_urteil=eins(ok1("a1")&&ok1("a2"));
+ const frei={leitfrage:$("#a2").value.trim(),vermutung:$("#dText").value.trim()};
+ FREI.forEach(t=>{frei[t.key]=($("#"+t.id+"Text")||{value:""}).value.trim();});
+ frei.verstanden=$("#rCan").value.trim();frei.schwierig=$("#rHard").value.trim();frei.offene_frage=$("#rOpen").value.trim();
+ const bew={begruendung:S.a2lab||"nicht bearbeitet"};
+ FREI.forEach(t=>{bew[t.key]=S.frei[t.id]||"nicht bearbeitet";});
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"8",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:frei,
+  bewertung_freitexte:bew,
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:CFG.maxPunkte,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:komp,
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:CFG.maxPunkte,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2)};
+}
+window.payload=payload;
+function zusammenfassung(p){
+ return "SOL Geschichte 8, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(){
+ if(!pflichtOk(true)){location.hash="start";return null;}
+ a1Werten(false);
+ if(!radioWert("a1")){fb("#sendFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung.","bad");location.hash="abschluss";return null;}
+ if(!lerncheckWerte().every(Boolean)){fb("#sendFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";return null;}
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?M.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter. "+M.next:M.next);
+ const zeilen=TASKS.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":</strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)</li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ fortschritt();speichern();location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>{letzterPayload=null;ergebnisBauen();});
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+let letzterPayload=null;
+async function senden(){
+ const p=letzterPayload||ergebnisBauen();
+ if(!p)return; letzterPayload=p;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+M.tasks.forEach(t=>{
+ if(t.type==="order"){if(!S.ord[t.id]||S.ord[t.id].length!==t.items.length)mische(t);D.order(t);}
+ if(t.type==="zuord")D.zuord(t);
+ if(t.type==="hot")D.hot(t);
+ if(t.type!=="frei"&&S.done[t.id])fb("#fb-"+t.id,"Diese Aufgabe hast du schon gelöst. "+(t.ok||""),"ok");
+});
+if(radioWert("a1"))a1Werten(true);
+fortschritt();
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#8a4317">
+<meta name="description" content="SOL Geschichte Jahrgang 5, Modul 004: Wie lebten Menschen in der Altsteinzeit?">
+<title>SOL Geschichte 5 | Modul 004 | Wie lebten Menschen in der Altsteinzeit?</title>
+<style>
+:root{--ink:#2a1c12;--paper:#fff;--cream:#f4ebe3;--soft:#f4ebe3;--bg:#f7f2ea;--green:#8a4317;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#e2d6ca;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #2a1c1214;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#2e1a0e,#8a4317);color:#fdf8f3;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#fdf8f3;color:#2e1a0e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#f6ebe1;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#8a4317,#d29a3a);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#3a2a1e;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow);min-width:0}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#3a2a1e}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.legend{font-weight:750;color:#3a2a1e}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#6a5a4c}
+.btn{background:var(--green);color:#fdf8f3;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff;min-width:0}
+@media(max-width:480px){.task{padding:12px 10px}}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#6a5a4c;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+fieldset{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#f6e7da}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zones.z4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.zones.z3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.task>label.legend{display:block;margin:8px 0 4px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px;cursor:pointer}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:650;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;max-width:100%;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .nr{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--green)}
+.orow span.t{flex:1;font-weight:650;min-width:0}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;flex:0 0 auto}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+@media(max-width:520px){.orow{flex-wrap:wrap}.orow span.t{flex:1 1 calc(100% - 44px)}.orow button:first-of-type{margin-left:auto}}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px;overflow:hidden}
+svg.pic{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d18aa)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#45362a}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#2e2118;color:#f4ebe3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#8c8178;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+blockquote.q{margin:10px 0;padding:10px 14px;border-left:4px solid var(--green);background:#fff;border-radius:0 10px 10px 0}
+blockquote.q p{margin:.35rem 0}
+.orig{font-size:.9rem;color:#6a5a4c;font-style:italic}
+.cloze{line-height:2.4}
+.cloze select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;min-height:44px}
+.cloze select.ok{border-color:var(--ok);background:var(--okbg)}
+.cloze select.no{border-color:var(--bad);background:var(--badbg)}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{background:var(--cream);font-weight:800}
+.tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+.tblwrap{overflow-x:auto;max-width:100%}
+.wort{font-size:.9rem;color:#45362a}
+.merk{background:#fff8ea;border:2px solid #e2c48d;border-radius:14px;padding:12px 14px;margin:12px 0}
+.merk b.k{display:block;color:var(--gold-text);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:2px}
+.fund{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px;align-items:start;margin:10px 0}
+@media(max-width:640px){.fund{grid-template-columns:minmax(0,1fr)}}
+.facts{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.facts li{border:1px solid var(--line);border-radius:10px;padding:7px 10px;background:#fff}
+.facts li b{color:var(--green)}
+.wq{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 7px;font-weight:800;margin-right:4px}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#6a5a4c;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 5 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Frühe Menschen und Hochkulturen · Zeitreise 004</div>
+    <h1>Wie lebten Menschen in der Altsteinzeit?</h1>
+    <p>Keine Häuser, keine Felder, keine Metalle. Trotzdem überlebten Menschen hunderttausende Jahre lang, sogar in der Eiszeit. Wie haben sie das geschafft? In diesem Modul begleitest du eine Gruppe von Jägern und Sammlerinnen und untersuchst einen weltberühmten Fund aus Niedersachsen.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>004</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 11 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#zeit">Die längste Zeit</a>
+ <a href="#lager">Im Lager</a>
+ <a href="#werkzeug">Feuer und Faustkeil</a>
+ <a href="#kunst">Kunst in der Höhle</a>
+ <a href="#quelle">Die Quelle</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 5a"><span class="hint">Möglich sind zum Beispiel 5a, Klasse 5a, R5a oder nur 5.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0;grid-column:1/-1"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul><li>Du ordnest die Altsteinzeit zeitlich ein.</li><li>Du beschreibst das Leben von Jägern und Sammlerinnen in der Eiszeit.</li><li>Du erklärst, warum die Menschen umherzogen.</li><li>Du lernst Faustkeil, Feuer und Höhlenmalerei kennen.</li><li>Du untersuchst die Schöninger Speere, einen echten Fund aus Niedersachsen.</li></ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Zeitreise starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Zeitreise 004</span>
+ <p><strong>Fall:</strong> In Chronos' Archiv liegt eine alte Karteikarte: <em>„Steinzeitmenschen waren dumme Höhlenmenschen. Sie konnten nur mit Keulen herumfuchteln.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Reise in die Altsteinzeit. Finde heraus, wie die Menschen wirklich lebten. Am Ende entscheidest du, ob die Karteikarte in den Müll gehört.</p>
+</div>
+<p><strong>Zum Einstieg:</strong> Stell dir vor, du müsstest einen Winter lang draußen überleben. Ohne Haus, ohne Supermarkt, ohne Streichhölzer. Was würdest du als Erstes brauchen?</p>
+<div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Diese Karteikarte hat ein Kollege vor hundert Jahren geschrieben. Damals stellte man sich die Steinzeit in Comics und Filmen oft so vor. Ich habe da so meine Zweifel. Du auch?</p></div></div>
+<p><strong>Leitfrage:</strong> Wie lebten Menschen in der Altsteinzeit?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Zeitreisende</span>
+ <span class="abz" id="abz2">Lagerkundige</span>
+ <span class="abz" id="abz3">Speerexpertin</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p><div class="task"><span class="tag">Schätzfrage</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D1. Wie lange dauerte die Altsteinzeit ungefähr?</legend><div class="opts"><label><input type="radio" name="d1" value="a"><span>Etwa 100 Jahre</span></label><label><input type="radio" name="d1" value="b"><span>Etwa 1000 Jahre</span></label><label><input type="radio" name="d1" value="c"><span>Mehr als zwei Millionen Jahre</span></label></div></fieldset></div><div class="task"><span class="tag">Richtig oder falsch</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D2. Die Menschen der Altsteinzeit wohnten fast immer in Höhlen.</legend><div class="opts"><label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label><label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label></div></fieldset></div><div class="task"><span class="tag">Vermutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D3. Welches Tier lebte in der Eiszeit auch in Norddeutschland?</legend><div class="opts"><label><input type="radio" name="d3" value="a"><span>Das Mammut</span></label><label><input type="radio" name="d3" value="b"><span>Der Dinosaurier</span></label><label><input type="radio" name="d3" value="c"><span>Das Känguru</span></label></div></fieldset></div><button class="btn" type="button" id="dCheck">Einschätzung auswerten</button><div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="zeit">
+<h2>Die längste Zeit der Menschheit</h2>
+<p>Die <strong>Altsteinzeit</strong> begann vor über 2,5 Millionen Jahren, als Menschen die ersten Steinwerkzeuge herstellten. Sie endete in Mitteleuropa erst vor etwa 11.700 Jahren, also um 9700 v. Chr. Das Wort „Steinzeit“ kommt daher, dass die Menschen ihre wichtigsten Werkzeuge aus Stein machten. Metall kannten sie noch nicht.</p><div class="svgwrap"><svg class="pic" style="max-width:640px;margin:auto" viewBox="0 0 400 210" role="img" aria-label="Balken für einen Tag von 0 bis 24 Uhr. Fast der ganze Balken ist Altsteinzeit. Erst etwa sechs Minuten vor Mitternacht endet die Altsteinzeit, und das Jahr 1 liegt etwa eine Minute vor Mitternacht.">
+<rect width="400" height="210" fill="#fbf6ee"/>
+<text x="200" y="22" text-anchor="middle" font-size="16" font-weight="800" fill="#2a1c12">Wenn die Geschichte der Menschen ein Tag wäre</text>
+<rect x="20" y="44" width="350" height="34" rx="6" fill="#c98b4e"/>
+<rect x="364" y="44" width="6" height="34" fill="#2f6b3a"/>
+<text x="190" y="67" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">Altsteinzeit</text>
+<text x="20" y="98" font-size="15" fill="#2a1c12">0 Uhr</text><text x="370" y="98" text-anchor="end" font-size="15" fill="#2a1c12">24 Uhr</text>
+<path d="M364 80 L170 128 M370 80 L380 128" stroke="#6a5a4c" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="170" y="128" width="210" height="40" rx="6" fill="#e9f1e6" stroke="#6a5a4c"/>
+<rect x="170" y="128" width="46" height="40" rx="6" fill="#c98b4e"/><rect x="200" y="128" width="16" height="40" fill="#c98b4e"/>
+<rect x="351" y="128" width="3" height="40" fill="#2a1c12"/>
+<text x="352" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="#2a1c12">Jahr 1</text>
+<text x="284" y="153" text-anchor="middle" font-size="14" fill="#2f6b3a">danach</text>
+<path d="M216 172 V180" stroke="#2a1c12" stroke-width="2"/>
+<text x="150" y="198" font-size="14" fill="#2a1c12">23:53 Uhr: Ende der Altsteinzeit</text>
+<text x="20" y="140" font-size="14" fill="#6a5a4c">Lupe auf die</text><text x="20" y="158" font-size="14" fill="#6a5a4c">letzten Minuten:</text>
+</svg></div><div class="legendlist" aria-hidden="true"><span>Eigene Darstellung, Werte gerundet</span></div><div class="task"><span class="tag">Diagramm lesen</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Z1. Was zeigt der Tages-Balken?</legend><div class="opts"><label><input type="radio" name="zeit" value="a"><span>Die Altsteinzeit war nur ein kurzer Moment in der Geschichte der Menschen.</span></label><label><input type="radio" name="zeit" value="b"><span>Die Altsteinzeit war mit Abstand der längste Abschnitt der Menschheitsgeschichte.</span></label><label><input type="radio" name="zeit" value="c"><span>Die Altsteinzeit begann erst nach dem Jahr 1.</span></label></div></fieldset><button class="btn" type="button" id="zeitCheck">Prüfen</button><div class="fb" id="zeitFb" role="status" aria-live="polite"></div></div><h3>Leben in der Eiszeit</h3><p>In der Altsteinzeit wechselten sich sehr kalte Zeiten und wärmere Zeiten ab. Die kalten Zeiten nennt man <strong>Eiszeiten</strong> oder Kaltzeiten. Dann war es bei uns viel kälter als heute. Statt Wäldern gab es eine weite, baumarme Landschaft aus Gras, Moos und Sträuchern. Dort lebten Mammuts, Wollnashörner, Rentiere und Wildpferde. Zeitweise schob sich riesiges Eis aus Skandinavien bis nach Niedersachsen vor.</p><details class="gloss"><summary>Überraschender Fund aus dem Archiv</summary><div class="body">Die riesigen Felsbrocken, die im Emsland auf Feldern liegen, heißen Findlinge. Das Eis hat sie in einer Eiszeit aus Skandinavien mitgebracht. Viel später haben Menschen daraus Großsteingräber gebaut. Davon erfährst du mehr in Modul 005.</div></details>
+</section>
+
+<section class="card" id="lager">
+<h2>Ein Tag im Lager der Jäger und Sammlerinnen</h2>
+<p>Die Menschen der Altsteinzeit lebten in kleinen Gruppen zusammen. Fachleute schätzen, dass eine Gruppe oft aus etwa 20 bis 30 Menschen bestand, meist mehreren verwandten Familien. Allein hätte niemand in der Eiszeit überlebt. Sie waren <strong>Jäger und Sammlerinnen</strong>: Sie jagten Tiere und sammelten Pflanzen, Beeren, Nüsse und Wurzeln.</p><div class="svgwrap"><svg class="pic" style="max-width:640px;margin:auto" viewBox="0 0 400 260" role="img" aria-label="Schematische Zeichnung eines Lagers in der Eiszeit: ein Zelt aus Fellen, eine Feuerstelle, ein Mensch stellt Werkzeug her, eine Person sammelt Beeren, Jäger mit Speeren und Wildpferde in der Ferne.">
+<rect width="400" height="260" fill="#eef3f6"/>
+<path d="M0 120 Q80 96 160 112 T320 104 T400 112 V260 H0Z" fill="#cfd8c4"/>
+<path d="M0 150 H400 V260 H0Z" fill="#d9d3b8"/>
+<path d="M30 160 q20 -6 40 0 M300 236 q24 -6 48 0" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+<g id="hZelt" class="hot" data-task="lager" tabindex="0" role="button" aria-label="Zelt aus Fellen">
+ <rect x="18" y="80" width="110" height="120" fill="#fff" fill-opacity=".01"/>
+ <path d="M30 196 L72 92 L118 196 Z" fill="#a4733f" stroke="#5b3413" stroke-width="2.5"/>
+ <path d="M66 82 L72 92 L80 80 M72 92 L60 196 M72 92 L86 196" stroke="#5b3413" stroke-width="2.5" fill="none"/>
+ <path d="M62 196 L72 150 L84 196Z" fill="#4a2a12"/>
+</g>
+<g id="hFeuer" class="hot" data-task="lager" tabindex="0" role="button" aria-label="Feuerstelle">
+ <rect x="160" y="168" width="70" height="56" fill="#fff" fill-opacity=".01"/>
+ <ellipse cx="195" cy="214" rx="30" ry="8" fill="#8c8178"/>
+ <path d="M180 212 q4 -26 15 -38 q2 14 10 20 q4 -10 2 -18 q14 16 4 36 Z" fill="#f0a020" stroke="#c0501a" stroke-width="2"/>
+ <path d="M190 212 q2 -12 6 -18 q4 10 6 18Z" fill="#fde07a"/>
+</g>
+<g id="hWerkzeug" class="hot" data-task="lager" tabindex="0" role="button" aria-label="Mensch, der ein Steinwerkzeug herstellt">
+ <rect x="236" y="168" width="58" height="62" fill="#fff" fill-opacity=".01"/>
+ <circle cx="258" cy="187.0" r="9.1" fill="#e3b98f" stroke="#5b2c0f" stroke-width="1.2"/><path d="M247.6 226 L250.2 197.4 Q258 192.2 265.8 197.4 L268.4 226 Z" fill="#7a5a3a" stroke="#4a2410" stroke-width="1.2"/>
+ <path d="M272 206 l12 -6 l4 8 l-12 5Z" fill="#6b6f73" stroke="#2a1c12" stroke-width="1.5"/>
+ <path d="M280 196 l6 -4 M286 200 l7 -2" stroke="#2a1c12" stroke-width="1.5"/>
+</g>
+<g id="hSammeln" class="hot" data-task="lager" tabindex="0" role="button" aria-label="Person sammelt Beeren">
+ <rect x="94" y="196" width="80" height="62" fill="#fff" fill-opacity=".01"/>
+ <ellipse cx="150" cy="236" rx="22" ry="14" fill="#5f8a3a"/>
+ <circle cx="142" cy="232" r="3" fill="#b0243a"/><circle cx="152" cy="228" r="3" fill="#b0243a"/><circle cx="158" cy="238" r="3" fill="#b0243a"/><circle cx="146" cy="242" r="3" fill="#b0243a"/>
+ <circle cx="112" cy="215.0" r="9.1" fill="#e3b98f" stroke="#5b2c0f" stroke-width="1.2"/><path d="M101.6 254 L104.2 225.4 Q112 220.2 119.8 225.4 L122.4 254 Z" fill="#9a6a3a" stroke="#4a2410" stroke-width="1.2"/>
+ <path d="M122 236 h12 l-2 10 h-8z" fill="#c8a060" stroke="#5b3413" stroke-width="1.5"/>
+</g>
+<g id="hJagd" class="hot" data-task="lager" tabindex="0" role="button" aria-label="Jäger mit Speeren und Wildpferde">
+ <rect x="236" y="96" width="160" height="68" fill="#fff" fill-opacity=".01"/>
+ <circle cx="252" cy="131.0" r="6.3" fill="#e3b98f" stroke="#5b2c0f" stroke-width="1.2"/><path d="M244.8 158 L246.6 138.2 Q252 134.6 257.4 138.2 L259.2 158 Z" fill="#6e4a2a" stroke="#4a2410" stroke-width="1.2"/><circle cx="272" cy="133.0" r="6.3" fill="#e3b98f" stroke="#5b2c0f" stroke-width="1.2"/><path d="M264.8 160 L266.6 140.2 Q272 136.6 277.4 140.2 L279.2 160 Z" fill="#7a5030" stroke="#4a2410" stroke-width="1.2"/>
+ <path d="M244 160 L262 112 M266 162 L284 114" stroke="#5b3413" stroke-width="2.5"/>
+ <g fill="#7a5a3a"><ellipse cx="330" cy="124" rx="16" ry="7"/><path d="M344 122 l8 -10 l4 3 l-6 10Z"/><path d="M318 128 v12 M324 129 v12 M336 129 v12 M342 128 v12" stroke="#7a5a3a" stroke-width="3"/>
+ <ellipse cx="372" cy="132" rx="14" ry="6"/><path d="M384 130 l7 -9 l4 3 l-6 9Z"/><path d="M362 135 v10 M368 136 v10 M378 136 v10 M383 135 v10" stroke="#7a5a3a" stroke-width="3"/></g>
+</g>
+<text x="396" y="20" text-anchor="end" font-size="14" fill="#6a5a4c">Schematische Zeichnung</text>
+</svg></div><div class="task"><span class="tag">Bildarbeit</span><h3>Suchauftrag im Lager</h3><p id="lagerTask">Tippe im Bild auf den gesuchten Ort.</p><div class="chips" id="lagerAlt" aria-label="Auswahl, gleichwertig zum Antippen im Bild"></div><button class="btn sec" type="button" id="lagerReset">Aufgabe zurücksetzen</button><div class="fb" id="lagerFb" role="status" aria-live="polite"></div></div><div class="notice"><strong>Gut zu wissen:</strong> Früher dachte man oft: Die Männer jagen, die Frauen sammeln. Heute sind sich Fachleute da nicht mehr so sicher. Wahrscheinlich haben alle mitgeholfen, wo es gerade nötig war.</div><div class="task"><span class="tag">Ursache-Folge-Kette</span><p><strong>Warum zogen die Menschen umher?</strong> Bringe die Kette in die richtige Reihenfolge. Sie beginnt mit der Ursache und endet mit der Folge.</p><div class="order" id="wandernList" aria-label="Liste zum Ordnen"></div><button class="btn" type="button" id="wandernCheck">Reihenfolge prüfen</button><button class="btn sec" type="button" id="wandernReset">Neu mischen</button><div class="fb" id="wandernFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="werkzeug">
+<h2>Feuer und Faustkeil</h2>
+<div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><svg viewBox="0 0 120 150" width="110" height="138" role="img" aria-label="Zeichnung eines Faustkeils, tropfenförmig mit Schlagspuren" style="flex:0 0 auto">
+<path d="M60 8 C 92 40, 104 92, 92 120 C 82 142, 38 142, 28 120 C 16 92, 28 40, 60 8Z" fill="#9c9488" stroke="#3a3530" stroke-width="3"/>
+<path d="M60 8 L58 50 M40 60 L58 50 L80 62 M34 96 L56 88 L86 100 M56 88 L58 50 M48 128 L56 88 L72 130" stroke="#5f5850" stroke-width="2" fill="none"/>
+</svg><p style="flex:1 1 220px;margin:0">Das bekannteste Werkzeug der Altsteinzeit ist der <strong>Faustkeil</strong>. Er liegt gut in der Hand und hat scharfe Kanten. Damit konnte man schneiden, schaben, hacken und graben. Die ältesten Faustkeile sind etwa 1,7 Millionen Jahre alt. Später stellten die Menschen auch feine Klingen, Nadeln aus Knochen und Speere her.</p></div><p class="hint">Zeichnung eines Faustkeils, etwa so groß wie eine Hand.</p><div class="task"><span class="tag">Lückentext</span><p><strong>Auftrag:</strong> Wähle in jeder Lücke das passende Wort.</p><p class="cloze">Einen Faustkeil stellte man her, indem man mit einem harten Stein Stücke von einem <select id="feuer_0" aria-label="Lücke 1"><option value="">bitte wählen</option><option value="Eisstück">Eisstück</option><option value="Feuerstein">Feuerstein</option><option value="Holzstück">Holzstück</option></select> abschlug. Noch wichtiger war das Feuer. Es spendete <select id="feuer_1" aria-label="Lücke 2"><option value="">bitte wählen</option><option value="Wärme">Wärme</option><option value="Regen">Regen</option><option value="Strom">Strom</option></select> und Licht. Gebratenes Fleisch war leichter zu <select id="feuer_2" aria-label="Lücke 3"><option value="">bitte wählen</option><option value="zählen">zählen</option><option value="kaufen">kaufen</option><option value="kauen">kauen</option></select>. Und das Feuer hielt nachts <select id="feuer_3" aria-label="Lücke 4"><option value="">bitte wählen</option><option value="wilde Tiere">wilde Tiere</option><option value="den Wind">den Wind</option><option value="die Sterne">die Sterne</option></select> vom Lager fern.</p><button class="btn" type="button" id="feuerCheck">Prüfen</button><div class="fb" id="feuerFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="kunst">
+<h2>Kunst in der Höhle</h2>
+<p>1940 entdeckten vier Jugendliche in Frankreich die Höhle von <strong>Lascaux</strong>. An den Wänden fanden sie hunderte Bilder von Pferden, Wildrindern, Hirschen und anderen Tieren. Die Bilder sind etwa 17.000 bis 20.000 Jahre alt, die genaue Datierung ist unter Fachleuten umstritten. Die Farben machten die Menschen aus farbiger Erde und Holzkohle.</p><div class="svgwrap"><svg class="pic" style="max-width:560px;margin:auto" viewBox="0 0 400 220" role="img" aria-label="Nachzeichnung eines Wildpferdes in Rot und Schwarz auf einer Felswand, im Stil der Höhlenmalerei.">
+<rect width="400" height="220" fill="#e6d3b3"/>
+<path d="M0 0 H400 V30 Q300 50 200 30 T0 40Z" fill="#cdb48e"/><path d="M0 220 V190 Q120 170 220 196 T400 186 V220Z" fill="#cdb48e"/>
+<g transform="translate(70 40)">
+ <path d="M40 70 Q60 40 120 44 Q170 40 196 60 Q214 74 210 96 Q190 116 140 112 Q90 118 60 104 Q36 94 40 70Z" fill="#b5532b" opacity=".9"/>
+ <path d="M196 60 Q214 30 238 26 Q252 30 250 44 Q240 52 230 52 Q222 66 212 80" fill="#b5532b" opacity=".9"/>
+ <path d="M200 52 Q214 26 236 22" stroke="#2a1c12" stroke-width="7" fill="none" stroke-linecap="round"/>
+ <path d="M70 108 L62 150 M92 112 L90 152 M160 112 L166 150 M186 104 L196 146" stroke="#2a1c12" stroke-width="6" stroke-linecap="round"/>
+ <path d="M42 72 Q22 80 18 104" stroke="#2a1c12" stroke-width="6" fill="none" stroke-linecap="round"/>
+ <circle cx="238" cy="36" r="2.5" fill="#2a1c12"/>
+</g>
+<text x="390" y="212" text-anchor="end" font-size="13" fill="#4a3a2a">Nachzeichnung im Stil der Höhlenbilder, keine Kopie</text>
+</svg></div><div class="task"><span class="tag">Bildquelle</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">K1. Die Höhlenbilder sind Bildquellen. Was können wir aus ihnen sicher schließen? Wähle alle richtigen Aussagen aus.</legend><div class="opts"><label><input type="checkbox" name="kunst" value="tiere"><span>Die Menschen kannten die Tiere sehr genau.</span></label><label><input type="checkbox" name="kunst" value="farbe"><span>Sie konnten Farben herstellen und damit malen.</span></label><label><input type="checkbox" name="kunst" value="wohnen"><span>Die Menschen haben in dieser Höhle gewohnt.</span></label><label><input type="checkbox" name="kunst" value="grund"><span>Wir wissen genau, warum die Bilder gemalt wurden.</span></label></div></fieldset><button class="btn" type="button" id="kunstCheck">Prüfen</button><button class="btn sec" type="button" id="kunstReset">Zurücksetzen</button><div class="fb" id="kunstFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: die Schöninger Speere</h2>
+<p>Die meisten Funde aus der Altsteinzeit sind aus Stein. Holz verrottet normalerweise. In Schöningen in Niedersachsen hatten Forscher großes Glück.</p><div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>Sachquelle: die Schöninger Speere.</strong> Heute im Forschungsmuseum Schöningen, Landkreis Helmstedt, Niedersachsen.</p>
+ <ul class="facts">
+  <li><b>Gefunden:</b> 1994 bis 1998 im Braunkohletagebau Schöningen, etwa zehn Meter tief in alten Schichten am Ufer eines früheren Sees. Die Ausgrabung leitete der Archäologe Hartmut Thieme.</li>
+  <li><b>Was ist es?</b> Neun Wurfspeere und eine Stoßlanze aus Holz, meist aus Fichte, einer aus Kiefer. Die Speere sind etwa 1,80 bis 2,30 Meter lang.</li>
+  <li><b>Was lag daneben?</b> Viele Steinwerkzeuge und tausende Tierknochen, vor allem von Wildpferden. An manchen Knochen sieht man Schnittspuren.</li>
+  <li><b>Wie alt?</b> Lange schätzte man 300.000 Jahre oder mehr. Eine neue Untersuchung von 2025 kommt auf etwa 200.000 Jahre. Fachleute diskutieren noch darüber.</li>
+ </ul>
+ <p class="hint">Es sind die ältesten vollständig erhaltenen Jagdwaffen der Welt. Angaben nach dem Forschungsstand.</p>
+</div><div class="svgwrap"><svg class="pic" style="max-width:520px;margin:auto" viewBox="0 0 400 320" role="img" aria-label="Größenvergleich: ein Kind mit 1,45 Meter, ein Erwachsener mit 1,75 Meter und ein Schöninger Speer mit etwa 2,30 Meter Länge. Der Speer ist deutlich länger als beide.">
+<rect width="400" height="320" fill="#fbf6ee"/>
+<line x1="10" y1="300" x2="390" y2="300" stroke="#6a5a4c" stroke-width="2"/>
+<g stroke="#6a5a4c" stroke-width="1.5"><line x1="330" y1="300" x2="330" y2="30"/><line x1="324" y1="300" x2="336" y2="300"/><line x1="324" y1="180" x2="336" y2="180"/><line x1="324" y1="60" x2="336" y2="60"/></g>
+<g font-size="15" fill="#2a1c12"><text x="342" y="305">0 m</text><text x="342" y="185">1 m</text><text x="342" y="65">2 m</text></g>
+<circle cx="70" cy="140" r="14" fill="#e3b98f" stroke="#5b2c0f" stroke-width="2"/>
+<path d="M54 210 L56 158 Q70 150 84 158 L86 210 Z" fill="#8a4317"/><path d="M58 210 L58 300 M82 210 L82 300" stroke="#2a1c12" stroke-width="7"/>
+<circle cx="165" cy="106" r="15" fill="#e3b98f" stroke="#5b2c0f" stroke-width="2"/>
+<path d="M146 190 L149 126 Q165 116 181 126 L184 190 Z" fill="#6a5a4c"/><path d="M151 190 L151 300 M179 190 L179 300" stroke="#2a1c12" stroke-width="8"/>
+<path d="M259 300 L264 26 L269 300 Z" fill="#c98b4e" stroke="#7a4a24" stroke-width="2.5"/>
+<text x="70" y="122" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1c12">Kind</text>
+<text x="70" y="318" text-anchor="middle" font-size="14" fill="#2a1c12">1,45 m</text>
+<text x="165" y="86" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1c12">Erwachsener</text>
+<text x="165" y="318" text-anchor="middle" font-size="14" fill="#2a1c12">1,75 m</text>
+<text x="272" y="22" text-anchor="end" font-size="15" font-weight="700" fill="#8a4317">Speer</text>
+<text x="264" y="318" text-anchor="middle" font-size="14" fill="#8a4317">etwa 2,30 m</text>
+</svg></div><div class="legendlist" aria-hidden="true"><span>Größenvergleich: eigene Zeichnung</span></div><div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Stell dir vor: Ein Speer, länger als ein Erwachsener groß ist, und er hat mindestens zweihunderttausend Jahre im Boden gelegen! Da staune sogar ich, und ich habe schon viel gesehen.</p></div></div><div class="task"><span class="tag">Quellenarbeit mit W-Fragen</span><p><strong>Auftrag:</strong> Ordne jede Karte der passenden W-Frage zu.</p><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Eine falsch abgelegte Karte kannst du wieder antippen und neu ablegen.</p><div class="chips" id="speerPieces" aria-label="Karten zum Zuordnen"></div><div class="zones z4"><div class="zone" data-task="speer" data-zone="was" tabindex="0" role="button" aria-label="Ablegen bei Was ist es?"><h4>Was ist es?</h4><div class="drop"></div></div><div class="zone" data-task="speer" data-zone="wo" tabindex="0" role="button" aria-label="Ablegen bei Wo wurde es gefunden?"><h4>Wo wurde es gefunden?</h4><div class="drop"></div></div><div class="zone" data-task="speer" data-zone="alt" tabindex="0" role="button" aria-label="Ablegen bei Wie alt ist es?"><h4>Wie alt ist es?</h4><div class="drop"></div></div><div class="zone" data-task="speer" data-zone="wozu" tabindex="0" role="button" aria-label="Ablegen bei Wozu wurde es benutzt?"><h4>Wozu wurde es benutzt?</h4><div class="drop"></div></div></div><button class="btn" type="button" id="speerCheck">Zuordnung prüfen</button><button class="btn sec" type="button" id="speerReset">Zurücksetzen</button><div class="fb" id="speerFb" role="status" aria-live="polite"></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Orte gehören zu „Wo?“, Zahlen mit „Jahre“ zu „Wie alt?“ und „zur Jagd“ zu „Wozu?“.</div></div><div class="task"><span class="tag">Schlussfolgern</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S2. Was verraten die Speere über die Menschen, die sie gemacht haben?</legend><div class="opts"><label><input type="radio" name="beweis" value="a"><span>Sie konnten planen und gemeinsam jagen. Sie suchten passendes Holz, formten es geschickt und jagten große, schnelle Tiere.</span></label><label><input type="radio" name="beweis" value="b"><span>Sie haben nur Pflanzen gegessen und nie gejagt.</span></label><label><input type="radio" name="beweis" value="c"><span>Sie kannten schon Metall, denn die Speere haben Eisenspitzen.</span></label></div></fieldset><button class="btn" type="button" id="beweisCheck">Prüfen</button><div class="fb" id="beweisFb" role="status" aria-live="polite"></div></div><div class="task" data-lw="weiter"><span class="tag">Weiterdenken · Warum erhalten?</span><label class="legend" for="q2">Q2. Holz verrottet normalerweise. Warum sind die Speere von Schöningen trotzdem erhalten geblieben? Denk an das, was du in Modul 002 über das Moor gelernt hast.</label><textarea id="q2" placeholder="Die Speere blieben erhalten, weil ..."></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p><button class="btn" type="button" id="q2Check">Antwort prüfen</button><div class="fb" id="q2Fb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Altsteinzeit</summary><div class="body">Der längste Abschnitt der Menschheitsgeschichte. Er begann vor über 2,5 Millionen Jahren und endete in Mitteleuropa um 9700 v. Chr. Die Menschen machten ihre Werkzeuge vor allem aus Stein.</div></details><details class="gloss"><summary>Jäger und Sammlerinnen</summary><div class="body">Menschen, die von der Jagd und vom Sammeln von Pflanzen leben. Sie bauen nichts an und halten keine Tiere.</div></details><details class="gloss"><summary>Nomaden</summary><div class="body">Menschen, die keinen festen Wohnort haben und mit ihren Zelten umherziehen.</div></details><details class="gloss"><summary>Eiszeit</summary><div class="body">Eine sehr kalte Zeit. In der Altsteinzeit gab es mehrere Eiszeiten. Dazwischen lagen wärmere Zeiten.</div></details><details class="gloss"><summary>Faustkeil</summary><div class="body">Ein Werkzeug aus Stein, das gut in der Hand liegt. Man konnte damit schneiden, schaben und hacken.</div></details><details class="gloss"><summary>Feuerstein</summary><div class="body">Ein sehr harter Stein. Wenn man ihn geschickt schlägt, entstehen scharfe Kanten.</div></details><details class="gloss"><summary>Höhlenmalerei</summary><div class="body">Bilder, die Menschen der Altsteinzeit an Höhlenwände malten, meist Tiere.</div></details><details class="gloss"><summary>Neandertaler</summary><div class="body">Eine Menschenart, die vor etwa 40.000 Jahren ausstarb. Benannt nach dem Neandertal bei Düsseldorf, wo 1856 Knochen gefunden wurden.</div></details><details class="gloss"><summary>Sachquelle</summary><div class="body">Ein Gegenstand aus der Vergangenheit, zum Beispiel ein Speer oder ein Faustkeil.</div></details><h3>Woher stammen die Texte?</h3><details class="gloss"><summary>Nachweise der Quellen und Zahlen</summary><div class="body"><ul><li>Schöninger Speere: Fund 1994 bis 1998 im Braunkohletagebau Schöningen (Landkreis Helmstedt), Grabungsleitung Hartmut Thieme; neun Wurfspeere und eine Stoßlanze, überwiegend Fichtenholz, etwa 1,80 bis 2,30 Meter lang (Lanze 2,53 Meter); zahlreiche Pferdeknochen mit Schnittspuren. Ausgestellt im Forschungsmuseum Schöningen.</li><li>Datierung der Speere: ältere Schätzungen etwa 300.000 bis 400.000 Jahre, Lumineszenz- und Uran-Thorium-Daten um 290.000 bis 337.000 Jahre; eine Studie von 2025 (Universitäten York und Mainz u. a., Aminosäure-Datierung) ergibt etwa 200.000 Jahre.</li><li>Höhle von Lascaux: entdeckt am 12. September 1940 von vier Jugendlichen; die Malereien werden meist auf etwa 17.000 bis 20.000 Jahre geschätzt, die Datierung ist umstritten.</li><li>Älteste Faustkeile: etwa 1,7 bis 1,75 Millionen Jahre (Afrika). Ende der letzten Kaltzeit vor etwa 11.700 Jahren. Gruppengröße von Jägern und Sammlern: Schätzungen der Forschung, kein genauer Wert.</li><li>Tages-Balken: 2,6 Millionen Jahre entsprechen 24 Stunden; 11.700 Jahre entsprechen etwa 6,5 Minuten, 2026 Jahre etwa 1,1 Minuten.</li><li>Lager, Faustkeil, Speervergleich und Pferdebild sind eigene schematische Zeichnungen, keine Abbildungen echter Funde.</li></ul></div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p><div id="selfcheck"><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann beschreiben, wie Menschen in der Altsteinzeit lebten und wohnten.</legend><div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann erklären, warum Jäger und Sammlerinnen umherzogen.</legend><div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann mit den Schöninger Speeren zeigen, dass die Menschen damals planen konnten.</legend><div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte"><span class="stamp">Zu prüfen</span><p>Auf der Karteikarte steht: <em>„Steinzeitmenschen waren dumme Höhlenmenschen. Sie konnten nur mit Keulen herumfuchteln.“</em></p></div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0;margin:0"><legend class="legend">A1. Wie entscheidest du?</legend><div class="opts"><label><input type="radio" name="a1" value="a"><span>Die Karte stimmt. Die Menschen damals waren einfach nicht schlau.</span></label><label><input type="radio" name="a1" value="b"><span>Die Karte ist falsch. Die Menschen wohnten meist in Zelten, nutzten Feuer, bauten Speere, jagten gemeinsam und malten Bilder. Sie waren erfinderisch und gut organisiert.</span></label><label><input type="radio" name="a1" value="c"><span>Die Karte stimmt halb. Sie wohnten zwar nicht in Höhlen, konnten aber sonst nichts.</span></label></div></fieldset>
+ <button class="btn" type="button" id="a1Check">Entscheidung prüfen</button>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine kurze Nachricht mit zwei bis vier Sätzen. Erkläre, warum die Karteikarte nicht stimmt. Nenne mindestens zwei Beispiele dafür, was die Menschen der Altsteinzeit konnten.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, die Karte stimmt nicht, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Die Menschen wohnten meist ...“ · „Sie konnten ..., zum Beispiel ...“ · „Die Schöninger Speere zeigen, dass ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Begründung prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="fb" id="buildFb" role="status" aria-live="polite"></div>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" id="printBtn">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+</main></div>
+<footer>SOL Geschichte 5 · Modul 004 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-5" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-5"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={"modul": "004", "titel": "Wie lebten Menschen in der Altsteinzeit?", "bereich": "Frühe Menschen und Hochkulturen", "version": "1.0.0", "key": "sol-geschichte-5-004", "endpoint": "https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec", "next": "Weiter geht es mit Modul 005: Warum wurden Menschen sesshaft?", "badges": [{"id": "abz1", "name": "Zeitreisende", "tasks": ["zeit"]}, {"id": "abz2", "name": "Lagerkundige", "tasks": ["lager", "wandern"]}, {"id": "abz3", "name": "Speerexpertin", "tasks": ["speer", "beweis"]}, {"id": "abz4", "name": "Begründer", "tasks": ["a2"]}], "startOk": "Alles bereit. Chronos hat sich warm angezogen. Es geht weiter mit der Mission."};
+const TASKS=[{"id": "zeit", "typ": "mc", "richtig": "b", "fb": {"a": "Sieh noch einmal hin: Fast der ganze Balken gehört zur Altsteinzeit. Nur die letzten Minuten nicht.", "b": "Genau. Wenn die ganze Geschichte der Menschen ein Tag wäre, dann wäre fast der ganze Tag Altsteinzeit. Alles, was danach kam, passt in die letzten sechs Minuten vor Mitternacht.", "c": "Nein, die Altsteinzeit liegt lange vor dem Jahr 1. Das Jahr 1 ist erst ganz am Ende des Balkens."}, "name": "Zeitraum der Altsteinzeit", "komp": ["zeit_raum"], "zusatz": false}, {"id": "lager", "typ": "hot", "finds": [{"z": "hFeuer", "tipp": "Wo wärmen sich die Menschen, braten Fleisch und halten wilde Tiere fern?", "ok": "Richtig, die Feuerstelle. Feuer gab Wärme und Licht, machte Fleisch weich und schützte nachts vor Raubtieren."}, {"z": "hZelt", "tipp": "Wo schlafen die Menschen und schützen sich vor Wind und Schnee?", "ok": "Genau, das Zelt. Die meisten Menschen der Altsteinzeit wohnten nicht in Höhlen, sondern in Zelten oder Hütten aus Holzstangen und Tierfellen. Die konnte man abbauen und mitnehmen."}, {"z": "hWerkzeug", "tipp": "Wo entstehen neue Werkzeuge aus Stein?", "ok": "Richtig. Mit einem harten Schlagstein schlug man Stücke von einem Feuerstein ab. So entstanden scharfe Klingen, Schaber und Faustkeile."}, {"z": "hSammeln", "tipp": "Wo besorgt jemand Nahrung, ohne zu jagen?", "ok": "Genau. Beeren, Nüsse, Pilze und Wurzeln waren sehr wichtig. Ohne Sammeln hätten die Menschen nicht genug zu essen gehabt."}], "alle": [{"id": "hFeuer", "n": "Feuerstelle"}, {"id": "hZelt", "n": "Zelt"}, {"id": "hWerkzeug", "n": "Werkzeug herstellen"}, {"id": "hSammeln", "n": "Sammeln"}, {"id": "hJagd", "n": "Jagd"}], "done": "Alle vier gefunden. Jeder in der Gruppe hatte Aufgaben, und nur zusammen kamen sie durch den Winter.", "name": "Lager erkunden", "komp": ["fachwissen"]}, {"id": "wandern", "typ": "order", "items": ["Die Menschen leben nur von dem, was sie jagen und sammeln.", "Die Tierherden ziehen im Lauf des Jahres weiter, zum Beispiel die Rentiere.", "Die Gruppe folgt den Herden und zieht an einen neuen Ort.", "Deshalb bauen sie keine festen Häuser und besitzen nur, was sie tragen können."], "ok": "Genau. Weil die Nahrung umherzog, zogen auch die Menschen umher. Menschen, die so leben, nennt man Nomaden.", "hint": "Frage dich: Was ist der Grund, und was folgt daraus?", "name": "Ursache und Folge: Umherziehen", "komp": ["ursachen_folgen"]}, {"id": "feuer", "typ": "luecke", "richtig": ["Feuerstein", "Wärme", "kauen", "wilde Tiere"], "ok": "Alles richtig. Werkzeuge und Feuer machten es möglich, dass Menschen sogar in der Eiszeit überleben konnten.", "hint": "Lies die Sätze genau und überlege, was wirklich passt.", "name": "Faustkeil und Feuer", "komp": ["fachwissen"]}, {"id": "kunst", "typ": "multi", "richtig": ["tiere", "farbe"], "ok": "Richtig. Die Bilder zeigen, wie gut die Menschen die Tiere beobachtet haben und dass sie Farben herstellen konnten. Warum sie gemalt haben, ist bis heute ein Rätsel.", "hinweis": {"wohnen": "Das zeigen die Bilder nicht. Viele Bilderhöhlen waren dunkel und schwer zu erreichen. Gewohnt haben die Menschen meist an anderen Orten.", "grund": "Leider nein. Vielleicht ging es um Jagdzauber, um Geschichten oder um Feste. Das sind aber nur Vermutungen. Die Bilder sagen es uns nicht."}, "fehlt": "Es fehlen noch # zutreffende Antworten. ", "tipp": "Unterscheide: Was sieht man wirklich, und was ist nur eine Vermutung?", "name": "Höhlenbilder deuten", "komp": ["quellenarbeit", "perspektivitaet"]}, {"id": "speer", "typ": "zuord", "pieces": [{"k": "speerk1", "t": "Ein Speer aus Fichtenholz, über zwei Meter lang", "z": "was"}, {"k": "speerk2", "t": "Im Braunkohletagebau Schöningen in Niedersachsen", "z": "wo"}, {"k": "speerk3", "t": "Am Ufer eines früheren Sees", "z": "wo"}, {"k": "speerk4", "t": "Etwa 200.000 bis 300.000 Jahre", "z": "alt"}, {"k": "speerk5", "t": "Zur Jagd auf große Tiere wie Wildpferde", "z": "wozu"}], "ok": "Sehr gut. Mit den W-Fragen hast du den Fund genau beschrieben. Das ist der erste Schritt jeder Quellenarbeit.", "hint": "Lies den Steckbrief noch einmal. Zu jeder Frage findest du dort eine Antwort.", "name": "W-Fragen an die Speere", "komp": ["quellenarbeit"], "zones": ["was", "wo", "alt", "wozu"]}, {"id": "beweis", "typ": "mc", "richtig": "a", "fb": {"a": "Genau. Wer solche Speere baut, muss vorausdenken. Und Wildpferde jagt man nicht allein, sondern in der Gruppe. Die Menschen damals waren also klug und gut organisiert.", "b": "Nein. Neben den Speeren lagen tausende Pferdeknochen mit Schnittspuren. Die Menschen haben gejagt.", "c": "Nein. Die Speere sind ganz aus Holz. Metall kannten die Menschen der Altsteinzeit noch nicht."}, "name": "Was die Speere beweisen", "komp": ["quellenarbeit", "fachwissen"], "zusatz": false}, {"id": "q2", "typ": "text", "krit": {"min": 40, "worte": 10, "need": 2, "saetze": 1, "gruppen": [{"w": ["nass", "wasser", "schlamm", "see", "ufer", "feucht", "schicht", "boden", "tief", "moor"], "miss": "Beschreibe, wo die Speere lagen, zum Beispiel in nassen Schichten am See."}, {"w": ["luft", "sauerstoff", "verrott", "zersetz", "pilz", "bakter", "luftdicht"], "miss": "Erkläre, warum Holz dort nicht verrottet: Es kam kaum Luft heran."}], "ok": "Sehr gut. Die Speere lagen tief in nassen Schichten am Ufer eines früheren Sees. Dort kam kaum Luft heran. Ohne Luft können Pilze und Bakterien das Holz nicht zersetzen, ganz ähnlich wie im Moor."}, "name": "Weiterdenken Erhaltung", "komp": ["ursachen_folgen"], "zusatz": true}];
+const DIAG={"fragen": [{"n": "d1", "r": "c"}, {"n": "d2", "r": "f"}, {"n": "d3", "r": "a"}], "alle": "Drei von drei. Stark! Der Lernweg Weiterdenken könnte dir Spaß machen.", "fast": "Zwei von drei. Gute Grundlage. Im Modul erfährst du, wo die Menschen wirklich wohnten.", "wenig": "Du hast # von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.", "extra": [{"n": "d3", "v": "b", "m": "Ein Hinweis vorab: Dinosaurier starben schon vor etwa 66 Millionen Jahren aus, lange bevor es Menschen gab."}]};
+const ABS={"ok": ["b"], "fb": {"a": "Denk an die Schöninger Speere und an Lascaux. Wer so etwas schafft, ist alles andere als dumm. Wähle noch einmal.", "b": "Sehr gut entschieden. Die Karte ist ein altes Vorurteil. Begründe das jetzt in A2.", "c": "Denk an Feuer, Speere und Höhlenbilder. Die Menschen konnten sehr viel. Wähle noch einmal."}, "krit": {"min": 60, "worte": 14, "need": 2, "saetze": 2, "gruppen": [{"w": ["speer", "jagd", "jagt", "jagen", "faustkeil", "werkzeug", "feuer", "pferd"], "miss": "Nenne etwas, das sie herstellen oder tun konnten, zum Beispiel Speere bauen, jagen oder Feuer nutzen."}, {"w": ["zelt", "gruppe", "gemeinsam", "zusammen", "plan", "malen", "malerei", "bild", "kunst", "sammel", "klug", "schlau", "organis", "erfinder"], "miss": "Nenne noch ein zweites Beispiel, etwa das Leben in der Gruppe, die Zelte oder die Höhlenbilder."}], "ok": "Sehr gut. Du widerlegst das Vorurteil mit Beispielen aus den Quellen. Genau so arbeiten Historikerinnen und Historiker. Abzeichen Begründer freigeschaltet."}};
+const S={lernweg:"standard",done:{},punkte:{},placed:{},order:{},hot:{},fbs:{},texts:{},sent:false,built:false};
+const TMAP={};TASKS.forEach(t=>TMAP[t.id]=t);
+const PFLICHT=TASKS.filter(t=>!t.zusatz);
+const SCHRITTE=["start","diagnose"].concat(PFLICHT.map(t=>t.id),["lerncheck","abschluss"]);
+const MAXP=PFLICHT.length+3;
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function fbT(tid,msg,art){S.fbs[tid]={m:msg,a:art};fb("#"+tid+"Fb",msg,art);}
+function fbTClear(tid){delete S.fbs[tid];fbClear("#"+tid+"Fb");}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+function val(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","trotzdem","aber","jedoch","obwohl","wahrend","einerseits","andererseits"];
+function mische(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ (CFG.badges||[]).forEach(b=>{const e=document.getElementById(b.id);if(e)e.classList.toggle("on",b.tasks.every(k=>k==="a2"?(S.punkte.a2||0)>=1:!!S.done[k]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];S.punkte[k]=0;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Denkaufgabe zum Thema."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 5a."};
+ const m=t.match(/(?:^|[^0-9])5([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 5. Schreibe zum Beispiel 5a, Klasse 5b oder nur 5."};
+ return{ok:true,wert:"5"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb",CFG.startOk,"ok");
+ location.hash="mission";
+});
+
+/* ---------- Einstieg ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const fr=DIAG.fragen, offenD=fr.filter(f=>!val(f.n));
+ if(offenD.length){fb("#dFb","Beantworte bitte zuerst alle drei Fragen. Raten ist ausdrücklich erlaubt.","hint");return;}
+ const r=fr.filter(f=>val(f.n)===f.r).length;
+ let m=r===fr.length?DIAG.alle:(r===fr.length-1?DIAG.fast:DIAG.wenig.replace("#",r));
+ (DIAG.extra||[]).forEach(x=>{if(val(x.n)===x.v)m+=" "+x.m;});
+ fb("#dFb",m,r>=2?"ok":"hint");S.fbs.d={m:m,a:r>=2?"ok":"hint"};
+ fertig("diagnose");
+});
+
+/* ---------- Auswahl ---------- */
+function initMc(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const v=val(t.id);
+  if(!v){fbT(t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+  const ok=v===t.richtig, m=(t.fb&&t.fb[v])||(ok?"Richtig.":"Noch nicht.");
+  if(ok){fbT(t.id,m,"ok");fertig(t.id,1);}else{fbT(t.id,m,"hint");if(!t.zusatz)offen(t.id);}
+ });
+}
+function initMulti(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+  if(!sel.length){fbT(t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+  const fehlt=t.richtig.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!t.richtig.includes(x));
+  if(!fehlt.length&&!zuviel.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);return;}
+  let m="";
+  zuviel.forEach(z=>{if(t.hinweis&&t.hinweis[z])m+=t.hinweis[z]+" ";});
+  if(fehlt.length)m+=(fehlt.length===1?"Es fehlt noch eine zutreffende Antwort. ":t.fehlt.replace("#",fehlt.length));
+  fbT(t.id,(m+(t.tipp||"")).trim(),"hint");offen(t.id);
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);fbTClear(t.id);offen(t.id);});
+}
+
+/* ---------- Zuordnen mit Antippen oder Ziehen ---------- */
+let gew=null;
+function pieceHtml(t,p,cls){return '<button type="button" class="piece'+(cls?" "+cls:"")+'" draggable="true" data-task="'+t.id+'" data-k="'+p.k+'" aria-pressed="'+(gew&&gew.k===p.k?"true":"false")+'">'+p.t+'<\/button>';}
+function zeichneZ(t){
+ const pl=S.placed[t.id]||(S.placed[t.id]={});
+ const offenP=t.pieces.filter(p=>!pl[p.k]);
+ $("#"+t.id+"Pieces").innerHTML=offenP.map(p=>pieceHtml(t,p)).join("")||'<span class="hint">Alle Karten sind zugeordnet.<\/span>';
+ $$('.zone[data-task="'+t.id+'"] .drop').forEach(d=>d.innerHTML="");
+ t.pieces.forEach(p=>{const z=pl[p.k];if(z){const d=document.querySelector('.zone[data-task="'+t.id+'"][data-zone="'+z+'"] .drop');
+  if(d)d.insertAdjacentHTML("beforeend",pieceHtml(t,p,S.done[t.id]?"ok":""));}});
+ $$('.piece[data-task="'+t.id+'"]').forEach(b=>{
+  b.addEventListener("click",e=>{e.stopPropagation();
+   if(gew&&gew.k===b.dataset.k){gew=null;b.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gew={task:t.id,k:b.dataset.k};b.setAttribute("aria-pressed","true");
+   fbT(t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  b.addEventListener("dragstart",e=>{gew={task:t.id,k:b.dataset.k};try{e.dataTransfer.setData("text/plain",b.dataset.k);}catch(x){}});
+ });
+}
+function ablegen(t,zone){
+ if(!gew||gew.task!==t.id){fbT(t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[t.id][gew.k]=zone;gew=null;
+ if(S.done[t.id]){offen(t.id);}
+ zeichneZ(t);fbTClear(t.id);speichern();
+}
+function initZuord(t){
+ $$('.zone[data-task="'+t.id+'"]').forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.target!==z)return;if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");ablegen(t,z.dataset.zone);});
+ });
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const pl=S.placed[t.id], rest=t.pieces.filter(p=>!pl[p.k]);
+  if(rest.length){fbT(t.id,"Es sind noch "+rest.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+  let r=0;
+  t.pieces.forEach(p=>{const ok=pl[p.k]===p.z;if(ok)r++;const el=document.querySelector('.piece[data-k="'+p.k+'"]');if(el){el.classList.remove("ok","no");el.classList.add(ok?"ok":"no");}});
+  if(r===t.pieces.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.pieces.length+" stimmen bereits. Die grün umrandeten Karten sitzen richtig. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.placed[t.id]={};gew=null;offen(t.id);zeichneZ(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Reihenfolge ---------- */
+function zeichneO(t,fokus){
+ const o=S.order[t.id], fertigO=!!S.done[t.id];
+ $("#"+t.id+"List").innerHTML=o.map((i,pos)=>
+  '<div class="orow'+(fertigO?" ok":"")+'"><span class="nr" aria-hidden="true">'+(pos+1)+'<\/span><span class="t">'+t.items[i]+'<\/span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben: '+t.items[i].replace(/"/g,"")+'">&#8593;<\/button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten: '+t.items[i].replace(/"/g,"")+'">&#8595;<\/button><\/div>').join("");
+ $$("#"+t.id+"List button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=o.length)return;
+  [o[p],o[n]]=[o[n],o[p]];if(S.done[t.id])offen(t.id);zeichneO(t,{pos:n,dir:d});speichern();}));
+ if(fokus){const b=document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"][data-dir="'+fokus.dir+'"]')||document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"]');if(b)b.focus();}
+}
+function mischeO(t){const idx=t.items.map((_,i)=>i);let o;do{o=mische(idx);}while(o.join()===idx.join());S.order[t.id]=o;}
+function initOrder(t){
+ if(!S.order[t.id]||S.order[t.id].length!==t.items.length)mischeO(t);
+ zeichneO(t);
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const o=S.order[t.id], r=o.filter((v,i)=>v===i).length;
+  if(r===o.length){S.done[t.id]=true;zeichneO(t);fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+o.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{offen(t.id);mischeO(t);zeichneO(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Bild- und Kartenarbeit ---------- */
+function hotAufgabe(t){
+ const idx=S.hot[t.id]||0;
+ t.finds.forEach((f,i)=>{const el=document.getElementById(f.z);if(el)el.classList.toggle("found",i<idx);});
+ if(idx>=t.finds.length){$("#"+t.id+"Task").textContent=t.done;$("#"+t.id+"Alt").innerHTML="";return;}
+ const z=t.finds[idx];
+ $("#"+t.id+"Task").textContent="Suchauftrag "+(idx+1)+" von "+t.finds.length+": "+z.tipp;
+ $("#"+t.id+"Alt").innerHTML=t.alle.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.n+'<\/button>').join("");
+ $$("#"+t.id+"Alt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));
+}
+function hotWahl(t,id){
+ const idx=S.hot[t.id]||0, z=t.finds[idx]; if(!z)return;
+ if(id===z.z){
+  S.hot[t.id]=idx+1;
+  if(idx+1>=t.finds.length){fbT(t.id,z.ok+" Damit hast du alle "+t.finds.length+" gefunden.","ok");fertig(t.id,1);}
+  else{fbT(t.id,z.ok,"ok");}
+  hotAufgabe(t);speichern();
+ }else{
+  const g=t.alle.find(x=>x.id===id);
+  fbT(t.id,"Das ist „"+(g?g.n:"ein anderer Ort")+"“. Lies die Beschreibung noch einmal genau und sieh dir das Bild an.","hint");speichern();
+ }
+}
+function initHot(t){
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+  g.addEventListener("click",()=>hotWahl(t,g.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.hot[t.id]=0;offen(t.id);fbTClear(t.id);hotAufgabe(t);speichern();});
+ hotAufgabe(t);
+}
+
+/* ---------- Lückentext ---------- */
+function initLuecke(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  let r=0,leer=0;
+  t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}const ok=s.value===w;if(ok)r++;s.classList.add(ok?"ok":"no");});
+  if(leer){fbT(t.id,"Fülle zuerst alle "+t.richtig.length+" Lücken aus. Noch offen: "+leer+".","hint");return;}
+  if(r===t.richtig.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.richtig.length+" Lücken stimmen. Die rot markierten musst du noch einmal prüfen. "+t.hint,"hint");offen(t.id);}
+ });
+ t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.addEventListener("change",()=>{s.classList.remove("ok","no");});});
+}
+
+/* ---------- Freitexte ---------- */
+function bewerte(roh,k){
+ const t=norm(roh), wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<(k.min||40)||wort<(k.worte||10))return{p:0,lab:"zu knapp",msg:k.knapp||"Deine Antwort ist noch sehr kurz. Schreibe mindestens zwei vollständige Sätze."};
+ const treffer=k.gruppen.filter(g=>hat(t,g.w)), fehl=k.gruppen.filter(g=>!hat(t,g.w));
+ const verkn=k.nover||hat(t,VERKN), genug=saetze(roh)>=(k.saetze||2), need=k.need||k.gruppen.length;
+ if(treffer.length>=need&&verkn&&genug)return{p:1,lab:"vollständig",msg:k.ok};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(treffer.length<need)m+=fehl.slice(0,2).map(g=>g.miss).join(" ")+" ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „deshalb“ oder „dadurch“. ";
+ if(!genug)m+=(k.zuwenig||("Schreibe mindestens "+(k.saetze||2)+" vollständige Sätze. "));
+ return{p:(treffer.length>=1?0.5:0.25),lab:"teilweise",msg:m.trim()};
+}
+function initText(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const r=bewerte($("#"+t.id).value,t.krit);
+  S.texts[t.id]=r.lab;fbT(t.id,r.msg,r.p>=1?"ok":"hint");
+  if(!t.zusatz){if(r.p>=1)fertig(t.id,1);else offen(t.id);}else speichern();
+ });
+}
+
+/* ---------- Abschlussmission ---------- */
+function pruefeAbschluss(){
+ const a1=val("a1");
+ if(a1&&S.a2geprueft&&(S.punkte.a2||0)>0)fertig("abschluss");else{delete S.done.abschluss;fortschritt();speichern();}
+}
+$("#a1Check").addEventListener("click",()=>{
+ const v=val("a1");
+ if(!v){fbT("a1","Bitte wähle zuerst eine Entscheidung aus.","hint");return;}
+ const ok=ABS.ok.includes(v);S.punkte.a1=ok?1:0;
+ fbT("a1",ABS.fb[v]||"",ok?"ok":"hint");pruefeAbschluss();
+});
+$("#a2Check").addEventListener("click",()=>{
+ const r=bewerte($("#a2").value,ABS.krit);
+ S.punkte.a2=r.p>=1?1:(r.p>0?0.5:0);S.a2lab=r.lab;S.a2geprueft=true;
+ fbT("a2",r.msg,r.p>=1?"ok":"hint");pruefeAbschluss();
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3].map(i=>val("lc"+i)||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;S.punkte.lerncheck=0;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return PFLICHT.reduce((s,t)=>s+(S.punkte[t.id]||0),0)+(S.punkte.a1||0)+(S.punkte.a2||0)+(S.punkte.lerncheck||0);}
+function kompetenz(k){const ts=PFLICHT.filter(t=>(t.komp||[]).includes(k));if(k==="historisches_urteil")return eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1&&ts.every(t=>(S.punkte[t.id]||0)>=1));return eins(ts.length>0&&ts.every(t=>(S.punkte[t.id]||0)>=1));}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=Math.round(punkteGesamt()*10)/10, pct=Math.round(pkt/MAXP*100);
+ const luecken=[];
+ PFLICHT.forEach(t=>{if(!((S.punkte[t.id]||0)>=1))luecken.push(t.name);});
+ if(!((S.punkte.a1||0)>=1))luecken.push("Abschlussentscheidung");
+ if(!((S.punkte.a2||0)>=1))luecken.push("Begründung");
+ const erg={};PFLICHT.forEach(t=>erg[t.id]=S.punkte[t.id]||0);
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ const pfl={};PFLICHT.forEach(t=>pfl[t.id]={correct:(S.punkte[t.id]||0)>=1});
+ pfl.entscheidung={correct:(S.punkte.a1||0)>=1};pfl.begruendung={correct:(S.punkte.a2||0)>=1};
+ const zus={},zusB={};TASKS.filter(t=>t.zusatz).forEach(t=>{const e=document.getElementById(t.id);if(e&&e.tagName==="TEXTAREA"){zus[t.id]=e.value.trim();zusB[t.id]=S.texts[t.id]||"nicht bearbeitet";}else{zusB[t.id]=(S.punkte[t.id]||0)>=1?"richtig":"nicht gelöst";}});
+ if(!S.abgabeId)S.abgabeId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2);
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"5",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:Object.assign({leitfrage:$("#a2").value.trim(),begruendung:$("#a2").value.trim(),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},zus),
+  bewertung_freitexte:Object.assign({begruendung:S.a2lab||"nicht bearbeitet"},zusB),
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:MAXP,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:{fachwissen:kompetenz("fachwissen"),zeit_raum:kompetenz("zeit_raum"),quellenarbeit:kompetenz("quellenarbeit"),
+   ursachen_folgen:kompetenz("ursachen_folgen"),perspektivitaet:kompetenz("perspektivitaet"),historisches_urteil:kompetenz("historisches_urteil")},
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:MAXP,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:S.abgabeId};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 5, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(still){
+ if(!pflichtOk(!still)){if(!still)location.hash="start";return null;}
+ if(!val("a1")){if(!still){fb("#buildFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung (A1).","bad");location.hash="abschluss";}return null;}
+ if(!lerncheckWerte().every(Boolean)){if(!still){fb("#buildFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";}return null;}
+ S.punkte.a1=ABS.ok.includes(val("a1"))?1:0;
+ fbClear("#buildFb");
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?CFG.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter: "+CFG.next:"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const zeilen=PFLICHT.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":<\/strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)<\/li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ S.built=true;fortschritt();speichern();if(!still)location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>ergebnisBauen(false));
+$("#printBtn").addEventListener("click",()=>window.print());
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+async function senden(){
+ const p=ergebnisBauen(true)||ergebnisBauen(false);
+ if(!p)return;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+TASKS.forEach(t=>{
+ if(t.typ==="mc")initMc(t);else if(t.typ==="multi")initMulti(t);
+ else if(t.typ==="zuord"){initZuord(t);zeichneZ(t);}
+ else if(t.typ==="order")initOrder(t);else if(t.typ==="hot")initHot(t);
+ else if(t.typ==="luecke")initLuecke(t);else if(t.typ==="text")initText(t);
+});
+Object.entries(S.fbs||{}).forEach(([k,v])=>{if(k==="d")fb("#dFb",v.m,v.a);else fb("#"+k+"Fb",v.m,v.a);});
+TASKS.filter(t=>t.typ==="luecke"&&S.done[t.id]).forEach(t=>t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);if(s&&s.value===w)s.classList.add("ok");}));
+fortschritt();
+if(S.built)ergebnisBauen(true);
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

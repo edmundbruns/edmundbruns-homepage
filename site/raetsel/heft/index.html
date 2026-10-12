@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+
+<!-- Mirrored from bruns-homepage.pages.dev/raetsel/heft/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Aug 2026 17:19:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <script>try{var d=document.documentElement,s=localStorage;if(s.getItem('eb-theme')==='dark')d.dataset.theme='dark';if(s.getItem('eb-reading')==='easy')d.dataset.reading='easy';}catch(e){}</script>
+  <link rel="manifest" href="../../manifest.html">
+  <meta name="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rätselheft-Generator | Dr. Edmund Bruns</title>
+  <meta name="description" content="Erzeuge dein eigenes Rätselheft: Suchsel, Zahlenmauer, Mini-Sudoku und Labyrinth, druckfertig.">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <style>
+    .page-hero{ padding: clamp(40px,5vw,60px) 0 6px; }
+    .controls{ background:var(--cream); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; box-shadow:0 12px 30px rgba(23,37,31,.06); display:flex; flex-wrap:wrap; gap:16px 22px; align-items:flex-end; }
+    .controls label{ display:block; font-weight:700; font-size:.9rem; margin-bottom:5px; }
+    .controls input[type=text], .controls select{ font:inherit; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:10px; padding:.55rem .7rem; }
+    html[data-theme="dark"] .controls input, html[data-theme="dark"] .controls select{ background:#0f1c1a; }
+    .checks{ display:flex; flex-wrap:wrap; gap:12px; }
+    .checks label{ display:inline-flex; align-items:center; gap:6px; font-weight:600; margin:0; }
+    .btnrow{ display:flex; gap:10px; flex-wrap:wrap; margin-left:auto; }
+    .btn2{ display:inline-flex; align-items:center; gap:8px; border:1px solid var(--ink); background:var(--ink); color:#fff; font:inherit; font-weight:750; border-radius:999px; padding:.6rem 1.2rem; cursor:pointer; }
+    .btn2.ghost{ background:transparent; color:var(--ink); }
+    .btn2.ghost:hover{ background:var(--ink); color:#fff; }
+    .heft{ margin-top:26px; }
+    .sheet{ background:var(--cream); border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin:0 0 20px; box-shadow:0 8px 22px rgba(23,37,31,.05); }
+    .sheet h2{ font-family:Georgia,serif; margin:0 0 4px; }
+    .sheet .task{ color:#3b4740; margin:0 0 14px; }
+    table.ws{ border-collapse:collapse; margin:0 auto; }
+    table.ws td{ width:26px; height:26px; text-align:center; font-weight:700; font-family:Georgia,serif; }
+    .wswords{ display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:14px; justify-content:center; }
+    .wswords span{ font-weight:600; }
+    .zm{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+    .zmrow{ display:flex; gap:6px; }
+    .brick{ width:60px; height:38px; border-radius:8px; display:grid; place-items:center; font-weight:800; font-size:1.1rem; border:1.5px solid var(--line); background:#fff; }
+    html[data-theme="dark"] .brick{ background:#0f1c1a; }
+    .brick.given{ background:var(--accent-soft); border-color:var(--green); }
+    .brick.blank{ color:#b9c0b6; }
+    .sud{ border-collapse:collapse; margin:0 auto; }
+    .sud td{ width:40px; height:40px; text-align:center; font-weight:800; font-size:1.3rem; border:1px solid var(--line); }
+    .sud td.gv{ color:var(--ink); } .sud td.bl{ color:transparent; }
+    .sud tr:nth-child(2) td{ border-bottom:2.5px solid var(--ink); } .sud td:nth-child(2){ border-right:2.5px solid var(--ink); }
+    .sud{ border:2.5px solid var(--ink); }
+    .mz-svg{ width:100%; max-width:420px; height:auto; display:block; margin:0 auto; }
+    .mzwrap{ display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
+    .mztag{ font-weight:800; } .mztag.s{ color:var(--green); } .mztag.z{ color:var(--gold); }
+    .sol{ display:none; }
+    body.showsol .sol{ display:block; }
+    .solhead{ font-family:Georgia,serif; font-size:1.4rem; border-top:2px solid var(--accent-soft); padding-top:12px; margin-top:8px; }
+    .ws td.hit{ background:var(--accent-soft); border-radius:5px; }
+    @media print{
+      .site-header,.chipnav,.controls,.printhide,.backtop,.ebux,.ebsearch-open,.site-footer,.page-hero .lead{ display:none !important; }
+      body{ background:#fff !important; }
+      .sheet{ box-shadow:none; border:1px solid #ccc; break-inside:avoid; page-break-inside:avoid; }
+      .heft-cover, .sheet, .sol.sheet{ page-break-after:always; }
+      body.showsol .sol{ display:block; }
+    }
+    .heft-cover{ text-align:center; padding:24px; }
+    .heft-cover h2{ font-family:Georgia,serif; font-size:2rem; }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="site-header" id="siteHeader">
+    <nav class="nav shell" aria-label="Hauptnavigation">
+      <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">EB</span><span>Dr. Edmund Bruns</span></a>
+      <a class="nav-home" href="../../index.html"><svg class="home-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Startseite</span></a>
+    </nav>
+  </header>
+  <main id="inhalt">
+    <section class="page-hero shell">
+      <div class="eyebrow">Für Vertretung, Freiarbeit und zwischendurch</div>
+      <h1>Rätselheft-<em>Generator</em></h1>
+      <p class="lead">Wähle die Rätsel und die Schwierigkeit, erzeuge ein Heft und drucke es aus. Jeder Klick auf „Neues Heft" erstellt neue Rätsel. Die Lösungen kannst du ein- und ausblenden.</p>
+    </section>
+    <section class="section" style="padding-top:6px">
+      <div class="shell">
+        <div class="controls printhide">
+          <div><label for="ctitle">Heft-Titel</label><input type="text" id="ctitle" value="Mein Rätselheft" size="18"></div>
+          <div><label for="ctheme">Suchsel-Thema</label><select id="ctheme"><option>Tiere</option><option>Schule</option><option>Natur</option></select></div>
+          <div><label for="cdiff">Schwierigkeit</label><select id="cdiff"><option value="leicht">leicht</option><option value="mittel" selected>mittel</option><option value="schwer">schwer</option></select></div>
+          <div><label>Rätsel</label><div class="checks">
+            <label><input type="checkbox" id="c_ws" checked> Suchsel</label>
+            <label><input type="checkbox" id="c_zm" checked> Zahlenmauer</label>
+            <label><input type="checkbox" id="c_su" checked> Mini-Sudoku</label>
+            <label><input type="checkbox" id="c_mz" checked> Labyrinth</label>
+          </div></div>
+          <div class="btnrow">
+            <button class="btn2" id="gen" type="button">Neues Heft</button>
+            <button class="btn2 ghost" id="soltoggle" type="button">Lösungen zeigen</button>
+            <button class="btn2 ghost" id="print" type="button">Drucken</button>
+          </div>
+        </div>
+        <div class="heft" id="heft"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-grid shell"><div><div class="footer-title">Selbst gemacht.</div><div class="footer-note">Alle Rätsel entstehen zufällig direkt im Browser.</div></div>
+    <div class="footer-links"><a href="../index.html">Zur Rätselseite</a><a href="../../index.html">Start</a></div></div>
+    <div class="copyright shell"><span>&copy; <span data-year></span> Dr. Edmund Bruns</span></div>
+  </footer>
+  <a class="backtop" href="#top" aria-label="Nach oben">&uarr;</a>
+  <script src="../../assets/site.js"></script>
+  <script defer src="../../assets/search.js"></script>
+  <script defer src="../../assets/ux.js"></script>
+  <script src="../../assets/heftgen.js"></script>
+  <script src="../../assets/heftpage.js"></script>
+</body>
+
+<!-- Mirrored from bruns-homepage.pages.dev/raetsel/heft/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Aug 2026 17:19:28 GMT -->
+</html>

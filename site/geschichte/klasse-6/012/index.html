@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#254c3b">
+<meta name="description" content="SOL Geschichte Jahrgang 6, Modul 012: Wie begegneten sich Europa und Amerika?">
+<title>SOL Geschichte 6 | Modul 012 | Wie begegneten sich Europa und Amerika?</title>
+<style>
+:root{--ink:#102d2f;--paper:#fff;--cream:#e6eeea;--soft:#e6eeea;--bg:#f5f2ea;--green:#1d6b4f;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#d5d8d0;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #102d2f14;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#0d2426,#1d6b4f);color:#f7fbf9;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#f7fbf9;color:#0d2426;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:40px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#e8f2ee;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#2f6047,#b87824);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#2b3a33;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow)}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#2b3a33}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px}
+.field label,.legend{font-weight:750;color:#2b3a33}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#5b6660}
+.btn{background:var(--green);color:#f7fbf9;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#5b6660;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#e9f2ec}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:700;min-height:44px;display:inline-flex;align-items:center;gap:6px}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow span{flex:1;font-weight:650}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px}
+svg.burg{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.hot{transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d1899)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#3a463f}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#1d2b24;color:#e8f0ea;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#8b9089;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+.teacher{background:#f6f2ff;border-color:#ddd3f5}
+.doc{background:#f5f7f6}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#5b6660;font-size:.9rem}
+.easy body,body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 6 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Aufbruch in die Neuzeit · Ermittlungsakte 012</div>
+    <h1>Wie begegneten sich Europa und Amerika?</h1>
+    <p>Ab 1492 trafen zwei Welten aufeinander, die sich vorher nicht kannten. In Amerika lebten seit Langem große Völker. In diesem Modul findest du heraus, was ausgetauscht wurde und welche schweren Folgen die Begegnung besonders für die Ureinwohner hatte.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>012</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 9 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#lage">Neue Dinge auf dem Tisch</a>
+ <a href="#funktionen">Die Begegnung ordnen</a>
+ <a href="#menschen">Zwei Welten treffen sich</a>
+ <a href="#ursachen">Wie es dazu kam</a>
+ <a href="#quelle">Der Bericht des Las Casas</a>
+ <a href="#medien">War es eine Entdeckung?</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 6a"><span class="hint">Möglich sind zum Beispiel 6a, Klasse 6a, R6a oder nur 6.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul>
+ <li>Du erklärst, dass in Amerika schon lange Menschen lebten, etwa Azteken und Inka.</li>
+ <li>Du beschreibst den Austausch von Pflanzen, Tieren und Waren.</li>
+ <li>Du benennst die schweren Folgen für die Ureinwohner: Eroberung, Krankheiten, Zwangsarbeit.</li>
+ <li>Du wertest den Bericht des Las Casas als Textquelle aus.</li>
+ <li>Du prüfst, ob „Entdeckung“ das richtige Wort für 1492 ist.</li>
+</ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Ermittlung starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Akte 012</span>
+ <p><strong>Fall:</strong> Auf Chronos' Karteikarte steht: <em>„Kolumbus entdeckte 1492 ein leeres, unbekanntes Land. Die Begegnung von Europa und Amerika brachte allen nur Gutes.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Finde heraus, wer in Amerika schon lebte, was ausgetauscht wurde und welche Folgen die Begegnung besonders für die Ureinwohner hatte. Am Ende entscheidest du über die Karte.</p>
+</div>
+<div class="chronos">
+ <div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e6eeea" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#1d6b4f"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#1d6b4f"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div>
+ <div><p class="who">Chronos, Archivar</p><p>Zwei Welten, die sich vorher nie gesehen hatten. Auf einmal gab es Kartoffeln in Europa und Pferde in Amerika. Aber war das nur ein netter Tausch? Wer lebte dort schon, und wie ging es ihnen danach? Hilf mir, das ehrlich zu ordnen.</p></div>
+</div>
+<p><strong>Leitfrage:</strong> Wie begegneten sich Europa und Amerika?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Warenkenner</span>
+ <span class="abz" id="abz2">Ordnungssinn</span>
+ <span class="abz" id="abz3">Quellenprüfer</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet.</p>
+<div class="task">
+ <span class="tag">Wiederholung</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">D1. Wer erreichte 1492 nach Westen segelnd Amerika?</legend>
+  <div class="opts">
+   <label><input type="radio" name="d1" value="a"><span>Christoph Kolumbus</span></label>
+   <label><input type="radio" name="d1" value="b"><span>Vasco da Gama</span></label>
+   <label><input type="radio" name="d1" value="c"><span>Marco Polo</span></label>
+  </div>
+ </fieldset>
+</div>
+<div class="task">
+ <span class="tag">Richtig oder falsch</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">D2. In Amerika lebten schon vor 1492 viele Millionen Menschen.</legend>
+  <div class="opts">
+   <label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label>
+   <label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label>
+  </div>
+ </fieldset>
+</div>
+<div class="task">
+ <span class="tag">Vermutung</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">D3. Was geschah bei der Begegnung von Europa und Amerika?</legend>
+  <div class="opts">
+   <label><input type="radio" name="d3" value="a"><span>Pflanzen, Tiere und Waren wurden ausgetauscht, aber es gab auch Eroberung und Krankheiten</span></label>
+   <label><input type="radio" name="d3" value="b"><span>Es veränderte sich gar nichts</span></label>
+   <label><input type="radio" name="d3" value="c"><span>Nur Europa bekam neue Pflanzen, sonst passierte nichts</span></label>
+  </div>
+ </fieldset>
+</div>
+<button class="btn" type="button" id="dCheck">Einschätzung auswerten</button>
+<div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="lage">
+<h2>Neue Dinge auf dem Tisch</h2>
+<p>Nach der Begegnung tauchten auf beiden Seiten unbekannte Dinge auf. Tippe im Bild auf den gesuchten Gegenstand. Du kannst auch die Knöpfe darunter benutzen, das ist gleichwertig.</p>
+<div class="svgwrap">
+ <svg class="burg" viewBox="0 0 680 460" role="img" aria-label="Schematische Darstellung von Dingen des Austauschs: eine Kartoffel, ein Maiskolben, eine Kakaofrucht, ein Pferd, ein Rind und eine Truhe auf einem Tisch.">
+  <defs>
+   <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6efe0"/><stop offset="1" stop-color="#efe6d2"/></linearGradient>
+   <linearGradient id="tbl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b98a52"/><stop offset="1" stop-color="#9a6f3c"/></linearGradient>
+  </defs>
+  <rect width="680" height="460" fill="url(#wall)"/>
+  <rect x="8" y="8" width="664" height="444" rx="14" fill="none" stroke="#ddd0b2" stroke-width="2"/>
+  <rect x="30" y="300" width="620" height="34" rx="4" fill="url(#tbl)" stroke="#6f4d28" stroke-width="2"/>
+  <rect x="52" y="334" width="16" height="86" fill="#7a5636"/><rect x="612" y="334" width="16" height="86" fill="#7a5636"/>
+  <!-- Kartoffel -->
+  <g id="hKartoffel" class="hot" tabindex="0" role="button" aria-label="Kartoffel">
+   <ellipse cx="110" cy="284" rx="34" ry="24" fill="#c9a26a" stroke="#8a6a3a" stroke-width="2"/>
+   <circle cx="98" cy="278" r="2.4" fill="#6f5330"/><circle cx="120" cy="272" r="2.4" fill="#6f5330"/><circle cx="126" cy="290" r="2.4" fill="#6f5330"/><circle cx="102" cy="294" r="2.4" fill="#6f5330"/>
+  </g>
+  <!-- Mais -->
+  <g id="hMais" class="hot" tabindex="0" role="button" aria-label="Maiskolben">
+   <path d="M214 240 q-20 40 0 84 q20 -44 0 -84 Z" fill="#e9c33d" stroke="#b48a1a" stroke-width="2"/>
+   <g fill="#c79a20"><circle cx="209" cy="258" r="2"/><circle cx="219" cy="258" r="2"/><circle cx="209" cy="272" r="2"/><circle cx="219" cy="272" r="2"/><circle cx="209" cy="286" r="2"/><circle cx="219" cy="286" r="2"/><circle cx="209" cy="300" r="2"/><circle cx="219" cy="300" r="2"/></g>
+   <path d="M214 240 q-16 6 -20 28 q14 -6 20 -12 Z" fill="#7ba24a" stroke="#4f7a2a" stroke-width="1.6"/>
+   <path d="M214 240 q16 6 20 28 q-14 -6 -20 -12 Z" fill="#8fb659" stroke="#4f7a2a" stroke-width="1.6"/>
+  </g>
+  <!-- Kakao -->
+  <g id="hKakao" class="hot" tabindex="0" role="button" aria-label="Kakaofrucht">
+   <ellipse cx="318" cy="286" rx="20" ry="34" fill="#b1552a" stroke="#7c3a18" stroke-width="2"/>
+   <path d="M318 254 v64 M306 258 q-2 30 4 56 M330 258 q2 30 -4 56" stroke="#7c3a18" stroke-width="1.6" fill="none"/>
+   <path d="M318 250 q4 -8 12 -8" stroke="#4f7a2a" stroke-width="3" fill="none"/>
+  </g>
+  <!-- Pferd -->
+  <g id="hPferd" class="hot" tabindex="0" role="button" aria-label="Pferd">
+   <path d="M398 240 q10 -6 20 -2 l6 -14 6 12 q26 4 34 30 l6 44 h-10 l-6 -34 q-6 8 -20 8 l-4 26 h-10 l2 -26 q-16 -4 -22 -18 l-6 6 -6 -6 q8 -20 30 -28 Z" fill="#8a5a34" stroke="#5c3a1f" stroke-width="2"/>
+   <circle cx="428" cy="238" r="2" fill="#2b1c10"/>
+   <path d="M416 226 l6 -12" stroke="#5c3a1f" stroke-width="3"/>
+  </g>
+  <!-- Rind -->
+  <g id="hRind" class="hot" tabindex="0" role="button" aria-label="Rind">
+   <ellipse cx="536" cy="270" rx="46" ry="30" fill="#c8bfae" stroke="#6f675c" stroke-width="2"/>
+   <circle cx="500" cy="252" r="14" fill="#c8bfae" stroke="#6f675c" stroke-width="2"/>
+   <path d="M490 244 q-8 -8 -2 -16 M510 244 q8 -8 2 -16" stroke="#6f675c" stroke-width="3" fill="none"/>
+   <g fill="#8a7f70"><ellipse cx="548" cy="266" rx="10" ry="7"/><ellipse cx="520" cy="280" rx="8" ry="6"/></g>
+   <path d="M508 300 v20 M534 300 v20 M560 300 v20" stroke="#6f675c" stroke-width="4"/>
+  </g>
+  <!-- Truhe -->
+  <g id="hTruhe" class="hot" tabindex="0" role="button" aria-label="Truhe">
+   <rect x="120" y="330" width="90" height="52" rx="4" fill="#8a6a45" stroke="#5c4a35" stroke-width="2"/>
+   <path d="M120 340 q45 -26 90 0" fill="#a2814f" stroke="#5c4a35" stroke-width="2"/>
+   <rect x="158" y="346" width="14" height="16" rx="2" fill="#e6c96a" stroke="#8a6a1a" stroke-width="1.6"/>
+  </g>
+  <text x="24" y="446" font-size="14" fill="#5b6660">Schematische Darstellung, keine reale Abbildung</text>
+ </svg>
+</div>
+<div class="task">
+ <span class="tag">Waren der Begegnung</span>
+ <h3>Suchauftrag</h3>
+ <p id="hotTask">Tippe im Bild auf den gesuchten Gegenstand.</p>
+ <div class="chips" id="hotAlt" aria-label="Gegenstände auswählen, gleichwertig zum Antippen im Bild"></div>
+ <button class="btn sec" type="button" id="hotReset">Aufgabe zurücksetzen</button>
+ <div class="fb" id="hotFb" role="status" aria-live="polite"></div>
+</div>
+<details class="gloss"><summary>Überraschender Fund aus dem Archiv</summary><div class="body">Der Austausch ging in beide Richtungen. Aus Amerika kamen Kartoffel, Mais, Tomate und Kakao nach Europa. Die Europäer brachten Pferde, Rinder, Weizen und Zuckerrohr nach Amerika. Mit den Menschen reisten aber auch Krankheiten, gegen die die Ureinwohner nicht geschützt waren.</div></details>
+</section>
+
+<section class="card" id="funktionen">
+<h2>Die Begegnung ordnen</h2>
+<p>Die Begegnung hatte viele Seiten. Ordne jede Karte dem passenden Bereich zu. Du kannst ziehen oder antippen und dann das Ziel antippen.</p>
+<div class="chips" id="pieces" aria-label="Karten zum Zuordnen"></div>
+<div class="zones" id="zones">
+ <div class="zone" data-zone="amerika_europa" tabindex="0" role="button" aria-label="Ablegen bei Von Amerika nach Europa"><h4>Von Amerika nach Europa</h4><div class="drop"></div></div>
+ <div class="zone" data-zone="europa_amerika" tabindex="0" role="button" aria-label="Ablegen bei Von Europa nach Amerika"><h4>Von Europa nach Amerika</h4><div class="drop"></div></div>
+ <div class="zone" data-zone="voelker" tabindex="0" role="button" aria-label="Ablegen bei Wer schon dort lebte"><h4>Wer schon dort lebte</h4><div class="drop"></div></div>
+ <div class="zone" data-zone="folgen" tabindex="0" role="button" aria-label="Ablegen bei Schwere Folgen"><h4>Schwere Folgen</h4><div class="drop"></div></div>
+</div>
+<button class="btn" type="button" id="zCheck">Zuordnung prüfen</button>
+<button class="btn sec" type="button" id="zReset">Zurücksetzen</button>
+<div class="fb" id="zFb" role="status" aria-live="polite"></div>
+<div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Frage dich: Kam die Sache aus Amerika nach Europa oder umgekehrt? Geht es um Menschen, die schon dort lebten, oder um eine schwere Folge für die Ureinwohner?</div>
+</section>
+
+<section class="card" id="menschen">
+<h2>Zwei Welten treffen sich</h2>
+<p>In Amerika lebten seit Langem große Völker mit eigenen Städten und Reichen.</p>
+<div class="task">
+ <span class="tag">Mehrfachauswahl</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">M1. Was stimmt über die Begegnung von Europa und Amerika? Wähle alle zutreffenden Punkte aus.</legend>
+  <div class="opts">
+   <label><input type="checkbox" name="m1" value="azteken"><span>In Amerika lebten schon lange Völker wie die Azteken (mit der Stadt Tenochtitlan) und die Inka</span></label>
+   <label><input type="checkbox" name="m1" value="krankheiten"><span>Sehr viele Ureinwohner starben an eingeschleppten Krankheiten wie den Pocken</span></label>
+   <label><input type="checkbox" name="m1" value="pflanzen"><span>Aus Amerika kamen neue Pflanzen wie Kartoffel und Mais nach Europa</span></label>
+   <label><input type="checkbox" name="m1" value="leer"><span>Amerika war vor 1492 ein leeres, unbewohntes Land</span></label>
+   <label><input type="checkbox" name="m1" value="nurgut"><span>Die Begegnung brachte allen Menschen nur Vorteile</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="m1Check">Prüfen</button>
+ <button class="btn sec" type="button" id="m1Reset">Zurücksetzen</button>
+ <div class="fb" id="m1Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ursachen">
+<h2>Wie es dazu kam</h2>
+<p>Bringe die Kette in die richtige Reihenfolge. Sie beginnt mit der Zeit vor 1492 und endet mit den Folgen der Begegnung.</p>
+<div class="order" id="chain"></div>
+<button class="btn" type="button" id="cCheck">Kette prüfen</button>
+<button class="btn sec" type="button" id="cReset">Neu mischen</button>
+<div class="fb" id="cFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: Der Bericht des Las Casas</h2>
+<p>Chronos hat einen Zeitzeugen herausgesucht, der die Begegnung selbst erlebte.</p>
+<div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>Bartolomé de las Casas, „Kurzgefasster Bericht von der Verwüstung der westindischen Länder“, 1552 gedruckt.</strong></p>
+ <p><em>Inhaltsangabe, kein Wortlaut:</em> Bartolomé de las Casas war ein spanischer Priester. Er lebte seit 1502 in den Kolonien in Amerika und sah dort mit eigenen Augen, wie die Eroberer die Ureinwohner behandelten. Später wandte er sich dagegen. In seinem Bericht schilderte er die Gewalt und die Ausbeutung und wollte die Ureinwohner schützen und die Missstände in Europa öffentlich machen.</p>
+</div>
+<div class="task">
+ <span class="tag">Quellenarbeit</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">S1. Was stimmt über Las Casas und seinen Bericht? Wähle alle zutreffenden Punkte aus.</legend>
+  <div class="opts">
+   <label><input type="checkbox" name="s1" value="priester"><span>Er war ein spanischer Priester, der selbst in den Kolonien lebte</span></label>
+   <label><input type="checkbox" name="s1" value="augenzeuge"><span>Er berichtete von der Gewalt gegen die Ureinwohner, die er miterlebte</span></label>
+   <label><input type="checkbox" name="s1" value="schutz"><span>Er wollte die Ureinwohner schützen und die Missstände öffentlich machen</span></label>
+   <label><input type="checkbox" name="s1" value="ureinwohner"><span>Er war selbst ein Ureinwohner aus Amerika</span></label>
+   <label><input type="checkbox" name="s1" value="lob"><span>Er lobte die Eroberung als etwas rundum Gutes</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="s1Check">Prüfen</button>
+ <button class="btn sec" type="button" id="s1Reset">Zurücksetzen</button>
+ <div class="fb" id="s1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Quellenkritik</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">S2. Der Bericht ist eine <strong>Textquelle</strong> von einem Augenzeugen. Was muss man dabei bedenken?</legend>
+  <div class="opts">
+   <label><input type="radio" name="s2" value="a"><span>Er ist ein wichtiger Augenzeuge, ergreift aber klar Partei für die Ureinwohner. Für ein volles Bild vergleicht man ihn mit weiteren Quellen</span></label>
+   <label><input type="radio" name="s2" value="b"><span>Weil er dabei war, ist alles genau so passiert und man braucht keine weiteren Quellen</span></label>
+   <label><input type="radio" name="s2" value="c"><span>Ein Bericht von damals ist keine Quelle</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="s2Check">Prüfen</button>
+ <div class="fb" id="s2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="medien">
+<h2>War es eine Entdeckung?</h2>
+<p>Oft heißt es, Kolumbus habe 1492 Amerika „entdeckt“. Sieh dir dieses Wort genauer an.</p>
+<div class="notice warn"><strong>Fachlich wichtig:</strong> In Amerika lebten schon seit über <strong>10.000 Jahren</strong> Menschen, um 1492 viele Millionen, mit großen Städten und Reichen. Aus ihrer Sicht war das Land nicht „unentdeckt“, denn es war längst ihre Heimat. Deshalb sprechen viele heute lieber von einer <strong>Begegnung</strong> zweier Welten als von einer „Entdeckung“. Das Wort „Entdeckung“ zeigt nur die europäische Sicht.</div>
+<div class="task">
+ <span class="tag">Medienkritik</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">Q1. Wie beurteilst du das Wort „Entdeckung“ für das, was 1492 geschah?</legend>
+  <div class="opts">
+   <label><input type="radio" name="q1" value="a"><span>Es ist einseitig. In Amerika lebten schon lange Millionen Menschen. Aus ihrer Sicht war das Land nicht unentdeckt. Besser passt „Begegnung“</span></label>
+   <label><input type="radio" name="q1" value="b"><span>Es ist genau richtig, denn vor 1492 lebte dort niemand</span></label>
+   <label><input type="radio" name="q1" value="c"><span>Das Wort ist egal, weil sich durch die Begegnung nichts verändert hat</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="q1Check">Prüfen</button>
+ <div class="fb" id="q1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task" data-lw="weiter">
+ <span class="tag">Weiterdenken · Medienkritik</span>
+ <label class="legend" for="q2">Q2. Warum sprechen viele heute von „Begegnung“ statt von „Entdeckung“? Erkläre kurz und begründe.</label>
+ <textarea id="q2" placeholder="Viele sagen „Begegnung“, weil ..."></textarea>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn" type="button" id="q2Check">Antwort prüfen</button>
+ <div class="fb" id="q2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Ureinwohner</summary><div class="body">Die Menschen, die schon lange vor der Ankunft der Europäer in Amerika lebten, zum Beispiel die Azteken, die Inka und viele andere Völker.</div></details>
+<details class="gloss"><summary>Azteken</summary><div class="body">Ein großes Volk in Mittelamerika mit der Hauptstadt Tenochtitlan. Ihr Reich wurde ab 1519 von spanischen Eroberern unterworfen.</div></details>
+<details class="gloss"><summary>Inka</summary><div class="body">Ein großes Reich in den Anden in Südamerika. Es wurde ab 1532 von spanischen Eroberern unterworfen.</div></details>
+<details class="gloss"><summary>Kolumbianischer Austausch</summary><div class="body">Der Austausch von Pflanzen, Tieren, Waren und leider auch Krankheiten zwischen Amerika und Europa nach 1492.</div></details>
+<details class="gloss"><summary>Pocken</summary><div class="body">Eine gefährliche ansteckende Krankheit. Sie war in Amerika unbekannt, deshalb starben sehr viele Ureinwohner daran.</div></details>
+<details class="gloss"><summary>Textquelle</summary><div class="body">Ein geschriebener Text als Quelle, zum Beispiel ein Bericht oder ein Brief. Man muss immer fragen, wer ihn schrieb und mit welcher Absicht.</div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der vier Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p>
+<div id="selfcheck">
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann erklären, dass in Amerika schon lange Menschen lebten.</legend>
+  <div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div>
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann den Austausch und die schweren Folgen der Begegnung beschreiben.</legend>
+  <div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div>
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann den Bericht des Las Casas als Textquelle auswerten.</legend>
+  <div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div>
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann prüfen, ob „Entdeckung“ das richtige Wort ist.</legend>
+  <div class="scale"><label><input type="radio" name="lc4" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc4" value="Geht schon">Geht schon</label><label><input type="radio" name="lc4" value="Sicher">Sicher</label></div></fieldset></div>
+</div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte">
+ <span class="stamp">Zu prüfen</span>
+ <p>Auf Chronos' Karteikarte steht: <em>„Kolumbus entdeckte 1492 ein leeres, unbekanntes Land. Die Begegnung von Europa und Amerika brachte allen nur Gutes.“</em></p>
+</div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">A1. Wie entscheidest du?</legend>
+  <div class="opts">
+   <label><input type="radio" name="a1" value="ok"><span>Die Karte stimmt so.</span></label>
+   <label><input type="radio" name="a1" value="teil"><span>Die Karte ist zu einfach. In Amerika lebten schon lange viele Millionen Menschen, das Land war nicht leer. Die Begegnung brachte einen Austausch von Pflanzen und Tieren, aber für die Ureinwohner auch Eroberung, Zwangsarbeit und tödliche Krankheiten.</span></label>
+   <label><input type="radio" name="a1" value="falsch"><span>Die Karte ist völlig falsch. Europa und Amerika trafen nie aufeinander.</span></label>
+  </div>
+ </fieldset>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine kurze Nachricht. Erkläre in zwei bis vier Sätzen, wer in Amerika schon lebte und welche Folgen die Begegnung hatte, gute wie schwere. Nenne mindestens ein Beispiel.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, deine Karte muss ergänzt werden, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „In Amerika lebten schon ...“ · „Ausgetauscht wurden zum Beispiel ...“ · „Für die Ureinwohner war die Begegnung aber ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Nachricht prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 9</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" onclick="window.print()">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <details class="gloss"><summary>Vollständigen Datenüberblick anzeigen</summary><div class="body"><pre class="pay" id="payloadView"></pre></div></details>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card teacher" id="lehrkraft">
+<h2>Hinweise für die Lehrkraft</h2>
+<div class="grid2">
+ <div><h3>Fachlich</h3><ul>
+  <li>Jahrgang 6, Oberschule Niedersachsen</li>
+  <li>Themenbereich: Aufbruch in die Neuzeit</li>
+  <li>Kern: Amerika war bewohnt (Azteken, Inka), der kolumbianische Austausch, die schweren Folgen für die Ureinwohner (Eroberung, Krankheiten, Zwangsarbeit), Las Casas als Textquelle</li>
+  <li>Anschluss an Modul 011: Nach den neuen Seewegen kam es zur Begegnung mit Amerika</li>
+  <li>Vorbereitung auf Modul 013: Welche Folgen hatte die europäische Expansion?</li>
+ </ul></div>
+ <div><h3>Kompetenzen</h3><ul>
+  <li>Sachkompetenz: Austausch und Folgen der Begegnung, indigene Reiche</li>
+  <li>Methodenkompetenz: Bildarbeit, Auswertung einer Textquelle, Ursache-Folge-Kette</li>
+  <li>Urteilskompetenz: eine einseitige und beschönigende Aussage prüfen</li>
+  <li>Orientierungskompetenz: Amerika und Europa um 1500</li>
+  <li>Medienkompetenz: den Begriff „Entdeckung“ als eurozentrische Sicht erkennen</li>
+ </ul></div>
+</div>
+<h3>Hinweis zur Behutsamkeit</h3>
+<p>Das Modul benennt Gewalt, Krankheit und Zwangsarbeit sachlich und ohne drastische Details. Ziel ist eine ehrliche, aber altersgerechte Darstellung, die die Perspektive der Ureinwohner ernst nimmt, ohne zu überfordern.</p>
+<h3>Differenzierung</h3>
+<ul>
+ <li><strong>Sicher werden:</strong> Hilfekasten bei der Zuordnung, Satzanfänge für die Abschlussmission</li>
+ <li><strong>Standard:</strong> vollständige Aufgabenfolge</li>
+ <li><strong>Weiterdenken:</strong> Zusatzaufgabe Q2 zur Begriffsfrage „Entdeckung“ und „Begegnung“</li>
+</ul>
+<h3>Typische Fehlvorstellungen</h3>
+<ul>
+ <li>Amerika sei vor 1492 leer oder unbewohnt gewesen</li>
+ <li>Die Begegnung habe allen nur Vorteile gebracht</li>
+ <li>Die vielen Toten seien nur durch Kämpfe entstanden, nicht vor allem durch Krankheiten</li>
+</ul>
+</section>
+
+<section class="card doc" id="doku">
+<h2>Quellen und fachliche Grundlage</h2>
+<ul>
+ <li>Textquelle: Bartolomé de las Casas, „Kurzgefasster Bericht von der Verwüstung der westindischen Länder“ (verfasst 1542, gedruckt 1552). Im Modul als Inhaltsangabe wiedergegeben. Belegt: Las Casas (1474 bis 1566) war ein spanischer Priester, lebte seit 1502 in den Kolonien, wandte sich gegen die Behandlung der Ureinwohner und machte die Missstände öffentlich.</li>
+ <li>Kolumbianischer Austausch: Aus Amerika kamen unter anderem Kartoffel, Mais, Tomate und Kakao nach Europa. Aus Europa kamen unter anderem Pferd, Rind, Weizen und Zuckerrohr nach Amerika. Mit den Menschen gelangten auch Krankheiten wie die Pocken nach Amerika.</li>
+ <li>Eroberung: Hernán Cortés zog 1519 nach Tenochtitlan; 1521 fiel die Aztekenstadt. Francisco Pizarro begann 1532 die Eroberung des Inkareiches. Ein Großteil der Ureinwohner starb an eingeschleppten Krankheiten, mehr als in den Kämpfen. Schätzungen gehen für Teile der Bevölkerung von einem Rückgang um mehr als die Hälfte aus.</li>
+ <li>Begriff „Entdeckung“: In Amerika lebten seit über 10.000 Jahren Menschen. Der Begriff „Entdeckung“ spiegelt die europäische Sicht. Seit den 1990er Jahren wird in der Geschichtswissenschaft häufig von „Begegnung“ gesprochen.</li>
+ <li>Alle Abbildungen sind eigene schematische Zeichnungen. Die Darstellung zeigt keine reale Abbildung und ist keine historische Quelle.</li>
+ <li>Es werden keine wörtlichen Zitate erfunden und keine erfundenen Quellen verwendet.</li>
+ <li>Version 1.0.0, 28.07.2026. Keine externen Bibliotheken, keine Cookies, kein Tracking.</li>
+</ul>
+</section>
+</main></div>
+<footer>SOL Geschichte 6 · Modul 012 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-6" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-6"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={modul:"012",titel:"Wie begegneten sich Europa und Amerika?",
+ bereich:"Aufbruch in die Neuzeit",version:"1.0.0",
+ key:"sol-geschichte-012",
+ endpoint:"https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec",
+ maxPunkte:9};
+const S={lernweg:"standard",done:{},punkte:{},hotIdx:0,hotOk:0,placed:{},chain:[],sent:false,q2:"nicht bearbeitet"};
+
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","dazu"];
+
+const SCHRITTE=["start","diagnose","hot","zuord","m1","chain","s1","q1","lerncheck","a2"];
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ $("#abz1").classList.toggle("on",!!S.done.hot);
+ $("#abz2").classList.toggle("on",!!(S.done.zuord&&S.done.chain));
+ $("#abz3").classList.toggle("on",!!(S.done.q1&&S.done.s1));
+ $("#abz4").classList.toggle("on",S.punkte.a2>=1);
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge. Einige Zusatzaufgaben werden ausgeblendet.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Aufgabe zur Begriffsfrage Entdeckung und Begegnung."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 6a."};
+ const m=t.match(/6([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 6. Schreibe zum Beispiel 6a, Klasse 6b oder nur 6."};
+ return{ok:true,wert:"6"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb","Alles bereit. Chronos wartet schon. Es geht weiter mit der Mission.","ok");
+ location.hash="mission";
+});
+
+$("#dCheck").addEventListener("click",()=>{
+ const g=n=>(document.querySelector('input[name="'+n+'"]:checked')||{}).value;
+ const a=[g("d1")==="a",g("d2")==="r",g("d3")==="a"];
+ const r=a.filter(Boolean).length;
+ let m;
+ if(r===3)m="Drei von drei. Du hast einen guten Blick für das Thema. Der Lernweg Weiterdenken könnte für dich spannend sein.";
+ else if(r===2)m="Zwei von drei. Gute Grundlage. Das Modul schärft den Rest.";
+ else m="Du hast "+r+" von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.";
+ if(g("d2")!=="r")m+=" Ein Hinweis vorab: In Amerika lebten schon vor 1492 viele Millionen Menschen.";
+ fb("#dFb",m,r>=2?"ok":"hint");
+ fertig("diagnose");
+});
+
+const HOT=[
+ {id:"hKartoffel",name:"Kartoffel",tipp:"Gesucht ist die Knolle, die aus Südamerika nach Europa kam und dort später ein wichtiges Grundnahrungsmittel wurde.",sich:"Richtig. Die Kartoffel kam aus Südamerika nach Europa. Später wurde sie dort zu einem wichtigen Grundnahrungsmittel."},
+ {id:"hMais",name:"Maiskolben",tipp:"Gesucht ist der Kolben mit den vielen gelben Körnern, der aus Amerika stammt.",sich:"Richtig. Auch der Mais kam aus Amerika nach Europa, Afrika und Asien und wurde vielerorts ein Grundnahrungsmittel."},
+ {id:"hPferd",name:"Pferd",tipp:"Gesucht ist das Tier, das die Europäer nach Amerika brachten und das dort das Leben vieler Völker veränderte.",sich:"Richtig. Das Pferd brachten die Europäer nach Amerika. Dort veränderte es das Leben vieler Völker, zum Beispiel auf der Jagd."}
+];
+const ALLEHOT=[{id:"hKartoffel",name:"Kartoffel"},{id:"hMais",name:"Maiskolben"},{id:"hKakao",name:"Kakaofrucht"},{id:"hPferd",name:"Pferd"},{id:"hRind",name:"Rind"},{id:"hTruhe",name:"Truhe"}];
+function hotAufgabe(){
+ if(S.hotIdx>=HOT.length){
+  $("#hotTask").textContent="Alle drei Gegenstände gefunden. Chronos hat die Beschriftungen wieder eingeklebt.";
+  $("#hotAlt").innerHTML="";return;
+ }
+ const z=HOT[S.hotIdx];
+ $("#hotTask").textContent="Suchauftrag "+(S.hotIdx+1)+" von 3: Finde den Gegenstand, der zu dieser Beschreibung passt. "+z.tipp;
+ $("#hotAlt").innerHTML=ALLEHOT.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.name+'</button>').join("");
+ $$("#hotAlt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(b.dataset.hot)));
+}
+function hotWahl(id){
+ const z=HOT[S.hotIdx]; if(!z)return;
+ const el=document.getElementById(id);
+ if(id===z.id){
+  S.hotOk++; S.hotIdx++;
+  if(el)el.style.filter="drop-shadow(0 0 6px #17633b)";
+  fb("#hotFb",z.sich,"ok");
+  if(S.hotIdx>=HOT.length){fertig("hot",1);fb("#hotFb",z.sich+" Damit sind alle drei gefunden. Abzeichen Warenkenner freigeschaltet.","ok");}
+  hotAufgabe();
+ }else{
+  const gew=ALLEHOT.find(x=>x.id===id);
+  fb("#hotFb","Das ist „"+(gew?gew.name:"unbekannt")+"“. "+z.tipp,"hint");
+ }
+ speichern();
+}
+$$(".hot").forEach(g=>{
+ g.addEventListener("click",()=>hotWahl(g.id));
+ g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(g.id);}});
+});
+$("#hotReset").addEventListener("click",()=>{
+ S.hotIdx=0;S.hotOk=0;delete S.done.hot;delete S.punkte.hot;
+ $$(".hot").forEach(g=>g.style.filter="");
+ fbClear("#hotFb");hotAufgabe();fortschritt();speichern();
+});
+
+const KARTEN=[
+ {id:"k1",text:"Kartoffel und Mais",zone:"amerika_europa"},
+ {id:"k2",text:"Tomate und Kakao",zone:"amerika_europa"},
+ {id:"k3",text:"Pferde und Rinder",zone:"europa_amerika"},
+ {id:"k4",text:"Weizen und Zuckerrohr",zone:"europa_amerika"},
+ {id:"k5",text:"Die Azteken mit der Stadt Tenochtitlan",zone:"voelker"},
+ {id:"k6",text:"Die Inka in den Anden",zone:"voelker"},
+ {id:"k7",text:"Eingeschleppte Krankheiten wie die Pocken",zone:"folgen"},
+ {id:"k8",text:"Eroberung der Städte und Zwangsarbeit",zone:"folgen"}
+];
+let gewaehlt=null;
+function karteHtml(k){return '<button type="button" class="piece" draggable="true" data-k="'+k.id+'" aria-pressed="false">'+k.text+'</button>';}
+function zeichneKarten(){
+ const offen=KARTEN.filter(k=>!S.placed[k.id]);
+ $("#pieces").innerHTML=offen.map(karteHtml).join("")||'<span class="hint">Alle Karten sind zugeordnet.</span>';
+ $$("#zones .drop").forEach(d=>d.innerHTML="");
+ KARTEN.forEach(k=>{const z=S.placed[k.id];
+  if(z){const d=document.querySelector('.zone[data-zone="'+z+'"] .drop');if(d)d.insertAdjacentHTML("beforeend",karteHtml(k));}});
+ bindeKarten();
+}
+function bindeKarten(){
+ $$(".piece").forEach(p=>{
+  p.addEventListener("click",()=>{
+   const zoneVonKarte=S.placed[p.dataset.k];
+   if(gewaehlt&&gewaehlt!==p.dataset.k&&zoneVonKarte){ablegen(zoneVonKarte);return;}
+   if(gewaehlt===p.dataset.k){gewaehlt=null;p.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gewaehlt=p.dataset.k;p.setAttribute("aria-pressed","true");
+   fb("#zFb","Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  p.addEventListener("dragstart",e=>{gewaehlt=p.dataset.k;e.dataTransfer.setData("text/plain",p.dataset.k);});
+ });
+}
+function ablegen(zone){
+ if(!gewaehlt){fb("#zFb","Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[gewaehlt]=zone;gewaehlt=null;zeichneKarten();fbClear("#zFb");speichern();
+}
+$$(".zone").forEach(z=>{
+ z.addEventListener("click",()=>ablegen(z.dataset.zone));
+ z.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(z.dataset.zone);}});
+ z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+ z.addEventListener("dragleave",()=>z.classList.remove("over"));
+ z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");
+  const id=e.dataTransfer.getData("text/plain")||gewaehlt;if(id){S.placed[id]=z.dataset.zone;gewaehlt=null;zeichneKarten();speichern();}});
+});
+$("#zCheck").addEventListener("click",()=>{
+ const offen=KARTEN.filter(k=>!S.placed[k.id]);
+ if(offen.length){fb("#zFb","Es sind noch "+offen.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+ let richtig=0;
+ KARTEN.forEach(k=>{
+  const el=document.querySelector('.piece[data-k="'+k.id+'"]');
+  const ok=S.placed[k.id]===k.zone; if(ok)richtig++;
+  if(el)el.classList.add(ok?"ok":"no");
+ });
+ if(richtig===KARTEN.length){fertig("zuord",1);
+  fb("#zFb","Alle acht richtig. Genau das war die Begegnung: ein Austausch von Pflanzen und Tieren in beide Richtungen, aber auch das Aufeinandertreffen mit den Völkern Amerikas und schwere Folgen für die Ureinwohner.","ok");}
+ else{fb("#zFb",richtig+" von 8 stimmen bereits. Die grün umrandeten Karten sitzen richtig. Prüfe bei den rot umrandeten, in welchen Bereich sie gehören.","hint");}
+ speichern();
+});
+$("#zReset").addEventListener("click",()=>{S.placed={};gewaehlt=null;delete S.done.zuord;delete S.punkte.zuord;zeichneKarten();fbClear("#zFb");fortschritt();speichern();});
+
+$("#m1Check").addEventListener("click",()=>{
+ const sel=$$('input[name="m1"]:checked').map(i=>i.value);
+ const soll=["azteken","krankheiten","pflanzen"];
+ const fehlt=soll.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!soll.includes(x));
+ if(!fehlt.length&&!zuviel.length){fertig("m1",1);
+  fb("#m1Fb","Richtig. In Amerika lebten schon lange Völker wie die Azteken und Inka. Es kamen neue Pflanzen wie Kartoffel und Mais nach Europa, aber sehr viele Ureinwohner starben an eingeschleppten Krankheiten.","ok");}
+ else{let m="";
+  if(zuviel.includes("leer"))m+="Amerika war nicht leer. Dort lebten schon viele Millionen Menschen. ";
+  if(zuviel.includes("nurgut"))m+="Die Begegnung brachte nicht allen nur Vorteile. Für die Ureinwohner hatte sie schwere Folgen. ";
+  if(fehlt.length)m+="Es fehlen noch "+fehlt.length+" zutreffende Punkte. ";
+  fb("#m1Fb",m+"Wähle nur die Aussagen, die wirklich stimmen.","hint");}
+ speichern();
+});
+$("#m1Reset").addEventListener("click",()=>{$$('input[name="m1"]').forEach(i=>i.checked=false);delete S.done.m1;delete S.punkte.m1;fbClear("#m1Fb");fortschritt();speichern();});
+
+const KETTE=[
+ "In Amerika leben seit Langem große Reiche wie die Azteken und die Inka.",
+ "Ab 1492 kommen Europäer nach Amerika und erobern Länder.",
+ "Sie bringen Waffen und unbekannte Krankheiten wie die Pocken mit.",
+ "Sehr viele Ureinwohner sterben, zugleich werden Pflanzen und Tiere ausgetauscht."
+];
+function zeichneKette(){
+ $("#chain").innerHTML=S.chain.map((i,pos)=>
+  '<div class="orow"><span>'+KETTE[i]+'</span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben">&#8593;</button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten">&#8595;</button></div>').join("");
+ $$("#chain button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=S.chain.length)return;
+  const t=S.chain[p];S.chain[p]=S.chain[n];S.chain[n]=t;zeichneKette();speichern();}));
+}
+function mischeKette(){
+ do{S.chain=[0,1,2,3].sort(()=>Math.random()-.5);}while(S.chain.join("")==="0123");
+ zeichneKette();
+}
+$("#cCheck").addEventListener("click",()=>{
+ const ok=S.chain.join("")==="0123";
+ if(ok){fertig("chain",1);fb("#cFb","Genau. Erst lebten die großen Reiche dort, dann kamen die Europäer und eroberten, dabei brachten sie Krankheiten mit, und daraus folgte, dass sehr viele Ureinwohner starben, während zugleich Pflanzen und Tiere ausgetauscht wurden.","ok");}
+ else{
+  const richtigePos=S.chain.filter((v,i)=>v===i).length;
+  fb("#cFb",richtigePos+" von 4 stehen schon an der richtigen Stelle. Frage dich: Was war zuerst da, was kam dann, und was war die Folge?","hint");}
+ speichern();
+});
+$("#cReset").addEventListener("click",()=>{mischeKette();delete S.done.chain;delete S.punkte.chain;fbClear("#cFb");fortschritt();speichern();});
+
+$("#s1Check").addEventListener("click",()=>{
+ const sel=$$('input[name="s1"]:checked').map(i=>i.value);
+ const soll=["priester","augenzeuge","schutz"];
+ const fehlt=soll.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!soll.includes(x));
+ if(!fehlt.length&&!zuviel.length){fertig("s1",1);
+  fb("#s1Fb","Genau. Las Casas war ein spanischer Priester in den Kolonien, er berichtete von der Gewalt, die er miterlebte, und er wollte die Ureinwohner schützen und die Missstände öffentlich machen.","ok");}
+ else{let m="";
+  if(zuviel.includes("ureinwohner"))m+="Las Casas war kein Ureinwohner, sondern ein Spanier, der die Ureinwohner verteidigte. ";
+  if(zuviel.includes("lob"))m+="Er lobte die Eroberung nicht, sondern klagte sie an. ";
+  if(fehlt.length)m+="Es fehlen noch "+fehlt.length+" zutreffende Punkte. ";
+  fb("#s1Fb",m+"Es sind drei richtige Aussagen.","hint");}
+ speichern();
+});
+$("#s1Reset").addEventListener("click",()=>{$$('input[name="s1"]').forEach(i=>i.checked=false);delete S.done.s1;delete S.punkte.s1;fbClear("#s1Fb");fortschritt();speichern();});
+$("#s2Check").addEventListener("click",()=>{
+ const v=(document.querySelector('input[name="s2"]:checked')||{}).value;
+ if(v==="a"){S.punkte.s2=1;fortschritt();
+  fb("#s2Fb","Richtig. Als Augenzeuge ist Las Casas eine wichtige Quelle. Er ergreift aber klar Partei für die Ureinwohner. Für ein volles Bild vergleicht man ihn mit weiteren Quellen.","ok");}
+ else if(v==="b"){fb("#s2Fb","Nicht ganz. Auch ein Augenzeuge sieht nur einen Teil und hat eine Absicht. Man vergleicht deshalb mehrere Quellen.","hint");}
+ else if(v){fb("#s2Fb","Noch nicht. Ein Bericht von damals ist sehr wohl eine Quelle. Überlege, was man bei einem Augenzeugen bedenken muss.","hint");}
+ else{fb("#s2Fb","Bitte wähle zuerst eine Antwort aus.","hint");}
+ speichern();
+});
+
+$("#q1Check").addEventListener("click",()=>{
+ const v=(document.querySelector('input[name="q1"]:checked')||{}).value;
+ if(v==="a"){fertig("q1",1);
+  fb("#q1Fb","Richtig. In Amerika lebten schon seit über 10.000 Jahren Menschen, um 1492 viele Millionen. Aus ihrer Sicht war das Land nicht unentdeckt. Deshalb passt „Begegnung“ besser als „Entdeckung“.","ok");}
+ else if(v){fb("#q1Fb","Noch nicht. Denk daran, dass in Amerika schon lange Menschen lebten. Aus wessen Sicht ist das Land „entdeckt“ worden? Lies den Hinweiskasten noch einmal.","hint");}
+ else{fb("#q1Fb","Bitte wähle zuerst eine Antwort aus.","hint");}
+ speichern();
+});
+$("#q2Check")&&$("#q2Check").addEventListener("click",()=>{
+ const t=norm($("#q2").value);
+ if(t.length<40){S.q2="zu knapp";fb("#q2Fb","Deine Antwort ist noch sehr kurz. Erkläre, warum „Begegnung“ besser passt. Denke an die Menschen, die schon dort lebten, und verbinde deine Aussage mit „weil“.","hint");speichern();return;}
+ const beispiel=hat(t,["schon","lebten","bewohnt","millionen","ureinwohn","azteken","inka","heimat","perspektive","sicht","nicht leer","begegnung","beide"]);
+ const verkn=hat(t,VERKN);
+ if(beispiel&&verkn){S.q2="plausibel";fb("#q2Fb","Sehr gut. Genau, in Amerika lebten schon lange Millionen Menschen. Aus ihrer Sicht war das Land nicht neu. „Begegnung“ nimmt beide Seiten ernst, „Entdeckung“ zeigt nur die europäische Sicht.","ok");}
+ else if(beispiel){S.q2="teilweise plausibel";fb("#q2Fb","Ein guter Gedanke steht schon. Ergänze noch eine Begründung mit „weil ...“, warum „Begegnung“ passender ist.","hint");}
+ else{S.q2="noch nicht ausreichend";fb("#q2Fb","Deine Antwort trifft den Kern noch nicht. Denke daran, dass in Amerika schon lange Menschen lebten, und erkläre, warum „Begegnung“ ihre Sicht besser einschließt.","hint");}
+ speichern();
+});
+
+function a2Bewerten(){
+ const roh=$("#a2").value, t=norm(roh);
+ if(t.length<50)return{p:0,lab:"zu knapp",msg:"Chronos braucht mehr als einen Satz. Schreibe zwei bis vier Sätze. Beginne mit: „In Amerika lebten schon ...“ und nenne eine Folge der Begegnung."};
+ const bewohnt=hat(t,["lebten","bewohnt","millionen","azteken","inka","ureinwohn","volker","voelker","nicht leer","schon"]);
+ const folgen=hat(t,["austausch","ausgetauscht","kartoffel","mais","pferd","tomate","kakao","krankheit","pocken","eroberung","zwangsarbeit","starben","tod","leid"]);
+ const verkn=hat(t,VERKN);
+ const genugSaetze=saetze(roh)>=2;
+ const wort=t.split(/\s+/).filter(Boolean).length;
+ if(wort<12)return{p:0,lab:"zu knapp",msg:"Das sind noch sehr wenige Wörter. Nenne, wer in Amerika schon lebte, und eine Folge der Begegnung."};
+ if(bewohnt&&folgen&&verkn&&genugSaetze)
+  return{p:1,lab:"vollständig",msg:"Sehr gut. Du hast beides verbunden: dass in Amerika schon lange viele Menschen lebten, und die Folgen der Begegnung, den Austausch von Pflanzen und Tieren, aber auch das schwere Leid der Ureinwohner. Genau so war die Begegnung mehr als nur ein netter Tausch. Abzeichen Begründer freigeschaltet."};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(!bewohnt)m+="Schreibe, dass in Amerika schon lange Menschen lebten, zum Beispiel die Azteken oder Inka. ";
+ if(!folgen)m+="Nenne außerdem eine Folge, zum Beispiel den Austausch von Kartoffel und Pferd oder das Sterben durch Krankheiten. ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „dadurch“ oder „deshalb“. ";
+ if(!genugSaetze)m+="Schreibe mindestens zwei Sätze. ";
+ return{p:.5,lab:"teilweise",msg:m.trim()};
+}
+$("#a2Check").addEventListener("click",()=>{
+ const r=a2Bewerten();
+ fb("#a2Fb",r.msg,r.p>=1?"ok":"hint");
+ S.punkte.a2=r.p;S.a2lab=r.lab;
+ if(r.p>0)fertig("a2",r.p);else{fortschritt();speichern();}
+});
+
+function lerncheckWerte(){return[1,2,3,4].map(i=>(document.querySelector('input[name="lc'+i+'"]:checked')||{}).value||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ const v=lerncheckWerte();
+ if(v.every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;delete S.punkte.lerncheck;fortschritt();}
+ speichern();
+});
+
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{
+  $$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;
+  const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+function eins(b){return b?1:0;}
+function punkteGesamt(){return ["hot","zuord","m1","chain","s1","q1","a1","a2","lerncheck"].reduce((s,k)=>s+(S.punkte[k]||0),0);}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=punkteGesamt(), pct=Math.round(pkt/CFG.maxPunkte*100);
+ const luecken=[];
+ [["hot","Neue Dinge auf dem Tisch"],["zuord","Die Begegnung ordnen"],["m1","Zwei Welten treffen sich"],["chain","Wie es dazu kam"],["s1","Bericht des Las Casas"],["q1","War es eine Entdeckung"],["a1","Abschlussentscheidung"],["a2","Begründung"]]
+  .forEach(([k2,n])=>{if(!(S.punkte[k2]>=1))luecken.push(n);});
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"6",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:{orte:S.punkte.hot||0,zuordnung:S.punkte.zuord||0,bewohner:S.punkte.m1||0,
+   ursache_folge:S.punkte.chain||0,quellenarbeit:S.punkte.s1||0,medienkritik:S.punkte.q1||0,entscheidung:S.punkte.a1||0,
+   begruendung:S.punkte.a2||0,lerncheck:S.punkte.lerncheck||0},
+  freitexte:{leitfrage:$("#a2").value.trim(),
+   nachricht_an_chronos:$("#a2").value.trim(),
+   sachquelle_weiterdenken:($("#q2")?$("#q2").value.trim():""),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},
+  bewertung_freitexte:{begruendung:S.a2lab||"nicht bearbeitet",sachquelle:S.q2||"nicht bearbeitet"},
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:CFG.maxPunkte,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:{
+   austausch_finden:{correct:(S.punkte.hot||0)>=1},
+   begegnung_ordnen:{correct:(S.punkte.zuord||0)>=1},
+   zwei_welten:{correct:(S.punkte.m1||0)>=1},
+   ursachenkette:{correct:(S.punkte.chain||0)>=1},
+   quelle_lascasas:{correct:(S.punkte.s1||0)>=1},
+   quellenkritik:{correct:(S.punkte.s2||0)>=1},
+   medienkritik:{correct:(S.punkte.q1||0)>=1},
+   entscheidung:{correct:(S.punkte.a1||0)>=1},
+   begruendung:{correct:(S.punkte.a2||0)>=1}
+  },
+  kompetenzen:{
+   fachwissen:eins((S.punkte.hot||0)>=1&&(S.punkte.m1||0)>=1),
+   zeit_raum:eins((S.punkte.hot||0)>=1),
+   quellenarbeit:eins((S.punkte.s1||0)>=1),
+   ursachen_folgen:eins((S.punkte.chain||0)>=1),
+   perspektivitaet:eins((S.punkte.q1||0)>=1),
+   historisches_urteil:eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1)
+  },
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:CFG.maxPunkte,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:(crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2)};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 6, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(){
+ if(!pflichtOk(true)){location.hash="start";return null;}
+ const a1=(document.querySelector('input[name="a1"]:checked')||{}).value;
+ if(a1==="teil"){S.punkte.a1=1;}else if(a1){S.punkte.a1=0;}
+ if(!a1){fb("#sendFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung zur Karteikarte.","bad");location.hash="abschluss";return null;}
+ if(!lerncheckWerte().every(Boolean)){fb("#sendFb","Bitte fülle zuerst alle vier Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";return null;}
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80
+  ?"Du kannst mit dem nächsten Modul zu den Folgen der europäischen Expansion weiterarbeiten."
+  :(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+".":"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const namen={orte:"Neue Dinge auf dem Tisch",zuordnung:"Die Begegnung ordnen",bewohner:"Zwei Welten treffen sich",ursache_folge:"Wie es dazu kam",quellenarbeit:"Bericht des Las Casas",medienkritik:"War es eine Entdeckung",entscheidung:"Abschlussentscheidung",begruendung:"Begründung",lerncheck:"Lerncheck"};
+ $("#analyse").innerHTML=Object.entries(p.ergebnisse).map(([k,v])=>
+  "<li><strong>"+namen[k]+":</strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)</li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ $("#payloadView").textContent=JSON.stringify(p,null,2);
+ fortschritt();speichern();location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",ergebnisBauen);
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+let letzterPayload=null;
+async function senden(){
+ const p=letzterPayload||ergebnisBauen();
+ if(!p)return; letzterPayload=p;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").filter(s=>!s.classList.contains("teacher")&&!s.classList.contains("doc")).map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+if(!S.chain||S.chain.length!==4)mischeKette();else zeichneKette();
+zeichneKarten();hotAufgabe();fortschritt();
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

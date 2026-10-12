@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modul 017 · Quadratische Funktionen im Alltag | SOL Mathematik 9</title>
+<meta name="description" content="Brückenbögen, Wurfbahnen, Wasserstrahlen und Bremswege folgen Parabeln. Du nutzt Scheitelpunkt und Nullstellen, um echte Fragen zu beantworten.">
+<link rel="canonical" href="https://www.edmundbruns.com/mathe/klasse-9/017/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#1e3a8a">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{--brand:#5b3fa0;--brand2:#3d2a73;--soft:#efeafb;--ink:#1c1830;--muted:#5a5670;--line:#d6d0e6;--paper:#f6f4fb;--card:#fff;
+--good:#166534;--goodbg:#ecfdf3;--bad:#991b1b;--badbg:#fff1f1;--warn:#8a4b06;--warnbg:#fff7e6;--focus:#f59e0b;--r:16px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+body.easy{font-size:19px;line-height:1.8;letter-spacing:.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+a{color:var(--brand)}:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.hero{background:linear-gradient(120deg,var(--brand2),var(--brand));color:#fff;padding:22px 0 30px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:.95rem}.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{background:#fff;color:var(--ink);border:0;border-radius:10px;padding:8px 12px;font:inherit;font-weight:600;font-size:.88rem;cursor:pointer}
+.hero-main{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;opacity:.85;margin:0}
+.hero h1{font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.1;margin:.2em 0 .3em}
+.lead{margin:0;max-width:640px;opacity:.95}
+.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:12px 20px;text-align:center;min-width:150px;display:flex;flex-direction:column}
+.badge strong{font-size:2rem;line-height:1.2}
+.progress{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.prog-in{display:flex;align-items:center;gap:14px;padding:10px 18px}
+.track{flex:1;height:10px;background:#e6e1f2;border-radius:9px;overflow:hidden}#bar{height:100%;width:0;background:var(--brand);transition:width .4s}
+#progText{font-size:.85rem;font-weight:700;white-space:nowrap}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:22px;padding-top:22px;padding-bottom:30px;align-items:start}
+#nav{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;position:sticky;top:60px;display:flex;flex-direction:column}
+#nav a{text-decoration:none;color:var(--ink);font-weight:600;padding:8px 12px;border-radius:10px;font-size:.95rem}
+#nav a.done::after{content:" ✓";color:var(--good)}#nav a.active{background:var(--soft);color:var(--brand2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.sec h2{margin:0 0 .6em;font-size:1.6rem}.sec h3{margin:1.2em 0 .4em}
+.facts,.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 18px}
+.facts>div,.summary>div{background:var(--soft);border:1px solid #ddd3f3;border-radius:12px;padding:10px 12px}
+.facts b,.summary b{display:block;font-size:.85rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inp{display:block;margin:0 0 14px}.inp>span:first-child{display:block;font-weight:700;margin-bottom:4px}
+.inp small{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
+input[type=text],input[type=email],input:not([type]),input[inputmode]{width:100%;font:inherit;padding:11px 12px;border:2px solid #b9b2cc;border-radius:10px;background:#fff;color:var(--ink)}
+input:disabled{background:#f2f0f6}
+.inrow{display:flex;align-items:center;gap:8px}.inrow input{max-width:260px}.unit{font-weight:700}
+.inputs{display:flex;flex-wrap:wrap;gap:4px 18px}.inputs .inp{min-width:180px}
+fieldset{border:0;padding:0;margin:0 0 12px}legend{font-weight:700;margin-bottom:6px}
+.ways{display:flex;flex-wrap:wrap;gap:8px}.ways legend{width:100%}
+.way,.chip,.opt{position:relative;cursor:pointer}
+.way input,.chip input{position:absolute;opacity:0;pointer-events:none}
+.way span,.chip span{display:inline-block;border:2px solid #b9b2cc;border-radius:12px;padding:9px 14px;font-weight:700;background:#fff}
+.way input:checked+span,.chip input:checked+span{border-color:var(--brand);background:var(--soft);box-shadow:0 0 0 2px var(--brand) inset}
+.way input:focus-visible+span,.chip input:focus-visible+span{outline:3px solid var(--focus)}
+.chip span{padding:6px 12px;font-size:.92rem;margin:0 6px 6px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;background:#fff}
+.opt input{margin-top:5px;accent-color:var(--brand);width:18px;height:18px}
+.note{background:var(--soft);border-left:5px solid var(--brand);padding:10px 14px;border-radius:10px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:11px;padding:10px 18px;background:var(--brand);color:#fff;cursor:pointer}
+.btn:hover{background:var(--brand2)}.btn.ghost{background:#ece8f5;color:var(--ink)}.btn.ghost:hover{background:#ddd5ee}
+.btn.big{padding:13px 26px;font-size:1.05rem}.btn:disabled{opacity:.55;cursor:default}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
+.fb{margin:10px 0 0;min-height:1em}.fb:empty{display:none}
+.fb.good,.fb.bad,.fb.hint{padding:10px 14px;border-radius:10px}
+.fb.good{background:var(--goodbg);color:var(--good)}.fb.bad{background:var(--badbg);color:var(--bad)}.fb.hint{background:var(--warnbg);color:var(--warn)}
+.fb ul{margin:.4em 0 0;padding-left:1.2em}
+.task{border:1px solid var(--line);border-left:6px solid var(--brand);border-radius:14px;padding:16px 18px;margin:14px 0;background:#fdfcff}
+.task.solved{border-left-color:var(--good)}
+.thead{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font-size:.75rem;font-weight:700;background:var(--soft);color:var(--brand2);border-radius:20px;padding:2px 10px}.tag.plain{background:#eee}.tag.ok{background:var(--goodbg);color:var(--good)}
+.q{margin:0 0 10px}.hints .hint{background:#fffbea;border:1px solid #f5e3a3;border-radius:10px;padding:8px 12px;margin-top:8px}.hint.sol{background:#f0f9ff;border-color:#bfe0f5}
+.merk{background:var(--soft);border:2px solid var(--brand);border-radius:14px;padding:12px 16px;margin:14px 0}.merk b:first-child{color:var(--brand2)}
+.goals li{margin:.3em 0}.terms div{margin:0 0 8px}.terms dt{font-weight:700}.terms dd{margin:0;color:var(--muted)}
+.steps li{margin:8px 0;padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.story{font-size:1.02rem}.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;margin-bottom:14px;background:#000}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.95em;margin:0 .15em;line-height:1.15}
+.frac>span:first-child{border-bottom:2px solid currentColor;padding:0 .2em}
+.big-math{font-size:1.35rem;font-weight:700}
+.lc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.viz{width:100%;max-width:520px;height:auto;display:block;margin:8px 0}
+.ctl{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:10px 0}.ctl label{font-weight:700}
+.ctl input[type=range]{width:220px;accent-color:var(--brand)}
+.ctl select{font:inherit;padding:8px;border-radius:10px;border:2px solid #b9b2cc}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:34px;color:var(--muted);font-size:.9rem}
+table.tab{border-collapse:collapse;margin:10px 0}table.tab td,table.tab th{border:1px solid var(--line);padding:6px 12px;text-align:center}table.tab th{background:var(--soft)}
+@media (max-width:860px){.layout{grid-template-columns:1fr}#nav{position:static;flex-direction:row;overflow-x:auto;gap:4px;padding:8px;-webkit-overflow-scrolling:touch}#nav a{white-space:nowrap}
+.hero-main{flex-direction:column;align-items:flex-start}.badge{flex-direction:row;gap:10px;align-items:baseline;min-width:0}.badge strong{font-size:1.3rem}}
+@media (max-width:620px){body{font-size:16px}.card{padding:18px}.facts,.summary{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.inrow input{max-width:none}.pager .btn{padding:10px 12px}}
+@media print{.hero,.progress,#nav,.tools,.actions,.pager,.foot{display:none!important}.layout{display:block}.sec{display:block!important}.sec[hidden]{display:none!important}#sec-ergebnis{display:block!important}body{background:#fff}}
+
+:root{--brand:#1d4ed8;--brand2:#1e3a8a;--soft:#e8eefc;--line:#cfd9ef;--paper:#f4f7fc}.track{background:#dde6f7}#nav a.active{color:#1e3a8a}.facts>div,.summary>div{border-color:#cdd9f3}.merk{border-color:#1d4ed8}.merk b:first-child{color:#1e3a8a}.btn.ghost{background:#e5ecf9}.btn.ghost:hover{background:#d3def3}input:not([type]),input[inputmode],.way span,.chip span{border-color:#b3c0da}input:disabled{background:#eef2f8}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body>
+<div id="app"><noscript><p style="padding:20px">Dieses Lernmodul braucht JavaScript. Bitte aktiviere JavaScript in deinem Browser.</p></noscript></div>
+<script>
+/* SOL Mathe 8 · Rechenhilfen (Brüche, Terme, Zufall). Läuft im Browser und in Node. */
+var M = (function () {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a || 1; }
+  function lcm(a, b) { return Math.abs(a * b) / gcd(a, b); }
+  function rnd(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function nz(a, b) { var v; do { v = rnd(a, b); } while (v === 0); return v; }
+
+  /* Bruch {n,d} immer mit d>0 */
+  function F(n, d) { if (d === undefined) d = 1; if (d === 0) throw new Error('Nenner 0'); if (d < 0) { n = -n; d = -d; } return { n: n, d: d }; }
+  function red(f) { var g = gcd(f.n, f.d); return F(f.n / g, f.d / g); }
+  function fmul(a, b) { return red(F(a.n * b.n, a.d * b.d)); }
+  function fdiv(a, b) { return red(F(a.n * b.d, a.d * b.n)); }
+  function fadd(a, b) { return red(F(a.n * b.d + b.n * a.d, a.d * b.d)); }
+  function feq(a, b) { return a.n * b.d === b.n * a.d; }
+  function isReduced(f) { return gcd(f.n, f.d) === 1; }
+  function fstr(f) { f = red(f); return f.d === 1 ? String(f.n) : f.n + '/' + f.d; }
+  function fhtml(f, keep) {
+    if (!keep) f = red(f);
+    if (f.d === 1) return '<span class="num">' + fmtNum(f.n) + '</span>';
+    var s = f.n < 0 ? '−' : '';
+    return s + '<span class="frac"><span>' + Math.abs(f.n) + '</span><span>' + f.d + '</span></span>';
+  }
+  function fmtNum(x, dec) {
+    if (dec === undefined) { var r = Math.round(x * 1e6) / 1e6; dec = (String(r).split('.')[1] || '').length; }
+    var s = Math.abs(x).toFixed(dec).replace('.', ',');
+    var parts = s.split(','); parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return (x < 0 ? '−' : '') + parts.join(',');
+  }
+
+  function clean(s) {
+    return String(s == null ? '' : s).trim()
+      .replace(/[−–—]/g, '-').replace(/[·×⋅]/g, '*').replace(/:/g, '/').replace(/÷/g, '/')
+      .replace(/\s+/g, ' ');
+  }
+  /* Zahl aus Eingabe: "1,5" "1.5" "-3" "1 000" ; null wenn keine Zahl */
+  function parseNum(s) {
+    s = clean(s).replace(/\s(?=\d{3}\b)/g, '').replace(/(mm²|cm²|dm²|m²|cm³|dm³|m³|mm|cm|dm|km|m|€|%|°|grad)$/i, '').trim();
+    if (!/^[+-]?(\d+([.,]\d+)?|[.,]\d+)$/.test(s)) return null;
+    return parseFloat(s.replace(',', '.'));
+  }
+  /* Bruch aus Eingabe: "3/4", "-3/4", "1 1/2", "0,75", "2" ; null wenn ungültig */
+  function parseFrac(s) {
+    s = clean(s);
+    var m;
+    if ((m = s.match(/^([+-])?\s*(\d+)\s+(\d+)\s*\/\s*(\d+)$/))) { var d = +m[4]; if (!d) return null; var f = F(+m[2] * d + +m[3], d); if (m[1] === '-') f.n = -f.n; f.mixed = true; return f; }
+    if ((m = s.match(/^([+-])?\s*\(?\s*(\d+)\s*\/\s*(\d+)\s*\)?$/))) { if (!+m[3]) return null; var g = F(+m[2], +m[3]); if (m[1] === '-') g.n = -g.n; return g; }
+    var x = parseNum(s); if (x === null) return null;
+    var den = 1; while (Math.abs(x * den - Math.round(x * den)) > 1e-9 && den < 1e6) den *= 10;
+    var r = red(F(Math.round(x * den), den)); r.decimal = true; return r;
+  }
+
+  /* ---------- Terme: Parser und Auswertung ---------- */
+  function tokenize(s) {
+    s = clean(s).toLowerCase().replace(/²/g, '^2').replace(/³/g, '^3').replace(/,/g, '.');
+    var out = [], i = 0;
+    while (i < s.length) {
+      var c = s[i];
+      if (c === ' ') { i++; continue; }
+      if (/[0-9.]/.test(c)) { var j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++; var num = s.slice(i, j); if (!/^\d*\.?\d+$|^\d+\.$/.test(num)) throw new Error('Zahl'); out.push({ t: 'n', v: parseFloat(num) }); i = j; continue; }
+      if (/[a-z]/.test(c)) { out.push({ t: 'v', v: c }); i++; continue; }
+      if ('+-*/^()'.indexOf(c) >= 0) { out.push({ t: c }); i++; continue; }
+      throw new Error('Zeichen ' + c);
+    }
+    /* implizite Multiplikation: 3x, 2(, )(, x(, )x, xy */
+    var res = [];
+    for (var k = 0; k < out.length; k++) {
+      var a = out[k - 1], b = out[k];
+      if (a && (a.t === 'n' || a.t === 'v' || a.t === ')') && (b.t === 'n' || b.t === 'v' || b.t === '(') && !(a.t === 'n' && b.t === 'n')) res.push({ t: '*' });
+      res.push(b);
+    }
+    return res;
+  }
+  function parseTerm(s) {
+    var tk = tokenize(s), p = 0;
+    if (!tk.length) throw new Error('leer');
+    function peek() { return tk[p]; }
+    function eat(t) { if (!tk[p] || tk[p].t !== t) throw new Error('erwartet ' + t); p++; }
+    function expr() { var n = term(); while (peek() && (peek().t === '+' || peek().t === '-')) { var op = tk[p++].t; n = { op: op, a: n, b: term() }; } return n; }
+    function term() { var n = unary(); while (peek() && (peek().t === '*' || peek().t === '/')) { var op = tk[p++].t; n = { op: op, a: n, b: unary() }; } return n; }
+    function unary() { if (peek() && (peek().t === '-' || peek().t === '+')) { var op = tk[p++].t; var u = unary(); return op === '-' ? { op: 'neg', a: u } : u; } return power(); }
+    function power() { var b = atom(); if (peek() && peek().t === '^') { p++; var e = unary(); return { op: '^', a: b, b: e }; } return b; }
+    function atom() {
+      var t = peek(); if (!t) throw new Error('Ende');
+      if (t.t === 'n') { p++; return { num: t.v }; }
+      if (t.t === 'v') { p++; return { v: t.v }; }
+      if (t.t === '(') { p++; var e = expr(); eat(')'); return e; }
+      throw new Error('unerwartet');
+    }
+    var tree = expr(); if (p !== tk.length) throw new Error('Rest');
+    return tree;
+  }
+  function evalTree(n, env) {
+    if (n.num !== undefined) return n.num;
+    if (n.v !== undefined) { if (!(n.v in env)) throw new Error('Variable ' + n.v); return env[n.v]; }
+    var a = evalTree(n.a, env);
+    if (n.op === 'neg') return -a;
+    var b = evalTree(n.b, env);
+    switch (n.op) { case '+': return a + b; case '-': return a - b; case '*': return a * b; case '/': return a / b; case '^': return Math.pow(a, b); }
+    throw new Error('op');
+  }
+  function varsOf(n, set) { set = set || {}; if (!n) return set; if (n.v) set[n.v] = 1; varsOf(n.a, set); varsOf(n.b, set); return set; }
+  /* gleichwertige Terme? prüft an mehreren Stellen */
+  function termEq(s1, s2) {
+    var t1, t2; try { t1 = parseTerm(s1); t2 = parseTerm(s2); } catch (e) { return false; }
+    var vs = Object.keys(Object.assign(varsOf(t1), varsOf(t2)));
+    var pts = [-2.5, -1.3, 0.7, 1.9, 3.1, 4.6];
+    for (var i = 0; i < pts.length; i++) {
+      var env = {}; vs.forEach(function (v, k) { env[v] = pts[(i + k * 2) % pts.length] + k * 0.37; });
+      var a = evalTree(t1, env), b = evalTree(t2, env);
+      if (!isFinite(a) || !isFinite(b) || Math.abs(a - b) > 1e-7 * Math.max(1, Math.abs(a))) return false;
+    }
+    return true;
+  }
+  function termValid(s) { try { parseTerm(s); return true; } catch (e) { return false; } }
+  /* Term schön darstellen: 3x^2 -> 3x², * -> · */
+  function tpretty(s) { return String(s).replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\*/g, '·').replace(/-/g, '−'); }
+  /* lineares Glied a·x mit Vorzeichen für Ausgabe */
+  function mono(c, v, first) {
+    if (c === 0) return first ? '0' : '';
+    var sign = c < 0 ? (first ? '−' : ' − ') : (first ? '' : ' + ');
+    var a = Math.abs(c), core = v ? ((a === 1 ? '' : a) + v) : String(a);
+    return sign + core;
+  }
+  function poly(coeffs) { /* [[c,'x²'],[c,'x'],[c,'']] */
+    var s = '', first = true;
+    coeffs.forEach(function (p) { if (p[0] === 0) return; s += mono(p[0], p[1], first); first = false; });
+    return s || '0';
+  }
+
+  function check(inp, raw) {
+    raw = String(raw == null ? '' : raw).trim();
+    if (inp.kind === 'mc') return raw === '' ? { ok: false, empty: true } : { ok: +raw === inp.answer };
+    if (!raw) return { ok: false, empty: true };
+    if (inp.kind === 'num') { var x = parseNum(raw); if (x === null) return { ok: false, msg: 'Gib eine Zahl ein, zum Beispiel 12 oder 3,5.' }; return { ok: Math.abs(x - inp.answer) <= (inp.tol != null ? inp.tol : 1e-9) }; }
+    if (inp.kind === 'frac') {
+      var f = parseFrac(raw); if (!f) return { ok: false, msg: 'Schreibe den Bruch so: 3/4. Ein gemischter Bruch geht so: 1 1/2.' };
+      var ans = F(inp.answer.n, inp.answer.d);
+      if (!feq(f, ans)) return { ok: false };
+      if (inp.reduce && !f.decimal && !f.mixed && !isReduced(f)) return { ok: false, almost: true, msg: 'Richtig gerechnet. Kürze das Ergebnis noch vollständig.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'term') {
+      if (!termValid(raw)) return { ok: false, msg: 'Der Term ist nicht lesbar. Beispiel: 3x + 12 oder 4(x − 2). Für „hoch 2“ schreibst du x^2.' };
+      if (!termEq(raw, inp.answer)) return { ok: false };
+      if (inp.form === 'expanded' && /\(/.test(raw)) return { ok: false, almost: true, msg: 'Der Term ist gleichwertig, aber noch nicht ausmultipliziert. Löse die Klammer auf.' };
+      if (inp.form === 'factored') { var tr = parseTerm(raw); while (tr.op === 'neg') tr = tr.a; if (!/\(/.test(raw) || (tr.op !== '*' && tr.op !== '^')) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht als Produkt geschrieben. Schreibe den Term als Produkt mit Klammer.' }; }
+      if (inp.form === 'factored' && !/\(/.test(raw)) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht ausgeklammert. Schreibe den Term als Produkt mit Klammer.' };
+      if (inp.factor) {
+        var z = clean(raw).toLowerCase().replace(/\s+/g, '').replace(/\*/g, ''), fct = String(inp.factor).toLowerCase().replace(/\s+/g, '');
+        if (!(z.indexOf(fct + '(') === 0 || (z.slice(-fct.length - 1) === ')' + fct && z.charAt(0) === '('))) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch mehr ausklammern. Klammere den größten gemeinsamen Faktor aus.' };
+      }
+      if (inp.form === 'simplified' && inp.maxTerms && (clean(raw).replace(/^[-+]/, '').split(/[+-]/).length > inp.maxTerms)) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch weiter zusammenfassen.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'text') { var opts = [].concat(inp.answer).map(function (a) { return String(a).toLowerCase(); }); return { ok: opts.indexOf(raw.toLowerCase()) >= 0 }; }
+    return { ok: false };
+  }
+  return { check: check, gcd: gcd, lcm: lcm, rnd: rnd, nz: nz, pick: pick, shuffle: shuffle, F: F, red: red, fmul: fmul, fdiv: fdiv, fadd: fadd, feq: feq,
+    isReduced: isReduced, fstr: fstr, fhtml: fhtml, fmtNum: fmtNum, clean: clean, parseNum: parseNum, parseFrac: parseFrac,
+    parseTerm: parseTerm, evalTree: evalTree, termEq: termEq, termValid: termValid, tpretty: tpretty, mono: mono, poly: poly };
+})();
+if (typeof module !== 'undefined') module.exports = M;
+
+</script>
+<script>
+window.CONFIG = {"jahrgang": "9", "endpoint": "https://script.google.com/macros/s/AKfycbxpbjq4u7xOEi94XymjPmODt4KIoBf1XvAVzBK-DMk21X8usQOQyz3LMQd5k41h41Ru/exec", "iservDomain": "", "version": "1.0.0", "backUrl": "../index.html"};
+/* Modul 017 (Klasse 9) · Quadratische Funktionen im Alltag */
+var MODULE = (function () {
+  var F = M.F, fh = M.fhtml;
+  /* ---------- Parabel-Zeichnung (gemeinsam für 015, 016, 017) ----------
+     curves: [{ f: function (x), color, label, from, to, dash, vertex: [x, y], zeros: [x, …], vText, zText: [Text, …] }]
+     o: x/y [min, max], gx/gy Raster, ph feste Zeichenhöhe, lx/ly Beschriftungsschritt, w Breite, maxh, tx/ty Achsennamen, marks [{x, y, text, color, dx, dy, anchor}], hline {y, text}, maxw, label */
+  function r1(v) { return Math.round(v * 10) / 10; }
+  function pgraph(curves, o) {
+    o = o || {};
+    var xr = o.x || [-6, 6], yr = o.y || [-6, 6], gx = o.gx || 1, gy = o.gy || 1, lx = o.lx || 2 * gx, ly = o.ly || 2 * gy;
+    var xl = xr[0] - gx / 2, xh = xr[1] + gx / 2, yl = yr[0] - gy / 2, yh = yr[1] + gy / 2;
+    var PW = o.w || 300, PH = PW * (yh - yl) / (xh - xl) * (gx / gy);
+    PH = o.ph || Math.min(PH, o.maxh || 360);
+    var ux = PW / (xh - xl), uy = PH / (yh - yl);
+    var mL = xr[0] >= 0 ? 32 : 8, mB = yr[0] >= 0 ? 22 : 8, mT = 8, mR = 10, W = mL + PW + mR, H = mT + PH + mB;
+    function X(x) { return r1(mL + (x - xl) * ux); } function Y(y) { return r1(mT + (yh - y) * uy); }
+    var ax = xr[0] <= 0 && xr[1] >= 0 ? 0 : xr[0], ay = yr[0] <= 0 && yr[1] >= 0 ? 0 : yr[0], i;
+    var halo = ' paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round"';
+    var g = '<svg class="viz" viewBox="0 0 ' + r1(W) + ' ' + r1(H) + '" role="img" aria-label="' + (o.label || 'Parabel im Koordinatensystem') + '" style="max-width:' + (o.maxw || 360) + 'px">';
+    for (i = Math.ceil(xr[0] / gx) * gx; i <= xr[1] + 1e-9; i += gx) g += '<line x1="' + X(i) + '" y1="' + Y(yl) + '" x2="' + X(i) + '" y2="' + Y(yh) + '" stroke="#dbe4f5"/>';
+    for (i = Math.ceil(yr[0] / gy) * gy; i <= yr[1] + 1e-9; i += gy) g += '<line x1="' + X(xl) + '" y1="' + Y(i) + '" x2="' + X(xh) + '" y2="' + Y(i) + '" stroke="#dbe4f5"/>';
+    g += '<line x1="' + X(xl) + '" y1="' + Y(ay) + '" x2="' + X(xh) + '" y2="' + Y(ay) + '" stroke="#1c1830" stroke-width="1.6"/><line x1="' + X(ax) + '" y1="' + Y(yl) + '" x2="' + X(ax) + '" y2="' + Y(yh) + '" stroke="#1c1830" stroke-width="1.6"/>';
+    var inner = ax === 0 && ay === 0 && xr[0] < 0 && yr[0] < 0;
+    for (i = Math.ceil(xr[0] / lx) * lx; i <= xr[1] + 1e-9; i += lx) { var vi = Math.round(i * 1000) / 1000; if (vi === 0 && inner) continue; g += '<text x="' + X(vi) + '" y="' + r1(Y(ay) + 14) + '" font-size="10" text-anchor="middle" fill="#475569">' + M.fmtNum(vi) + '</text>'; }
+    for (i = Math.ceil(yr[0] / ly) * ly; i <= yr[1] + 1e-9; i += ly) { var wi = Math.round(i * 1000) / 1000; if (wi === 0 && (inner || ax === xr[0])) continue; g += '<text x="' + r1(X(ax) - 5) + '" y="' + r1(Y(wi) + 4) + '" font-size="10" text-anchor="end" fill="#475569">' + M.fmtNum(wi) + '</text>'; }
+    g += '<text x="' + r1(X(xh) - 3) + '" y="' + r1(Y(ay) - 6) + '" font-size="12" font-weight="700" text-anchor="end">' + (o.tx || 'x') + '</text><text x="' + r1(X(ax) + 6) + '" y="' + r1(Y(yh) + 12) + '" font-size="12" font-weight="700">' + (o.ty || 'y') + '</text>';
+    if (o.hline) g += '<line x1="' + X(xl) + '" y1="' + Y(o.hline.y) + '" x2="' + X(xh) + '" y2="' + Y(o.hline.y) + '" stroke="#0f766e" stroke-width="2" stroke-dasharray="6 4"/>' + (o.hline.text ? '<text x="' + r1(X(xh) - 4) + '" y="' + r1(Y(o.hline.y) - 6) + '" font-size="12" font-weight="700" fill="#0f766e" text-anchor="end"' + halo + '>' + o.hline.text + '</text>' : '');
+    var top = '';
+    curves.forEach(function (C, idx) {
+      var col = C.color || ['#1e3a8a', '#0f766e', '#d97706'][idx % 3], a = Math.max(xl, C.from != null ? C.from : xl), z = Math.min(xh, C.to != null ? C.to : xh);
+      var N = 220, segs = [], cur = [], prev = null;
+      function cut(p, q) { var yb = (q[1] > yh || p[1] > yh) ? yh : yl, t = (yb - p[1]) / (q[1] - p[1]); return [p[0] + t * (q[0] - p[0]), yb]; }
+      for (var k = 0; k <= N; k++) {
+        var xx = a + (z - a) * k / N, yy = C.f(xx), pnt = [xx, yy], ins = isFinite(yy) && yy >= yl && yy <= yh;
+        if (ins) { if (prev && !prev.ins && isFinite(prev.p[1])) cur.push(cut(prev.p, pnt)); cur.push(pnt); }
+        else if (prev && prev.ins && isFinite(yy)) { cur.push(cut(prev.p, pnt)); segs.push(cur); cur = []; }
+        prev = { p: pnt, ins: ins };
+      }
+      if (cur.length) segs.push(cur);
+      segs.forEach(function (s) { if (s.length > 1) g += '<polyline points="' + s.map(function (p) { return X(p[0]) + ',' + Y(p[1]); }).join(' ') + '" fill="none" stroke="' + col + '" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"' + (C.dash ? ' stroke-dasharray="7 5"' : '') + '/>'; });
+      var up = C.f(C.vertex ? C.vertex[0] + 1 : 1) > C.f(C.vertex ? C.vertex[0] : 0);
+      if (C.label) {
+        var lxp = Math.min(z, xh) - 0.2 * gx, lyp = C.f(lxp);
+        if (lyp > yh || lyp < yl) { var last = segs.length ? segs[segs.length - 1] : null; if (last) { var e = last[last.length - 1]; lxp = e[0]; lyp = e[1]; } }
+        top += '<text x="' + r1(Math.min(X(lxp) - 6, W - 4)) + '" y="' + r1(Math.max(14, Math.min(H - 4, Y(lyp) + (up ? 4 : -6)))) + '" font-size="13" font-weight="700" fill="' + col + '" text-anchor="end"' + halo + '>' + C.label + '</text>';
+      }
+      var zs = (C.zeros || []).slice().sort(function (p, q) { return p - q; }), zly = Y(0) + (up ? 30 : -10);
+      if (C.vertex && C.vertex[1] >= yl && C.vertex[1] <= yh && C.vertex[0] >= xl && C.vertex[0] <= xh) {
+        var vx = X(C.vertex[0]), vy = Y(C.vertex[1]), dy = up ? 19 : -10;
+        if (zs.length && Math.abs(vy + dy - zly) < 15) dy = up ? zly + 16 - vy : zly - 16 - vy;
+        if (vy + dy > H - 4) dy = -10; if (vy + dy < 12) dy = 19;
+        var anc = vx < W * 0.25 ? 'start' : vx > W * 0.75 ? 'end' : 'middle';
+        top += '<circle cx="' + vx + '" cy="' + vy + '" r="5" fill="#d97706" stroke="#fff" stroke-width="1.5"/>';
+        if (C.vText !== '') top += '<text x="' + vx + '" y="' + r1(vy + dy) + '" font-size="12" font-weight="700" fill="#b45309" text-anchor="' + anc + '"' + halo + '>' + (C.vText || 'S') + '</text>';
+      }
+      zs.forEach(function (zx, j) {
+        if (zx < xl || zx > xh) return;
+        var px = X(zx), two = zs.length === 2;
+        top += '<circle cx="' + px + '" cy="' + Y(0) + '" r="5" fill="#1d4ed8" stroke="#fff" stroke-width="1.5"/>';
+        var t = C.zText ? C.zText[j] : (two ? 'N' + (j + 1) : 'N');
+        if (!t) return;
+        var tw = String(t).replace(/<[^>]+>/g, '').length * 6.6, tx = px + (two ? (j === 0 ? -7 : 7) : 0), anc = two ? (j === 0 ? 'end' : 'start') : 'middle';
+        if (anc === 'end' && tx - tw < 2) tx = 2 + tw; if (anc === 'start' && tx + tw > W - 2) tx = W - 2 - tw; if (anc === 'middle') tx = Math.max(2 + tw / 2, Math.min(W - 2 - tw / 2, tx));
+        top += '<text x="' + r1(tx) + '" y="' + r1(zly) + '" font-size="12" font-weight="700" fill="#1d4ed8" text-anchor="' + anc + '"' + halo + '>' + t + '</text>';
+      });
+    });
+    (o.marks || []).forEach(function (mk) {
+      var c = mk.color || '#1c1830';
+      top += '<circle cx="' + X(mk.x) + '" cy="' + Y(mk.y) + '" r="5" fill="' + c + '" stroke="#fff" stroke-width="1.5"/>';
+      if (mk.text) top += '<text x="' + r1(X(mk.x) + (mk.dx != null ? mk.dx : 8)) + '" y="' + r1(Y(mk.y) + (mk.dy != null ? mk.dy : -8)) + '" font-size="12" font-weight="700" fill="' + c + '"' + (mk.anchor ? ' text-anchor="' + mk.anchor + '"' : '') + halo + '>' + mk.text + '</text>';
+    });
+    return g + top + '</svg>';
+  }
+
+  /* ---------- Zahlen und Terme ---------- */
+  function n(x) { return M.fmtNum(Math.round(x * 1e6) / 1e6); }
+  function par(x) { return x < 0 ? '(' + n(x) + ')' : n(x); }
+  function r2(x) { return Math.round(x * 100) / 100; }
+  function sq(s) { return '√<span style="border-top:1.5px solid currentColor;padding:0 2px">' + s + '</span>'; }
+  function half(s) { return '<span class="frac"><span>' + s + '</span><span>2</span></span>'; }
+  function poly(cs, v) {
+    var s = '', first = true;
+    cs.forEach(function (p) {
+      var c = p[0]; if (Math.abs(c) < 1e-12) return;
+      var a = Math.abs(c), core = p[1] ? ((Math.abs(a - 1) < 1e-12 ? '' : n(a)) + p[1]) : n(a);
+      s += (c < 0 ? (first ? '−' : ' − ') : (first ? '' : ' + ')) + core; first = false;
+    });
+    return s || '0';
+  }
+  function inner(h, q) { return n(h * h) + (q === 0 ? '' : q < 0 ? ' + ' + n(-q) : ' − ' + n(q)); }
+  /* Wurf h(t) = −5t² + v·t + h0 */
+  function wurfTerm(v, h0) { return poly([[-5, 't²'], [v, 't'], [h0, '']]); }
+  function hw(v, h0, t) { return -5 * t * t + v * t + h0; }
+  function niceStep(span) { return span <= 6 ? 1 : span <= 12 ? 2 : span <= 30 ? 5 : span <= 60 ? 10 : 20; }
+  function wurfGraph(v, h0, o) {
+    o = o || {}; var T = v / 10 + Math.sqrt(v * v / 100 + h0 / 5), Hm = h0 + v * v / 20, X1 = Math.ceil(T), gy = niceStep(Hm), Y1 = Math.ceil((Hm + 0.5 * gy) / gy) * gy;
+    return pgraph([{ f: function (t) { return hw(v, h0, t); }, from: 0, to: T, vertex: o.marks ? [v / 10, Hm] : null, vText: o.marks ? 'S(' + n(v / 10) + ' | ' + n(Hm) + ')' : '', zeros: o.marks ? [T] : [], zText: o.marks ? ['t ≈ ' + n(r2(T))] : [''] }],
+      { x: [0, X1], y: [0, Y1], gx: X1 > 6 ? 1 : 0.5, gy: gy, lx: 1, ly: gy, tx: 't', ty: 'h', ph: 210, maxw: 380, label: 'Flugbahn h(t)', marks: h0 > 0 && o.marks ? [{ x: 0, y: h0, color: '#0f766e', text: 'Abwurf', dx: 8, dy: 16 }] : [] });
+  }
+  var BR = [[10, [4, 5, 6, 8, 10, 12]], [20, [4, 8, 10, 12, 16, 20]], [25, [5, 10, 15, 20]], [40, [8, 16, 24, 32]], [50, [10, 20, 25]]];
+  function bridgeGraph(w, h, o) {
+    o = o || {}; var a = h / (w * w), gx = w <= 10 ? 2 : w <= 25 ? 5 : 10, gy = h <= 6 ? 1 : h <= 12 ? 2 : 5;
+    return pgraph([{ f: function (x) { return h - a * x * x; }, from: -w, to: w, vertex: o.marks ? [0, h] : null, vText: o.vText || '', zeros: o.marks ? [-w, w] : [], zText: o.zText || ['', ''] }],
+      { x: [-w - gx, w + gx], y: [0, Math.ceil((h + gy) / gy) * gy], gx: gx, gy: gy, lx: w >= 40 ? 2 * gx : gx, ly: gy, tx: 'x', ty: 'y', ph: 150, maxw: 420, label: 'Brückenbogen', hline: o.hline, marks: o.pts || [] });
+  }
+  /* Rechteck mit fester Zaunlänge */
+  function areaGraph(U, wall, xs) {
+    var top = wall ? U / 2 : U / 2, A = function (x) { return wall ? x * (U - 2 * x) : x * (U / 2 - x); }, Am = wall ? U * U / 8 : U * U / 16;
+    var gx = niceStep(top), gy = niceStep(Am) * (Am > 60 ? 2 : 1);
+    return pgraph([{ f: A, from: 0, to: top, vertex: [U / 4, Am], vText: 'S(' + n(U / 4) + ' | ' + n(Am) + ')', zeros: [0, top], zText: ['', ''] }],
+      { x: [0, Math.ceil(top / gx) * gx], y: [0, Math.ceil((Am + gy) / gy) * gy], gx: gx, gy: gy, lx: gx, ly: gy, tx: 'x', ty: 'A', ph: 200, maxw: 380, label: 'Flächeninhalt A(x)', marks: xs || [] });
+  }
+  function rectSvg(wd, ht) {
+    var S = 200 / Math.max(wd, ht, 1), W = wd * S, H = ht * S;
+    return '<svg class="viz" viewBox="0 0 ' + (W + 80).toFixed(1) + ' ' + (H + 50).toFixed(1) + '" style="max-width:' + Math.round(W + 80) + 'px" role="img" aria-label="Rechteck">' +
+      '<rect x="30" y="12" width="' + W.toFixed(1) + '" height="' + H.toFixed(1) + '" fill="#e8eefc" stroke="#1e3a8a" stroke-width="3"/>' +
+      '<text x="' + (30 + W / 2).toFixed(1) + '" y="' + (H + 34).toFixed(1) + '" font-size="13" font-weight="700" text-anchor="middle" fill="#1e3a8a">' + n(wd) + ' m</text>' +
+      '<text x="' + (36 + W).toFixed(1) + '" y="' + (12 + H / 2 + 4).toFixed(1) + '" font-size="13" font-weight="700" fill="#1e3a8a">' + n(ht) + ' m</text></svg>';
+  }
+
+  var gen = {
+    wurf_hoehe: function () {
+      var v = M.pick([10, 12, 14, 15, 16, 18, 20]), h0 = M.pick([0, 1, 1.5, 2]), T = v / 10 + Math.sqrt(v * v / 100 + h0 / 5);
+      var t = M.pick([0.5, 1, 1.5, 2]); if (t >= T) t = 0.5; var y = hw(v, h0, t);
+      return { skill: 'Wurfhöhe berechnen', level: 1, q: 'Ein Ball wird ' + (h0 ? 'aus ' + n(h0) + ' m Höhe ' : 'vom Boden aus ') + 'nach oben geworfen. Seine Höhe in Metern nach t Sekunden ist <span class="big-math">h(t) = ' + wurfTerm(v, h0) + '</span><br>In welcher Höhe ist der Ball nach <b>' + n(t) + ' s</b>?',
+        inputs: [{ kind: 'num', answer: y, tol: 0.01, label: 'h(' + n(t) + ') =', unit: 'm' }],
+        hints: ['Setze t = ' + n(t) + ' in den Term ein.', 'Zuerst das Quadrat: ' + par(t) + '² = ' + n(t * t) + '. Dann −5 · ' + n(t * t) + ' = ' + n(-5 * t * t) + '.', 'h(' + n(t) + ') = ' + n(-5 * t * t) + ' + ' + n(v * t) + (h0 ? ' + ' + n(h0) : '') + '.'],
+        solution: 'h(' + n(t) + ') = −5 · ' + n(t) + '² + ' + v + ' · ' + n(t) + (h0 ? ' + ' + n(h0) : '') + ' = ' + n(-5 * t * t) + ' + ' + n(v * t) + (h0 ? ' + ' + n(h0) : '') + ' = <b>' + n(y) + ' m</b>.' + wurfGraph(v, h0, { marks: false }),
+        mistakes: function (vv) { var a = M.parseNum(vv[0]); if (a === null) return null; if (Math.abs(a - (5 * t * t + v * t + h0)) < 0.01) return 'Achte auf das Vorzeichen: −5 · ' + n(t * t) + ' ist negativ.'; if (Math.abs(a - (-10 * t + v * t + h0)) < 0.01) return 'Quadriere zuerst: t² = ' + n(t) + ' · ' + n(t) + ', nicht ' + n(t) + ' · 2.'; return null; },
+        verify: function () { return Math.abs(y - (v * t - 5 * t * t + h0)) < 1e-9 && y > 0 || 'Höhe falsch'; } };
+    },
+    wurf_max: function (lvl) {
+      var v = M.pick([10, 12, 14, 15, 16, 18, 20, 24, 25]), h0 = lvl === 1 ? 0 : M.pick([0, 1, 1.5, 2, 2.5]), ts = v / 10, Hm = h0 + v * v / 20;
+      return { skill: 'Maximale Höhe (Scheitelpunkt)', q: 'Die Höhe eines geworfenen Balls in Metern nach t Sekunden ist <span class="big-math">h(t) = ' + wurfTerm(v, h0) + '</span><br>Nach wie vielen Sekunden erreicht der Ball seine größte Höhe, und wie hoch ist er dann?',
+        inputs: [{ kind: 'num', answer: ts, tol: 0.01, label: 'Zeitpunkt t =', unit: 's' }, { kind: 'num', answer: Hm, tol: 0.01, label: 'größte Höhe', unit: 'm' }],
+        hints: ['Die größte Höhe ist der Scheitelpunkt der Parabel. Er liegt genau in der Mitte zwischen zwei Zeitpunkten mit gleicher Höhe.', 'Die Starthöhe ' + n(h0) + ' m hat der Ball bei t = 0 und noch einmal, wenn −5t² + ' + v + 't = 0 ist, also t(' + v + ' − 5t) = 0, bei t = ' + n(v / 5) + '.', 'Die Mitte ist t = ' + n(v / 5) + ' : 2 = ' + n(ts) + '. Setze diesen Wert in h(t) ein.'],
+        solution: 'h(t) = ' + n(h0) + ' gilt für t = 0 und t = ' + n(v / 5) + ' (denn −5t² + ' + v + 't = t · (' + v + ' − 5t)). Der Scheitelpunkt liegt in der Mitte: t = <b>' + n(ts) + ' s</b>.<br>h(' + n(ts) + ') = −5 · ' + n(ts * ts) + ' + ' + v + ' · ' + n(ts) + (h0 ? ' + ' + n(h0) : '') + ' = ' + n(-5 * ts * ts) + ' + ' + n(v * ts) + (h0 ? ' + ' + n(h0) : '') + ' = <b>' + n(Hm) + ' m</b>.' + wurfGraph(v, h0, { marks: true }),
+        mistakes: function (vv) { var a = M.parseNum(vv[0]), b = M.parseNum(vv[1]); if (a !== null && Math.abs(a - v / 5) < 0.01) return 'Bei t = ' + n(v / 5) + ' ist der Ball wieder auf der Starthöhe. Der höchste Punkt liegt in der Mitte.'; if (b !== null && Math.abs(b - v) < 0.01) return 'Die größte Höhe erhältst du, indem du den Zeitpunkt in h(t) einsetzt.'; return null; },
+        verify: function () { var mx = -1e9; for (var k = 0; k <= 5000; k++) { var t = k * v / 5 / 5000; mx = Math.max(mx, hw(v, h0, t)); } return Math.abs(mx - Hm) < 1e-6 && Math.abs(hw(v, h0, ts) - Hm) < 1e-9 || 'Scheitel falsch'; } };
+    },
+    wurf_aufprall: function (lvl) {
+      var v, h0;
+      if (lvl <= 2) { v = M.pick([8, 10, 12, 14, 15, 16]); h0 = M.pick([1, 1.5, 2]); }
+      else { v = M.pick([5, 8, 10, 12, 15]); h0 = M.pick([10, 15, 20, 25, 30]); }
+      var P = -v / 5, Q = -h0 / 5, h = P / 2, D = h * h - Q, T = -h + Math.sqrt(D), Tn = -h - Math.sqrt(D), ans = r2(T);
+      return { skill: 'Aufprallzeit (Nullstelle)', q: (lvl <= 2 ? 'Beim Basketball wird der Ball aus ' + n(h0) + ' m Höhe geworfen.' : 'Ein Stein wird von einem ' + n(h0) + ' m hohen Turm schräg nach oben geworfen.') + ' Die Höhe in Metern nach t Sekunden ist <span class="big-math">h(t) = ' + wurfTerm(v, h0) + '</span><br>Nach wie vielen Sekunden trifft er auf dem Boden auf? Runde auf zwei Stellen nach dem Komma.',
+        inputs: [{ kind: 'num', answer: ans, tol: 0.01, label: 'Aufprall nach t ≈', unit: 's' }],
+        hints: ['Auf dem Boden ist die Höhe 0. Löse also ' + wurfTerm(v, h0) + ' = 0.', 'Teile durch −5, damit vor t² eine 1 steht: ' + poly([[1, 't²'], [P, 't'], [Q, '']]) + ' = 0. Also p = ' + n(P) + ' und q = ' + n(Q) + '.', 't<sub>1,2</sub> = ' + n(-h) + ' ± ' + sq(inner(h, Q)) + ' = ' + n(-h) + ' ± ' + sq(n(D)) + '. Nur die positive Lösung passt.'],
+        solution: wurfTerm(v, h0) + ' = 0 &nbsp;| : (−5)<br>' + poly([[1, 't²'], [P, 't'], [Q, '']]) + ' = 0<br>t<sub>1,2</sub> = ' + n(-h) + ' ± ' + sq(par(h) + '² − ' + par(Q)) + ' = ' + n(-h) + ' ± ' + sq(n(D)) + '<br>t<sub>1</sub> ≈ ' + n(r2(Tn)) + ' (negativ, passt nicht) und t<sub>2</sub> ≈ <b>' + n(ans) + ' s</b>.' + wurfGraph(v, h0, { marks: true }),
+        mistakes: function (vv) { var a = M.parseNum(vv[0]); if (a === null) return null; if (Math.abs(a - r2(Tn)) < 0.011) return 'Das ist die negative Lösung. Eine Zeit vor dem Abwurf passt nicht zur Aufgabe.'; if (Math.abs(a - v / 10) < 0.011) return 'Das ist der Zeitpunkt der größten Höhe. Gesucht ist, wann h(t) = 0 ist.'; if (Math.abs(a - v / 5) < 0.011) return 'Nach ' + n(v / 5) + ' s ist der Ball wieder auf Abwurfhöhe, aber noch nicht am Boden.'; return null; },
+        verify: function () { return Math.abs(hw(v, h0, T)) < 1e-9 && T > v / 5 && Tn < 0 || 'Aufprall falsch'; } };
+    },
+    bruecke: function (lvl) {
+      var B = M.pick(BR), w = B[0], h = M.pick(B[1]), a = h / (w * w), A = n(a);
+      var eqs = 'y = −' + A + 'x² + ' + n(h);
+      var intro = 'Der Bogen einer Brücke hat die Form einer Parabel mit der Gleichung <span class="big-math">' + eqs + '</span> (x und y in Metern, die x-Achse ist die Straße, der höchste Punkt liegt über x = 0).';
+      if (lvl === 1) {
+        var k = M.rnd(1, 4), x0 = k * w / 5, y = h - a * x0 * x0;
+        return { skill: 'Höhe eines Brückenbogens', q: intro + bridgeGraph(w, h) + 'Wie hoch ist der Bogen <b>' + n(x0) + ' m</b> neben der Mitte?',
+          inputs: [{ kind: 'num', answer: r2(y), tol: 0.01, label: 'Höhe', unit: 'm' }],
+          hints: ['Setze x = ' + n(x0) + ' in die Gleichung ein.', 'x² = ' + n(x0) + '² = ' + n(x0 * x0) + '. Dann ' + A + ' · ' + n(x0 * x0) + ' = ' + n(a * x0 * x0) + '.', 'y = −' + n(a * x0 * x0) + ' + ' + n(h) + '.'],
+          solution: 'y = −' + A + ' · ' + n(x0) + '² + ' + n(h) + ' = −' + A + ' · ' + n(x0 * x0) + ' + ' + n(h) + ' = −' + n(a * x0 * x0) + ' + ' + n(h) + ' = <b>' + n(r2(y)) + ' m</b>.' + bridgeGraph(w, h, { pts: [{ x: x0, y: y, color: '#d97706', text: n(r2(y)) + ' m', dx: 8, dy: -6 }] }),
+          mistakes: function (v) { var b = M.parseNum(v[0]); if (b !== null && Math.abs(b - (h - a * x0)) < 0.011) return 'Du hast x nicht quadriert. Rechne zuerst x² = ' + n(x0 * x0) + '.'; if (b !== null && Math.abs(b - (h + a * x0 * x0)) < 0.011) return 'Vor dem x² steht ein Minus. Der Bogen wird zur Seite hin niedriger.'; return null; },
+          verify: function () { return Math.abs(y - h * (1 - k * k / 25)) < 1e-9 || 'Höhe falsch'; } };
+      }
+      if (lvl === 2) {
+        return { skill: 'Spannweite eines Brückenbogens', q: intro + bridgeGraph(w, h) + 'Wie breit ist der Bogen auf Höhe der Straße (Spannweite)?',
+          inputs: [{ kind: 'num', answer: 2 * w, tol: 0.01, label: 'Spannweite', unit: 'm' }],
+          hints: ['An den Fußpunkten ist die Höhe 0. Löse −' + A + 'x² + ' + n(h) + ' = 0.', A + 'x² = ' + n(h) + ' ⇒ x² = ' + n(h) + ' : ' + A + ' = ' + n(w * w) + '.', 'x = ±' + sq(n(w * w)) + ' = ±' + w + '. Die Spannweite ist der Abstand der beiden Fußpunkte.'],
+          solution: '−' + A + 'x² + ' + n(h) + ' = 0 ⇒ x² = ' + n(h) + ' : ' + A + ' = ' + n(w * w) + ' ⇒ x<sub>1</sub> = −' + w + ', x<sub>2</sub> = ' + w + '. Spannweite: ' + w + ' − (−' + w + ') = <b>' + 2 * w + ' m</b>.' + bridgeGraph(w, h, { marks: true, zText: ['−' + w, String(w)] }),
+          mistakes: function (v) { var b = M.parseNum(v[0]); if (b === w) return 'Das ist nur der Abstand von der Mitte bis zu einem Fußpunkt. Die Spannweite reicht von −' + w + ' bis ' + w + '.'; return null; },
+          verify: function () { return Math.abs(h - a * w * w) < 1e-9 || 'Fußpunkt falsch'; } };
+      }
+      var H1 = Math.max(1, Math.round(h * M.pick([0.4, 0.5, 0.6, 0.7]) * 2) / 2), xx = Math.sqrt((h - H1) / a), ans = r2(2 * xx);
+      return { skill: 'Durchfahrtsbreite unter einem Bogen', level: 3, q: intro + bridgeGraph(w, h) + 'Unter dem Bogen soll ein <b>' + n(H1) + ' m</b> hohes Fahrzeug durchfahren. Wie breit ist der Bereich, in dem der Bogen mindestens ' + n(H1) + ' m hoch ist? Runde auf zwei Stellen.',
+        inputs: [{ kind: 'num', answer: ans, tol: 0.02, label: 'Breite', unit: 'm' }],
+        hints: ['Gesucht sind die Stellen, an denen der Bogen genau ' + n(H1) + ' m hoch ist: −' + A + 'x² + ' + n(h) + ' = ' + n(H1) + '.', A + 'x² = ' + n(h - H1) + ' ⇒ x² = ' + n(h - H1) + ' : ' + A + ' = ' + n(r2((h - H1) / a)) + '.', 'x = ±' + sq(n(r2((h - H1) / a))) + ' ≈ ±' + n(r2(xx)) + '. Die Breite ist der Abstand der beiden Stellen.'],
+        solution: '−' + A + 'x² + ' + n(h) + ' = ' + n(H1) + ' ⇒ x² = ' + n(h - H1) + ' : ' + A + ' = ' + n(r2((h - H1) / a)) + ' ⇒ x ≈ ±' + n(r2(xx)) + '. Breite: 2 · ' + n(r2(xx)) + ' ≈ <b>' + n(ans) + ' m</b>.' + bridgeGraph(w, h, { hline: { y: H1, text: n(H1) + ' m' }, pts: [{ x: -xx, y: H1, color: '#d97706' }, { x: xx, y: H1, color: '#d97706' }] }),
+        mistakes: function (v) { var b = M.parseNum(v[0]); if (b !== null && Math.abs(b - r2(xx)) < 0.02) return 'Das ist nur der Abstand von der Mitte. Der Bereich reicht nach links und nach rechts.'; if (b !== null && Math.abs(b - 2 * w) < 0.02) return 'Das ist die Spannweite am Boden. Gesucht ist die Breite in ' + n(H1) + ' m Höhe.'; return null; },
+        verify: function () { return Math.abs(h - a * xx * xx - H1) < 1e-9 && xx < w || 'Breite falsch'; } };
+    },
+    rechteck: function (lvl) {
+      var wall = lvl === 3, U = 4 * M.rnd(wall ? 4 : 5, 15), x = U / 4, y = wall ? U / 2 : U / 4, Am = x * y;
+      var txt = wall ? 'Für ein rechteckiges Hühnergehege stehen <b>' + U + ' m</b> Zaun zur Verfügung. Eine Seite wird von einer Hauswand gebildet und braucht keinen Zaun. Die beiden Seiten, die von der Wand weggehen, sind x Meter lang.' : 'Mit <b>' + U + ' m</b> Zaun soll eine rechteckige Weide eingezäunt werden. Eine Seite ist x Meter lang.';
+      var term = wall ? 'A(x) = x · (' + U + ' − 2x) = −2x² + ' + U + 'x' : 'A(x) = x · (' + U / 2 + ' − x) = −x² + ' + U / 2 + 'x';
+      return { skill: 'Größte Fläche bei festem Umfang', q: txt + ' Wie lang muss x sein, damit die Fläche möglichst groß wird? Wie groß ist sie dann?',
+        inputs: [{ kind: 'num', answer: x, tol: 0.01, label: 'x =', unit: 'm' }, { kind: 'num', answer: Am, tol: 0.01, label: 'größte Fläche', unit: 'm²' }],
+        hints: [wall ? 'Der Zaun bildet zwei Seiten der Länge x und eine Seite der Länge ' + U + ' − 2x.' : 'Zwei Seiten zusammen sind halb so lang wie der Zaun: ' + U / 2 + ' m. Ist eine Seite x, ist die andere ' + U / 2 + ' − x.', 'Flächeninhalt: ' + term + '. Das ist eine nach unten geöffnete Parabel.', 'A(x) = 0 gilt für x = 0 und x = ' + n(U / 2) + '. Der Scheitelpunkt liegt genau in der Mitte, bei x = ' + n(x) + '.'],
+        solution: term + '.<br>Nullstellen: x = 0 und x = ' + n(U / 2) + '. Der Scheitelpunkt liegt in der Mitte: <b>x = ' + n(x) + ' m</b>.<br>Die andere Seite ist ' + (wall ? U + ' − 2 · ' + n(x) : n(U / 2) + ' − ' + n(x)) + ' = ' + n(y) + ' m. Größte Fläche: ' + n(x) + ' · ' + n(y) + ' = <b>' + n(Am) + ' m²</b>.' + (wall ? '' : ' Das Rechteck ist ein Quadrat.') + areaGraph(U, wall),
+        mistakes: function (v) { var a = M.parseNum(v[0]), b = M.parseNum(v[1]); if (a !== null && Math.abs(a - U / 2) < 0.01) return 'Bei x = ' + n(U / 2) + ' ist die Fläche 0. Der größte Wert liegt in der Mitte zwischen den Nullstellen.'; if (b !== null && Math.abs(b - U * U / 4) < 0.01) return 'Prüfe die Seitenlängen: Beide Seiten zusammen ergeben nicht ' + U + ' m.'; if (wall && a !== null && Math.abs(a - U / 3) < 0.01) return 'Gleich lange Seiten sind hier nicht am besten, weil die Wand keinen Zaun braucht. Stelle A(x) auf.'; return null; },
+        verify: function () { var best = 0, bx = 0; for (var k = 0; k <= 4000; k++) { var t = k * U / 2 / 4000, A = wall ? t * (U - 2 * t) : t * (U / 2 - t); if (A > best) { best = A; bx = t; } } return Math.abs(best - Am) < 1e-6 && Math.abs(bx - x) < 1e-6 || 'Optimum falsch'; } };
+    },
+    bremsweg: function (lvl) {
+      var v = lvl === 1 ? 10 * M.rnd(3, 13) : 5 * M.rnd(5, 26), u = v / 10, R = 3 * u, B = u * u, kind = lvl === 1 ? 0 : M.pick([1, 1, 2]);
+      var ask = ['den Bremsweg', 'den Anhalteweg', 'den Anhalteweg bei einer Gefahrenbremsung'][kind], ans = [B, R + B, R + B / 2][kind];
+      return { skill: 'Bremsweg mit Faustformel', q: 'In der Fahrschule lernt man Faustformeln (v in km/h, Wege in Metern):<br>Reaktionsweg = <span class="frac"><span>v</span><span>10</span></span> · 3 &nbsp;&nbsp; Bremsweg = <span class="frac"><span>v</span><span>10</span></span> · <span class="frac"><span>v</span><span>10</span></span>' + (kind === 2 ? ' &nbsp;&nbsp; Bei einer Gefahrenbremsung halbiert sich der Bremsweg.' : '') + '<br>Anhalteweg = Reaktionsweg + Bremsweg<br>Berechne ' + ask + ' bei <b>' + v + ' km/h</b>.',
+        inputs: [{ kind: 'num', answer: ans, tol: 0.01, label: ask.charAt(4).toUpperCase() + ask.slice(5), unit: 'm' }],
+        hints: ['Teile die Geschwindigkeit durch 10: ' + v + ' : 10 = ' + n(u) + '.', 'Bremsweg = ' + n(u) + ' · ' + n(u) + ' = ' + n(B) + ' m' + (kind ? '. Reaktionsweg = ' + n(u) + ' · 3 = ' + n(R) + ' m.' : '.'), kind === 0 ? 'Der Bremsweg wächst quadratisch: doppelte Geschwindigkeit, vierfacher Bremsweg.' : kind === 1 ? 'Addiere Reaktionsweg und Bremsweg.' : 'Halbiere den Bremsweg: ' + n(B / 2) + ' m. Addiere dann den Reaktionsweg.'],
+        solution: 'v : 10 = ' + n(u) + '. ' + (kind === 0 ? 'Bremsweg = ' + n(u) + ' · ' + n(u) + ' = <b>' + n(B) + ' m</b>.' : 'Reaktionsweg = ' + n(u) + ' · 3 = ' + n(R) + ' m. Bremsweg = ' + n(u) + ' · ' + n(u) + ' = ' + n(B) + ' m' + (kind === 2 ? ', bei Gefahrenbremsung ' + n(B / 2) + ' m' : '') + '. Anhalteweg = ' + n(R) + ' + ' + n(kind === 2 ? B / 2 : B) + ' = <b>' + n(ans) + ' m</b>.'),
+        mistakes: function (vv) { var a = M.parseNum(vv[0]); if (a === null) return null; if (Math.abs(a - 2 * u) < 0.01) return 'Du hast v : 10 verdoppelt. Beim Bremsweg wird v : 10 mit sich selbst multipliziert.'; if (kind && Math.abs(a - B) < 0.01) return 'Das ist nur der Bremsweg. Zum Anhalteweg gehört auch der Reaktionsweg.'; if (kind && Math.abs(a - R) < 0.01) return 'Das ist nur der Reaktionsweg. Addiere den Bremsweg.'; if (kind === 2 && Math.abs(a - (R + B)) < 0.01) return 'Bei einer Gefahrenbremsung halbiert sich der Bremsweg.'; return null; },
+        verify: function () { return Math.abs(B - v * v / 100) < 1e-9 && Math.abs([B, R + B, R + B / 2][kind] - ans) < 1e-9 || 'falsch'; } };
+    },
+    bremsfaktor: function () {
+      var k = M.pick([2, 3, 4, 1.5]), v1 = M.pick([20, 30, 40]), v2 = k * v1, B1 = v1 * v1 / 100, B2 = v2 * v2 / 100;
+      return { skill: 'Quadratisches Wachstum des Bremswegs', level: 2, q: 'Faustformel: Bremsweg = <span class="frac"><span>v</span><span>10</span></span> · <span class="frac"><span>v</span><span>10</span></span> (v in km/h, Bremsweg in m).<br>Ein Auto fährt erst ' + v1 + ' km/h, dann ' + n(v2) + ' km/h, also ' + n(k) + '-mal so schnell. Wie viel Mal so lang ist dann der Bremsweg?',
+        inputs: [{ kind: 'num', answer: k * k, tol: 0.01, label: 'Der Bremsweg ist … -mal so lang' }],
+        hints: ['Berechne beide Bremswege: bei ' + v1 + ' km/h und bei ' + n(v2) + ' km/h.', 'Bremsweg bei ' + v1 + ' km/h: ' + n(v1 / 10) + ' · ' + n(v1 / 10) + ' = ' + n(B1) + ' m. Bei ' + n(v2) + ' km/h: ' + n(v2 / 10) + ' · ' + n(v2 / 10) + ' = ' + n(B2) + ' m.', 'Teile: ' + n(B2) + ' : ' + n(B1) + '. Fällt dir etwas auf? Vergleiche mit ' + n(k) + '².'],
+        solution: n(B2) + ' m : ' + n(B1) + ' m = <b>' + n(k * k) + '</b>. Der Bremsweg wächst quadratisch: Bei ' + n(k) + '-facher Geschwindigkeit ist er ' + n(k) + '² = ' + n(k * k) + '-mal so lang.',
+        mistakes: function (v) { var a = M.parseNum(v[0]); if (a !== null && Math.abs(a - k) < 0.01) return 'Der Bremsweg wächst nicht im gleichen Maß wie die Geschwindigkeit. Rechne beide Bremswege aus und vergleiche.'; if (a !== null && Math.abs(a - 2 * k) < 0.01) return 'Nicht verdoppeln, sondern quadrieren: ' + n(k) + ' · ' + n(k) + '.'; return null; },
+        verify: function () { return Math.abs(B2 / B1 - k * k) < 1e-9 || 'Faktor falsch'; } };
+    },
+    brunnen: function (lvl) {
+      var d, e;
+      do { d = M.rnd(1, 3); e = M.rnd(lvl === 3 ? 3 : 2, 9); } while (e <= d * d || (lvl < 3 && Math.sqrt(e) % 1 !== 0));
+      var y0 = e - d * d, X = d + Math.sqrt(e), ans = r2(X);
+      return { skill: 'Wasserstrahl in Scheitelpunktform', q: 'Ein Wasserstrahl eines Brunnens kommt bei x = 0 aus einer Düse. Seine Bahn ist die Parabel <span class="big-math">y = −(x − ' + d + ')² + ' + e + '</span> (x und y in Metern, y = 0 ist die Wasseroberfläche).<br>a) Wie hoch steigt der Strahl höchstens?<br>b) In welcher Entfernung von der Düse trifft er auf das Wasser?' + (lvl === 3 ? ' Runde auf zwei Stellen.' : ''),
+        inputs: [{ kind: 'num', answer: e, label: 'a) größte Höhe', unit: 'm' }, { kind: 'num', answer: ans, tol: 0.01, label: 'b) Entfernung', unit: 'm' }],
+        hints: ['Die Gleichung ist in Scheitelpunktform. Der Scheitelpunkt ist S(' + d + ' | ' + e + '). Die Parabel ist nach unten geöffnet.', 'b) Setze y = 0: −(x − ' + d + ')² + ' + e + ' = 0 ⇒ (x − ' + d + ')² = ' + e + '.', 'x − ' + d + ' = ±' + sq(e) + '. Die Lösung rechts von der Düse ist x = ' + d + ' + ' + sq(e) + '.'],
+        solution: 'a) S(' + d + ' | ' + e + '): Die größte Höhe ist <b>' + e + ' m</b>.<br>b) (x − ' + d + ')² = ' + e + ' ⇒ x = ' + d + ' ± ' + sq(e) + '. Die Lösung ' + d + ' − ' + sq(e) + ' ' + (d - Math.sqrt(e) < 0 ? 'ist negativ und liegt hinter der Düse' : 'liegt vor der Düse') + '. Also x = ' + d + ' + ' + sq(e) + (Math.sqrt(e) % 1 ? ' ≈ ' : ' = ') + '<b>' + n(ans) + ' m</b>.' +
+          pgraph([{ f: function (x) { return -(x - d) * (x - d) + e; }, from: 0, to: X, vertex: [d, e], vText: 'S(' + d + ' | ' + e + ')', zeros: [X], zText: [n(ans) + ' m'] }], { x: [0, Math.ceil(X)], y: [0, e + 1], tx: 'x', ty: 'y', ph: 190, maxw: 360, label: 'Wasserstrahl', marks: [{ x: 0, y: y0, color: '#0f766e', text: 'Düse', dx: 8, dy: 16 }] }),
+        mistakes: function (v) { var a = M.parseNum(v[0]), b = M.parseNum(v[1]); if (a === d) return 'Das ist die x-Koordinate des Scheitelpunkts. Die Höhe ist die y-Koordinate.'; if (b !== null && Math.abs(b - Math.sqrt(e)) < 0.011) return 'Du hast ' + sq(e) + ' berechnet. Zähle noch ' + d + ' dazu, denn x − ' + d + ' = ' + sq(e) + '.'; if (b !== null && Math.abs(b - 2 * d) < 0.011) return 'Bei x = ' + 2 * d + ' ist der Strahl wieder auf Düsenhöhe, aber noch nicht im Wasser.'; return null; },
+        verify: function () { return Math.abs(-(X - d) * (X - d) + e) < 1e-9 && y0 > 0 && X > 2 * d || 'Brunnen falsch'; } };
+    },
+    anhalteweg: function () {
+      var u = M.rnd(3, 13), A = u * u + 3 * u, v = 10 * u, D = 2.25 + A;
+      return { skill: 'Geschwindigkeit aus dem Anhalteweg', level: 3, q: 'Nach einem Unfall misst die Polizei einen Anhalteweg von <b>' + A + ' m</b>. Mit den Faustformeln gilt für die Geschwindigkeit v (in km/h):<br>Anhalteweg = <span class="frac"><span>v</span><span>10</span></span> · 3 + <span class="frac"><span>v</span><span>10</span></span> · <span class="frac"><span>v</span><span>10</span></span><br>Wie schnell ist das Auto gefahren? <small>Tipp: Setze u = <span class="frac"><span>v</span><span>10</span></span>.</small>',
+        inputs: [{ kind: 'num', answer: v, label: 'v =', unit: 'km/h' }],
+        hints: ['Mit u = v : 10 lautet die Gleichung u² + 3u = ' + A + ', also u² + 3u − ' + A + ' = 0.', 'p-q-Formel mit p = 3, q = −' + A + ': u = −1,5 ± ' + sq('2,25 + ' + A) + ' = −1,5 ± ' + sq(n(D)) + '.', sq(n(D)) + ' = ' + n(Math.sqrt(D)) + '. Nimm die positive Lösung für u und rechne v = 10 · u.'],
+        solution: 'u² + 3u − ' + A + ' = 0 ⇒ u = −1,5 ± ' + sq('2,25 + ' + A) + ' = −1,5 ± ' + sq(n(D)) + ' = −1,5 ± ' + n(Math.sqrt(D)) + '. Positive Lösung: u = ' + u + '. Also v = 10 · ' + u + ' = <b>' + v + ' km/h</b>. Probe: ' + u + ' · 3 + ' + u + ' · ' + u + ' = ' + 3 * u + ' + ' + u * u + ' = ' + A + ' m ✓',
+        mistakes: function (vv) { var a = M.parseNum(vv[0]); if (a === u) return 'Das ist u = v : 10. Gesucht ist v, also das Zehnfache.'; if (a !== null && Math.abs(a - 10 * Math.sqrt(A)) < 0.5) return 'Du hast den Reaktionsweg vergessen. Der Anhalteweg ist Reaktionsweg plus Bremsweg.'; return null; },
+        verify: function () { return (v / 10) * 3 + (v / 10) * (v / 10) === A || 'Probe falsch'; } };
+    }
+  };
+
+  return {
+    id: '017', title: 'Quadratische Funktionen im Alltag', bereich: 'Quadratische Funktionen', minutes: '45 bis 60',
+    vorkenntnisse: 'Normalparabel und Scheitelpunktform, p-q-Formel (Modul 015)',
+    lead: 'Brückenbögen, Wurfbahnen, Wasserstrahlen und Bremswege folgen Parabeln. Du nutzt Scheitelpunkt und Nullstellen, um echte Fragen zu beantworten.',
+    einstieg: { html: '<p>Beim Basketball-Freiwurf fliegt der Ball in einem Bogen zum Korb. Ein Wasserstrahl im Brunnen beschreibt einen ähnlichen Bogen, ebenso viele Brücken.</p>' + wurfGraph(12, 2, { marks: true }) + '<p class="note">Welche Fragen kannst du an so eine Flugbahn stellen? Zum Beispiel: Wie hoch fliegt der Ball? Wann ist er am höchsten? Wann landet er?</p><p>Alle diese Bögen sind <b>Parabeln</b>. Die größte Höhe ist der <b>Scheitelpunkt</b>, der Aufprall ist eine <b>Nullstelle</b>. Mit diesem Wissen löst du in diesem Modul Aufgaben aus dem Alltag.</p>' },
+    ziele: ['Ich berechne Werte einer quadratischen Funktion im Sachzusammenhang, zum Beispiel eine Höhe.', 'Ich deute den Scheitelpunkt als größte Höhe oder größte Fläche.', 'Ich deute Nullstellen als Aufprall, Fußpunkt oder Landepunkt und berechne sie.', 'Ich bestimme bei festem Umfang die größte Rechteckfläche.', 'Ich nutze die Faustformeln für Reaktionsweg, Bremsweg und Anhalteweg.'],
+    fachwoerter: [['Scheitelpunkt', 'Höchster (oder tiefster) Punkt einer Parabel. Im Alltag zum Beispiel die größte Höhe.'], ['Nullstelle', 'Stelle mit y = 0. Im Alltag zum Beispiel der Aufprall auf dem Boden.'], ['Symmetrie', 'Eine Parabel ist symmetrisch zur senkrechten Geraden durch den Scheitelpunkt. Er liegt in der Mitte zwischen zwei Stellen mit gleicher Höhe.'], ['Anhalteweg', 'Weg vom Erkennen einer Gefahr bis zum Stillstand: Reaktionsweg plus Bremsweg.']],
+    diagnose: [
+      { q: 'Berechne −5 · 2² + 20 · 2.', options: ['20', '−60', '60', 'Weiß ich noch nicht'], answer: 0, why: '−5 · 4 + 40 = −20 + 40 = 20. Erst quadrieren, dann multiplizieren.', review: 'Terme mit Potenzen berechnen' },
+      { q: 'Eine Parabel hat die Nullstellen x = 0 und x = 6. Bei welchem x liegt ihr Scheitelpunkt?', options: ['x = 3', 'x = 6', 'x = 0', 'Weiß ich noch nicht'], answer: 0, why: 'Der Scheitelpunkt liegt in der Mitte zwischen den Nullstellen: (0 + 6) : 2 = 3.', review: 'Symmetrie der Parabel' },
+      { q: 'Welchen Scheitelpunkt hat y = −(x − 2)² + 5?', options: ['S(2 | 5)', 'S(−2 | 5)', 'S(5 | 2)', 'Weiß ich noch nicht'], answer: 0, why: 'Bei y = −(x − d)² + e ist S(d | e), hier S(2 | 5). Die Parabel ist nach unten geöffnet.', review: 'Scheitelpunktform' },
+      { q: 'Ein Rechteck ist 7 m lang und 3 m breit. Wie groß ist sein Umfang?', options: ['20 m', '21 m', '10 m', 'Weiß ich noch nicht'], answer: 0, why: 'U = 2 · 7 + 2 · 3 = 20 m.', review: 'Umfang und Flächeninhalt von Rechtecken' }],
+    erklaerung:
+      '<h3>1. Werte berechnen</h3><p>Eine Funktion wie h(t) = −5t² + 12t + 2 beschreibt die Höhe eines Balls (in m) nach t Sekunden. Für die Höhe nach 1 s setzt du ein: h(1) = −5 · 1 + 12 + 2 = <b>9 m</b>. Achte darauf, zuerst zu quadrieren.</p>' +
+      '<h3>2. Größte Höhe: der Scheitelpunkt</h3><p>Eine nach unten geöffnete Parabel hat ihren höchsten Punkt im Scheitelpunkt. Er liegt wegen der <b>Symmetrie</b> genau in der Mitte zwischen zwei Stellen mit gleicher Höhe.</p><p>Bei h(t) = −5t² + 12t + 2 hat der Ball die Höhe 2 m bei t = 0 und wieder, wenn −5t² + 12t = t · (12 − 5t) = 0 ist, also bei t = 2,4. Die Mitte ist t = 1,2. Größte Höhe: h(1,2) = −7,2 + 14,4 + 2 = <b>9,2 m</b>.</p>' +
+      '<div class="merk"><b>Merke:</b> Scheitelpunkt = größter (oder kleinster) Wert. Er liegt in der Mitte zwischen zwei Stellen mit gleichem Funktionswert, zum Beispiel zwischen zwei Nullstellen.<br>Nullstelle = Stelle, an der der Wert 0 ist, zum Beispiel der Aufprall auf dem Boden.</div>' +
+      '<h3>3. Aufprall: die Nullstelle</h3><p>Der Ball landet, wenn h(t) = 0 ist. Teile durch −5 und nutze die p-q-Formel:</p><p>−5t² + 12t + 2 = 0 &nbsp;| : (−5) ⇒ t² − 2,4t − 0,4 = 0 ⇒ t = 1,2 ± ' + sq('1,44 + 0,4') + ' = 1,2 ± ' + sq('1,84') + '. Nur die positive Lösung passt: t ≈ <b>2,56 s</b>.</p>' + wurfGraph(12, 2, { marks: true }) +
+      '<h3>4. Größte Fläche bei festem Umfang</h3><p>Mit 20 m Zaun soll ein Rechteck eingezäunt werden. Ist eine Seite x, so ist die andere 10 − x. Fläche: A(x) = x · (10 − x). Sie ist 0 für x = 0 und x = 10, also ist sie am größten bei x = 5: A = 5 · 5 = <b>25 m²</b>. Das beste Rechteck ist ein Quadrat.</p>' +
+      '<h3>5. Bremsweg</h3><p>Faustformel der Fahrschule: Bremsweg (in m) = (v : 10) · (v : 10). Bei 50 km/h sind das 5 · 5 = 25 m, bei 100 km/h schon 10 · 10 = 100 m. <b>Doppelte Geschwindigkeit heißt vierfacher Bremsweg.</b></p><p class="note">Runde erst am Ende und prüfe, ob das Ergebnis zur Sache passt: Negative Zeiten oder Längen sind keine Lösung.</p>',
+    entdecken: {
+      html: '<p>Ein rechteckiges Beet bekommt einen Zaun mit fester Länge. Wähle die Zaunlänge und verändere die Seite x. Wann ist die Fläche am größten?</p><div class="ctl"><label>Zaunlänge <select id="e_u"><option value="20">20 m</option><option value="24" selected>24 m</option><option value="28">28 m</option><option value="32">32 m</option></select></label><label>x = <b id="v_x"></b> m <input type="range" id="r_x" min="0.5" max="9.5" step="0.5" value="2"></label></div><div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start"><div id="e_r" style="flex:1 1 220px;max-width:300px"></div><div id="e_g" style="flex:1 1 280px;max-width:380px"></div></div><p id="e_t"></p>',
+      init: function (root, done) {
+        var cnt = 0;
+        function draw() {
+          var U = +root.querySelector('#e_u').value, x = +root.querySelector('#r_x').value, y = U / 2 - x, A = x * y;
+          root.querySelector('#v_x').textContent = n(x);
+          root.querySelector('#e_r').innerHTML = rectSvg(y, x);
+          root.querySelector('#e_g').innerHTML = areaGraph(U, false, [{ x: x, y: A, color: '#d97706', text: n(A) + ' m²', dx: x > U / 4 ? -8 : 8, dy: 18, anchor: x > U / 4 ? 'end' : 'start' }]);
+          root.querySelector('#e_t').innerHTML = 'Seiten: ' + n(x) + ' m und ' + U / 2 + ' − ' + n(x) + ' = ' + n(y) + ' m. Fläche A = ' + n(x) + ' · ' + n(y) + ' = <b>' + n(A) + ' m²</b>.' + (Math.abs(x - U / 4) < 1e-9 ? ' <b>Das ist das Maximum: ein Quadrat!</b>' : ' Das Maximum liegt bei x = ' + n(U / 4) + ' m.');
+        }
+        function hit() { draw(); cnt++; if (cnt >= 3) done('Gut beobachtet: Die Fläche A(x) = x · (U : 2 − x) ist eine nach unten geöffnete Parabel. Ihr Scheitelpunkt liegt in der Mitte zwischen den Nullstellen, dort ist das Rechteck ein Quadrat.'); }
+        root.querySelector('#e_u').addEventListener('change', hit); root.querySelector('#r_x').addEventListener('input', hit);
+        draw();
+      }
+    },
+    beispiel: { title: 'Ein Wasserstrahl', q: 'Ein Wasserstrahl folgt der Parabel y = −(x − 2)² + 5 (in Metern). Die Düse ist bei x = 0. Wie hoch steigt der Strahl, und wo trifft er auf das Wasser (y = 0)?',
+      steps: ['Die Gleichung ist in Scheitelpunktform: S(2 | 5). Die Parabel ist nach unten geöffnet.', 'Der Strahl steigt also höchstens <b>5 m</b> hoch, und zwar 2 m von der Düse entfernt.', 'Auftreffen auf dem Wasser: y = 0 ⇒ −(x − 2)² + 5 = 0 ⇒ (x − 2)² = 5.', 'x − 2 = ±' + sq('5') + ' ⇒ x = 2 + ' + sq('5') + ' ≈ <b>4,24 m</b>. Die andere Lösung 2 − ' + sq('5') + ' ≈ −0,24 liegt hinter der Düse und passt nicht.', 'Kontrolle: Die Düse ist bei y = −(0 − 2)² + 5 = 1 m Höhe. Der Strahl startet also über dem Wasser, das passt.' + pgraph([{ f: function (x) { return -(x - 2) * (x - 2) + 5; }, from: 0, to: 2 + Math.sqrt(5), vertex: [2, 5], vText: 'S(2 | 5)', zeros: [2 + Math.sqrt(5)], zText: ['4,24'] }], { x: [0, 5], y: [0, 6], ph: 180, maxw: 320, label: 'Wasserstrahl' })] },
+    tasks: { gen: gen,
+      plan: { G: ['wurf_hoehe:1', 'bruecke:1', 'bremsweg:1', 'wurf_max:1'], S: ['bruecke:2', 'wurf_max:2', 'wurf_aufprall:2', 'rechteck:2', 'bremsweg:2'], E: ['bruecke:3', 'wurf_aufprall:3', 'rechteck:3', 'brunnen:3', 'bremsfaktor:2', 'bremsweg:2'] },
+      extra: 'anhalteweg', test: ['brunnen:2', 'bruecke:2', 'wurf_max:2', 'wurf_aufprall:2', 'rechteck:2', 'bremsweg:2'] },
+    lerncheck: ['Ich berechne Werte quadratischer Funktionen in Sachaufgaben.', 'Ich finde die größte Höhe oder Fläche über den Scheitelpunkt.', 'Ich berechne Aufprall- oder Fußpunkte als Nullstellen.', 'Ich rechne mit den Faustformeln für den Bremsweg.']
+  };
+})();
+
+window.MODULE = MODULE;
+</script>
+<script>
+/* SOL Mathe 8 · Lern-Engine. Erwartet window.MODULE und window.CONFIG. */
+(function () {
+  'use strict';
+  var MOD = window.MODULE, CFG = window.CONFIG;
+  var KEY = 'sol8-' + MOD.id;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  /* Anzeige-Feinschliff: echtes Minuszeichen und 1x → x, nur im Text, nie in Attributen */
+  function nice(h) { return String(h == null ? '' : h).split(/(<[^>]*>)/).map(function (p) { return p.charAt(0) === '<' ? p : p.replace(/(^|[\s(=:\[{>])-(?=\d)/g, '$1\u2212').replace(/(^|[\s(=:+\u2212·>])1x(?![\w²³^])/g, '$1x'); }).join(''); }
+  function h(tag, attrs, html) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }); if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  var SECTIONS = [
+    ['start', 'Start'], ['einstieg', 'Einstieg'], ['ziele', 'Lernziele'], ['diagnose', 'Startdiagnose'], ['erklaerung', 'Erklärung'],
+    ['entdecken', 'Ausprobieren'], ['beispiel', 'Beispiel'], ['ueben', 'Üben'], ['weiterdenken', 'Weiterdenken'], ['test', 'Abschlusstest'],
+    ['lerncheck', 'Mein Lerncheck'], ['ergebnis', 'Ergebnis']
+  ];
+  var REQUIRED = ['einstieg', 'diagnose', 'erklaerung', 'entdecken', 'ueben', 'test', 'lerncheck'];
+  function req() { return S.way === 'E' ? REQUIRED.slice(0, 5).concat(['weiterdenken'], REQUIRED.slice(5)) : REQUIRED; }
+  var WAYS = { G: 'Sicher · G', S: 'Standard · G/E', E: 'Weiterdenken · E' };
+  var WAY_INFO = { G: 'Sicher: weniger Aufgaben, Tipps sind sofort sichtbar. Weiterdenken ist freiwillig.', S: 'Standard: du bearbeitest alle Pflichtaufgaben und kannst Tipps öffnen.', E: 'Weiterdenken: mehr und schwierigere Aufgaben. Die Weiterdenken-Aufgabe ist Pflicht.' };
+  var LC_SCALE = ['Sicher', 'Meistens', 'Mit Hilfe', 'Noch nicht'];
+
+  /* ---------- Zustand ---------- */
+  var S = load() || { v: 1, lerncode: '', klasse: '', email: '', way: 'S', started: false, sec: 'start', done: {}, diag: {}, diagChecked: false,
+    slots: [], extra: null, test: null, lc: {}, stats: { attempts: 0, firstTry: 0, hints: 0, solutions: 0 }, startedAt: null, sent: false, abgabeId: null };
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
+  function load() { try { var d = JSON.parse(localStorage.getItem(KEY) || 'null'); return d && d.v === 1 ? d : null; } catch (e) { return null; } }
+  function mark(k) { if (!S.done[k]) { S.done[k] = true; save(); progress(); navState(); } }
+
+  /* ---------- Normalisierung Lernende ---------- */
+  function normCode(v) { var t = String(v || '').toUpperCase().replace(/[^A-ZÄÖÜ]/g, ''); return t.length === 2 ? t : ''; }
+  function normKlasse(v) { var m = String(v || '').toLowerCase().replace(/[^a-z0-9]/g, '').match(new RegExp(CFG.jahrgang + '([a-z]?)$')); return m ? CFG.jahrgang + m[1] : ''; }
+  function emailOk(v) { v = String(v || '').trim(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) return false; return !CFG.iservDomain || v.toLowerCase().slice(-CFG.iservDomain.length - 1) === '@' + CFG.iservDomain.toLowerCase(); }
+
+  /* ---------- Aufgaben prüfen ---------- */
+  var checkInput = M.check;
+  function renderInputs(task, prefix, values) {
+    return task.inputs.map(function (inp, i) {
+      var id = prefix + '-' + i, val = values && values[i] != null ? values[i] : '';
+      if (inp.kind === 'mc') {
+        return '<fieldset class="mc"><legend>' + (inp.label || 'Wähle aus') + '</legend>' + inp.options.map(function (o, k) {
+          return '<label class="opt"><input type="radio" name="' + id + '" value="' + k + '"' + (String(val) === String(k) ? ' checked' : '') + '><span>' + o + '</span></label>';
+        }).join('') + '</fieldset>';
+      }
+      var mode = inp.kind === 'term' || inp.kind === 'text' ? 'text' : 'decimal';
+      return '<label class="inp"><span>' + (inp.label || 'Ergebnis') + '</span><span class="inrow"><input id="' + id + '" inputmode="' + mode + '" autocomplete="off" spellcheck="false" value="' + esc(val) + '"' + (inp.placeholder ? ' placeholder="' + esc(inp.placeholder) + '"' : '') + '>' + (inp.unit ? '<b class="unit">' + inp.unit + '</b>' : '') + '</span></label>';
+    }).join('');
+  }
+  function readInputs(task, prefix, root) {
+    return task.inputs.map(function (inp, i) {
+      if (inp.kind === 'mc') { var c = $('input[name="' + prefix + '-' + i + '"]:checked', root); return c ? c.value : ''; }
+      var e = $('#' + prefix + '-' + i, root); return e ? e.value : '';
+    });
+  }
+  /* Reproduzierbarer Zufall: gleiche Startzahl, gleiche Aufgabe (damit Fehlerhinweise nach dem Neuladen erhalten bleiben) */
+  function seeded(seed, fn) {
+    var orig = Math.random, s = seed >>> 0;
+    Math.random = function () { s = (s + 0x6D2B79F5) >>> 0; var t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+    try { return fn(); } finally { Math.random = orig; }
+  }
+  function revive(t) {
+    if (!t || t.seed == null || typeof t.mistakes === 'function' || !MOD.tasks.gen[t.key]) return t;
+    try { var r = gen(t.key, t.level, t.seed); if (r.q === t.q && r.mistakes) t.mistakes = r.mistakes; } catch (e) { }
+    return t;
+  }
+  function gen(key, level, seed) { if (seed == null) seed = Math.floor(Math.random() * 4294967296); var t = seeded(seed, function () { return MOD.tasks.gen[key](level || 2); }); t.seed = seed; t.key = key; t.level = t.level || level || 2; t.q = nice(t.q); t.solution = nice(t.solution); t.hints = (t.hints || []).map(nice); t.inputs.forEach(function (i) { if (i.options) i.options = i.options.map(nice); }); return t; }
+
+  /* ---------- Fortschritt und Navigation ---------- */
+  function progress() {
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    $('#bar').style.width = Math.round(n / req().length * 100) + '%';
+    $('#progText').textContent = n + ' von ' + req().length + ' Pflichtschritten';
+  }
+  function navState() {
+    $$('#nav a').forEach(function (a) { var k = a.dataset.sec; a.classList.toggle('active', k === S.sec); a.classList.toggle('done', !!S.done[k]); a.setAttribute('aria-current', k === S.sec ? 'step' : 'false'); });
+  }
+  function go(sec, noScroll) {
+    if (!S.started && sec !== 'start') { show('start'); fb('#startFb', 'Bitte trage zuerst Lerncode, Klasse und IServ-Adresse ein und tippe auf „Start“.', 'bad'); return; }
+    show(sec); if (!noScroll) { var m = $('#main'); if (m.getBoundingClientRect().top < 0) m.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function show(sec) {
+    S.sec = sec; save();
+    $$('.sec').forEach(function (s) { s.hidden = s.id !== 'sec-' + sec; });
+    navState();
+    if (RENDER[sec]) RENDER[sec]();
+    try { history.replaceState(null, '', '#' + sec); } catch (e) { }
+  }
+  function fb(sel, msg, kind) { var e = $(sel); if (!e) return; e.className = 'fb ' + (kind || ''); e.innerHTML = msg; }
+  function pager(sec) {
+    var i = SECTIONS.findIndex(function (s) { return s[0] === sec; });
+    var prev = SECTIONS[i - 1], next = SECTIONS[i + 1];
+    return '<div class="pager">' + (prev && i > 1 ? '<button class="btn ghost" data-go="' + prev[0] + '">← ' + prev[1] + '</button>' : '<span></span>') +
+      (next ? '<button class="btn" data-go="' + next[0] + '">' + next[1] + ' →</button>' : '') + '</div>';
+  }
+
+  /* ---------- Abschnitte ---------- */
+  var RENDER = {};
+  function buildShell() {
+    var app = $('#app');
+    app.innerHTML =
+      '<header class="hero"><div class="wrap hero-in"><div class="hero-top"><span class="brand">SOL Mathematik ' + CFG.jahrgang + ' · Oberschule Niedersachsen</span>' +
+      '<span class="tools"><button class="tbtn" id="easyBtn" aria-pressed="false">Leichter lesen</button><button class="tbtn" id="readBtn">Vorlesen</button><button class="tbtn" id="stopBtn">Stopp</button></span></div>' +
+      '<div class="hero-main"><div><p class="eyebrow">' + MOD.bereich + '</p><h1>' + MOD.title + '</h1><p class="lead">' + MOD.lead + '</p></div>' +
+      '<div class="badge"><span>Modul</span><strong>' + MOD.id + '</strong><span>' + MOD.minutes + ' Minuten</span></div></div></div></header>' +
+      '<div class="progress"><div class="wrap prog-in"><div class="track"><div id="bar"></div></div><span id="progText"></span></div></div>' +
+      '<div class="wrap layout"><nav id="nav" aria-label="Abschnitte">' + SECTIONS.map(function (s) { return '<a href="#' + s[0] + '" data-sec="' + s[0] + '">' + s[1] + '</a>'; }).join('') + '</nav>' +
+      '<main id="main">' + SECTIONS.map(function (s) { return '<section class="sec card" id="sec-' + s[0] + '" hidden aria-labelledby="h-' + s[0] + '"></section>'; }).join('') + '</main></div>' +
+      '<footer class="foot wrap"><a href="' + CFG.backUrl + '">← Zur Übersicht Klasse ' + CFG.jahrgang + '</a><span>© Dr. Edmund Bruns · CC BY-NC 4.0</span></footer>';
+    $('#nav').addEventListener('click', function (e) { var a = e.target.closest('a'); if (!a) return; e.preventDefault(); go(a.dataset.sec); });
+    app.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) { e.preventDefault(); go(b.dataset.go); } });
+    $('#easyBtn').addEventListener('click', function () { var on = document.body.classList.toggle('easy'); this.setAttribute('aria-pressed', String(on)); });
+    $('#readBtn').addEventListener('click', function () { if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); var sec = $('#sec-' + S.sec); var u = new SpeechSynthesisUtterance(sec.innerText.replace(/[←→]/g, '')); u.lang = 'de-DE'; u.rate = 0.95; speechSynthesis.speak(u); });
+    $('#stopBtn').addEventListener('click', function () { if ('speechSynthesis' in window) speechSynthesis.cancel(); });
+  }
+
+  RENDER.start = function () {
+    var s = $('#sec-start'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-start">Bevor du beginnst</h2>' +
+      '<div class="facts"><div><b>Klasse</b>' + CFG.jahrgang + '</div><div><b>Vorkenntnisse</b>' + MOD.vorkenntnisse + '</div><div><b>Du brauchst</b>Heft, Stift und dieses Gerät</div></div>' +
+      '<div class="grid2"><label class="inp"><span>Lerncode *</span><input id="lerncode" maxlength="2" autocomplete="off" placeholder="z. B. MS" value="' + esc(S.lerncode) + '"><small>Erster Buchstabe deines Vornamens und erster Buchstabe deines Nachnamens. Beispiel: Mia Schulte → MS</small></label>' +
+      '<label class="inp"><span>Klasse *</span><input id="klasse" maxlength="12" autocomplete="off" placeholder="z. B. ' + CFG.jahrgang + 'a" value="' + esc(S.klasse) + '"><small>„' + CFG.jahrgang + 'a“, „Klasse ' + CFG.jahrgang + 'a“ oder nur „' + CFG.jahrgang + '“ sind möglich.</small></label></div>' +
+      '<label class="inp"><span>IServ-E-Mail-Adresse *</span><input id="email" type="email" autocomplete="email" placeholder="vorname.nachname@…" value="' + esc(S.email) + '"><small>Deine Schul-Adresse aus IServ. Sie wird nur mit deinem Ergebnis an deine Lehrkraft übertragen.</small></label>' +
+      '<fieldset class="ways"><legend>Mein Lernweg</legend>' + Object.keys(WAYS).map(function (k) { return '<label class="way"><input type="radio" name="way" value="' + k + '"' + (S.way === k ? ' checked' : '') + '><span>' + WAYS[k] + '</span></label>'; }).join('') + '</fieldset>' +
+      '<p class="note" id="wayInfo">' + WAY_INFO[S.way] + '</p>' +
+      '<div class="actions"><button class="btn big" id="startBtn">Start</button>' + (S.started ? '<button class="btn ghost" id="resetBtn">Neu beginnen</button>' : '') + '</div><p class="fb" id="startFb" role="status"></p>';
+    $$('input[name=way]', s).forEach(function (r) { r.addEventListener('change', function () { if (S.slots.length && S.slots.some(function (x) { return x.solved; })) { fb('#startFb', 'Hinweis: Wenn du den Lernweg änderst, werden deine Übungsaufgaben neu zusammengestellt.', 'hint'); } $('#wayInfo').textContent = WAY_INFO[this.value]; }); });
+    ['lerncode', 'klasse', 'email'].forEach(function (id) { $('#' + id).addEventListener('input', function () { S[id] = this.value; save(); }); });
+    $('#startBtn').addEventListener('click', function () {
+      var c = normCode($('#lerncode').value), k = normKlasse($('#klasse').value), e = $('#email').value.trim();
+      if (!c) return fb('#startFb', 'Der Lerncode besteht aus genau zwei Buchstaben, zum Beispiel MS.', 'bad');
+      if (!k) return fb('#startFb', 'Diese Klasse gehört nicht zu Jahrgang ' + CFG.jahrgang + '. Schreibe zum Beispiel ' + CFG.jahrgang + 'a oder nur ' + CFG.jahrgang + '.', 'bad');
+      if (!emailOk(e)) return fb('#startFb', CFG.iservDomain ? 'Bitte gib deine IServ-Adresse ein. Sie endet auf @' + CFG.iservDomain + '.' : 'Bitte gib eine gültige IServ-E-Mail-Adresse ein.', 'bad');
+      var w = ($('input[name=way]:checked', s) || {}).value || 'S';
+      if (w !== S.way) { S.slots = []; S.extra = null; S.done.ueben = false; }
+      S.lerncode = c; S.klasse = k; S.email = e; S.way = w; S.started = true; if (!S.startedAt) S.startedAt = Date.now();
+      $('#lerncode').value = c; $('#klasse').value = k; save(); go('einstieg');
+    });
+    var rb = $('#resetBtn'); if (rb) rb.addEventListener('click', function () { if (!confirm('Wirklich neu beginnen? Dein bisheriger Stand in diesem Modul wird gelöscht.')) return; try { localStorage.removeItem(KEY); } catch (e) { } location.hash = ''; location.reload(); });
+  };
+
+  RENDER.einstieg = function () {
+    var s = $('#sec-einstieg'); if (s.dataset.r) return; s.dataset.r = 1;
+    var v = MOD.einstieg.video;
+    s.innerHTML = '<h2 id="h-einstieg">Einstieg</h2>' + (v ? '<div class="video"><iframe src="' + v.src + '" title="' + esc(v.title) + '" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' : '') +
+      '<div class="story">' + MOD.einstieg.html + '</div>' + pager('einstieg');
+    mark('einstieg');
+  };
+  RENDER.ziele = function () {
+    var s = $('#sec-ziele'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-ziele">Das lernst du in diesem Modul</h2><ul class="goals">' + MOD.ziele.map(function (z) { return '<li>' + z + '</li>'; }).join('') + '</ul>' +
+      (MOD.fachwoerter ? '<h3>Fachwörter</h3><dl class="terms">' + MOD.fachwoerter.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl>' : '') + pager('ziele');
+  };
+  RENDER.diagnose = function () {
+    var s = $('#sec-diagnose'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-diagnose">Startdiagnose</h2><p>Finde heraus, was du schon kannst. Das ist kein Test, es zählt nur für dich.</p>' +
+      MOD.diagnose.map(function (d, i) { return '<div class="task"><p class="q"><b>' + (i + 1) + '.</b> ' + d.q + '</p>' + d.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="dg' + i + '" value="' + k + '"' + (S.diag[i] === k ? ' checked' : '') + '><span>' + o + '</span></label>'; }).join('') + '<p class="fb" id="dgfb' + i + '"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="dgBtn">Auswerten</button></div><div class="fb" id="dgSum" role="status"></div>' + pager('diagnose');
+    $$('input[type=radio]', s).forEach(function (r) { r.addEventListener('change', function () { S.diag[+this.name.slice(2)] = +this.value; save(); }); });
+    $('#dgBtn').addEventListener('click', function () { evalDiag(true); });
+    if (S.diagChecked) evalDiag(false);
+  };
+  function evalDiag(user) {
+    var missing = MOD.diagnose.some(function (d, i) { return S.diag[i] == null; });
+    if (missing && user) return fb('#dgSum', 'Beantworte bitte alle Fragen. Wenn du etwas nicht weißt, wähle „Weiß ich noch nicht“.', 'bad');
+    var pts = 0, tips = [];
+    MOD.diagnose.forEach(function (d, i) { var ok = S.diag[i] === d.answer; if (ok) pts++; else if (d.review) tips.push(d.review); fb('#dgfb' + i, (ok ? '✓ ' : '✗ ') + d.why, ok ? 'good' : 'bad'); });
+    S.diagChecked = true; S.diagPts = pts; save(); mark('diagnose');
+    fb('#dgSum', '<b>' + pts + ' von ' + MOD.diagnose.length + ' richtig.</b> ' + (pts === MOD.diagnose.length ? 'Super, die Grundlagen sitzen. Du kannst auch den Lernweg „Weiterdenken“ wählen.' : 'Das solltest du dir vorher noch einmal ansehen:<ul>' + tips.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>'), pts === MOD.diagnose.length ? 'good' : 'hint');
+  }
+  RENDER.erklaerung = function () {
+    var s = $('#sec-erklaerung'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-erklaerung">Erklärung</h2>' + MOD.erklaerung + '<div class="actions"><button class="btn" id="exOk">Verstanden</button></div><p class="fb" id="exFb"></p>' + pager('erklaerung');
+    $('#exOk').addEventListener('click', function () { mark('erklaerung'); fb('#exFb', 'Prima. Probiere es jetzt selbst aus.', 'good'); });
+    if (S.done.erklaerung) fb('#exFb', '✓ Erledigt', 'good');
+  };
+  RENDER.entdecken = function () {
+    var s = $('#sec-entdecken'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-entdecken">Ausprobieren</h2><div id="explore">' + MOD.entdecken.html + '</div><p class="fb" id="enFb"></p>' + pager('entdecken');
+    MOD.entdecken.init($('#explore'), function (msg) { mark('entdecken'); if (msg) fb('#enFb', msg, 'good'); });
+  };
+  RENDER.beispiel = function () {
+    var s = $('#sec-beispiel'); if (s.dataset.r) return; s.dataset.r = 1;
+    var B = MOD.beispiel;
+    s.innerHTML = '<h2 id="h-beispiel">Beispiel: ' + B.title + '</h2><div class="task"><p class="q">' + B.q + '</p><ol class="steps" id="bsSteps"></ol><div class="actions"><button class="btn" id="bsNext">Nächster Schritt</button></div></div>' + pager('beispiel');
+    var i = 0; $('#bsNext').addEventListener('click', function () { if (i < B.steps.length) { $('#bsSteps').appendChild(h('li', null, B.steps[i])); i++; } if (i >= B.steps.length) { this.disabled = true; this.textContent = 'Alle Schritte gezeigt'; } });
+  };
+
+  /* Üben */
+  function plan() { return MOD.tasks.plan[S.way] || MOD.tasks.plan.S; }
+  RENDER.ueben = function () {
+    var s = $('#sec-ueben');
+    var p = plan();
+    if (S.slots.length !== p.length) { S.slots = p.map(function (k) { var parts = k.split(':'); return { key: parts[0], level: +(parts[1] || 2), task: gen(parts[0], +(parts[1] || 2)), solved: false, tries: 0, hints: 0, shown: false, values: [] }; }); save(); }
+    s.innerHTML = '<h2 id="h-ueben">Üben</h2><p>Bearbeite alle ' + p.length + ' Aufgaben. Bei jeder Aufgabe kannst du Tipps öffnen. Mit „Neue Aufgabe“ bekommst du neue Zahlen.</p><div id="slots"></div><div class="fb" id="ubSum" role="status"></div>' + pager('ueben');
+    var box = $('#slots'); S.slots.forEach(function (sl, i) { box.appendChild(slotCard(sl, i)); });
+    ubSum();
+  };
+  function levelTag(l) { return ['', 'Grundlage', 'Standard', 'Knobeln'][l] || ''; }
+  function slotCard(sl, i) {
+    var t = sl.task, c = h('div', { class: 'task' + (sl.solved ? ' solved' : ''), id: 'slot' + i });
+    var showHints = S.way === 'G' ? 1 : 0;
+    c.innerHTML = '<div class="thead"><span class="tag">' + levelTag(sl.level) + '</span><span class="tag plain">Aufgabe ' + (i + 1) + '</span>' + (sl.solved ? '<span class="tag ok">✓ gelöst</span>' : '') + '</div>' +
+      '<div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 's' + i, sl.values) + '</div>' +
+      '<div class="actions"><button class="btn" data-a="check">Prüfen</button><button class="btn ghost" data-a="hint">Tipp</button><button class="btn ghost" data-a="new">Neue Aufgabe</button></div>' +
+      '<div class="hints"></div><p class="fb" role="status"></p>';
+    var hintsBox = $('.hints', c);
+    function drawHints() { hintsBox.innerHTML = t.hints.slice(0, Math.max(sl.hints, showHints)).map(function (x, k) { return '<div class="hint"><b>Tipp ' + (k + 1) + ':</b> ' + x + '</div>'; }).join('') + (sl.shown ? '<div class="hint sol"><b>Lösungsweg:</b> ' + t.solution + '</div>' : ''); }
+    drawHints();
+    c.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-a]'); if (!b) return;
+      var a = b.dataset.a, f = $('.fb', c);
+      if (a === 'check') {
+        var vals = readInputs(t, 's' + i, c); sl.values = vals;
+        var res = t.inputs.map(function (inp, k) { return checkInput(inp, vals[k]); });
+        if (res.some(function (r) { return r.empty; })) { f.className = 'fb bad'; f.textContent = 'Fülle bitte alle Felder aus.'; return; }
+        sl.tries++; S.stats.attempts++;
+        var ok = res.every(function (r) { return r.ok; });
+        if (ok) {
+          if (!sl.solved) { sl.solved = true; if (sl.tries === 1 && !sl.hints && !sl.shown) S.stats.firstTry++; }
+          if (sl === S.extra) mark('weiterdenken');
+          f.className = 'fb good'; f.innerHTML = '✓ Richtig! ' + (t.praise || '');
+          c.classList.add('solved'); var hd = $('.thead', c); if (!$('.tag.ok', hd)) hd.appendChild(h('span', { class: 'tag ok' }, '✓ gelöst'));
+        } else {
+          var msg = (res.filter(function (r) { return r.msg; })[0] || {}).msg;
+          var spec = !msg && t.mistakes ? t.mistakes(vals) : null;
+          f.className = 'fb ' + (res.some(function (r) { return r.almost; }) ? 'hint' : 'bad');
+          f.innerHTML = msg || spec || (sl.tries >= 2 ? 'Noch nicht. Öffne einen Tipp, der hilft dir weiter.' : 'Noch nicht richtig. Prüfe deine Rechnung noch einmal.');
+        }
+        save(); ubSum();
+      } else if (a === 'hint') {
+        if (Math.max(sl.hints, showHints) < t.hints.length) { sl.hints = Math.max(sl.hints, showHints) + 1; S.stats.hints++; }
+        else if (!sl.shown) { sl.shown = true; S.stats.solutions++; }
+        drawHints(); save();
+        b.textContent = sl.shown ? 'Lösungsweg gezeigt' : (Math.max(sl.hints, showHints) >= t.hints.length ? 'Lösungsweg zeigen' : 'Weiterer Tipp');
+      } else if (a === 'new') {
+        if (!sl.solved && !sl.shown && sl.tries < 2) { f.className = 'fb hint'; f.textContent = 'Versuche die Aufgabe erst zweimal oder öffne den Lösungsweg. Dann bekommst du eine neue.'; return; }
+        var wasSolved = sl.solved;
+        var nt = gen(sl.key, sl.level); sl.task = nt; sl.tries = 0; sl.hints = 0; sl.shown = false; sl.values = []; sl.solved = false; if (wasSolved) sl.solved = false;
+        save(); c.replaceWith(slotCard(sl, i)); ubSum();
+      }
+    });
+    return c;
+  }
+  function ubSum() {
+    var n = S.slots.filter(function (x) { return x.solved; }).length;
+    if (n === S.slots.length && n > 0) { mark('ueben'); fb('#ubSum', '<b>Alle ' + n + ' Aufgaben gelöst.</b> Weiter geht es mit „Weiterdenken“ oder direkt mit dem Abschlusstest.', 'good'); }
+    else fb('#ubSum', n + ' von ' + S.slots.length + ' Aufgaben gelöst.', '');
+  }
+
+  RENDER.weiterdenken = function () {
+    var s = $('#sec-weiterdenken');
+    if (!S.extra) { S.extra = { task: gen(MOD.tasks.extra, 3), solved: false, hints: 0, shown: false, values: [], tries: 0 }; save(); }
+    var sl = S.extra, t = sl.task;
+    s.innerHTML = '<h2 id="h-weiterdenken">Weiterdenken</h2><p>' + (S.way === 'E' ? 'Diese Aufgabe ist für deinen Lernweg Pflicht.' : 'Diese Aufgabe ist freiwillig. Sie zeigt dir, ob du das Thema auch in neuen Situationen nutzen kannst.') + '</p>';
+    var c = slotCard(sl, 'x'); s.appendChild(c); s.insertAdjacentHTML('beforeend', pager('weiterdenken'));
+  };
+
+  /* Abschlusstest */
+  RENDER.test = function () {
+    var s = $('#sec-test');
+    if (!S.test) { S.test = { items: MOD.tasks.test.map(function (k) { var p = k.split(':'); return gen(p[0], +(p[1] || 2)); }), values: [], done: false, pts: 0, runs: 0, best: 0, details: [] }; save(); }
+    var T = S.test;
+    s.innerHTML = '<h2 id="h-test">Abschlusstest</h2><p>' + T.items.length + ' Aufgaben ohne Tipps. Rechne im Heft mit und trage dann deine Ergebnisse ein. Du wertest den Test einmal aus.</p>' +
+      T.items.map(function (t, i) { return '<div class="task" id="ti' + i + '"><div class="thead"><span class="tag plain">Aufgabe ' + (i + 1) + '</span></div><div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 't' + i, T.values[i]) + '</div><p class="fb"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="tBtn"' + (T.done ? ' disabled' : '') + '>Test auswerten</button>' + (T.done ? '<button class="btn ghost" id="tNew">Noch einmal mit neuen Aufgaben</button>' : '') + '</div><div class="fb" id="tSum" role="status"></div>' + pager('test');
+    T.items.forEach(function (t, i) { $$('input', $('#ti' + i)).forEach(function (el) { el.addEventListener('input', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); el.addEventListener('change', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); }); });
+    $('#tBtn').addEventListener('click', function () {
+      var vals = T.items.map(function (t, i) { return readInputs(t, 't' + i, $('#ti' + i)); });
+      var empty = vals.some(function (v) { return v.some(function (x) { return String(x).trim() === ''; }); });
+      if (empty && !confirm('Du hast noch nicht alle Felder ausgefüllt. Trotzdem auswerten?')) return;
+      T.values = vals; T.done = true; T.runs++; save(); showTest();
+      $('#tBtn').disabled = true;
+      if (!$('#tNew')) { var nb = h('button', { class: 'btn ghost', id: 'tNew' }, 'Noch einmal mit neuen Aufgaben'); $('#tBtn').after(nb); bindNew(); }
+    });
+    function bindNew() { var n = $('#tNew'); if (n) n.addEventListener('click', function () { if (!confirm('Neuer Test mit neuen Zahlen? Dein bestes Ergebnis bleibt gespeichert.')) return; var best = T.best, runs = T.runs; S.test = null; save(); RENDER.test(); S.test.best = best; S.test.runs = runs; save(); }); }
+    bindNew();
+    if (T.done) showTest();
+  };
+  function showTest() {
+    var T = S.test, pts = 0;
+    T.details = T.items.map(function (t, i) {
+      var res = t.inputs.map(function (inp, k) { return checkInput(inp, (T.values[i] || [])[k]); });
+      var ok = res.every(function (r) { return r.ok; }); if (ok) pts++;
+      var f = $('#ti' + i + ' .fb'); f.className = 'fb ' + (ok ? 'good' : 'bad'); f.innerHTML = ok ? '✓ Richtig' : '✗ Nicht richtig. <b>Lösung:</b> ' + t.solution;
+      $$('#ti' + i + ' input').forEach(function (e) { e.disabled = true; });
+      return { aufgabe: i + 1, skill: t.skill || t.key, richtig: ok };
+    });
+    T.pts = pts; T.best = Math.max(T.best || 0, pts); save(); mark('test');
+    var pct = Math.round(pts / T.items.length * 100);
+    fb('#tSum', '<b>' + pts + ' von ' + T.items.length + ' Aufgaben richtig (' + pct + ' %).</b> ' + verdict(pct), pct >= 80 ? 'good' : pct >= 50 ? 'hint' : 'bad');
+  }
+  function verdict(p) { return p >= 80 ? 'Sehr gut, du beherrschst das Thema.' : p >= 50 ? 'Ein guter Stand. Übe die falschen Aufgabentypen noch einmal.' : 'Arbeite die Erklärung und die Übungen noch einmal durch und nutze die Tipps.'; }
+
+  RENDER.lerncheck = function () {
+    var s = $('#sec-lerncheck'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-lerncheck">Mein Lerncheck</h2><p>Wie sicher bist du? Sei ehrlich, das hilft dir und deiner Lehrkraft.</p>' +
+      MOD.lerncheck.map(function (l, i) { return '<fieldset class="lc"><legend>' + l + '</legend>' + LC_SCALE.map(function (x, k) { return '<label class="chip"><input type="radio" name="lc' + i + '" value="' + k + '"' + (S.lc[i] === k ? ' checked' : '') + '><span>' + x + '</span></label>'; }).join('') + '</fieldset>'; }).join('') +
+      '<p class="fb" id="lcFb" role="status"></p>' + pager('lerncheck');
+    $$('input', s).forEach(function (r) { r.addEventListener('change', function () { S.lc[+this.name.slice(2)] = +this.value; save(); lcState(); }); });
+    lcState();
+  };
+  function lcState() { var n = MOD.lerncheck.filter(function (l, i) { return S.lc[i] != null; }).length; if (n === MOD.lerncheck.length) { mark('lerncheck'); fb('#lcFb', '✓ Lerncheck ausgefüllt.', 'good'); } else fb('#lcFb', n + ' von ' + MOD.lerncheck.length + ' Aussagen bewertet.', ''); }
+
+  /* Ergebnis und Abgabe */
+  function minutes() { return S.startedAt ? Math.max(1, Math.round((Date.now() - S.startedAt) / 60000)) : 0; }
+  function payload() {
+    var T = S.test || { pts: 0, items: [], details: [] };
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    if (!S.abgabeId) { S.abgabeId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); save(); }
+    return {
+      schema_version: '2.0', fach: 'Mathematik', jahrgang: String(CFG.jahrgang), modul_id: MOD.id, modul_titel: MOD.title, dateiversion: CFG.version,
+      lerncode: S.lerncode, klasse: S.klasse, email: S.email, lernweg: WAYS[S.way],
+      bearbeitungsstand: Math.round(n / req().length * 100), pflichtschritte: req().filter(function (k) { return S.done[k]; }),
+      diagnose_punkte: S.diagPts || 0, diagnose_max: MOD.diagnose.length,
+      uebungen_geloest: S.slots.filter(function (x) { return x.solved; }).length, uebungen_gesamt: S.slots.length,
+      uebungen_erster_versuch: S.stats.firstTry, tipps_genutzt: S.stats.hints, loesungswege_genutzt: S.stats.solutions,
+      weiterdenken_geloest: !!(S.extra && S.extra.solved),
+      test_punkte: T.done ? T.pts : 0, test_max: T.items.length, test_prozent: T.done && T.items.length ? Math.round(T.pts / T.items.length * 100) : 0,
+      test_durchlaeufe: T.runs || 0, test_details: T.details || [],
+      lerncheck: MOD.lerncheck.map(function (l, i) { return { aussage: l, einschaetzung: S.lc[i] != null ? LC_SCALE[S.lc[i]] : '' }; }),
+      bearbeitungszeit_min: minutes(), abgabe_id: S.abgabeId, zeitstempel_client: new Date().toISOString()
+    };
+  }
+  RENDER.ergebnis = function () {
+    var s = $('#sec-ergebnis'), p = payload();
+    var missing = req().filter(function (k) { return !S.done[k]; }).map(function (k) { return SECTIONS.find(function (x) { return x[0] === k; })[1]; });
+    s.innerHTML = '<h2 id="h-ergebnis">Mein Ergebnis</h2>' +
+      '<div class="summary"><div><b>Lerncode</b>' + esc(p.lerncode) + ' · ' + esc(p.klasse) + '</div><div><b>Bearbeitet</b>' + p.bearbeitungsstand + ' %</div><div><b>Abschlusstest</b>' + p.test_punkte + ' von ' + p.test_max + ' (' + p.test_prozent + ' %)</div><div><b>Übungen</b>' + p.uebungen_geloest + ' von ' + p.uebungen_gesamt + ' gelöst</div><div><b>Tipps genutzt</b>' + p.tipps_genutzt + '</div><div><b>Zeit</b>ca. ' + p.bearbeitungszeit_min + ' Min.</div></div>' +
+      (missing.length ? '<p class="fb hint">Noch offen: ' + missing.join(', ') + '. Du kannst trotzdem senden.</p>' : '<p class="fb good">Alle Pflichtschritte erledigt. Stark!</p>') +
+      '<p class="note">' + (S.test && S.test.done ? verdict(p.test_prozent) : 'Bearbeite den Abschlusstest, damit deine Lehrkraft sieht, was du kannst.') + '</p>' +
+      '<div class="actions"><button class="btn big" id="sendBtn">Ergebnis an die Lehrkraft senden</button><button class="btn ghost" id="copyBtn">Zusammenfassung kopieren</button><button class="btn ghost" onclick="window.print()">Drucken</button></div>' +
+      '<p class="fb" id="sendFb" role="status">' + (S.sent ? '✓ Bereits gesendet. Du kannst nach Änderungen erneut senden.' : '') + '</p>' + pager('ergebnis');
+    $('#sendBtn').addEventListener('click', send);
+    $('#copyBtn').addEventListener('click', function () {
+      var t = 'SOL Mathe ' + CFG.jahrgang + ' · Modul ' + MOD.id + ' ' + MOD.title + '\nLerncode: ' + p.lerncode + ' (' + p.klasse + ')\nBearbeitet: ' + p.bearbeitungsstand + ' %\nTest: ' + p.test_punkte + '/' + p.test_max + '\nÜbungen: ' + p.uebungen_geloest + '/' + p.uebungen_gesamt + '\nTipps: ' + p.tipps_genutzt;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { fb('#sendFb', 'Zusammenfassung kopiert.', 'good'); }, function () { prompt('Zum Kopieren markieren:', t); });
+    });
+  };
+  function isLive() { return /(?:edmundbruns\.com|pages\.dev)$/.test(location.hostname); }
+  function send() {
+    if (!S.started || !normCode(S.lerncode) || !normKlasse(S.klasse) || !emailOk(S.email)) { go('start'); return fb('#startFb', 'Bitte prüfe Lerncode, Klasse und IServ-Adresse.', 'bad'); }
+    var p = payload(), btn = $('#sendBtn');
+    if (!isLive() || !CFG.endpoint || CFG.endpoint.indexOf('script.google.com') < 0) { console.log('[SOL8] Vorschau, Payload:', p); return fb('#sendFb', 'Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an deine Lehrkraft.', 'hint'); }
+    btn.disabled = true; fb('#sendFb', 'Wird gesendet …', '');
+    window.ebSend(CFG.endpoint, p).then(function (r) {
+      btn.disabled = false;
+      if (r.ok) { S.sent = true; save(); fb('#sendFb', 'Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen.', 'good'); }
+      else fb('#sendFb', 'Nicht gespeichert: ' + esc(r.msg) + ' Dein Stand bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann noch einmal auf Senden.', 'bad');
+    });
+  }
+
+  /* ---------- Start ---------- */
+  (S.slots || []).forEach(function (sl) { revive(sl.task); });
+  if (S.extra) revive(S.extra.task);
+  if (S.test && S.test.items) S.test.items.forEach(revive);
+  buildShell(); progress();
+  var hash = (location.hash || '').slice(1);
+  var startSec = SECTIONS.some(function (s) { return s[0] === hash; }) ? hash : (S.started ? S.sec : 'start');
+  show(S.started ? startSec : 'start');
+  window.SOL8 = { state: function () { return S; }, payload: payload, checkInput: checkInput, gen: gen };
+})();
+
+</script>
+</body>
+</html>

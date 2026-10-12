@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#254c3b">
+<meta name="description" content="SOL Geschichte Jahrgang 6, Modul 005: Wie wuchsen Städte im Mittelalter?">
+<title>SOL Geschichte 6 | Modul 005 | Wie wuchsen Städte im Mittelalter?</title>
+<style>
+:root{--ink:#102d2f;--paper:#fff;--cream:#e6eeea;--soft:#e6eeea;--bg:#f5f2ea;--green:#1d6b4f;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#d5d8d0;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #102d2f14;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#0d2426,#1d6b4f);color:#f7fbf9;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#f7fbf9;color:#0d2426;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:40px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#e8f2ee;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#2f6047,#b87824);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#2b3a33;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow)}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#2b3a33}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px}
+.field label,.legend{font-weight:750;color:#2b3a33}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#5b6660}
+.btn{background:var(--green);color:#f7fbf9;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#5b6660;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#e9f2ec}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:700;min-height:44px;display:inline-flex;align-items:center;gap:6px}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow span{flex:1;font-weight:650}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px}
+svg.burg{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#3a463f}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#1d2b24;color:#e8f0ea;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#8b9089;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+.teacher{background:#f6f2ff;border-color:#ddd3f5}
+.doc{background:#f5f7f6}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#5b6660;font-size:.9rem}
+.easy body,body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 6 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Mittelalterliche Lebenswelten · Ermittlungsakte 005</div>
+    <h1>Wie wuchsen Städte im Mittelalter?</h1>
+    <p>Städte entstanden nicht zufällig. Wo eine Straße einen Fluss kreuzte, wo ein Herr einen Markt einrichtete, wo Recht und Mauer Sicherheit versprachen, dort wuchsen sie. In diesem Modul findest du heraus, was zusammenkommen musste.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>005</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 9 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#lage">Die Lage erkunden</a>
+ <a href="#funktionen">Was eine Stadt braucht</a>
+ <a href="#menschen">Wer lebte in der Stadt?</a>
+ <a href="#ursachen">Ursache und Folge</a>
+ <a href="#quelle">Freiburg 1120</a>
+ <a href="#medien">Stadtluft macht frei?</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 6a"><span class="hint">Möglich sind zum Beispiel 6a, Klasse 6a, R6a oder nur 6.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul>
+ <li>Du erklärst, warum Städte an bestimmten Orten entstanden.</li>
+ <li>Du unterscheidest, was eine Siedlung zur Stadt machte.</li>
+ <li>Du beschreibst, wer in der Stadt lebte und arbeitete.</li>
+ <li>Du wertest eine Gründungsurkunde von 1120 aus.</li>
+ <li>Du prüfst, ob ein bekannter Merksatz wirklich aus dem Mittelalter stammt.</li>
+</ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Ermittlung starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Akte 005</span>
+ <p><strong>Fall:</strong> Auf Chronos' Karteikarte steht: <em>„Städte entstanden einfach dort, wo viele Menschen wohnten.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Finde heraus, was wirklich zusammenkommen musste, damit aus einer Siedlung eine Stadt wurde. Am Ende entscheidest du über die Karte.</p>
+</div>
+<div class="chronos">
+ <div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e6eeea" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#1d6b4f"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#1d6b4f"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div>
+ <div><p class="who">Chronos, Archivar</p><p>Im Dorf nebenan wohnten auch viele Menschen. Eine Stadt wurde daraus nie. Irgendetwas fehlt in meiner Karte, ich komme nur nicht darauf.</p></div>
+</div>
+<p><strong>Leitfrage:</strong> Wie wuchsen Städte im Mittelalter?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Kartenleser</span>
+ <span class="abz" id="abz2">Ordnungssinn</span>
+ <span class="abz" id="abz3">Quellenprüfer</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet.</p>
+<div class="task">
+ <span class="tag">Schätzfrage</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">D1. Wie viele Menschen lebten in einer typischen mittelalterlichen Stadt in Mitteleuropa?</legend>
+  <div class="opts">
+   <label><input type="radio" name="d1" value="a"><span>Meist unter 2000, nur wenige Städte waren größer</span></label>
+   <label><input type="radio" name="d1" value="b"><span>Meist über 50 000</span></label>
+   <label><input type="radio" name="d1" value="c"><span>Meist über 200 000</span></label>
+  </div>
+ </fieldset>
+</div>
+<div class="task">
+ <span class="tag">Richtig oder falsch</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">D2. Eine Stadt durfte sich selbst Regeln geben und Gericht halten.</legend>
+  <div class="opts">
+   <label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label>
+   <label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label>
+  </div>
+ </fieldset>
+</div>
+<div class="task">
+ <span class="tag">Vermutung</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">D3. Was war für die Entstehung einer Stadt am wichtigsten?</legend>
+  <div class="opts">
+   <label><input type="radio" name="d3" value="a"><span>Eine günstige Lage für Handel und ein Markt</span></label>
+   <label><input type="radio" name="d3" value="b"><span>Besonders fruchtbarer Ackerboden</span></label>
+   <label><input type="radio" name="d3" value="c"><span>Ein besonders mildes Klima</span></label>
+  </div>
+ </fieldset>
+</div>
+<button class="btn" type="button" id="dCheck">Einschätzung auswerten</button>
+<div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="lage">
+<h2>Die Lage erkunden</h2>
+<p>Chronos hat eine Karte gefunden, aber die Beschriftungen fehlen. Tippe im Bild auf den gesuchten Ort. Du kannst auch die Knöpfe darunter benutzen, das ist gleichwertig.</p>
+<div class="svgwrap">
+ <svg class="burg" viewBox="0 0 640 340" role="img" aria-label="Schematische Karte einer mittelalterlichen Stadt an einem Fluss, mit Handelsstraße, Marktplatz, Stadtmauer, Burg und Kloster">
+  <rect width="640" height="340" fill="#f7f9f5"/>
+  <g id="hFluss" class="hot" tabindex="0" role="button" aria-label="Fluss mit Übergang">
+   <path d="M0 250 q120 -40 240 -10 q120 30 200 -10 q100 -50 200 -20 v50 q-100 -30 -200 20 q-80 40 -200 10 q-120 -30 -240 10 Z" fill="#9fc0d6" stroke="#35627a" stroke-width="2"/>
+   <rect x="286" y="222" width="56" height="16" fill="#8a6a45" stroke="#5c4a35" stroke-width="2"/>
+  </g>
+  <g id="hStrasse" class="hot" tabindex="0" role="button" aria-label="Kreuzung zweier Handelsstraßen">
+   <path d="M314 0 V340" stroke="#cbb994" stroke-width="16" fill="none"/>
+   <path d="M0 150 H640" stroke="#cbb994" stroke-width="14" fill="none"/>
+   <path d="M314 0 V340" stroke="#a89468" stroke-width="2" stroke-dasharray="10 8"/>
+  </g>
+  <g id="hMauer" class="hot" tabindex="0" role="button" aria-label="Stadtmauer mit Toren">
+   <path d="M190 90 h250 v110 h-250 Z" fill="none" stroke="#8a8378" stroke-width="11"/>
+   <rect x="300" y="84" width="30" height="14" fill="#6f675c"/>
+   <rect x="300" y="194" width="30" height="14" fill="#6f675c"/>
+  </g>
+  <g id="hMarkt" class="hot" tabindex="0" role="button" aria-label="Marktplatz">
+   <rect x="272" y="120" width="86" height="52" fill="#e9d7a8" stroke="#aa6d18" stroke-width="3"/>
+   <path d="M282 132 h20 v12 h-20 Z M312 132 h20 v12 h-20 Z M342 132 h8 v12 h-8 Z M282 152 h20 v12 h-20 Z M312 152 h20 v12 h-20 Z" fill="#c9a24a"/>
+  </g>
+  <g id="hBurg" class="hot" tabindex="0" role="button" aria-label="Burg des Stadtherrn">
+   <rect x="470" y="70" width="44" height="70" fill="#c3b8a5" stroke="#6f675c" stroke-width="3"/>
+   <path d="M464 70 h56 v-12 h-10 v7 h-12 v-7 h-12 v7 h-12 v-7 h-10 Z" fill="#8a8378"/>
+  </g>
+  <g id="hKloster" class="hot" tabindex="0" role="button" aria-label="Kloster">
+   <rect x="100" y="110" width="60" height="46" fill="#dfe3da" stroke="#6f675c" stroke-width="3"/>
+   <path d="M124 110 v-26 M114 94 h20" stroke="#6f675c" stroke-width="4"/>
+  </g>
+  <text x="20" y="30" font-size="15" fill="#5b6660">Schematische Karte, keine reale Stadt</text>
+ </svg>
+</div>
+<div class="task">
+ <span class="tag">Kartenarbeit</span>
+ <h3>Suchauftrag</h3>
+ <p id="hotTask">Tippe im Bild auf den gesuchten Ort.</p>
+ <div class="chips" id="hotAlt" aria-label="Orte auswählen, gleichwertig zum Antippen in der Karte"></div>
+ <button class="btn sec" type="button" id="hotReset">Aufgabe zurücksetzen</button>
+ <div class="fb" id="hotFb" role="status" aria-live="polite"></div>
+</div>
+<details class="gloss"><summary>Überraschender Fund aus dem Archiv</summary><div class="body">Die meisten mittelalterlichen Städte waren nach heutigen Maßstäben winzig. Viele hatten wenige hundert bis zweitausend Einwohner. Erst wenige große Handelsstädte wie Köln erreichten mehrere zehntausend. Eine Stadt war also nicht groß, sondern vor allem anders organisiert als ein Dorf.</div></details>
+</section>
+
+<section class="card" id="funktionen">
+<h2>Was eine Stadt braucht</h2>
+<p>Ordne jede Karte dem passenden Bereich zu. Du kannst ziehen oder antippen und dann das Ziel antippen.</p>
+<div class="chips" id="pieces" aria-label="Karten zum Zuordnen"></div>
+<div class="zones" id="zones">
+ <div class="zone" data-zone="lage" tabindex="0" role="button" aria-label="Ablegen bei Lage und Verkehr"><h4>Lage und Verkehr</h4><div class="drop"></div></div>
+ <div class="zone" data-zone="markt" tabindex="0" role="button" aria-label="Ablegen bei Markt und Handel"><h4>Markt und Handel</h4><div class="drop"></div></div>
+ <div class="zone" data-zone="recht" tabindex="0" role="button" aria-label="Ablegen bei Schutz und Recht"><h4>Schutz und Recht</h4><div class="drop"></div></div>
+ <div class="zone" data-zone="arbeit" tabindex="0" role="button" aria-label="Ablegen bei Arbeit und Handwerk"><h4>Arbeit und Handwerk</h4><div class="drop"></div></div>
+</div>
+<button class="btn" type="button" id="zCheck">Zuordnung prüfen</button>
+<button class="btn sec" type="button" id="zReset">Zurücksetzen</button>
+<div class="fb" id="zFb" role="status" aria-live="polite"></div>
+<div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Frage dich bei jeder Karte: Geht es darum, wie man hinkommt, was gehandelt wird, wer schützt und Recht spricht, oder wer etwas herstellt?</div>
+</section>
+
+<section class="card" id="menschen">
+<h2>Wer lebte in der Stadt?</h2>
+<p>In der Stadt lebten sehr unterschiedliche Menschen. Nicht alle hatten dieselben Rechte, und längst nicht jeder war Bürger.</p>
+<div class="task">
+ <span class="tag">Mehrfachauswahl</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">M1. Wähle alle aus, die typischerweise in einer mittelalterlichen Stadt lebten und arbeiteten.</legend>
+  <div class="opts">
+   <label><input type="checkbox" name="m1" value="kaufleute"><span>Kaufleute</span></label>
+   <label><input type="checkbox" name="m1" value="handwerker"><span>Handwerkerinnen und Handwerker</span></label>
+   <label><input type="checkbox" name="m1" value="tagelohn"><span>Tagelöhner und Dienstboten</span></label>
+   <label><input type="checkbox" name="m1" value="alleBauern"><span>Alle Bauern der Umgebung</span></label>
+   <label><input type="checkbox" name="m1" value="koenig"><span>Der König mit seinem Hof, dauerhaft</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="m1Check">Prüfen</button>
+ <button class="btn sec" type="button" id="m1Reset">Zurücksetzen</button>
+ <div class="fb" id="m1Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ursachen">
+<h2>Ursache und Folge</h2>
+<p>Bringe die Kette in die richtige Reihenfolge. Sie beginnt mit der Ausgangslage und endet mit der fertigen Stadt.</p>
+<div class="order" id="chain"></div>
+<button class="btn" type="button" id="cCheck">Kette prüfen</button>
+<button class="btn sec" type="button" id="cReset">Neu mischen</button>
+<div class="fb" id="cFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: Freiburg 1120</h2>
+<p>Chronos hat einen der bekanntesten Texte zur Stadtgründung herausgesucht.</p>
+<div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>Marktgründung von Freiburg im Breisgau durch Konrad von Zähringen, 1120.</strong></p>
+ <p><em>Inhaltsangabe, kein Wortlaut:</em> Konrad hält fest, dass er auf eigenem Grund einen Markt gründet. Jedem Kaufmann, der dorthin kommt, weist er ein Grundstück zu, auf dem dieser ein Haus bauen darf. Wer nach Freiburg kommt, soll dort frei und sicher leben. Als Bürger gilt, wer freien Besitz im Wert von mindestens einer Mark hat. Die Bewohner erhalten weitere Zusagen, etwa die Befreiung vom Grundzins und das Recht, ihren Pfarrer selbst zu wählen.</p>
+</div>
+<div class="task">
+ <span class="tag">Quellenarbeit</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">S1. Was sichert Konrad den Menschen zu? Wähle alle zutreffenden Punkte aus.</legend>
+  <div class="opts">
+   <label><input type="checkbox" name="s1" value="grundstueck"><span>Jedem Kaufmann ein Grundstück</span></label>
+   <label><input type="checkbox" name="s1" value="haus"><span>Das Recht, darauf ein Haus zu bauen</span></label>
+   <label><input type="checkbox" name="s1" value="frei"><span>Frei und sicher zu leben</span></label>
+   <label><input type="checkbox" name="s1" value="pfarrer"><span>Den Pfarrer selbst zu wählen</span></label>
+   <label><input type="checkbox" name="s1" value="adel"><span>Den Aufstieg in den Adel</span></label>
+   <label><input type="checkbox" name="s1" value="schule"><span>Eine kostenlose Schule für alle Kinder</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="s1Check">Prüfen</button>
+ <button class="btn sec" type="button" id="s1Reset">Zurücksetzen</button>
+ <div class="fb" id="s1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Quellenkritik</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">S2. Von dieser Urkunde ist <strong>kein Original</strong> erhalten. Der Text wurde aus einer Abschrift des 14. Jahrhunderts rekonstruiert. Was folgt daraus?</legend>
+  <div class="opts">
+   <label><input type="radio" name="s2" value="a"><span>Man muss damit rechnen, dass beim Abschreiben später etwas verändert oder ergänzt wurde</span></label>
+   <label><input type="radio" name="s2" value="b"><span>Der Text ist damit wertlos</span></label>
+   <label><input type="radio" name="s2" value="c"><span>Das spielt keine Rolle, Abschriften sind immer wortgleich</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="s2Check">Prüfen</button>
+ <div class="fb" id="s2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="medien">
+<h2>Stadtluft macht frei?</h2>
+<p>Diesen Satz kennen viele. Er steht in Schulbüchern, auf Plakaten und in Museen. Sieh ihn dir genauer an.</p>
+<div class="notice warn"><strong>Fachlich wichtig:</strong> Der Satz „Stadtluft macht frei“ ist <strong>kein mittelalterlicher Rechtstext</strong>. In dieser Form wurde er erst im 19. Jahrhundert geprägt, unter anderem durch Jakob Grimm. Dahinter steht aber ein echter Rechtsgrundsatz: Wer als unfreie Person <em>nach Jahr und Tag</em> unangefochten in der Stadt lebte, konnte von der bisherigen Herrschaft nicht mehr zurückgefordert werden.</div>
+<div class="task">
+ <span class="tag">Medienkritik</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">Q1. Wie beurteilst du den Satz?</legend>
+  <div class="opts">
+   <label><input type="radio" name="q1" value="a"><span>Er fasst einen echten Rechtsgrundsatz zusammen, ist aber selbst eine spätere Formulierung</span></label>
+   <label><input type="radio" name="q1" value="b"><span>Er ist ein wörtliches Zitat aus einer mittelalterlichen Urkunde</span></label>
+   <label><input type="radio" name="q1" value="c"><span>Er ist frei erfunden und hat mit dem Mittelalter nichts zu tun</span></label>
+  </div>
+ </fieldset>
+ <button class="btn" type="button" id="q1Check">Prüfen</button>
+ <div class="fb" id="q1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task" data-lw="weiter">
+ <span class="tag">Weiterdenken · Perspektive</span>
+ <label class="legend" for="q2">Q2. Die Regel galt erst <em>nach Jahr und Tag</em>. Was bedeutete diese Wartezeit für einen Menschen, der vom Land in die Stadt floh? Nenne eine Chance und ein Risiko und begründe kurz.</label>
+ <textarea id="q2" placeholder="Eine Chance war ..., weil ... Ein Risiko war ..., weil ..."></textarea>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn" type="button" id="q2Check">Antwort prüfen</button>
+ <div class="fb" id="q2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Markt</summary><div class="body">Ein festgelegter Ort und Zeitpunkt für Kauf und Verkauf. Das Marktrecht musste ein Herr verleihen.</div></details>
+<details class="gloss"><summary>Stadtrecht</summary><div class="body">Eigene Regeln einer Stadt, oft mit eigenem Gericht. Es unterschied die Stadt vom Dorf.</div></details>
+<details class="gloss"><summary>Bürger</summary><div class="body">Vollmitglied der Stadtgemeinde mit Rechten und Pflichten. In Freiburg war dafür freier Besitz im Wert von mindestens einer Mark nötig. Nicht alle Bewohner waren Bürger.</div></details>
+<details class="gloss"><summary>Zunft</summary><div class="body">Zusammenschluss von Handwerkern eines Berufs. Zünfte regelten Ausbildung, Qualität und Preise.</div></details>
+<details class="gloss"><summary>Jahr und Tag</summary><div class="body">Eine Frist im mittelalterlichen Recht, meist ein Jahr, sechs Wochen und drei Tage. Nach ihr galten bestimmte Ansprüche als verfallen.</div></details>
+<details class="gloss"><summary>Urkunde</summary><div class="body">Ein rechtsgültiges Schriftstück. Ist nur eine spätere Abschrift erhalten, muss man prüfen, ob der Text unverändert überliefert wurde.</div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der vier Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p>
+<div id="selfcheck">
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann erklären, warum Städte an bestimmten Orten entstanden.</legend>
+  <div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div>
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann sagen, was eine Stadt vom Dorf unterschied.</legend>
+  <div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div>
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann eine Urkunde auswerten und einordnen.</legend>
+  <div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div>
+ <div class="task"><fieldset style="border:0;padding:0"><legend class="legend">Ich kann prüfen, ob ein bekannter Satz wirklich aus der Zeit stammt.</legend>
+  <div class="scale"><label><input type="radio" name="lc4" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc4" value="Geht schon">Geht schon</label><label><input type="radio" name="lc4" value="Sicher">Sicher</label></div></fieldset></div>
+</div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte">
+ <span class="stamp">Zu prüfen</span>
+ <p>Auf Chronos' Karteikarte steht: <em>„Städte entstanden einfach dort, wo viele Menschen wohnten.“</em></p>
+</div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0"><legend class="legend">A1. Wie entscheidest du?</legend>
+  <div class="opts">
+   <label><input type="radio" name="a1" value="ok"><span>Die Karte stimmt so.</span></label>
+   <label><input type="radio" name="a1" value="teil"><span>Die Karte ist zu einfach. Entscheidend waren die Lage, ein Markt und eigenes Recht, nicht allein die Zahl der Menschen.</span></label>
+   <label><input type="radio" name="a1" value="falsch"><span>Die Karte ist völlig falsch. In Städten wohnten kaum Menschen.</span></label>
+  </div>
+ </fieldset>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine kurze Nachricht. Erkläre in zwei bis vier Sätzen, was zusammenkommen musste, damit eine Stadt wuchs. Nenne mindestens ein Beispiel aus der Karte oder der Urkunde.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, deine Karte muss ergänzt werden, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Wichtig war zuerst die Lage, weil ...“ · „Dazu kam ein Markt, denn ...“ · „Außerdem brauchte die Stadt eigenes Recht, damit ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Nachricht prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 9</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" onclick="window.print()">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <details class="gloss"><summary>Vollständigen Datenüberblick anzeigen</summary><div class="body"><pre class="pay" id="payloadView"></pre></div></details>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card teacher" id="lehrkraft">
+<h2>Hinweise für die Lehrkraft</h2>
+<div class="grid2">
+ <div><h3>Fachlich</h3><ul>
+  <li>Jahrgang 6, Oberschule Niedersachsen</li>
+  <li>Themenbereich: Mittelalterliche Lebenswelten</li>
+  <li>Kern: Standortfaktoren, Marktrecht, Stadtrecht, Stadtbevölkerung, Quellenkritik</li>
+  <li>Anschluss an Modul 004: Die Burg als Herrschaftsort wird vorausgesetzt, hier tritt die Stadt daneben</li>
+  <li>Vorbereitung auf Modul 006: Kirche und Klöster</li>
+ </ul></div>
+ <div><h3>Kompetenzen</h3><ul>
+  <li>Sachkompetenz: Stadt und Dorf unterscheiden, Fachbegriffe</li>
+  <li>Methodenkompetenz: Kartenarbeit, Urkundenauswertung, Ursache-Folge-Kette</li>
+  <li>Urteilskompetenz: Aussage prüfen und begründet korrigieren</li>
+  <li>Orientierungskompetenz: Größenordnung mittelalterlicher Städte einordnen</li>
+  <li>Medienkompetenz: verbreiteten Merksatz auf seine Herkunft prüfen</li>
+ </ul></div>
+</div>
+<h3>Differenzierung</h3>
+<ul>
+ <li><strong>Sicher werden:</strong> Hilfekasten bei der Zuordnung, Satzanfänge für die Abschlussmission</li>
+ <li><strong>Standard:</strong> vollständige Aufgabenfolge</li>
+ <li><strong>Weiterdenken:</strong> Zusatzaufgabe Q2 zur Frist „Jahr und Tag“ mit Chance und Risiko</li>
+</ul>
+<h3>Typische Fehlvorstellungen</h3>
+<ul>
+ <li>Mittelalterliche Städte seien groß gewesen</li>
+ <li>„Stadtluft macht frei“ sei ein mittelalterliches Zitat</li>
+ <li>Städte seien allein durch Bevölkerungswachstum entstanden</li>
+ <li>Alle Stadtbewohner seien Bürger gewesen</li>
+</ul>
+</section>
+
+<section class="card doc" id="doku">
+<h2>Quellen und fachliche Grundlage</h2>
+<ul>
+ <li>Schriftliche Quelle: Marktgründung Freiburgs durch Konrad von Zähringen, 1120. Im Modul als Inhaltsangabe wiedergegeben, nicht im Wortlaut.</li>
+ <li>Wichtig und im Modul thematisiert: Von der Urkunde ist kein zeitgenössisches Original erhalten. Der bekannte Text ist eine Rekonstruktion auf Grundlage einer Überlieferung im Tennenbacher Güterbuch aus der ersten Hälfte des 14. Jahrhunderts.</li>
+ <li>Der Satz „Stadtluft macht frei“ ist in dieser Form eine Prägung des 19. Jahrhunderts, unter anderem durch Jakob Grimm. Der zugrunde liegende Rechtsgrundsatz „nach Jahr und Tag“ ist mittelalterlich.</li>
+ <li>Alle Abbildungen sind eigene schematische Zeichnungen. Sie zeigen keine reale Stadt und sind keine historischen Quellen.</li>
+ <li>Es werden keine wörtlichen Zitate erfunden und keine erfundenen Quellen verwendet.</li>
+ <li>Version 1.0.0, 21.07.2026. Keine externen Bibliotheken, keine Cookies, kein Tracking.</li>
+</ul>
+</section>
+</main></div>
+<footer>SOL Geschichte 6 · Modul 005 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-6" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-6"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={modul:"005",titel:"Wie wuchsen Städte im Mittelalter?",
+ bereich:"Mittelalterliche Lebenswelten",version:"1.0.0",
+ key:"sol-geschichte-005",
+ endpoint:"https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec",
+ maxPunkte:9};
+const S={lernweg:"standard",done:{},punkte:{},hotIdx:0,hotOk:0,placed:{},chain:[],sent:false,q2:"nicht bearbeitet"};
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","dazu"];
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+const SCHRITTE=["start","diagnose","hot","zuord","m1","chain","s1","q1","lerncheck","a2"];
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ $("#abz1").classList.toggle("on",!!S.done.hot);
+ $("#abz2").classList.toggle("on",!!(S.done.zuord&&S.done.chain));
+ $("#abz3").classList.toggle("on",!!(S.done.q1&&S.done.s1));
+ $("#abz4").classList.toggle("on",S.punkte.a2>=1);
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge. Einige Zusatzaufgaben werden ausgeblendet.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Quellenaufgabe."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 6a."};
+ const m=t.match(/6([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 6. Schreibe zum Beispiel 6a, Klasse 6b oder nur 6."};
+ return{ok:true,wert:"6"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb","Alles bereit. Chronos wartet schon. Es geht weiter mit der Mission.","ok");
+ location.hash="mission";
+});
+
+/* ---------- Startdiagnose ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const g=n=>(document.querySelector('input[name="'+n+'"]:checked')||{}).value;
+ const a=[g("d1")==="a",g("d2")==="f",g("d3")==="a"];
+ const r=a.filter(Boolean).length;
+ let m;
+ if(r===3)m="Drei von drei. Deine Vermutungen passen gut. Der Lernweg Weiterdenken könnte für dich spannend sein.";
+ else if(r===2)m="Zwei von drei. Gute Grundlage. Achte im Modul besonders darauf, was ein Herr erlauben musste, damit Handel möglich wurde.";
+ else m="Du hast "+r+" von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.";
+ if(g("d1")!=="a")m+=" Ein Hinweis vorab: Mittelalterliche Städte waren nach heutigen Maßstäben klein.";
+ fb("#dFb",m,r>=2?"ok":"hint");
+ fertig("diagnose");
+});
+
+/* ---------- Bildarbeit: Bauteile finden ---------- */
+const HOT=[
+ {id:"hMarkt",name:"Marktplatz",tipp:"Gesucht ist der freie Platz in der Mitte, auf dem Buden stehen. Ohne ihn wäre der Ort ein Dorf geblieben.",sich:"Richtig. Der Markt war der Kern. Erst das verliehene Marktrecht machte regelmäßigen Handel an einem festen Ort möglich."},
+ {id:"hFluss",name:"Fluss mit Übergang",tipp:"Gesucht ist der Wasserlauf mit der Brücke. Auf ihm ließen sich Waren billig transportieren, und hier konnte man ihn überqueren.",sich:"Richtig. Flüsse waren die Autobahnen des Mittelalters. Wo ein Übergang lag, mussten alle Reisenden vorbei, und genau dort lohnte sich ein Markt."},
+ {id:"hMauer",name:"Stadtmauer",tipp:"Gesucht ist die Linie, die den Ort umschließt. Sie schützte und zeigte zugleich, wo eigenes Recht galt.",sich:"Richtig. Die Mauer war Schutz und Grenze. Innerhalb galt Stadtrecht, außerhalb nicht. Sie war teuer und deshalb ein Zeichen von Selbstbewusstsein."}
+];
+const ALLEHOT=[{id:"hMarkt",name:"Marktplatz"},{id:"hFluss",name:"Fluss mit Übergang"},{id:"hMauer",name:"Stadtmauer"},{id:"hStrasse",name:"Handelsstraßen"},{id:"hBurg",name:"Burg"},{id:"hKloster",name:"Kloster"}];
+function hotAufgabe(){
+ if(S.hotIdx>=HOT.length){
+  $("#hotTask").textContent="Alle drei Orte gefunden. Chronos hat die Beschriftungen wieder eingeklebt.";
+  $("#hotAlt").innerHTML="";return;
+ }
+ const z=HOT[S.hotIdx];
+ $("#hotTask").textContent="Suchauftrag "+(S.hotIdx+1)+" von 3: Finde den Ort, der zu dieser Beschreibung passt. "+z.tipp;
+ $("#hotAlt").innerHTML=ALLEHOT.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.name+'</button>').join("");
+ $$("#hotAlt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(b.dataset.hot)));
+}
+function hotWahl(id){
+ const z=HOT[S.hotIdx]; if(!z)return;
+ const el=document.getElementById(id);
+ if(id===z.id){
+  S.hotOk++; S.hotIdx++;
+  if(el)el.style.filter="drop-shadow(0 0 6px #17633b)";
+  fb("#hotFb",z.sich,"ok");
+  if(S.hotIdx>=HOT.length){fertig("hot",1);fb("#hotFb",z.sich+" Damit sind alle drei gefunden. Abzeichen Kartenleser freigeschaltet.","ok");}
+  hotAufgabe();
+ }else{
+  const gew=ALLEHOT.find(x=>x.id===id);
+  fb("#hotFb","Das ist „"+(gew?gew.name:"unbekannt")+"“. "+z.tipp,"hint");
+ }
+ speichern();
+}
+$$(".hot").forEach(g=>{
+ g.addEventListener("click",()=>hotWahl(g.id));
+ g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(g.id);}});
+});
+$("#hotReset").addEventListener("click",()=>{
+ S.hotIdx=0;S.hotOk=0;delete S.done.hot;delete S.punkte.hot;
+ $$(".hot").forEach(g=>g.style.filter="");
+ fbClear("#hotFb");hotAufgabe();fortschritt();speichern();
+});
+
+/* ---------- Zuordnung mit Ziehen oder Antippen ---------- */
+const KARTEN=[
+ {id:"k1",text:"Furt oder Brücke über den Fluss",zone:"lage"},
+ {id:"k2",text:"Kreuzung zweier Handelsstraßen",zone:"lage"},
+ {id:"k3",text:"Wochenmarkt und Jahrmarkt",zone:"markt"},
+ {id:"k4",text:"Kaufleute mit Waren aus der Ferne",zone:"markt"},
+ {id:"k5",text:"Stadtmauer mit bewachten Toren",zone:"recht"},
+ {id:"k6",text:"Eigenes Stadtrecht und eigenes Gericht",zone:"recht"},
+ {id:"k7",text:"Werkstätten von Schmied, Weber und Bäcker",zone:"arbeit"},
+ {id:"k8",text:"Zünfte regeln Ausbildung und Preise",zone:"arbeit"}
+];
+let gewaehlt=null;
+function karteHtml(k){return '<button type="button" class="piece" draggable="true" data-k="'+k.id+'" aria-pressed="false">'+k.text+'</button>';}
+function zeichneKarten(){
+ const offen=KARTEN.filter(k=>!S.placed[k.id]);
+ $("#pieces").innerHTML=offen.map(karteHtml).join("")||'<span class="hint">Alle Karten sind zugeordnet.</span>';
+ $$("#zones .drop").forEach(d=>d.innerHTML="");
+ KARTEN.forEach(k=>{const z=S.placed[k.id];
+  if(z){const d=document.querySelector('.zone[data-zone="'+z+'"] .drop');if(d)d.insertAdjacentHTML("beforeend",karteHtml(k));}});
+ bindeKarten();
+}
+function bindeKarten(){
+ $$(".piece").forEach(p=>{
+  p.addEventListener("click",()=>{
+   if(gewaehlt===p.dataset.k){gewaehlt=null;p.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gewaehlt=p.dataset.k;p.setAttribute("aria-pressed","true");
+   fb("#zFb","Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  p.addEventListener("dragstart",e=>{gewaehlt=p.dataset.k;e.dataTransfer.setData("text/plain",p.dataset.k);});
+ });
+}
+function ablegen(zone){
+ if(!gewaehlt){fb("#zFb","Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[gewaehlt]=zone;gewaehlt=null;zeichneKarten();fbClear("#zFb");speichern();
+}
+$$(".zone").forEach(z=>{
+ z.addEventListener("click",()=>ablegen(z.dataset.zone));
+ z.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(z.dataset.zone);}});
+ z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+ z.addEventListener("dragleave",()=>z.classList.remove("over"));
+ z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");
+  const id=e.dataTransfer.getData("text/plain")||gewaehlt;if(id){S.placed[id]=z.dataset.zone;gewaehlt=null;zeichneKarten();speichern();}});
+});
+$("#zCheck").addEventListener("click",()=>{
+ const offen=KARTEN.filter(k=>!S.placed[k.id]);
+ if(offen.length){fb("#zFb","Es sind noch "+offen.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+ let richtig=0;
+ KARTEN.forEach(k=>{
+  const el=document.querySelector('.piece[data-k="'+k.id+'"]');
+  const ok=S.placed[k.id]===k.zone; if(ok)richtig++;
+  if(el)el.classList.add(ok?"ok":"no");
+ });
+ if(richtig===KARTEN.length){fertig("zuord",1);
+  fb("#zFb","Alle acht richtig. Entscheidend ist das Zusammenspiel: Die Lage brachte die Menschen her, der Markt hielt sie da, Recht und Mauer gaben Sicherheit, und das Handwerk lebte von beidem.","ok");}
+ else{fb("#zFb",richtig+" von 8 stimmen bereits. Die grün umrandeten Karten sitzen richtig. Prüfe bei den rot umrandeten: Geht es darum, wie man hinkommt, was gehandelt wird, wer schützt und Recht spricht, oder wer etwas herstellt?","hint");}
+ speichern();
+});
+$("#zReset").addEventListener("click",()=>{S.placed={};gewaehlt=null;delete S.done.zuord;delete S.punkte.zuord;zeichneKarten();fbClear("#zFb");fortschritt();speichern();});
+
+/* ---------- Mehrfachauswahl ---------- */
+$("#m1Check").addEventListener("click",()=>{
+ const sel=$$('input[name="m1"]:checked').map(i=>i.value);
+ const soll=["kaufleute","handwerker","tagelohn"];
+ const fehlt=soll.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!soll.includes(x));
+ if(!fehlt.length&&!zuviel.length){fertig("m1",1);
+  fb("#m1Fb","Richtig. Die Stadt lebte von Handel und Handwerk. Wichtig: Längst nicht alle Bewohner waren Bürger. Tagelöhner und Dienstboten arbeiteten dort, hatten aber keine Bürgerrechte.","ok");}
+ else{let m="";
+  if(zuviel.includes("alleBauern"))m+="Die Bauern der Umgebung lebten in ihren Dörfern und kamen nur zum Markt in die Stadt. ";
+  if(zuviel.includes("koenig"))m+="Der König reiste mit seinem Hof umher und wohnte nirgends dauerhaft. ";
+  if(fehlt.length)m+="Es fehlen noch "+fehlt.length+" Personengruppen, die dauerhaft dort lebten. ";
+  fb("#m1Fb",m+"Denke daran, wer in der Stadt täglich arbeitete.","hint");}
+ speichern();
+});
+$("#m1Reset").addEventListener("click",()=>{$$('input[name="m1"]').forEach(i=>i.checked=false);delete S.done.m1;delete S.punkte.m1;fbClear("#m1Fb");fortschritt();speichern();});
+
+/* ---------- Ursache-Folge-Kette ---------- */
+const KETTE=[
+ "An einer Furt und einer Straßenkreuzung treffen viele Reisende und Waren zusammen.",
+ "Ein Herr lässt dort einen Markt einrichten und lädt Kaufleute ein.",
+ "Die Kaufleute siedeln sich dauerhaft an, Handwerker folgen ihnen.",
+ "Der Ort erhält Mauer, Marktrecht und eigenes Gericht und wächst zur Stadt."
+];
+function zeichneKette(){
+ $("#chain").innerHTML=S.chain.map((i,pos)=>
+  '<div class="orow"><span>'+KETTE[i]+'</span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben">&#8593;</button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten">&#8595;</button></div>').join("");
+ $$("#chain button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=S.chain.length)return;
+  const t=S.chain[p];S.chain[p]=S.chain[n];S.chain[n]=t;zeichneKette();speichern();}));
+}
+function mischeKette(){
+ do{S.chain=[0,1,2,3].sort(()=>Math.random()-.5);}while(S.chain.join("")==="0123");
+ zeichneKette();
+}
+$("#cCheck").addEventListener("click",()=>{
+ const ok=S.chain.join("")==="0123";
+ if(ok){fertig("chain",1);fb("#cFb","Genau. Am Anfang steht die Lage, nicht die Menschenmenge. Erst der Markt macht den Ort dauerhaft attraktiv, und erst Recht und Mauer machen ihn zur Stadt.","ok");}
+ else{
+  const richtigePos=S.chain.filter((v,i)=>v===i).length;
+  fb("#cFb",richtigePos+" von 4 stehen schon an der richtigen Stelle. Frage dich: Was war zuerst da, der Ort oder die Menschen? Und was musste ein Herr erlauben, bevor Handel möglich wurde?","hint");}
+ speichern();
+});
+$("#cReset").addEventListener("click",()=>{mischeKette();delete S.done.chain;delete S.punkte.chain;fbClear("#cFb");fortschritt();speichern();});
+
+
+/* ---------- Quellenarbeit Widukind ---------- */
+$("#s1Check").addEventListener("click",()=>{
+ const sel=$$('input[name="s1"]:checked').map(i=>i.value);
+ const soll=["grundstueck","haus","frei","pfarrer"];
+ const fehlt=soll.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!soll.includes(x));
+ if(!fehlt.length&&!zuviel.length){fertig("s1",1);
+  fb("#s1Fb","Genau. Konrad bietet handfeste Anreize: Grundstück, Baurecht, Sicherheit und sogar die Wahl des Pfarrers. Er wirbt damit gezielt um Zuzug. Eine Stadt entstand hier nicht von selbst, sie wurde gegründet und beworben.","ok");}
+ else{let m="";
+  if(zuviel.length)m+="Aufstieg in den Adel und eine kostenlose Schule stehen nicht in der Urkunde. Lies nur, was wirklich dasteht. ";
+  if(fehlt.includes("pfarrer"))m+="Am Ende der Inhaltsangabe steht noch eine Zusage, die mit der Kirche zu tun hat. ";
+  else if(fehlt.length)m+="Der Anfang der Quelle nennt, was jeder Kaufmann bekommt und was er darauf tun darf. ";
+  fb("#s1Fb",m+"Es sind vier Aufgaben.","hint");}
+ speichern();
+});
+$("#s1Reset").addEventListener("click",()=>{$$('input[name="s1"]').forEach(i=>i.checked=false);delete S.done.s1;delete S.punkte.s1;fbClear("#s1Fb");fortschritt();speichern();});
+$("#s2Check").addEventListener("click",()=>{
+ const v=(document.querySelector('input[name="s2"]:checked')||{}).value;
+ if(v==="a"){S.punkte.s2=1;fortschritt();
+  fb("#s2Fb","Richtig. Zwischen 1120 und der erhaltenen Abschrift liegen rund zweihundert Jahre. Fachleute vergleichen deshalb mehrere Überlieferungen und prüfen, was zum Jahr 1120 passt und was später hinzugekommen sein könnte. Die Urkunde bleibt wertvoll, man muss sie nur vorsichtig lesen.","ok");}
+ else if(v==="b"){fb("#s2Fb","Nicht ganz. Eine späte Abschrift macht eine Quelle nicht wertlos. Sehr viele mittelalterliche Texte kennen wir nur so. Man muss nur wissen, dass man eine Kopie vor sich hat.","hint");}
+ else if(v){fb("#s2Fb","Noch nicht. Überlege, was beim Abschreiben von Hand über zweihundert Jahre hinweg passieren kann.","hint");}
+ else{fb("#s2Fb","Bitte wähle zuerst eine Antwort aus.","hint");}
+ speichern();
+});
+
+/* ---------- Medienkritik ---------- */
+$("#q1Check").addEventListener("click",()=>{
+ const v=(document.querySelector('input[name="q1"]:checked')||{}).value;
+ if(v==="a"){fertig("q1",1);
+  fb("#q1Fb","Richtig. Der Satz ist eine gelungene Zusammenfassung aus dem 19. Jahrhundert, kein mittelalterliches Zitat. Der Rechtsgrundsatz dahinter ist echt: nach Jahr und Tag konnte eine unfreie Person nicht mehr zurückgefordert werden. Merksätze sind praktisch, aber sie sind keine Quellen.","ok");}
+ else if(v){fb("#q1Fb","Noch nicht. Zwei Dinge sind zu trennen: Wann wurde der Satz so formuliert, und gab es die Regel dahinter wirklich? Lies den Hinweiskasten noch einmal.","hint");}
+ else{fb("#q1Fb","Bitte wähle zuerst eine Antwort aus.","hint");}
+ speichern();
+});
+$("#q2Check")&&$("#q2Check").addEventListener("click",()=>{
+ const t=norm($("#q2").value);
+ if(t.length<40){S.q2="zu knapp";fb("#q2Fb","Deine Antwort ist noch sehr kurz. Nenne zuerst eine Chance, zum Beispiel eigene Arbeit und eigenes Geld. Beginne dann mit: „Ein Risiko war ...“","hint");speichern();return;}
+ const chance=hat(t,["frei","arbeit","geld","verdien","handwerk","lernen","zunft","besser","chance","sicher"]);
+ const risiko=hat(t,["risiko","gefahr","zuruck","herr","entdeck","fangen","hunger","krank","kein","arm","fremd"]);
+ const verkn=hat(t,VERKN);
+ if(chance&&risiko&&verkn){S.q2="plausibel";fb("#q2Fb","Sehr gute Abwägung. Genau das ist der Kern: Die Frist eröffnete eine echte Chance auf ein freies Leben, aber ein Jahr lang blieb die Lage unsicher. Wer entdeckt und zurückgeholt wurde, hatte alles verloren.","ok");}
+ else if(chance||risiko){S.q2="teilweise plausibel";fb("#q2Fb","Eine Seite steht schon. Ergänze jetzt die andere und begründe sie. Du kannst beginnen mit: „Ein Risiko war ..., weil ...“","hint");}
+ else{S.q2="noch nicht ausreichend";fb("#q2Fb","Deine Antwort nennt noch keine der beiden Seiten. Erster Teil: Was konnte man in der Stadt gewinnen? Zweiter Teil: Was konnte in diesem einen Jahr schiefgehen? Verbinde beides mit „weil“.","hint");}
+ speichern();
+});
+
+/* ---------- Abschlussmission ---------- */
+function a2Bewerten(){
+ const roh=$("#a2").value, t=norm(roh);
+ if(t.length<50)return{p:0,lab:"zu knapp",msg:"Chronos braucht mehr als einen Satz. Schreibe zwei bis vier Sätze. Beginne mit: „Wichtig war zuerst die Lage, weil ...“ und ergänze dann: „Dazu kam ein Markt, denn ...“"};
+ const lage=hat(t,["lage","fluss","furt","brucke","strasse","kreuzung","weg","verkehr","hafen","ort"]);
+ const markt=hat(t,["markt","handel","kaufleut","handwerk","waren","verkauf","zunft"]);
+ const recht=hat(t,["recht","stadtrecht","mauer","schutz","gericht","freiheit","burger","tor"]);
+ const verkn=hat(t,VERKN);
+ const genugSaetze=saetze(roh)>=2;
+ const wort=t.split(/\s+/).filter(Boolean).length;
+ if(wort<12)return{p:0,lab:"zu knapp",msg:"Das sind noch sehr wenige Wörter. Nenne mindestens zwei Dinge, die zusammenkommen mussten."};
+ const treffer=[lage,markt,recht].filter(Boolean).length;
+ if(treffer>=2&&markt&&verkn&&genugSaetze)
+  return{p:1,lab:"vollständig",msg:"Sehr gut. Du hast mehrere Bedingungen verbunden statt nur eine zu nennen. Genau darum ging es: Erst das Zusammenspiel von günstiger Lage, Markt und eigenem Recht ließ aus einer Siedlung eine Stadt werden. Abzeichen Begründer freigeschaltet."};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(!markt)m+="Der Markt fehlt noch. Ohne Marktrecht und regelmäßigen Handel blieb ein Ort ein Dorf. ";
+ if(!lage)m+="Nenne außerdem die Lage, etwa den Flussübergang oder die Straßenkreuzung. ";
+ if(!recht)m+="Ergänze, was die Stadt rechtlich vom Dorf unterschied, etwa eigenes Gericht oder die Mauer. ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „dadurch“ oder „deshalb“. ";
+ if(!genugSaetze)m+="Schreibe mindestens zwei Sätze. ";
+ return{p:.5,lab:"teilweise",msg:m.trim()};
+}
+$("#a2Check").addEventListener("click",()=>{
+ const r=a2Bewerten();
+ fb("#a2Fb",r.msg,r.p>=1?"ok":"hint");
+ S.punkte.a2=r.p;S.a2lab=r.lab;
+ if(r.p>0)fertig("a2",r.p);else{fortschritt();speichern();}
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3,4].map(i=>(document.querySelector('input[name="lc'+i+'"]:checked')||{}).value||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ const v=lerncheckWerte();
+ if(v.every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;delete S.punkte.lerncheck;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ // Bewusst ohne CSS.escape: das ist nicht in allen Browsern verfuegbar und
+ // wuerde die gesamte Wiederherstellung abbrechen lassen.
+ Object.entries(d.radios||{}).forEach(([n,v])=>{
+  $$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;
+  const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return ["hot","zuord","m1","chain","s1","q1","a1","a2","lerncheck"].reduce((s,k)=>s+(S.punkte[k]||0),0);}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=punkteGesamt(), pct=Math.round(pkt/CFG.maxPunkte*100);
+ const luecken=[];
+ [["hot","Orte auf der Karte"],["zuord","Was eine Stadt braucht"],["m1","Stadtbevölkerung"],["chain","Ursache und Folge"],["s1","Quellenarbeit Freiburg"],["q1","Merksatz prüfen"],["a1","Abschlussentscheidung"],["a2","Begründung"]]
+  .forEach(([k2,n])=>{if(!(S.punkte[k2]>=1))luecken.push(n);});
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"6",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:{orte:S.punkte.hot||0,zuordnung:S.punkte.zuord||0,bewohner:S.punkte.m1||0,
+   ursache_folge:S.punkte.chain||0,quellenarbeit:S.punkte.s1||0,medienkritik:S.punkte.q1||0,entscheidung:S.punkte.a1||0,
+   begruendung:S.punkte.a2||0,lerncheck:S.punkte.lerncheck||0},
+  freitexte:{leitfrage:$("#a2").value.trim(),
+   nachricht_an_chronos:$("#a2").value.trim(),
+   sachquelle_weiterdenken:($("#q2")?$("#q2").value.trim():""),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},
+  bewertung_freitexte:{begruendung:S.a2lab||"nicht bearbeitet",sachquelle:S.q2||"nicht bearbeitet"},
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:CFG.maxPunkte,prozent:pct,
+  auffaelligkeiten:luecken,
+  /* --- Felder im Schema der bestehenden Geschichtsreihe ---
+     aufgaben ist ein Objekt mit correct-Feldern, daraus berechnet das Apps Script
+     aufgaben_richtig und aufgaben_gesamt. Die Kompetenzen sind 0 oder 1, nicht Prozent. --- */
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:{
+   orte_auf_der_karte:{correct:(S.punkte.hot||0)>=1},
+   zuordnung:{correct:(S.punkte.zuord||0)>=1},
+   bewohner:{correct:(S.punkte.m1||0)>=1},
+   wirkungskette:{correct:(S.punkte.chain||0)>=1},
+   quelle_freiburg:{correct:(S.punkte.s1||0)>=1},
+   quellenkritik:{correct:(S.punkte.s2||0)>=1},
+   merksatz:{correct:(S.punkte.q1||0)>=1},
+   entscheidung:{correct:(S.punkte.a1||0)>=1},
+   begruendung:{correct:(S.punkte.a2||0)>=1}
+  },
+  kompetenzen:{
+   fachwissen:eins((S.punkte.hot||0)>=1&&(S.punkte.m1||0)>=1),
+   zeit_raum:eins((S.punkte.s2||0)>=1),
+   quellenarbeit:eins((S.punkte.s1||0)>=1),
+   ursachen_folgen:eins((S.punkte.chain||0)>=1),
+   perspektivitaet:eins((S.punkte.q1||0)>=1),
+   historisches_urteil:eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1)
+  },
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:CFG.maxPunkte,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:(crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2)};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 6, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(){
+ if(!pflichtOk(true)){location.hash="start";return null;}
+ const a1=(document.querySelector('input[name="a1"]:checked')||{}).value;
+ if(a1==="teil"){S.punkte.a1=1;}else if(a1){S.punkte.a1=0;}
+ if(!a1){fb("#sendFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung zur Karteikarte.","bad");location.hash="abschluss";return null;}
+ if(!lerncheckWerte().every(Boolean)){fb("#sendFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";return null;}
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80
+  ?"Du kannst mit Modul 006 zu Kirche und Klöstern weiterarbeiten."
+  :(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+".":"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const namen={bauteile:"Orte auf der Karte",zuordnung:"Was eine Stadt braucht",bewohner:"Stadtbevölkerung",ursache_folge:"Ursache und Folge",quellenarbeit:"Quellenarbeit Freiburg",medienkritik:"Merksatz prüfen",entscheidung:"Abschlussentscheidung",begruendung:"Begründung",lerncheck:"Lerncheck"};
+ $("#analyse").innerHTML=Object.entries(p.ergebnisse).map(([k,v])=>
+  "<li><strong>"+namen[k]+":</strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)</li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ $("#payloadView").textContent=JSON.stringify(p,null,2);
+ fortschritt();speichern();location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",ergebnisBauen);
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+let letzterPayload=null;
+async function senden(){
+ const p=letzterPayload||ergebnisBauen();
+ if(!p)return; letzterPayload=p;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").filter(s=>!s.classList.contains("teacher")&&!s.classList.contains("doc")).map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+if(!S.chain||S.chain.length!==4)mischeKette();else zeichneKette();
+zeichneKarten();hotAufgabe();fortschritt();
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

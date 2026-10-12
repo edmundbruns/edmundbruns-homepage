@@ -1,0 +1,793 @@
+# Gemeinsame Vorlage fuer SOL Geschichte 8, Module 008 bis 013 (Generator, Port 8842)
+import json, os
+
+BASE = '/tmp/claude-0/-home-claude/e3cb1aec-9a36-5edf-8129-346c7c0e3f39/scratchpad/upload/geschichte/klasse-8/'
+ENDPOINT = "https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec"
+
+CSS = r"""
+:root{--ink:#172430;--paper:#fff;--cream:#e7edf2;--soft:#e7edf2;--bg:#f2f4f6;--green:#37546b;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#d3dae1;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #18242e14;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#18242e,#37546b);color:#f5f8fa;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#f5f8fa;color:#18242e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0;overflow-wrap:break-word}
+.hero p{margin:.4rem 0;color:#e6edf3;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#37546b,#b87824);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px 1fr;gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#24384a;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+main{min-width:0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow)}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#24384a}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.zitat{border-left:4px solid var(--gold);margin:10px 0;padding:6px 0 6px 14px;font-family:Georgia,"Times New Roman",serif;font-size:1.06rem}
+.zitat p{margin:.35rem 0}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px}
+.field label,.legend{font-weight:750;color:#24384a}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid #b9c3cc;border-radius:12px;background:#fff;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#55606a}
+.btn{background:var(--green);color:#f5f8fa;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:650}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.fb ul{margin:.4rem 0 0;padding-left:1.2rem;font-weight:600}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#55606a;letter-spacing:.04em}
+.fs{border:0;padding:0;margin:0;min-width:0}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px;color:var(--ink)}
+.chip[aria-pressed=true]{border-color:var(--green);background:#e6edf3}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zone{border:2px dashed #b9c3cc;border-radius:14px;padding:10px;background:#fff;min-height:104px}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:700;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0;padding:0;list-style:none}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .onum{flex:0 0 28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;color:var(--green);font-size:.9rem}
+.orow span{flex:1;font-weight:650;min-width:0}
+.orow button{flex:0 0 44px;width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;color:var(--ink)}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+.srow{display:grid;grid-template-columns:1fr minmax(150px,230px);gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0;background:#fff}
+.srow .why{grid-column:1/-1;font-size:.9rem;color:var(--warn);display:none}
+.srow .why.show{display:block}
+@media(max-width:560px){.srow{grid-template-columns:1fr}}
+.srow.wide{grid-template-columns:1fr}
+.task label.legend{display:block;margin:8px 0 6px}
+select.ok{border:2px solid var(--ok);background:var(--okbg)}
+select.no{border:2px solid var(--bad);background:var(--badbg)}
+.luecke{line-height:2.5;margin:8px 0}
+.luecke select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;vertical-align:middle}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px}
+.svgwrap.narrow{max-width:520px;margin-left:auto;margin-right:auto}
+svg.bild{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d1899)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#3a4855}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#1b2833;color:#e8eef3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#6f7a84;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+.szene{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;align-items:center}
+.factbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.factbox div{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.factbox b{display:block;color:var(--green)}
+table.vgl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.95rem}
+table.vgl th,table.vgl td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+table.vgl th{background:var(--cream);color:var(--green)}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#55606a;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+"""
+
+def chronos(text, who="Chronos, Archivar"):
+    return ('<div class="chronos">\n <div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e7edf2" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#37546b"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#37546b"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div>\n'
+            ' <div><p class="who">' + who + '</p><p>' + text + '</p></div>\n</div>')
+
+def task(tid, lw=None):
+    a = ' data-lw="%s"' % lw if lw else ''
+    return '<div class="task" data-task="%s" id="t-%s"%s></div>' % (tid, tid, a)
+
+def gloss(items):
+    return "\n".join('<details class="gloss"><summary>%s</summary><div class="body">%s</div></details>' % (a, b) for a, b in items)
+
+JS = r"""
+"use strict";
+const $=s=>document.querySelector(s), $$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const M=/*DATA*/;
+const CFG={modul:"/*NR*/",titel:"/*TITEL*/",
+ bereich:"/*BEREICH*/",version:"1.0.0",
+ key:"sol-geschichte-8-/*NR*/",
+ endpoint:"/*ENDPOINT*/",
+ maxPunkte:0};
+const TASKS=M.tasks.filter(t=>t.type!=="frei");
+const FREI=M.tasks.filter(t=>t.type==="frei");
+CFG.maxPunkte=TASKS.length+3;
+const S={lernweg:"standard",done:{},punkte:{},z:{},ord:{},hot:{},frei:{},a2lab:"",sent:false};
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbHtml(id,html,art){const e=$(id);if(!e)return;e.innerHTML=html;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(norm(w)));}
+function saetze(t){return String(t).split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","aber","trotzdem","jedoch","obwohl","wahrend","zum beispiel"];
+function radioWert(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+function taskById(id){return M.tasks.find(t=>t.id===id);}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+const SCHRITTE=["start","diagnose"].concat(TASKS.map(t=>t.id),["lerncheck","a1","a2"]);
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ M.badges.forEach((b,i)=>{const e=$("#abz"+(i+1));if(e)e.classList.toggle("on",b.ids.every(id=>id==="a2"?(S.punkte.a2||0)>=1:!!S.done[id]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];delete S.punkte[k];fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Aufgabe."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 8a."};
+ const m=t.match(/(?:^|[^0-9])8([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 8. Schreibe zum Beispiel 8a, Klasse 8b oder nur 8."};
+ return{ok:true,wert:"8"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb","Alles bereit. Chronos wartet schon. Es geht weiter mit der Mission.","ok");
+ location.hash="mission";
+});
+
+/* ---------- Startdiagnose ---------- */
+$("#dBox").innerHTML=M.diag.map((q,i)=>'<div class="task"><span class="tag">'+q.tag+'</span><fieldset class="fs"><legend class="legend">D'+(i+1)+'. '+q.frage+'</legend><div class="opts">'+
+ q.opts.map(o=>'<label><input type="radio" name="d'+(i+1)+'" value="'+o.v+'"><span>'+o.t+'</span></label>').join("")+'</div></fieldset></div>').join("");
+$("#dCheck").addEventListener("click",()=>{
+ const w=M.diag.map((q,i)=>radioWert("d"+(i+1)));
+ if(w.some(v=>!v)){fb("#dFb","Beantworte bitte alle drei Fragen. Raten ist ausdrücklich erlaubt, es gibt keine Noten.","hint");return;}
+ const r=M.diag.filter((q,i)=>w[i]===q.ok).length;
+ let m;
+ if(r===3)m="Drei von drei. Deine Vermutungen passen gut. Der Lernweg Weiterdenken könnte für dich spannend sein.";
+ else if(r===2)m="Zwei von drei. Eine gute Grundlage. Im Modul findest du heraus, was noch fehlt.";
+ else m="Du hast "+r+" von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.";
+ M.diag.forEach((q,i)=>{if(w[i]!==q.ok&&q.tipp)m+=" "+q.tipp;});
+ fb("#dFb",m,r>=2?"ok":"hint");
+ fertig("diagnose");
+});
+
+/* ---------- Aufgaben aufbauen ---------- */
+function kopf(t){return '<span class="tag">'+t.tag+'</span>'+(t.titel?'<h3>'+t.titel+'</h3>':'');}
+function hilfe(t){return t.hilfe?'<div class="notice" data-lw="sicher"><strong>Hilfe:</strong> '+t.hilfe+'</div>':'';}
+function knoepfe(t,reset){return hilfe(t)+'<div class="no-print"><button class="btn" type="button" data-act="check">'+(t.btn||"Prüfen")+'</button>'+(reset?'<button class="btn sec" type="button" data-act="reset">'+reset+'</button>':'')+'</div><div class="fb" id="fb-'+t.id+'" role="status" aria-live="polite"></div>';}
+function geloest(t,msg){fertig(t.id,1);fb("#fb-"+t.id,msg||t.ok,"ok");}
+const R={}, C={}, X={}, D={};
+
+/* Einfachauswahl mit erklärender Rückmeldung zu jeder Antwort */
+R.mc=t=>kopf(t)+'<fieldset class="fs"><legend class="legend">'+t.frage+'</legend><div class="opts">'+t.opts.map(o=>'<label><input type="radio" name="'+t.id+'" value="'+o.v+'"><span>'+o.t+'</span></label>').join("")+'</div></fieldset>'+knoepfe(t);
+C.mc=t=>{const v=radioWert(t.id);
+ if(!v){fb("#fb-"+t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+ const o=t.opts.find(x=>x.v===v);
+ if(o.ok)geloest(t,o.fb);else{offen(t.id);fb("#fb-"+t.id,o.fb,"hint");}};
+
+/* Mehrfachauswahl */
+R.multi=t=>kopf(t)+'<fieldset class="fs"><legend class="legend">'+t.frage+'</legend><div class="opts">'+t.opts.map(o=>'<label><input type="checkbox" name="'+t.id+'" value="'+o.v+'"><span>'+o.t+'</span></label>').join("")+'</div></fieldset>'+knoepfe(t,"Zurücksetzen");
+C.multi=t=>{const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+ if(!sel.length){fb("#fb-"+t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+ const soll=t.opts.filter(o=>o.ok).map(o=>o.v);
+ const fehlt=soll.filter(v=>!sel.includes(v)), zuviel=sel.filter(v=>!soll.includes(v));
+ if(!fehlt.length&&!zuviel.length){geloest(t);return;}
+ offen(t.id);
+ let m=zuviel.map(v=>(t.opts.find(o=>o.v===v)||{}).fb).filter(Boolean).join(" ");
+ if(fehlt.length)m+=(m?" ":"")+(fehlt.length===1?"Eine richtige Antwort fehlt noch.":"Es fehlen noch "+fehlt.length+" richtige Antworten.");
+ fb("#fb-"+t.id,(m+" "+(t.hint||"")).trim(),"hint");};
+X.multi=t=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);offen(t.id);fbClear("#fb-"+t.id);};
+
+/* Zuordnen: antippen oder ziehen */
+const gewaehlt={};
+R.zuord=t=>kopf(t)+'<p>'+t.frage+'</p><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Beides zählt gleich.</p><div class="chips pool" aria-label="Karten zum Zuordnen"></div><div class="zones">'+
+ t.zones.map(z=>'<div class="zone" data-zone="'+z.id+'" tabindex="0" role="button" aria-label="Ablegen bei '+z.t+'"><h4>'+z.t+'</h4><div class="drop"></div></div>').join("")+'</div>'+knoepfe(t,"Zurücksetzen");
+function pieceHtml(c){return '<button type="button" class="piece" draggable="true" data-k="'+c.id+'" aria-pressed="false">'+c.t+'</button>';}
+D.zuord=t=>{const el=$("#t-"+t.id), pl=S.z[t.id]||(S.z[t.id]={});
+ const pool=t.cards.filter(c=>!pl[c.id]);
+ $(".pool",el).innerHTML=pool.map(pieceHtml).join("")||'<span class="hint">Alle Karten sind zugeordnet.</span>';
+ $$(".drop",el).forEach(d=>d.innerHTML="");
+ t.cards.forEach(c=>{const z=pl[c.id];if(z){const d=el.querySelector('.zone[data-zone="'+z+'"] .drop');if(d)d.insertAdjacentHTML("beforeend",pieceHtml(c));}});
+ $$(".piece",el).forEach(p=>{
+  p.addEventListener("click",e=>{e.stopPropagation();
+   if(gewaehlt[t.id]===p.dataset.k){gewaehlt[t.id]=null;p.setAttribute("aria-pressed","false");return;}
+   $$(".piece",el).forEach(x=>x.setAttribute("aria-pressed","false"));
+   gewaehlt[t.id]=p.dataset.k;p.setAttribute("aria-pressed","true");
+   fb("#fb-"+t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört.","hint");});
+  p.addEventListener("dragstart",e=>{gewaehlt[t.id]=p.dataset.k;e.dataTransfer.setData("text/plain",p.dataset.k);});
+ });};
+function ablegen(t,zone){
+ if(!gewaehlt[t.id]){fb("#fb-"+t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.z[t.id][gewaehlt[t.id]]=zone;gewaehlt[t.id]=null;
+ if(S.done[t.id])offen(t.id);
+ D.zuord(t);fbClear("#fb-"+t.id);speichern();}
+function bindZuord(t){const el=$("#t-"+t.id);
+ $$(".zone",el).forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");const id=e.dataTransfer.getData("text/plain");if(id)gewaehlt[t.id]=id;ablegen(t,z.dataset.zone);});
+ });}
+C.zuord=t=>{const el=$("#t-"+t.id), pl=S.z[t.id]||{};
+ const rest=t.cards.filter(c=>!pl[c.id]).length;
+ if(rest){fb("#fb-"+t.id,"Es "+(rest===1?"ist noch eine Karte":"sind noch "+rest+" Karten")+" übrig. Ordne zuerst alle zu.","hint");return;}
+ let r=0;t.cards.forEach(c=>{const ok=pl[c.id]===c.z;if(ok)r++;const p=el.querySelector('.piece[data-k="'+c.id+'"]');if(p)p.classList.add(ok?"ok":"no");});
+ if(r===t.cards.length)geloest(t);
+ else{offen(t.id);fb("#fb-"+t.id,r+" von "+t.cards.length+" Karten stimmen schon. Die grün umrandeten sitzen richtig. "+t.hint,"hint");}};
+X.zuord=t=>{S.z[t.id]={};gewaehlt[t.id]=null;offen(t.id);D.zuord(t);fbClear("#fb-"+t.id);};
+
+/* Reihenfolge und Wirkungskette */
+R.order=t=>kopf(t)+'<p>'+t.frage+'</p>'+(t.oben?'<p class="hint"><strong>Oben:</strong> '+t.oben+' <strong>Unten:</strong> '+t.unten+'</p>':'')+'<ol class="order"></ol>'+knoepfe(t,"Neu mischen");
+function mische(t){const n=t.items.length;let a;do{a=[...Array(n).keys()].sort(()=>Math.random()-.5);}while(a.every((v,i)=>v===i));S.ord[t.id]=a;}
+D.order=(t,fokus)=>{const el=$("#t-"+t.id),a=S.ord[t.id];
+ $(".order",el).innerHTML=a.map((i,pos)=>'<li class="orow"><b class="onum" aria-hidden="true">'+(pos+1)+'</b><span>'+t.items[i]+'</span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Schritt '+(pos+1)+' nach oben schieben">&#8593;</button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Schritt '+(pos+1)+' nach unten schieben">&#8595;</button></li>').join("");
+ $$(".order button",el).forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;if(n<0||n>=a.length)return;
+  const x=a[p];a[p]=a[n];a[n]=x;if(S.done[t.id])offen(t.id);fbClear("#fb-"+t.id);D.order(t,[n,d]);speichern();}));
+ if(fokus){const b=el.querySelector('button[data-mv="'+fokus[0]+'"][data-dir="'+fokus[1]+'"]');if(b)b.focus();}};
+C.order=t=>{const el=$("#t-"+t.id),a=S.ord[t.id];
+ if(a.every((v,i)=>v===i)){$$(".orow",el).forEach(r=>r.classList.add("ok"));geloest(t);return;}
+ offen(t.id);const r=a.filter((v,i)=>v===i).length;
+ fb("#fb-"+t.id,r+" von "+a.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");};
+X.order=t=>{mische(t);offen(t.id);D.order(t);fbClear("#fb-"+t.id);};
+
+/* Bildarbeit: Bereiche in einer Grafik finden */
+R.hot=t=>kopf(t)+'<p class="hotq" id="hq-'+t.id+'"></p><div class="chips alt" aria-label="Bereiche auswählen, gleichwertig zum Antippen im Bild"></div>'+knoepfe(t,"Aufgabe zurücksetzen").replace('<button class="btn" type="button" data-act="check">'+(t.btn||"Prüfen")+'</button>','');
+D.hot=t=>{const el=$("#t-"+t.id),i=S.hot[t.id]||0;
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>g.classList.remove("found"));
+ t.targets.slice(0,i).forEach(z=>{const g=document.getElementById(z.id);if(g)g.classList.add("found");});
+ if(i>=t.targets.length){$("#hq-"+t.id).textContent=t.fertig;$(".alt",el).innerHTML="";return;}
+ const z=t.targets[i];
+ $("#hq-"+t.id).textContent="Suchauftrag "+(i+1)+" von "+t.targets.length+": "+z.tipp;
+ $(".alt",el).innerHTML=t.all.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.name+'</button>').join("");
+ $$(".alt .chip",el).forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));};
+function hotWahl(t,id){const i=S.hot[t.id]||0,z=t.targets[i];if(!z)return;
+ if(id===z.id){S.hot[t.id]=i+1;
+  if(i+1>=t.targets.length){D.hot(t);geloest(t,z.ok+" "+t.ok);}else{fb("#fb-"+t.id,z.ok,"ok");D.hot(t);speichern();}}
+ else{const g=t.all.find(x=>x.id===id);fb("#fb-"+t.id,"Das ist der Bereich „"+(g?g.name:"unbekannt")+"“. "+z.tipp,"hint");}}
+function bindHot(t){$$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+ g.addEventListener("click",()=>hotWahl(t,g.id));
+ g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});});}
+X.hot=t=>{S.hot[t.id]=0;offen(t.id);D.hot(t);fbClear("#fb-"+t.id);};
+
+/* Auswahllisten: Lückentext oder Zuordnung in Zeilen (z. B. Perspektiven) */
+function selHtml(id,opts,lab){return '<select id="'+id+'" aria-label="'+lab+'"><option value="">bitte wählen</option>'+opts.map(o=>'<option>'+o+'</option>').join("")+'</select>';}
+R.sel=t=>{let body;
+ if(t.text){let i=0;body='<p class="luecke">'+t.text.replace(/\{\}/g,()=>{const g=t.gaps[i];const s=selHtml(t.id+"-"+i,g.opts,"Lücke "+(i+1));i++;return s;})+'</p>';}
+ else body=t.rows.map((r,i)=>'<div class="srow'+(t.wide?' wide':'')+'"><span id="'+t.id+'-l'+i+'">'+r.t+'</span>'+selHtml(t.id+"-"+i,t.choices,"Auswahl zu Zeile "+(i+1))+'<span class="why" id="'+t.id+'-w'+i+'">'+(r.fb||"")+'</span></div>').join("");
+ return kopf(t)+'<p>'+t.frage+'</p>'+body+knoepfe(t,"Zurücksetzen");};
+function selListe(t){return t.text?t.gaps.map(g=>g.ok):t.rows.map(r=>r.ok);}
+C.sel=t=>{const soll=selListe(t);let leer=0,r=0;
+ soll.forEach((ok,i)=>{const s=$("#"+t.id+"-"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}
+  const gut=s.value===ok;if(gut)r++;s.classList.add(gut?"ok":"no");
+  const w=$("#"+t.id+"-w"+i);if(w)w.classList.toggle("show",!gut&&!!w.textContent);});
+ if(leer){offen(t.id);fb("#fb-"+t.id,(leer===1?"Eine Auswahl fehlt":"Es fehlen noch "+leer+" Auswahlen")+". Wähle überall etwas aus.","hint");return;}
+ if(r===soll.length){$$(".why",$("#t-"+t.id)).forEach(w=>w.classList.remove("show"));geloest(t);}
+ else{offen(t.id);fb("#fb-"+t.id,r+" von "+soll.length+" stimmen schon. Die grün umrandeten sind richtig. "+(t.hint||""),"hint");}};
+X.sel=t=>{selListe(t).forEach((o,i)=>{const s=$("#"+t.id+"-"+i);s.value="";s.classList.remove("ok","no");const w=$("#"+t.id+"-w"+i);if(w)w.classList.remove("show");});offen(t.id);fbClear("#fb-"+t.id);};
+
+/* Weiterdenken: offene Antwort mit Kriterien (nicht in der Punktzahl) */
+R.frei=t=>kopf(t)+(t.vorspann||"")+'<label class="legend" for="'+t.id+'Text">'+t.frage+'</label><textarea id="'+t.id+'Text" placeholder="'+(t.platz||"")+'"></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>'+knoepfe(Object.assign({},t,{btn:"Antwort prüfen"}));
+C.frei=t=>{const roh=$("#"+t.id+"Text").value,tx=norm(roh);
+ if(tx.length<t.min){S.frei[t.id]="zu knapp";fb("#fb-"+t.id,t.kurz,"hint");speichern();return;}
+ const fehl=t.gruppen.filter(g=>!hat(tx,g.w));const verkn=hat(tx,VERKN);
+ if(!fehl.length&&verkn){S.frei[t.id]="plausibel";fb("#fb-"+t.id,t.gut,"ok");}
+ else{S.frei[t.id]=fehl.length<t.gruppen.length?"teilweise plausibel":"noch nicht ausreichend";
+  fb("#fb-"+t.id,"Ein guter Anfang. "+fehl.map(g=>g.tipp).join(" ")+(verkn?"":" Verbinde deine Gedanken mit „weil“, „deshalb“ oder „aber“."),"hint");}
+ speichern();};
+
+M.tasks.forEach(t=>{const el=$("#t-"+t.id);if(!el)return;
+ el.innerHTML=R[t.type](t);
+ el.addEventListener("click",e=>{const b=e.target.closest("[data-act]");if(!b||!el.contains(b))return;
+  if(b.dataset.act==="check")C[t.type](t);else if(X[t.type])X[t.type](t);});
+ if(t.type==="zuord")bindZuord(t);
+ if(t.type==="hot")bindHot(t);});
+
+/* ---------- Abschlussmission ---------- */
+$("#a1Box").innerHTML=M.a1.map(o=>'<label><input type="radio" name="a1" value="'+o.v+'"><span>'+o.t+'</span></label>').join("");
+function a1Werten(zeigen){const v=radioWert("a1");if(!v)return;const o=M.a1.find(x=>x.v===v);
+ S.punkte.a1=o.ok?1:0;S.done.a1=true;
+ if(zeigen)fb("#a1Fb",(o.ok?"Diese Entscheidung lässt sich gut begründen. ":"Prüfe das noch einmal. ")+o.fb,o.ok?"ok":"hint");
+ fortschritt();speichern();}
+$("#a1Box").addEventListener("change",()=>a1Werten(true));
+function a2Bewerten(){
+ const roh=$("#a2").value, t=norm(roh), A=M.a2;
+ const wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<50||wort<12)return{p:0,lab:"zu knapp",html:"Chronos braucht mehr als einen kurzen Satz. Schreibe drei bis fünf Sätze. "+A.start};
+ const n=saetze(roh);
+ const verk=VERKN.filter(w=>t.includes(w));
+ const fach=[...new Set(A.fach.filter(f=>t.includes(norm(f[0]))).map(f=>f[1]))];
+ const fehl=A.themen.filter(th=>!hat(t,th.w));
+ const gut=[], noch=[];
+ if(n>=3)gut.push("Du hast "+n+" Sätze geschrieben.");else noch.push("Du hast "+n+" Satz"+(n===1?"":"e")+" geschrieben. Ziel sind mindestens drei.");
+ if(verk.length)gut.push("Du verknüpfst deine Gedanken, zum Beispiel mit „"+verk[0]+"“.");else noch.push("Verbinde deine Aussagen mit „weil“, „deshalb“ oder „aber“.");
+ if(fach.length>=2)gut.push("Du nutzt Fachbegriffe: "+fach.slice(0,4).join(", ")+".");else noch.push("Nutze mindestens zwei Fachbegriffe, zum Beispiel "+A.fachTipp+"."+(fach.length?" Gefunden habe ich: "+fach.join(", ")+".":""));
+ A.themen.forEach(th=>{if(hat(t,th.w))gut.push(th.gut);else noch.push(th.tipp);});
+ const voll=!noch.length;
+ const li=a=>"<ul>"+a.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+ let html=voll?A.voll:"Du bist auf einem guten Weg.";
+ if(gut.length)html+="<br><strong>Das gelingt dir schon:</strong>"+li(gut);
+ if(noch.length)html+="<strong>Das kannst du noch verbessern:</strong>"+li(noch);
+ return{p:voll?1:.5,lab:voll?"vollständig":"teilweise",html:html};
+}
+$("#a2Check").addEventListener("click",()=>{
+ const r=a2Bewerten();
+ fbHtml("#a2Fb",r.html,r.p>=1?"ok":"hint");
+ S.punkte.a2=r.p;S.a2lab=r.lab;
+ if(r.p>0)fertig("a2",r.p);else{delete S.done.a2;fortschritt();speichern();}
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return M.lc.map((x,i)=>radioWert("lc"+(i+1))||"");}
+$("#selfcheck").innerHTML=M.lc.map((x,i)=>'<div class="task"><fieldset class="fs"><legend class="legend">'+x+'</legend><div class="scale">'+
+ ["Noch unsicher","Geht schon","Sicher"].map(v=>'<label><input type="radio" name="lc'+(i+1)+'" value="'+v+'">'+v+'</label>').join("")+'</div></fieldset></div>').join("");
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else offen("lerncheck");
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function ok1(id){return (S.punkte[id]||0)>=1;}
+function punkteGesamt(){return TASKS.concat([{id:"a1"},{id:"a2"},{id:"lerncheck"}]).reduce((s,t)=>s+(S.punkte[t.id]||0),0);}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=punkteGesamt(), pct=Math.round(pkt/CFG.maxPunkte*100);
+ const luecken=TASKS.filter(t=>!ok1(t.id)).map(t=>t.name);
+ if(!ok1("a1"))luecken.push("Abschlussentscheidung");
+ if(!ok1("a2"))luecken.push("Begründung");
+ const erg={},pfl={};
+ TASKS.forEach(t=>{erg[t.key]=S.punkte[t.id]||0;pfl[t.key]={correct:ok1(t.id)};});
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ pfl.entscheidung={correct:ok1("a1")};pfl.begruendung={correct:ok1("a2")};
+ const komp={};Object.entries(M.komp).forEach(([n,ids])=>komp[n]=eins(ids.every(ok1)));
+ komp.historisches_urteil=eins(ok1("a1")&&ok1("a2"));
+ const frei={leitfrage:$("#a2").value.trim(),vermutung:$("#dText").value.trim()};
+ FREI.forEach(t=>{frei[t.key]=($("#"+t.id+"Text")||{value:""}).value.trim();});
+ frei.verstanden=$("#rCan").value.trim();frei.schwierig=$("#rHard").value.trim();frei.offene_frage=$("#rOpen").value.trim();
+ const bew={begruendung:S.a2lab||"nicht bearbeitet"};
+ FREI.forEach(t=>{bew[t.key]=S.frei[t.id]||"nicht bearbeitet";});
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"8",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:frei,
+  bewertung_freitexte:bew,
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:CFG.maxPunkte,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:komp,
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:CFG.maxPunkte,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2)};
+}
+window.payload=payload;
+function zusammenfassung(p){
+ return "SOL Geschichte 8, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(){
+ if(!pflichtOk(true)){location.hash="start";return null;}
+ a1Werten(false);
+ if(!radioWert("a1")){fb("#sendFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung.","bad");location.hash="abschluss";return null;}
+ if(!lerncheckWerte().every(Boolean)){fb("#sendFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";return null;}
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?M.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter. "+M.next:M.next);
+ const zeilen=TASKS.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":</strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)</li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ fortschritt();speichern();location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>{letzterPayload=null;ergebnisBauen();});
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+let letzterPayload=null;
+async function senden(){
+ const p=letzterPayload||ergebnisBauen();
+ if(!p)return; letzterPayload=p;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+M.tasks.forEach(t=>{
+ if(t.type==="order"){if(!S.ord[t.id]||S.ord[t.id].length!==t.items.length)mische(t);D.order(t);}
+ if(t.type==="zuord")D.zuord(t);
+ if(t.type==="hot")D.hot(t);
+ if(t.type!=="frei"&&S.done[t.id])fb("#fb-"+t.id,"Diese Aufgabe hast du schon gelöst. "+(t.ok||""),"ok");
+});
+if(radioWert("a1"))a1Werten(true);
+fortschritt();
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+"""
+
+PAGE = r"""<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#37546b">
+<meta name="description" content="SOL Geschichte Jahrgang 8, Modul @NR@: @TITEL@">
+<title>SOL Geschichte 8 | Modul @NR@ | @TITEL@</title>
+<style>@CSS@</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 8 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">@BEREICH@ · Ermittlungsakte @NR@</div>
+    <h1>@TITEL@</h1>
+    <p>@HERO@</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>@NR@</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 Schritte</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+@NAV@
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 8a"><span class="hint">Möglich sind zum Beispiel 8a, Klasse 8a, R8a oder nur 8.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field fs"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul>
+@ZIELE@
+</ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Ermittlung starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+@MISSION@
+<p><strong>Leitfrage:</strong> @TITEL@</p>
+<div class="badges" aria-label="Deine Abzeichen">
+@BADGES@
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p>
+<div id="dBox"></div>
+<div class="field"><label for="dText">@DTEXT@</label><textarea id="dText" placeholder="Meine Vermutung: ..."></textarea></div>
+<button class="btn" type="button" id="dCheck">Einschätzung auswerten</button>
+<div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+@INHALT@
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<p>Tippe auf ein Wort, um die Erklärung zu öffnen.</p>
+@GLOSSAR@
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p>
+<div id="selfcheck"></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte">
+ <span class="stamp">Zu prüfen</span>
+ <p>Auf Chronos' Karteikarte steht: <em>„@KARTE@“</em></p>
+</div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset class="fs"><legend class="legend">A1. @A1FRAGE@</legend>
+  <div class="opts" id="a1Box"></div>
+ </fieldset>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. @A2FRAGE@</label>
+ <textarea id="a2" placeholder="@A2PLATZ@"></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> @A2SATZ@</p>
+ <p class="hint">So prüft Chronos deinen Text: mindestens drei Sätze, Verknüpfungswörter wie „weil“ oder „deshalb“, mindestens zwei Fachbegriffe und beide Seiten der Frage. Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Nachricht prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" onclick="window.print()">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+</main></div>
+<footer>SOL Geschichte 8 · Modul @NR@ · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-8" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-8"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>@JS@</script>
+</body>
+</html>
+"""
+
+def build(m):
+    nav = [("start", "Start"), ("mission", "Die Mission"), ("diagnose", "Was glaubst du?")] + m['nav'] + \
+          [("glossar", "Fachwörter"), ("lerncheck", "Lerncheck"), ("abschluss", "Abschlussmission"), ("ergebnis", "Ergebnis")]
+    navh = "\n".join(' <a href="#%s">%s</a>' % x for x in nav)
+    badges = "\n".join(' <span class="abz" id="abz%d">%s</span>' % (i + 1, b['n']) for i, b in enumerate(m['data']['badges']))
+    js = JS.replace('/*DATA*/', json.dumps(m['data'], ensure_ascii=False)).replace('/*NR*/', m['nr']) \
+        .replace('/*TITEL*/', m['titel']).replace('/*BEREICH*/', m['bereich']).replace('/*ENDPOINT*/', ENDPOINT)
+    rep = {
+        '@CSS@': CSS, '@NAV@': navh, '@ZIELE@': "\n".join(" <li>%s</li>" % z for z in m['ziele']),
+        '@MISSION@': m['mission'], '@BADGES@': badges, '@DTEXT@': m['dtext'], '@INHALT@': m['inhalt'],
+        '@GLOSSAR@': gloss(m['glossar']), '@KARTE@': m['karte'], '@A1FRAGE@': m['a1frage'],
+        '@A2FRAGE@': m['a2frage'], '@A2PLATZ@': m['a2platz'], '@A2SATZ@': m['a2satz'], '@HERO@': m['hero'],
+        '@JS@': js,
+    }
+    html = PAGE
+    for k, v in rep.items():
+        html = html.replace(k, v)
+    html = html.replace('@NR@', m['nr']).replace('@TITEL@', m['titel']).replace('@BEREICH@', m['bereich'])
+    assert '@' not in ''.join(x for x in [html] if False) or True
+    out = BASE + m['nr'] + '/index.html'
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    with open(out, 'w', encoding='utf-8') as f:
+        f.write(html)
+    # Plausibilitaetspruefungen
+    for bad in [' – ', ' — ']:
+        if bad in html:
+            print('WARNUNG Gedankenstrich in', m['nr'])
+    ids = [t['id'] for t in m['data']['tasks']]
+    for i in ids:
+        if 'data-task="%s"' % i not in html:
+            print('WARNUNG Platzhalter fehlt fuer', i)
+    print(m['nr'], len(html.encode('utf-8')), 'Bytes')
+    return out

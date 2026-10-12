@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#37546b">
+<meta name="description" content="SOL Geschichte Jahrgang 8, Modul 003: Warum wuchsen die Städte so schnell?">
+<title>SOL Geschichte 8 | Modul 003 | Warum wuchsen die Städte so schnell?</title>
+<style>
+:root{--ink:#14232d;--paper:#fff;--cream:#e7ecf0;--soft:#e7ecf0;--bg:#f4f2ec;--green:#37546b;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#d4d8dc;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #14232d14;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#18242e,#37546b);color:#f6f9fb;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#f6f9fb;color:#18242e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#e6eef3;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#2c4a60,#b87824);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#28343d;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow);min-width:0}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#28343d}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.legend{font-weight:750;color:#28343d}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#56616a}
+.btn{background:var(--green);color:#f6f9fb;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff;min-width:0}
+@media(max-width:480px){.task{padding:12px 10px}}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#56616a;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+fieldset{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#e6edf3}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zones.z4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.zones.z3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.task>label.legend{display:block;margin:8px 0 4px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px;cursor:pointer}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:650;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;max-width:100%;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .nr{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--green)}
+.orow span.t{flex:1;font-weight:650;min-width:0}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;flex:0 0 auto}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px;overflow:hidden}
+svg.pic{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d18aa)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#36434c}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#1f2a33;color:#e7eef3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#80878d;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+blockquote.q{margin:10px 0;padding:10px 14px;border-left:4px solid var(--green);background:#fff;border-radius:0 10px 10px 0}
+blockquote.q p{margin:.35rem 0}
+.orig{font-size:.9rem;color:#56616a;font-style:italic}
+.cloze{line-height:2.4}
+.cloze select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;min-height:44px}
+.cloze select.ok{border-color:var(--ok);background:var(--okbg)}
+.cloze select.no{border-color:var(--bad);background:var(--badbg)}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{background:var(--cream);font-weight:800}
+.tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+.tblwrap{overflow-x:auto;max-width:100%}
+.wort{font-size:.9rem;color:#36434c}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#56616a;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 8 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Industrialisierung und soziale Frage · Akte 003</div>
+    <h1>Warum wuchsen die Städte so schnell?</h1>
+    <p>1849 lebten in Essen knapp 9.000 Menschen. Im Jahr 1900 waren es fast 119.000. Wie konnte eine kleine Stadt in fünfzig Jahren so wachsen? Und warum blieb das Emsland zur gleichen Zeit ländlich?</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>003</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 12 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#karte">Vom Emsland ins Ruhrgebiet</a>
+ <a href="#gruende">Gründe für den Umzug</a>
+ <a href="#folgen">Enge, Schmutz, Krankheit</a>
+ <a href="#quelle">Die Quelle</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 8a"><span class="hint">Möglich sind zum Beispiel 8a, Klasse 8a, R8a oder nur 8.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul><li>Du findest wichtige Orte im Nordwesten Deutschlands auf einer Karte.</li><li>Du erklärst, warum Menschen vom Land in die Städte zogen.</li><li>Du vergleichst das ländliche Emsland mit dem Ruhrgebiet.</li><li>Du erklärst Folgen des Städtewachstums, zum Beispiel Krankheiten.</li><li>Du wertest eine Statistik als Quelle kritisch aus.</li></ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Ermittlung starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Akte 003</span>
+ <p><strong>Fall:</strong> Auf einer Karteikarte steht: <em>„Die Menschen zogen in die Städte, weil das Leben dort besser war.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Prüfe die Gründe und die Folgen des Städtewachstums. Am Ende entscheidest du, ob die Karte stimmt.</p>
+</div>
+<p><strong>Zum Einstieg:</strong> Viele Familien im Emsland haben Vorfahren, die einmal fortgegangen sind: ins Ruhrgebiet, in die Niederlande oder nach Amerika. Vielleicht kennst du so eine Geschichte aus deiner eigenen Familie. Heute ist Umziehen für Arbeit normal. Im 19. Jahrhundert begann eine Wanderung, wie es sie vorher nie gegeben hatte.</p>
+<div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e7ecf0" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#37546b"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#37546b"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div><div><p class="who">Chronos, Archivar</p><p>Ich bin in einer kleinen Stadt geboren und in eine große gezogen. Freiwillig. Aber war das bei allen so? Ich habe da so meine Zweifel.</p></div></div>
+<p><strong>Leitfrage:</strong> Warum wuchsen die Städte so schnell?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Kartenleser</span>
+ <span class="abz" id="abz2">Ursachenforscher</span>
+ <span class="abz" id="abz3">Statistikprüfer</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p><div class="task"><span class="tag">Wortbedeutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D1. Was bedeutet „Landflucht“?</legend><div class="opts"><label><input type="radio" name="d1" value="a"><span>Menschen ziehen vom Land in die Städte</span></label><label><input type="radio" name="d1" value="b"><span>Ein Land wird von Feinden erobert</span></label><label><input type="radio" name="d1" value="c"><span>Bauern fliehen vor einem Unwetter</span></label></div></fieldset></div><div class="task"><span class="tag">Richtig oder falsch</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D2. Um 1800 lebte die große Mehrheit der Menschen in Deutschland auf dem Land.</legend><div class="opts"><label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label><label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label></div></fieldset></div><div class="task"><span class="tag">Vermutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D3. Welches Verkehrsmittel veränderte im 19. Jahrhundert den Transport von Menschen und Waren am stärksten?</legend><div class="opts"><label><input type="radio" name="d3" value="a"><span>Das Auto</span></label><label><input type="radio" name="d3" value="b"><span>Die Eisenbahn</span></label><label><input type="radio" name="d3" value="c"><span>Das Flugzeug</span></label></div></fieldset></div><button class="btn" type="button" id="dCheck">Einschätzung auswerten</button><div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="karte">
+<h2>Vom Emsland ins Ruhrgebiet: Kartenarbeit</h2>
+<p>Die Karte zeigt Nordwestdeutschland um 1900. Ganz oben liegt das Emsland mit Rhede, dem Ort deiner Schule. Weiter südlich liegt das Ruhrgebiet. Lies die Legende und löse fünf Suchaufträge.</p><div class="svgwrap"><svg class="pic" style="max-width:560px;margin:auto" viewBox="0 0 480 560" role="img" aria-label="Schematische Karte von Nordwestdeutschland um 1900 mit Ems, Rhein, Weser, Ruhrgebiet, Dortmund-Ems-Kanal, der Eisenbahn von Emden nach Rheine und Osnabrück sowie den Städten Emden, Papenburg, Meppen, Lingen, Rheine, Osnabrück, Münster, Dortmund, Essen, Bremen, Oldenburg und Hannover">
+<rect width="480" height="560" fill="#dcebf3"/>
+<path d="M15.0 125.2 L84.5 119.5 L101.9 142.3 L119.3 157.5 L136.7 148.0 L113.5 113.8 L130.9 87.2 L165.7 75.8 L223.6 70.1 L235.2 100.5 L243.3 125.2 L258.4 119.5 L252.6 91.0 L281.6 81.5 L287.4 100.5 L293.2 43.5 L310.5 37.8 L339.5 37.8 L385.9 24.5 L478.6 24.5 L478.6 585.0 L15.0 585.0 Z" fill="#eee6cf" stroke="#9c8a63" stroke-width="2"/>
+<path d="M15.0 125.2 L84.5 119.5 L101.9 142.3 L119.3 157.5 L130.9 157.5 L132.1 205.0 L115.8 239.2 L115.8 271.5 L78.7 271.5 L72.9 303.8 L107.7 309.5 L113.5 349.4 L72.9 385.5 L84.5 404.5 L38.2 423.5 L3.4 425.4 L3.4 125.2 Z" fill="#e4e2da" stroke="none"/>
+<path d="M130.9 157.5 L132.1 205.0 L115.8 239.2 L115.8 271.5 L78.7 271.5 L72.9 303.8 L107.7 309.5 L113.5 349.4 L72.9 385.5 L84.5 404.5 L38.2 423.5 L3.4 425.4" fill="none" stroke="#8a8378" stroke-width="2" stroke-dasharray="7 4"/>
+<path d="M84.5 585.0 L82.2 537.5 L79.9 503.3 L61.4 459.6 L26.6 429.2 L3.4 421.6" fill="none" stroke="#6f9cb6" stroke-width="4"/>
+<path d="M385.9 490.0 L356.9 376.0 L339.5 319.0 L333.7 252.5 L316.3 189.8 L287.4 100.5" fill="none" stroke="#6f9cb6" stroke-width="3"/>
+<path d="M293.2 423.5 L258.4 414.0 L222.5 404.5 L177.3 376.0 L151.8 341.8 L136.7 296.2 L133.2 263.9 L139.0 224.0 L146.0 189.8 L151.8 167.0 L130.9 142.3 L119.3 148.0" fill="none" stroke="#5b93b5" stroke-width="4"/>
+<ellipse cx="125.1" cy="490.0" rx="56" ry="25" fill="#3a3a3a" fill-opacity=".18" stroke="#3a3a3a" stroke-dasharray="4 3"/>
+<path d="M162.2 488.1 L147.1 461.5 L180.7 402.6 L174.9 343.7 L158.7 338.0" fill="none" stroke="#1f6fa8" stroke-width="3.5" stroke-dasharray="8 4"/>
+<path d="M130.9 134.7 L159.9 161.3 L152.9 189.8 L141.3 263.9 L144.8 296.2 L158.7 341.8 L229.4 341.8 L293.2 357.0" fill="none" stroke="#3a3a3a" stroke-width="5"/>
+<path d="M130.9 134.7 L159.9 161.3 L152.9 189.8 L141.3 263.9 L144.8 296.2 L158.7 341.8 L229.4 341.8 L293.2 357.0" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="107.7" y="538.6" font-size="14" font-weight="800" fill="#3a3a3a" paint-order="stroke" stroke="#eee6cf" stroke-width="4">Ruhrgebiet</text>
+<text x="177.3" y="43.5" font-size="17" fill="#5f88a3" font-style="italic">Nordsee</text>
+<text x="10" y="214.5" font-size="14" fill="#7b7468" font-style="italic">Nieder-</text>
+<text x="10" y="231.5" font-size="14" fill="#7b7468" font-style="italic">lande</text>
+<text x="159.4" y="376.0" font-size="13" fill="#3b6f93" font-style="italic" paint-order="stroke" stroke="#eee6cf" stroke-width="3">Ems</text>
+<g id="hEmden" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Emden"><circle cx="130.9" cy="134.7" r="16" fill="#fff" fill-opacity=".01"/><circle cx="130.9" cy="134.7" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="130.9" cy="134.7" r="2.8" fill="#9b352d"/><text x="119.9" y="139.7" text-anchor="end" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Emden</text></g><g id="hPapenburg" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Papenburg"><circle cx="152.9" cy="189.8" r="16" fill="#fff" fill-opacity=".01"/><circle cx="152.9" cy="189.8" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="152.9" cy="189.8" r="2.8" fill="#9b352d"/><text x="163.9" y="191.8" text-anchor="start" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Papenburg</text></g><g aria-hidden="true"><circle cx="141.3" cy="263.9" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="141.3" cy="263.9" r="2.8" fill="#9b352d"/><text x="152.3" y="268.9" text-anchor="start" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Meppen</text></g><g id="hLingen" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Lingen"><circle cx="144.8" cy="296.2" r="16" fill="#fff" fill-opacity=".01"/><circle cx="144.8" cy="296.2" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="144.8" cy="296.2" r="2.8" fill="#9b352d"/><text x="155.8" y="302.2" text-anchor="start" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Lingen</text></g><g aria-hidden="true"><circle cx="158.7" cy="341.8" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="158.7" cy="341.8" r="2.8" fill="#9b352d"/><text x="147.7" y="357.8" text-anchor="end" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Rheine</text></g><g aria-hidden="true"><circle cx="229.4" cy="341.8" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="229.4" cy="341.8" r="2.8" fill="#9b352d"/><text x="229.4" y="363.8" text-anchor="middle" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Osnabrück</text></g><g aria-hidden="true"><circle cx="180.7" cy="402.6" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="180.7" cy="402.6" r="2.8" fill="#9b352d"/><text x="191.7" y="407.6" text-anchor="start" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Münster</text></g><g id="hDortmund" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Dortmund"><circle cx="162.2" cy="488.1" r="16" fill="#fff" fill-opacity=".01"/><circle cx="162.2" cy="488.1" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="162.2" cy="488.1" r="2.8" fill="#9b352d"/><text x="172.2" y="506.1" text-anchor="start" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Dortmund</text></g><g id="hEssen" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Essen"><circle cx="108.9" cy="497.6" r="16" fill="#fff" fill-opacity=".01"/><circle cx="108.9" cy="497.6" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="108.9" cy="497.6" r="2.8" fill="#9b352d"/><text x="97.9" y="515.6" text-anchor="end" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Essen</text></g><g aria-hidden="true"><circle cx="316.3" cy="189.8" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="316.3" cy="189.8" r="2.8" fill="#9b352d"/><text x="327.3" y="194.8" text-anchor="start" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Bremen</text></g><g aria-hidden="true"><circle cx="248.0" cy="178.4" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="248.0" cy="178.4" r="2.8" fill="#9b352d"/><text x="248.0" y="166.4" text-anchor="middle" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Oldenburg</text></g><g id="hHannover" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Hannover"><circle cx="424.1" cy="324.7" r="16" fill="#fff" fill-opacity=".01"/><circle cx="424.1" cy="324.7" r="6.5" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="424.1" cy="324.7" r="2.8" fill="#9b352d"/><text x="413.1" y="314.7" text-anchor="end" font-size="15" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Hannover</text></g>
+<path d="M139.0 186.6 l2 5 h5 l-4 3 l2 5 l-5 -3 l-5 3 l2 -5 l-4 -3 h5 Z" fill="#aa6d18"/><text x="129.0" y="198.6" text-anchor="end" font-size="13" font-weight="700" fill="#8f5a12" paint-order="stroke" stroke="#fff" stroke-width="3">Rhede</text>
+<g transform="translate(286 418)">
+ <rect width="186" height="132" rx="10" fill="#fff" stroke="#c9d3da"/>
+ <text x="10" y="21" font-size="14" font-weight="800" fill="#37546b">Legende</text>
+ <path d="M10 40 H40" stroke="#3a3a3a" stroke-width="5"/><path d="M10 40 H40" stroke="#fff" stroke-width="2" stroke-dasharray="6 6"/><text x="48" y="45" font-size="13" fill="#14232d">Eisenbahn ab 1854</text>
+ <path d="M10 62 H40" stroke="#1f6fa8" stroke-width="3.5" stroke-dasharray="8 4"/><text x="48" y="67" font-size="13" fill="#14232d">Kanal, 1899</text>
+ <path d="M10 84 H40" stroke="#6f9cb6" stroke-width="3.5"/><text x="48" y="89" font-size="13" fill="#14232d">Fluss</text>
+ <path d="M25 99 l2 5 h5 l-4 3 l2 5 l-5 -3 l-5 3 l2 -5 l-4 -3 h5 Z" fill="#aa6d18"/><text x="48" y="111" font-size="13" fill="#14232d">deine Schule</text>
+ <text x="10" y="126" font-size="11" fill="#56616a">Schematische Karte</text>
+</g>
+</svg></div><div class="legendlist" aria-hidden="true"><span>Karte: eigene schematische Darstellung, Grenzen und Flussläufe vereinfacht</span></div><div class="task"><span class="tag">Kartenarbeit</span><h3>Suchauftrag</h3><p id="karteTask">Tippe im Bild auf den gesuchten Ort.</p><div class="chips" id="karteAlt" aria-label="Auswahl, gleichwertig zum Antippen im Bild"></div><button class="btn sec" type="button" id="karteReset">Aufgabe zurücksetzen</button><div class="fb" id="karteFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="gruende">
+<h2>Weg vom Land, hin zur Stadt</h2>
+<p>Zwischen 1850 und 1914 verließen Millionen Menschen in Deutschland ihre Dörfer. Man spricht von <strong>Landflucht</strong> oder <strong>Binnenwanderung</strong>. Manche Gründe drückten die Menschen vom Land weg, andere zogen sie in die Städte. Ordne zu.</p><div class="task"><span class="tag">Zuordnen</span><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Eine falsch abgelegte Karte kannst du wieder antippen und neu ablegen.</p><div class="chips" id="pushpullPieces" aria-label="Karten zum Zuordnen"></div><div class="zones z2"><div class="zone" data-task="pushpull" data-zone="weg" tabindex="0" role="button" aria-label="Ablegen bei Gründe, das Dorf zu verlassen"><h4>Gründe, das Dorf zu verlassen</h4><div class="drop"></div></div><div class="zone" data-task="pushpull" data-zone="hin" tabindex="0" role="button" aria-label="Ablegen bei Gründe, in die Industriestadt zu ziehen"><h4>Gründe, in die Industriestadt zu ziehen</h4><div class="drop"></div></div></div><button class="btn" type="button" id="pushpullCheck">Zuordnung prüfen</button><button class="btn sec" type="button" id="pushpullReset">Zurücksetzen</button><div class="fb" id="pushpullFb" role="status" aria-live="polite"></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Im Nordwesten Deutschlands galt oft das Anerbenrecht: Ein Kind bekam den ganzen Hof, damit er nicht zersplitterte.</div></div><div class="task"><span class="tag">Regionalgeschichte</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">E1. Warum blieb das Emsland lange ländlich, während das Ruhrgebiet zum Industriegebiet wurde?</legend><div class="opts"><label><input type="radio" name="emsland" value="a"><span>Industrie war im Emsland gesetzlich verboten.</span></label><label><input type="radio" name="emsland" value="b"><span>Im Emsland gab es kaum Kohle und Erz und viel Moor. Viele Menschen suchten deshalb Arbeit anderswo: als Saisonarbeiter in den Niederlanden, im Ruhrgebiet oder in Amerika.</span></label><label><input type="radio" name="emsland" value="c"><span>Die Menschen im Emsland wollten nicht arbeiten.</span></label></div></fieldset><button class="btn" type="button" id="emslandCheck">Prüfen</button><div class="fb" id="emslandFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="folgen">
+<h2>Enge, Schmutz und Krankheit</h2>
+<p>Die Städte wuchsen schneller, als Häuser, Wasserleitungen und Abwasserkanäle gebaut werden konnten. Die Folgen waren oft schlimm.</p><div class="task"><span class="tag">Ursache-Folge-Kette</span><p><strong>Auftrag:</strong> Bringe die Kette in die richtige Reihenfolge, von der Ursache bis zur Reaktion der Städte.</p><div class="order" id="ketteList" aria-label="Liste zum Ordnen"></div><button class="btn" type="button" id="ketteCheck">Reihenfolge prüfen</button><button class="btn sec" type="button" id="ketteReset">Neu mischen</button><div class="fb" id="ketteFb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Lückentext</span><p><strong>Eisenbahn und Kanal:</strong> Wähle in jeder Lücke das passende Wort.</p><p class="cloze">Die erste deutsche Eisenbahn fuhr <select id="luecke_0" aria-label="Lücke 1"><option value="">bitte wählen</option><option value="1905">1905</option><option value="1735">1735</option><option value="1835">1835</option></select> zwischen Nürnberg und Fürth. Im Emsland fuhr ab 1854 ein Zug von Emden nach <select id="luecke_1" aria-label="Lücke 2"><option value="">bitte wählen</option><option value="München">München</option><option value="Papenburg">Papenburg</option><option value="Berlin">Berlin</option></select>. Die Eisenbahn brauchte große Mengen <select id="luecke_2" aria-label="Lücke 3"><option value="">bitte wählen</option><option value="Holz und Stroh">Holz und Stroh</option><option value="Wolle und Leinen">Wolle und Leinen</option><option value="Kohle und Stahl">Kohle und Stahl</option></select>. Das ließ das Ruhrgebiet weiter wachsen. Seit 1899 verbindet der <select id="luecke_3" aria-label="Lücke 4"><option value="">bitte wählen</option><option value="Dortmund-Ems-Kanal">Dortmund-Ems-Kanal</option><option value="Suezkanal">Suezkanal</option><option value="Nord-Ostsee-Kanal">Nord-Ostsee-Kanal</option></select> das Ruhrgebiet mit der Ems. Emden wurde dadurch ein wichtiger <select id="luecke_4" aria-label="Lücke 5"><option value="">bitte wählen</option><option value="Bahnhof">Bahnhof</option><option value="Flughafen">Flughafen</option><option value="Seehafen">Seehafen</option></select> für das Ruhrgebiet.</p><button class="btn" type="button" id="lueckeCheck">Prüfen</button><div class="fb" id="lueckeFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: Eine Statistik</h2>
+<p>Auch Zahlen können Quellen sein. Das Statistische Amt des Deutschen Reiches zählte regelmäßig die Einwohner. Hier ist ein Auszug.</p><div class="akte"><span class="stamp">Quelle</span><p><strong>Statistisches Jahrbuch für das Deutsche Reich, Ausgaben 1881, 1893 und 1914.</strong> Die Zahlen stammen aus Volkszählungen. Das Jahrbuch wurde vom Kaiserlichen Statistischen Amt in Berlin herausgegeben, für Behörden, Politik und Wissenschaft.</p><div class="tblwrap"><table class="tbl"><caption class="hint" style="caption-side:bottom;text-align:left;padding-top:6px">Einwohnerzahlen nach dem Statistischen Jahrbuch für das Deutsche Reich</caption><thead><tr><th>Stadt</th><th class="n">1875</th><th class="n">1890</th><th class="n">1910</th></tr></thead><tbody><tr><td>Berlin</td><td class="n">966.859</td><td class="n">1.587.794</td><td class="n">2.071.257</td></tr><tr><td>Hamburg</td><td class="n">264.675</td><td class="n">323.923</td><td class="n">931.035</td></tr><tr><td>Hannover</td><td class="n">106.677</td><td class="n">163.593</td><td class="n">302.375</td></tr><tr><td>Essen</td><td class="n">54.790</td><td class="n">78.706</td><td class="n">294.653</td></tr><tr><td>Dortmund</td><td class="n">57.742</td><td class="n">89.663</td><td class="n">214.226</td></tr><tr><td>Duisburg</td><td class="n">37.380</td><td class="n">59.285</td><td class="n">229.438</td></tr><tr><td>Bremen</td><td class="n">102.532</td><td class="n">125.684</td><td class="n">217.437</td></tr></tbody></table></div></div><div class="svgwrap"><svg class="pic" viewBox="0 0 380 330" role="img" aria-label="Balkendiagramm: Einwohner 1875 und 1910 in Hannover, Essen, Dortmund, Duisburg und Bremen" style="max-width:560px;margin:auto"><rect width="380" height="330" fill="#fbfaf6"/><text x="10" y="22" font-size="15" font-weight="800" fill="#37546b">Einwohner 1875 und 1910</text><text x="10" y="60" font-size="15" font-weight="700" fill="#14232d">Hannover</text><rect x="100" y="42" width="65" height="16" fill="#9fb1bf"/><text x="171" y="55" font-size="12" fill="#14232d">106.677</text><rect x="100" y="62" width="185" height="16" fill="#37546b"/><text x="291" y="75" font-size="12" fill="#14232d">302.375</text><text x="10" y="114" font-size="15" font-weight="700" fill="#14232d">Essen</text><rect x="100" y="96" width="34" height="16" fill="#9fb1bf"/><text x="140" y="109" font-size="12" fill="#14232d">54.790</text><rect x="100" y="116" width="181" height="16" fill="#37546b"/><text x="287" y="129" font-size="12" fill="#14232d">294.653</text><text x="10" y="168" font-size="15" font-weight="700" fill="#14232d">Dortmund</text><rect x="100" y="150" width="35" height="16" fill="#9fb1bf"/><text x="141" y="163" font-size="12" fill="#14232d">57.742</text><rect x="100" y="170" width="131" height="16" fill="#37546b"/><text x="237" y="183" font-size="12" fill="#14232d">214.226</text><text x="10" y="222" font-size="15" font-weight="700" fill="#14232d">Duisburg</text><rect x="100" y="204" width="23" height="16" fill="#9fb1bf"/><text x="129" y="217" font-size="12" fill="#14232d">37.380</text><rect x="100" y="224" width="141" height="16" fill="#37546b"/><text x="247" y="237" font-size="12" fill="#14232d">229.438</text><text x="10" y="276" font-size="15" font-weight="700" fill="#14232d">Bremen</text><rect x="100" y="258" width="63" height="16" fill="#9fb1bf"/><text x="169" y="271" font-size="12" fill="#14232d">102.532</text><rect x="100" y="278" width="133" height="16" fill="#37546b"/><text x="239" y="291" font-size="12" fill="#14232d">217.437</text><rect x="100" y="312" width="14" height="10" fill="#9fb1bf"/><text x="120" y="321" font-size="12" fill="#14232d">1875</text><rect x="170" y="312" width="14" height="10" fill="#37546b"/><text x="190" y="321" font-size="12" fill="#14232d">1910</text></svg></div><div class="legendlist" aria-hidden="true"><span>Diagramm: eigene Darstellung nach den Zahlen der Tabelle</span></div><div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e7ecf0" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#37546b"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#37546b"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div><div><p class="who">Chronos, Archivar</p><p>Zahlen wirken so sicher. Aber auch eine Statistik hat einen Verfasser, einen Zweck und Grenzen. Prüfe genau, was sie zeigt und was nicht.</p></div></div><div class="task"><span class="tag">Quellenarbeit</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S1. Welche Stadt wuchs von 1875 bis 1910 im Verhältnis am stärksten?</legend><div class="opts"><label><input type="radio" name="s1" value="a"><span>Berlin, weil es die meisten Einwohner hatte</span></label><label><input type="radio" name="s1" value="b"><span>Hannover</span></label><label><input type="radio" name="s1" value="c"><span>Duisburg, die Einwohnerzahl stieg auf mehr als das Sechsfache</span></label></div></fieldset><button class="btn" type="button" id="s1Check">Prüfen</button><div class="fb" id="s1Fb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Quellenkritik</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S2. Essen hatte 1900 etwa 119.000 Einwohner, 1910 fast 295.000. Ab 1901 wurden Nachbargemeinden eingemeindet, zum Beispiel Altendorf mit über 63.000 Einwohnern. Was bedeutet das für die Statistik?</legend><div class="opts"><label><input type="radio" name="s2" value="a"><span>Ein Teil des Wachstums entstand dadurch, dass die Stadtgrenze verschoben wurde. Nicht alle neuen „Essener“ waren zugezogen.</span></label><label><input type="radio" name="s2" value="b"><span>Die Statistik ist gefälscht und deshalb wertlos.</span></label><label><input type="radio" name="s2" value="c"><span>Das spielt keine Rolle, eine Zahl ist eine Zahl.</span></label></div></fieldset><button class="btn" type="button" id="s2Check">Prüfen</button><div class="fb" id="s2Fb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Was sagt die Quelle nicht?</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S3. Was verrät diese Statistik nicht? Wähle alle zutreffenden aus.</legend><div class="opts"><label><input type="checkbox" name="q1" value="wohnen"><span>Wie die Menschen wohnten</span></label><label><input type="checkbox" name="q1" value="warum"><span>Warum die Menschen in die Städte zogen</span></label><label><input type="checkbox" name="q1" value="zahl"><span>Wie viele Einwohner Dortmund 1890 hatte</span></label><label><input type="checkbox" name="q1" value="besser"><span>Ob es den Zugezogenen in der Stadt besser ging</span></label><label><input type="checkbox" name="q1" value="wachstum"><span>Ob Hannover zwischen 1875 und 1910 gewachsen ist</span></label></div></fieldset><button class="btn" type="button" id="q1Check">Prüfen</button><button class="btn sec" type="button" id="q1Reset">Zurücksetzen</button><div class="fb" id="q1Fb" role="status" aria-live="polite"></div></div><div class="task" data-lw="weiter"><span class="tag">Weiterdenken · Vergleich</span><label class="legend" for="q2">Weiterdenken. Vergleiche Hannover und Essen zwischen 1890 und 1910. Welche Stadt wuchs schneller? Nenne mögliche Gründe und beachte dabei die Eingemeindungen.</label><textarea id="q2" placeholder="Zwischen 1890 und 1910 wuchs ... schneller, weil ... Man muss aber beachten, dass ..."></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p><button class="btn" type="button" id="q2Check">Antwort prüfen</button><div class="fb" id="q2Fb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Urbanisierung</summary><div class="body">Verstädterung: Immer mehr Menschen leben in Städten, und die Städte werden größer.</div></details><details class="gloss"><summary>Landflucht</summary><div class="body">Die Abwanderung vieler Menschen vom Land in die Städte und Industriegebiete.</div></details><details class="gloss"><summary>Binnenwanderung</summary><div class="body">Umzug innerhalb eines Landes, zum Beispiel aus Ostpreußen oder dem Emsland ins Ruhrgebiet.</div></details><details class="gloss"><summary>Ruhrgebiet</summary><div class="body">Industriegebiet an Ruhr und Emscher mit Städten wie Essen, Dortmund und Duisburg. Grundlage waren Steinkohle und Stahlindustrie.</div></details><details class="gloss"><summary>Zeche</summary><div class="body">Ein Bergwerk, in dem Kohle abgebaut wird.</div></details><details class="gloss"><summary>Hollandgänger</summary><div class="body">Menschen aus dem Emsland und Westfalen, die jedes Jahr für einige Monate in den Niederlanden arbeiteten, etwa beim Torfstechen oder bei der Heuernte.</div></details><details class="gloss"><summary>Eingemeindung</summary><div class="body">Ein Nachbarort wird Teil einer Stadt. Die Einwohnerzahl der Stadt steigt dadurch, ohne dass jemand umzieht.</div></details><details class="gloss"><summary>Kanalisation</summary><div class="body">Unterirdische Kanäle, die Abwasser aus der Stadt leiten.</div></details><details class="gloss"><summary>Cholera</summary><div class="body">Eine gefährliche Durchfallkrankheit, die vor allem durch verschmutztes Trinkwasser übertragen wird.</div></details><details class="gloss"><summary>Statistik</summary><div class="body">Eine Sammlung von Zahlen über viele Fälle, zum Beispiel Einwohnerzahlen. Sie zeigt Entwicklungen, aber keine Einzelschicksale.</div></details><h3>Woher stammen die Texte?</h3><details class="gloss"><summary>Nachweise der Quellen und Zahlen</summary><div class="body"><ul><li>Statistisches Jahrbuch für das Deutsche Reich 1881, 1893 und 1914, nach dem Abdruck bei German History in Documents and Images (GHDI), „Das Wachstum großer Städte (1875 bis 1910)“.</li><li>Einwohnerzahlen Essen 1849 (8.813) und 1900 (118.862) sowie Hannover 1848 (28.233): Volkszählungsergebnisse nach den Übersichten zur Einwohnerentwicklung der Städte. Eingemeindung Altendorf 1901 mit 63.238 Einwohnern (Stand 1900).</li><li>Emslandbahn: Abschnitt Emden bis Papenburg eröffnet am 24. November 1854, durchgehender Verkehr ab 1856. Eisenbahnwerkstätten Lingen ab 1855. Dortmund-Ems-Kanal eröffnet am 11. August 1899.</li><li>Cholera in Hamburg 1892: etwa 8.600 Tote, danach Bau eines Filterwerks für Trinkwasser.</li><li>Karte und Diagramm sind eigene Darstellungen.</li></ul></div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p><div id="selfcheck"><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann Gründe nennen, warum Menschen vom Land in die Städte zogen.</legend><div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann Folgen des schnellen Städtewachstums erklären.</legend><div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann eine Statistik als Quelle auswerten und ihre Grenzen nennen.</legend><div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte"><span class="stamp">Zu prüfen</span><p>Auf der Karteikarte steht: <em>„Die Menschen zogen in die Städte, weil das Leben dort besser war.“</em></p></div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0;margin:0"><legend class="legend">A1. Wie entscheidest du?</legend><div class="opts"><label><input type="radio" name="a1" value="a"><span>Die Karte stimmt so. In der Stadt war das Leben einfach besser.</span></label><label><input type="radio" name="a1" value="b"><span>Die Karte ist zu einfach. Viele zogen aus Not vom Land weg und hofften auf Arbeit. In der Stadt warteten aber oft enge Wohnungen und Krankheiten.</span></label><label><input type="radio" name="a1" value="c"><span>Die Menschen wurden vom Staat gezwungen, in die Städte zu ziehen.</span></label><label><input type="radio" name="a1" value="d"><span>Für manche wurde das Leben besser, für andere nicht. Entscheidend waren Arbeit und Lohn, nicht ein besseres Leben an sich.</span></label></div></fieldset>
+ <button class="btn" type="button" id="a1Check">Entscheidung prüfen</button>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine Nachricht. Erkläre in drei bis fünf Sätzen, warum die Städte so schnell wuchsen. Nenne Gründe auf dem Land, Gründe in der Stadt und mindestens eine Folge.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, die Menschen zogen in die Städte, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Auf dem Land gab es zu wenig Arbeit, deshalb ...“ · „In der Stadt suchten Zechen und Fabriken ...“ · „Eine Folge war, dass ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Begründung prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="fb" id="buildFb" role="status" aria-live="polite"></div>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" id="printBtn">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+</main></div>
+<footer>SOL Geschichte 8 · Modul 003 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-8" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-8"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={"modul": "003", "titel": "Warum wuchsen die Städte so schnell?", "bereich": "Industrialisierung und soziale Frage", "version": "1.0.0", "key": "sol-geschichte-8-003", "endpoint": "https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec", "next": "Weiter geht es mit Modul 004: Wie lebten Arbeiterfamilien?", "badges": [{"id": "abz1", "name": "Kartenleser", "tasks": ["karte"]}, {"id": "abz2", "name": "Ursachenforscher", "tasks": ["pushpull", "kette"]}, {"id": "abz3", "name": "Statistikprüfer", "tasks": ["s1", "s2", "q1"]}, {"id": "abz4", "name": "Begründer", "tasks": ["a2"]}], "startOk": "Alles bereit. Chronos wartet schon. Es geht weiter mit der Mission."};
+const TASKS=[{"id": "karte", "typ": "hot", "finds": [{"z": "hEssen", "tipp": "Gesucht ist die Stadt im Ruhrgebiet, in der die Gussstahlfabrik der Familie Krupp stand. Sie wuchs bis 1900 auf fast 119.000 Einwohner.", "ok": "Richtig, Essen. Zechen und die Krupp-Werke brauchten Zehntausende Arbeitskräfte. Viele kamen aus ländlichen Gebieten."}, {"z": "hDortmund", "tipp": "Gesucht ist die Ruhrgebietsstadt, in der der Kanal von 1899 beginnt.", "ok": "Richtig, Dortmund. Der Dortmund-Ems-Kanal verband das Ruhrgebiet mit der Ems und dem Seehafen Emden. So kamen Kohle und Erz auf dem Wasser billig ans Ziel."}, {"z": "hLingen", "tipp": "Gesucht ist die Stadt an der Ems, in der ab 1855 die großen Werkstätten der Eisenbahn entstanden. Das war einer der wenigen großen Industriebetriebe im Emsland.", "ok": "Richtig, Lingen. In den Eisenbahnwerkstätten wurden später Lokomotiven repariert. Hunderte Menschen fanden dort Arbeit."}, {"z": "hPapenburg", "tipp": "Gesucht ist die Werftstadt ganz in der Nähe deiner Schule. Schon 1854 fuhr von hier ein Zug nach Emden.", "ok": "Richtig, Papenburg. Die Strecke Emden bis Papenburg war der erste Abschnitt der Emslandbahn. Ab 1856 fuhren die Züge durchgehend über Rheine bis Löhne."}, {"z": "hHannover", "tipp": "Gesucht ist die Hauptstadt der Provinz, zu der das Emsland damals gehörte. Sie wuchs von etwa 28.000 Einwohnern (1848) auf über 300.000 (1910).", "ok": "Richtig, Hannover. Bis 1866 war Hannover Hauptstadt eines Königreichs, danach einer preußischen Provinz. Auch hier entstanden große Fabriken."}], "alle": [{"id": "hEmden", "n": "Emden"}, {"id": "hPapenburg", "n": "Papenburg"}, {"id": "hLingen", "n": "Lingen"}, {"id": "hDortmund", "n": "Dortmund"}, {"id": "hEssen", "n": "Essen"}, {"id": "hHannover", "n": "Hannover"}], "done": "Alle fünf gefunden. Die Karte zeigt: Eisenbahn und Kanal verbanden das ländliche Emsland mit dem Industriegebiet an der Ruhr.", "name": "Kartenarbeit", "komp": ["zeit_raum", "fachwissen"]}, {"id": "pushpull", "typ": "zuord", "pieces": [{"k": "pushpullk1", "t": "Den Hof erbt meist nur ein Kind, die Geschwister gehen leer aus", "z": "weg"}, {"k": "pushpullk2", "t": "Die Bevölkerung wächst, aber die Zahl der Höfe nicht", "z": "weg"}, {"k": "pushpullk3", "t": "Landarbeiter verdienen wenig und sind vom Gutsherrn abhängig", "z": "weg"}, {"k": "pushpullk4", "t": "Heimweber verlieren gegen billige Fabrikware ihr Einkommen", "z": "weg"}, {"k": "pushpullk5", "t": "Zechen und Fabriken suchen Tausende Arbeitskräfte", "z": "hin"}, {"k": "pushpullk6", "t": "Es gibt regelmäßig Lohn in bar", "z": "hin"}, {"k": "pushpullk7", "t": "Verwandte und Bekannte sind schon dort und helfen beim Ankommen", "z": "hin"}, {"k": "pushpullk8", "t": "Werber der Zechen versprechen Arbeit und Wohnung", "z": "hin"}], "ok": "Alle acht richtig. Meist kam beides zusammen: Not auf dem Land und Hoffnung auf Arbeit in der Stadt. Die Eisenbahn machte den Weg schnell und bezahlbar.", "hint": "Frage dich: Beschreibt die Karte ein Problem auf dem Land oder eine Chance in der Stadt?", "name": "Gründe der Landflucht", "komp": ["ursachen_folgen", "perspektivitaet"], "zones": ["weg", "hin"]}, {"id": "emsland", "typ": "mc", "richtig": "b", "fb": {"a": "Nein, ein solches Verbot gab es nicht. Es fehlten aber die Voraussetzungen, die du aus Modul 001 kennst.", "b": "Richtig. Ohne Bodenschätze fehlte die Grundlage für Schwerindustrie. Schon seit dem 17. Jahrhundert gingen Menschen aus dem Emsland jeden Sommer als „Hollandgänger“ zur Arbeit in die Niederlande. Im 19. Jahrhundert zogen viele ins Ruhrgebiet oder wanderten nach Amerika aus.", "c": "Das ist ein Vorurteil. Die Menschen arbeiteten hart, nur gab es vor Ort wenig Industrie. Denke an die Voraussetzungen aus Modul 001."}, "name": "Regionaler Vergleich", "komp": ["zeit_raum", "ursachen_folgen"], "zusatz": false}, {"id": "kette", "typ": "order", "items": ["Tausende Menschen ziehen in kurzer Zeit in die Stadt.", "Häuser werden schnell und eng gebaut. Viele Familien teilen sich eine Toilette auf dem Hof.", "Abwasser gelangt in Brunnen und Flüsse, aus denen Trinkwasser kommt.", "Krankheiten wie die Cholera breiten sich aus. 1892 starben in Hamburg etwa 8.600 Menschen.", "Die Städte bauen Kanalisation, Wasserwerke mit Filtern und eine Müllabfuhr."], "ok": "Genau. Schnelles Wachstum führte zu Enge und schmutzigem Wasser, das führte zu Seuchen. Erst danach reagierten die Städte mit Kanalisation und sauberem Trinkwasser. In Hamburg wurde nach 1892 ein Filterwerk gebaut.", "hint": "Frage dich: Was musste zuerst passieren, damit Wasser verschmutzt wurde? Und wann reagierten die Städte?", "name": "Ursache und Folge", "komp": ["ursachen_folgen"]}, {"id": "luecke", "typ": "luecke", "richtig": ["1835", "Papenburg", "Kohle und Stahl", "Dortmund-Ems-Kanal", "Seehafen"], "ok": "Alles richtig. Eisenbahn und Kanal waren beides: Folge der Industrialisierung, weil sie Kohle und Stahl brauchten, und Ursache für weiteres Wachstum, weil sie Menschen und Waren transportierten.", "hint": "Tipp: Sieh dir die Karte und die Legende noch einmal an.", "name": "Verkehrswege", "komp": ["fachwissen", "zeit_raum"]}, {"id": "s1", "typ": "mc", "richtig": "c", "fb": {"a": "Berlin war die größte Stadt, aber es wuchs „nur“ auf etwa das Doppelte. Teile 1910 durch 1875.", "b": "Hannover wuchs auf fast das Dreifache. Es gibt eine Stadt, die noch stärker wuchs. Rechne 1910 geteilt durch 1875.", "c": "Richtig. 229.438 geteilt durch 37.380 ergibt etwa 6,1. Die Ruhrgebietsstädte Duisburg und Essen wuchsen besonders schnell, vor allem nach 1890."}, "name": "Statistik auswerten", "komp": ["quellenarbeit", "fachwissen"], "zusatz": false}, {"id": "s2", "typ": "mc", "richtig": "a", "fb": {"a": "Richtig. Wer Zahlen vergleicht, muss prüfen, ob dasselbe gezählt wurde. Die Menschen in Altendorf lebten schon vorher dort. Trotzdem war auch Altendorf durch Zuwanderung gewachsen.", "b": "Nein. Die Zahlen stimmen, sie messen nur etwas anderes als gedacht. Man muss sie mit diesem Wissen lesen.", "c": "Doch, es spielt eine Rolle. Wenn sich die Stadtgrenze ändert, vergleicht man nicht mehr dasselbe Gebiet."}, "name": "Quellenkritik Statistik", "komp": ["quellenarbeit", "zeit_raum"], "zusatz": false}, {"id": "q1", "typ": "multi", "richtig": ["wohnen", "warum", "besser"], "ok": "Genau. Eine Statistik zeigt Mengen und Entwicklungen. Über Gründe, Gefühle und Lebensverhältnisse sagt sie nichts. Dafür braucht man andere Quellen, etwa Berichte und Briefe.", "hinweis": {"zahl": "Doch, das steht in der Tabelle: 89.663 Einwohner.", "wachstum": "Doch, das zeigt die Tabelle: von 106.677 auf 302.375."}, "fehlt": "Es fehlen noch # zutreffende Antworten. ", "tipp": "", "name": "Grenzen der Statistik", "komp": ["quellenarbeit"]}, {"id": "q2", "typ": "text", "krit": {"min": 60, "worte": 15, "need": 2, "gruppen": [{"w": ["essen"], "miss": "Nenne die Stadt, die schneller wuchs."}, {"w": ["zeche", "kohle", "krupp", "industrie", "fabrik", "eingemeind", "grenze", "altendorf"], "miss": "Nenne einen Grund, zum Beispiel Kohle und Industrie oder die Eingemeindungen."}], "ok": "Gut verglichen. Essen wuchs fast auf das Vierfache, Hannover nicht ganz auf das Doppelte. Zechen und Krupp zogen Arbeitskräfte an, ein Teil des Zuwachses kam aber durch Eingemeindungen."}, "name": "Weiterdenken Vergleich", "komp": ["quellenarbeit"], "zusatz": true}];
+const DIAG={"fragen": [{"n": "d1", "r": "a"}, {"n": "d2", "r": "r"}, {"n": "d3", "r": "b"}], "alle": "Drei von drei. Deine Vermutungen passen gut. Der Lernweg Weiterdenken könnte für dich spannend sein.", "fast": "Zwei von drei. Gute Grundlage. Im Modul erfährst du mehr.", "wenig": "Du hast # von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da.", "extra": [{"n": "d3", "v": "a", "m": "Ein Hinweis vorab: Autos gab es erst ganz am Ende des 19. Jahrhunderts, und kaum jemand besaß eines."}]};
+const ABS={"ok": ["b", "d"], "fb": {"a": "Prüfe das noch einmal. Denke an die Cholera, an enge Wohnungen und an die Gründe, die Menschen vom Land wegdrückten.", "b": "Gut entschieden. Du unterscheidest zwischen Hoffnung und Wirklichkeit. Begründe das jetzt in A2.", "c": "Nein. Niemand wurde gezwungen. Die meisten gingen wegen Not auf dem Land und Arbeit in der Stadt.", "d": "Gut entschieden. Du zeigst, dass die Erfahrungen verschieden waren. Begründe das jetzt in A2."}, "krit": {"min": 80, "worte": 20, "need": 3, "saetze": 3, "gruppen": [{"w": ["land", "dorf", "hof", "erb", "arm", "not", "bevolker", "landarbeit"], "miss": "Nenne einen Grund auf dem Land, zum Beispiel zu wenig Höfe oder Armut."}, {"w": ["arbeit", "lohn", "fabrik", "zeche", "industrie", "krupp"], "miss": "Nenne einen Grund in der Stadt, zum Beispiel Arbeit in Zechen und Fabriken."}, {"w": ["eng", "wohn", "krank", "cholera", "wasser", "hygien", "kanalis", "schmutz", "seuche"], "miss": "Nenne eine Folge, zum Beispiel enge Wohnungen oder Krankheiten."}], "ok": "Sehr gut. Du verbindest Gründe auf dem Land, Chancen in der Stadt und die Folgen. Genau das ist der Kern: Not und Hoffnung trieben die Menschen in die Städte, doch dort warteten oft Enge und Krankheit. Abzeichen Begründer freigeschaltet."}};
+const S={lernweg:"standard",done:{},punkte:{},placed:{},order:{},hot:{},fbs:{},texts:{},sent:false,built:false};
+const TMAP={};TASKS.forEach(t=>TMAP[t.id]=t);
+const PFLICHT=TASKS.filter(t=>!t.zusatz);
+const SCHRITTE=["start","diagnose"].concat(PFLICHT.map(t=>t.id),["lerncheck","abschluss"]);
+const MAXP=PFLICHT.length+3;
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function fbT(tid,msg,art){S.fbs[tid]={m:msg,a:art};fb("#"+tid+"Fb",msg,art);}
+function fbTClear(tid){delete S.fbs[tid];fbClear("#"+tid+"Fb");}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+function val(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","trotzdem","aber","jedoch","obwohl","wahrend","einerseits","andererseits"];
+function mische(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ (CFG.badges||[]).forEach(b=>{const e=document.getElementById(b.id);if(e)e.classList.toggle("on",b.tasks.every(k=>k==="a2"?(S.punkte.a2||0)>=1:!!S.done[k]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];S.punkte[k]=0;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich anspruchsvolle Aufgaben, zum Beispiel eine zweite Quelle."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 8a."};
+ const m=t.match(/(?:^|[^0-9])8([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 8. Schreibe zum Beispiel 8a, Klasse 8b oder nur 8."};
+ return{ok:true,wert:"8"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb",CFG.startOk,"ok");
+ location.hash="mission";
+});
+
+/* ---------- Einstieg ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const fr=DIAG.fragen, offenD=fr.filter(f=>!val(f.n));
+ if(offenD.length){fb("#dFb","Beantworte bitte zuerst alle drei Fragen. Raten ist ausdrücklich erlaubt.","hint");return;}
+ const r=fr.filter(f=>val(f.n)===f.r).length;
+ let m=r===fr.length?DIAG.alle:(r===fr.length-1?DIAG.fast:DIAG.wenig.replace("#",r));
+ (DIAG.extra||[]).forEach(x=>{if(val(x.n)===x.v)m+=" "+x.m;});
+ fb("#dFb",m,r>=2?"ok":"hint");S.fbs.d={m:m,a:r>=2?"ok":"hint"};
+ fertig("diagnose");
+});
+
+/* ---------- Auswahl ---------- */
+function initMc(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const v=val(t.id);
+  if(!v){fbT(t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+  const ok=v===t.richtig, m=(t.fb&&t.fb[v])||(ok?"Richtig.":"Noch nicht.");
+  if(ok){fbT(t.id,m,"ok");fertig(t.id,1);}else{fbT(t.id,m,"hint");if(!t.zusatz)offen(t.id);}
+ });
+}
+function initMulti(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+  if(!sel.length){fbT(t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+  const fehlt=t.richtig.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!t.richtig.includes(x));
+  if(!fehlt.length&&!zuviel.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);return;}
+  let m="";
+  zuviel.forEach(z=>{if(t.hinweis&&t.hinweis[z])m+=t.hinweis[z]+" ";});
+  if(fehlt.length)m+=(fehlt.length===1?"Es fehlt noch eine zutreffende Antwort. ":t.fehlt.replace("#",fehlt.length));
+  fbT(t.id,(m+(t.tipp||"")).trim(),"hint");offen(t.id);
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);fbTClear(t.id);offen(t.id);});
+}
+
+/* ---------- Zuordnen mit Antippen oder Ziehen ---------- */
+let gew=null;
+function pieceHtml(t,p,cls){return '<button type="button" class="piece'+(cls?" "+cls:"")+'" draggable="true" data-task="'+t.id+'" data-k="'+p.k+'" aria-pressed="'+(gew&&gew.k===p.k?"true":"false")+'">'+p.t+'<\/button>';}
+function zeichneZ(t){
+ const pl=S.placed[t.id]||(S.placed[t.id]={});
+ const offenP=t.pieces.filter(p=>!pl[p.k]);
+ $("#"+t.id+"Pieces").innerHTML=offenP.map(p=>pieceHtml(t,p)).join("")||'<span class="hint">Alle Karten sind zugeordnet.<\/span>';
+ $$('.zone[data-task="'+t.id+'"] .drop').forEach(d=>d.innerHTML="");
+ t.pieces.forEach(p=>{const z=pl[p.k];if(z){const d=document.querySelector('.zone[data-task="'+t.id+'"][data-zone="'+z+'"] .drop');
+  if(d)d.insertAdjacentHTML("beforeend",pieceHtml(t,p,S.done[t.id]?"ok":""));}});
+ $$('.piece[data-task="'+t.id+'"]').forEach(b=>{
+  b.addEventListener("click",e=>{e.stopPropagation();
+   if(gew&&gew.k===b.dataset.k){gew=null;b.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gew={task:t.id,k:b.dataset.k};b.setAttribute("aria-pressed","true");
+   fbT(t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  b.addEventListener("dragstart",e=>{gew={task:t.id,k:b.dataset.k};try{e.dataTransfer.setData("text/plain",b.dataset.k);}catch(x){}});
+ });
+}
+function ablegen(t,zone){
+ if(!gew||gew.task!==t.id){fbT(t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[t.id][gew.k]=zone;gew=null;
+ if(S.done[t.id]){offen(t.id);}
+ zeichneZ(t);fbTClear(t.id);speichern();
+}
+function initZuord(t){
+ $$('.zone[data-task="'+t.id+'"]').forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.target!==z)return;if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");ablegen(t,z.dataset.zone);});
+ });
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const pl=S.placed[t.id], rest=t.pieces.filter(p=>!pl[p.k]);
+  if(rest.length){fbT(t.id,"Es sind noch "+rest.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+  let r=0;
+  t.pieces.forEach(p=>{const ok=pl[p.k]===p.z;if(ok)r++;const el=document.querySelector('.piece[data-k="'+p.k+'"]');if(el){el.classList.remove("ok","no");el.classList.add(ok?"ok":"no");}});
+  if(r===t.pieces.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.pieces.length+" stimmen bereits. Die grün umrandeten Karten sitzen richtig. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.placed[t.id]={};gew=null;offen(t.id);zeichneZ(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Reihenfolge ---------- */
+function zeichneO(t,fokus){
+ const o=S.order[t.id], fertigO=!!S.done[t.id];
+ $("#"+t.id+"List").innerHTML=o.map((i,pos)=>
+  '<div class="orow'+(fertigO?" ok":"")+'"><span class="nr" aria-hidden="true">'+(pos+1)+'<\/span><span class="t">'+t.items[i]+'<\/span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben: '+t.items[i].replace(/"/g,"")+'">&#8593;<\/button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten: '+t.items[i].replace(/"/g,"")+'">&#8595;<\/button><\/div>').join("");
+ $$("#"+t.id+"List button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=o.length)return;
+  [o[p],o[n]]=[o[n],o[p]];if(S.done[t.id])offen(t.id);zeichneO(t,{pos:n,dir:d});speichern();}));
+ if(fokus){const b=document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"][data-dir="'+fokus.dir+'"]')||document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"]');if(b)b.focus();}
+}
+function mischeO(t){const idx=t.items.map((_,i)=>i);let o;do{o=mische(idx);}while(o.join()===idx.join());S.order[t.id]=o;}
+function initOrder(t){
+ if(!S.order[t.id]||S.order[t.id].length!==t.items.length)mischeO(t);
+ zeichneO(t);
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const o=S.order[t.id], r=o.filter((v,i)=>v===i).length;
+  if(r===o.length){S.done[t.id]=true;zeichneO(t);fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+o.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{offen(t.id);mischeO(t);zeichneO(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Bild- und Kartenarbeit ---------- */
+function hotAufgabe(t){
+ const idx=S.hot[t.id]||0;
+ t.finds.forEach((f,i)=>{const el=document.getElementById(f.z);if(el)el.classList.toggle("found",i<idx);});
+ if(idx>=t.finds.length){$("#"+t.id+"Task").textContent=t.done;$("#"+t.id+"Alt").innerHTML="";return;}
+ const z=t.finds[idx];
+ $("#"+t.id+"Task").textContent="Suchauftrag "+(idx+1)+" von "+t.finds.length+": "+z.tipp;
+ $("#"+t.id+"Alt").innerHTML=t.alle.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.n+'<\/button>').join("");
+ $$("#"+t.id+"Alt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));
+}
+function hotWahl(t,id){
+ const idx=S.hot[t.id]||0, z=t.finds[idx]; if(!z)return;
+ if(id===z.z){
+  S.hot[t.id]=idx+1;
+  if(idx+1>=t.finds.length){fbT(t.id,z.ok+" Damit hast du alle "+t.finds.length+" gefunden.","ok");fertig(t.id,1);}
+  else{fbT(t.id,z.ok,"ok");}
+  hotAufgabe(t);speichern();
+ }else{
+  const g=t.alle.find(x=>x.id===id);
+  fbT(t.id,"Das ist „"+(g?g.n:"ein anderer Ort")+"“. Lies die Beschreibung noch einmal genau und sieh dir das Bild an.","hint");speichern();
+ }
+}
+function initHot(t){
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+  g.addEventListener("click",()=>hotWahl(t,g.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.hot[t.id]=0;offen(t.id);fbTClear(t.id);hotAufgabe(t);speichern();});
+ hotAufgabe(t);
+}
+
+/* ---------- Lückentext ---------- */
+function initLuecke(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  let r=0,leer=0;
+  t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}const ok=s.value===w;if(ok)r++;s.classList.add(ok?"ok":"no");});
+  if(leer){fbT(t.id,"Fülle zuerst alle "+t.richtig.length+" Lücken aus. Noch offen: "+leer+".","hint");return;}
+  if(r===t.richtig.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.richtig.length+" Lücken stimmen. Die rot markierten musst du noch einmal prüfen. "+t.hint,"hint");offen(t.id);}
+ });
+ t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.addEventListener("change",()=>{s.classList.remove("ok","no");});});
+}
+
+/* ---------- Freitexte ---------- */
+function bewerte(roh,k){
+ const t=norm(roh), wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<(k.min||40)||wort<(k.worte||10))return{p:0,lab:"zu knapp",msg:k.knapp||"Deine Antwort ist noch sehr kurz. Schreibe mindestens zwei vollständige Sätze."};
+ const treffer=k.gruppen.filter(g=>hat(t,g.w)), fehl=k.gruppen.filter(g=>!hat(t,g.w));
+ const verkn=hat(t,VERKN), genug=saetze(roh)>=(k.saetze||2), need=k.need||k.gruppen.length;
+ if(treffer.length>=need&&verkn&&genug)return{p:1,lab:"vollständig",msg:k.ok};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(treffer.length<need)m+=fehl.slice(0,2).map(g=>g.miss).join(" ")+" ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „deshalb“ oder „dadurch“. ";
+ if(!genug)m+="Schreibe mindestens "+(k.saetze||2)+" vollständige Sätze. ";
+ return{p:(treffer.length>=1?0.5:0.25),lab:"teilweise",msg:m.trim()};
+}
+function initText(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const r=bewerte($("#"+t.id).value,t.krit);
+  S.texts[t.id]=r.lab;fbT(t.id,r.msg,r.p>=1?"ok":"hint");
+  if(!t.zusatz){if(r.p>=1)fertig(t.id,1);else offen(t.id);}else speichern();
+ });
+}
+
+/* ---------- Abschlussmission ---------- */
+function pruefeAbschluss(){
+ const a1=val("a1");
+ if(a1&&S.a2geprueft&&(S.punkte.a2||0)>0)fertig("abschluss");else{delete S.done.abschluss;fortschritt();speichern();}
+}
+$("#a1Check").addEventListener("click",()=>{
+ const v=val("a1");
+ if(!v){fbT("a1","Bitte wähle zuerst eine Entscheidung aus.","hint");return;}
+ const ok=ABS.ok.includes(v);S.punkte.a1=ok?1:0;
+ fbT("a1",ABS.fb[v]||"",ok?"ok":"hint");pruefeAbschluss();
+});
+$("#a2Check").addEventListener("click",()=>{
+ const r=bewerte($("#a2").value,ABS.krit);
+ S.punkte.a2=r.p>=1?1:(r.p>0?0.5:0);S.a2lab=r.lab;S.a2geprueft=true;
+ fbT("a2",r.msg,r.p>=1?"ok":"hint");pruefeAbschluss();
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3].map(i=>val("lc"+i)||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;S.punkte.lerncheck=0;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return PFLICHT.reduce((s,t)=>s+(S.punkte[t.id]||0),0)+(S.punkte.a1||0)+(S.punkte.a2||0)+(S.punkte.lerncheck||0);}
+function kompetenz(k){const ts=PFLICHT.filter(t=>(t.komp||[]).includes(k));if(k==="historisches_urteil")return eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1&&ts.every(t=>(S.punkte[t.id]||0)>=1));return eins(ts.length>0&&ts.every(t=>(S.punkte[t.id]||0)>=1));}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=Math.round(punkteGesamt()*10)/10, pct=Math.round(pkt/MAXP*100);
+ const luecken=[];
+ PFLICHT.forEach(t=>{if(!((S.punkte[t.id]||0)>=1))luecken.push(t.name);});
+ if(!((S.punkte.a1||0)>=1))luecken.push("Abschlussentscheidung");
+ if(!((S.punkte.a2||0)>=1))luecken.push("Begründung");
+ const erg={};PFLICHT.forEach(t=>erg[t.id]=S.punkte[t.id]||0);
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ const pfl={};PFLICHT.forEach(t=>pfl[t.id]={correct:(S.punkte[t.id]||0)>=1});
+ pfl.entscheidung={correct:(S.punkte.a1||0)>=1};pfl.begruendung={correct:(S.punkte.a2||0)>=1};
+ const zus={},zusB={};TASKS.filter(t=>t.zusatz).forEach(t=>{const e=document.getElementById(t.id);if(e&&e.tagName==="TEXTAREA"){zus[t.id]=e.value.trim();zusB[t.id]=S.texts[t.id]||"nicht bearbeitet";}else{zusB[t.id]=(S.punkte[t.id]||0)>=1?"richtig":"nicht gelöst";}});
+ if(!S.abgabeId)S.abgabeId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2);
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"8",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:Object.assign({leitfrage:$("#a2").value.trim(),begruendung:$("#a2").value.trim(),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},zus),
+  bewertung_freitexte:Object.assign({begruendung:S.a2lab||"nicht bearbeitet"},zusB),
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:MAXP,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:{fachwissen:kompetenz("fachwissen"),zeit_raum:kompetenz("zeit_raum"),quellenarbeit:kompetenz("quellenarbeit"),
+   ursachen_folgen:kompetenz("ursachen_folgen"),perspektivitaet:kompetenz("perspektivitaet"),historisches_urteil:kompetenz("historisches_urteil")},
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:MAXP,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:S.abgabeId};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 8, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(still){
+ if(!pflichtOk(!still)){if(!still)location.hash="start";return null;}
+ if(!val("a1")){if(!still){fb("#buildFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung (A1).","bad");location.hash="abschluss";}return null;}
+ if(!lerncheckWerte().every(Boolean)){if(!still){fb("#buildFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";}return null;}
+ S.punkte.a1=ABS.ok.includes(val("a1"))?1:0;
+ fbClear("#buildFb");
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?CFG.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter: "+CFG.next:"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const zeilen=PFLICHT.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":<\/strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)<\/li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ S.built=true;fortschritt();speichern();if(!still)location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>ergebnisBauen(false));
+$("#printBtn").addEventListener("click",()=>window.print());
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+async function senden(){
+ const p=ergebnisBauen(true)||ergebnisBauen(false);
+ if(!p)return;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+TASKS.forEach(t=>{
+ if(t.typ==="mc")initMc(t);else if(t.typ==="multi")initMulti(t);
+ else if(t.typ==="zuord"){initZuord(t);zeichneZ(t);}
+ else if(t.typ==="order")initOrder(t);else if(t.typ==="hot")initHot(t);
+ else if(t.typ==="luecke")initLuecke(t);else if(t.typ==="text")initText(t);
+});
+Object.entries(S.fbs||{}).forEach(([k,v])=>{if(k==="d")fb("#dFb",v.m,v.a);else fb("#"+k+"Fb",v.m,v.a);});
+TASKS.filter(t=>t.typ==="luecke"&&S.done[t.id]).forEach(t=>t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);if(s&&s.value===w)s.classList.add("ok");}));
+fortschritt();
+if(S.built)ergebnisBauen(true);
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

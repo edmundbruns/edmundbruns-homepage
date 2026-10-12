@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modul 029 · Produktregel | SOL Mathematik 8</title>
+<meta name="description" content="Wie wahrscheinlich ist es, an zwei Ampeln hintereinander Grün zu haben? Mit der Produktregel rechnest du Wahrscheinlichkeiten entlang der Pfade im Baumdiagramm aus.">
+<link rel="canonical" href="https://www.edmundbruns.com/mathe/klasse-8/029/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3d2a73">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{--brand:#5b3fa0;--brand2:#3d2a73;--soft:#efeafb;--ink:#1c1830;--muted:#5a5670;--line:#d6d0e6;--paper:#f6f4fb;--card:#fff;
+--good:#166534;--goodbg:#ecfdf3;--bad:#991b1b;--badbg:#fff1f1;--warn:#8a4b06;--warnbg:#fff7e6;--focus:#f59e0b;--r:16px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+body.easy{font-size:19px;line-height:1.8;letter-spacing:.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+a{color:var(--brand)}:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.hero{background:linear-gradient(120deg,var(--brand2),var(--brand));color:#fff;padding:22px 0 30px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:.95rem}.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{background:#fff;color:var(--ink);border:0;border-radius:10px;padding:8px 12px;font:inherit;font-weight:600;font-size:.88rem;cursor:pointer}
+.hero-main{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;opacity:.85;margin:0}
+.hero h1{font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.1;margin:.2em 0 .3em}
+.lead{margin:0;max-width:640px;opacity:.95}
+.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:12px 20px;text-align:center;min-width:150px;display:flex;flex-direction:column}
+.badge strong{font-size:2rem;line-height:1.2}
+.progress{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.prog-in{display:flex;align-items:center;gap:14px;padding:10px 18px}
+.track{flex:1;height:10px;background:#e6e1f2;border-radius:9px;overflow:hidden}#bar{height:100%;width:0;background:var(--brand);transition:width .4s}
+#progText{font-size:.85rem;font-weight:700;white-space:nowrap}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:22px;padding-top:22px;padding-bottom:30px;align-items:start}
+#nav{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;position:sticky;top:60px;display:flex;flex-direction:column}
+#nav a{text-decoration:none;color:var(--ink);font-weight:600;padding:8px 12px;border-radius:10px;font-size:.95rem}
+#nav a.done::after{content:" ✓";color:var(--good)}#nav a.active{background:var(--soft);color:var(--brand2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.sec h2{margin:0 0 .6em;font-size:1.6rem}.sec h3{margin:1.2em 0 .4em}
+.facts,.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 18px}
+.facts>div,.summary>div{background:var(--soft);border:1px solid #ddd3f3;border-radius:12px;padding:10px 12px}
+.facts b,.summary b{display:block;font-size:.85rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inp{display:block;margin:0 0 14px}.inp>span:first-child{display:block;font-weight:700;margin-bottom:4px}
+.inp small{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
+input[type=text],input[type=email],input:not([type]),input[inputmode]{width:100%;font:inherit;padding:11px 12px;border:2px solid #b9b2cc;border-radius:10px;background:#fff;color:var(--ink)}
+input:disabled{background:#f2f0f6}
+.inrow{display:flex;align-items:center;gap:8px}.inrow input{max-width:260px}.unit{font-weight:700}
+.inputs{display:flex;flex-wrap:wrap;gap:4px 18px}.inputs .inp{min-width:180px}
+fieldset{border:0;padding:0;margin:0 0 12px}legend{font-weight:700;margin-bottom:6px}
+.ways{display:flex;flex-wrap:wrap;gap:8px}.ways legend{width:100%}
+.way,.chip,.opt{position:relative;cursor:pointer}
+.way input,.chip input{position:absolute;opacity:0;pointer-events:none}
+.way span,.chip span{display:inline-block;border:2px solid #b9b2cc;border-radius:12px;padding:9px 14px;font-weight:700;background:#fff}
+.way input:checked+span,.chip input:checked+span{border-color:var(--brand);background:var(--soft);box-shadow:0 0 0 2px var(--brand) inset}
+.way input:focus-visible+span,.chip input:focus-visible+span{outline:3px solid var(--focus)}
+.chip span{padding:6px 12px;font-size:.92rem;margin:0 6px 6px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;background:#fff}
+.opt input{margin-top:5px;accent-color:var(--brand);width:18px;height:18px}
+.note{background:var(--soft);border-left:5px solid var(--brand);padding:10px 14px;border-radius:10px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:11px;padding:10px 18px;background:var(--brand);color:#fff;cursor:pointer}
+.btn:hover{background:var(--brand2)}.btn.ghost{background:#ece8f5;color:var(--ink)}.btn.ghost:hover{background:#ddd5ee}
+.btn.big{padding:13px 26px;font-size:1.05rem}.btn:disabled{opacity:.55;cursor:default}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
+.fb{margin:10px 0 0;min-height:1em}.fb:empty{display:none}
+.fb.good,.fb.bad,.fb.hint{padding:10px 14px;border-radius:10px}
+.fb.good{background:var(--goodbg);color:var(--good)}.fb.bad{background:var(--badbg);color:var(--bad)}.fb.hint{background:var(--warnbg);color:var(--warn)}
+.fb ul{margin:.4em 0 0;padding-left:1.2em}
+.task{border:1px solid var(--line);border-left:6px solid var(--brand);border-radius:14px;padding:16px 18px;margin:14px 0;background:#fdfcff}
+.task.solved{border-left-color:var(--good)}
+.thead{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font-size:.75rem;font-weight:700;background:var(--soft);color:var(--brand2);border-radius:20px;padding:2px 10px}.tag.plain{background:#eee}.tag.ok{background:var(--goodbg);color:var(--good)}
+.q{margin:0 0 10px}.hints .hint{background:#fffbea;border:1px solid #f5e3a3;border-radius:10px;padding:8px 12px;margin-top:8px}.hint.sol{background:#f0f9ff;border-color:#bfe0f5}
+.merk{background:var(--soft);border:2px solid var(--brand);border-radius:14px;padding:12px 16px;margin:14px 0}.merk b:first-child{color:var(--brand2)}
+.goals li{margin:.3em 0}.terms div{margin:0 0 8px}.terms dt{font-weight:700}.terms dd{margin:0;color:var(--muted)}
+.steps li{margin:8px 0;padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.story{font-size:1.02rem}.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;margin-bottom:14px;background:#000}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.95em;margin:0 .15em;line-height:1.15}
+.frac>span:first-child{border-bottom:2px solid currentColor;padding:0 .2em}
+.big-math{font-size:1.35rem;font-weight:700}
+.lc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.viz{width:100%;max-width:520px;height:auto;display:block;margin:8px 0}
+.ctl{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:10px 0}.ctl label{font-weight:700}
+.ctl input[type=range]{width:220px;accent-color:var(--brand)}
+.ctl select{font:inherit;padding:8px;border-radius:10px;border:2px solid #b9b2cc}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:34px;color:var(--muted);font-size:.9rem}
+table.tab{border-collapse:collapse;margin:10px 0}table.tab td,table.tab th{border:1px solid var(--line);padding:6px 12px;text-align:center}table.tab th{background:var(--soft)}
+@media (max-width:860px){.layout{grid-template-columns:1fr}#nav{position:static;flex-direction:row;overflow-x:auto;gap:4px;padding:8px;-webkit-overflow-scrolling:touch}#nav a{white-space:nowrap}
+.hero-main{flex-direction:column;align-items:flex-start}.badge{flex-direction:row;gap:10px;align-items:baseline;min-width:0}.badge strong{font-size:1.3rem}}
+@media (max-width:620px){body{font-size:16px}.card{padding:18px}.facts,.summary{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.inrow input{max-width:none}.pager .btn{padding:10px 12px}}
+@media print{.hero,.progress,#nav,.tools,.actions,.pager,.foot{display:none!important}.layout{display:block}.sec{display:block!important}.sec[hidden]{display:none!important}#sec-ergebnis{display:block!important}body{background:#fff}}
+
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body>
+<div id="app"><noscript><p style="padding:20px">Dieses Lernmodul braucht JavaScript. Bitte aktiviere JavaScript in deinem Browser.</p></noscript></div>
+<script>
+/* SOL Mathe 8 · Rechenhilfen (Brüche, Terme, Zufall). Läuft im Browser und in Node. */
+var M = (function () {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a || 1; }
+  function lcm(a, b) { return Math.abs(a * b) / gcd(a, b); }
+  function rnd(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function nz(a, b) { var v; do { v = rnd(a, b); } while (v === 0); return v; }
+
+  /* Bruch {n,d} immer mit d>0 */
+  function F(n, d) { if (d === undefined) d = 1; if (d === 0) throw new Error('Nenner 0'); if (d < 0) { n = -n; d = -d; } return { n: n, d: d }; }
+  function red(f) { var g = gcd(f.n, f.d); return F(f.n / g, f.d / g); }
+  function fmul(a, b) { return red(F(a.n * b.n, a.d * b.d)); }
+  function fdiv(a, b) { return red(F(a.n * b.d, a.d * b.n)); }
+  function fadd(a, b) { return red(F(a.n * b.d + b.n * a.d, a.d * b.d)); }
+  function feq(a, b) { return a.n * b.d === b.n * a.d; }
+  function isReduced(f) { return gcd(f.n, f.d) === 1; }
+  function fstr(f) { f = red(f); return f.d === 1 ? String(f.n) : f.n + '/' + f.d; }
+  function fhtml(f, keep) {
+    if (!keep) f = red(f);
+    if (f.d === 1) return '<span class="num">' + fmtNum(f.n) + '</span>';
+    var s = f.n < 0 ? '−' : '';
+    return s + '<span class="frac"><span>' + Math.abs(f.n) + '</span><span>' + f.d + '</span></span>';
+  }
+  function fmtNum(x, dec) {
+    if (dec === undefined) { var r = Math.round(x * 1e6) / 1e6; dec = (String(r).split('.')[1] || '').length; }
+    var s = Math.abs(x).toFixed(dec).replace('.', ',');
+    var parts = s.split(','); parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return (x < 0 ? '−' : '') + parts.join(',');
+  }
+
+  function clean(s) {
+    return String(s == null ? '' : s).trim()
+      .replace(/[−–—]/g, '-').replace(/[·×⋅]/g, '*').replace(/:/g, '/').replace(/÷/g, '/')
+      .replace(/\s+/g, ' ');
+  }
+  /* Zahl aus Eingabe: "1,5" "1.5" "-3" "1 000" ; null wenn keine Zahl */
+  function parseNum(s) {
+    s = clean(s).replace(/\s(?=\d{3}\b)/g, '').replace(/(mm²|cm²|dm²|m²|cm³|dm³|m³|mm|cm|dm|km|m|€|%|°|grad)$/i, '').trim();
+    if (!/^[+-]?(\d+([.,]\d+)?|[.,]\d+)$/.test(s)) return null;
+    return parseFloat(s.replace(',', '.'));
+  }
+  /* Bruch aus Eingabe: "3/4", "-3/4", "1 1/2", "0,75", "2" ; null wenn ungültig */
+  function parseFrac(s) {
+    s = clean(s);
+    var m;
+    if ((m = s.match(/^([+-])?\s*(\d+)\s+(\d+)\s*\/\s*(\d+)$/))) { var d = +m[4]; if (!d) return null; var f = F(+m[2] * d + +m[3], d); if (m[1] === '-') f.n = -f.n; f.mixed = true; return f; }
+    if ((m = s.match(/^([+-])?\s*\(?\s*(\d+)\s*\/\s*(\d+)\s*\)?$/))) { if (!+m[3]) return null; var g = F(+m[2], +m[3]); if (m[1] === '-') g.n = -g.n; return g; }
+    var x = parseNum(s); if (x === null) return null;
+    var den = 1; while (Math.abs(x * den - Math.round(x * den)) > 1e-9 && den < 1e6) den *= 10;
+    var r = red(F(Math.round(x * den), den)); r.decimal = true; return r;
+  }
+
+  /* ---------- Terme: Parser und Auswertung ---------- */
+  function tokenize(s) {
+    s = clean(s).toLowerCase().replace(/²/g, '^2').replace(/³/g, '^3').replace(/,/g, '.');
+    var out = [], i = 0;
+    while (i < s.length) {
+      var c = s[i];
+      if (c === ' ') { i++; continue; }
+      if (/[0-9.]/.test(c)) { var j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++; var num = s.slice(i, j); if (!/^\d*\.?\d+$|^\d+\.$/.test(num)) throw new Error('Zahl'); out.push({ t: 'n', v: parseFloat(num) }); i = j; continue; }
+      if (/[a-z]/.test(c)) { out.push({ t: 'v', v: c }); i++; continue; }
+      if ('+-*/^()'.indexOf(c) >= 0) { out.push({ t: c }); i++; continue; }
+      throw new Error('Zeichen ' + c);
+    }
+    /* implizite Multiplikation: 3x, 2(, )(, x(, )x, xy */
+    var res = [];
+    for (var k = 0; k < out.length; k++) {
+      var a = out[k - 1], b = out[k];
+      if (a && (a.t === 'n' || a.t === 'v' || a.t === ')') && (b.t === 'n' || b.t === 'v' || b.t === '(') && !(a.t === 'n' && b.t === 'n')) res.push({ t: '*' });
+      res.push(b);
+    }
+    return res;
+  }
+  function parseTerm(s) {
+    var tk = tokenize(s), p = 0;
+    if (!tk.length) throw new Error('leer');
+    function peek() { return tk[p]; }
+    function eat(t) { if (!tk[p] || tk[p].t !== t) throw new Error('erwartet ' + t); p++; }
+    function expr() { var n = term(); while (peek() && (peek().t === '+' || peek().t === '-')) { var op = tk[p++].t; n = { op: op, a: n, b: term() }; } return n; }
+    function term() { var n = unary(); while (peek() && (peek().t === '*' || peek().t === '/')) { var op = tk[p++].t; n = { op: op, a: n, b: unary() }; } return n; }
+    function unary() { if (peek() && (peek().t === '-' || peek().t === '+')) { var op = tk[p++].t; var u = unary(); return op === '-' ? { op: 'neg', a: u } : u; } return power(); }
+    function power() { var b = atom(); if (peek() && peek().t === '^') { p++; var e = unary(); return { op: '^', a: b, b: e }; } return b; }
+    function atom() {
+      var t = peek(); if (!t) throw new Error('Ende');
+      if (t.t === 'n') { p++; return { num: t.v }; }
+      if (t.t === 'v') { p++; return { v: t.v }; }
+      if (t.t === '(') { p++; var e = expr(); eat(')'); return e; }
+      throw new Error('unerwartet');
+    }
+    var tree = expr(); if (p !== tk.length) throw new Error('Rest');
+    return tree;
+  }
+  function evalTree(n, env) {
+    if (n.num !== undefined) return n.num;
+    if (n.v !== undefined) { if (!(n.v in env)) throw new Error('Variable ' + n.v); return env[n.v]; }
+    var a = evalTree(n.a, env);
+    if (n.op === 'neg') return -a;
+    var b = evalTree(n.b, env);
+    switch (n.op) { case '+': return a + b; case '-': return a - b; case '*': return a * b; case '/': return a / b; case '^': return Math.pow(a, b); }
+    throw new Error('op');
+  }
+  function varsOf(n, set) { set = set || {}; if (!n) return set; if (n.v) set[n.v] = 1; varsOf(n.a, set); varsOf(n.b, set); return set; }
+  /* gleichwertige Terme? prüft an mehreren Stellen */
+  function termEq(s1, s2) {
+    var t1, t2; try { t1 = parseTerm(s1); t2 = parseTerm(s2); } catch (e) { return false; }
+    var vs = Object.keys(Object.assign(varsOf(t1), varsOf(t2)));
+    var pts = [-2.5, -1.3, 0.7, 1.9, 3.1, 4.6];
+    for (var i = 0; i < pts.length; i++) {
+      var env = {}; vs.forEach(function (v, k) { env[v] = pts[(i + k * 2) % pts.length] + k * 0.37; });
+      var a = evalTree(t1, env), b = evalTree(t2, env);
+      if (!isFinite(a) || !isFinite(b) || Math.abs(a - b) > 1e-7 * Math.max(1, Math.abs(a))) return false;
+    }
+    return true;
+  }
+  function termValid(s) { try { parseTerm(s); return true; } catch (e) { return false; } }
+  /* Term schön darstellen: 3x^2 -> 3x², * -> · */
+  function tpretty(s) { return String(s).replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\*/g, '·').replace(/-/g, '−'); }
+  /* lineares Glied a·x mit Vorzeichen für Ausgabe */
+  function mono(c, v, first) {
+    if (c === 0) return first ? '0' : '';
+    var sign = c < 0 ? (first ? '−' : ' − ') : (first ? '' : ' + ');
+    var a = Math.abs(c), core = v ? ((a === 1 ? '' : a) + v) : String(a);
+    return sign + core;
+  }
+  function poly(coeffs) { /* [[c,'x²'],[c,'x'],[c,'']] */
+    var s = '', first = true;
+    coeffs.forEach(function (p) { if (p[0] === 0) return; s += mono(p[0], p[1], first); first = false; });
+    return s || '0';
+  }
+
+  function check(inp, raw) {
+    raw = String(raw == null ? '' : raw).trim();
+    if (inp.kind === 'mc') return raw === '' ? { ok: false, empty: true } : { ok: +raw === inp.answer };
+    if (!raw) return { ok: false, empty: true };
+    if (inp.kind === 'num') { var x = parseNum(raw); if (x === null) return { ok: false, msg: 'Gib eine Zahl ein, zum Beispiel 12 oder 3,5.' }; return { ok: Math.abs(x - inp.answer) <= (inp.tol != null ? inp.tol : 1e-9) }; }
+    if (inp.kind === 'frac') {
+      var f = parseFrac(raw); if (!f) return { ok: false, msg: 'Schreibe den Bruch so: 3/4. Ein gemischter Bruch geht so: 1 1/2.' };
+      var ans = F(inp.answer.n, inp.answer.d);
+      if (!feq(f, ans)) return { ok: false };
+      if (inp.reduce && !f.decimal && !f.mixed && !isReduced(f)) return { ok: false, almost: true, msg: 'Richtig gerechnet. Kürze das Ergebnis noch vollständig.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'term') {
+      if (!termValid(raw)) return { ok: false, msg: 'Der Term ist nicht lesbar. Beispiel: 3x + 12 oder 4(x − 2). Für „hoch 2“ schreibst du x^2.' };
+      if (!termEq(raw, inp.answer)) return { ok: false };
+      if (inp.form === 'expanded' && /\(/.test(raw)) return { ok: false, almost: true, msg: 'Der Term ist gleichwertig, aber noch nicht ausmultipliziert. Löse die Klammer auf.' };
+      if (inp.form === 'factored') { var tr = parseTerm(raw); while (tr.op === 'neg') tr = tr.a; if (!/\(/.test(raw) || (tr.op !== '*' && tr.op !== '^')) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht als Produkt geschrieben. Schreibe den Term als Produkt mit Klammer.' }; }
+      if (inp.form === 'factored' && !/\(/.test(raw)) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht ausgeklammert. Schreibe den Term als Produkt mit Klammer.' };
+      if (inp.factor) {
+        var z = clean(raw).toLowerCase().replace(/\s+/g, '').replace(/\*/g, ''), fct = String(inp.factor).toLowerCase().replace(/\s+/g, '');
+        if (!(z.indexOf(fct + '(') === 0 || (z.slice(-fct.length - 1) === ')' + fct && z.charAt(0) === '('))) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch mehr ausklammern. Klammere den größten gemeinsamen Faktor aus.' };
+      }
+      if (inp.form === 'simplified' && inp.maxTerms && (clean(raw).replace(/^[-+]/, '').split(/[+-]/).length > inp.maxTerms)) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch weiter zusammenfassen.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'text') { var opts = [].concat(inp.answer).map(function (a) { return String(a).toLowerCase(); }); return { ok: opts.indexOf(raw.toLowerCase()) >= 0 }; }
+    return { ok: false };
+  }
+  return { check: check, gcd: gcd, lcm: lcm, rnd: rnd, nz: nz, pick: pick, shuffle: shuffle, F: F, red: red, fmul: fmul, fdiv: fdiv, fadd: fadd, feq: feq,
+    isReduced: isReduced, fstr: fstr, fhtml: fhtml, fmtNum: fmtNum, clean: clean, parseNum: parseNum, parseFrac: parseFrac,
+    parseTerm: parseTerm, evalTree: evalTree, termEq: termEq, termValid: termValid, tpretty: tpretty, mono: mono, poly: poly };
+})();
+if (typeof module !== 'undefined') module.exports = M;
+
+</script>
+<script>
+window.CONFIG = {"jahrgang": "8", "endpoint": "https://script.google.com/macros/s/AKfycbxpbjq4u7xOEi94XymjPmODt4KIoBf1XvAVzBK-DMk21X8usQOQyz3LMQd5k41h41Ru/exec", "iservDomain": "", "version": "1.0.0", "backUrl": "../index.html"};
+/* Modul 029 · Produktregel */
+var MODULE = (function () {
+  var F = M.F, fh = M.fhtml, fmt = M.fmtNum;
+  function frac(n, d) { return fh(F(n, d), true); }
+  function f1(x) { return Math.round(x * 10) / 10; }
+  /* Farben und Kurzzeichen der Ergebnisse */
+  var COL = { r: ['rot', '#dc2626', '#fff'], b: ['blau', '#2563eb', '#fff'], g: ['grün', '#16a34a', '#fff'], y: ['gelb', '#facc15', '#1c1830'] };
+  var NAME = { K: 'Kopf', Z: 'Zahl', r: 'rot', b: 'blau', g: 'grün', y: 'gelb' };
+  function nodeStyle(k) { return COL[k] ? { fill: COL[k][1], txt: COL[k][2] } : { fill: '#efeafb', txt: '#1c1830' }; }
+
+  /* ---------- Zufallsexperiment aus gleich wahrscheinlichen „Einheiten“ ---------- */
+  /* u1, u2: Listen von Kurzzeichen (jede Einheit gleich wahrscheinlich); ohne: ohne Zurücklegen (u2 = u1 minus gezogene Einheit) */
+  function exp2(u1, u2, ohne) { return { u1: u1, u2: u2 || u1, ohne: !!ohne }; }
+  function keysOf(u) { var k = []; u.forEach(function (x) { if (k.indexOf(x) < 0) k.push(x); }); return k; }
+  function cnt(u, k) { return u.filter(function (x) { return x === k; }).length; }
+  /* Baum mit ungekürzten Brüchen (Anzahl / Gesamt) */
+  function treeOf(E) {
+    var k1 = keysOf(E.u1), s1 = k1.map(function (a) { return { k: a, p: F(cnt(E.u1, a), E.u1.length) }; });
+    var s2 = k1.map(function (a) {
+      var u = E.u2.slice(); if (E.ohne) u.splice(u.indexOf(a), 1);
+      return keysOf(E.u2).filter(function (b) { return cnt(u, b) > 0; }).map(function (b) { return { k: b, p: F(cnt(u, b), u.length) }; });
+    });
+    return { s1: s1, s2: s2 };
+  }
+  /* Brute Force: Wahrscheinlichkeit eines Ereignisses durch Abzählen aller Einheiten-Paare */
+  function brute(E, pred) {
+    var fav = 0, tot = 0;
+    E.u1.forEach(function (a, i) { E.u2.forEach(function (b, j) { if (E.ohne && i === j) return; tot++; if (pred(a, b)) fav++; }); });
+    return M.red(F(fav, tot));
+  }
+  function units(spec) { var u = []; Object.keys(spec).forEach(function (k) { for (var i = 0; i < spec[k]; i++) u.push(k); }); return u; }
+
+  /* ---------- Zeichnungen ---------- */
+  function plab(x, y, p) {
+    if (p == null) return '';
+    if (typeof p === 'string' || p.d === 1) {
+      var s = typeof p === 'string' ? p : String(p.n), w = s.length * 8 + 10;
+      return '<rect x="' + f1(x - w / 2) + '" y="' + (y - 11) + '" width="' + w + '" height="22" rx="4" fill="#fff"/><text x="' + x + '" y="' + (y + 5) + '" font-size="14" font-weight="700" text-anchor="middle" fill="' + (s === '?' ? '#b91c1c' : '#1c1830') + '">' + s + '</text>';
+    }
+    var wf = Math.max(String(p.n).length, String(p.d).length) * 8 + 10;
+    return '<rect x="' + f1(x - wf / 2) + '" y="' + (y - 15) + '" width="' + wf + '" height="30" rx="4" fill="#fff"/><text x="' + x + '" y="' + (y - 4) + '" font-size="13" font-weight="700" text-anchor="middle">' + p.n + '</text><line x1="' + f1(x - wf / 2 + 3) + '" y1="' + y + '" x2="' + f1(x + wf / 2 - 3) + '" y2="' + y + '" stroke="#1c1830" stroke-width="1.3"/><text x="' + x + '" y="' + (y + 14) + '" font-size="13" font-weight="700" text-anchor="middle">' + p.d + '</text>';
+  }
+  function disp(k) { return k === 'y' ? 'ge' : k; }
+  function resTxt(a, b) { return /\d/.test(a + b) && !/[KZ]/.test(a + b) ? '(' + a + '|' + b + ')' : disp(a) + disp(b); }
+  function nodeSvg(x, y, k) { var st = nodeStyle(k), d = disp(k); return '<circle cx="' + x + '" cy="' + y + '" r="13" fill="' + st.fill + '" stroke="#3d2a73" stroke-width="1.5"/><text x="' + x + '" y="' + (y + (d.length > 1 ? 4 : 5)) + '" font-size="' + (d.length > 1 ? 12 : 14) + '" font-weight="700" text-anchor="middle" fill="' + st.txt + '">' + d + '</text>'; }
+  /* T = {s1:[{k,p}], s2:[[{k,p}]]}; o: {res: true, pp: Liste je Blatt, hl: Liste der Blattnummern, p1/p2: eigene Beschriftungen, noP: ohne Wahrscheinlichkeiten} */
+  function tree(T, o) {
+    o = o || {};
+    var leaves = []; T.s2.forEach(function (row, i) { row.forEach(function (b, j) { leaves.push([i, j]); }); });
+    var maxK = Math.max.apply(null, T.s2.map(function (r) { return r.length; }));
+    var L = maxK >= 3 ? 56 : 54, pad = 14, H = leaves.length * L + 2 * pad;
+    var X0 = 18, X1 = 138, X2 = 258, W = o.pp ? 380 : o.res ? 330 : 284;
+    var ly = leaves.map(function (l, n) { return pad + L / 2 + n * L; });
+    var y1 = T.s1.map(function (a, i) { var ys = ly.filter(function (y, n) { return leaves[n][0] === i; }); return (ys[0] + ys[ys.length - 1]) / 2; });
+    var y0 = (y1[0] + y1[y1.length - 1]) / 2, hl = o.hl || [];
+    var g = '<svg class="viz" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + (o.label || 'Baumdiagramm') + '" style="max-width:' + Math.round(W * 1.2) + 'px">', labs = '', nodes = '';
+    function edge(xa, ya, xb, yb, on) { return '<line x1="' + xa + '" y1="' + f1(ya) + '" x2="' + xb + '" y2="' + f1(yb) + '" stroke="' + (on ? '#d97706' : '#3d2a73') + '" stroke-width="' + (on ? 4 : 2) + '"/>'; }
+    T.s1.forEach(function (a, i) {
+      var on = hl.some(function (n) { return leaves[n][0] === i; });
+      g += edge(X0, y0, X1, y1[i], on);
+      if (!o.noP) labs += plab(f1(X0 + 0.5 * (X1 - X0)), f1(y0 + 0.5 * (y1[i] - y0)), o.p1 && o.p1[i] !== undefined ? o.p1[i] : a.p);
+      nodes += nodeSvg(X1, f1(y1[i]), a.k);
+    });
+    var t = maxK >= 3 ? 0.66 : 0.64;
+    leaves.forEach(function (l, n) {
+      var b = T.s2[l[0]][l[1]], on = hl.indexOf(n) >= 0;
+      g += edge(X1, y1[l[0]], X2, ly[n], on);
+      if (!o.noP) labs += plab(f1(X1 + t * (X2 - X1)), f1(y1[l[0]] + t * (ly[n] - y1[l[0]])), o.p2 && o.p2[n] !== undefined ? o.p2[n] : b.p);
+      nodes += nodeSvg(X2, f1(ly[n]), b.k);
+      if (o.res) nodes += '<text x="' + (X2 + 22) + '" y="' + f1(ly[n] + 5) + '" font-size="14" font-weight="' + (on ? 700 : 400) + '" fill="' + (on ? '#b45309' : '#1c1830') + '">' + resTxt(T.s1[l[0]].k, b.k) + '</text>';
+      if (o.pp && o.pp[n] != null) nodes += plab(352, f1(ly[n]), o.pp[n]);
+    });
+    g += '<circle cx="' + X0 + '" cy="' + f1(y0) + '" r="5" fill="#3d2a73"/>';
+    return g + labs + nodes + '</svg>';
+  }
+  function pt(cx, cy, r, deg) { var a = (deg - 90) * Math.PI / 180; return [f1(cx + r * Math.cos(a)), f1(cy + r * Math.sin(a))]; }
+  /* Glücksrad maßstabsgetreu: sec = [[key, winkel], …] */
+  function wheel(sec, o) {
+    o = o || {}; var cx = 120, cy = 124, R = 96, a0 = 0, g = '<svg class="viz" viewBox="0 0 240 232" role="img" aria-label="Glücksrad" style="max-width:250px">', labs = '';
+    sec.forEach(function (s) {
+      var a1 = a0 + s[1], p0 = pt(cx, cy, R, a0), p1 = pt(cx, cy, R, a1), c = COL[s[0]] || ['', '#efeafb', '#1c1830'];
+      g += '<path d="M' + cx + ' ' + cy + ' L' + p0[0] + ' ' + p0[1] + ' A' + R + ' ' + R + ' 0 ' + (s[1] > 180 ? 1 : 0) + ' 1 ' + p1[0] + ' ' + p1[1] + ' Z" fill="' + c[1] + '" stroke="#fff" stroke-width="2"/>';
+      var q = pt(cx, cy, R * 0.6, a0 + s[1] / 2);
+      labs += '<text x="' + q[0] + '" y="' + (q[1] + 5) + '" font-size="14" font-weight="700" text-anchor="middle" fill="' + c[2] + '">' + (o.noAngles ? s[0] : s[1] + '°') + '</text>';
+      a0 = a1;
+    });
+    return g + '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#3d2a73" stroke-width="2"/>' + labs + '<circle cx="' + cx + '" cy="' + cy + '" r="6" fill="#3d2a73"/><path d="M' + (cx - 9) + ' 8 L' + (cx + 9) + ' 8 L' + cx + ' 30 Z" fill="#1c1830"/></svg>';
+  }
+  /* Urne mit Kugeln */
+  function urn(spec) {
+    var u = units(spec), n = u.length, per = Math.min(n, 6), rows = Math.ceil(n / per), W = 40 + per * 30, H = 30 + rows * 30;
+    var g = '<svg class="viz" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Urne mit Kugeln" style="max-width:' + Math.round(W * 1.15) + 'px"><path d="M8 6 L8 ' + (H - 10) + ' Q8 ' + (H - 4) + ' 16 ' + (H - 4) + ' L' + (W - 16) + ' ' + (H - 4) + ' Q' + (W - 8) + ' ' + (H - 4) + ' ' + (W - 8) + ' ' + (H - 10) + ' L' + (W - 8) + ' 6" fill="#efeafb" stroke="#3d2a73" stroke-width="2"/>';
+    u.forEach(function (k, i) { var x = 35 + (i % per) * 30, y = H - 22 - Math.floor(i / per) * 30; g += '<circle cx="' + x + '" cy="' + y + '" r="12" fill="' + COL[k][1] + '" stroke="#1c1830" stroke-width="1"/>'; });
+    return g + '</svg>';
+  }
+  function urnTxt(spec) { var ks = Object.keys(spec), parts = ks.map(function (k) { return spec[k] + ' ' + COL[k][0] + 'e (' + k + ')'; }); return 'In einer Urne liegen ' + units(spec).length + ' Kugeln: ' + parts.slice(0, -1).join(', ') + ' und ' + parts[parts.length - 1] + '.'; }
+  function brute1(u, pred) { return M.red(F(u.filter(pred).length, u.length)); }
+  function fracIn(f, label, reduce) { return { kind: 'frac', answer: M.red(f), reduce: !!reduce, label: label, placeholder: 'z. B. 2/5' }; }
+
+  /* ---------- Bausteine für Modul 029 ---------- */
+  function redTree(T) { T.s1.forEach(function (a) { a.p = M.red(a.p); }); T.s2.forEach(function (r) { r.forEach(function (b) { b.p = M.red(b.p); }); }); return T; }
+  function nm(k) { return COL[k] ? COL[k][0] : NAME[k] || k; }
+  /* Pfadwahrscheinlichkeiten und Ereignis über den Baum (Produkt- und Summenregel) */
+  function paths(T, pred) {
+    var out = [];
+    T.s2.forEach(function (row, i) { row.forEach(function (b, j) { out.push({ i: i, j: j, a: T.s1[i], b: b, p: M.fmul(T.s1[i].p, b.p), fav: pred ? pred(T.s1[i].k, b.k) : false }); }); });
+    return out;
+  }
+  function sumFav(P) { return P.filter(function (x) { return x.fav; }).reduce(function (s, x) { return M.fadd(s, x.p); }, F(0)); }
+  function ppList(P) { return P.map(function (x) { return x.p; }); }
+  function hlList(P) { var h = []; P.forEach(function (x, n) { if (x.fav) h.push(n); }); return h; }
+  function prodTxt(x) { return fh(x.a.p, true) + ' · ' + fh(x.b.p, true) + ' = ' + fh(F(x.a.p.n * x.b.p.n, x.a.p.d * x.b.p.d), true) + (M.gcd(x.a.p.n * x.b.p.n, x.a.p.d * x.b.p.d) > 1 ? ' = ' + fh(x.p) : ''); }
+  function pName(x) { return 'P(' + resTxt(x.a.k, x.b.k) + ')'; }
+  function sumTxt(P, res) {
+    var f = P.filter(function (x) { return x.fav; });
+    return f.map(function (x) { return pName(x) + ' = ' + prodTxt(x); }).join('<br>') + (f.length > 1 ? '<br>Summe: ' + f.map(function (x) { return fh(x.p); }).join(' + ') + ' = ' + fh(res) : '');
+  }
+  var SPECS2 = [{ r: 3, b: 2 }, { r: 2, b: 3 }, { r: 4, b: 2 }, { r: 3, b: 4 }, { r: 5, b: 3 }, { r: 2, b: 4 }, { r: 4, b: 1 }, { r: 3, b: 5 }];
+  var SPECS3 = [{ r: 2, b: 3, g: 1 }, { r: 3, b: 2, g: 1 }, { r: 2, b: 2, g: 2 }, { r: 1, b: 2, g: 3 }];
+  var WHEELS = [[['r', 180], ['b', 120], ['y', 60]], [['r', 90], ['b', 270]], [['r', 120], ['b', 240]], [['r', 144], ['b', 216]], [['r', 90], ['b', 180], ['g', 90]], [['r', 60], ['b', 180], ['y', 120]], [['r', 240], ['b', 120]], [['r', 72], ['b', 288]]];
+  function gcdAll(a) { return a.reduce(function (g, x) { return M.gcd(g, x); }, 0); }
+  function wheelUnits(S) { var g = gcdAll(S.map(function (s) { return s[1]; })), u = []; S.forEach(function (s) { for (var k = 0; k < s[1] / g; k++) u.push(s[0]); }); return u; }
+  function scen(t, three) {
+    if (t === 'rad') { var S = M.pick(WHEELS); return { E: exp2(wheelUnits(S)), txt: 'Das abgebildete Glücksrad wird zweimal gedreht.', pic: wheel(S), red: true, S: S }; }
+    var spec = M.pick(three ? SPECS3 : SPECS2), ohne = t === 'ohne';
+    if (ohne) while (Object.keys(spec).some(function (k) { return spec[k] < 2; })) spec = M.pick(three ? SPECS3 : SPECS2);
+    return { E: exp2(units(spec), null, ohne), spec: spec, txt: urnTxt(spec) + (ohne ? ' Du ziehst nacheinander zwei Kugeln <b>ohne Zurücklegen</b>.' : ' Du ziehst eine Kugel, notierst die Farbe, <b>legst sie zurück</b> und ziehst noch einmal.'), pic: urn(spec), red: false };
+  }
+  function treeFor(sc) { var T = treeOf(sc.E); return sc.red ? redTree(T) : T; }
+  var EVS = [['zwei gleiche Farben', function (a, b) { return a === b; }], ['zwei verschiedene Farben', function (a, b) { return a !== b; }], ['genau einmal Rot', function (a, b) { return (a === 'r') !== (b === 'r'); }],
+    ['mindestens einmal Rot', function (a, b) { return a === 'r' || b === 'r'; }], ['höchstens einmal Blau', function (a, b) { return !(a === 'b' && b === 'b'); }]];
+  function pathMistakes(P, target, sc) {
+    return function (v) {
+      var f = M.parseFrac(v[0]); if (!f) return null;
+      var x = target;
+      if (M.feq(f, M.fadd(x.a.p, x.b.p)) && !M.feq(x.p, M.fadd(x.a.p, x.b.p))) return 'Du hast die Astwahrscheinlichkeiten addiert. Entlang eines Pfades wird <b>multipliziert</b>.';
+      if (sc && sc.E.ohne) { var n = sc.E.u1.length, w = M.fmul(F(cnt(sc.E.u1, x.a.k), n), F(cnt(sc.E.u1, x.b.k), n)); if (M.feq(f, w) && !M.feq(w, x.p)) return 'Das wäre richtig <b>mit</b> Zurücklegen. Beim zweiten Zug liegt aber eine Kugel weniger in der Urne.'; }
+      if ((M.feq(f, x.a.p) || M.feq(f, x.b.p)) && !M.feq(f, x.p)) return 'Das ist nur eine Astwahrscheinlichkeit. Multipliziere die Wahrscheinlichkeiten <b>beider</b> Äste des Pfades.';
+      return null;
+    };
+  }
+
+  var gen = {
+    pfad: function (lvl) {
+      var sc = scen(M.pick(lvl === 1 ? ['mit', 'rad'] : ['mit', 'ohne', 'rad'])), T = treeFor(sc), P = paths(T), x = M.pick(P), n = P.indexOf(x);
+      var desc = sc.S ? 'erst ' + nm(x.a.k) + ', dann ' + nm(x.b.k) : (x.a.k === x.b.k ? 'zwei ' + nm(x.a.k) + 'e Kugeln' : 'erst eine ' + nm(x.a.k) + 'e, dann eine ' + nm(x.b.k) + 'e Kugel');
+      return { skill: 'Pfadwahrscheinlichkeit (Produktregel)', q: sc.txt + sc.pic + 'Berechne die Wahrscheinlichkeit für <b>„' + desc + '“</b>.' + (lvl === 1 ? ' Der Pfad ist im Baumdiagramm markiert.' : '') + tree(T, { res: true, hl: lvl === 1 ? [n] : [] }),
+        inputs: [fracIn(x.p, 'P(' + resTxt(x.a.k, x.b.k) + ') (gekürzt)', true)],
+        hints: ['Suche den Pfad ' + resTxt(x.a.k, x.b.k) + ' im Baumdiagramm.', 'Produktregel: Multipliziere die Wahrscheinlichkeiten entlang des Pfades: ' + fh(x.a.p, true) + ' · ' + fh(x.b.p, true) + '.', 'Zähler mal Zähler, Nenner mal Nenner. Kürze am Ende.'],
+        solution: pName(x) + ' = ' + prodTxt(x) + tree(T, { res: true, hl: [n], pp: P.map(function (y, k) { return k === n ? y.p : null; }) }),
+        mistakes: pathMistakes(P, x, sc),
+        verify: function () { return M.feq(brute(sc.E, function (a, b) { return a === x.a.k && b === x.b.k; }), x.p) ? true : 'Abzählen ≠ Produkt'; } };
+    },
+    mitZ: function (lvl) {
+      var sc = scen('mit'), T = treeFor(sc), P = paths(T), sp = sc.spec;
+      var x = lvl === 1 ? P.filter(function (y) { return y.a.k === 'r' && y.b.k === 'r'; })[0] : M.pick(P.filter(function (y) { return !(y.a.k === 'r' && y.b.k === 'r'); }));
+      var desc = x.a.k === x.b.k ? 'zweimal ' + nm(x.a.k) : 'erst ' + nm(x.a.k) + ', dann ' + nm(x.b.k);
+      return { skill: 'Ziehen mit Zurücklegen', q: sc.txt + sc.pic + 'Wie groß ist die Wahrscheinlichkeit für <b>„' + desc + '“</b>? Zeichne dir ein Baumdiagramm.', inputs: [fracIn(x.p, 'P (gekürzt)', true)],
+        hints: ['Mit Zurücklegen: Beim zweiten Zug ist die Urne genauso gefüllt wie beim ersten.', 'P(' + nm(x.a.k) + ') = ' + fh(x.a.p, true) + ' und P(' + nm(x.b.k) + ') = ' + fh(x.b.p, true) + ' in beiden Stufen.', 'Multipliziere: ' + fh(x.a.p, true) + ' · ' + fh(x.b.p, true) + '.'],
+        solution: pName(x) + ' = ' + prodTxt(x) + tree(T, { res: true, hl: [P.indexOf(x)], pp: P.map(function (y) { return y === x ? y.p : null; }) }),
+        mistakes: pathMistakes(P, x, sc),
+        verify: function () { return M.feq(brute(sc.E, function (a, b) { return a === x.a.k && b === x.b.k; }), x.p) ? true : 'Abzählen ≠ Produkt'; } };
+    },
+    ohneZ: function (lvl) {
+      var sc = scen('ohne', lvl === 3), T = treeFor(sc), P = paths(T);
+      var x = Math.random() < 0.6 ? M.pick(P.filter(function (y) { return y.a.k === y.b.k; })) : M.pick(P);
+      var desc = x.a.k === x.b.k ? 'zwei ' + nm(x.a.k) + 'e Kugeln' : 'erst eine ' + nm(x.a.k) + 'e, dann eine ' + nm(x.b.k) + 'e Kugel';
+      return { skill: 'Ziehen ohne Zurücklegen', q: sc.txt + sc.pic + 'Wie groß ist die Wahrscheinlichkeit für <b>„' + desc + '“</b>?', inputs: [fracIn(x.p, 'P (gekürzt)', true)],
+        hints: ['Ohne Zurücklegen: Beim zweiten Zug liegt eine Kugel weniger in der Urne, nämlich ' + (sc.E.u1.length - 1) + '.', 'Erster Zug: ' + fh(x.a.p, true) + '. Zweiter Zug (nach ' + nm(x.a.k) + '): ' + fh(x.b.p, true) + '.', 'Multipliziere: ' + fh(x.a.p, true) + ' · ' + fh(x.b.p, true) + ' und kürze.'],
+        solution: pName(x) + ' = ' + prodTxt(x) + tree(T, { res: true, hl: [P.indexOf(x)], pp: P.map(function (y) { return y === x ? y.p : null; }) }),
+        mistakes: pathMistakes(P, x, sc),
+        verify: function () { return M.feq(brute(sc.E, function (a, b) { return a === x.a.k && b === x.b.k; }), x.p) ? true : 'Abzählen ≠ Produkt'; } };
+    },
+    summe: function (lvl) {
+      var sc = scen(M.pick(lvl === 3 ? ['ohne', 'rad'] : ['mit', 'ohne', 'rad']), lvl === 3 && Math.random() < 0.4), T = treeFor(sc), ev, P, res, t = 0;
+      do { ev = M.pick(EVS); P = paths(T, ev[1]); res = sumFav(P); t++; } while ((P.filter(function (x) { return x.fav; }).length < 2 || M.feq(res, F(1))) && t < 50);
+      var favs = P.filter(function (x) { return x.fav; });
+      return { skill: 'Summenregel', level: lvl, q: sc.txt + sc.pic + 'Wie groß ist die Wahrscheinlichkeit für das Ereignis <b>„' + ev[0] + '“</b>?' + tree(T, { res: true }),
+        inputs: [fracIn(res, 'P (gekürzt)', true)],
+        hints: ['Welche Pfade gehören zu „' + ev[0] + '“? Es sind ' + favs.length + ': ' + favs.map(function (x) { return resTxt(x.a.k, x.b.k); }).join(', ') + '.', 'Berechne jede Pfadwahrscheinlichkeit mit der Produktregel, zum Beispiel ' + pName(favs[0]) + ' = ' + prodTxt(favs[0]) + '.', 'Summenregel: Addiere die Wahrscheinlichkeiten aller passenden Pfade.'],
+        solution: sumTxt(P, res) + '.' + tree(T, { res: true, hl: hlList(P), pp: P.map(function (x) { return x.fav ? x.p : null; }) }),
+        mistakes: function (v) { var f = M.parseFrac(v[0]); if (f && favs.some(function (x) { return M.feq(f, x.p); }) && !M.feq(f, res)) return 'Das ist nur die Wahrscheinlichkeit eines Pfades. Zu „' + ev[0] + '“ gehören ' + favs.length + ' Pfade. Addiere ihre Wahrscheinlichkeiten.'; return null; },
+        verify: function () { return M.feq(brute(sc.E, ev[1]), res) ? true : 'Abzählen ≠ Summenregel'; } };
+    },
+    rad: function (lvl) {
+      var S = M.pick(WHEELS), E = exp2(wheelUnits(S)), T = redTree(treeOf(E)), ev;
+      if (lvl === 1) ev = ['zweimal Rot', function (a, b) { return a === 'r' && b === 'r'; }];
+      else if (lvl === 2) ev = M.pick([['erst Rot, dann Blau', function (a, b) { return a === 'r' && b === 'b'; }], ['zweimal Blau', function (a, b) { return a === 'b' && b === 'b'; }], ['erst Blau, dann Rot', function (a, b) { return a === 'b' && b === 'r'; }]]);
+      else ev = M.pick([['zweimal dieselbe Farbe', function (a, b) { return a === b; }], ['genau einmal Rot', function (a, b) { return (a === 'r') !== (b === 'r'); }], ['mindestens einmal Rot', function (a, b) { return a === 'r' || b === 'r'; }]]);
+      var P = paths(T, ev[1]), res = sumFav(P), favs = P.filter(function (x) { return x.fav; });
+      return { skill: 'Glücksrad mit ungleichen Feldern', q: 'Das Glücksrad wird zweimal gedreht.' + wheel(S) + 'Wie groß ist die Wahrscheinlichkeit für <b>„' + ev[0] + '“</b>?', inputs: [fracIn(res, 'P (gekürzt)', true)],
+        hints: ['Bestimme zuerst die Wahrscheinlichkeiten der Farben: Winkel : 360°. ' + S.map(function (s) { return 'P(' + nm(s[0]) + ') = ' + frac(s[1], 360) + ' = ' + fh(F(s[1], 360)); }).join(', ') + '.', 'Zeichne ein Baumdiagramm mit zwei Stufen. Die Wahrscheinlichkeiten sind in beiden Stufen gleich.', favs.length > 1 ? 'Multipliziere entlang jedes passenden Pfades und addiere die Ergebnisse.' : 'Multipliziere entlang des Pfades ' + resTxt(favs[0].a.k, favs[0].b.k) + '.'],
+        solution: sumTxt(P, res) + '.' + tree(T, { res: true, hl: hlList(P), pp: P.map(function (x) { return x.fav ? x.p : null; }) }),
+        mistakes: function (v) { var f = M.parseFrac(v[0]); if (!f) return null; if (favs.length > 1 && favs.some(function (x) { return M.feq(f, x.p); }) && !M.feq(f, res)) return 'Das ist nur ein Pfad. Addiere alle passenden Pfade.'; if (favs.length === 1 && M.feq(f, M.fadd(favs[0].a.p, favs[0].b.p))) return 'Entlang eines Pfades wird multipliziert, nicht addiert.'; return null; },
+        verify: function () { return M.feq(brute(E, ev[1]), res) && S.reduce(function (a, s) { return a + s[1]; }, 0) === 360 ? true : 'Abzählen ≠ Produktregel'; } };
+    },
+    ampel: function (lvl) {
+      var a = 10 * M.rnd(3, 8), b = 10 * M.rnd(2, 8), both = a * b / 100, kind = lvl === 1 ? 0 : lvl === 2 ? M.pick([0, 1]) : M.pick([2, 3]);
+      var ra = 100 - a, rb = 100 - b, ans = [both, ra * rb / 100, 100 - both, (a * rb + ra * b) / 100][kind];
+      var qtxt = ['beide Ampeln grün sind', 'beide Ampeln rot sind', 'mindestens eine Ampel rot ist', 'genau eine Ampel grün ist'][kind];
+      var pred = [function (x, y) { return x === 'g' && y === 'g'; }, function (x, y) { return x === 'r' && y === 'r'; }, function (x, y) { return x === 'r' || y === 'r'; }, function (x, y) { return (x === 'g') !== (y === 'g'); }][kind];
+      var steps = [a + ' % · ' + b + ' % = ' + fmt(a / 100) + ' · ' + fmt(b / 100) + ' = ' + fmt(both / 100) + ' = ' + fmt(both) + ' %',
+        ra + ' % · ' + rb + ' % = ' + fmt(ra / 100) + ' · ' + fmt(rb / 100) + ' = ' + fmt(ra * rb / 10000) + ' = ' + fmt(ra * rb / 100) + ' %',
+        'Gegenereignis „beide grün“: ' + fmt(a / 100) + ' · ' + fmt(b / 100) + ' = ' + fmt(both / 100) + '. Also 1 − ' + fmt(both / 100) + ' = ' + fmt(1 - both / 100) + ' = ' + fmt(100 - both) + ' %',
+        'grün-rot: ' + fmt(a / 100) + ' · ' + fmt(rb / 100) + ' = ' + fmt(a * rb / 10000) + ', rot-grün: ' + fmt(ra / 100) + ' · ' + fmt(b / 100) + ' = ' + fmt(ra * b / 10000) + '. Summe: ' + fmt(ans / 100) + ' = ' + fmt(ans) + ' %'][kind];
+      var T = { s1: [{ k: 'g', p: fmt(a / 100) }, { k: 'r', p: fmt(ra / 100) }], s2: [0, 1].map(function () { return [{ k: 'g', p: fmt(b / 100) }, { k: 'r', p: fmt(rb / 100) }]; }) };
+      return { skill: 'Sachaufgabe mit Produktregel', q: 'Auf dem Schulweg kommt Emil an zwei Ampeln vorbei, die unabhängig voneinander schalten. Die erste Ampel ist mit einer Wahrscheinlichkeit von <b>' + a + ' %</b> grün, wenn er ankommt, die zweite mit <b>' + b + ' %</b>. Wie groß ist die Wahrscheinlichkeit, dass <b>' + qtxt + '</b>?' + (kind === 2 ? ' (Tipp: Gegenereignis)' : ''), inputs: [{ kind: 'num', answer: ans, label: 'P', unit: '%', tol: 0.005 }],
+        hints: ['Zeichne ein Baumdiagramm: Stufe 1 ist die erste Ampel (grün oder rot), Stufe 2 die zweite.', 'Rechne mit Dezimalzahlen: grün ' + fmt(a / 100) + ' und rot ' + fmt(ra / 100) + ' bei der ersten, grün ' + fmt(b / 100) + ' und rot ' + fmt(rb / 100) + ' bei der zweiten Ampel.', kind === 2 ? '„Mindestens eine rot“ ist das Gegenteil von „beide grün“. Rechne 1 − P(beide grün).' : kind === 3 ? 'Zwei Pfade passen: grün-rot und rot-grün. Multipliziere jeweils und addiere.' : 'Multipliziere die beiden Wahrscheinlichkeiten entlang des Pfades.'],
+        solution: steps + '.' + tree(redTreeNone(T), { res: true }),
+        mistakes: function (v) { var x = M.parseNum(v[0]); if (x === null) return null; if (Math.abs(x - (kind === 0 ? a + b : kind === 1 ? ra + rb : -1)) < 1e-9) return 'Du hast die Prozentsätze addiert. Für „beide“ wird multipliziert. Rechne mit Dezimalzahlen.'; if (kind === 2 && Math.abs(x - both) < 1e-9) return 'Das ist P(beide grün). Gesucht ist das Gegenteil davon.'; return null; },
+        verify: function () { var u1 = [], u2 = [], i; for (i = 0; i < 100; i++) { u1.push(i < a ? 'g' : 'r'); u2.push(i < b ? 'g' : 'r'); } var f = brute(exp2(u1, u2), pred); return Math.abs(f.n / f.d * 100 - ans) < 1e-9 ? true : 'Abzählen ≠ ' + ans; } };
+    },
+    mindestens: function (lvl) {
+      var v = M.rnd(0, 3), E, ev, res, txt, pK, unit = false;
+      if (v === 0) { E = exp2(['1', '2', '3', '4', '5', '6']); var z = String(M.rnd(1, 6)); ev = ['mindestens eine ' + z, function (a, b) { return a === z || b === z; }]; pK = F(5, 6); txt = 'Du wirfst zweimal einen normalen Spielwürfel. Wie groß ist die Wahrscheinlichkeit, <b>mindestens eine ' + z + '</b> zu würfeln?'; }
+      else if (v === 1) { var q = M.pick([F(1, 4), F(1, 3), F(2, 5), F(1, 5), F(3, 10)]), u = []; for (var i = 0; i < q.d; i++) u.push(i < q.n ? 'G' : 'N'); E = exp2(u); ev = ['mindestens einmal Gewinn', function (a, b) { return a === 'G' || b === 'G'; }]; pK = F(q.d - q.n, q.d); txt = 'Bei einem Glücksrad auf dem Schulfest gewinnt man mit der Wahrscheinlichkeit ' + fh(q) + '. Mia dreht zweimal. Wie groß ist die Wahrscheinlichkeit, dass sie <b>mindestens einmal</b> gewinnt?'; }
+      else if (v === 2) { var spec = M.pick([{ r: 2, b: 3 }, { r: 3, b: 3 }, { r: 2, b: 4 }, { r: 3, b: 4 }, { r: 2, b: 5 }]); E = exp2(units(spec), null, true); ev = ['mindestens eine rote Kugel', function (a, b) { return a === 'r' || b === 'r'; }]; pK = M.fmul(F(spec.b, spec.r + spec.b), F(spec.b - 1, spec.r + spec.b - 1)); txt = urnTxt(spec) + ' Du ziehst zwei Kugeln <b>ohne Zurücklegen</b>. Wie groß ist die Wahrscheinlichkeit für <b>mindestens eine rote Kugel</b>?' + urn(spec); }
+      else { var t = M.pick([60, 70, 80, 90]), uu = []; for (var k = 0; k < 10; k++) uu.push(k < t / 10 ? 'T' : 'F'); E = exp2(uu); ev = ['mindestens ein Treffer', function (a, b) { return a === 'T' || b === 'T'; }]; pK = F(100 - t, 100); unit = true; txt = 'Lina trifft beim Basketball-Freiwurf mit einer Wahrscheinlichkeit von <b>' + t + ' %</b>. Sie wirft zweimal. Wie groß ist die Wahrscheinlichkeit für <b>mindestens einen Treffer</b> (in Prozent)?'; }
+      var none = v === 2 ? pK : M.fmul(pK, pK), res = M.fadd(F(1), F(-none.n, none.d));
+      var single = v === 0 ? F(1, 6) : v === 1 ? M.fadd(F(1), F(-pK.n, pK.d)) : null;
+      var inp = unit ? { kind: 'num', answer: res.n / res.d * 100, label: 'P', unit: '%', tol: 0.005 } : fracIn(res, 'P (gekürzt)', true);
+      var noneTxt = v === 2 ? 'P(keine rote) = ' + frac(spec.b, spec.r + spec.b) + ' · ' + frac(spec.b - 1, spec.r + spec.b - 1) + ' = ' + fh(none) : 'P(' + (v === 0 ? 'keine ' + z : v === 1 ? 'kein Gewinn' : 'kein Treffer') + ') = ' + (unit ? fmt(pK.n / pK.d) + ' · ' + fmt(pK.n / pK.d) + ' = ' + fmt(none.n / none.d) : fh(pK) + ' · ' + fh(pK) + ' = ' + fh(none));
+      return { skill: 'Gegenereignis „mindestens einmal“', level: 3, q: txt, inputs: [inp],
+        hints: ['„Mindestens einmal“ hat viele Pfade. Einfacher ist das <b>Gegenereignis</b>: „keinmal“.', 'Das Gegenereignis hat nur einen Pfad. ' + noneTxt.split(' = ').slice(0, 2).join(' = ') + '.', 'P(mindestens einmal) = 1 − P(keinmal).'],
+        solution: noneTxt + '. Also P(' + ev[0] + ') = 1 − ' + (unit ? fmt(none.n / none.d) + ' = ' + fmt(res.n / res.d) + ' = ' + fmt(res.n / res.d * 100) + ' %' : fh(none) + ' = ' + fh(res)) + '.',
+        mistakes: function (vv) { var f = unit ? (M.parseNum(vv[0]) === null ? null : F(Math.round(M.parseNum(vv[0]) * 100), 10000)) : M.parseFrac(vv[0]); if (!f) return null; if (single && M.feq(f, M.fmul(F(2), single)) && !M.feq(f, res)) return 'Du hast die Wahrscheinlichkeit verdoppelt. Dabei zählst du den Pfad „beide Male“ doppelt. Nutze das Gegenereignis.'; if (M.feq(f, none) && !M.feq(none, res)) return 'Das ist die Wahrscheinlichkeit für „keinmal“. Ziehe sie noch von 1 ab.'; return null; },
+        verify: function () { return M.feq(brute(E, ev[1]), res) ? true : 'Abzählen ≠ Gegenereignis'; } };
+    },
+    lose: function (lvl) {
+      var N = M.pick([10, 12, 15, 20, 25]), G = M.rnd(2, Math.min(6, Math.floor(N / 3))), u = []; for (var i = 0; i < N; i++) u.push(i < G ? 'G' : 'N');
+      var E = exp2(u, null, true), T = treeOf(E), kind = lvl === 3 ? M.pick([1, 2]) : 0;
+      var ev = [['zwei Gewinne', function (a, b) { return a === 'G' && b === 'G'; }], ['genau ein Gewinn', function (a, b) { return a !== b; }], ['zwei Nieten', function (a, b) { return a === 'N' && b === 'N'; }]][kind];
+      var P = paths(T, ev[1]), res = sumFav(P);
+      T.s1.forEach(function (a) { a.k = a.k; });
+      return { skill: 'Sachaufgabe: Lose ziehen', q: 'In einer Lostrommel beim Schulfest sind ' + N + ' Lose, davon ' + G + ' Gewinne (G), der Rest sind Nieten (N). Paul zieht nacheinander zwei Lose und behält sie. Wie groß ist die Wahrscheinlichkeit für <b>„' + ev[0] + '“</b>?', inputs: [fracIn(res, 'P (gekürzt)', true)],
+        hints: ['Die Lose werden nicht zurückgelegt. Beim zweiten Zug sind nur noch ' + (N - 1) + ' Lose in der Trommel.', 'Zeichne den Baum: erster Zug G mit ' + frac(G, N) + ', N mit ' + frac(N - G, N) + '. Nach G: G mit ' + frac(G - 1, N - 1) + ', nach N: G mit ' + frac(G, N - 1) + '.', kind === 1 ? 'Zwei Pfade passen: GN und NG. Multipliziere jeweils und addiere.' : 'Multipliziere entlang des passenden Pfades und kürze.'],
+        solution: sumTxt(P, res) + '.' + tree(T, { res: true, hl: hlList(P), pp: P.map(function (x) { return x.fav ? x.p : null; }) }),
+        mistakes: function (v) { var f = M.parseFrac(v[0]); if (!f) return null; if (kind === 0 && M.feq(f, M.fmul(F(G, N), F(G, N)))) return 'Das wäre richtig mit Zurücklegen. Paul behält das erste Los, also sind beim zweiten Zug nur noch ' + (N - 1) + ' Lose da, davon ' + (G - 1) + ' Gewinne.'; if (kind === 1 && P.some(function (x) { return x.fav && M.feq(f, x.p); })) return 'Das ist nur ein Pfad. „Genau ein Gewinn“ geht auf zwei Wegen: GN und NG.'; return null; },
+        verify: function () { return M.feq(brute(E, ev[1]), res) ? true : 'Abzählen ≠ Baum'; } };
+    },
+    rueck: function () {
+      var p = M.pick([F(1, 2), F(1, 3), F(2, 3), F(1, 4), F(3, 4), F(2, 5), F(3, 5), F(1, 5), F(4, 5), F(3, 7)]), pp = M.fmul(p, p), q = F(p.d - p.n, p.d), qq = M.fmul(q, q);
+      return { skill: 'Produktregel rückwärts', level: 3, q: 'Ein Glücksrad hat ein rotes Feld. Es wird zweimal gedreht. Die Wahrscheinlichkeit für „zweimal Rot“ beträgt ' + fh(pp) + '.<br>a) Wie groß ist die Wahrscheinlichkeit für Rot bei einer Drehung?<br>b) Wie groß ist die Wahrscheinlichkeit für „zweimal nicht Rot“?',
+        inputs: [fracIn(p, 'a) P(rot)', true), fracIn(qq, 'b) P(zweimal nicht rot)', true)],
+        hints: ['Für „zweimal Rot“ gilt: P(rot) · P(rot) = ' + fh(pp) + '.', 'Welche Zahl ergibt mit sich selbst multipliziert ' + fh(pp) + '? Überlege für Zähler und Nenner getrennt: ' + p.n + ' · ' + p.n + ' = ' + pp.n + '.', 'P(nicht rot) = 1 − P(rot). Multipliziere dann für zwei Drehungen.'],
+        solution: 'a) ' + fh(p) + ' · ' + fh(p) + ' = ' + fh(pp) + ', also P(rot) = ' + fh(p) + '. b) P(nicht rot) = 1 − ' + fh(p) + ' = ' + fh(q) + ', also ' + fh(q) + ' · ' + fh(q) + ' = ' + fh(qq) + '.',
+        mistakes: function (v) { var f = M.parseFrac(v[1]); if (f && M.feq(f, M.fadd(F(1), F(-pp.n, pp.d))) && !M.feq(qq, M.fadd(F(1), F(-pp.n, pp.d)))) return 'Bei b) hast du 1 − P(zweimal rot) gerechnet. Das ist „mindestens einmal nicht rot“. Gesucht ist „zweimal nicht rot“.'; return null; },
+        verify: function () { var u = []; for (var i = 0; i < p.d; i++) u.push(i < p.n ? 'r' : 'x'); var E = exp2(u); return M.feq(brute(E, function (a, b) { return a === 'r' && b === 'r'; }), pp) && M.feq(brute(E, function (a, b) { return a !== 'r' && b !== 'r'; }), qq) ? true : 'Rückrechnung falsch'; } };
+    },
+    spiel: function () {
+      var spec = M.pick([{ r: 3, b: 1 }, { r: 3, b: 2 }, { r: 2, b: 2 }, { r: 6, b: 3 }, { r: 4, b: 2 }, { r: 3, b: 3 }, { r: 5, b: 2 }, { r: 4, b: 1 }]), E = exp2(units(spec), null, true), T = treeOf(E);
+      var P = paths(T, function (a, b) { return a === b; }), same = sumFav(P), diff = M.fadd(F(1), F(-same.n, same.d));
+      var ans = M.feq(same, diff) ? 2 : same.n * diff.d > diff.n * same.d ? 0 : 1;
+      return { skill: 'Ist das Spiel fair?', level: 3, q: urnTxt(spec) + ' Lea zieht zwei Kugeln <b>ohne Zurücklegen</b>. Haben beide Kugeln <b>dieselbe Farbe</b>, gewinnt Lea. Sind die Farben <b>verschieden</b>, gewinnt Tom.' + urn(spec) + 'a) Wie groß ist die Wahrscheinlichkeit, dass Lea gewinnt?<br>b) Ist das Spiel fair?',
+        inputs: [fracIn(same, 'a) P(Lea gewinnt) (gekürzt)', true), { kind: 'mc', label: 'b) Entscheide', options: ['Lea hat die besseren Chancen.', 'Tom hat die besseren Chancen.', 'Das Spiel ist fair.'], answer: ans }],
+        hints: ['Zeichne ein Baumdiagramm ohne Zurücklegen. Lea gewinnt bei den Pfaden rr' + (spec.b >= 2 ? ' und bb' : '') + '.', 'P(rr) = ' + frac(spec.r, spec.r + spec.b) + ' · ' + frac(spec.r - 1, spec.r + spec.b - 1) + (spec.b >= 2 ? ', P(bb) = ' + frac(spec.b, spec.r + spec.b) + ' · ' + frac(spec.b - 1, spec.r + spec.b - 1) : '') + '.', 'Tom gewinnt mit 1 − P(Lea). Fair ist das Spiel, wenn beide die Wahrscheinlichkeit ' + frac(1, 2) + ' haben.'],
+        solution: 'a) ' + sumTxt(P, same) + '.<br>b) P(Tom gewinnt) = 1 − ' + fh(same) + ' = ' + fh(diff) + '. ' + ['Lea hat die besseren Chancen.', 'Tom hat die besseren Chancen.', 'Beide haben die Wahrscheinlichkeit ' + frac(1, 2) + ', das Spiel ist fair.'][ans] + tree(T, { res: true, hl: hlList(P), pp: ppList(P) }),
+        mistakes: function (v) { var f = M.parseFrac(v[0]); if (f && M.feq(f, F(1, 2)) && !M.feq(same, F(1, 2))) return 'Rate nicht. Rechne die Pfade rr und bb mit der Produktregel aus und addiere sie.'; return null; },
+        verify: function () { return M.feq(brute(E, function (a, b) { return a === b; }), same) && M.feq(brute(E, function (a, b) { return a !== b; }), diff) ? true : 'Abzählen ≠ Baum'; } };
+    }
+  };
+  function redTreeNone(T) { return T; }
+
+  var AMP = { s1: [{ k: 'g', p: '0,4' }, { k: 'r', p: '0,6' }], s2: [0, 1].map(function () { return [{ k: 'g', p: '0,5' }, { k: 'r', p: '0,5' }]; }) };
+  var URN = treeOf(exp2(units({ r: 3, b: 2 }), null, true)), URNP = paths(URN, function (a, b) { return a !== b; });
+  return {
+    id: '029', title: 'Produktregel', bereich: 'Daten und Zufall', minutes: '45 bis 60',
+    vorkenntnisse: 'Baumdiagramme (Modul 028), Brüche multiplizieren und addieren, Prozent',
+    lead: 'Wie wahrscheinlich ist es, an zwei Ampeln hintereinander Grün zu haben? Mit der Produktregel rechnest du Wahrscheinlichkeiten entlang der Pfade im Baumdiagramm aus.',
+    einstieg: { html: '<p>Emil fährt jeden Morgen mit dem Rad zur Schule. Unterwegs kommt er an zwei Ampeln vorbei. Die erste ist bei seiner Ankunft an etwa <b>40 von 100</b> Tagen grün, die zweite an etwa <b>der Hälfte</b> der Tage.</p><p class="note">An wie vielen von 100 Tagen hat Emil an <b>beiden</b> Ampeln Grün? Überlege: An den 40 „grünen“ Tagen der ersten Ampel ist die zweite ungefähr bei der Hälfte grün.</p><p>Es sind etwa 20 Tage, also 20 %. Das ist die Hälfte von 40 %, also 0,5 · 0,4. Genau so funktioniert die <b>Produktregel</b>: Entlang eines Pfades im Baumdiagramm wird multipliziert.</p>' + tree(AMP, { res: true, hl: [0], pp: ['0,2', null, null, null], label: 'Baumdiagramm Ampeln' }) },
+    ziele: ['Ich berechne Pfadwahrscheinlichkeiten mit der Produktregel.', 'Ich berechne Wahrscheinlichkeiten von Ereignissen mit mehreren Pfaden (Summenregel).', 'Ich rechne beim Ziehen mit und ohne Zurücklegen richtig.', 'Ich nutze das Gegenereignis bei „mindestens einmal“.', 'Ich löse Sachaufgaben mit Ampeln, Glücksrädern und Losen.'],
+    fachwoerter: [['Pfadwahrscheinlichkeit', 'Die Wahrscheinlichkeit eines Ergebnisses. Man erhält sie, indem man die Wahrscheinlichkeiten entlang des Pfades multipliziert.'], ['Produktregel', 'Pfadwahrscheinlichkeit = Produkt der Astwahrscheinlichkeiten.'], ['Summenregel', 'Gehören mehrere Pfade zu einem Ereignis, addiert man ihre Wahrscheinlichkeiten.'], ['Gegenereignis', 'Alles, was nicht zum Ereignis gehört. P(Gegenereignis) = 1 − P(Ereignis).']],
+    diagnose: [
+      { q: 'Berechne ' + frac(2, 3) + ' · ' + frac(3, 4) + '.', options: [frac(1, 2), frac(5, 7), frac(6, 7), 'Weiß ich noch nicht'], answer: 0, why: frac(2, 3) + ' · ' + frac(3, 4) + ' = ' + frac(6, 12) + ' = ' + frac(1, 2) + '.', review: 'Brüche multiplizieren (Modul 001)' },
+      { q: 'Berechne ' + frac(1, 6) + ' + ' + frac(1, 3) + '.', options: [frac(1, 2), frac(2, 9), frac(1, 18), 'Weiß ich noch nicht'], answer: 0, why: frac(1, 6) + ' + ' + frac(2, 6) + ' = ' + frac(3, 6) + ' = ' + frac(1, 2) + '.', review: 'Brüche addieren (Klasse 6)' },
+      { q: 'In einem Baumdiagramm gehen von einem Punkt zwei Äste aus. Am einen steht ' + frac(2, 5) + '. Was steht am anderen?', options: [frac(3, 5), frac(2, 5), frac(5, 2), 'Weiß ich noch nicht'], answer: 0, why: 'An jeder Verzweigung ist die Summe 1: 1 − ' + frac(2, 5) + ' = ' + frac(3, 5) + '.', review: 'Baumdiagramme (Modul 028)' },
+      { q: 'Wie viel ist die Hälfte von 30 %?', options: ['15 %', '60 %', '30,5 %', 'Weiß ich noch nicht'], answer: 0, why: '0,5 · 30 % = 15 %.', review: 'Anteile von Anteilen, Prozent' }],
+    erklaerung:
+      '<h3>1. Die Produktregel</h3><p>Im Einstieg war die erste Ampel mit 0,4 grün, die zweite mit 0,5. Von den grünen Tagen der ersten Ampel ist die zweite in der Hälfte der Fälle auch grün. Das ist ein <b>Anteil vom Anteil</b>: 0,5 von 0,4 = 0,4 · 0,5 = 0,2.</p>' +
+      '<div class="merk"><b>Merke (Produktregel):</b> Die Wahrscheinlichkeit eines Pfades ist das <b>Produkt</b> der Wahrscheinlichkeiten entlang des Pfades.<br><span class="big-math">P(grün, grün) = 0,4 · 0,5 = 0,2 = 20 %</span></div>' + tree(AMP, { res: true, pp: ['0,2', '0,2', '0,3', '0,3'], hl: [0], label: 'Ampeln mit Pfadwahrscheinlichkeiten' }) +
+      '<p class="note">Kontrolle: Alle Pfadwahrscheinlichkeiten zusammen ergeben 1. Hier: 0,2 + 0,2 + 0,3 + 0,3 = 1.</p>' +
+      '<h3>2. Die Summenregel</h3><p>Oft gehören <b>mehrere Pfade</b> zu einem Ereignis. „Genau eine Ampel ist grün“ sind die Pfade gr und rg.</p>' +
+      '<div class="merk"><b>Merke (Summenregel):</b> Gehören mehrere Pfade zu einem Ereignis, <b>addierst</b> du ihre Pfadwahrscheinlichkeiten.<br><span class="big-math">P(genau eine grün) = 0,2 + 0,3 = 0,5</span></div>' +
+      '<h3>3. Ohne Zurücklegen</h3><p>Aus einer Urne mit 3 roten und 2 blauen Kugeln ziehst du zwei Kugeln ohne Zurücklegen. Nach dem ersten Zug liegen nur noch 4 Kugeln in der Urne. Die Wahrscheinlichkeiten in Stufe 2 ändern sich.</p>' + tree(URN, { res: true, hl: hlList(URNP), pp: ppList(URNP) }) +
+      '<p>P(zwei verschiedene Farben) = P(rb) + P(br) = ' + frac(3, 5) + ' · ' + frac(2, 4) + ' + ' + frac(2, 5) + ' · ' + frac(3, 4) + ' = ' + frac(6, 20) + ' + ' + frac(6, 20) + ' = ' + frac(12, 20) + ' = ' + frac(3, 5) + '.</p>' +
+      '<h3>4. „Mindestens einmal“ mit dem Gegenereignis</h3><p>Wie wahrscheinlich ist <b>mindestens eine 6</b> bei zwei Würfen? Dazu gehören viele Pfade. Schneller geht es mit dem Gegenereignis „keine 6“: Das ist nur ein Pfad.</p>' +
+      '<div class="merk"><b>Merke:</b> P(mindestens einmal) = 1 − P(keinmal)<br><span class="big-math">P(mindestens eine 6) = 1 − ' + frac(5, 6) + ' · ' + frac(5, 6) + ' = 1 − ' + frac(25, 36) + ' = ' + frac(11, 36) + '</span></div>' +
+      '<p class="note"><b>Typischer Fehler:</b> ' + frac(1, 6) + ' + ' + frac(1, 6) + ' = ' + frac(12, 36) + ' ist zu groß. Dabei wird der Pfad „6 und 6“ doppelt gezählt.</p>',
+    entdecken: {
+      html: '<p>Stelle die Urne ein und wähle, ob du die erste Kugel zurücklegst. Das Baumdiagramm rechnet die Pfadwahrscheinlichkeiten mit der Produktregel aus.</p><div class="ctl"><label>Ziehen <select id="e_m"><option value="mit">mit Zurücklegen</option><option value="ohne">ohne Zurücklegen</option></select></label></div><div class="ctl"><label>rote Kugeln: <b id="e_vr"></b> <input type="range" id="e_r" min="1" max="8" step="1" value="3" style="width:150px"></label><label>blaue Kugeln: <b id="e_vb"></b> <input type="range" id="e_b" min="1" max="8" step="1" value="2" style="width:150px"></label></div><div id="e_urn"></div><div id="e_tree"></div><div id="e_res"></div><p class="note">Vergleiche P(rr) mit und ohne Zurücklegen. Wann ist der Unterschied groß, wann klein?</p>',
+      init: function (root, done) {
+        var n = 0, sel = root.querySelector('#e_m');
+        function draw() {
+          var r = +root.querySelector('#e_r').value, b = +root.querySelector('#e_b').value, ohne = sel.value === 'ohne', spec = { r: r, b: b }, E = exp2(units(spec), null, ohne), T = treeOf(E), P = paths(T);
+          root.querySelector('#e_vr').textContent = r; root.querySelector('#e_vb').textContent = b;
+          root.querySelector('#e_urn').innerHTML = urn(spec);
+          root.querySelector('#e_tree').innerHTML = tree(T, { res: true, pp: ppList(P) });
+          var get = function (pr) { return brute(E, pr); }, rr = get(function (x, y) { return x === 'r' && y === 'r'; }), bb = get(function (x, y) { return x === 'b' && y === 'b'; }), vs = get(function (x, y) { return x !== y; });
+          root.querySelector('#e_res').innerHTML = '<p>P(rr) = ' + fh(rr) + ' ≈ ' + fmt(f1(rr.n / rr.d * 100)) + ' %<br>P(bb) = ' + fh(bb) + ' ≈ ' + fmt(f1(bb.n / bb.d * 100)) + ' %<br>P(verschiedene Farben) = P(rb) + P(br) = ' + fh(vs) + ' ≈ ' + fmt(f1(vs.n / vs.d * 100)) + ' %</p><p class="note">Kontrolle: ' + fh(rr) + ' + ' + fh(bb) + ' + ' + fh(vs) + ' = ' + fh(M.fadd(M.fadd(rr, bb), vs)) + '</p>';
+        }
+        function ch() { draw(); n++; if (n >= 3) done('Gut beobachtet: Ohne Zurücklegen wird P(rr) kleiner, denn nach einer roten Kugel gibt es weniger rote. Bei vielen Kugeln ist der Unterschied klein, bei wenigen Kugeln groß.'); }
+        sel.addEventListener('change', ch); root.querySelectorAll('input[type=range]').forEach(function (x) { x.addEventListener('input', ch); });
+        draw();
+      }
+    },
+    beispiel: { title: 'Zwei Lose ziehen', q: 'In einer Lostrommel sind 10 Lose, davon 3 Gewinne. Jana zieht nacheinander zwei Lose und behält sie. Wie groß ist die Wahrscheinlichkeit, dass sie <b>genau einen Gewinn</b> zieht?',
+      steps: ['Baumdiagramm ohne Zurücklegen: erster Zug G ' + frac(3, 10) + ', N ' + frac(7, 10) + '. Nach G: G ' + frac(2, 9) + ', N ' + frac(7, 9) + '. Nach N: G ' + frac(3, 9) + ', N ' + frac(6, 9) + '.', 'Passende Pfade: GN (erst Gewinn, dann Niete) und NG.', 'Produktregel: P(GN) = ' + frac(3, 10) + ' · ' + frac(7, 9) + ' = ' + frac(21, 90) + '. P(NG) = ' + frac(7, 10) + ' · ' + frac(3, 9) + ' = ' + frac(21, 90) + '.', 'Summenregel: ' + frac(21, 90) + ' + ' + frac(21, 90) + ' = ' + frac(42, 90) + ' = ' + frac(7, 15) + ' ≈ 46,7 %.', 'Antwort: Mit etwa 47 % zieht Jana genau einen Gewinn. Kontrolle: P(GG) = ' + frac(6, 90) + ', P(NN) = ' + frac(42, 90) + '. Alle zusammen: ' + frac(6, 90) + ' + ' + frac(42, 90) + ' + ' + frac(42, 90) + ' = 1.'] },
+    tasks: { gen: gen, plan: { G: ['pfad:1', 'mitZ:1', 'rad:1', 'ampel:1'], S: ['pfad:2', 'mitZ:2', 'ohneZ:2', 'summe:2', 'ampel:2'], E: ['ohneZ:2', 'summe:3', 'rad:3', 'mindestens:3', 'lose:3', 'rueck:3'] },
+      extra: 'spiel', test: ['pfad:2', 'mitZ:2', 'ohneZ:2', 'summe:2', 'rad:2', 'ampel:2'] },
+    lerncheck: ['Ich berechne Pfadwahrscheinlichkeiten mit der Produktregel.', 'Ich addiere Pfade mit der Summenregel.', 'Ich unterscheide Ziehen mit und ohne Zurücklegen.', 'Ich nutze das Gegenereignis bei „mindestens einmal“.']
+  };
+})();
+
+window.MODULE = MODULE;
+</script>
+<script>
+/* SOL Mathe 8 · Lern-Engine. Erwartet window.MODULE und window.CONFIG. */
+(function () {
+  'use strict';
+  var MOD = window.MODULE, CFG = window.CONFIG;
+  var KEY = 'sol8-' + MOD.id;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  /* Anzeige-Feinschliff: echtes Minuszeichen und 1x → x, nur im Text, nie in Attributen */
+  function nice(h) { return String(h == null ? '' : h).split(/(<[^>]*>)/).map(function (p) { return p.charAt(0) === '<' ? p : p.replace(/(^|[\s(=:\[{>])-(?=\d)/g, '$1\u2212').replace(/(^|[\s(=:+\u2212·>])1x(?![\w²³^])/g, '$1x'); }).join(''); }
+  function h(tag, attrs, html) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }); if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  var SECTIONS = [
+    ['start', 'Start'], ['einstieg', 'Einstieg'], ['ziele', 'Lernziele'], ['diagnose', 'Startdiagnose'], ['erklaerung', 'Erklärung'],
+    ['entdecken', 'Ausprobieren'], ['beispiel', 'Beispiel'], ['ueben', 'Üben'], ['weiterdenken', 'Weiterdenken'], ['test', 'Abschlusstest'],
+    ['lerncheck', 'Mein Lerncheck'], ['ergebnis', 'Ergebnis']
+  ];
+  var REQUIRED = ['einstieg', 'diagnose', 'erklaerung', 'entdecken', 'ueben', 'test', 'lerncheck'];
+  function req() { return S.way === 'E' ? REQUIRED.slice(0, 5).concat(['weiterdenken'], REQUIRED.slice(5)) : REQUIRED; }
+  var WAYS = { G: 'Sicher · G', S: 'Standard · G/E', E: 'Weiterdenken · E' };
+  var WAY_INFO = { G: 'Sicher: weniger Aufgaben, Tipps sind sofort sichtbar. Weiterdenken ist freiwillig.', S: 'Standard: du bearbeitest alle Pflichtaufgaben und kannst Tipps öffnen.', E: 'Weiterdenken: mehr und schwierigere Aufgaben. Die Weiterdenken-Aufgabe ist Pflicht.' };
+  var LC_SCALE = ['Sicher', 'Meistens', 'Mit Hilfe', 'Noch nicht'];
+
+  /* ---------- Zustand ---------- */
+  var S = load() || { v: 1, lerncode: '', klasse: '', email: '', way: 'S', started: false, sec: 'start', done: {}, diag: {}, diagChecked: false,
+    slots: [], extra: null, test: null, lc: {}, stats: { attempts: 0, firstTry: 0, hints: 0, solutions: 0 }, startedAt: null, sent: false, abgabeId: null };
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
+  function load() { try { var d = JSON.parse(localStorage.getItem(KEY) || 'null'); return d && d.v === 1 ? d : null; } catch (e) { return null; } }
+  function mark(k) { if (!S.done[k]) { S.done[k] = true; save(); progress(); navState(); } }
+
+  /* ---------- Normalisierung Lernende ---------- */
+  function normCode(v) { var t = String(v || '').toUpperCase().replace(/[^A-ZÄÖÜ]/g, ''); return t.length === 2 ? t : ''; }
+  function normKlasse(v) { var m = String(v || '').toLowerCase().replace(/[^a-z0-9]/g, '').match(new RegExp(CFG.jahrgang + '([a-z]?)$')); return m ? CFG.jahrgang + m[1] : ''; }
+  function emailOk(v) { v = String(v || '').trim(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) return false; return !CFG.iservDomain || v.toLowerCase().slice(-CFG.iservDomain.length - 1) === '@' + CFG.iservDomain.toLowerCase(); }
+
+  /* ---------- Aufgaben prüfen ---------- */
+  var checkInput = M.check;
+  function renderInputs(task, prefix, values) {
+    return task.inputs.map(function (inp, i) {
+      var id = prefix + '-' + i, val = values && values[i] != null ? values[i] : '';
+      if (inp.kind === 'mc') {
+        return '<fieldset class="mc"><legend>' + (inp.label || 'Wähle aus') + '</legend>' + inp.options.map(function (o, k) {
+          return '<label class="opt"><input type="radio" name="' + id + '" value="' + k + '"' + (String(val) === String(k) ? ' checked' : '') + '><span>' + o + '</span></label>';
+        }).join('') + '</fieldset>';
+      }
+      var mode = inp.kind === 'term' || inp.kind === 'text' ? 'text' : 'decimal';
+      return '<label class="inp"><span>' + (inp.label || 'Ergebnis') + '</span><span class="inrow"><input id="' + id + '" inputmode="' + mode + '" autocomplete="off" spellcheck="false" value="' + esc(val) + '"' + (inp.placeholder ? ' placeholder="' + esc(inp.placeholder) + '"' : '') + '>' + (inp.unit ? '<b class="unit">' + inp.unit + '</b>' : '') + '</span></label>';
+    }).join('');
+  }
+  function readInputs(task, prefix, root) {
+    return task.inputs.map(function (inp, i) {
+      if (inp.kind === 'mc') { var c = $('input[name="' + prefix + '-' + i + '"]:checked', root); return c ? c.value : ''; }
+      var e = $('#' + prefix + '-' + i, root); return e ? e.value : '';
+    });
+  }
+  /* Reproduzierbarer Zufall: gleiche Startzahl, gleiche Aufgabe (damit Fehlerhinweise nach dem Neuladen erhalten bleiben) */
+  function seeded(seed, fn) {
+    var orig = Math.random, s = seed >>> 0;
+    Math.random = function () { s = (s + 0x6D2B79F5) >>> 0; var t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+    try { return fn(); } finally { Math.random = orig; }
+  }
+  function revive(t) {
+    if (!t || t.seed == null || typeof t.mistakes === 'function' || !MOD.tasks.gen[t.key]) return t;
+    try { var r = gen(t.key, t.level, t.seed); if (r.q === t.q && r.mistakes) t.mistakes = r.mistakes; } catch (e) { }
+    return t;
+  }
+  function gen(key, level, seed) { if (seed == null) seed = Math.floor(Math.random() * 4294967296); var t = seeded(seed, function () { return MOD.tasks.gen[key](level || 2); }); t.seed = seed; t.key = key; t.level = t.level || level || 2; t.q = nice(t.q); t.solution = nice(t.solution); t.hints = (t.hints || []).map(nice); t.inputs.forEach(function (i) { if (i.options) i.options = i.options.map(nice); }); return t; }
+
+  /* ---------- Fortschritt und Navigation ---------- */
+  function progress() {
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    $('#bar').style.width = Math.round(n / req().length * 100) + '%';
+    $('#progText').textContent = n + ' von ' + req().length + ' Pflichtschritten';
+  }
+  function navState() {
+    $$('#nav a').forEach(function (a) { var k = a.dataset.sec; a.classList.toggle('active', k === S.sec); a.classList.toggle('done', !!S.done[k]); a.setAttribute('aria-current', k === S.sec ? 'step' : 'false'); });
+  }
+  function go(sec, noScroll) {
+    if (!S.started && sec !== 'start') { show('start'); fb('#startFb', 'Bitte trage zuerst Lerncode, Klasse und IServ-Adresse ein und tippe auf „Start“.', 'bad'); return; }
+    show(sec); if (!noScroll) { var m = $('#main'); if (m.getBoundingClientRect().top < 0) m.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function show(sec) {
+    S.sec = sec; save();
+    $$('.sec').forEach(function (s) { s.hidden = s.id !== 'sec-' + sec; });
+    navState();
+    if (RENDER[sec]) RENDER[sec]();
+    try { history.replaceState(null, '', '#' + sec); } catch (e) { }
+  }
+  function fb(sel, msg, kind) { var e = $(sel); if (!e) return; e.className = 'fb ' + (kind || ''); e.innerHTML = msg; }
+  function pager(sec) {
+    var i = SECTIONS.findIndex(function (s) { return s[0] === sec; });
+    var prev = SECTIONS[i - 1], next = SECTIONS[i + 1];
+    return '<div class="pager">' + (prev && i > 1 ? '<button class="btn ghost" data-go="' + prev[0] + '">← ' + prev[1] + '</button>' : '<span></span>') +
+      (next ? '<button class="btn" data-go="' + next[0] + '">' + next[1] + ' →</button>' : '') + '</div>';
+  }
+
+  /* ---------- Abschnitte ---------- */
+  var RENDER = {};
+  function buildShell() {
+    var app = $('#app');
+    app.innerHTML =
+      '<header class="hero"><div class="wrap hero-in"><div class="hero-top"><span class="brand">SOL Mathematik ' + CFG.jahrgang + ' · Oberschule Niedersachsen</span>' +
+      '<span class="tools"><button class="tbtn" id="easyBtn" aria-pressed="false">Leichter lesen</button><button class="tbtn" id="readBtn">Vorlesen</button><button class="tbtn" id="stopBtn">Stopp</button></span></div>' +
+      '<div class="hero-main"><div><p class="eyebrow">' + MOD.bereich + '</p><h1>' + MOD.title + '</h1><p class="lead">' + MOD.lead + '</p></div>' +
+      '<div class="badge"><span>Modul</span><strong>' + MOD.id + '</strong><span>' + MOD.minutes + ' Minuten</span></div></div></div></header>' +
+      '<div class="progress"><div class="wrap prog-in"><div class="track"><div id="bar"></div></div><span id="progText"></span></div></div>' +
+      '<div class="wrap layout"><nav id="nav" aria-label="Abschnitte">' + SECTIONS.map(function (s) { return '<a href="#' + s[0] + '" data-sec="' + s[0] + '">' + s[1] + '</a>'; }).join('') + '</nav>' +
+      '<main id="main">' + SECTIONS.map(function (s) { return '<section class="sec card" id="sec-' + s[0] + '" hidden aria-labelledby="h-' + s[0] + '"></section>'; }).join('') + '</main></div>' +
+      '<footer class="foot wrap"><a href="' + CFG.backUrl + '">← Zur Übersicht Klasse ' + CFG.jahrgang + '</a><span>© Dr. Edmund Bruns · CC BY-NC 4.0</span></footer>';
+    $('#nav').addEventListener('click', function (e) { var a = e.target.closest('a'); if (!a) return; e.preventDefault(); go(a.dataset.sec); });
+    app.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) { e.preventDefault(); go(b.dataset.go); } });
+    $('#easyBtn').addEventListener('click', function () { var on = document.body.classList.toggle('easy'); this.setAttribute('aria-pressed', String(on)); });
+    $('#readBtn').addEventListener('click', function () { if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); var sec = $('#sec-' + S.sec); var u = new SpeechSynthesisUtterance(sec.innerText.replace(/[←→]/g, '')); u.lang = 'de-DE'; u.rate = 0.95; speechSynthesis.speak(u); });
+    $('#stopBtn').addEventListener('click', function () { if ('speechSynthesis' in window) speechSynthesis.cancel(); });
+  }
+
+  RENDER.start = function () {
+    var s = $('#sec-start'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-start">Bevor du beginnst</h2>' +
+      '<div class="facts"><div><b>Klasse</b>' + CFG.jahrgang + '</div><div><b>Vorkenntnisse</b>' + MOD.vorkenntnisse + '</div><div><b>Du brauchst</b>Heft, Stift und dieses Gerät</div></div>' +
+      '<div class="grid2"><label class="inp"><span>Lerncode *</span><input id="lerncode" maxlength="2" autocomplete="off" placeholder="z. B. MS" value="' + esc(S.lerncode) + '"><small>Erster Buchstabe deines Vornamens und erster Buchstabe deines Nachnamens. Beispiel: Mia Schulte → MS</small></label>' +
+      '<label class="inp"><span>Klasse *</span><input id="klasse" maxlength="12" autocomplete="off" placeholder="z. B. ' + CFG.jahrgang + 'a" value="' + esc(S.klasse) + '"><small>„' + CFG.jahrgang + 'a“, „Klasse ' + CFG.jahrgang + 'a“ oder nur „' + CFG.jahrgang + '“ sind möglich.</small></label></div>' +
+      '<label class="inp"><span>IServ-E-Mail-Adresse *</span><input id="email" type="email" autocomplete="email" placeholder="vorname.nachname@…" value="' + esc(S.email) + '"><small>Deine Schul-Adresse aus IServ. Sie wird nur mit deinem Ergebnis an deine Lehrkraft übertragen.</small></label>' +
+      '<fieldset class="ways"><legend>Mein Lernweg</legend>' + Object.keys(WAYS).map(function (k) { return '<label class="way"><input type="radio" name="way" value="' + k + '"' + (S.way === k ? ' checked' : '') + '><span>' + WAYS[k] + '</span></label>'; }).join('') + '</fieldset>' +
+      '<p class="note" id="wayInfo">' + WAY_INFO[S.way] + '</p>' +
+      '<div class="actions"><button class="btn big" id="startBtn">Start</button>' + (S.started ? '<button class="btn ghost" id="resetBtn">Neu beginnen</button>' : '') + '</div><p class="fb" id="startFb" role="status"></p>';
+    $$('input[name=way]', s).forEach(function (r) { r.addEventListener('change', function () { if (S.slots.length && S.slots.some(function (x) { return x.solved; })) { fb('#startFb', 'Hinweis: Wenn du den Lernweg änderst, werden deine Übungsaufgaben neu zusammengestellt.', 'hint'); } $('#wayInfo').textContent = WAY_INFO[this.value]; }); });
+    ['lerncode', 'klasse', 'email'].forEach(function (id) { $('#' + id).addEventListener('input', function () { S[id] = this.value; save(); }); });
+    $('#startBtn').addEventListener('click', function () {
+      var c = normCode($('#lerncode').value), k = normKlasse($('#klasse').value), e = $('#email').value.trim();
+      if (!c) return fb('#startFb', 'Der Lerncode besteht aus genau zwei Buchstaben, zum Beispiel MS.', 'bad');
+      if (!k) return fb('#startFb', 'Diese Klasse gehört nicht zu Jahrgang ' + CFG.jahrgang + '. Schreibe zum Beispiel ' + CFG.jahrgang + 'a oder nur ' + CFG.jahrgang + '.', 'bad');
+      if (!emailOk(e)) return fb('#startFb', CFG.iservDomain ? 'Bitte gib deine IServ-Adresse ein. Sie endet auf @' + CFG.iservDomain + '.' : 'Bitte gib eine gültige IServ-E-Mail-Adresse ein.', 'bad');
+      var w = ($('input[name=way]:checked', s) || {}).value || 'S';
+      if (w !== S.way) { S.slots = []; S.extra = null; S.done.ueben = false; }
+      S.lerncode = c; S.klasse = k; S.email = e; S.way = w; S.started = true; if (!S.startedAt) S.startedAt = Date.now();
+      $('#lerncode').value = c; $('#klasse').value = k; save(); go('einstieg');
+    });
+    var rb = $('#resetBtn'); if (rb) rb.addEventListener('click', function () { if (!confirm('Wirklich neu beginnen? Dein bisheriger Stand in diesem Modul wird gelöscht.')) return; try { localStorage.removeItem(KEY); } catch (e) { } location.hash = ''; location.reload(); });
+  };
+
+  RENDER.einstieg = function () {
+    var s = $('#sec-einstieg'); if (s.dataset.r) return; s.dataset.r = 1;
+    var v = MOD.einstieg.video;
+    s.innerHTML = '<h2 id="h-einstieg">Einstieg</h2>' + (v ? '<div class="video"><iframe src="' + v.src + '" title="' + esc(v.title) + '" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' : '') +
+      '<div class="story">' + MOD.einstieg.html + '</div>' + pager('einstieg');
+    mark('einstieg');
+  };
+  RENDER.ziele = function () {
+    var s = $('#sec-ziele'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-ziele">Das lernst du in diesem Modul</h2><ul class="goals">' + MOD.ziele.map(function (z) { return '<li>' + z + '</li>'; }).join('') + '</ul>' +
+      (MOD.fachwoerter ? '<h3>Fachwörter</h3><dl class="terms">' + MOD.fachwoerter.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl>' : '') + pager('ziele');
+  };
+  RENDER.diagnose = function () {
+    var s = $('#sec-diagnose'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-diagnose">Startdiagnose</h2><p>Finde heraus, was du schon kannst. Das ist kein Test, es zählt nur für dich.</p>' +
+      MOD.diagnose.map(function (d, i) { return '<div class="task"><p class="q"><b>' + (i + 1) + '.</b> ' + d.q + '</p>' + d.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="dg' + i + '" value="' + k + '"' + (S.diag[i] === k ? ' checked' : '') + '><span>' + o + '</span></label>'; }).join('') + '<p class="fb" id="dgfb' + i + '"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="dgBtn">Auswerten</button></div><div class="fb" id="dgSum" role="status"></div>' + pager('diagnose');
+    $$('input[type=radio]', s).forEach(function (r) { r.addEventListener('change', function () { S.diag[+this.name.slice(2)] = +this.value; save(); }); });
+    $('#dgBtn').addEventListener('click', function () { evalDiag(true); });
+    if (S.diagChecked) evalDiag(false);
+  };
+  function evalDiag(user) {
+    var missing = MOD.diagnose.some(function (d, i) { return S.diag[i] == null; });
+    if (missing && user) return fb('#dgSum', 'Beantworte bitte alle Fragen. Wenn du etwas nicht weißt, wähle „Weiß ich noch nicht“.', 'bad');
+    var pts = 0, tips = [];
+    MOD.diagnose.forEach(function (d, i) { var ok = S.diag[i] === d.answer; if (ok) pts++; else if (d.review) tips.push(d.review); fb('#dgfb' + i, (ok ? '✓ ' : '✗ ') + d.why, ok ? 'good' : 'bad'); });
+    S.diagChecked = true; S.diagPts = pts; save(); mark('diagnose');
+    fb('#dgSum', '<b>' + pts + ' von ' + MOD.diagnose.length + ' richtig.</b> ' + (pts === MOD.diagnose.length ? 'Super, die Grundlagen sitzen. Du kannst auch den Lernweg „Weiterdenken“ wählen.' : 'Das solltest du dir vorher noch einmal ansehen:<ul>' + tips.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>'), pts === MOD.diagnose.length ? 'good' : 'hint');
+  }
+  RENDER.erklaerung = function () {
+    var s = $('#sec-erklaerung'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-erklaerung">Erklärung</h2>' + MOD.erklaerung + '<div class="actions"><button class="btn" id="exOk">Verstanden</button></div><p class="fb" id="exFb"></p>' + pager('erklaerung');
+    $('#exOk').addEventListener('click', function () { mark('erklaerung'); fb('#exFb', 'Prima. Probiere es jetzt selbst aus.', 'good'); });
+    if (S.done.erklaerung) fb('#exFb', '✓ Erledigt', 'good');
+  };
+  RENDER.entdecken = function () {
+    var s = $('#sec-entdecken'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-entdecken">Ausprobieren</h2><div id="explore">' + MOD.entdecken.html + '</div><p class="fb" id="enFb"></p>' + pager('entdecken');
+    MOD.entdecken.init($('#explore'), function (msg) { mark('entdecken'); if (msg) fb('#enFb', msg, 'good'); });
+  };
+  RENDER.beispiel = function () {
+    var s = $('#sec-beispiel'); if (s.dataset.r) return; s.dataset.r = 1;
+    var B = MOD.beispiel;
+    s.innerHTML = '<h2 id="h-beispiel">Beispiel: ' + B.title + '</h2><div class="task"><p class="q">' + B.q + '</p><ol class="steps" id="bsSteps"></ol><div class="actions"><button class="btn" id="bsNext">Nächster Schritt</button></div></div>' + pager('beispiel');
+    var i = 0; $('#bsNext').addEventListener('click', function () { if (i < B.steps.length) { $('#bsSteps').appendChild(h('li', null, B.steps[i])); i++; } if (i >= B.steps.length) { this.disabled = true; this.textContent = 'Alle Schritte gezeigt'; } });
+  };
+
+  /* Üben */
+  function plan() { return MOD.tasks.plan[S.way] || MOD.tasks.plan.S; }
+  RENDER.ueben = function () {
+    var s = $('#sec-ueben');
+    var p = plan();
+    if (S.slots.length !== p.length) { S.slots = p.map(function (k) { var parts = k.split(':'); return { key: parts[0], level: +(parts[1] || 2), task: gen(parts[0], +(parts[1] || 2)), solved: false, tries: 0, hints: 0, shown: false, values: [] }; }); save(); }
+    s.innerHTML = '<h2 id="h-ueben">Üben</h2><p>Bearbeite alle ' + p.length + ' Aufgaben. Bei jeder Aufgabe kannst du Tipps öffnen. Mit „Neue Aufgabe“ bekommst du neue Zahlen.</p><div id="slots"></div><div class="fb" id="ubSum" role="status"></div>' + pager('ueben');
+    var box = $('#slots'); S.slots.forEach(function (sl, i) { box.appendChild(slotCard(sl, i)); });
+    ubSum();
+  };
+  function levelTag(l) { return ['', 'Grundlage', 'Standard', 'Knobeln'][l] || ''; }
+  function slotCard(sl, i) {
+    var t = sl.task, c = h('div', { class: 'task' + (sl.solved ? ' solved' : ''), id: 'slot' + i });
+    var showHints = S.way === 'G' ? 1 : 0;
+    c.innerHTML = '<div class="thead"><span class="tag">' + levelTag(sl.level) + '</span><span class="tag plain">Aufgabe ' + (i + 1) + '</span>' + (sl.solved ? '<span class="tag ok">✓ gelöst</span>' : '') + '</div>' +
+      '<div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 's' + i, sl.values) + '</div>' +
+      '<div class="actions"><button class="btn" data-a="check">Prüfen</button><button class="btn ghost" data-a="hint">Tipp</button><button class="btn ghost" data-a="new">Neue Aufgabe</button></div>' +
+      '<div class="hints"></div><p class="fb" role="status"></p>';
+    var hintsBox = $('.hints', c);
+    function drawHints() { hintsBox.innerHTML = t.hints.slice(0, Math.max(sl.hints, showHints)).map(function (x, k) { return '<div class="hint"><b>Tipp ' + (k + 1) + ':</b> ' + x + '</div>'; }).join('') + (sl.shown ? '<div class="hint sol"><b>Lösungsweg:</b> ' + t.solution + '</div>' : ''); }
+    drawHints();
+    c.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-a]'); if (!b) return;
+      var a = b.dataset.a, f = $('.fb', c);
+      if (a === 'check') {
+        var vals = readInputs(t, 's' + i, c); sl.values = vals;
+        var res = t.inputs.map(function (inp, k) { return checkInput(inp, vals[k]); });
+        if (res.some(function (r) { return r.empty; })) { f.className = 'fb bad'; f.textContent = 'Fülle bitte alle Felder aus.'; return; }
+        sl.tries++; S.stats.attempts++;
+        var ok = res.every(function (r) { return r.ok; });
+        if (ok) {
+          if (!sl.solved) { sl.solved = true; if (sl.tries === 1 && !sl.hints && !sl.shown) S.stats.firstTry++; }
+          if (sl === S.extra) mark('weiterdenken');
+          f.className = 'fb good'; f.innerHTML = '✓ Richtig! ' + (t.praise || '');
+          c.classList.add('solved'); var hd = $('.thead', c); if (!$('.tag.ok', hd)) hd.appendChild(h('span', { class: 'tag ok' }, '✓ gelöst'));
+        } else {
+          var msg = (res.filter(function (r) { return r.msg; })[0] || {}).msg;
+          var spec = !msg && t.mistakes ? t.mistakes(vals) : null;
+          f.className = 'fb ' + (res.some(function (r) { return r.almost; }) ? 'hint' : 'bad');
+          f.innerHTML = msg || spec || (sl.tries >= 2 ? 'Noch nicht. Öffne einen Tipp, der hilft dir weiter.' : 'Noch nicht richtig. Prüfe deine Rechnung noch einmal.');
+        }
+        save(); ubSum();
+      } else if (a === 'hint') {
+        if (Math.max(sl.hints, showHints) < t.hints.length) { sl.hints = Math.max(sl.hints, showHints) + 1; S.stats.hints++; }
+        else if (!sl.shown) { sl.shown = true; S.stats.solutions++; }
+        drawHints(); save();
+        b.textContent = sl.shown ? 'Lösungsweg gezeigt' : (Math.max(sl.hints, showHints) >= t.hints.length ? 'Lösungsweg zeigen' : 'Weiterer Tipp');
+      } else if (a === 'new') {
+        if (!sl.solved && !sl.shown && sl.tries < 2) { f.className = 'fb hint'; f.textContent = 'Versuche die Aufgabe erst zweimal oder öffne den Lösungsweg. Dann bekommst du eine neue.'; return; }
+        var wasSolved = sl.solved;
+        var nt = gen(sl.key, sl.level); sl.task = nt; sl.tries = 0; sl.hints = 0; sl.shown = false; sl.values = []; sl.solved = false; if (wasSolved) sl.solved = false;
+        save(); c.replaceWith(slotCard(sl, i)); ubSum();
+      }
+    });
+    return c;
+  }
+  function ubSum() {
+    var n = S.slots.filter(function (x) { return x.solved; }).length;
+    if (n === S.slots.length && n > 0) { mark('ueben'); fb('#ubSum', '<b>Alle ' + n + ' Aufgaben gelöst.</b> Weiter geht es mit „Weiterdenken“ oder direkt mit dem Abschlusstest.', 'good'); }
+    else fb('#ubSum', n + ' von ' + S.slots.length + ' Aufgaben gelöst.', '');
+  }
+
+  RENDER.weiterdenken = function () {
+    var s = $('#sec-weiterdenken');
+    if (!S.extra) { S.extra = { task: gen(MOD.tasks.extra, 3), solved: false, hints: 0, shown: false, values: [], tries: 0 }; save(); }
+    var sl = S.extra, t = sl.task;
+    s.innerHTML = '<h2 id="h-weiterdenken">Weiterdenken</h2><p>' + (S.way === 'E' ? 'Diese Aufgabe ist für deinen Lernweg Pflicht.' : 'Diese Aufgabe ist freiwillig. Sie zeigt dir, ob du das Thema auch in neuen Situationen nutzen kannst.') + '</p>';
+    var c = slotCard(sl, 'x'); s.appendChild(c); s.insertAdjacentHTML('beforeend', pager('weiterdenken'));
+  };
+
+  /* Abschlusstest */
+  RENDER.test = function () {
+    var s = $('#sec-test');
+    if (!S.test) { S.test = { items: MOD.tasks.test.map(function (k) { var p = k.split(':'); return gen(p[0], +(p[1] || 2)); }), values: [], done: false, pts: 0, runs: 0, best: 0, details: [] }; save(); }
+    var T = S.test;
+    s.innerHTML = '<h2 id="h-test">Abschlusstest</h2><p>' + T.items.length + ' Aufgaben ohne Tipps. Rechne im Heft mit und trage dann deine Ergebnisse ein. Du wertest den Test einmal aus.</p>' +
+      T.items.map(function (t, i) { return '<div class="task" id="ti' + i + '"><div class="thead"><span class="tag plain">Aufgabe ' + (i + 1) + '</span></div><div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 't' + i, T.values[i]) + '</div><p class="fb"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="tBtn"' + (T.done ? ' disabled' : '') + '>Test auswerten</button>' + (T.done ? '<button class="btn ghost" id="tNew">Noch einmal mit neuen Aufgaben</button>' : '') + '</div><div class="fb" id="tSum" role="status"></div>' + pager('test');
+    T.items.forEach(function (t, i) { $$('input', $('#ti' + i)).forEach(function (el) { el.addEventListener('input', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); el.addEventListener('change', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); }); });
+    $('#tBtn').addEventListener('click', function () {
+      var vals = T.items.map(function (t, i) { return readInputs(t, 't' + i, $('#ti' + i)); });
+      var empty = vals.some(function (v) { return v.some(function (x) { return String(x).trim() === ''; }); });
+      if (empty && !confirm('Du hast noch nicht alle Felder ausgefüllt. Trotzdem auswerten?')) return;
+      T.values = vals; T.done = true; T.runs++; save(); showTest();
+      $('#tBtn').disabled = true;
+      if (!$('#tNew')) { var nb = h('button', { class: 'btn ghost', id: 'tNew' }, 'Noch einmal mit neuen Aufgaben'); $('#tBtn').after(nb); bindNew(); }
+    });
+    function bindNew() { var n = $('#tNew'); if (n) n.addEventListener('click', function () { if (!confirm('Neuer Test mit neuen Zahlen? Dein bestes Ergebnis bleibt gespeichert.')) return; var best = T.best, runs = T.runs; S.test = null; save(); RENDER.test(); S.test.best = best; S.test.runs = runs; save(); }); }
+    bindNew();
+    if (T.done) showTest();
+  };
+  function showTest() {
+    var T = S.test, pts = 0;
+    T.details = T.items.map(function (t, i) {
+      var res = t.inputs.map(function (inp, k) { return checkInput(inp, (T.values[i] || [])[k]); });
+      var ok = res.every(function (r) { return r.ok; }); if (ok) pts++;
+      var f = $('#ti' + i + ' .fb'); f.className = 'fb ' + (ok ? 'good' : 'bad'); f.innerHTML = ok ? '✓ Richtig' : '✗ Nicht richtig. <b>Lösung:</b> ' + t.solution;
+      $$('#ti' + i + ' input').forEach(function (e) { e.disabled = true; });
+      return { aufgabe: i + 1, skill: t.skill || t.key, richtig: ok };
+    });
+    T.pts = pts; T.best = Math.max(T.best || 0, pts); save(); mark('test');
+    var pct = Math.round(pts / T.items.length * 100);
+    fb('#tSum', '<b>' + pts + ' von ' + T.items.length + ' Aufgaben richtig (' + pct + ' %).</b> ' + verdict(pct), pct >= 80 ? 'good' : pct >= 50 ? 'hint' : 'bad');
+  }
+  function verdict(p) { return p >= 80 ? 'Sehr gut, du beherrschst das Thema.' : p >= 50 ? 'Ein guter Stand. Übe die falschen Aufgabentypen noch einmal.' : 'Arbeite die Erklärung und die Übungen noch einmal durch und nutze die Tipps.'; }
+
+  RENDER.lerncheck = function () {
+    var s = $('#sec-lerncheck'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-lerncheck">Mein Lerncheck</h2><p>Wie sicher bist du? Sei ehrlich, das hilft dir und deiner Lehrkraft.</p>' +
+      MOD.lerncheck.map(function (l, i) { return '<fieldset class="lc"><legend>' + l + '</legend>' + LC_SCALE.map(function (x, k) { return '<label class="chip"><input type="radio" name="lc' + i + '" value="' + k + '"' + (S.lc[i] === k ? ' checked' : '') + '><span>' + x + '</span></label>'; }).join('') + '</fieldset>'; }).join('') +
+      '<p class="fb" id="lcFb" role="status"></p>' + pager('lerncheck');
+    $$('input', s).forEach(function (r) { r.addEventListener('change', function () { S.lc[+this.name.slice(2)] = +this.value; save(); lcState(); }); });
+    lcState();
+  };
+  function lcState() { var n = MOD.lerncheck.filter(function (l, i) { return S.lc[i] != null; }).length; if (n === MOD.lerncheck.length) { mark('lerncheck'); fb('#lcFb', '✓ Lerncheck ausgefüllt.', 'good'); } else fb('#lcFb', n + ' von ' + MOD.lerncheck.length + ' Aussagen bewertet.', ''); }
+
+  /* Ergebnis und Abgabe */
+  function minutes() { return S.startedAt ? Math.max(1, Math.round((Date.now() - S.startedAt) / 60000)) : 0; }
+  function payload() {
+    var T = S.test || { pts: 0, items: [], details: [] };
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    if (!S.abgabeId) { S.abgabeId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); save(); }
+    return {
+      schema_version: '2.0', fach: 'Mathematik', jahrgang: String(CFG.jahrgang), modul_id: MOD.id, modul_titel: MOD.title, dateiversion: CFG.version,
+      lerncode: S.lerncode, klasse: S.klasse, email: S.email, lernweg: WAYS[S.way],
+      bearbeitungsstand: Math.round(n / req().length * 100), pflichtschritte: req().filter(function (k) { return S.done[k]; }),
+      diagnose_punkte: S.diagPts || 0, diagnose_max: MOD.diagnose.length,
+      uebungen_geloest: S.slots.filter(function (x) { return x.solved; }).length, uebungen_gesamt: S.slots.length,
+      uebungen_erster_versuch: S.stats.firstTry, tipps_genutzt: S.stats.hints, loesungswege_genutzt: S.stats.solutions,
+      weiterdenken_geloest: !!(S.extra && S.extra.solved),
+      test_punkte: T.done ? T.pts : 0, test_max: T.items.length, test_prozent: T.done && T.items.length ? Math.round(T.pts / T.items.length * 100) : 0,
+      test_durchlaeufe: T.runs || 0, test_details: T.details || [],
+      lerncheck: MOD.lerncheck.map(function (l, i) { return { aussage: l, einschaetzung: S.lc[i] != null ? LC_SCALE[S.lc[i]] : '' }; }),
+      bearbeitungszeit_min: minutes(), abgabe_id: S.abgabeId, zeitstempel_client: new Date().toISOString()
+    };
+  }
+  RENDER.ergebnis = function () {
+    var s = $('#sec-ergebnis'), p = payload();
+    var missing = req().filter(function (k) { return !S.done[k]; }).map(function (k) { return SECTIONS.find(function (x) { return x[0] === k; })[1]; });
+    s.innerHTML = '<h2 id="h-ergebnis">Mein Ergebnis</h2>' +
+      '<div class="summary"><div><b>Lerncode</b>' + esc(p.lerncode) + ' · ' + esc(p.klasse) + '</div><div><b>Bearbeitet</b>' + p.bearbeitungsstand + ' %</div><div><b>Abschlusstest</b>' + p.test_punkte + ' von ' + p.test_max + ' (' + p.test_prozent + ' %)</div><div><b>Übungen</b>' + p.uebungen_geloest + ' von ' + p.uebungen_gesamt + ' gelöst</div><div><b>Tipps genutzt</b>' + p.tipps_genutzt + '</div><div><b>Zeit</b>ca. ' + p.bearbeitungszeit_min + ' Min.</div></div>' +
+      (missing.length ? '<p class="fb hint">Noch offen: ' + missing.join(', ') + '. Du kannst trotzdem senden.</p>' : '<p class="fb good">Alle Pflichtschritte erledigt. Stark!</p>') +
+      '<p class="note">' + (S.test && S.test.done ? verdict(p.test_prozent) : 'Bearbeite den Abschlusstest, damit deine Lehrkraft sieht, was du kannst.') + '</p>' +
+      '<div class="actions"><button class="btn big" id="sendBtn">Ergebnis an die Lehrkraft senden</button><button class="btn ghost" id="copyBtn">Zusammenfassung kopieren</button><button class="btn ghost" onclick="window.print()">Drucken</button></div>' +
+      '<p class="fb" id="sendFb" role="status">' + (S.sent ? '✓ Bereits gesendet. Du kannst nach Änderungen erneut senden.' : '') + '</p>' + pager('ergebnis');
+    $('#sendBtn').addEventListener('click', send);
+    $('#copyBtn').addEventListener('click', function () {
+      var t = 'SOL Mathe ' + CFG.jahrgang + ' · Modul ' + MOD.id + ' ' + MOD.title + '\nLerncode: ' + p.lerncode + ' (' + p.klasse + ')\nBearbeitet: ' + p.bearbeitungsstand + ' %\nTest: ' + p.test_punkte + '/' + p.test_max + '\nÜbungen: ' + p.uebungen_geloest + '/' + p.uebungen_gesamt + '\nTipps: ' + p.tipps_genutzt;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { fb('#sendFb', 'Zusammenfassung kopiert.', 'good'); }, function () { prompt('Zum Kopieren markieren:', t); });
+    });
+  };
+  function isLive() { return /(?:edmundbruns\.com|pages\.dev)$/.test(location.hostname); }
+  function send() {
+    if (!S.started || !normCode(S.lerncode) || !normKlasse(S.klasse) || !emailOk(S.email)) { go('start'); return fb('#startFb', 'Bitte prüfe Lerncode, Klasse und IServ-Adresse.', 'bad'); }
+    var p = payload(), btn = $('#sendBtn');
+    if (!isLive() || !CFG.endpoint || CFG.endpoint.indexOf('script.google.com') < 0) { console.log('[SOL8] Vorschau, Payload:', p); return fb('#sendFb', 'Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an deine Lehrkraft.', 'hint'); }
+    btn.disabled = true; fb('#sendFb', 'Wird gesendet …', '');
+    window.ebSend(CFG.endpoint, p).then(function (r) {
+      btn.disabled = false;
+      if (r.ok) { S.sent = true; save(); fb('#sendFb', 'Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen.', 'good'); }
+      else fb('#sendFb', 'Nicht gespeichert: ' + esc(r.msg) + ' Dein Stand bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann noch einmal auf Senden.', 'bad');
+    });
+  }
+
+  /* ---------- Start ---------- */
+  (S.slots || []).forEach(function (sl) { revive(sl.task); });
+  if (S.extra) revive(S.extra.task);
+  if (S.test && S.test.items) S.test.items.forEach(revive);
+  buildShell(); progress();
+  var hash = (location.hash || '').slice(1);
+  var startSec = SECTIONS.some(function (s) { return s[0] === hash; }) ? hash : (S.started ? S.sec : 'start');
+  show(S.started ? startSec : 'start');
+  window.SOL8 = { state: function () { return S; }, payload: payload, checkInput: checkInput, gen: gen };
+})();
+
+</script>
+</body>
+</html>

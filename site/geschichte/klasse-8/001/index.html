@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#37546b">
+<meta name="description" content="SOL Geschichte Jahrgang 8, Modul 001: Warum begann die Industrialisierung in England?">
+<title>SOL Geschichte 8 | Modul 001 | Warum begann die Industrialisierung in England?</title>
+<style>
+:root{--ink:#14232d;--paper:#fff;--cream:#e7ecf0;--soft:#e7ecf0;--bg:#f4f2ec;--green:#37546b;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#d4d8dc;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #14232d14;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#18242e,#37546b);color:#f6f9fb;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#f6f9fb;color:#18242e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#e6eef3;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#2c4a60,#b87824);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#28343d;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow);min-width:0}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#28343d}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.legend{font-weight:750;color:#28343d}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#56616a}
+.btn{background:var(--green);color:#f6f9fb;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff;min-width:0}
+@media(max-width:480px){.task{padding:12px 10px}}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#56616a;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+fieldset{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#e6edf3}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zones.z4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.zones.z3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.task>label.legend{display:block;margin:8px 0 4px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px;cursor:pointer}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:650;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;max-width:100%;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .nr{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--green)}
+.orow span.t{flex:1;font-weight:650;min-width:0}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;flex:0 0 auto}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px;overflow:hidden}
+svg.pic{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d18aa)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#36434c}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#1f2a33;color:#e7eef3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#80878d;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+blockquote.q{margin:10px 0;padding:10px 14px;border-left:4px solid var(--green);background:#fff;border-radius:0 10px 10px 0}
+blockquote.q p{margin:.35rem 0}
+.orig{font-size:.9rem;color:#56616a;font-style:italic}
+.cloze{line-height:2.4}
+.cloze select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;min-height:44px}
+.cloze select.ok{border-color:var(--ok);background:var(--okbg)}
+.cloze select.no{border-color:var(--bad);background:var(--badbg)}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{background:var(--cream);font-weight:800}
+.tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+.tblwrap{overflow-x:auto;max-width:100%}
+.wort{font-size:.9rem;color:#36434c}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#56616a;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 8 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Industrialisierung und soziale Frage · Akte 001</div>
+    <h1>Warum begann die Industrialisierung in England?</h1>
+    <p>Um 1750 arbeiteten fast alle Menschen auf dem Land oder in kleinen Werkstätten. Hundert Jahre später standen in England Tausende Fabriken mit rauchenden Schornsteinen. In diesem Modul findest du heraus, warum diese Veränderung ausgerechnet auf einer Insel im Nordwesten Europas begann.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>001</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 12 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#karte">Die Insel der Industrie</a>
+ <a href="#voraussetzungen">Voraussetzungen ordnen</a>
+ <a href="#kette">Eine Erfindung zieht die nächste</a>
+ <a href="#welthandel">Reichtum mit Schattenseite</a>
+ <a href="#quelle">Die Quelle</a>
+ <a href="#medien">Quelle oder Darstellung?</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 8a"><span class="hint">Möglich sind zum Beispiel 8a, Klasse 8a, R8a oder nur 8.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul><li>Du nennst Voraussetzungen der Industrialisierung in England.</li><li>Du findest wichtige Orte der frühen Industrie auf einer Karte.</li><li>Du erklärst, wie Erfindungen, Kohle und Dampfmaschine zusammenhängen.</li><li>Du erklärst, wie Kolonialhandel und Sklaverei mit dem Reichtum Englands verbunden waren.</li><li>Du wertest eine Quelle aus und unterscheidest Quelle und Darstellung.</li></ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Ermittlung starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Akte 001</span>
+ <p><strong>Fall:</strong> Im Archiv liegt eine Karteikarte. Darauf steht: <em>„Die Industrialisierung begann in England, weil James Watt die Dampfmaschine erfunden hat.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Prüfe, ob eine einzige Erfindung als Erklärung reicht. Am Ende entscheidest du, ob die Karteikarte stimmt oder ergänzt werden muss.</p>
+</div>
+<p><strong>Zum Einstieg:</strong> Sieh auf das Etikett deines T-Shirts. Wahrscheinlich steht dort „Baumwolle“ und ein weit entferntes Herstellungsland. Dass Stoff in großen Fabriken mit Maschinen hergestellt wird, ist heute normal. Angefangen hat das vor rund 250 Jahren in England, und zwar genau mit Baumwolle.</p>
+<div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e7ecf0" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#37546b"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#37546b"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div><div><p class="who">Chronos, Archivar</p><p>Ich habe die Karteikarte selbst geschrieben. Eine Ursache, eine Erfindung, fertig. Meine Kollegin im Archiv meint, das sei zu kurz gedacht. Hilf mir, die Sache zu klären.</p></div></div>
+<p><strong>Leitfrage:</strong> Warum begann die Industrialisierung in England?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Kartenleser</span>
+ <span class="abz" id="abz2">Ursachenforscher</span>
+ <span class="abz" id="abz3">Quellenprüfer</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p><div class="task"><span class="tag">Schätzfrage</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D1. Wann begann die Industrialisierung in England ungefähr?</legend><div class="opts"><label><input type="radio" name="d1" value="a"><span>Um 1500</span></label><label><input type="radio" name="d1" value="b"><span>In der zweiten Hälfte des 18. Jahrhunderts, also ab etwa 1760</span></label><label><input type="radio" name="d1" value="c"><span>Um 1900</span></label></div></fieldset></div><div class="task"><span class="tag">Richtig oder falsch</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D2. Vor der Industrialisierung wurden Garn und Stoffe vor allem von Hand hergestellt, oft zu Hause in den Familien.</legend><div class="opts"><label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label><label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label></div></fieldset></div><div class="task"><span class="tag">Vermutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D3. Welcher Brennstoff war für die Dampfmaschinen am wichtigsten?</legend><div class="opts"><label><input type="radio" name="d3" value="a"><span>Erdöl</span></label><label><input type="radio" name="d3" value="b"><span>Steinkohle</span></label><label><input type="radio" name="d3" value="c"><span>Stroh</span></label></div></fieldset></div><button class="btn" type="button" id="dCheck">Einschätzung auswerten</button><div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="karte">
+<h2>Die Insel der Industrie: Kartenarbeit</h2>
+<p>Die Karte zeigt Großbritannien um 1800. Lies zuerst die Legende. Dann löse fünf Suchaufträge. Du kannst im Bild auf den Ort tippen oder die Knöpfe unter der Aufgabe benutzen. Beides zählt gleich.</p><div class="svgwrap"><svg class="pic" style="max-width:520px;margin:auto" viewBox="0 0 400 560" role="img" aria-label="Schematische Karte von Großbritannien um 1800 mit Kohlegebieten, den Städten Glasgow, Newcastle, Liverpool, Manchester, Coalbrookdale, Birmingham und London sowie einem Handelspfeil aus Amerika nach Liverpool">
+<defs>
+ <pattern id="kohle" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#d9cbb3"/><line x1="0" y1="0" x2="0" y2="7" stroke="#6b5a45" stroke-width="2.4"/></pattern>
+ <marker id="pfeil" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#aa6d18"/></marker>
+</defs>
+<rect width="400" height="560" fill="#dcebf3"/>
+<path d="M72.0 35.7 L80.1 38.5 L91.5 39.6 L120.0 36.8 L124.9 32.9 L135.3 34.6 L133.7 45.8 L115.8 63.7 L111.9 78.2 L104.4 84.4 L97.3 98.4 L117.4 90.0 L127.8 86.1 L153.2 88.3 L169.4 87.8 L176.6 98.4 L166.8 118.0 L162.9 132.0 L154.1 143.2 L149.9 154.4 L143.4 157.2 L150.6 166.7 L140.2 171.2 L123.9 179.6 L136.9 182.4 L151.5 182.4 L165.2 188.0 L169.4 195.3 L180.8 204.8 L184.0 224.4 L188.2 237.3 L190.5 246.8 L195.4 255.8 L203.5 261.9 L214.6 267.0 L221.4 277.6 L231.8 287.7 L227.9 300.0 L238.3 317.9 L224.6 311.2 L214.9 310.1 L226.2 319.6 L239.2 325.2 L245.4 342.6 L240.9 356.0 L236.0 358.8 L245.7 353.2 L250.6 352.1 L266.8 353.2 L276.6 354.3 L288.9 364.4 L291.2 379.5 L286.3 400.8 L278.2 409.2 L271.7 418.2 L263.6 420.4 L257.1 432.7 L247.4 434.4 L253.9 438.9 L266.8 442.8 L281.1 441.1 L277.2 455.1 L265.9 467.4 L253.9 470.8 L242.5 477.5 L229.8 472.5 L208.7 477.5 L198.6 474.7 L188.9 470.8 L182.4 476.4 L170.1 479.2 L154.8 489.3 L138.6 478.1 L123.9 484.8 L120.7 496.0 L116.1 506.1 L99.9 498.2 L85.0 500.5 L70.3 518.4 L65.5 520.6 L49.2 514.5 L56.4 506.6 L69.4 494.9 L80.1 487.6 L87.2 461.3 L100.6 450.6 L121.3 451.2 L137.6 442.8 L149.9 431.6 L156.4 420.4 L145.0 427.7 L131.4 436.6 L117.4 440.0 L106.4 427.7 L94.7 431.0 L81.7 424.9 L68.7 422.1 L62.2 413.1 L72.6 406.4 L85.0 399.7 L101.5 383.4 L102.5 366.1 L91.5 361.6 L80.1 361.6 L88.2 353.2 L94.7 344.8 L85.0 333.6 L94.7 326.9 L104.4 333.6 L110.0 331.9 L127.2 330.8 L133.7 333.6 L136.9 326.9 L136.9 314.0 L135.3 304.5 L141.2 290.5 L129.8 288.8 L123.9 277.6 L116.1 267.0 L120.7 254.6 L130.4 241.2 L117.4 245.1 L102.8 248.5 L91.5 255.2 L76.5 258.6 L72.0 246.8 L70.3 239.5 L76.8 227.2 L84.0 212.6 L75.2 199.2 L76.8 186.3 L85.0 185.2 L75.2 182.4 L62.2 190.8 L52.5 221.6 L46.0 218.8 L54.1 188.0 L56.7 159.4 L46.0 154.4 L33.0 141.5 L45.0 126.4 L48.9 110.7 L46.0 92.8 L66.8 76.0 L60.6 59.2 Z" fill="#eee6cf" stroke="#9c8a63" stroke-width="2" stroke-linejoin="round"/>
+<ellipse cx="182.4" cy="246.8" rx="10.4" ry="18.5" fill="url(#kohle)" stroke="#6b5a45" stroke-width="1.2" stroke-dasharray="3 2"/><ellipse cx="154.8" cy="316.8" rx="14.6" ry="12.3" fill="url(#kohle)" stroke="#6b5a45" stroke-width="1.2" stroke-dasharray="3 2"/><ellipse cx="190.5" cy="330.8" rx="10.7" ry="28.0" fill="url(#kohle)" stroke="#6b5a45" stroke-width="1.2" stroke-dasharray="3 2"/><ellipse cx="169.4" cy="375.6" rx="9.1" ry="10.1" fill="url(#kohle)" stroke="#6b5a45" stroke-width="1.2" stroke-dasharray="3 2"/><ellipse cx="153.2" cy="369.4" rx="3.9" ry="5.6" fill="url(#kohle)" stroke="#6b5a45" stroke-width="1.2" stroke-dasharray="3 2"/><ellipse cx="119.1" cy="422.1" rx="19.5" ry="9.0" fill="url(#kohle)" stroke="#6b5a45" stroke-width="1.2" stroke-dasharray="3 2"/><ellipse cx="110.9" cy="188.0" rx="22.7" ry="11.2" fill="url(#kohle)" stroke="#6b5a45" stroke-width="1.2" stroke-dasharray="3 2"/><ellipse cx="122.3" cy="259.7" rx="3.9" ry="8.4" fill="url(#kohle)" stroke="#6b5a45" stroke-width="1.2" stroke-dasharray="3 2"/>
+<text x="112" y="140" font-size="15" fill="#7b6b4f" font-style="italic">Schottland</text>
+<text x="210" y="400" font-size="15" fill="#7b6b4f" font-style="italic">England</text>
+<text x="96" y="440" font-size="14" fill="#7b6b4f" font-style="italic">Wales</text>
+<text x="300" y="330" font-size="17" fill="#5f88a3" font-style="italic">Nordsee</text>
+<text x="120" y="548" font-size="14" fill="#5f88a3" font-style="italic">Ärmelkanal</text>
+<path d="M2 315.4 C 50 313.4, 90 321.4, 125.6 327.4" fill="none" stroke="#aa6d18" stroke-width="4" marker-end="url(#pfeil)"/>
+<text x="6" y="277.4" font-size="14" font-weight="700" fill="#8f5a12" paint-order="stroke" stroke="#dcebf3" stroke-width="4">aus Amerika:</text>
+<text x="6" y="295.4" font-size="14" font-weight="700" fill="#8f5a12" paint-order="stroke" stroke="#dcebf3" stroke-width="4">Baumwolle, Zucker</text>
+<g id="hGlasgow" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Glasgow"><circle cx="96.3" cy="190.2" r="17" fill="#fff" fill-opacity=".01"/><circle cx="96.3" cy="190.2" r="8" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="96.3" cy="190.2" r="3.5" fill="#9b352d"/><text x="82.3" y="195.2" text-anchor="end" font-size="16" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Glasgow</text></g><g id="hNewcastle" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Newcastle"><circle cx="182.1" cy="240.1" r="17" fill="#fff" fill-opacity=".01"/><circle cx="182.1" cy="240.1" r="8" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="182.1" cy="240.1" r="3.5" fill="#9b352d"/><text x="196.1" y="245.1" text-anchor="start" font-size="16" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Newcastle</text></g><g id="hLiverpool" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Liverpool"><circle cx="137.6" cy="327.4" r="17" fill="#fff" fill-opacity=".01"/><circle cx="137.6" cy="327.4" r="8" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="137.6" cy="327.4" r="3.5" fill="#9b352d"/><text x="123.6" y="341.4" text-anchor="end" font-size="16" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Liverpool</text></g><g id="hManchester" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Manchester"><circle cx="161.6" cy="323.5" r="17" fill="#fff" fill-opacity=".01"/><circle cx="161.6" cy="323.5" r="8" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="161.6" cy="323.5" r="3.5" fill="#9b352d"/><text x="174.6" y="317.5" text-anchor="start" font-size="16" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Manchester</text></g><g id="hCoalbrookdale" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Coalbrookdale"><circle cx="153.5" cy="370.6" r="17" fill="#fff" fill-opacity=".01"/><circle cx="153.5" cy="370.6" r="8" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="153.5" cy="370.6" r="3.5" fill="#9b352d"/><text x="140.5" y="375.6" text-anchor="end" font-size="16" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Coalbrookdale</text></g><g id="hBirmingham" class="hot" data-task="karte" tabindex="0" role="button" aria-label="Birmingham"><circle cx="173.0" cy="379.0" r="17" fill="#fff" fill-opacity=".01"/><circle cx="173.0" cy="379.0" r="8" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="173.0" cy="379.0" r="3.5" fill="#9b352d"/><text x="186.0" y="391.0" text-anchor="start" font-size="16" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">Birmingham</text></g><g id="hLondon" class="hot" data-task="karte" tabindex="0" role="button" aria-label="London"><circle cx="230.1" cy="433.8" r="17" fill="#fff" fill-opacity=".01"/><circle cx="230.1" cy="433.8" r="8" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="230.1" cy="433.8" r="3.5" fill="#9b352d"/><text x="242.1" y="451.8" text-anchor="start" font-size="16" font-weight="700" fill="#14232d" paint-order="stroke" stroke="#fff" stroke-width="4" stroke-linejoin="round">London</text></g>
+<g transform="translate(222 30)">
+ <rect width="172" height="118" rx="10" fill="#fff" stroke="#c9d3da"/>
+ <text x="12" y="24" font-size="15" font-weight="800" fill="#37546b">Legende</text>
+ <rect x="12" y="38" width="26" height="16" fill="url(#kohle)" stroke="#6b5a45"/><text x="46" y="51" font-size="14" fill="#14232d">Kohlegebiet</text>
+ <circle cx="25" cy="72" r="7" fill="#fff" stroke="#37546b" stroke-width="2.5"/><circle cx="25" cy="72" r="3" fill="#9b352d"/><text x="46" y="77" font-size="14" fill="#14232d">Stadt, Ort</text>
+ <path d="M12 98 H36" stroke="#aa6d18" stroke-width="4" marker-end="url(#pfeil)"/><text x="46" y="103" font-size="14" fill="#14232d">Handelsweg</text>
+</g>
+<text x="394" y="530" text-anchor="end" font-size="13" fill="#56616a">Schematisch,</text><text x="394" y="548" text-anchor="end" font-size="13" fill="#56616a">nicht maßstabsgetreu</text>
+</svg></div><div class="legendlist" aria-hidden="true"><span>Karte: eigene schematische Darstellung, Lage der Kohlegebiete vereinfacht</span></div><div class="task"><span class="tag">Kartenarbeit</span><h3>Suchauftrag</h3><p id="karteTask">Tippe im Bild auf den gesuchten Ort.</p><div class="chips" id="karteAlt" aria-label="Auswahl, gleichwertig zum Antippen im Bild"></div><button class="btn sec" type="button" id="karteReset">Aufgabe zurücksetzen</button><div class="fb" id="karteFb" role="status" aria-live="polite"></div></div><details class="gloss"><summary>Überraschender Fund aus dem Archiv</summary><div class="body">1761 wurde ein Kanal eröffnet, der Kohle aus den Bergwerken des Herzogs von Bridgewater nach Manchester brachte. Ein Pferd konnte auf dem Wasser ein Vielfaches der Last ziehen, die es über schlammige Straßen schaffte. Die Kohle wurde in Manchester dadurch deutlich billiger. Danach entstanden in England viele weitere Kanäle.</div></details>
+</section>
+
+<section class="card" id="voraussetzungen">
+<h2>Was England mitbrachte</h2>
+<p>Historikerinnen und Historiker sind sich einig: Eine einzige Ursache reicht nicht. Erst mehrere Voraussetzungen zusammen machten den Anfang in England möglich. Ordne jede Karte dem passenden Bereich zu.</p><div class="task"><span class="tag">Zuordnen</span><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Eine falsch abgelegte Karte kannst du wieder antippen und neu ablegen.</p><div class="chips" id="zuordPieces" aria-label="Karten zum Zuordnen"></div><div class="zones z4"><div class="zone" data-task="zuord" data-zone="boden" tabindex="0" role="button" aria-label="Ablegen bei Bodenschätze"><h4>Bodenschätze</h4><div class="drop"></div></div><div class="zone" data-task="zuord" data-zone="geld" tabindex="0" role="button" aria-label="Ablegen bei Geld und Handel"><h4>Geld und Handel</h4><div class="drop"></div></div><div class="zone" data-task="zuord" data-zone="menschen" tabindex="0" role="button" aria-label="Ablegen bei Menschen und Arbeitskräfte"><h4>Menschen und Arbeitskräfte</h4><div class="drop"></div></div><div class="zone" data-task="zuord" data-zone="technik" tabindex="0" role="button" aria-label="Ablegen bei Erfindungen und Verkehr"><h4>Erfindungen und Verkehr</h4><div class="drop"></div></div></div><button class="btn" type="button" id="zuordCheck">Zuordnung prüfen</button><button class="btn sec" type="button" id="zuordReset">Zurücksetzen</button><div class="fb" id="zuordFb" role="status" aria-live="polite"></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> „Bodenschätze“ sind Rohstoffe aus der Erde. „Einhegungen“ bedeutet: Großgrundbesitzer zäunten frühere Gemeinschaftsflächen ein. Viele Familien auf dem Land verloren dadurch ihr Einkommen.</div></div><div class="notice"><strong>Gut zu wissen:</strong> England war damals politisch ruhig. Seit 1689 kontrollierte das Parlament den König, und wer etwas Neues erfand, konnte es mit einem Patent schützen lassen. Erfinden lohnte sich also.</div>
+</section>
+
+<section class="card" id="kette">
+<h2>Eine Erfindung zieht die nächste nach sich</h2>
+<p>Die wichtigsten Erfindungen kamen nicht zufällig. Oft löste eine Erfindung ein Problem und schuf dabei ein neues. Sieh dir zuerst die Zeitleiste an.</p><div class="svgwrap"><svg class="pic" viewBox="0 0 380 629" role="img" aria-label="Zeitleiste der Erfindungen von 1709 bis 1830" style="max-width:520px;margin:auto"><rect width="380" height="629" fill="#fbfaf6"/><line x1="78" y1="16" x2="78" y2="617" stroke="#37546b" stroke-width="4"/><circle cx="78" cy="53" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="59" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1709</text><text x="100" y="47" font-size="19" fill="#14232d">Darby schmilzt Eisen mit</text><text x="100" y="70" font-size="19" fill="#14232d">Koks</text><circle cx="78" cy="132" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="138" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1712</text><text x="100" y="115" font-size="19" fill="#14232d">Newcomen: erste</text><text x="100" y="138" font-size="19" fill="#14232d">Dampfmaschine pumpt</text><text x="100" y="161" font-size="19" fill="#14232d">Wasser</text><circle cx="78" cy="235" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="241" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1764</text><text x="100" y="206" font-size="19" fill="#14232d">um 1764: Hargreaves</text><text x="100" y="229" font-size="19" fill="#14232d">erfindet die</text><text x="100" y="252" font-size="19" fill="#14232d">Spinnmaschine „Spinning</text><text x="100" y="275" font-size="19" fill="#14232d">Jenny“</text><circle cx="78" cy="338" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="344" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1769</text><text x="100" y="320" font-size="19" fill="#14232d">Watt erhält ein Patent</text><text x="100" y="343" font-size="19" fill="#14232d">für seine verbesserte</text><text x="100" y="366" font-size="19" fill="#14232d">Dampfmaschine</text><circle cx="78" cy="428" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="434" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1771</text><text x="100" y="411" font-size="19" fill="#14232d">Arkwright eröffnet in</text><text x="100" y="434" font-size="19" fill="#14232d">Cromford eine Spinnerei</text><text x="100" y="457" font-size="19" fill="#14232d">mit Wasserkraft</text><circle cx="78" cy="508" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="514" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1785</text><text x="100" y="502" font-size="19" fill="#14232d">Cartwright baut einen</text><text x="100" y="525" font-size="19" fill="#14232d">mechanischen Webstuhl</text><circle cx="78" cy="576" r="10" fill="#fff" stroke="#aa6d18" stroke-width="3"/><text x="60" y="582" text-anchor="end" font-size="19" font-weight="800" fill="#37546b">1830</text><text x="100" y="570" font-size="19" fill="#14232d">Eisenbahn zwischen</text><text x="100" y="593" font-size="19" fill="#14232d">Liverpool und Manchester</text></svg></div><div class="legendlist" aria-hidden="true"><span>Zeitleiste: eigene Darstellung</span></div><div class="task"><span class="tag">Ursache-Folge-Kette</span><p><strong>Auftrag:</strong> Bringe die Kette in die richtige Reihenfolge. Sie beginnt mit der Ursache und endet mit der Folge. Nutze die Pfeilknöpfe.</p><div class="order" id="ketteList" aria-label="Liste zum Ordnen"></div><button class="btn" type="button" id="ketteCheck">Reihenfolge prüfen</button><button class="btn sec" type="button" id="ketteReset">Neu mischen</button><div class="fb" id="ketteFb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Lückentext</span><p><strong>Die Dampfmaschine:</strong> Wähle in jeder Lücke das passende Wort.</p><p class="cloze">Schon 1712 baute Thomas Newcomen eine Dampfmaschine. Sie pumpte Wasser aus <select id="luecke_0" aria-label="Lücke 1"><option value="">bitte wählen</option><option value="Schiffen">Schiffen</option><option value="Bergwerken">Bergwerken</option><option value="Kirchen">Kirchen</option></select>. Sie verbrauchte aber sehr viel <select id="luecke_1" aria-label="Lücke 2"><option value="">bitte wählen</option><option value="Wasser">Wasser</option><option value="Holz">Holz</option><option value="Kohle">Kohle</option></select>. James Watt erhielt 1769 ein Patent für eine Verbesserung. Seine Maschine brauchte deutlich <select id="luecke_2" aria-label="Lücke 3"><option value="">bitte wählen</option><option value="mehr">mehr</option><option value="gar keinen">gar keinen</option><option value="weniger">weniger</option></select> Brennstoff. Ab den 1780er-Jahren konnte sie auch <select id="luecke_3" aria-label="Lücke 4"><option value="">bitte wählen</option><option value="Strom erzeugen">Strom erzeugen</option><option value="Räder drehen">Räder drehen</option><option value="fliegen">fliegen</option></select> und damit Maschinen in Fabriken antreiben. Deshalb musste eine Fabrik nicht mehr an einem <select id="luecke_4" aria-label="Lücke 5"><option value="">bitte wählen</option><option value="Berg">Berg</option><option value="Markt">Markt</option><option value="Fluss">Fluss</option></select> mit Wasserrad liegen.</p><button class="btn" type="button" id="lueckeCheck">Prüfen</button><div class="fb" id="lueckeFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="welthandel">
+<h2>Reichtum mit Schattenseite</h2>
+<p>Englands Fabriken verarbeiteten vor allem Baumwolle. Baumwolle wächst aber nicht im kühlen England. Sie musste von weit her kommen.</p><div class="task"><span class="tag">Auswahl mit Erklärung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">W1. Woher kam die Rohbaumwolle für die Spinnereien in Manchester um 1800 zu einem großen Teil?</legend><div class="opts"><label><input type="radio" name="welt" value="a"><span>Von Feldern in England, die extra dafür angelegt wurden</span></label><label><input type="radio" name="welt" value="b"><span>Von Plantagen in Amerika und der Karibik, auf denen versklavte Menschen arbeiten mussten</span></label><label><input type="radio" name="welt" value="c"><span>Aus Deutschland, weil dort Baumwolle billig war</span></label></div></fieldset><button class="btn" type="button" id="weltCheck">Prüfen</button><div class="fb" id="weltFb" role="status" aria-live="polite"></div></div><div class="notice warn"><strong>Fachlich wichtig:</strong> Mit dem Handel über den Atlantik verdienten englische Kaufleute viel Geld. Ein Teil dieses Kapitals floss später in Unternehmen. Wie groß dieser Anteil genau war, ist unter Historikerinnen und Historikern umstritten. Unbestritten ist: Millionen Afrikanerinnen und Afrikaner wurden verschleppt und versklavt. 1807 verbot Großbritannien den Sklavenhandel, 1833 die Sklaverei in seinen Kolonien. Baumwolle aus Sklavenarbeit in den USA kaufte England aber noch bis in die 1860er-Jahre.</div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: Ein Besuch bei Boulton und Watt</h2>
+<p>Chronos hat einen echten Augenzeugenbericht gefunden. Er ist rund 250 Jahre alt.</p><div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>James Boswell, „The Life of Samuel Johnson“, erschienen 1791.</strong> Boswell beschreibt darin einen Besuch in den Werken von Matthew Boulton in Soho bei Birmingham im März 1776. Boulton stellte dort zusammen mit James Watt Dampfmaschinen her.</p>
+ <blockquote class="q">
+  <p>„Herr Hector begleitete mich zu den großen Werken von Herrn Boulton an einem Ort, den er Soho nennt, etwa zwei Meilen von Birmingham entfernt. […] Ich werde nie vergessen, was Herr Boulton zu mir sagte: ‚Ich verkaufe hier, Sir, was die ganze Welt haben möchte: KRAFT.‘ Er hatte etwa siebenhundert Menschen bei der Arbeit.“</p>
+  <p class="orig">Englischer Wortlaut des Kernsatzes: „I shall never forget Mr. Bolton's expression to me: ‚I sell here, Sir, what all the world desires to have, POWER.‘ He had about seven hundred people at work.“</p>
+ </blockquote>
+ <p class="hint">Deutsche Übersetzung für dieses Modul, leicht vereinfacht. Boswell schreibt den Namen „Bolton“.</p>
+</div><div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#e7ecf0" stroke="#aa6d18" stroke-width="2"/><circle cx="23" cy="18" r="7" fill="#37546b"/><path d="M9 40c2-9 8-13 14-13s12 4 14 13" fill="#37546b"/><path d="M14 14c4-6 14-6 18 0" stroke="#aa6d18" stroke-width="2" fill="none"/></svg></div><div><p class="who">Chronos, Archivar</p><p>Stell dir bei jeder Quelle vier Fragen: Wer hat sie geschrieben? Wann? Für wen? Und warum? Erst dann fragst du: Was sagt sie, und was sagt sie nicht?</p></div></div><div class="task"><span class="tag">Quellenarbeit</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S1. Was erfährst du aus diesem Text? Wähle alle zutreffenden Aussagen aus.</legend><div class="opts"><label><input type="checkbox" name="s1" value="arbeiter"><span>In Boultons Werken arbeiteten etwa 700 Menschen.</span></label><label><input type="checkbox" name="s1" value="welt"><span>Boulton war überzeugt, dass seine Ware überall auf der Welt gefragt war.</span></label><label><input type="checkbox" name="s1" value="selbst"><span>Boswell hat die Werke selbst besucht.</span></label><label><input type="checkbox" name="s1" value="erfunden"><span>Boulton hat die Dampfmaschine allein erfunden.</span></label><label><input type="checkbox" name="s1" value="lohn"><span>Die Arbeiter in Soho waren mit ihrem Lohn zufrieden.</span></label></div></fieldset><button class="btn" type="button" id="s1Check">Prüfen</button><button class="btn sec" type="button" id="s1Reset">Zurücksetzen</button><div class="fb" id="s1Fb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Quellenkritik</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S2. Boswell schrieb sein Buch über seinen Freund Samuel Johnson. Es erschien 1791, also 15 Jahre nach dem Besuch. Was folgt daraus für die Quelle?</legend><div class="opts"><label><input type="radio" name="s2" value="a"><span>Der Text ist wertlos, weil er so spät erschien.</span></label><label><input type="radio" name="s2" value="b"><span>Boulton hat den Text selbst geschrieben, um Werbung zu machen.</span></label><label><input type="radio" name="s2" value="c"><span>Boswell war Augenzeuge, schrieb aber aus der Erinnerung und wollte vor allem über Johnson erzählen. Den Satz von Boulton gibt er so wieder, wie er ihn behalten hat.</span></label></div></fieldset><button class="btn" type="button" id="s2Check">Prüfen</button><div class="fb" id="s2Fb" role="status" aria-live="polite"></div></div><div class="task" data-lw="weiter"><span class="tag">Weiterdenken · Quelle</span><label class="legend" for="q2">Q2. Das englische Wort „power“ bedeutet „Kraft“, aber auch „Macht“. Erkläre, warum Boultons Satz in beiden Bedeutungen passt.</label><textarea id="q2" placeholder="Der Satz passt zu „Kraft“, weil ... Er passt aber auch zu „Macht“, denn ..."></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p><button class="btn" type="button" id="q2Check">Antwort prüfen</button><div class="fb" id="q2Fb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="medien">
+<h2>Quelle oder Darstellung?</h2>
+<p>Eine <strong>Quelle</strong> stammt aus der Zeit, um die es geht, oder sie ist ein Überrest aus dieser Zeit. Eine <strong>Darstellung</strong> wurde später verfasst, zum Beispiel von Historikerinnen, Schulbuchautoren oder Filmemachern.</p><div class="task"><span class="tag">Quelle oder Darstellung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Q1. Welche dieser Materialien sind Quellen aus der Zeit der frühen Industrialisierung? Wähle alle zutreffenden aus.</legend><div class="opts"><label><input type="checkbox" name="q1" value="patent"><span>Die Patenturkunde von James Watt aus dem Jahr 1769</span></label><label><input type="checkbox" name="q1" value="karte"><span>Die Karte von Großbritannien in diesem Modul</span></label><label><input type="checkbox" name="q1" value="boswell"><span>Boswells Bericht über den Besuch in Soho</span></label><label><input type="checkbox" name="q1" value="film"><span>Ein Film über James Watt aus dem Jahr 2020</span></label><label><input type="checkbox" name="q1" value="maschine"><span>Eine erhaltene Dampfmaschine aus dem 18. Jahrhundert im Museum</span></label></div></fieldset><button class="btn" type="button" id="q1Check">Prüfen</button><button class="btn sec" type="button" id="q1Reset">Zurücksetzen</button><div class="fb" id="q1Fb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Industrialisierung</summary><div class="body">Der Übergang von der Handarbeit zur Herstellung mit Maschinen in Fabriken. Sie begann um 1760 in England und erreichte Deutschland ab etwa 1835.</div></details><details class="gloss"><summary>Industrielle Revolution</summary><div class="body">Ein anderer Name für die frühe Industrialisierung. Das Wort „Revolution“ soll zeigen, wie tief die Veränderung war, auch wenn sie Jahrzehnte dauerte.</div></details><details class="gloss"><summary>Dampfmaschine</summary><div class="body">Eine Maschine, die mit der Kraft von Wasserdampf arbeitet. Der Dampf entsteht, wenn Kohle Wasser erhitzt. James Watt hat sie nicht erfunden, aber stark verbessert.</div></details><details class="gloss"><summary>Kapital</summary><div class="body">Geld oder Besitz, das man einsetzt, um ein Unternehmen zu gründen oder Maschinen zu kaufen, in der Hoffnung auf Gewinn.</div></details><details class="gloss"><summary>Patent</summary><div class="body">Ein Recht, das eine Erfindung für einige Jahre schützt. Nur der Erfinder darf sie dann nutzen oder verkaufen.</div></details><details class="gloss"><summary>Kolonie</summary><div class="body">Ein Gebiet, das von einem fremden Staat beherrscht und ausgebeutet wird. England besaß Kolonien in Amerika, in der Karibik und in Asien.</div></details><details class="gloss"><summary>Einhegung</summary><div class="body">Großgrundbesitzer zäunten früher gemeinsam genutzte Weiden und Felder ein. Viele kleine Bauern und Landarbeiter verloren dadurch ihr Auskommen.</div></details><details class="gloss"><summary>Koks</summary><div class="body">Ein Brennstoff, der aus Steinkohle gewonnen wird. Mit Koks lässt sich Eisen in großen Mengen schmelzen.</div></details><details class="gloss"><summary>Quelle und Darstellung</summary><div class="body">Eine Quelle stammt aus der Zeit selbst, zum Beispiel ein Bericht, ein Patent oder eine Maschine. Eine Darstellung wurde später über die Vergangenheit verfasst.</div></details><h3>Woher stammen die Texte?</h3><details class="gloss"><summary>Nachweise der Quellen und Zahlen</summary><div class="body"><ul><li>James Boswell, The Life of Samuel Johnson, London 1791, Abschnitt zum Jahr 1776 (Besuch in Soho). Englischer Wortlaut nach der gemeinfreien Ausgabe; deutsche Übersetzung für dieses Modul, leicht vereinfacht.</li><li>Bevölkerungszahlen England und Wales: Schätzungen für 1750 liegen bei etwa 6 Millionen, die erste Volkszählung 1801 ergab knapp 9 Millionen.</li><li>Erfindungen und Jahreszahlen nach dem Forschungsstand: Darby 1709, Newcomen 1712, Hargreaves um 1764, Watts Patent 1769, Arkwright in Cromford 1771, Cartwright 1785, Eisenbahn Liverpool und Manchester 1830.</li><li>Großbritannien verbot 1807 den Sklavenhandel und 1833 die Sklaverei in seinen Kolonien.</li><li>Karte und Zeitleiste sind eigene schematische Darstellungen.</li></ul></div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p><div id="selfcheck"><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann mehrere Voraussetzungen der Industrialisierung in England nennen.</legend><div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann erklären, warum Kohle und Dampfmaschine zusammengehören.</legend><div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann Quelle und Darstellung unterscheiden.</legend><div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte"><span class="stamp">Zu prüfen</span><p>Auf Chronos' Karteikarte steht: <em>„Die Industrialisierung begann in England, weil James Watt die Dampfmaschine erfunden hat.“</em></p></div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0;margin:0"><legend class="legend">A1. Wie entscheidest du?</legend><div class="opts"><label><input type="radio" name="a1" value="a"><span>Die Karte stimmt so. Ohne Watt hätte es keine Industrialisierung gegeben.</span></label><label><input type="radio" name="a1" value="b"><span>Die Karte ist zu einfach. Die Dampfmaschine war wichtig, aber erst mehrere Voraussetzungen zusammen erklären den Beginn in England.</span></label><label><input type="radio" name="a1" value="c"><span>Die Dampfmaschine spielte überhaupt keine Rolle.</span></label><label><input type="radio" name="a1" value="d"><span>Die Karte ist ungenau: Watt hat die Dampfmaschine verbessert, nicht erfunden. Außerdem waren Kohle, Kapital, Handel und Arbeitskräfte nötig.</span></label></div></fieldset>
+ <button class="btn" type="button" id="a1Check">Entscheidung prüfen</button>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine Nachricht. Erkläre in drei bis fünf Sätzen, warum die Industrialisierung in England begann. Nenne mindestens drei Voraussetzungen und verbinde sie miteinander.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, deine Karte muss ergänzt werden, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „In England gab es viel Kohle, deshalb ...“ · „Außerdem hatten Kaufleute und Banken Kapital, weil ...“ · „Die Dampfmaschine war wichtig, denn ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Begründung prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="fb" id="buildFb" role="status" aria-live="polite"></div>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" id="printBtn">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+</main></div>
+<footer>SOL Geschichte 8 · Modul 001 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-8" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-8"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={"modul": "001", "titel": "Warum begann die Industrialisierung in England?", "bereich": "Industrialisierung und soziale Frage", "version": "1.0.0", "key": "sol-geschichte-8-001", "endpoint": "https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec", "next": "Weiter geht es mit Modul 002: Wie veränderten Maschinen die Arbeit?", "badges": [{"id": "abz1", "name": "Kartenleser", "tasks": ["karte"]}, {"id": "abz2", "name": "Ursachenforscher", "tasks": ["zuord", "kette"]}, {"id": "abz3", "name": "Quellenprüfer", "tasks": ["s1", "s2"]}, {"id": "abz4", "name": "Begründer", "tasks": ["a2"]}], "startOk": "Alles bereit. Chronos wartet schon. Es geht weiter mit der Mission."};
+const TASKS=[{"id": "karte", "typ": "hot", "finds": [{"z": "hLiverpool", "tipp": "Gesucht ist der Hafen an der Westküste, über den die Rohbaumwolle aus Amerika ins Land kam.", "ok": "Richtig, Liverpool. Hier kamen die Baumwollballen an. Liverpool war im 18. Jahrhundert aber auch einer der wichtigsten Häfen im Sklavenhandel."}, {"z": "hManchester", "tipp": "Gesucht ist die Stadt nur rund 50 Kilometer vom Baumwollhafen entfernt, mitten in einem Kohlegebiet. Um 1830 standen hier so viele Baumwollspinnereien, dass man sie „Cottonopolis“ nannte.", "ok": "Richtig, Manchester. Baumwolle kam aus Liverpool, Kohle lag direkt vor der Tür. Beides zusammen machte die Stadt zum Zentrum der Textilindustrie."}, {"z": "hCoalbrookdale", "tipp": "Gesucht ist der kleine Ort im Westen Englands, in dem Abraham Darby 1709 Eisen erstmals mit Koks statt mit Holzkohle schmolz.", "ok": "Richtig, Coalbrookdale. Koks wird aus Steinkohle gewonnen. Weil Holz knapp und teuer war, konnte nun viel mehr und billigeres Eisen hergestellt werden."}, {"z": "hNewcastle", "tipp": "Gesucht ist die Hafenstadt an der Ostküste mitten in einem Kohlegebiet. Von hier brachten Schiffe die Kohle bis nach London.", "ok": "Richtig, Newcastle. Kohle nahe am Meer war ein großer Vorteil, denn Transport auf dem Wasser war viel billiger als über Land."}, {"z": "hLondon", "tipp": "Gesucht ist die Hauptstadt mit Banken, Börse und Versicherungen. Hier gab es Geld für neue Unternehmen.", "ok": "Richtig, London. Reiche Kaufleute und Banken konnten Geld verleihen. Dieses Geld für Investitionen nennt man Kapital."}], "alle": [{"id": "hGlasgow", "n": "Glasgow"}, {"id": "hNewcastle", "n": "Newcastle"}, {"id": "hLiverpool", "n": "Liverpool"}, {"id": "hManchester", "n": "Manchester"}, {"id": "hCoalbrookdale", "n": "Coalbrookdale"}, {"id": "hBirmingham", "n": "Birmingham"}, {"id": "hLondon", "n": "London"}], "done": "Alle fünf Orte gefunden. Die Karte zeigt: Kohle, Häfen und Geld lagen in England nah beieinander.", "name": "Kartenarbeit", "komp": ["fachwissen", "zeit_raum"]}, {"id": "zuord", "typ": "zuord", "pieces": [{"k": "zuordk1", "t": "Große Kohlevorkommen, oft nahe an der Oberfläche", "z": "boden"}, {"k": "zuordk2", "t": "Eisenerz für Maschinen, Brücken und Schienen", "z": "boden"}, {"k": "zuordk3", "t": "Reiche Kaufleute und Banken, die Geld verleihen", "z": "geld"}, {"k": "zuordk4", "t": "Gewinne aus dem Handel mit den Kolonien in Amerika und Asien", "z": "geld"}, {"k": "zuordk5", "t": "Die Bevölkerung wuchs von etwa 6 Millionen (um 1750) auf fast 9 Millionen (1801)", "z": "menschen"}, {"k": "zuordk6", "t": "Viele Landarbeiter verloren ihr Land und suchten Arbeit", "z": "menschen"}, {"k": "zuordk7", "t": "Spinnmaschinen und eine verbesserte Dampfmaschine", "z": "technik"}, {"k": "zuordk8", "t": "Kanäle, Flüsse und Häfen für billigen Transport", "z": "technik"}], "ok": "Alle acht richtig. Wichtig ist der Zusammenhang: Kohle trieb die Maschinen an, Geld bezahlte sie, Menschen bedienten sie, und auf Kanälen und Schiffen kamen Rohstoffe und Waren schnell ans Ziel. Erst alles zusammen ergab den Anfang der Industrialisierung.", "hint": "Frage dich bei jeder Karte: Liegt es im Boden, geht es um Geld, um Menschen oder um Technik und Transport?", "name": "Voraussetzungen ordnen", "komp": ["fachwissen", "ursachen_folgen"], "zones": ["boden", "geld", "menschen", "technik"]}, {"id": "kette", "typ": "order", "items": ["Die Bevölkerung wächst, und viele Menschen brauchen billige Kleidung.", "Spinnerinnen am Spinnrad schaffen nicht genug Garn für die Weber.", "Erfinder bauen Spinnmaschinen, die viele Fäden gleichzeitig spinnen.", "Die großen Maschinen brauchen einen Antrieb, zuerst Wasserkraft, dann Dampf.", "Dampfmaschinen verbrauchen viel Kohle, deshalb wächst der Bergbau.", "Fabriken entstehen dort, wo Kohle, Häfen und Arbeitskräfte nahe beieinander liegen."], "ok": "Genau. Das ist eine typische Ursache-Folge-Kette: Mehr Menschen brauchten mehr Stoff, die Handarbeit kam nicht nach, Maschinen lösten das Problem, brauchten aber Kraft und Kohle. Am Ende stand die Fabrik.", "hint": "Frage dich bei jedem Schritt: Welches Problem musste zuerst da sein, damit jemand eine Lösung erfand?", "name": "Ursache und Folge", "komp": ["ursachen_folgen"]}, {"id": "luecke", "typ": "luecke", "richtig": ["Bergwerken", "Kohle", "weniger", "Räder drehen", "Fluss"], "ok": "Alles richtig. Watt hat die Dampfmaschine also nicht erfunden, sondern entscheidend verbessert. Weil sie Räder drehen konnte, wurde sie zum Motor der Fabriken.", "hint": "Tipp: Lies den Satz davor und danach. Was brauchte eine Dampfmaschine, um zu laufen?", "name": "Dampfmaschine", "komp": ["fachwissen", "zeit_raum"]}, {"id": "welt", "typ": "mc", "richtig": "b", "fb": {"a": "Nicht ganz. Baumwolle braucht viel Wärme. Im englischen Klima wächst sie nicht. Sieh dir noch einmal den Pfeil auf der Karte an.", "b": "Richtig. Ein großer Teil der Baumwolle kam von Plantagen im Süden der heutigen USA und aus der Karibik. Dort mussten versklavte Menschen aus Afrika unter Zwang arbeiten. Der Wohlstand der englischen Industrie hing also auch mit Sklaverei zusammen.", "c": "Nicht ganz. In Deutschland wächst keine Baumwolle, das Klima ist zu kühl. Sieh dir den Pfeil auf der Karte an."}, "name": "Kolonialhandel", "komp": ["fachwissen", "perspektivitaet"], "zusatz": false}, {"id": "s1", "typ": "multi", "richtig": ["arbeiter", "welt", "selbst"], "ok": "Genau. Der Text nennt die Zahl der Arbeiter, zeigt Boultons Stolz und beruht auf einem eigenen Besuch. Über Löhne oder die Meinung der Arbeiter sagt er nichts.", "hinweis": {"erfunden": "Das steht nicht im Text. Boulton war Unternehmer, die Verbesserung der Dampfmaschine stammt von James Watt.", "lohn": "Darüber sagt der Text nichts. Die Arbeiter kommen in dieser Quelle gar nicht selbst zu Wort."}, "fehlt": "Es fehlen noch # zutreffende Antworten. ", "tipp": "Lies nur, was wirklich dasteht.", "name": "Quelle auswerten", "komp": ["quellenarbeit"]}, {"id": "s2", "typ": "mc", "richtig": "c", "fb": {"a": "Nicht ganz. Ein zeitlicher Abstand macht eine Quelle nicht wertlos. Man muss sie nur vorsichtig lesen. Boswell hat sich wahrscheinlich Notizen gemacht.", "b": "Nein. Der Text stammt von James Boswell. Boulton kommt darin nur mit einem Satz vor.", "c": "Richtig. Boswell war dabei, das macht die Quelle wertvoll. Aber er schrieb für Leserinnen und Leser, die sich für Johnson interessierten, und gab Boultons Worte aus der Erinnerung wieder. Seine Begeisterung ist seine eigene Sicht."}, "name": "Quellenkritik", "komp": ["quellenarbeit", "zeit_raum"], "zusatz": false}, {"id": "q2", "typ": "text", "krit": {"min": 60, "worte": 14, "need": 2, "gruppen": [{"w": ["kraft", "antrieb", "dampf", "maschin", "energie", "antreib"], "miss": "Erkläre, welche Kraft Boulton verkaufte, nämlich den Antrieb durch Dampfmaschinen."}, {"w": ["macht", "reich", "geld", "herrsch", "einfluss", "uberlegen", "vorsprung", "staerk", "starker"], "miss": "Erkläre auch die zweite Bedeutung: Wer Maschinen hatte, gewann Geld und Macht."}], "ok": "Sehr gut. Boulton verkaufte Dampfmaschinen, also Antriebskraft. Wer diese Kraft besaß, konnte mehr herstellen, wurde reicher und mächtiger. Länder mit Maschinen bekamen einen Vorsprung."}, "name": "Weiterdenken power", "komp": ["quellenarbeit"], "zusatz": true}, {"id": "q1", "typ": "multi", "richtig": ["patent", "boswell", "maschine"], "ok": "Richtig. Patent, Boswells Bericht und die erhaltene Maschine stammen aus der damaligen Zeit. Die Maschine ist eine Sachquelle. Karte und Film sind Darstellungen, die später entstanden.", "hinweis": {"karte": "Die Karte wurde für dieses Modul gezeichnet. Sie ist eine Darstellung, keine Quelle.", "film": "Ein Film von 2020 ist eine Darstellung. Er zeigt, wie Menschen heute die Vergangenheit sehen."}, "fehlt": "Es fehlen noch # zutreffende Antworten. ", "tipp": "", "name": "Quelle und Darstellung", "komp": ["quellenarbeit", "zeit_raum"]}];
+const DIAG={"fragen": [{"n": "d1", "r": "b"}, {"n": "d2", "r": "r"}, {"n": "d3", "r": "b"}], "alle": "Drei von drei. Deine Vermutungen passen gut. Der Lernweg Weiterdenken könnte für dich spannend sein.", "fast": "Zwei von drei. Gute Grundlage. Im Modul erfährst du, wie alles zusammenhängt.", "wenig": "Du hast # von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.", "extra": [{"n": "d3", "v": "a", "m": "Ein Hinweis vorab: Erdöl wurde erst viel später wichtig. Die Industrialisierung lief mit Kohle."}]};
+const ABS={"ok": ["b", "d"], "fb": {"a": "Prüfe das noch einmal. Watt war wichtig, aber denke an die Karte: Ohne Kohle, Geld, Häfen und Arbeitskräfte hätte seine Maschine wenig genützt. Und erfunden hat er sie auch nicht.", "b": "Gut entschieden. Du erkennst, dass mehrere Ursachen zusammenwirken mussten. Begründe das jetzt in A2.", "c": "Das geht zu weit. Die Dampfmaschine war sehr wichtig, weil sie Fabriken unabhängig von Wasserkraft machte. Sie war aber nicht die einzige Ursache.", "d": "Gut entschieden. Du korrigierst sogar einen Fehler auf der Karte: Watt hat die Maschine verbessert. Und du nennst weitere Ursachen. Begründe das jetzt in A2."}, "krit": {"min": 80, "worte": 20, "need": 3, "saetze": 3, "gruppen": [{"w": ["kohle", "eisen", "rohstoff", "bodenscha", "erz"], "miss": "Nenne die Bodenschätze, zum Beispiel Kohle und Eisen."}, {"w": ["kapital", "geld", "bank", "handel", "kolon", "kaufleute", "kaufmann", "gewinn", "reich"], "miss": "Erkläre, woher das Geld für Fabriken kam, zum Beispiel Kapital aus dem Handel."}, {"w": ["bevolker", "arbeitskr", "menschen", "arbeiter", "landarbeit", "einheg"], "miss": "Denke an die Menschen: Es gab viele Arbeitskräfte."}, {"w": ["dampf", "maschin", "erfind", "spinn", "watt", "kanal", "hafen", "transport", "patent"], "miss": "Nenne die Technik, etwa Dampfmaschine, Spinnmaschinen oder Kanäle."}], "ok": "Sehr gut. Du nennst mehrere Voraussetzungen und verbindest sie. Genau das ist der Kern: Kohle, Kapital, Arbeitskräfte und Erfindungen kamen in England zusammen. Abzeichen Begründer freigeschaltet."}};
+const S={lernweg:"standard",done:{},punkte:{},placed:{},order:{},hot:{},fbs:{},texts:{},sent:false,built:false};
+const TMAP={};TASKS.forEach(t=>TMAP[t.id]=t);
+const PFLICHT=TASKS.filter(t=>!t.zusatz);
+const SCHRITTE=["start","diagnose"].concat(PFLICHT.map(t=>t.id),["lerncheck","abschluss"]);
+const MAXP=PFLICHT.length+3;
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function fbT(tid,msg,art){S.fbs[tid]={m:msg,a:art};fb("#"+tid+"Fb",msg,art);}
+function fbTClear(tid){delete S.fbs[tid];fbClear("#"+tid+"Fb");}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+function val(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","trotzdem","aber","jedoch","obwohl","wahrend","einerseits","andererseits"];
+function mische(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ (CFG.badges||[]).forEach(b=>{const e=document.getElementById(b.id);if(e)e.classList.toggle("on",b.tasks.every(k=>k==="a2"?(S.punkte.a2||0)>=1:!!S.done[k]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];S.punkte[k]=0;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich anspruchsvolle Aufgaben, zum Beispiel eine zweite Quelle."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 8a."};
+ const m=t.match(/(?:^|[^0-9])8([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 8. Schreibe zum Beispiel 8a, Klasse 8b oder nur 8."};
+ return{ok:true,wert:"8"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb",CFG.startOk,"ok");
+ location.hash="mission";
+});
+
+/* ---------- Einstieg ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const fr=DIAG.fragen, offenD=fr.filter(f=>!val(f.n));
+ if(offenD.length){fb("#dFb","Beantworte bitte zuerst alle drei Fragen. Raten ist ausdrücklich erlaubt.","hint");return;}
+ const r=fr.filter(f=>val(f.n)===f.r).length;
+ let m=r===fr.length?DIAG.alle:(r===fr.length-1?DIAG.fast:DIAG.wenig.replace("#",r));
+ (DIAG.extra||[]).forEach(x=>{if(val(x.n)===x.v)m+=" "+x.m;});
+ fb("#dFb",m,r>=2?"ok":"hint");S.fbs.d={m:m,a:r>=2?"ok":"hint"};
+ fertig("diagnose");
+});
+
+/* ---------- Auswahl ---------- */
+function initMc(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const v=val(t.id);
+  if(!v){fbT(t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+  const ok=v===t.richtig, m=(t.fb&&t.fb[v])||(ok?"Richtig.":"Noch nicht.");
+  if(ok){fbT(t.id,m,"ok");fertig(t.id,1);}else{fbT(t.id,m,"hint");if(!t.zusatz)offen(t.id);}
+ });
+}
+function initMulti(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+  if(!sel.length){fbT(t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+  const fehlt=t.richtig.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!t.richtig.includes(x));
+  if(!fehlt.length&&!zuviel.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);return;}
+  let m="";
+  zuviel.forEach(z=>{if(t.hinweis&&t.hinweis[z])m+=t.hinweis[z]+" ";});
+  if(fehlt.length)m+=(fehlt.length===1?"Es fehlt noch eine zutreffende Antwort. ":t.fehlt.replace("#",fehlt.length));
+  fbT(t.id,(m+(t.tipp||"")).trim(),"hint");offen(t.id);
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);fbTClear(t.id);offen(t.id);});
+}
+
+/* ---------- Zuordnen mit Antippen oder Ziehen ---------- */
+let gew=null;
+function pieceHtml(t,p,cls){return '<button type="button" class="piece'+(cls?" "+cls:"")+'" draggable="true" data-task="'+t.id+'" data-k="'+p.k+'" aria-pressed="'+(gew&&gew.k===p.k?"true":"false")+'">'+p.t+'<\/button>';}
+function zeichneZ(t){
+ const pl=S.placed[t.id]||(S.placed[t.id]={});
+ const offenP=t.pieces.filter(p=>!pl[p.k]);
+ $("#"+t.id+"Pieces").innerHTML=offenP.map(p=>pieceHtml(t,p)).join("")||'<span class="hint">Alle Karten sind zugeordnet.<\/span>';
+ $$('.zone[data-task="'+t.id+'"] .drop').forEach(d=>d.innerHTML="");
+ t.pieces.forEach(p=>{const z=pl[p.k];if(z){const d=document.querySelector('.zone[data-task="'+t.id+'"][data-zone="'+z+'"] .drop');
+  if(d)d.insertAdjacentHTML("beforeend",pieceHtml(t,p,S.done[t.id]?"ok":""));}});
+ $$('.piece[data-task="'+t.id+'"]').forEach(b=>{
+  b.addEventListener("click",e=>{e.stopPropagation();
+   if(gew&&gew.k===b.dataset.k){gew=null;b.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gew={task:t.id,k:b.dataset.k};b.setAttribute("aria-pressed","true");
+   fbT(t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  b.addEventListener("dragstart",e=>{gew={task:t.id,k:b.dataset.k};try{e.dataTransfer.setData("text/plain",b.dataset.k);}catch(x){}});
+ });
+}
+function ablegen(t,zone){
+ if(!gew||gew.task!==t.id){fbT(t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[t.id][gew.k]=zone;gew=null;
+ if(S.done[t.id]){offen(t.id);}
+ zeichneZ(t);fbTClear(t.id);speichern();
+}
+function initZuord(t){
+ $$('.zone[data-task="'+t.id+'"]').forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.target!==z)return;if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");ablegen(t,z.dataset.zone);});
+ });
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const pl=S.placed[t.id], rest=t.pieces.filter(p=>!pl[p.k]);
+  if(rest.length){fbT(t.id,"Es sind noch "+rest.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+  let r=0;
+  t.pieces.forEach(p=>{const ok=pl[p.k]===p.z;if(ok)r++;const el=document.querySelector('.piece[data-k="'+p.k+'"]');if(el){el.classList.remove("ok","no");el.classList.add(ok?"ok":"no");}});
+  if(r===t.pieces.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.pieces.length+" stimmen bereits. Die grün umrandeten Karten sitzen richtig. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.placed[t.id]={};gew=null;offen(t.id);zeichneZ(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Reihenfolge ---------- */
+function zeichneO(t,fokus){
+ const o=S.order[t.id], fertigO=!!S.done[t.id];
+ $("#"+t.id+"List").innerHTML=o.map((i,pos)=>
+  '<div class="orow'+(fertigO?" ok":"")+'"><span class="nr" aria-hidden="true">'+(pos+1)+'<\/span><span class="t">'+t.items[i]+'<\/span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben: '+t.items[i].replace(/"/g,"")+'">&#8593;<\/button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten: '+t.items[i].replace(/"/g,"")+'">&#8595;<\/button><\/div>').join("");
+ $$("#"+t.id+"List button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=o.length)return;
+  [o[p],o[n]]=[o[n],o[p]];if(S.done[t.id])offen(t.id);zeichneO(t,{pos:n,dir:d});speichern();}));
+ if(fokus){const b=document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"][data-dir="'+fokus.dir+'"]')||document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"]');if(b)b.focus();}
+}
+function mischeO(t){const idx=t.items.map((_,i)=>i);let o;do{o=mische(idx);}while(o.join()===idx.join());S.order[t.id]=o;}
+function initOrder(t){
+ if(!S.order[t.id]||S.order[t.id].length!==t.items.length)mischeO(t);
+ zeichneO(t);
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const o=S.order[t.id], r=o.filter((v,i)=>v===i).length;
+  if(r===o.length){S.done[t.id]=true;zeichneO(t);fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+o.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{offen(t.id);mischeO(t);zeichneO(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Bild- und Kartenarbeit ---------- */
+function hotAufgabe(t){
+ const idx=S.hot[t.id]||0;
+ t.finds.forEach((f,i)=>{const el=document.getElementById(f.z);if(el)el.classList.toggle("found",i<idx);});
+ if(idx>=t.finds.length){$("#"+t.id+"Task").textContent=t.done;$("#"+t.id+"Alt").innerHTML="";return;}
+ const z=t.finds[idx];
+ $("#"+t.id+"Task").textContent="Suchauftrag "+(idx+1)+" von "+t.finds.length+": "+z.tipp;
+ $("#"+t.id+"Alt").innerHTML=t.alle.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.n+'<\/button>').join("");
+ $$("#"+t.id+"Alt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));
+}
+function hotWahl(t,id){
+ const idx=S.hot[t.id]||0, z=t.finds[idx]; if(!z)return;
+ if(id===z.z){
+  S.hot[t.id]=idx+1;
+  if(idx+1>=t.finds.length){fbT(t.id,z.ok+" Damit hast du alle "+t.finds.length+" gefunden.","ok");fertig(t.id,1);}
+  else{fbT(t.id,z.ok,"ok");}
+  hotAufgabe(t);speichern();
+ }else{
+  const g=t.alle.find(x=>x.id===id);
+  fbT(t.id,"Das ist „"+(g?g.n:"ein anderer Ort")+"“. Lies die Beschreibung noch einmal genau und sieh dir das Bild an.","hint");speichern();
+ }
+}
+function initHot(t){
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+  g.addEventListener("click",()=>hotWahl(t,g.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.hot[t.id]=0;offen(t.id);fbTClear(t.id);hotAufgabe(t);speichern();});
+ hotAufgabe(t);
+}
+
+/* ---------- Lückentext ---------- */
+function initLuecke(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  let r=0,leer=0;
+  t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}const ok=s.value===w;if(ok)r++;s.classList.add(ok?"ok":"no");});
+  if(leer){fbT(t.id,"Fülle zuerst alle "+t.richtig.length+" Lücken aus. Noch offen: "+leer+".","hint");return;}
+  if(r===t.richtig.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.richtig.length+" Lücken stimmen. Die rot markierten musst du noch einmal prüfen. "+t.hint,"hint");offen(t.id);}
+ });
+ t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.addEventListener("change",()=>{s.classList.remove("ok","no");});});
+}
+
+/* ---------- Freitexte ---------- */
+function bewerte(roh,k){
+ const t=norm(roh), wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<(k.min||40)||wort<(k.worte||10))return{p:0,lab:"zu knapp",msg:k.knapp||"Deine Antwort ist noch sehr kurz. Schreibe mindestens zwei vollständige Sätze."};
+ const treffer=k.gruppen.filter(g=>hat(t,g.w)), fehl=k.gruppen.filter(g=>!hat(t,g.w));
+ const verkn=hat(t,VERKN), genug=saetze(roh)>=(k.saetze||2), need=k.need||k.gruppen.length;
+ if(treffer.length>=need&&verkn&&genug)return{p:1,lab:"vollständig",msg:k.ok};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(treffer.length<need)m+=fehl.slice(0,2).map(g=>g.miss).join(" ")+" ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „deshalb“ oder „dadurch“. ";
+ if(!genug)m+="Schreibe mindestens "+(k.saetze||2)+" vollständige Sätze. ";
+ return{p:(treffer.length>=1?0.5:0.25),lab:"teilweise",msg:m.trim()};
+}
+function initText(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const r=bewerte($("#"+t.id).value,t.krit);
+  S.texts[t.id]=r.lab;fbT(t.id,r.msg,r.p>=1?"ok":"hint");
+  if(!t.zusatz){if(r.p>=1)fertig(t.id,1);else offen(t.id);}else speichern();
+ });
+}
+
+/* ---------- Abschlussmission ---------- */
+function pruefeAbschluss(){
+ const a1=val("a1");
+ if(a1&&S.a2geprueft&&(S.punkte.a2||0)>0)fertig("abschluss");else{delete S.done.abschluss;fortschritt();speichern();}
+}
+$("#a1Check").addEventListener("click",()=>{
+ const v=val("a1");
+ if(!v){fbT("a1","Bitte wähle zuerst eine Entscheidung aus.","hint");return;}
+ const ok=ABS.ok.includes(v);S.punkte.a1=ok?1:0;
+ fbT("a1",ABS.fb[v]||"",ok?"ok":"hint");pruefeAbschluss();
+});
+$("#a2Check").addEventListener("click",()=>{
+ const r=bewerte($("#a2").value,ABS.krit);
+ S.punkte.a2=r.p>=1?1:(r.p>0?0.5:0);S.a2lab=r.lab;S.a2geprueft=true;
+ fbT("a2",r.msg,r.p>=1?"ok":"hint");pruefeAbschluss();
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3].map(i=>val("lc"+i)||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;S.punkte.lerncheck=0;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return PFLICHT.reduce((s,t)=>s+(S.punkte[t.id]||0),0)+(S.punkte.a1||0)+(S.punkte.a2||0)+(S.punkte.lerncheck||0);}
+function kompetenz(k){const ts=PFLICHT.filter(t=>(t.komp||[]).includes(k));if(k==="historisches_urteil")return eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1&&ts.every(t=>(S.punkte[t.id]||0)>=1));return eins(ts.length>0&&ts.every(t=>(S.punkte[t.id]||0)>=1));}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=Math.round(punkteGesamt()*10)/10, pct=Math.round(pkt/MAXP*100);
+ const luecken=[];
+ PFLICHT.forEach(t=>{if(!((S.punkte[t.id]||0)>=1))luecken.push(t.name);});
+ if(!((S.punkte.a1||0)>=1))luecken.push("Abschlussentscheidung");
+ if(!((S.punkte.a2||0)>=1))luecken.push("Begründung");
+ const erg={};PFLICHT.forEach(t=>erg[t.id]=S.punkte[t.id]||0);
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ const pfl={};PFLICHT.forEach(t=>pfl[t.id]={correct:(S.punkte[t.id]||0)>=1});
+ pfl.entscheidung={correct:(S.punkte.a1||0)>=1};pfl.begruendung={correct:(S.punkte.a2||0)>=1};
+ const zus={},zusB={};TASKS.filter(t=>t.zusatz).forEach(t=>{const e=document.getElementById(t.id);if(e&&e.tagName==="TEXTAREA"){zus[t.id]=e.value.trim();zusB[t.id]=S.texts[t.id]||"nicht bearbeitet";}else{zusB[t.id]=(S.punkte[t.id]||0)>=1?"richtig":"nicht gelöst";}});
+ if(!S.abgabeId)S.abgabeId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2);
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"8",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:Object.assign({leitfrage:$("#a2").value.trim(),begruendung:$("#a2").value.trim(),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},zus),
+  bewertung_freitexte:Object.assign({begruendung:S.a2lab||"nicht bearbeitet"},zusB),
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:MAXP,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:{fachwissen:kompetenz("fachwissen"),zeit_raum:kompetenz("zeit_raum"),quellenarbeit:kompetenz("quellenarbeit"),
+   ursachen_folgen:kompetenz("ursachen_folgen"),perspektivitaet:kompetenz("perspektivitaet"),historisches_urteil:kompetenz("historisches_urteil")},
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:MAXP,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:S.abgabeId};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 8, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(still){
+ if(!pflichtOk(!still)){if(!still)location.hash="start";return null;}
+ if(!val("a1")){if(!still){fb("#buildFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung (A1).","bad");location.hash="abschluss";}return null;}
+ if(!lerncheckWerte().every(Boolean)){if(!still){fb("#buildFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";}return null;}
+ S.punkte.a1=ABS.ok.includes(val("a1"))?1:0;
+ fbClear("#buildFb");
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?CFG.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter: "+CFG.next:"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const zeilen=PFLICHT.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":<\/strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)<\/li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ S.built=true;fortschritt();speichern();if(!still)location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>ergebnisBauen(false));
+$("#printBtn").addEventListener("click",()=>window.print());
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+async function senden(){
+ const p=ergebnisBauen(true)||ergebnisBauen(false);
+ if(!p)return;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+TASKS.forEach(t=>{
+ if(t.typ==="mc")initMc(t);else if(t.typ==="multi")initMulti(t);
+ else if(t.typ==="zuord"){initZuord(t);zeichneZ(t);}
+ else if(t.typ==="order")initOrder(t);else if(t.typ==="hot")initHot(t);
+ else if(t.typ==="luecke")initLuecke(t);else if(t.typ==="text")initText(t);
+});
+Object.entries(S.fbs||{}).forEach(([k,v])=>{if(k==="d")fb("#dFb",v.m,v.a);else fb("#"+k+"Fb",v.m,v.a);});
+TASKS.filter(t=>t.typ==="luecke"&&S.done[t.id]).forEach(t=>t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);if(s&&s.value===w)s.classList.add("ok");}));
+fortschritt();
+if(S.built)ergebnisBauen(true);
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

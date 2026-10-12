@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Gefühle-Kompass</title>
+  <desc id="desc">Vier farbige Wege zeigen zu den Gefühlswörtern froh, traurig, wütend und unsicher. In der Mitte steht: wahrnehmen, benennen, entscheiden.</desc>
+  <rect width="640" height="480" rx="34" fill="#edf6f3"/>
+  <circle cx="320" cy="240" r="174" fill="#fff" stroke="#cbdad6" stroke-width="8"/>
+  <path d="M320 79 357 187 320 210 283 187Z" fill="#d49a32"/>
+  <path d="m481 240-108 37-23-37 23-37Z" fill="#c65e4b"/>
+  <path d="M320 401 283 293l37-23 37 23Z" fill="#4d84a1"/>
+  <path d="m159 240 108-37 23 37-23 37Z" fill="#6f9b64"/>
+  <circle cx="320" cy="240" r="88" fill="#173238"/>
+  <text x="320" y="217" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="22" font-weight="700">wahrnehmen</text>
+  <text x="320" y="247" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="22" font-weight="700">benennen</text>
+  <text x="320" y="277" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="22" font-weight="700">entscheiden</text>
+  <g font-family="system-ui, sans-serif" font-size="24" font-weight="800" fill="#173238" text-anchor="middle">
+    <text x="320" y="45">froh</text>
+    <text x="557" y="248">wütend</text>
+    <text x="320" y="452">traurig</text>
+    <text x="77" y="248">unsicher</text>
+  </g>
+</svg>

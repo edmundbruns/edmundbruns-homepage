@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Rechtliche Seiten sind ueber die noindex-Angabe im HTML von der Indexierung ausgenommen.
+Sitemap: https://www.edmundbruns.com/sitemap.xml

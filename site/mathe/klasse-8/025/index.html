@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modul 025 · Prismen: Netz und Oberfläche | SOL Mathematik 8</title>
+<meta name="description" content="Wie viel Pappe steckt in einer Schokoladenverpackung? Du lernst Prismen und ihre Netze kennen und berechnest Mantel und Oberfläche.">
+<link rel="canonical" href="https://www.edmundbruns.com/mathe/klasse-8/025/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3d2a73">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{--brand:#5b3fa0;--brand2:#3d2a73;--soft:#efeafb;--ink:#1c1830;--muted:#5a5670;--line:#d6d0e6;--paper:#f6f4fb;--card:#fff;
+--good:#166534;--goodbg:#ecfdf3;--bad:#991b1b;--badbg:#fff1f1;--warn:#8a4b06;--warnbg:#fff7e6;--focus:#f59e0b;--r:16px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+body.easy{font-size:19px;line-height:1.8;letter-spacing:.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+a{color:var(--brand)}:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.hero{background:linear-gradient(120deg,var(--brand2),var(--brand));color:#fff;padding:22px 0 30px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:.95rem}.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{background:#fff;color:var(--ink);border:0;border-radius:10px;padding:8px 12px;font:inherit;font-weight:600;font-size:.88rem;cursor:pointer}
+.hero-main{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;opacity:.85;margin:0}
+.hero h1{font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.1;margin:.2em 0 .3em}
+.lead{margin:0;max-width:640px;opacity:.95}
+.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:12px 20px;text-align:center;min-width:150px;display:flex;flex-direction:column}
+.badge strong{font-size:2rem;line-height:1.2}
+.progress{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.prog-in{display:flex;align-items:center;gap:14px;padding:10px 18px}
+.track{flex:1;height:10px;background:#e6e1f2;border-radius:9px;overflow:hidden}#bar{height:100%;width:0;background:var(--brand);transition:width .4s}
+#progText{font-size:.85rem;font-weight:700;white-space:nowrap}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:22px;padding-top:22px;padding-bottom:30px;align-items:start}
+#nav{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;position:sticky;top:60px;display:flex;flex-direction:column}
+#nav a{text-decoration:none;color:var(--ink);font-weight:600;padding:8px 12px;border-radius:10px;font-size:.95rem}
+#nav a.done::after{content:" ✓";color:var(--good)}#nav a.active{background:var(--soft);color:var(--brand2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.sec h2{margin:0 0 .6em;font-size:1.6rem}.sec h3{margin:1.2em 0 .4em}
+.facts,.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 18px}
+.facts>div,.summary>div{background:var(--soft);border:1px solid #ddd3f3;border-radius:12px;padding:10px 12px}
+.facts b,.summary b{display:block;font-size:.85rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inp{display:block;margin:0 0 14px}.inp>span:first-child{display:block;font-weight:700;margin-bottom:4px}
+.inp small{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
+input[type=text],input[type=email],input:not([type]),input[inputmode]{width:100%;font:inherit;padding:11px 12px;border:2px solid #b9b2cc;border-radius:10px;background:#fff;color:var(--ink)}
+input:disabled{background:#f2f0f6}
+.inrow{display:flex;align-items:center;gap:8px}.inrow input{max-width:260px}.unit{font-weight:700}
+.inputs{display:flex;flex-wrap:wrap;gap:4px 18px}.inputs .inp{min-width:180px}
+fieldset{border:0;padding:0;margin:0 0 12px}legend{font-weight:700;margin-bottom:6px}
+.ways{display:flex;flex-wrap:wrap;gap:8px}.ways legend{width:100%}
+.way,.chip,.opt{position:relative;cursor:pointer}
+.way input,.chip input{position:absolute;opacity:0;pointer-events:none}
+.way span,.chip span{display:inline-block;border:2px solid #b9b2cc;border-radius:12px;padding:9px 14px;font-weight:700;background:#fff}
+.way input:checked+span,.chip input:checked+span{border-color:var(--brand);background:var(--soft);box-shadow:0 0 0 2px var(--brand) inset}
+.way input:focus-visible+span,.chip input:focus-visible+span{outline:3px solid var(--focus)}
+.chip span{padding:6px 12px;font-size:.92rem;margin:0 6px 6px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;background:#fff}
+.opt input{margin-top:5px;accent-color:var(--brand);width:18px;height:18px}
+.note{background:var(--soft);border-left:5px solid var(--brand);padding:10px 14px;border-radius:10px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:11px;padding:10px 18px;background:var(--brand);color:#fff;cursor:pointer}
+.btn:hover{background:var(--brand2)}.btn.ghost{background:#ece8f5;color:var(--ink)}.btn.ghost:hover{background:#ddd5ee}
+.btn.big{padding:13px 26px;font-size:1.05rem}.btn:disabled{opacity:.55;cursor:default}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
+.fb{margin:10px 0 0;min-height:1em}.fb:empty{display:none}
+.fb.good,.fb.bad,.fb.hint{padding:10px 14px;border-radius:10px}
+.fb.good{background:var(--goodbg);color:var(--good)}.fb.bad{background:var(--badbg);color:var(--bad)}.fb.hint{background:var(--warnbg);color:var(--warn)}
+.fb ul{margin:.4em 0 0;padding-left:1.2em}
+.task{border:1px solid var(--line);border-left:6px solid var(--brand);border-radius:14px;padding:16px 18px;margin:14px 0;background:#fdfcff}
+.task.solved{border-left-color:var(--good)}
+.thead{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font-size:.75rem;font-weight:700;background:var(--soft);color:var(--brand2);border-radius:20px;padding:2px 10px}.tag.plain{background:#eee}.tag.ok{background:var(--goodbg);color:var(--good)}
+.q{margin:0 0 10px}.hints .hint{background:#fffbea;border:1px solid #f5e3a3;border-radius:10px;padding:8px 12px;margin-top:8px}.hint.sol{background:#f0f9ff;border-color:#bfe0f5}
+.merk{background:var(--soft);border:2px solid var(--brand);border-radius:14px;padding:12px 16px;margin:14px 0}.merk b:first-child{color:var(--brand2)}
+.goals li{margin:.3em 0}.terms div{margin:0 0 8px}.terms dt{font-weight:700}.terms dd{margin:0;color:var(--muted)}
+.steps li{margin:8px 0;padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.story{font-size:1.02rem}.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;margin-bottom:14px;background:#000}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.95em;margin:0 .15em;line-height:1.15}
+.frac>span:first-child{border-bottom:2px solid currentColor;padding:0 .2em}
+.big-math{font-size:1.35rem;font-weight:700}
+.lc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.viz{width:100%;max-width:520px;height:auto;display:block;margin:8px 0}
+.ctl{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:10px 0}.ctl label{font-weight:700}
+.ctl input[type=range]{width:220px;accent-color:var(--brand)}
+.ctl select{font:inherit;padding:8px;border-radius:10px;border:2px solid #b9b2cc}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:34px;color:var(--muted);font-size:.9rem}
+table.tab{border-collapse:collapse;margin:10px 0}table.tab td,table.tab th{border:1px solid var(--line);padding:6px 12px;text-align:center}table.tab th{background:var(--soft)}
+@media (max-width:860px){.layout{grid-template-columns:1fr}#nav{position:static;flex-direction:row;overflow-x:auto;gap:4px;padding:8px;-webkit-overflow-scrolling:touch}#nav a{white-space:nowrap}
+.hero-main{flex-direction:column;align-items:flex-start}.badge{flex-direction:row;gap:10px;align-items:baseline;min-width:0}.badge strong{font-size:1.3rem}}
+@media (max-width:620px){body{font-size:16px}.card{padding:18px}.facts,.summary{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.inrow input{max-width:none}.pager .btn{padding:10px 12px}}
+@media print{.hero,.progress,#nav,.tools,.actions,.pager,.foot{display:none!important}.layout{display:block}.sec{display:block!important}.sec[hidden]{display:none!important}#sec-ergebnis{display:block!important}body{background:#fff}}
+
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body>
+<div id="app"><noscript><p style="padding:20px">Dieses Lernmodul braucht JavaScript. Bitte aktiviere JavaScript in deinem Browser.</p></noscript></div>
+<script>
+/* SOL Mathe 8 · Rechenhilfen (Brüche, Terme, Zufall). Läuft im Browser und in Node. */
+var M = (function () {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a || 1; }
+  function lcm(a, b) { return Math.abs(a * b) / gcd(a, b); }
+  function rnd(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function nz(a, b) { var v; do { v = rnd(a, b); } while (v === 0); return v; }
+
+  /* Bruch {n,d} immer mit d>0 */
+  function F(n, d) { if (d === undefined) d = 1; if (d === 0) throw new Error('Nenner 0'); if (d < 0) { n = -n; d = -d; } return { n: n, d: d }; }
+  function red(f) { var g = gcd(f.n, f.d); return F(f.n / g, f.d / g); }
+  function fmul(a, b) { return red(F(a.n * b.n, a.d * b.d)); }
+  function fdiv(a, b) { return red(F(a.n * b.d, a.d * b.n)); }
+  function fadd(a, b) { return red(F(a.n * b.d + b.n * a.d, a.d * b.d)); }
+  function feq(a, b) { return a.n * b.d === b.n * a.d; }
+  function isReduced(f) { return gcd(f.n, f.d) === 1; }
+  function fstr(f) { f = red(f); return f.d === 1 ? String(f.n) : f.n + '/' + f.d; }
+  function fhtml(f, keep) {
+    if (!keep) f = red(f);
+    if (f.d === 1) return '<span class="num">' + fmtNum(f.n) + '</span>';
+    var s = f.n < 0 ? '−' : '';
+    return s + '<span class="frac"><span>' + Math.abs(f.n) + '</span><span>' + f.d + '</span></span>';
+  }
+  function fmtNum(x, dec) {
+    if (dec === undefined) { var r = Math.round(x * 1e6) / 1e6; dec = (String(r).split('.')[1] || '').length; }
+    var s = Math.abs(x).toFixed(dec).replace('.', ',');
+    var parts = s.split(','); parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return (x < 0 ? '−' : '') + parts.join(',');
+  }
+
+  function clean(s) {
+    return String(s == null ? '' : s).trim()
+      .replace(/[−–—]/g, '-').replace(/[·×⋅]/g, '*').replace(/:/g, '/').replace(/÷/g, '/')
+      .replace(/\s+/g, ' ');
+  }
+  /* Zahl aus Eingabe: "1,5" "1.5" "-3" "1 000" ; null wenn keine Zahl */
+  function parseNum(s) {
+    s = clean(s).replace(/\s(?=\d{3}\b)/g, '').replace(/(mm²|cm²|dm²|m²|cm³|dm³|m³|mm|cm|dm|km|m|€|%|°|grad)$/i, '').trim();
+    if (!/^[+-]?(\d+([.,]\d+)?|[.,]\d+)$/.test(s)) return null;
+    return parseFloat(s.replace(',', '.'));
+  }
+  /* Bruch aus Eingabe: "3/4", "-3/4", "1 1/2", "0,75", "2" ; null wenn ungültig */
+  function parseFrac(s) {
+    s = clean(s);
+    var m;
+    if ((m = s.match(/^([+-])?\s*(\d+)\s+(\d+)\s*\/\s*(\d+)$/))) { var d = +m[4]; if (!d) return null; var f = F(+m[2] * d + +m[3], d); if (m[1] === '-') f.n = -f.n; f.mixed = true; return f; }
+    if ((m = s.match(/^([+-])?\s*\(?\s*(\d+)\s*\/\s*(\d+)\s*\)?$/))) { if (!+m[3]) return null; var g = F(+m[2], +m[3]); if (m[1] === '-') g.n = -g.n; return g; }
+    var x = parseNum(s); if (x === null) return null;
+    var den = 1; while (Math.abs(x * den - Math.round(x * den)) > 1e-9 && den < 1e6) den *= 10;
+    var r = red(F(Math.round(x * den), den)); r.decimal = true; return r;
+  }
+
+  /* ---------- Terme: Parser und Auswertung ---------- */
+  function tokenize(s) {
+    s = clean(s).toLowerCase().replace(/²/g, '^2').replace(/³/g, '^3').replace(/,/g, '.');
+    var out = [], i = 0;
+    while (i < s.length) {
+      var c = s[i];
+      if (c === ' ') { i++; continue; }
+      if (/[0-9.]/.test(c)) { var j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++; var num = s.slice(i, j); if (!/^\d*\.?\d+$|^\d+\.$/.test(num)) throw new Error('Zahl'); out.push({ t: 'n', v: parseFloat(num) }); i = j; continue; }
+      if (/[a-z]/.test(c)) { out.push({ t: 'v', v: c }); i++; continue; }
+      if ('+-*/^()'.indexOf(c) >= 0) { out.push({ t: c }); i++; continue; }
+      throw new Error('Zeichen ' + c);
+    }
+    /* implizite Multiplikation: 3x, 2(, )(, x(, )x, xy */
+    var res = [];
+    for (var k = 0; k < out.length; k++) {
+      var a = out[k - 1], b = out[k];
+      if (a && (a.t === 'n' || a.t === 'v' || a.t === ')') && (b.t === 'n' || b.t === 'v' || b.t === '(') && !(a.t === 'n' && b.t === 'n')) res.push({ t: '*' });
+      res.push(b);
+    }
+    return res;
+  }
+  function parseTerm(s) {
+    var tk = tokenize(s), p = 0;
+    if (!tk.length) throw new Error('leer');
+    function peek() { return tk[p]; }
+    function eat(t) { if (!tk[p] || tk[p].t !== t) throw new Error('erwartet ' + t); p++; }
+    function expr() { var n = term(); while (peek() && (peek().t === '+' || peek().t === '-')) { var op = tk[p++].t; n = { op: op, a: n, b: term() }; } return n; }
+    function term() { var n = unary(); while (peek() && (peek().t === '*' || peek().t === '/')) { var op = tk[p++].t; n = { op: op, a: n, b: unary() }; } return n; }
+    function unary() { if (peek() && (peek().t === '-' || peek().t === '+')) { var op = tk[p++].t; var u = unary(); return op === '-' ? { op: 'neg', a: u } : u; } return power(); }
+    function power() { var b = atom(); if (peek() && peek().t === '^') { p++; var e = unary(); return { op: '^', a: b, b: e }; } return b; }
+    function atom() {
+      var t = peek(); if (!t) throw new Error('Ende');
+      if (t.t === 'n') { p++; return { num: t.v }; }
+      if (t.t === 'v') { p++; return { v: t.v }; }
+      if (t.t === '(') { p++; var e = expr(); eat(')'); return e; }
+      throw new Error('unerwartet');
+    }
+    var tree = expr(); if (p !== tk.length) throw new Error('Rest');
+    return tree;
+  }
+  function evalTree(n, env) {
+    if (n.num !== undefined) return n.num;
+    if (n.v !== undefined) { if (!(n.v in env)) throw new Error('Variable ' + n.v); return env[n.v]; }
+    var a = evalTree(n.a, env);
+    if (n.op === 'neg') return -a;
+    var b = evalTree(n.b, env);
+    switch (n.op) { case '+': return a + b; case '-': return a - b; case '*': return a * b; case '/': return a / b; case '^': return Math.pow(a, b); }
+    throw new Error('op');
+  }
+  function varsOf(n, set) { set = set || {}; if (!n) return set; if (n.v) set[n.v] = 1; varsOf(n.a, set); varsOf(n.b, set); return set; }
+  /* gleichwertige Terme? prüft an mehreren Stellen */
+  function termEq(s1, s2) {
+    var t1, t2; try { t1 = parseTerm(s1); t2 = parseTerm(s2); } catch (e) { return false; }
+    var vs = Object.keys(Object.assign(varsOf(t1), varsOf(t2)));
+    var pts = [-2.5, -1.3, 0.7, 1.9, 3.1, 4.6];
+    for (var i = 0; i < pts.length; i++) {
+      var env = {}; vs.forEach(function (v, k) { env[v] = pts[(i + k * 2) % pts.length] + k * 0.37; });
+      var a = evalTree(t1, env), b = evalTree(t2, env);
+      if (!isFinite(a) || !isFinite(b) || Math.abs(a - b) > 1e-7 * Math.max(1, Math.abs(a))) return false;
+    }
+    return true;
+  }
+  function termValid(s) { try { parseTerm(s); return true; } catch (e) { return false; } }
+  /* Term schön darstellen: 3x^2 -> 3x², * -> · */
+  function tpretty(s) { return String(s).replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\*/g, '·').replace(/-/g, '−'); }
+  /* lineares Glied a·x mit Vorzeichen für Ausgabe */
+  function mono(c, v, first) {
+    if (c === 0) return first ? '0' : '';
+    var sign = c < 0 ? (first ? '−' : ' − ') : (first ? '' : ' + ');
+    var a = Math.abs(c), core = v ? ((a === 1 ? '' : a) + v) : String(a);
+    return sign + core;
+  }
+  function poly(coeffs) { /* [[c,'x²'],[c,'x'],[c,'']] */
+    var s = '', first = true;
+    coeffs.forEach(function (p) { if (p[0] === 0) return; s += mono(p[0], p[1], first); first = false; });
+    return s || '0';
+  }
+
+  function check(inp, raw) {
+    raw = String(raw == null ? '' : raw).trim();
+    if (inp.kind === 'mc') return raw === '' ? { ok: false, empty: true } : { ok: +raw === inp.answer };
+    if (!raw) return { ok: false, empty: true };
+    if (inp.kind === 'num') { var x = parseNum(raw); if (x === null) return { ok: false, msg: 'Gib eine Zahl ein, zum Beispiel 12 oder 3,5.' }; return { ok: Math.abs(x - inp.answer) <= (inp.tol != null ? inp.tol : 1e-9) }; }
+    if (inp.kind === 'frac') {
+      var f = parseFrac(raw); if (!f) return { ok: false, msg: 'Schreibe den Bruch so: 3/4. Ein gemischter Bruch geht so: 1 1/2.' };
+      var ans = F(inp.answer.n, inp.answer.d);
+      if (!feq(f, ans)) return { ok: false };
+      if (inp.reduce && !f.decimal && !f.mixed && !isReduced(f)) return { ok: false, almost: true, msg: 'Richtig gerechnet. Kürze das Ergebnis noch vollständig.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'term') {
+      if (!termValid(raw)) return { ok: false, msg: 'Der Term ist nicht lesbar. Beispiel: 3x + 12 oder 4(x − 2). Für „hoch 2“ schreibst du x^2.' };
+      if (!termEq(raw, inp.answer)) return { ok: false };
+      if (inp.form === 'expanded' && /\(/.test(raw)) return { ok: false, almost: true, msg: 'Der Term ist gleichwertig, aber noch nicht ausmultipliziert. Löse die Klammer auf.' };
+      if (inp.form === 'factored') { var tr = parseTerm(raw); while (tr.op === 'neg') tr = tr.a; if (!/\(/.test(raw) || (tr.op !== '*' && tr.op !== '^')) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht als Produkt geschrieben. Schreibe den Term als Produkt mit Klammer.' }; }
+      if (inp.form === 'factored' && !/\(/.test(raw)) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht ausgeklammert. Schreibe den Term als Produkt mit Klammer.' };
+      if (inp.factor) {
+        var z = clean(raw).toLowerCase().replace(/\s+/g, '').replace(/\*/g, ''), fct = String(inp.factor).toLowerCase().replace(/\s+/g, '');
+        if (!(z.indexOf(fct + '(') === 0 || (z.slice(-fct.length - 1) === ')' + fct && z.charAt(0) === '('))) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch mehr ausklammern. Klammere den größten gemeinsamen Faktor aus.' };
+      }
+      if (inp.form === 'simplified' && inp.maxTerms && (clean(raw).replace(/^[-+]/, '').split(/[+-]/).length > inp.maxTerms)) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch weiter zusammenfassen.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'text') { var opts = [].concat(inp.answer).map(function (a) { return String(a).toLowerCase(); }); return { ok: opts.indexOf(raw.toLowerCase()) >= 0 }; }
+    return { ok: false };
+  }
+  return { check: check, gcd: gcd, lcm: lcm, rnd: rnd, nz: nz, pick: pick, shuffle: shuffle, F: F, red: red, fmul: fmul, fdiv: fdiv, fadd: fadd, feq: feq,
+    isReduced: isReduced, fstr: fstr, fhtml: fhtml, fmtNum: fmtNum, clean: clean, parseNum: parseNum, parseFrac: parseFrac,
+    parseTerm: parseTerm, evalTree: evalTree, termEq: termEq, termValid: termValid, tpretty: tpretty, mono: mono, poly: poly };
+})();
+if (typeof module !== 'undefined') module.exports = M;
+
+</script>
+<script>
+window.CONFIG = {"jahrgang": "8", "endpoint": "https://script.google.com/macros/s/AKfycbxpbjq4u7xOEi94XymjPmODt4KIoBf1XvAVzBK-DMk21X8usQOQyz3LMQd5k41h41Ru/exec", "iservDomain": "", "version": "1.0.0", "backUrl": "../index.html"};
+/* Modul 025 · Prismen: Netz und Oberfläche */
+var MODULE = (function () {
+  var f = M.fmtNum;
+  function r3(x) { return Math.round(x * 1000) / 1000; }
+  /* Flächeninhalt aus Eckpunkten (Gaußsche Trapezformel), unabhängig von den Formeln */
+  function gauss(P) { var s = 0; for (var i = 0; i < P.length; i++) { var a = P[i], b = P[(i + 1) % P.length]; s += (a[0] - b[0]) * (a[1] + b[1]); } return Math.abs(s) / 2; }
+  /* Zeichnung in Weltkoordinaten (y nach oben), maßstabsgetreu */
+  function fig(o) {
+    var pts = []; (o.polys || []).forEach(function (p) { pts = pts.concat(p.P); }); (o.segs || []).forEach(function (s) { pts.push(s.a, s.b); }); (o.texts || []).forEach(function (t) { pts.push(t.p); });
+    var x0 = Math.min.apply(null, pts.map(function (p) { return p[0]; })), x1 = Math.max.apply(null, pts.map(function (p) { return p[0]; }));
+    var y0 = Math.min.apply(null, pts.map(function (p) { return p[1]; })), y1 = Math.max.apply(null, pts.map(function (p) { return p[1]; }));
+    if (o.box) { x0 = o.box[0]; x1 = o.box[1]; y0 = o.box[2]; y1 = o.box[3]; }
+    var mg = o.margin || 36, Wm = o.W || 360, Hm = o.maxH || 230, sc = Math.min((Wm - 2 * mg) / (x1 - x0 || 1), (Hm - 2 * mg) / (y1 - y0 || 1));
+    var W = Math.round((x1 - x0) * sc + 2 * mg), H = Math.round((y1 - y0) * sc + 2 * mg);
+    function X(x) { return +(mg + (x - x0) * sc).toFixed(1); } function Y(y) { return +(H - mg - (y - y0) * sc).toFixed(1); }
+    var g = '<svg class="viz" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + (o.label || 'Figur mit Maßen') + '" style="max-width:' + Math.min(460, Math.round(W * 1.2)) + 'px">';
+    var main = o.polys && o.polys[0] ? o.polys[0].P : pts, cx = 0, cy = 0; main.forEach(function (p) { cx += p[0] / main.length; cy += p[1] / main.length; });
+    if (o.grid) { for (var gx = Math.ceil(x0); gx <= x1; gx++) g += '<line x1="' + X(gx) + '" y1="' + Y(y0) + '" x2="' + X(gx) + '" y2="' + Y(y1) + '" stroke="#e3dcf2"/>'; for (var gy = Math.ceil(y0); gy <= y1; gy++) g += '<line x1="' + X(x0) + '" y1="' + Y(gy) + '" x2="' + X(x1) + '" y2="' + Y(gy) + '" stroke="#e3dcf2"/>'; }
+    (o.polys || []).forEach(function (p) { g += '<polygon points="' + p.P.map(function (q) { return X(q[0]) + ',' + Y(q[1]); }).join(' ') + '" fill="' + (p.fill || '#efeafb') + '"' + (p.op ? ' fill-opacity="' + p.op + '"' : '') + ' stroke="' + (p.stroke || '#3d2a73') + '" stroke-width="' + (p.w || 2.5) + '" stroke-linejoin="round"' + (p.dash ? ' stroke-dasharray="6 4"' : '') + '/>'; });
+    (o.rights || []).forEach(function (r) {
+      var v = [X(r[0][0]), Y(r[0][1])], a = [X(r[1][0]) - v[0], Y(r[1][1]) - v[1]], b = [X(r[2][0]) - v[0], Y(r[2][1]) - v[1]], la = Math.hypot(a[0], a[1]), lb = Math.hypot(b[0], b[1]), z = 9;
+      var q1 = [v[0] + a[0] / la * z, v[1] + a[1] / la * z], q2 = [v[0] + b[0] / lb * z, v[1] + b[1] / lb * z], q3 = [q1[0] + b[0] / lb * z, q1[1] + b[1] / lb * z];
+      g += '<path d="M' + q1[0].toFixed(1) + ' ' + q1[1].toFixed(1) + ' L' + q3[0].toFixed(1) + ' ' + q3[1].toFixed(1) + ' L' + q2[0].toFixed(1) + ' ' + q2[1].toFixed(1) + '" fill="none" stroke="#d97706" stroke-width="1.6"/><circle cx="' + ((v[0] + q3[0]) / 2).toFixed(1) + '" cy="' + ((v[1] + q3[1]) / 2).toFixed(1) + '" r="1.5" fill="#d97706"/>';
+    });
+    var placed = [];
+    (o.segs || []).forEach(function (s) {
+      if (s.line !== false) g += '<line x1="' + X(s.a[0]) + '" y1="' + Y(s.a[1]) + '" x2="' + X(s.b[0]) + '" y2="' + Y(s.b[1]) + '" stroke="' + (s.col || (s.dash ? '#d97706' : '#3d2a73')) + '" stroke-width="' + (s.w || (s.dash ? 2 : 2.5)) + '"' + (s.dash ? ' stroke-dasharray="5 4"' : '') + '/>';
+    });
+    (o.segs || []).forEach(function (s) {
+      if (!s.t) return;
+      var ax = X(s.a[0]), ay = Y(s.a[1]), bx = X(s.b[0]), by = Y(s.b[1]), at = s.at || 0.5, mx = ax + (bx - ax) * at, my = ay + (by - ay) * at, dx = bx - ax, dy = by - ay, l = Math.hypot(dx, dy) || 1, nx = -dy / l, ny = dx / l;
+      var side = s.side || (((mx - X(cx)) * nx + (my - Y(cy)) * ny) >= 0 ? 1 : -1); if (s.inward) side = -side;
+      nx *= side; ny *= side;
+      var w = s.t.replace(/<[^>]+>/g, '').length * 7.2 + 4, hh = 15, off = 9, tx, ty, anc, bx0, by0;
+      for (var k = 0; k < 5; k++) {
+        tx = mx + nx * off; ty = my + ny * off;
+        anc = nx > 0.45 ? 'start' : nx < -0.45 ? 'end' : 'middle';
+        ty += ny > 0.45 ? 12 : ny < -0.45 ? -3 : 5;
+        bx0 = anc === 'start' ? tx : anc === 'end' ? tx - w : tx - w / 2; by0 = ty - 12;
+        var hit = placed.some(function (p) { return bx0 < p[0] + p[2] && bx0 + w > p[0] && by0 < p[1] + p[3] && by0 + hh > p[1]; });
+        if (!hit) break; off += 13;
+      }
+      placed.push([bx0, by0, w, hh]);
+      g += '<text x="' + tx.toFixed(1) + '" y="' + ty.toFixed(1) + '" font-size="13" font-weight="700" text-anchor="' + anc + '" fill="' + (s.tc || (s.t.indexOf('?') >= 0 ? '#b91c1c' : s.dash ? '#b45309' : '#1c1830')) + '" stroke="#fff" stroke-width="3" paint-order="stroke">' + s.t + '</text>';
+    });
+    (o.texts || []).forEach(function (t) { g += '<text x="' + X(t.p[0]) + '" y="' + (Y(t.p[1]) + 5) + '" font-size="' + (t.size || 13) + '" font-weight="700" text-anchor="middle" fill="' + (t.col || '#3d2a73') + '" stroke="#fff" stroke-width="3" paint-order="stroke">' + t.t + '</text>'; });
+    var vx0 = Math.min(0, Math.min.apply(null, placed.map(function (p) { return p[0] - 3; }).concat([0]))), vy0 = Math.min(0, Math.min.apply(null, placed.map(function (p) { return p[1] - 3; }).concat([0])));
+    var vx1 = Math.max(W, Math.max.apply(null, placed.map(function (p) { return p[0] + p[2] + 3; }).concat([0]))), vy1 = Math.max(H, Math.max.apply(null, placed.map(function (p) { return p[1] + p[3] + 3; }).concat([0])));
+    g = g.replace('viewBox="0 0 ' + W + ' ' + H + '"', 'viewBox="' + Math.floor(vx0) + ' ' + Math.floor(vy0) + ' ' + Math.ceil(vx1 - vx0) + ' ' + Math.ceil(vy1 - vy0) + '"');
+    return g + '</svg>';
+  }
+  /* ---- Prismen: Schrägbild (Kavalierperspektive 45°, Tiefe halbiert) und Netz ---- */
+  function ccw(P) { var s = 0; for (var i = 0; i < P.length; i++) { var a = P[i], b = P[(i + 1) % P.length]; s += a[0] * b[1] - b[0] * a[1]; } return s > 0 ? P : P.slice().reverse(); }
+  function sides(P) { return P.map(function (p, i) { var q = P[(i + 1) % P.length]; return Math.hypot(q[0] - p[0], q[1] - p[1]); }); }
+  /* P: Grundfläche als Vorderseite (gegen den Uhrzeigersinn), H: Körperhöhe (Tiefe).
+     o.labels: [{i: Kantenindex vorne, t: Text}], o.hl: Text für die Körperhöhe, o.segs: zusätzliche Strecken in der Vorderfläche */
+  function prismSvg(P, H, o) {
+    o = o || {}; var n = P.length, k = H / 2 * Math.SQRT1_2, d = [k, k];
+    var B = P.map(function (p) { return [p[0] + d[0], p[1] + d[1]]; });
+    var vis = P.map(function (p, i) { var q = P[(i + 1) % n], nx = q[1] - p[1], ny = -(q[0] - p[0]); return nx * d[0] + ny * d[1] > 1e-9; });
+    var polys = [{ P: P, fill: o.front || '#efeafb' }], segs = [];
+    P.forEach(function (p, i) { if (vis[i]) polys.push({ P: [p, P[(i + 1) % n], B[(i + 1) % n], B[i]], fill: o.side || '#e3dcf2', w: 2 }); });
+    P.forEach(function (p, i) {
+      var prev = vis[(i - 1 + n) % n], cur = vis[i];
+      if (!vis[i]) segs.push({ a: B[i], b: B[(i + 1) % n], dash: true, col: '#7a7194', w: 1.3 });
+      if (!prev && !cur) segs.push({ a: p, b: B[i], dash: true, col: '#7a7194', w: 1.3 });
+    });
+    polys.push({ P: P, fill: o.front || '#efeafb' });
+    (o.segs || []).forEach(function (s) { segs.push(s); });
+    (o.labels || []).forEach(function (l) { segs.push({ a: P[l.i], b: P[(l.i + 1) % n], t: l.t, line: false, side: l.side, at: l.at }); });
+    if (o.hl) {
+      var best = 0; P.forEach(function (p, i) { if (p[0] - 0.3 * p[1] > P[best][0] - 0.3 * P[best][1]) best = i; });
+      segs.push({ a: P[best], b: B[best], t: o.hl, line: false, side: 1 });
+    }
+    return fig({ polys: polys, segs: segs, label: o.label || 'Schrägbild eines Prismas', W: o.W || 340, maxH: o.maxH || 230 });
+  }
+  /* Netz: Mantelstreifen aus Rechtecken (Breite = Grundkante, Höhe = H), Grundflächen oben an Rechteck top, unten an Rechteck bot.
+     o.order: Kantenreihenfolge im Streifen, o.tops / o.bots: Indizes der Rechtecke mit angesetzter Grundfläche */
+  function netShapes(P, H, o) {
+    o = o || {}; var n = P.length, S = sides(P), order = o.order || P.map(function (p, i) { return i; }), X = [0], out = [];
+    order.forEach(function (e, j) { X.push(X[j] + S[e]); });
+    order.forEach(function (e, j) { out.push({ P: [[X[j], 0], [X[j + 1], 0], [X[j + 1], H], [X[j], H]], fill: '#efeafb', w: 2 }); });
+    function place(j, top) {
+      var e = order[j], a = P[e], b = P[(e + 1) % n], ang = -Math.atan2(b[1] - a[1], b[0] - a[0]), c = Math.cos(ang), s = Math.sin(ang);
+      return { P: P.map(function (q) { var x = q[0] - a[0], y = q[1] - a[1], rx = x * c - y * s, ry = x * s + y * c; return top ? [X[j] + rx, H + ry] : [X[j] + rx, -ry]; }), fill: '#f6d9a8', w: 2 };
+    }
+    (o.tops === undefined ? [0] : o.tops).forEach(function (j) { out.push(place(j, true)); });
+    (o.bots === undefined ? [0] : o.bots).forEach(function (j) { out.push(place(j, false)); });
+    return { polys: out, X: X, S: S, order: order };
+  }
+  function netSvg(P, H, o) {
+    o = o || {}; var N = netShapes(P, H, o), segs = [], texts = [];
+    if (o.labels) N.order.forEach(function (e, j) { if (o.labels[e]) texts.push({ p: [(N.X[j] + N.X[j + 1]) / 2, H / 2], t: o.labels[e], size: 11, col: '#1c1830' }); });
+    if (o.hl) segs.push({ a: [N.X[N.X.length - 1], 0], b: [N.X[N.X.length - 1], H], t: o.hl, line: false, side: 1 });
+    return fig({ polys: N.polys, segs: segs, texts: texts, label: o.label || 'Netz eines Prismas', W: o.W || 340, maxH: o.maxH || 240 });
+  }
+  function u(x, e) { return f(x) + ' ' + (e || 'cm'); }
+  function numIn(ans, label, unit, tol) { return { kind: 'num', answer: r3(ans), label: label, unit: unit, tol: tol }; }
+  var HG = 'h<sub>G</sub>';
+  /* Grundflächen mit glatten Maßen (rechtwinklige Zahlentripel) */
+  function base(type, k, c0) {
+    if (type === 'iso') return { P: [[0, 0], [6 * k, 0], [3 * k, 4 * k]], name: 'gleichschenkliges Dreieck', g: 6 * k, hg: 4 * k, s: [6 * k, 5 * k, 5 * k], G: 12 * k * k, foot: [[3 * k, 4 * k], [3 * k, 0]] };
+    if (type === 'right') return { P: [[0, 0], [4 * k, 0], [0, 3 * k]], name: 'rechtwinkliges Dreieck', g: 4 * k, hg: 3 * k, s: [4 * k, 5 * k, 3 * k], G: 6 * k * k };
+    if (type === 'trap') { var c = c0 || 2 * k, a = c + 6 * k; return { P: [[0, 0], [a, 0], [a - 3 * k, 4 * k], [3 * k, 4 * k]], name: 'gleichschenkliges Trapez', a: a, c: c, hg: 4 * k, s: [a, 5 * k, c, 5 * k], G: (a + c) / 2 * 4 * k, foot: [[3 * k, 4 * k], [3 * k, 0]] }; }
+    var A = k, B = c0; return { P: [[0, 0], [A, 0], [A, B], [0, B]], name: 'Rechteck', s: [A, B, A, B], G: A * B };
+  }
+  function regular(n, R) { var P = []; for (var i = 0; i < n; i++) { var w = -Math.PI / 2 - Math.PI / n + 2 * Math.PI * i / n; P.push([R * Math.cos(w), R * Math.sin(w)]); } return P; }
+  function sum(a) { return a.reduce(function (x, y) { return x + y; }, 0); }
+  function labs(b, e) { return b.s.map(function (x, i) { return { i: i, t: u(x, e) }; }); }
+  function prismPic(b, H, e, extra) {
+    var segs = []; if (b.foot) segs.push({ a: b.foot[0], b: b.foot[1], t: u(b.hg, e), dash: true, side: -1, at: 0.55 });
+    var L = labs(b, e); if (b.name === 'Rechteck') L = [L[0], L[3]];
+    if (b.name === 'gleichschenkliges Trapez') L[2].side = -1;
+    if (b.name === 'gleichschenkliges Dreieck' || b.name === 'gleichschenkliges Trapez') L = L.filter(function (l) { return l.i !== (b.name === 'gleichschenkliges Trapez' ? 1 : 1); });
+    return prismSvg(b.P, H, { labels: L, hl: u(H, e), segs: segs, front: extra && extra.front });
+  }
+  /* Würfelnetze: Falten simulieren */
+  function folds(cells) {
+    var key = function (c) { return c[0] + ',' + c[1]; }, set = {}; cells.forEach(function (c) { set[key(c)] = 1; });
+    var st = {}, q = [cells[0]]; st[key(cells[0])] = { n: [0, 0, -1], u: [1, 0, 0], v: [0, 1, 0] };
+    function neg(a) { return [-a[0], -a[1], -a[2]]; }
+    while (q.length) {
+      var c = q.shift(), s = st[key(c)];
+      [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(function (dd) {
+        var nb = [c[0] + dd[0], c[1] + dd[1]], k = key(nb); if (!set[k] || st[k]) return;
+        var t = dd[0] === 1 ? { n: s.u, u: neg(s.n), v: s.v } : dd[0] === -1 ? { n: neg(s.u), u: s.n, v: s.v } : dd[1] === 1 ? { n: s.v, u: s.u, v: neg(s.n) } : { n: neg(s.v), u: s.u, v: s.n };
+        st[k] = t; q.push(nb);
+      });
+    }
+    var ns = {}; Object.keys(st).forEach(function (k) { ns[st[k].n.join()] = 1; });
+    return Object.keys(st).length === 6 && Object.keys(ns).length === 6;
+  }
+  function cubeNet(ok) {
+    for (var t = 0; t < 100; t++) {
+      var c, r = Math.random();
+      if (ok) { if (r < 0.6) c = [[0, 1], [1, 1], [2, 1], [3, 1], [M.rnd(0, 3), 0], [M.rnd(0, 3), 2]]; else if (r < 0.8) c = [[0, 0], [1, 0], [2, 0], [2, 1], [3, 1], [4, 1]]; else c = [[0, 0], [1, 0], [1, 1], [2, 1], [2, 2], [3, 2]]; }
+      else { if (r < 0.45) { var a = M.rnd(0, 3), b; do { b = M.rnd(0, 3); } while (b === a); c = [[0, 1], [1, 1], [2, 1], [3, 1], [a, 0], [b, 0]]; } else if (r < 0.65) c = [[0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1]]; else if (r < 0.85) c = [[0, 1], [1, 1], [2, 1], [3, 1], [4, 1], [M.rnd(0, 4), M.pick([0, 2])]]; else c = [[0, 0], [1, 0], [1, 1], [2, 1], [3, 1], [3, 0]]; }
+      if (Math.random() < 0.5) c = c.map(function (p) { return [p[0], 2 - p[1]]; });
+      if (folds(c) === ok) return c;
+    }
+    return null;
+  }
+  function cubeSvg(c) { return fig({ polys: c.map(function (p) { return { P: [[p[0], p[1]], [p[0] + 1, p[1]], [p[0] + 1, p[1] + 1], [p[0], p[1] + 1]], fill: '#efeafb', w: 2 }; }), box: [-0.2, 5.2, -0.2, 3.2], W: 230, maxH: 150, margin: 8, label: 'Netz aus sechs Quadraten' }); }
+  var LET = ['A', 'B', 'C', 'D'];
+
+  var gen = {
+    erkennen: function (lvl) {
+      var kind = M.pick(['Dreieck', 'Rechteck', 'Trapez', 'Fünfeck', 'Sechseck']), P, n;
+      if (kind === 'Dreieck') P = base(M.pick(['iso', 'right']), 1).P; else if (kind === 'Rechteck') P = base('rect', M.rnd(3, 6), M.rnd(2, 4)).P; else if (kind === 'Trapez') P = base('trap', 1).P; else P = regular(kind === 'Fünfeck' ? 5 : 6, 3);
+      n = P.length; var H = M.rnd(5, 9);
+      var opts = ['Dreieck', 'Rechteck', 'Trapez', 'Fünfeck', 'Sechseck'];
+      return { skill: 'Prisma erkennen', q: 'Das Bild zeigt ein Prisma. Die vordere Fläche (orange) ist eine Grundfläche.<br>a) Welche Form hat die Grundfläche?<br>b) Aus wie vielen Rechtecken besteht der Mantel?' + prismSvg(P, H, { front: '#f6d9a8' }),
+        inputs: [{ kind: 'mc', label: 'a) Form der Grundfläche', options: opts, answer: opts.indexOf(kind) }, { kind: 'num', answer: n, label: 'b) Rechtecke im Mantel' }],
+        hints: ['Zähle die Ecken der orangen Fläche.', 'Jede Seite der Grundfläche gehört zu genau einem Rechteck des Mantels.', 'Die Grundfläche hat ' + n + ' Seiten, also hat der Mantel ' + n + ' Rechtecke.'],
+        solution: 'a) Die Grundfläche ist ein ' + kind + '. b) Zu jeder der ' + n + ' Seiten gehört ein Rechteck. Der Mantel besteht aus ' + n + ' Rechtecken.',
+        mistakes: function (v) { var x = M.parseNum(v[1]); if (x === n + 2) return 'Grund- und Deckfläche gehören nicht zum Mantel. Zähle nur die Rechtecke an der Seite.'; return null; },
+        verify: function () { return opts.indexOf(kind) >= 0 && P.length === [3, 4, 4, 5, 6][opts.indexOf(kind)] || 'Ecken passen nicht'; } };
+    },
+    teile: function (lvl) {
+      var n = lvl >= 2 ? M.rnd(3, 8) : M.pick([3, 4]), names = { 3: 'dreieckige', 4: 'viereckige', 5: 'fünfeckige', 6: 'sechseckige', 7: 'siebeneckige', 8: 'achteckige' };
+      var pic = n <= 7 ? prismSvg(regular(n, 3), 7, {}) : '';
+      return { skill: 'Flächen, Kanten, Ecken', q: 'Ein Prisma hat eine ' + names[n] + ' Grundfläche. Wie viele Flächen, Kanten und Ecken hat es?' + pic,
+        inputs: [{ kind: 'num', answer: n + 2, label: 'Flächen' }, { kind: 'num', answer: 3 * n, label: 'Kanten' }, { kind: 'num', answer: 2 * n, label: 'Ecken' }],
+        hints: ['Flächen: Grundfläche, Deckfläche und für jede Seite der Grundfläche ein Rechteck.', 'Kanten: ' + n + ' Kanten an der Grundfläche, ' + n + ' an der Deckfläche und ' + n + ' Kanten dazwischen.', 'Ecken: ' + n + ' unten und ' + n + ' oben.'],
+        solution: 'Flächen: 2 + ' + n + ' = ' + (n + 2) + '. Kanten: 3 · ' + n + ' = ' + 3 * n + '. Ecken: 2 · ' + n + ' = ' + 2 * n + '. Kontrolle (Eulerscher Polyedersatz): Ecken + Flächen − Kanten = ' + 2 * n + ' + ' + (n + 2) + ' − ' + 3 * n + ' = 2.',
+        mistakes: function (v) { var a = M.parseNum(v[0]), b = M.parseNum(v[1]); if (a === n) return 'Du hast Grund- und Deckfläche vergessen.'; if (b === 2 * n) return 'Vergiss die Kanten nicht, die Grund- und Deckfläche verbinden.'; return null; },
+        verify: function () { return (2 * n) + (n + 2) - 3 * n === 2 || 'Euler'; } };
+    },
+    netz: function (lvl) {
+      var cube = lvl <= 1 || Math.random() < 0.35, opts = [], ok;
+      if (cube) {
+        var good = cubeNet(true), bad = [], keys = {};
+        keys[JSON.stringify(good)] = 1;
+        while (bad.length < 3) { var b = cubeNet(false); if (!keys[JSON.stringify(b)]) { keys[JSON.stringify(b)] = 1; bad.push(b); } }
+        var all = M.shuffle([[good, true]].concat(bad.map(function (x) { return [x, false]; })));
+        opts = all.map(function (x, i) { return '<b>' + LET[i] + '</b>' + cubeSvg(x[0]); }); ok = all.findIndex(function (x) { return x[1]; });
+        return { skill: 'Netze erkennen', q: 'Welches Netz lässt sich zu einem <b>Würfel</b> falten?', inputs: [{ kind: 'mc', label: 'Richtiges Netz', options: opts, answer: ok }],
+          hints: ['Stell dir vor, ein Quadrat ist der Boden. Klappe die anderen in Gedanken hoch.', 'Zwei Quadrate dürfen beim Falten nicht auf derselben Würfelseite landen. Achte auf Quadrate, die beide an dieselbe Seite eines Viererstreifens grenzen.', 'Ein 2-mal-3-Block lässt sich nie zu einem Würfel falten.'],
+          solution: 'Richtig ist Netz ' + LET[ok] + '. Nur dort landet jedes der sechs Quadrate auf einer anderen Würfelseite.',
+          verify: function () { return all.every(function (x) { return folds(x[0]) === x[1]; }) || 'Faltprüfung'; } };
+      }
+      var b0 = base(M.pick(['iso', 'right']), 1), H = 6, i = M.rnd(0, 2), j = M.rnd(0, 2), k2 = (i + 1 + M.rnd(0, 1)) % 3;
+      var cands = [[{ tops: [i], bots: [j] }, true], [{ tops: [0, 2], bots: [] }, false], [{ order: [0, 1], tops: [0], bots: [1] }, false], [{ order: [0, 1, 2, 0], tops: [1], bots: [2] }, false]];
+      var all2 = M.shuffle(cands);
+      opts = all2.map(function (x, m) { return '<b>' + LET[m] + '</b>' + netSvg(b0.P, H, Object.assign({ W: 260, maxH: 170 }, x[0])); }); ok = all2.findIndex(function (x) { return x[1]; });
+      return { skill: 'Netze erkennen', q: 'Welches ist ein Netz eines <b>dreiseitigen Prismas</b> (Dreiecksprisma)?' + prismSvg(b0.P, H, {}), inputs: [{ kind: 'mc', label: 'Richtiges Netz', options: opts, answer: ok }],
+        hints: ['Ein Dreiecksprisma hat zwei Dreiecke (Grund- und Deckfläche) und drei Rechtecke (Mantel).', 'Zähle in jedem Netz die Rechtecke und die Dreiecke.', 'Beim Falten muss ein Dreieck oben und eines unten landen.'],
+        solution: 'Richtig ist Netz ' + LET[ok] + ': drei Rechtecke, ein Dreieck oben und eines unten. Bei den anderen Netzen fehlt ein Rechteck, es ist eines zu viel, oder beide Dreiecke landen auf derselben Seite.',
+        verify: function () { return all2.every(function (x) { var o = x[0], good = (!o.order || o.order.length === 3) && o.tops.length === 1 && o.bots.length === 1; return good === x[1]; }) || 'Netzprüfung'; } };
+    },
+    mantel: function (lvl) {
+      var t = M.pick(lvl >= 2 ? ['iso', 'right', 'trap'] : ['iso', 'right']), k = M.pick(lvl >= 2 ? [1, 1.5, 2] : [1, 2]), b = base(t, k, M.pick([2, 3, 4])), H = M.rnd(5, 15), uu = r3(sum(b.s)), Mm = r3(uu * H);
+      return { skill: 'Mantelfläche M = u · h', q: 'Berechne die Mantelfläche des Prismas. Die Grundfläche ist ein ' + b.name + ', das Prisma ist ' + u(H) + ' lang (Körperhöhe h).' + prismPic(b, H) + '<p class="note">Gleich lange Seiten sind nur einmal beschriftet.</p>', inputs: [numIn(Mm, 'M =', 'cm²')],
+        hints: ['Der Mantel besteht aus Rechtecken. Zusammen bilden sie ein großes Rechteck: Länge = Umfang u der Grundfläche, Breite = h.', 'u = ' + b.s.map(function (x) { return f(x); }).join(' + ') + ' = ' + f(uu) + ' cm.', 'M = u · h = ' + f(uu) + ' cm · ' + H + ' cm.'],
+        solution: 'u = ' + b.s.map(function (x) { return f(x); }).join(' cm + ') + ' cm = ' + f(uu) + ' cm. M = u · h = ' + f(uu) + ' cm · ' + H + ' cm = ' + f(Mm) + ' cm².' + netSvg(b.P, H, { labels: b.s.map(function (x) { return f(x); }), hl: u(H) }),
+        mistakes: function (v) { var x = M.parseNum(v[0]); if (x === null) return null; if (Math.abs(x - (Mm + 2 * b.G)) < 1e-6) return 'Das ist schon die ganze Oberfläche. Der Mantel ist nur der Teil ohne Grund- und Deckfläche.'; if (b.s.some(function (s) { return Math.abs(x - (uu - s) * H) < 1e-6; })) return 'Eine Seite fehlt. Der Umfang ist die Summe <b>aller</b> Seiten der Grundfläche.'; return null; },
+        verify: function () { var s = 0; netShapes(b.P, H, { tops: [], bots: [] }).polys.forEach(function (p) { s += gauss(p.P); }); return Math.abs(s - Mm) < 1e-6 || 'Netzfläche ' + s; } };
+    },
+    quader: function (lvl) {
+      var a = M.rnd(3, 12), b = M.rnd(2, 8), c = M.rnd(2, 10); if (lvl >= 3) { a += 0.5; c += 0.5; }
+      var O = r3(2 * (a * b + a * c + b * c)), P = base('rect', a, b).P;
+      return { skill: 'Oberfläche des Quaders', q: 'Ein Quader ist ' + u(a) + ' lang, ' + u(b) + ' hoch und ' + u(c) + ' tief. Berechne seine Oberfläche.' + prismSvg(P, c, { labels: [{ i: 0, t: u(a) }, { i: 3, t: u(b) }], hl: u(c) }), inputs: [numIn(O, 'O =', 'cm²')],
+        hints: ['Ein Quader hat sechs Rechtecke. Je zwei gegenüberliegende sind gleich groß.', 'Vorne/hinten: ' + f(a) + ' · ' + f(b) + ' = ' + f(r3(a * b)) + '. Oben/unten: ' + f(a) + ' · ' + f(c) + ' = ' + f(r3(a * c)) + '. Links/rechts: ' + f(b) + ' · ' + f(c) + ' = ' + f(r3(b * c)) + '.', 'O = 2 · (' + f(r3(a * b)) + ' + ' + f(r3(a * c)) + ' + ' + f(r3(b * c)) + ').'],
+        solution: 'O = 2 · (' + f(a) + ' · ' + f(b) + ' + ' + f(a) + ' · ' + f(c) + ' + ' + f(b) + ' · ' + f(c) + ') = 2 · ' + f(r3(a * b + a * c + b * c)) + ' cm² = ' + f(O) + ' cm². Auch als Prisma: O = 2 · G + u · h = 2 · ' + f(r3(a * b)) + ' + ' + f(2 * (a + b)) + ' · ' + f(c) + ' = ' + f(O) + ' cm².',
+        mistakes: function (v) { var x = M.parseNum(v[0]); if (x === null) return null; if (Math.abs(x - O / 2) < 1e-6) return 'Jedes Rechteck kommt zweimal vor (gegenüberliegende Flächen). Verdopple.'; if (Math.abs(x - a * b * c) < 1e-6) return 'Das ist das Volumen. Gesucht ist die Oberfläche, also die Summe aller Flächen.'; return null; },
+        verify: function () { var s = 0; netShapes(P, c, {}).polys.forEach(function (p) { s += gauss(p.P); }); return Math.abs(s - O) < 1e-6 || 'Netz ' + s; } };
+    },
+    dreieck_o: function (lvl) {
+      var t = M.pick(['iso', 'right']), k = M.pick(lvl >= 2 ? [1, 1.5, 2, 2.5] : [1, 2]), b = base(t, k), H = M.rnd(6, 20), G = r3(b.G), uu = r3(sum(b.s)), Mm = r3(uu * H), O = r3(2 * G + Mm);
+      return { skill: 'Oberfläche Dreiecksprisma', q: 'Berechne Grundfläche, Mantelfläche und Oberfläche des Dreiecksprismas (Maße in cm).' + prismPic(b, H),
+        inputs: [numIn(G, 'G =', 'cm²'), numIn(Mm, 'M =', 'cm²'), numIn(O, 'O =', 'cm²')],
+        hints: ['Grundfläche: G = g · ' + HG + ' : 2 = ' + f(b.g) + ' · ' + f(b.hg) + ' : 2.' + (t === 'right' ? ' Im rechtwinkligen Dreieck sind die beiden Katheten Grundseite und Höhe.' : ''), 'Mantel: u = ' + b.s.map(function (x) { return f(x); }).join(' + ') + ' = ' + f(uu) + ' cm, M = u · h = ' + f(uu) + ' · ' + H + '.', 'O = 2 · G + M.'],
+        solution: 'G = ' + f(b.g) + ' cm · ' + f(b.hg) + ' cm : 2 = ' + f(G) + ' cm². M = ' + f(uu) + ' cm · ' + H + ' cm = ' + f(Mm) + ' cm². O = 2 · ' + f(G) + ' cm² + ' + f(Mm) + ' cm² = ' + f(O) + ' cm².',
+        mistakes: function (v) { var g = M.parseNum(v[0]), o = M.parseNum(v[2]); if (g !== null && Math.abs(g - 2 * G) < 1e-6) return 'Die Grundfläche ist ein Dreieck: Teile g · ' + HG + ' durch 2.'; if (o !== null && Math.abs(o - (G + Mm)) < 1e-6) return 'Ein Prisma hat <b>zwei</b> Dreiecke: Grund- und Deckfläche. O = 2 · G + M.'; return null; },
+        verify: function () { var s = 0; netShapes(b.P, H, {}).polys.forEach(function (p) { s += gauss(p.P); }); return Math.abs(s - O) < 1e-6 && Math.abs(gauss(b.P) - G) < 1e-6 || 'Netz ' + s; } };
+    },
+    trapez_o: function (lvl) {
+      var k = M.pick([1, 2]), c = M.pick([2, 3, 4, 5]) * k / (k === 2 ? 2 : 1), b = base('trap', k, c), H = M.rnd(5, 15), G = r3(b.G), uu = r3(sum(b.s)), Mm = r3(uu * H), O = r3(2 * G + Mm);
+      return { skill: 'Oberfläche Trapezprisma', q: 'Die Grundfläche des Prismas ist ein gleichschenkliges Trapez (a = ' + u(b.a) + ', c = ' + u(b.c) + ', Schenkel ' + u(5 * k) + ', Höhe ' + u(4 * k) + '). Das Prisma ist ' + u(H) + ' lang. Berechne G, M und O.' + prismPic(b, H),
+        inputs: [numIn(G, 'G =', 'cm²'), numIn(Mm, 'M =', 'cm²'), numIn(O, 'O =', 'cm²')],
+        hints: ['G = (a + c) : 2 · ' + HG + ' = (' + f(b.a) + ' + ' + f(b.c) + ') : 2 · ' + f(4 * k) + '.', 'u = ' + f(b.a) + ' + ' + f(b.c) + ' + 2 · ' + f(5 * k) + ' = ' + f(uu) + ' cm. M = u · h.', 'O = 2 · G + M = 2 · ' + f(G) + ' + ' + f(Mm) + '.'],
+        solution: 'G = (' + f(b.a) + ' cm + ' + f(b.c) + ' cm) : 2 · ' + f(4 * k) + ' cm = ' + f(G) + ' cm². M = ' + f(uu) + ' cm · ' + H + ' cm = ' + f(Mm) + ' cm². O = 2 · ' + f(G) + ' cm² + ' + f(Mm) + ' cm² = ' + f(O) + ' cm².',
+        mistakes: function (v) { var m = M.parseNum(v[1]); if (m !== null && Math.abs(m - (b.a + b.c + 5 * k) * H) < 1e-6) return 'Das Trapez hat zwei Schenkel. Beide gehören zum Umfang.'; return null; },
+        verify: function () { var s = 0; netShapes(b.P, H, {}).polys.forEach(function (p) { s += gauss(p.P); }); return Math.abs(s - O) < 1e-6 || 'Netz ' + s; } };
+    },
+    zelt: function (lvl) {
+      var k = M.pick([0.3, 0.4, 0.5]), b = base('iso', k), L = M.pick([2, 2.2, 2.5]), G = r3(b.G), roof = r3(2 * 5 * k * L), floor = r3(6 * k * L), noFloor = lvl >= 3 && Math.random() < 0.5, O = r3(2 * G + roof + (noFloor ? 0 : floor));
+      return { skill: 'Sachaufgabe Zelt', q: 'Ein Zelt hat die Form eines Dreiecksprismas: Die Giebelseiten sind gleichschenklige Dreiecke (Breite ' + u(6 * k, 'm') + ', Höhe ' + u(4 * k, 'm') + ', Dachkante ' + u(5 * k, 'm') + '). Das Zelt ist ' + u(L, 'm') + ' lang. Wie viel m² Stoff braucht man für das Zelt ' + (noFloor ? '<b>ohne</b> Boden' : '<b>mit</b> Boden') + '?' + prismPic(b, L, 'm'),
+        inputs: [numIn(O, 'Stoff', 'm²', 0.0005)],
+        hints: ['Zwei Giebeldreiecke: je ' + f(6 * k) + ' m · ' + f(4 * k) + ' m : 2 = ' + f(G) + ' m².', 'Zwei Dachflächen: je ' + f(5 * k) + ' m · ' + f(L) + ' m.' + (noFloor ? ' Der Boden wird nicht gebraucht.' : ' Boden: ' + f(6 * k) + ' m · ' + f(L) + ' m.'), 'Addiere alle Teile.'],
+        solution: 'Giebel: 2 · ' + f(G) + ' m² = ' + f(r3(2 * G)) + ' m². Dach: 2 · ' + f(5 * k) + ' m · ' + f(L) + ' m = ' + f(roof) + ' m².' + (noFloor ? '' : ' Boden: ' + f(6 * k) + ' m · ' + f(L) + ' m = ' + f(floor) + ' m².') + ' Zusammen: ' + f(O) + ' m².',
+        mistakes: function (v) { var x = M.parseNum(v[0]); if (x === null) return null; if (!noFloor && Math.abs(x - (O - floor)) < 1e-6) return 'Der Boden fehlt noch.'; if (noFloor && Math.abs(x - (O + floor)) < 1e-6) return 'Das Zelt hat keinen Boden. Ziehe ihn ab.'; if (Math.abs(x - (O + 2 * G)) < 1e-6) return 'Die Giebeldreiecke sind nur halb so groß wie Breite mal Höhe.'; return null; },
+        verify: function () { var s = 0; netShapes(b.P, L, {}).polys.forEach(function (p) { s += gauss(p.P); }); return Math.abs(s - (noFloor ? O + floor : O)) < 1e-6 || 'Netz ' + s; } };
+    },
+    verpackung: function (lvl) {
+      var tri = Math.random() < 0.5, b, H, O, txt;
+      if (tri) { b = base('iso', 1); H = M.pick([18, 20, 22, 25]); O = 2 * b.G + sum(b.s) * H; txt = 'Eine Schokoladenverpackung ist ein Dreiecksprisma. Die Dreiecke sind 6 cm breit und 4 cm hoch, die schrägen Seiten 5 cm lang. Die Verpackung ist ' + H + ' cm lang.'; }
+      else { var a = M.rnd(10, 25), c = M.rnd(5, 15); b = base('rect', a, M.rnd(3, 10)); H = c; O = 2 * b.G + sum(b.s) * H; txt = 'Eine Schachtel ist ein Quader: ' + b.s[0] + ' cm lang, ' + b.s[1] + ' cm hoch und ' + H + ' cm tief.'; }
+      var P10 = r3(O * 1.1);
+      return { skill: 'Sachaufgabe Verpackung', q: txt + ' Für Klebelaschen und Verschnitt braucht man 10 % mehr Pappe als die Oberfläche.<br>a) Wie groß ist die Oberfläche?<br>b) Wie viel cm² Pappe braucht man?' + prismPic(b, H),
+        inputs: [numIn(O, 'a) O =', 'cm²'), numIn(P10, 'b) Pappe', 'cm²', 0.05)],
+        hints: ['O = 2 · G + u · h. ' + (tri ? 'G = 6 · 4 : 2 = 12 cm², u = 6 + 5 + 5 = 16 cm.' : 'G = ' + b.s[0] + ' · ' + b.s[1] + ' = ' + b.G + ' cm², u = ' + sum(b.s) + ' cm.'), 'O = 2 · ' + b.G + ' + ' + sum(b.s) + ' · ' + H + ' = ' + O + ' cm².', '10 % mehr: O · 1,1 = ' + O + ' · 1,1.'],
+        solution: 'a) O = 2 · ' + b.G + ' cm² + ' + sum(b.s) + ' cm · ' + H + ' cm = ' + O + ' cm². b) ' + O + ' cm² · 1,1 = ' + f(P10) + ' cm².',
+        mistakes: function (v) { var y = M.parseNum(v[1]); if (y !== null && Math.abs(y - (O + 10)) < 1e-6) return '10 % sind ein Zehntel der Oberfläche, nicht 10 cm².'; return null; },
+        verify: function () { var s = 0; netShapes(b.P, H, {}).polys.forEach(function (p) { s += gauss(p.P); }); return Math.abs(s - O) < 1e-6 || 'Netz ' + s; } };
+    },
+    hoehe: function () {
+      var tri = Math.random() < 0.5, b = tri ? base(M.pick(['iso', 'right']), M.pick([1, 2])) : base('rect', M.rnd(3, 8), M.rnd(2, 6)), H = M.rnd(4, 15), uu = sum(b.s), O = r3(2 * b.G + uu * H);
+      return { skill: 'Körperhöhe aus der Oberfläche', level: 3, q: 'Ein Prisma hat eine Oberfläche von ' + f(O) + ' cm². Seine Grundfläche ist ' + (tri ? 'ein ' + b.name + ' mit den Seiten ' + b.s.map(function (x) { return f(x); }).join(' cm, ') + ' cm' + (b.name === 'gleichschenkliges Dreieck' ? ' und der Höhe ' + u(b.hg) + ' zur Grundseite ' + u(b.g) : ' (der rechte Winkel liegt zwischen den Seiten ' + f(b.s[0]) + ' cm und ' + f(b.s[2]) + ' cm)') : 'ein Rechteck mit ' + b.s[0] + ' cm und ' + b.s[1] + ' cm') + '. Wie lang ist das Prisma (Körperhöhe h)?',
+        inputs: [numIn(H, 'h =', 'cm')],
+        hints: ['Berechne zuerst G und u: G = ' + f(b.G) + ' cm², u = ' + f(uu) + ' cm.', 'O = 2 · G + u · h, also ' + f(O) + ' = ' + f(2 * b.G) + ' + ' + f(uu) + ' · h.', 'u · h = ' + f(O) + ' − ' + f(2 * b.G) + ' = ' + f(r3(O - 2 * b.G)) + '. Teile durch ' + f(uu) + '.'],
+        solution: 'G = ' + f(b.G) + ' cm², u = ' + f(uu) + ' cm. M = O − 2 · G = ' + f(O) + ' − ' + f(2 * b.G) + ' = ' + f(r3(O - 2 * b.G)) + ' cm². h = M : u = ' + f(r3(O - 2 * b.G)) + ' : ' + f(uu) + ' = ' + H + ' cm.',
+        mistakes: function (v) { var x = M.parseNum(v[0]); if (x !== null && Math.abs(x - (O - b.G) / uu) < 1e-6) return 'Ziehe beide Grundflächen ab: 2 · G.'; if (x !== null && Math.abs(x - O / uu) < 1e-6) return 'Ziehe zuerst die beiden Grundflächen von der Oberfläche ab. Nur der Mantel ist u · h.'; return null; },
+        verify: function () { var s = 0; netShapes(b.P, H, {}).polys.forEach(function (p) { s += gauss(p.P); }); return Math.abs(s - O) < 1e-6 || 'Netz ' + s; } };
+    }
+  };
+
+  var EXB = base('iso', 1);
+  return {
+    id: '025', title: 'Prismen: Netz und Oberfläche', bereich: 'Raum und Form', minutes: '45 bis 60',
+    vorkenntnisse: 'Flächeninhalt von Rechteck, Dreieck und Trapez, Würfel und Quader',
+    lead: 'Wie viel Pappe steckt in einer Schokoladenverpackung? Du lernst Prismen und ihre Netze kennen und berechnest Mantel und Oberfläche.',
+    einstieg: { html: '<p>Eine dreieckige Schokoladenverpackung, ein Zelt, ein Holzbalken, ein Bleistift mit sechs Kanten: Alle diese Körper haben etwas gemeinsam. Oben und unten (oder vorne und hinten) sitzt dieselbe Fläche, dazwischen nur Rechtecke.</p><p class="note">Schneide eine leere Verpackung an den Kanten auf und klappe sie flach auseinander. Welche Flächen entdeckst du? Wie viel Pappe wurde verbraucht?</p><p>Solche Körper heißen <b>Prismen</b>. Die aufgeklappte Form ist ihr <b>Netz</b>. Mit dem Netz berechnest du die <b>Oberfläche</b>.</p>' },
+    ziele: ['Ich erkenne Prismen und benenne Grundfläche, Deckfläche, Mantel und Körperhöhe.', 'Ich zähle Flächen, Kanten und Ecken eines Prismas.', 'Ich entscheide, ob ein Netz zu einem Prisma oder Würfel gehört.', 'Ich berechne die Mantelfläche mit M = u · h und die Oberfläche mit O = 2 · G + M.', 'Ich löse Sachaufgaben zu Zelten und Verpackungen.'],
+    fachwoerter: [['Prisma', 'Ein Körper mit zwei gleichen, parallelen Vielecken als Grund- und Deckfläche. Die Seitenflächen sind Rechtecke.'], ['Grundfläche G', 'Eine der beiden gleichen Vielecksflächen. Sie gibt dem Prisma den Namen, zum Beispiel Dreiecksprisma.'], ['Mantel M', 'Alle Rechtecke zwischen Grund- und Deckfläche zusammen.'], ['Körperhöhe h', 'Der Abstand zwischen Grund- und Deckfläche. Liegt das Prisma, ist es seine Länge.'], ['Netz', 'Der aufgeklappte Körper: alle Flächen hängen zusammen und liegen flach in der Ebene.']],
+    diagnose: [
+      { q: 'Ein Dreieck hat die Grundseite 8 cm und die Höhe 5 cm. Wie groß ist es?', options: ['40 cm²', '20 cm²', '13 cm²', 'Weiß ich noch nicht'], answer: 1, why: '8 cm · 5 cm : 2 = 20 cm².', review: 'Flächeninhalt des Dreiecks (Modul 023)' },
+      { q: 'Wie groß ist der Umfang eines Dreiecks mit den Seiten 3 cm, 4 cm und 5 cm?', options: ['12 cm', '6 cm', '60 cm', 'Weiß ich noch nicht'], answer: 0, why: '3 + 4 + 5 = 12 cm.', review: 'Umfang von Vielecken' },
+      { q: 'Wie viele Flächen hat ein Würfel?', options: ['4', '8', '6', 'Weiß ich noch nicht'], answer: 2, why: 'Oben, unten, vorne, hinten, links, rechts: 6 Quadrate.', review: 'Würfel und Quader (Klasse 5/6)' },
+      { q: 'Ein Trapez hat die parallelen Seiten 7 cm und 3 cm und die Höhe 4 cm. Wie groß ist es?', options: ['84 cm²', '40 cm²', '20 cm²', 'Weiß ich noch nicht'], answer: 2, why: '(7 + 3) : 2 · 4 = 20 cm².', review: 'Flächeninhalt des Trapezes (Modul 023)' }],
+    erklaerung:
+      '<h3>1. Was ist ein Prisma?</h3><p>Ein Prisma hat zwei gleiche Vielecke, die <b>Grundfläche</b> und die <b>Deckfläche</b>. Sie liegen parallel zueinander. Dazwischen liegen Rechtecke, zusammen heißen sie <b>Mantel</b>. Der Abstand zwischen Grund- und Deckfläche ist die <b>Körperhöhe h</b>. Ein Quader ist ein Prisma mit rechteckiger Grundfläche.</p>' +
+      '<p>Im Schrägbild zeichnest du die Grundfläche vorne in wahrer Größe. Die nach hinten laufenden Kanten zeichnest du schräg (45°) und nur halb so lang. Verdeckte Kanten sind gestrichelt.</p>' + prismSvg(EXB.P, 8, { front: '#f6d9a8', labels: [{ i: 0, t: 'g' }], hl: 'h', label: 'Dreiecksprisma im Schrägbild' }) +
+      '<h3>2. Das Netz</h3><p>Klappst du das Prisma auf, liegen die Rechtecke des Mantels nebeneinander. Zusammen bilden sie ein großes Rechteck: Seine Länge ist der <b>Umfang u</b> der Grundfläche, seine Breite ist die Körperhöhe h. Grund- und Deckfläche hängen oben und unten daran.</p>' + netSvg(EXB.P, 8, { labels: ['6', '5', '5'], hl: 'h', label: 'Netz eines Dreiecksprismas' }) +
+      '<div class="merk"><b>Merke:</b> Mantelfläche: <span class="big-math">M = u · h</span><br>Oberfläche: <span class="big-math">O = 2 · G + M</span><br>G ist die Grundfläche, u ihr Umfang, h die Körperhöhe.</div>' +
+      '<h3>3. Flächen, Kanten, Ecken</h3><p>Hat die Grundfläche n Ecken, dann hat das Prisma <b>n + 2</b> Flächen, <b>3 · n</b> Kanten und <b>2 · n</b> Ecken.</p>' +
+      '<h3>4. Beispiel</h3><p>Grundfläche: Dreieck mit g = 6 cm, ' + HG + ' = 4 cm und den Seiten 6 cm, 5 cm, 5 cm. Körperhöhe h = 8 cm.<br>G = 6 · 4 : 2 = 12 cm². u = 6 + 5 + 5 = 16 cm. M = 16 · 8 = 128 cm². O = 2 · 12 + 128 = 152 cm².</p>' +
+      '<p class="note"><b>Achtung:</b> Verwechsle nicht die Höhe der Grundfläche (' + HG + ', im Dreieck) mit der Körperhöhe h (Länge des Prismas).</p>',
+    entdecken: {
+      html: '<p>Wähle eine Grundfläche und verändere Größe und Körperhöhe. Schrägbild, Netz und Rechnung passen sich an.</p><div class="ctl"><label>Grundfläche <select id="e_b"><option value="right">rechtwinkliges Dreieck</option><option value="rect">Rechteck</option><option value="trap">Trapez</option></select></label></div>' +
+        '<div class="ctl"><label>Größe k = <b id="v_k"></b> <input type="range" id="r_k" min="0.5" max="2.5" step="0.5" value="1"></label><label>Körperhöhe h = <b id="v_h"></b> <input type="range" id="r_h" min="2" max="12" step="1" value="6"></label></div>' +
+        '<div style="display:flex;flex-wrap:wrap;gap:8px 20px;align-items:flex-start"><div id="e_p" style="flex:1 1 260px"></div><div id="e_n" style="flex:1 1 260px"></div></div><div id="e_t"></div>',
+      init: function (root, done) {
+        var n = 0;
+        function draw() {
+          var t = root.querySelector('#e_b').value, k = +root.querySelector('#r_k').value, h = +root.querySelector('#r_h').value;
+          var b = t === 'rect' ? base('rect', 4 * k, 2 * k) : t === 'trap' ? base('trap', k, 2 * k) : base('right', k);
+          root.querySelector('#v_k').textContent = f(k); root.querySelector('#v_h').textContent = h + ' cm';
+          var uu = r3(sum(b.s)), G = r3(b.G), Mm = r3(uu * h);
+          root.querySelector('#e_p').innerHTML = prismSvg(b.P, h, { front: '#f6d9a8', hl: h + ' cm', W: 300 });
+          root.querySelector('#e_n').innerHTML = netSvg(b.P, h, { labels: b.s.map(function (x) { return f(x); }), W: 300 });
+          root.querySelector('#e_t').innerHTML = '<p>Seiten der Grundfläche: ' + b.s.map(function (x) { return f(x); }).join(' cm, ') + ' cm</p><p class="big-math">G = ' + f(G) + ' cm² · u = ' + f(uu) + ' cm</p><p class="big-math">M = u · h = ' + f(uu) + ' · ' + h + ' = ' + f(Mm) + ' cm²</p><p class="big-math">O = 2 · G + M = ' + f(r3(2 * G + Mm)) + ' cm²</p>';
+        }
+        function hit() { draw(); n++; if (n >= 3) done('Gut beobachtet: Wird das Prisma länger, wächst nur der Mantel. Die beiden Grundflächen bleiben gleich. Darum ist O = 2 · G + u · h.'); }
+        root.querySelectorAll('input[type=range]').forEach(function (r) { r.addEventListener('input', hit); });
+        root.querySelector('#e_b').addEventListener('change', hit);
+        draw();
+      }
+    },
+    beispiel: { title: 'Holzbalken streichen', q: 'Ein Holzbalken ist ein Trapezprisma. Die Grundfläche ist ein gleichschenkliges Trapez mit a = 14 cm, c = 8 cm, Schenkeln von 5 cm und der Höhe 4 cm. Der Balken ist 2 m lang. Wie viel cm² müssen gestrichen werden, wenn alle Flächen Farbe bekommen?' + prismSvg(base('trap', 1, 8).P, 30, { labels: [{ i: 0, t: '14 cm' }, { i: 2, t: '8 cm' }, { i: 3, t: '5 cm' }], hl: '2 m (verkürzt)' }),
+      steps: ['Einheiten angleichen: h = 2 m = 200 cm.', 'Grundfläche: G = (14 cm + 8 cm) : 2 · 4 cm = 44 cm².', 'Umfang: u = 14 + 8 + 5 + 5 = 32 cm. Mantel: M = 32 cm · 200 cm = 6 400 cm².', 'Oberfläche: O = 2 · 44 cm² + 6 400 cm² = 6 488 cm².', 'Antwort: 6 488 cm², das sind etwa 0,65 m². Kontrolle: Der Mantel ist viel größer als die Enden, das passt zu einem langen Balken.'] },
+    tasks: { gen: gen, plan: { G: ['erkennen:1', 'netz:1', 'quader:1', 'mantel:1'], S: ['netz:2', 'quader:1', 'mantel:2', 'dreieck_o:2', 'verpackung:2'], E: ['teile:2', 'netz:2', 'dreieck_o:2', 'trapez_o:3', 'zelt:3', 'mantel:2'] },
+      extra: 'hoehe', test: ['erkennen:1', 'netz:2', 'quader:1', 'mantel:2', 'dreieck_o:2', 'zelt:2'] },
+    lerncheck: ['Ich erkenne Prismen und benenne Grundfläche, Mantel und Körperhöhe.', 'Ich erkenne, ob ein Netz zu einem Prisma passt.', 'Ich berechne Mantelfläche und Oberfläche eines Prismas.', 'Ich löse Sachaufgaben zur Oberfläche.']
+  };
+})();
+
+window.MODULE = MODULE;
+</script>
+<script>
+/* SOL Mathe 8 · Lern-Engine. Erwartet window.MODULE und window.CONFIG. */
+(function () {
+  'use strict';
+  var MOD = window.MODULE, CFG = window.CONFIG;
+  var KEY = 'sol8-' + MOD.id;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  /* Anzeige-Feinschliff: echtes Minuszeichen und 1x → x, nur im Text, nie in Attributen */
+  function nice(h) { return String(h == null ? '' : h).split(/(<[^>]*>)/).map(function (p) { return p.charAt(0) === '<' ? p : p.replace(/(^|[\s(=:\[{>])-(?=\d)/g, '$1\u2212').replace(/(^|[\s(=:+\u2212·>])1x(?![\w²³^])/g, '$1x'); }).join(''); }
+  function h(tag, attrs, html) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }); if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  var SECTIONS = [
+    ['start', 'Start'], ['einstieg', 'Einstieg'], ['ziele', 'Lernziele'], ['diagnose', 'Startdiagnose'], ['erklaerung', 'Erklärung'],
+    ['entdecken', 'Ausprobieren'], ['beispiel', 'Beispiel'], ['ueben', 'Üben'], ['weiterdenken', 'Weiterdenken'], ['test', 'Abschlusstest'],
+    ['lerncheck', 'Mein Lerncheck'], ['ergebnis', 'Ergebnis']
+  ];
+  var REQUIRED = ['einstieg', 'diagnose', 'erklaerung', 'entdecken', 'ueben', 'test', 'lerncheck'];
+  function req() { return S.way === 'E' ? REQUIRED.slice(0, 5).concat(['weiterdenken'], REQUIRED.slice(5)) : REQUIRED; }
+  var WAYS = { G: 'Sicher · G', S: 'Standard · G/E', E: 'Weiterdenken · E' };
+  var WAY_INFO = { G: 'Sicher: weniger Aufgaben, Tipps sind sofort sichtbar. Weiterdenken ist freiwillig.', S: 'Standard: du bearbeitest alle Pflichtaufgaben und kannst Tipps öffnen.', E: 'Weiterdenken: mehr und schwierigere Aufgaben. Die Weiterdenken-Aufgabe ist Pflicht.' };
+  var LC_SCALE = ['Sicher', 'Meistens', 'Mit Hilfe', 'Noch nicht'];
+
+  /* ---------- Zustand ---------- */
+  var S = load() || { v: 1, lerncode: '', klasse: '', email: '', way: 'S', started: false, sec: 'start', done: {}, diag: {}, diagChecked: false,
+    slots: [], extra: null, test: null, lc: {}, stats: { attempts: 0, firstTry: 0, hints: 0, solutions: 0 }, startedAt: null, sent: false, abgabeId: null };
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
+  function load() { try { var d = JSON.parse(localStorage.getItem(KEY) || 'null'); return d && d.v === 1 ? d : null; } catch (e) { return null; } }
+  function mark(k) { if (!S.done[k]) { S.done[k] = true; save(); progress(); navState(); } }
+
+  /* ---------- Normalisierung Lernende ---------- */
+  function normCode(v) { var t = String(v || '').toUpperCase().replace(/[^A-ZÄÖÜ]/g, ''); return t.length === 2 ? t : ''; }
+  function normKlasse(v) { var m = String(v || '').toLowerCase().replace(/[^a-z0-9]/g, '').match(new RegExp(CFG.jahrgang + '([a-z]?)$')); return m ? CFG.jahrgang + m[1] : ''; }
+  function emailOk(v) { v = String(v || '').trim(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) return false; return !CFG.iservDomain || v.toLowerCase().slice(-CFG.iservDomain.length - 1) === '@' + CFG.iservDomain.toLowerCase(); }
+
+  /* ---------- Aufgaben prüfen ---------- */
+  var checkInput = M.check;
+  function renderInputs(task, prefix, values) {
+    return task.inputs.map(function (inp, i) {
+      var id = prefix + '-' + i, val = values && values[i] != null ? values[i] : '';
+      if (inp.kind === 'mc') {
+        return '<fieldset class="mc"><legend>' + (inp.label || 'Wähle aus') + '</legend>' + inp.options.map(function (o, k) {
+          return '<label class="opt"><input type="radio" name="' + id + '" value="' + k + '"' + (String(val) === String(k) ? ' checked' : '') + '><span>' + o + '</span></label>';
+        }).join('') + '</fieldset>';
+      }
+      var mode = inp.kind === 'term' || inp.kind === 'text' ? 'text' : 'decimal';
+      return '<label class="inp"><span>' + (inp.label || 'Ergebnis') + '</span><span class="inrow"><input id="' + id + '" inputmode="' + mode + '" autocomplete="off" spellcheck="false" value="' + esc(val) + '"' + (inp.placeholder ? ' placeholder="' + esc(inp.placeholder) + '"' : '') + '>' + (inp.unit ? '<b class="unit">' + inp.unit + '</b>' : '') + '</span></label>';
+    }).join('');
+  }
+  function readInputs(task, prefix, root) {
+    return task.inputs.map(function (inp, i) {
+      if (inp.kind === 'mc') { var c = $('input[name="' + prefix + '-' + i + '"]:checked', root); return c ? c.value : ''; }
+      var e = $('#' + prefix + '-' + i, root); return e ? e.value : '';
+    });
+  }
+  /* Reproduzierbarer Zufall: gleiche Startzahl, gleiche Aufgabe (damit Fehlerhinweise nach dem Neuladen erhalten bleiben) */
+  function seeded(seed, fn) {
+    var orig = Math.random, s = seed >>> 0;
+    Math.random = function () { s = (s + 0x6D2B79F5) >>> 0; var t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+    try { return fn(); } finally { Math.random = orig; }
+  }
+  function revive(t) {
+    if (!t || t.seed == null || typeof t.mistakes === 'function' || !MOD.tasks.gen[t.key]) return t;
+    try { var r = gen(t.key, t.level, t.seed); if (r.q === t.q && r.mistakes) t.mistakes = r.mistakes; } catch (e) { }
+    return t;
+  }
+  function gen(key, level, seed) { if (seed == null) seed = Math.floor(Math.random() * 4294967296); var t = seeded(seed, function () { return MOD.tasks.gen[key](level || 2); }); t.seed = seed; t.key = key; t.level = t.level || level || 2; t.q = nice(t.q); t.solution = nice(t.solution); t.hints = (t.hints || []).map(nice); t.inputs.forEach(function (i) { if (i.options) i.options = i.options.map(nice); }); return t; }
+
+  /* ---------- Fortschritt und Navigation ---------- */
+  function progress() {
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    $('#bar').style.width = Math.round(n / req().length * 100) + '%';
+    $('#progText').textContent = n + ' von ' + req().length + ' Pflichtschritten';
+  }
+  function navState() {
+    $$('#nav a').forEach(function (a) { var k = a.dataset.sec; a.classList.toggle('active', k === S.sec); a.classList.toggle('done', !!S.done[k]); a.setAttribute('aria-current', k === S.sec ? 'step' : 'false'); });
+  }
+  function go(sec, noScroll) {
+    if (!S.started && sec !== 'start') { show('start'); fb('#startFb', 'Bitte trage zuerst Lerncode, Klasse und IServ-Adresse ein und tippe auf „Start“.', 'bad'); return; }
+    show(sec); if (!noScroll) { var m = $('#main'); if (m.getBoundingClientRect().top < 0) m.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function show(sec) {
+    S.sec = sec; save();
+    $$('.sec').forEach(function (s) { s.hidden = s.id !== 'sec-' + sec; });
+    navState();
+    if (RENDER[sec]) RENDER[sec]();
+    try { history.replaceState(null, '', '#' + sec); } catch (e) { }
+  }
+  function fb(sel, msg, kind) { var e = $(sel); if (!e) return; e.className = 'fb ' + (kind || ''); e.innerHTML = msg; }
+  function pager(sec) {
+    var i = SECTIONS.findIndex(function (s) { return s[0] === sec; });
+    var prev = SECTIONS[i - 1], next = SECTIONS[i + 1];
+    return '<div class="pager">' + (prev && i > 1 ? '<button class="btn ghost" data-go="' + prev[0] + '">← ' + prev[1] + '</button>' : '<span></span>') +
+      (next ? '<button class="btn" data-go="' + next[0] + '">' + next[1] + ' →</button>' : '') + '</div>';
+  }
+
+  /* ---------- Abschnitte ---------- */
+  var RENDER = {};
+  function buildShell() {
+    var app = $('#app');
+    app.innerHTML =
+      '<header class="hero"><div class="wrap hero-in"><div class="hero-top"><span class="brand">SOL Mathematik ' + CFG.jahrgang + ' · Oberschule Niedersachsen</span>' +
+      '<span class="tools"><button class="tbtn" id="easyBtn" aria-pressed="false">Leichter lesen</button><button class="tbtn" id="readBtn">Vorlesen</button><button class="tbtn" id="stopBtn">Stopp</button></span></div>' +
+      '<div class="hero-main"><div><p class="eyebrow">' + MOD.bereich + '</p><h1>' + MOD.title + '</h1><p class="lead">' + MOD.lead + '</p></div>' +
+      '<div class="badge"><span>Modul</span><strong>' + MOD.id + '</strong><span>' + MOD.minutes + ' Minuten</span></div></div></div></header>' +
+      '<div class="progress"><div class="wrap prog-in"><div class="track"><div id="bar"></div></div><span id="progText"></span></div></div>' +
+      '<div class="wrap layout"><nav id="nav" aria-label="Abschnitte">' + SECTIONS.map(function (s) { return '<a href="#' + s[0] + '" data-sec="' + s[0] + '">' + s[1] + '</a>'; }).join('') + '</nav>' +
+      '<main id="main">' + SECTIONS.map(function (s) { return '<section class="sec card" id="sec-' + s[0] + '" hidden aria-labelledby="h-' + s[0] + '"></section>'; }).join('') + '</main></div>' +
+      '<footer class="foot wrap"><a href="' + CFG.backUrl + '">← Zur Übersicht Klasse ' + CFG.jahrgang + '</a><span>© Dr. Edmund Bruns · CC BY-NC 4.0</span></footer>';
+    $('#nav').addEventListener('click', function (e) { var a = e.target.closest('a'); if (!a) return; e.preventDefault(); go(a.dataset.sec); });
+    app.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) { e.preventDefault(); go(b.dataset.go); } });
+    $('#easyBtn').addEventListener('click', function () { var on = document.body.classList.toggle('easy'); this.setAttribute('aria-pressed', String(on)); });
+    $('#readBtn').addEventListener('click', function () { if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); var sec = $('#sec-' + S.sec); var u = new SpeechSynthesisUtterance(sec.innerText.replace(/[←→]/g, '')); u.lang = 'de-DE'; u.rate = 0.95; speechSynthesis.speak(u); });
+    $('#stopBtn').addEventListener('click', function () { if ('speechSynthesis' in window) speechSynthesis.cancel(); });
+  }
+
+  RENDER.start = function () {
+    var s = $('#sec-start'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-start">Bevor du beginnst</h2>' +
+      '<div class="facts"><div><b>Klasse</b>' + CFG.jahrgang + '</div><div><b>Vorkenntnisse</b>' + MOD.vorkenntnisse + '</div><div><b>Du brauchst</b>Heft, Stift und dieses Gerät</div></div>' +
+      '<div class="grid2"><label class="inp"><span>Lerncode *</span><input id="lerncode" maxlength="2" autocomplete="off" placeholder="z. B. MS" value="' + esc(S.lerncode) + '"><small>Erster Buchstabe deines Vornamens und erster Buchstabe deines Nachnamens. Beispiel: Mia Schulte → MS</small></label>' +
+      '<label class="inp"><span>Klasse *</span><input id="klasse" maxlength="12" autocomplete="off" placeholder="z. B. ' + CFG.jahrgang + 'a" value="' + esc(S.klasse) + '"><small>„' + CFG.jahrgang + 'a“, „Klasse ' + CFG.jahrgang + 'a“ oder nur „' + CFG.jahrgang + '“ sind möglich.</small></label></div>' +
+      '<label class="inp"><span>IServ-E-Mail-Adresse *</span><input id="email" type="email" autocomplete="email" placeholder="vorname.nachname@…" value="' + esc(S.email) + '"><small>Deine Schul-Adresse aus IServ. Sie wird nur mit deinem Ergebnis an deine Lehrkraft übertragen.</small></label>' +
+      '<fieldset class="ways"><legend>Mein Lernweg</legend>' + Object.keys(WAYS).map(function (k) { return '<label class="way"><input type="radio" name="way" value="' + k + '"' + (S.way === k ? ' checked' : '') + '><span>' + WAYS[k] + '</span></label>'; }).join('') + '</fieldset>' +
+      '<p class="note" id="wayInfo">' + WAY_INFO[S.way] + '</p>' +
+      '<div class="actions"><button class="btn big" id="startBtn">Start</button>' + (S.started ? '<button class="btn ghost" id="resetBtn">Neu beginnen</button>' : '') + '</div><p class="fb" id="startFb" role="status"></p>';
+    $$('input[name=way]', s).forEach(function (r) { r.addEventListener('change', function () { if (S.slots.length && S.slots.some(function (x) { return x.solved; })) { fb('#startFb', 'Hinweis: Wenn du den Lernweg änderst, werden deine Übungsaufgaben neu zusammengestellt.', 'hint'); } $('#wayInfo').textContent = WAY_INFO[this.value]; }); });
+    ['lerncode', 'klasse', 'email'].forEach(function (id) { $('#' + id).addEventListener('input', function () { S[id] = this.value; save(); }); });
+    $('#startBtn').addEventListener('click', function () {
+      var c = normCode($('#lerncode').value), k = normKlasse($('#klasse').value), e = $('#email').value.trim();
+      if (!c) return fb('#startFb', 'Der Lerncode besteht aus genau zwei Buchstaben, zum Beispiel MS.', 'bad');
+      if (!k) return fb('#startFb', 'Diese Klasse gehört nicht zu Jahrgang ' + CFG.jahrgang + '. Schreibe zum Beispiel ' + CFG.jahrgang + 'a oder nur ' + CFG.jahrgang + '.', 'bad');
+      if (!emailOk(e)) return fb('#startFb', CFG.iservDomain ? 'Bitte gib deine IServ-Adresse ein. Sie endet auf @' + CFG.iservDomain + '.' : 'Bitte gib eine gültige IServ-E-Mail-Adresse ein.', 'bad');
+      var w = ($('input[name=way]:checked', s) || {}).value || 'S';
+      if (w !== S.way) { S.slots = []; S.extra = null; S.done.ueben = false; }
+      S.lerncode = c; S.klasse = k; S.email = e; S.way = w; S.started = true; if (!S.startedAt) S.startedAt = Date.now();
+      $('#lerncode').value = c; $('#klasse').value = k; save(); go('einstieg');
+    });
+    var rb = $('#resetBtn'); if (rb) rb.addEventListener('click', function () { if (!confirm('Wirklich neu beginnen? Dein bisheriger Stand in diesem Modul wird gelöscht.')) return; try { localStorage.removeItem(KEY); } catch (e) { } location.hash = ''; location.reload(); });
+  };
+
+  RENDER.einstieg = function () {
+    var s = $('#sec-einstieg'); if (s.dataset.r) return; s.dataset.r = 1;
+    var v = MOD.einstieg.video;
+    s.innerHTML = '<h2 id="h-einstieg">Einstieg</h2>' + (v ? '<div class="video"><iframe src="' + v.src + '" title="' + esc(v.title) + '" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' : '') +
+      '<div class="story">' + MOD.einstieg.html + '</div>' + pager('einstieg');
+    mark('einstieg');
+  };
+  RENDER.ziele = function () {
+    var s = $('#sec-ziele'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-ziele">Das lernst du in diesem Modul</h2><ul class="goals">' + MOD.ziele.map(function (z) { return '<li>' + z + '</li>'; }).join('') + '</ul>' +
+      (MOD.fachwoerter ? '<h3>Fachwörter</h3><dl class="terms">' + MOD.fachwoerter.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl>' : '') + pager('ziele');
+  };
+  RENDER.diagnose = function () {
+    var s = $('#sec-diagnose'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-diagnose">Startdiagnose</h2><p>Finde heraus, was du schon kannst. Das ist kein Test, es zählt nur für dich.</p>' +
+      MOD.diagnose.map(function (d, i) { return '<div class="task"><p class="q"><b>' + (i + 1) + '.</b> ' + d.q + '</p>' + d.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="dg' + i + '" value="' + k + '"' + (S.diag[i] === k ? ' checked' : '') + '><span>' + o + '</span></label>'; }).join('') + '<p class="fb" id="dgfb' + i + '"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="dgBtn">Auswerten</button></div><div class="fb" id="dgSum" role="status"></div>' + pager('diagnose');
+    $$('input[type=radio]', s).forEach(function (r) { r.addEventListener('change', function () { S.diag[+this.name.slice(2)] = +this.value; save(); }); });
+    $('#dgBtn').addEventListener('click', function () { evalDiag(true); });
+    if (S.diagChecked) evalDiag(false);
+  };
+  function evalDiag(user) {
+    var missing = MOD.diagnose.some(function (d, i) { return S.diag[i] == null; });
+    if (missing && user) return fb('#dgSum', 'Beantworte bitte alle Fragen. Wenn du etwas nicht weißt, wähle „Weiß ich noch nicht“.', 'bad');
+    var pts = 0, tips = [];
+    MOD.diagnose.forEach(function (d, i) { var ok = S.diag[i] === d.answer; if (ok) pts++; else if (d.review) tips.push(d.review); fb('#dgfb' + i, (ok ? '✓ ' : '✗ ') + d.why, ok ? 'good' : 'bad'); });
+    S.diagChecked = true; S.diagPts = pts; save(); mark('diagnose');
+    fb('#dgSum', '<b>' + pts + ' von ' + MOD.diagnose.length + ' richtig.</b> ' + (pts === MOD.diagnose.length ? 'Super, die Grundlagen sitzen. Du kannst auch den Lernweg „Weiterdenken“ wählen.' : 'Das solltest du dir vorher noch einmal ansehen:<ul>' + tips.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>'), pts === MOD.diagnose.length ? 'good' : 'hint');
+  }
+  RENDER.erklaerung = function () {
+    var s = $('#sec-erklaerung'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-erklaerung">Erklärung</h2>' + MOD.erklaerung + '<div class="actions"><button class="btn" id="exOk">Verstanden</button></div><p class="fb" id="exFb"></p>' + pager('erklaerung');
+    $('#exOk').addEventListener('click', function () { mark('erklaerung'); fb('#exFb', 'Prima. Probiere es jetzt selbst aus.', 'good'); });
+    if (S.done.erklaerung) fb('#exFb', '✓ Erledigt', 'good');
+  };
+  RENDER.entdecken = function () {
+    var s = $('#sec-entdecken'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-entdecken">Ausprobieren</h2><div id="explore">' + MOD.entdecken.html + '</div><p class="fb" id="enFb"></p>' + pager('entdecken');
+    MOD.entdecken.init($('#explore'), function (msg) { mark('entdecken'); if (msg) fb('#enFb', msg, 'good'); });
+  };
+  RENDER.beispiel = function () {
+    var s = $('#sec-beispiel'); if (s.dataset.r) return; s.dataset.r = 1;
+    var B = MOD.beispiel;
+    s.innerHTML = '<h2 id="h-beispiel">Beispiel: ' + B.title + '</h2><div class="task"><p class="q">' + B.q + '</p><ol class="steps" id="bsSteps"></ol><div class="actions"><button class="btn" id="bsNext">Nächster Schritt</button></div></div>' + pager('beispiel');
+    var i = 0; $('#bsNext').addEventListener('click', function () { if (i < B.steps.length) { $('#bsSteps').appendChild(h('li', null, B.steps[i])); i++; } if (i >= B.steps.length) { this.disabled = true; this.textContent = 'Alle Schritte gezeigt'; } });
+  };
+
+  /* Üben */
+  function plan() { return MOD.tasks.plan[S.way] || MOD.tasks.plan.S; }
+  RENDER.ueben = function () {
+    var s = $('#sec-ueben');
+    var p = plan();
+    if (S.slots.length !== p.length) { S.slots = p.map(function (k) { var parts = k.split(':'); return { key: parts[0], level: +(parts[1] || 2), task: gen(parts[0], +(parts[1] || 2)), solved: false, tries: 0, hints: 0, shown: false, values: [] }; }); save(); }
+    s.innerHTML = '<h2 id="h-ueben">Üben</h2><p>Bearbeite alle ' + p.length + ' Aufgaben. Bei jeder Aufgabe kannst du Tipps öffnen. Mit „Neue Aufgabe“ bekommst du neue Zahlen.</p><div id="slots"></div><div class="fb" id="ubSum" role="status"></div>' + pager('ueben');
+    var box = $('#slots'); S.slots.forEach(function (sl, i) { box.appendChild(slotCard(sl, i)); });
+    ubSum();
+  };
+  function levelTag(l) { return ['', 'Grundlage', 'Standard', 'Knobeln'][l] || ''; }
+  function slotCard(sl, i) {
+    var t = sl.task, c = h('div', { class: 'task' + (sl.solved ? ' solved' : ''), id: 'slot' + i });
+    var showHints = S.way === 'G' ? 1 : 0;
+    c.innerHTML = '<div class="thead"><span class="tag">' + levelTag(sl.level) + '</span><span class="tag plain">Aufgabe ' + (i + 1) + '</span>' + (sl.solved ? '<span class="tag ok">✓ gelöst</span>' : '') + '</div>' +
+      '<div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 's' + i, sl.values) + '</div>' +
+      '<div class="actions"><button class="btn" data-a="check">Prüfen</button><button class="btn ghost" data-a="hint">Tipp</button><button class="btn ghost" data-a="new">Neue Aufgabe</button></div>' +
+      '<div class="hints"></div><p class="fb" role="status"></p>';
+    var hintsBox = $('.hints', c);
+    function drawHints() { hintsBox.innerHTML = t.hints.slice(0, Math.max(sl.hints, showHints)).map(function (x, k) { return '<div class="hint"><b>Tipp ' + (k + 1) + ':</b> ' + x + '</div>'; }).join('') + (sl.shown ? '<div class="hint sol"><b>Lösungsweg:</b> ' + t.solution + '</div>' : ''); }
+    drawHints();
+    c.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-a]'); if (!b) return;
+      var a = b.dataset.a, f = $('.fb', c);
+      if (a === 'check') {
+        var vals = readInputs(t, 's' + i, c); sl.values = vals;
+        var res = t.inputs.map(function (inp, k) { return checkInput(inp, vals[k]); });
+        if (res.some(function (r) { return r.empty; })) { f.className = 'fb bad'; f.textContent = 'Fülle bitte alle Felder aus.'; return; }
+        sl.tries++; S.stats.attempts++;
+        var ok = res.every(function (r) { return r.ok; });
+        if (ok) {
+          if (!sl.solved) { sl.solved = true; if (sl.tries === 1 && !sl.hints && !sl.shown) S.stats.firstTry++; }
+          if (sl === S.extra) mark('weiterdenken');
+          f.className = 'fb good'; f.innerHTML = '✓ Richtig! ' + (t.praise || '');
+          c.classList.add('solved'); var hd = $('.thead', c); if (!$('.tag.ok', hd)) hd.appendChild(h('span', { class: 'tag ok' }, '✓ gelöst'));
+        } else {
+          var msg = (res.filter(function (r) { return r.msg; })[0] || {}).msg;
+          var spec = !msg && t.mistakes ? t.mistakes(vals) : null;
+          f.className = 'fb ' + (res.some(function (r) { return r.almost; }) ? 'hint' : 'bad');
+          f.innerHTML = msg || spec || (sl.tries >= 2 ? 'Noch nicht. Öffne einen Tipp, der hilft dir weiter.' : 'Noch nicht richtig. Prüfe deine Rechnung noch einmal.');
+        }
+        save(); ubSum();
+      } else if (a === 'hint') {
+        if (Math.max(sl.hints, showHints) < t.hints.length) { sl.hints = Math.max(sl.hints, showHints) + 1; S.stats.hints++; }
+        else if (!sl.shown) { sl.shown = true; S.stats.solutions++; }
+        drawHints(); save();
+        b.textContent = sl.shown ? 'Lösungsweg gezeigt' : (Math.max(sl.hints, showHints) >= t.hints.length ? 'Lösungsweg zeigen' : 'Weiterer Tipp');
+      } else if (a === 'new') {
+        if (!sl.solved && !sl.shown && sl.tries < 2) { f.className = 'fb hint'; f.textContent = 'Versuche die Aufgabe erst zweimal oder öffne den Lösungsweg. Dann bekommst du eine neue.'; return; }
+        var wasSolved = sl.solved;
+        var nt = gen(sl.key, sl.level); sl.task = nt; sl.tries = 0; sl.hints = 0; sl.shown = false; sl.values = []; sl.solved = false; if (wasSolved) sl.solved = false;
+        save(); c.replaceWith(slotCard(sl, i)); ubSum();
+      }
+    });
+    return c;
+  }
+  function ubSum() {
+    var n = S.slots.filter(function (x) { return x.solved; }).length;
+    if (n === S.slots.length && n > 0) { mark('ueben'); fb('#ubSum', '<b>Alle ' + n + ' Aufgaben gelöst.</b> Weiter geht es mit „Weiterdenken“ oder direkt mit dem Abschlusstest.', 'good'); }
+    else fb('#ubSum', n + ' von ' + S.slots.length + ' Aufgaben gelöst.', '');
+  }
+
+  RENDER.weiterdenken = function () {
+    var s = $('#sec-weiterdenken');
+    if (!S.extra) { S.extra = { task: gen(MOD.tasks.extra, 3), solved: false, hints: 0, shown: false, values: [], tries: 0 }; save(); }
+    var sl = S.extra, t = sl.task;
+    s.innerHTML = '<h2 id="h-weiterdenken">Weiterdenken</h2><p>' + (S.way === 'E' ? 'Diese Aufgabe ist für deinen Lernweg Pflicht.' : 'Diese Aufgabe ist freiwillig. Sie zeigt dir, ob du das Thema auch in neuen Situationen nutzen kannst.') + '</p>';
+    var c = slotCard(sl, 'x'); s.appendChild(c); s.insertAdjacentHTML('beforeend', pager('weiterdenken'));
+  };
+
+  /* Abschlusstest */
+  RENDER.test = function () {
+    var s = $('#sec-test');
+    if (!S.test) { S.test = { items: MOD.tasks.test.map(function (k) { var p = k.split(':'); return gen(p[0], +(p[1] || 2)); }), values: [], done: false, pts: 0, runs: 0, best: 0, details: [] }; save(); }
+    var T = S.test;
+    s.innerHTML = '<h2 id="h-test">Abschlusstest</h2><p>' + T.items.length + ' Aufgaben ohne Tipps. Rechne im Heft mit und trage dann deine Ergebnisse ein. Du wertest den Test einmal aus.</p>' +
+      T.items.map(function (t, i) { return '<div class="task" id="ti' + i + '"><div class="thead"><span class="tag plain">Aufgabe ' + (i + 1) + '</span></div><div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 't' + i, T.values[i]) + '</div><p class="fb"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="tBtn"' + (T.done ? ' disabled' : '') + '>Test auswerten</button>' + (T.done ? '<button class="btn ghost" id="tNew">Noch einmal mit neuen Aufgaben</button>' : '') + '</div><div class="fb" id="tSum" role="status"></div>' + pager('test');
+    T.items.forEach(function (t, i) { $$('input', $('#ti' + i)).forEach(function (el) { el.addEventListener('input', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); el.addEventListener('change', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); }); });
+    $('#tBtn').addEventListener('click', function () {
+      var vals = T.items.map(function (t, i) { return readInputs(t, 't' + i, $('#ti' + i)); });
+      var empty = vals.some(function (v) { return v.some(function (x) { return String(x).trim() === ''; }); });
+      if (empty && !confirm('Du hast noch nicht alle Felder ausgefüllt. Trotzdem auswerten?')) return;
+      T.values = vals; T.done = true; T.runs++; save(); showTest();
+      $('#tBtn').disabled = true;
+      if (!$('#tNew')) { var nb = h('button', { class: 'btn ghost', id: 'tNew' }, 'Noch einmal mit neuen Aufgaben'); $('#tBtn').after(nb); bindNew(); }
+    });
+    function bindNew() { var n = $('#tNew'); if (n) n.addEventListener('click', function () { if (!confirm('Neuer Test mit neuen Zahlen? Dein bestes Ergebnis bleibt gespeichert.')) return; var best = T.best, runs = T.runs; S.test = null; save(); RENDER.test(); S.test.best = best; S.test.runs = runs; save(); }); }
+    bindNew();
+    if (T.done) showTest();
+  };
+  function showTest() {
+    var T = S.test, pts = 0;
+    T.details = T.items.map(function (t, i) {
+      var res = t.inputs.map(function (inp, k) { return checkInput(inp, (T.values[i] || [])[k]); });
+      var ok = res.every(function (r) { return r.ok; }); if (ok) pts++;
+      var f = $('#ti' + i + ' .fb'); f.className = 'fb ' + (ok ? 'good' : 'bad'); f.innerHTML = ok ? '✓ Richtig' : '✗ Nicht richtig. <b>Lösung:</b> ' + t.solution;
+      $$('#ti' + i + ' input').forEach(function (e) { e.disabled = true; });
+      return { aufgabe: i + 1, skill: t.skill || t.key, richtig: ok };
+    });
+    T.pts = pts; T.best = Math.max(T.best || 0, pts); save(); mark('test');
+    var pct = Math.round(pts / T.items.length * 100);
+    fb('#tSum', '<b>' + pts + ' von ' + T.items.length + ' Aufgaben richtig (' + pct + ' %).</b> ' + verdict(pct), pct >= 80 ? 'good' : pct >= 50 ? 'hint' : 'bad');
+  }
+  function verdict(p) { return p >= 80 ? 'Sehr gut, du beherrschst das Thema.' : p >= 50 ? 'Ein guter Stand. Übe die falschen Aufgabentypen noch einmal.' : 'Arbeite die Erklärung und die Übungen noch einmal durch und nutze die Tipps.'; }
+
+  RENDER.lerncheck = function () {
+    var s = $('#sec-lerncheck'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-lerncheck">Mein Lerncheck</h2><p>Wie sicher bist du? Sei ehrlich, das hilft dir und deiner Lehrkraft.</p>' +
+      MOD.lerncheck.map(function (l, i) { return '<fieldset class="lc"><legend>' + l + '</legend>' + LC_SCALE.map(function (x, k) { return '<label class="chip"><input type="radio" name="lc' + i + '" value="' + k + '"' + (S.lc[i] === k ? ' checked' : '') + '><span>' + x + '</span></label>'; }).join('') + '</fieldset>'; }).join('') +
+      '<p class="fb" id="lcFb" role="status"></p>' + pager('lerncheck');
+    $$('input', s).forEach(function (r) { r.addEventListener('change', function () { S.lc[+this.name.slice(2)] = +this.value; save(); lcState(); }); });
+    lcState();
+  };
+  function lcState() { var n = MOD.lerncheck.filter(function (l, i) { return S.lc[i] != null; }).length; if (n === MOD.lerncheck.length) { mark('lerncheck'); fb('#lcFb', '✓ Lerncheck ausgefüllt.', 'good'); } else fb('#lcFb', n + ' von ' + MOD.lerncheck.length + ' Aussagen bewertet.', ''); }
+
+  /* Ergebnis und Abgabe */
+  function minutes() { return S.startedAt ? Math.max(1, Math.round((Date.now() - S.startedAt) / 60000)) : 0; }
+  function payload() {
+    var T = S.test || { pts: 0, items: [], details: [] };
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    if (!S.abgabeId) { S.abgabeId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); save(); }
+    return {
+      schema_version: '2.0', fach: 'Mathematik', jahrgang: String(CFG.jahrgang), modul_id: MOD.id, modul_titel: MOD.title, dateiversion: CFG.version,
+      lerncode: S.lerncode, klasse: S.klasse, email: S.email, lernweg: WAYS[S.way],
+      bearbeitungsstand: Math.round(n / req().length * 100), pflichtschritte: req().filter(function (k) { return S.done[k]; }),
+      diagnose_punkte: S.diagPts || 0, diagnose_max: MOD.diagnose.length,
+      uebungen_geloest: S.slots.filter(function (x) { return x.solved; }).length, uebungen_gesamt: S.slots.length,
+      uebungen_erster_versuch: S.stats.firstTry, tipps_genutzt: S.stats.hints, loesungswege_genutzt: S.stats.solutions,
+      weiterdenken_geloest: !!(S.extra && S.extra.solved),
+      test_punkte: T.done ? T.pts : 0, test_max: T.items.length, test_prozent: T.done && T.items.length ? Math.round(T.pts / T.items.length * 100) : 0,
+      test_durchlaeufe: T.runs || 0, test_details: T.details || [],
+      lerncheck: MOD.lerncheck.map(function (l, i) { return { aussage: l, einschaetzung: S.lc[i] != null ? LC_SCALE[S.lc[i]] : '' }; }),
+      bearbeitungszeit_min: minutes(), abgabe_id: S.abgabeId, zeitstempel_client: new Date().toISOString()
+    };
+  }
+  RENDER.ergebnis = function () {
+    var s = $('#sec-ergebnis'), p = payload();
+    var missing = req().filter(function (k) { return !S.done[k]; }).map(function (k) { return SECTIONS.find(function (x) { return x[0] === k; })[1]; });
+    s.innerHTML = '<h2 id="h-ergebnis">Mein Ergebnis</h2>' +
+      '<div class="summary"><div><b>Lerncode</b>' + esc(p.lerncode) + ' · ' + esc(p.klasse) + '</div><div><b>Bearbeitet</b>' + p.bearbeitungsstand + ' %</div><div><b>Abschlusstest</b>' + p.test_punkte + ' von ' + p.test_max + ' (' + p.test_prozent + ' %)</div><div><b>Übungen</b>' + p.uebungen_geloest + ' von ' + p.uebungen_gesamt + ' gelöst</div><div><b>Tipps genutzt</b>' + p.tipps_genutzt + '</div><div><b>Zeit</b>ca. ' + p.bearbeitungszeit_min + ' Min.</div></div>' +
+      (missing.length ? '<p class="fb hint">Noch offen: ' + missing.join(', ') + '. Du kannst trotzdem senden.</p>' : '<p class="fb good">Alle Pflichtschritte erledigt. Stark!</p>') +
+      '<p class="note">' + (S.test && S.test.done ? verdict(p.test_prozent) : 'Bearbeite den Abschlusstest, damit deine Lehrkraft sieht, was du kannst.') + '</p>' +
+      '<div class="actions"><button class="btn big" id="sendBtn">Ergebnis an die Lehrkraft senden</button><button class="btn ghost" id="copyBtn">Zusammenfassung kopieren</button><button class="btn ghost" onclick="window.print()">Drucken</button></div>' +
+      '<p class="fb" id="sendFb" role="status">' + (S.sent ? '✓ Bereits gesendet. Du kannst nach Änderungen erneut senden.' : '') + '</p>' + pager('ergebnis');
+    $('#sendBtn').addEventListener('click', send);
+    $('#copyBtn').addEventListener('click', function () {
+      var t = 'SOL Mathe ' + CFG.jahrgang + ' · Modul ' + MOD.id + ' ' + MOD.title + '\nLerncode: ' + p.lerncode + ' (' + p.klasse + ')\nBearbeitet: ' + p.bearbeitungsstand + ' %\nTest: ' + p.test_punkte + '/' + p.test_max + '\nÜbungen: ' + p.uebungen_geloest + '/' + p.uebungen_gesamt + '\nTipps: ' + p.tipps_genutzt;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { fb('#sendFb', 'Zusammenfassung kopiert.', 'good'); }, function () { prompt('Zum Kopieren markieren:', t); });
+    });
+  };
+  function isLive() { return /(?:edmundbruns\.com|pages\.dev)$/.test(location.hostname); }
+  function send() {
+    if (!S.started || !normCode(S.lerncode) || !normKlasse(S.klasse) || !emailOk(S.email)) { go('start'); return fb('#startFb', 'Bitte prüfe Lerncode, Klasse und IServ-Adresse.', 'bad'); }
+    var p = payload(), btn = $('#sendBtn');
+    if (!isLive() || !CFG.endpoint || CFG.endpoint.indexOf('script.google.com') < 0) { console.log('[SOL8] Vorschau, Payload:', p); return fb('#sendFb', 'Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an deine Lehrkraft.', 'hint'); }
+    btn.disabled = true; fb('#sendFb', 'Wird gesendet …', '');
+    window.ebSend(CFG.endpoint, p).then(function (r) {
+      btn.disabled = false;
+      if (r.ok) { S.sent = true; save(); fb('#sendFb', 'Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen.', 'good'); }
+      else fb('#sendFb', 'Nicht gespeichert: ' + esc(r.msg) + ' Dein Stand bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann noch einmal auf Senden.', 'bad');
+    });
+  }
+
+  /* ---------- Start ---------- */
+  (S.slots || []).forEach(function (sl) { revive(sl.task); });
+  if (S.extra) revive(S.extra.task);
+  if (S.test && S.test.items) S.test.items.forEach(revive);
+  buildShell(); progress();
+  var hash = (location.hash || '').slice(1);
+  var startSec = SECTIONS.some(function (s) { return s[0] === hash; }) ? hash : (S.started ? S.sec : 'start');
+  show(S.started ? startSec : 'start');
+  window.SOL8 = { state: function () { return S; }, payload: payload, checkInput: checkInput, gen: gen };
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <script>try{var d=document.documentElement,s=localStorage;if(s.getItem('eb-theme')==='dark')d.dataset.theme='dark';if(s.getItem('eb-reading')==='easy')d.dataset.reading='easy';}catch(e){}</script>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="apple-touch-icon" href="/assets/icon-180.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR-Codes zum Ausdrucken | Dr. Edmund Bruns</title>
+  <meta name="description" content="QR-Codes zu allen Bereichen, Jahrgangsseiten und Mathe-Modulen zum Ausdrucken für Arbeitsblätter und Plakate.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    .page-hero{ padding: clamp(40px,5vw,64px) 0 8px; }
+    .qh{ font-family:Georgia,serif; font-size:1.35rem; margin:0 0 16px; padding-bottom:8px; border-bottom:2px solid var(--accent-soft); }
+    .qgrid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:18px; }
+    .qr{ margin:0; text-align:center; background:var(--cream); border:1px solid var(--line); border-radius:14px; padding:12px; box-shadow:0 8px 22px rgba(23,37,31,.05); }
+    .qr img{ width:100%; max-width:150px; margin:0 auto 8px; image-rendering:pixelated; }
+    .qr figcaption strong{ display:block; font-size:.9rem; }
+    .qr figcaption span{ display:block; font-size:.72rem; color:var(--muted); word-break:break-all; margin-top:2px; }
+    .printbar{ margin-top:10px; }
+    .printbtn{ display:inline-flex; align-items:center; gap:8px; border:1px solid var(--ink); background:var(--ink); color:#fff; font:inherit; font-weight:750; border-radius:999px; padding:.55rem 1.1rem; cursor:pointer; }
+    @media print{
+      .site-header, .ebux, .ebsearch-open, .printbar, .backtop, .site-footer{ display:none !important; }
+      body{ background:#fff !important; }
+      .qr{ box-shadow:none; break-inside:avoid; }
+      .section{ padding:8px 0 !important; }
+      .qh{ break-after:avoid; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="site-header" id="siteHeader">
+    <nav class="nav shell" aria-label="Hauptnavigation">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">EB</span><span>Dr. Edmund Bruns</span></a>
+      <a class="nav-home" href="/"><svg class="home-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Startseite</span></a>
+    </nav>
+  </header>
+  <main id="inhalt">
+    <section class="page-hero shell">
+      <div class="eyebrow">Zum Ausdrucken</div>
+      <h1>QR-Codes zu allen Seiten</h1>
+      <p class="lead">Scanne mit dem Handy oder Tablet und lande direkt auf der passenden Seite. Ideal für Arbeitsblätter, Plakate oder die Elternarbeit. Über „Drucken" bekommst du eine saubere Übersicht auf Papier.</p>
+      <div class="printbar"><button class="printbtn" type="button" onclick="window.print()">Diese Übersicht drucken</button></div>
+    </section>
+      <section class="section"><div class="shell"><h2 class="qh">Bereiche</h2><div class="qgrid">
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev.png" alt="QR-Code Startseite" loading="lazy"><figcaption><strong>Startseite</strong><span>bruns-homepage.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-schulsozialarbeit.png" alt="QR-Code Schulsozialarbeit" loading="lazy"><figcaption><strong>Schulsozialarbeit</strong><span>bruns-homepage.pages.dev/schulsozialarbeit/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-raetsel.png" alt="QR-Code Rätsel" loading="lazy"><figcaption><strong>Rätsel</strong><span>bruns-homepage.pages.dev/raetsel/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-werkstatt.png" alt="QR-Code Werkstatt" loading="lazy"><figcaption><strong>Werkstatt</strong><span>bruns-homepage.pages.dev/werkstatt/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-lehrerzimmer.png" alt="QR-Code Lehrerzimmer" loading="lazy"><figcaption><strong>Lehrerzimmer</strong><span>bruns-homepage.pages.dev/lehrerzimmer/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-publikationen.png" alt="QR-Code Publikationen" loading="lazy"><figcaption><strong>Publikationen</strong><span>bruns-homepage.pages.dev/publikationen/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-kontakt.png" alt="QR-Code Kontakt" loading="lazy"><figcaption><strong>Kontakt</strong><span>bruns-homepage.pages.dev/kontakt/</span></figcaption></figure>
+        </div></div></section>
+      <section class="section"><div class="shell"><h2 class="qh">Schach</h2><div class="qgrid">
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-schach-einsteiger.png" alt="QR-Code Für Einsteiger" loading="lazy"><figcaption><strong>Für Einsteiger</strong><span>bruns-homepage.pages.dev/schach/einsteiger/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-schach-fortgeschrittene.png" alt="QR-Code Für Fortgeschrittene" loading="lazy"><figcaption><strong>Für Fortgeschrittene</strong><span>bruns-homepage.pages.dev/schach/fortgeschrittene/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-schach-schachgeschichte.png" alt="QR-Code Schachgeschichte" loading="lazy"><figcaption><strong>Schachgeschichte</strong><span>bruns-homepage.pages.dev/schach/schachgeschichte/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-schach-schachlehrende.png" alt="QR-Code Für Schachlehrende" loading="lazy"><figcaption><strong>Für Schachlehrende</strong><span>bruns-homepage.pages.dev/schach/schachlehrende/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-schach-schachweltmeister.png" alt="QR-Code Schachweltmeister" loading="lazy"><figcaption><strong>Schachweltmeister</strong><span>bruns-homepage.pages.dev/schach/schachweltmeister/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-schach-verschiedenes.png" alt="QR-Code Verschiedenes" loading="lazy"><figcaption><strong>Verschiedenes</strong><span>bruns-homepage.pages.dev/schach/verschiedenes/</span></figcaption></figure>
+        </div></div></section>
+      <section class="section"><div class="shell"><h2 class="qh">Mathematik</h2><div class="qgrid">
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-mathe.png" alt="QR-Code Mathe Übersicht" loading="lazy"><figcaption><strong>Mathe Übersicht</strong><span>bruns-homepage.pages.dev/mathe/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-mathe-klasse-5.png" alt="QR-Code Klasse 5" loading="lazy"><figcaption><strong>Klasse 5</strong><span>bruns-homepage.pages.dev/mathe/klasse-5/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-mathe-klasse-6.png" alt="QR-Code Klasse 6" loading="lazy"><figcaption><strong>Klasse 6</strong><span>bruns-homepage.pages.dev/mathe/klasse-6/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-mathe-klasse-7.png" alt="QR-Code Klasse 7" loading="lazy"><figcaption><strong>Klasse 7</strong><span>bruns-homepage.pages.dev/mathe/klasse-7/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-mathe-klasse-8.png" alt="QR-Code Klasse 8" loading="lazy"><figcaption><strong>Klasse 8</strong><span>bruns-homepage.pages.dev/mathe/klasse-8/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-mathe-klasse-9.png" alt="QR-Code Klasse 9" loading="lazy"><figcaption><strong>Klasse 9</strong><span>bruns-homepage.pages.dev/mathe/klasse-9/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-mathe-klasse-10.png" alt="QR-Code Klasse 10" loading="lazy"><figcaption><strong>Klasse 10</strong><span>bruns-homepage.pages.dev/mathe/klasse-10/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-bruns-homepage-pages-dev-mathe-klasse-7-lernpfad.png" alt="QR-Code Lernpfad Klasse 7" loading="lazy"><figcaption><strong>Lernpfad Klasse 7</strong><span>bruns-homepage.pages.dev/mathe/klasse-7/lernpfad/</span></figcaption></figure>
+        </div></div></section>
+      <section class="section"><div class="shell"><h2 class="qh">Mathe-Module (Klasse 7)</h2><div class="qgrid">
+          <figure class="qr"><img src="/assets/qr/https-rationale-zahlen-verstehen-001-netlify-app.png" alt="QR-Code 001 Rationale Zahlen verstehen" loading="lazy"><figcaption><strong>001 Rationale Zahlen verstehen</strong><span>rationale-zahlen-verstehen-001.netlify.app/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-rationale-zahlen-modul-002-netlify-app.png" alt="QR-Code 002 Vergleichen und ordnen" loading="lazy"><figcaption><strong>002 Vergleichen und ordnen</strong><span>rationale-zahlen-modul-002.netlify.app/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-rationale-zahlen-modul-003-netlify-app.png" alt="QR-Code 003 Addieren und subtrahieren" loading="lazy"><figcaption><strong>003 Addieren und subtrahieren</strong><span>rationale-zahlen-modul-003.netlify.app/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-rationale-zahlen-modul-004-netlify-app.png" alt="QR-Code 004 Multiplizieren und dividieren" loading="lazy"><figcaption><strong>004 Multiplizieren und dividieren</strong><span>rationale-zahlen-modul-004.netlify.app/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-005rechengesetze-rechenvorteile-pages-dev.png" alt="QR-Code 005 Rechengesetze" loading="lazy"><figcaption><strong>005 Rechengesetze</strong><span>005rechengesetze-rechenvorteile.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-006terme-verstehen-pages-dev.png" alt="QR-Code 006 Terme verstehen" loading="lazy"><figcaption><strong>006 Terme verstehen</strong><span>006terme-verstehen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-007terme-aufstellen-pages-dev.png" alt="QR-Code 007 Terme aufstellen" loading="lazy"><figcaption><strong>007 Terme aufstellen</strong><span>007terme-aufstellen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-008terme-vereinfachen-pages-dev.png" alt="QR-Code 008 Terme vereinfachen" loading="lazy"><figcaption><strong>008 Terme vereinfachen</strong><span>008terme-vereinfachen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-009terme-verstehen-pages-dev.png" alt="QR-Code 009 Gleichungen verstehen" loading="lazy"><figcaption><strong>009 Gleichungen verstehen</strong><span>009terme-verstehen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-010gleichungen-loesen-pages-dev.png" alt="QR-Code 010 Gleichungen lösen" loading="lazy"><figcaption><strong>010 Gleichungen lösen</strong><span>010gleichungen-loesen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-011sachaufgaben-gleichungen-pages-dev.png" alt="QR-Code 011 Sachaufgaben" loading="lazy"><figcaption><strong>011 Sachaufgaben</strong><span>011sachaufgaben-gleichungen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-012zuordnungen-erkennen-pages-dev.png" alt="QR-Code 012 Zuordnungen erkennen" loading="lazy"><figcaption><strong>012 Zuordnungen erkennen</strong><span>012zuordnungen-erkennen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-013proportionale-zuordnungen-pages-dev.png" alt="QR-Code 013 Proportionale Zuordnungen" loading="lazy"><figcaption><strong>013 Proportionale Zuordnungen</strong><span>013proportionale-zuordnungen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-014dreisatz-pages-dev.png" alt="QR-Code 014 Dreisatz" loading="lazy"><figcaption><strong>014 Dreisatz</strong><span>014dreisatz.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-015antiproportionale-zuordnung-pages-dev.png" alt="QR-Code 015 Antiproportionale Zuordnungen" loading="lazy"><figcaption><strong>015 Antiproportionale Zuordnungen</strong><span>015antiproportionale-zuordnung.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-016prozentrechnung-verstehen-pages-dev.png" alt="QR-Code 016 Prozentrechnung verstehen" loading="lazy"><figcaption><strong>016 Prozentrechnung verstehen</strong><span>016prozentrechnung-verstehen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-017prozentwert-berechnen-pages-dev.png" alt="QR-Code 017 Prozentwert berechnen" loading="lazy"><figcaption><strong>017 Prozentwert berechnen</strong><span>017prozentwert-berechnen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-018grundwert-berechnen-pages-dev.png" alt="QR-Code 018 Grundwert berechnen" loading="lazy"><figcaption><strong>018 Grundwert berechnen</strong><span>018grundwert-berechnen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-019prozentsatz-berechnen-pages-dev.png" alt="QR-Code 019 Prozentsatz berechnen" loading="lazy"><figcaption><strong>019 Prozentsatz berechnen</strong><span>019prozentsatz-berechnen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-020flaechen-berechnen-pages-dev.png" alt="QR-Code 020 Flächen berechnen" loading="lazy"><figcaption><strong>020 Flächen berechnen</strong><span>020flaechen-berechnen.pages.dev/</span></figcaption></figure>
+          <figure class="qr"><img src="/assets/qr/https-021winkel-und-dreiecke-pages-dev.png" alt="QR-Code 021 Winkel und Dreiecke" loading="lazy"><figcaption><strong>021 Winkel und Dreiecke</strong><span>021winkel-und-dreiecke.pages.dev/</span></figcaption></figure>
+        </div></div></section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-grid shell"><div><div class="footer-title">Kurzer Weg zum Ziel.</div><div class="footer-note">QR-Codes verweisen auf die öffentlichen Seiten und Module.</div></div>
+    <div class="footer-links"><a href="/">Start</a><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div></div>
+    <div class="copyright shell"><span>&copy; <span data-year></span> Dr. Edmund Bruns</span></div>
+  </footer>
+  <a class="backtop" href="#top" aria-label="Nach oben">&uarr;</a>
+  <script src="/assets/site.js"></script>
+  <script defer src="/assets/search.js"></script>
+  <script defer src="/assets/ux.js"></script>
+</body>
+</html>

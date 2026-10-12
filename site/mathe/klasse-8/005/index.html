@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modul 005 · Binomische Formeln | SOL Mathematik 8</title>
+<meta name="description" content="Ist (a + b)² dasselbe wie a² + b²? Du lernst drei Formeln, mit denen du schneller rechnest, und einen typischen Fehler, den du nie mehr machst.">
+<link rel="canonical" href="https://www.edmundbruns.com/mathe/klasse-8/005/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#3d2a73">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{--brand:#5b3fa0;--brand2:#3d2a73;--soft:#efeafb;--ink:#1c1830;--muted:#5a5670;--line:#d6d0e6;--paper:#f6f4fb;--card:#fff;
+--good:#166534;--goodbg:#ecfdf3;--bad:#991b1b;--badbg:#fff1f1;--warn:#8a4b06;--warnbg:#fff7e6;--focus:#f59e0b;--r:16px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+body.easy{font-size:19px;line-height:1.8;letter-spacing:.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+a{color:var(--brand)}:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.hero{background:linear-gradient(120deg,var(--brand2),var(--brand));color:#fff;padding:22px 0 30px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:.95rem}.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{background:#fff;color:var(--ink);border:0;border-radius:10px;padding:8px 12px;font:inherit;font-weight:600;font-size:.88rem;cursor:pointer}
+.hero-main{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;opacity:.85;margin:0}
+.hero h1{font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.1;margin:.2em 0 .3em}
+.lead{margin:0;max-width:640px;opacity:.95}
+.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:12px 20px;text-align:center;min-width:150px;display:flex;flex-direction:column}
+.badge strong{font-size:2rem;line-height:1.2}
+.progress{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.prog-in{display:flex;align-items:center;gap:14px;padding:10px 18px}
+.track{flex:1;height:10px;background:#e6e1f2;border-radius:9px;overflow:hidden}#bar{height:100%;width:0;background:var(--brand);transition:width .4s}
+#progText{font-size:.85rem;font-weight:700;white-space:nowrap}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:22px;padding-top:22px;padding-bottom:30px;align-items:start}
+#nav{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;position:sticky;top:60px;display:flex;flex-direction:column}
+#nav a{text-decoration:none;color:var(--ink);font-weight:600;padding:8px 12px;border-radius:10px;font-size:.95rem}
+#nav a.done::after{content:" ✓";color:var(--good)}#nav a.active{background:var(--soft);color:var(--brand2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.sec h2{margin:0 0 .6em;font-size:1.6rem}.sec h3{margin:1.2em 0 .4em}
+.facts,.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 18px}
+.facts>div,.summary>div{background:var(--soft);border:1px solid #ddd3f3;border-radius:12px;padding:10px 12px}
+.facts b,.summary b{display:block;font-size:.85rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inp{display:block;margin:0 0 14px}.inp>span:first-child{display:block;font-weight:700;margin-bottom:4px}
+.inp small{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
+input[type=text],input[type=email],input:not([type]),input[inputmode]{width:100%;font:inherit;padding:11px 12px;border:2px solid #b9b2cc;border-radius:10px;background:#fff;color:var(--ink)}
+input:disabled{background:#f2f0f6}
+.inrow{display:flex;align-items:center;gap:8px}.inrow input{max-width:260px}.unit{font-weight:700}
+.inputs{display:flex;flex-wrap:wrap;gap:4px 18px}.inputs .inp{min-width:180px}
+fieldset{border:0;padding:0;margin:0 0 12px}legend{font-weight:700;margin-bottom:6px}
+.ways{display:flex;flex-wrap:wrap;gap:8px}.ways legend{width:100%}
+.way,.chip,.opt{position:relative;cursor:pointer}
+.way input,.chip input{position:absolute;opacity:0;pointer-events:none}
+.way span,.chip span{display:inline-block;border:2px solid #b9b2cc;border-radius:12px;padding:9px 14px;font-weight:700;background:#fff}
+.way input:checked+span,.chip input:checked+span{border-color:var(--brand);background:var(--soft);box-shadow:0 0 0 2px var(--brand) inset}
+.way input:focus-visible+span,.chip input:focus-visible+span{outline:3px solid var(--focus)}
+.chip span{padding:6px 12px;font-size:.92rem;margin:0 6px 6px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;background:#fff}
+.opt input{margin-top:5px;accent-color:var(--brand);width:18px;height:18px}
+.note{background:var(--soft);border-left:5px solid var(--brand);padding:10px 14px;border-radius:10px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:11px;padding:10px 18px;background:var(--brand);color:#fff;cursor:pointer}
+.btn:hover{background:var(--brand2)}.btn.ghost{background:#ece8f5;color:var(--ink)}.btn.ghost:hover{background:#ddd5ee}
+.btn.big{padding:13px 26px;font-size:1.05rem}.btn:disabled{opacity:.55;cursor:default}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
+.fb{margin:10px 0 0;min-height:1em}.fb:empty{display:none}
+.fb.good,.fb.bad,.fb.hint{padding:10px 14px;border-radius:10px}
+.fb.good{background:var(--goodbg);color:var(--good)}.fb.bad{background:var(--badbg);color:var(--bad)}.fb.hint{background:var(--warnbg);color:var(--warn)}
+.fb ul{margin:.4em 0 0;padding-left:1.2em}
+.task{border:1px solid var(--line);border-left:6px solid var(--brand);border-radius:14px;padding:16px 18px;margin:14px 0;background:#fdfcff}
+.task.solved{border-left-color:var(--good)}
+.thead{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font-size:.75rem;font-weight:700;background:var(--soft);color:var(--brand2);border-radius:20px;padding:2px 10px}.tag.plain{background:#eee}.tag.ok{background:var(--goodbg);color:var(--good)}
+.q{margin:0 0 10px}.hints .hint{background:#fffbea;border:1px solid #f5e3a3;border-radius:10px;padding:8px 12px;margin-top:8px}.hint.sol{background:#f0f9ff;border-color:#bfe0f5}
+.merk{background:var(--soft);border:2px solid var(--brand);border-radius:14px;padding:12px 16px;margin:14px 0}.merk b:first-child{color:var(--brand2)}
+.goals li{margin:.3em 0}.terms div{margin:0 0 8px}.terms dt{font-weight:700}.terms dd{margin:0;color:var(--muted)}
+.steps li{margin:8px 0;padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.story{font-size:1.02rem}.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;margin-bottom:14px;background:#000}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.95em;margin:0 .15em;line-height:1.15}
+.frac>span:first-child{border-bottom:2px solid currentColor;padding:0 .2em}
+.big-math{font-size:1.35rem;font-weight:700}
+.lc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.viz{width:100%;max-width:520px;height:auto;display:block;margin:8px 0}
+.ctl{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:10px 0}.ctl label{font-weight:700}
+.ctl input[type=range]{width:220px;accent-color:var(--brand)}
+.ctl select{font:inherit;padding:8px;border-radius:10px;border:2px solid #b9b2cc}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:34px;color:var(--muted);font-size:.9rem}
+table.tab{border-collapse:collapse;margin:10px 0}table.tab td,table.tab th{border:1px solid var(--line);padding:6px 12px;text-align:center}table.tab th{background:var(--soft)}
+@media (max-width:860px){.layout{grid-template-columns:1fr}#nav{position:static;flex-direction:row;overflow-x:auto;gap:4px;padding:8px;-webkit-overflow-scrolling:touch}#nav a{white-space:nowrap}
+.hero-main{flex-direction:column;align-items:flex-start}.badge{flex-direction:row;gap:10px;align-items:baseline;min-width:0}.badge strong{font-size:1.3rem}}
+@media (max-width:620px){body{font-size:16px}.card{padding:18px}.facts,.summary{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.inrow input{max-width:none}.pager .btn{padding:10px 12px}}
+@media print{.hero,.progress,#nav,.tools,.actions,.pager,.foot{display:none!important}.layout{display:block}.sec{display:block!important}.sec[hidden]{display:none!important}#sec-ergebnis{display:block!important}body{background:#fff}}
+
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body>
+<div id="app"><noscript><p style="padding:20px">Dieses Lernmodul braucht JavaScript. Bitte aktiviere JavaScript in deinem Browser.</p></noscript></div>
+<script>
+/* SOL Mathe 8 · Rechenhilfen (Brüche, Terme, Zufall). Läuft im Browser und in Node. */
+var M = (function () {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a || 1; }
+  function lcm(a, b) { return Math.abs(a * b) / gcd(a, b); }
+  function rnd(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function nz(a, b) { var v; do { v = rnd(a, b); } while (v === 0); return v; }
+
+  /* Bruch {n,d} immer mit d>0 */
+  function F(n, d) { if (d === undefined) d = 1; if (d === 0) throw new Error('Nenner 0'); if (d < 0) { n = -n; d = -d; } return { n: n, d: d }; }
+  function red(f) { var g = gcd(f.n, f.d); return F(f.n / g, f.d / g); }
+  function fmul(a, b) { return red(F(a.n * b.n, a.d * b.d)); }
+  function fdiv(a, b) { return red(F(a.n * b.d, a.d * b.n)); }
+  function fadd(a, b) { return red(F(a.n * b.d + b.n * a.d, a.d * b.d)); }
+  function feq(a, b) { return a.n * b.d === b.n * a.d; }
+  function isReduced(f) { return gcd(f.n, f.d) === 1; }
+  function fstr(f) { f = red(f); return f.d === 1 ? String(f.n) : f.n + '/' + f.d; }
+  function fhtml(f, keep) {
+    if (!keep) f = red(f);
+    if (f.d === 1) return '<span class="num">' + fmtNum(f.n) + '</span>';
+    var s = f.n < 0 ? '−' : '';
+    return s + '<span class="frac"><span>' + Math.abs(f.n) + '</span><span>' + f.d + '</span></span>';
+  }
+  function fmtNum(x, dec) {
+    if (dec === undefined) { var r = Math.round(x * 1e6) / 1e6; dec = (String(r).split('.')[1] || '').length; }
+    var s = Math.abs(x).toFixed(dec).replace('.', ',');
+    var parts = s.split(','); parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return (x < 0 ? '−' : '') + parts.join(',');
+  }
+
+  function clean(s) {
+    return String(s == null ? '' : s).trim()
+      .replace(/[−–—]/g, '-').replace(/[·×⋅]/g, '*').replace(/:/g, '/').replace(/÷/g, '/')
+      .replace(/\s+/g, ' ');
+  }
+  /* Zahl aus Eingabe: "1,5" "1.5" "-3" "1 000" ; null wenn keine Zahl */
+  function parseNum(s) {
+    s = clean(s).replace(/\s(?=\d{3}\b)/g, '').replace(/(mm²|cm²|dm²|m²|cm³|dm³|m³|mm|cm|dm|km|m|€|%|°|grad)$/i, '').trim();
+    if (!/^[+-]?(\d+([.,]\d+)?|[.,]\d+)$/.test(s)) return null;
+    return parseFloat(s.replace(',', '.'));
+  }
+  /* Bruch aus Eingabe: "3/4", "-3/4", "1 1/2", "0,75", "2" ; null wenn ungültig */
+  function parseFrac(s) {
+    s = clean(s);
+    var m;
+    if ((m = s.match(/^([+-])?\s*(\d+)\s+(\d+)\s*\/\s*(\d+)$/))) { var d = +m[4]; if (!d) return null; var f = F(+m[2] * d + +m[3], d); if (m[1] === '-') f.n = -f.n; f.mixed = true; return f; }
+    if ((m = s.match(/^([+-])?\s*\(?\s*(\d+)\s*\/\s*(\d+)\s*\)?$/))) { if (!+m[3]) return null; var g = F(+m[2], +m[3]); if (m[1] === '-') g.n = -g.n; return g; }
+    var x = parseNum(s); if (x === null) return null;
+    var den = 1; while (Math.abs(x * den - Math.round(x * den)) > 1e-9 && den < 1e6) den *= 10;
+    var r = red(F(Math.round(x * den), den)); r.decimal = true; return r;
+  }
+
+  /* ---------- Terme: Parser und Auswertung ---------- */
+  function tokenize(s) {
+    s = clean(s).toLowerCase().replace(/²/g, '^2').replace(/³/g, '^3').replace(/,/g, '.');
+    var out = [], i = 0;
+    while (i < s.length) {
+      var c = s[i];
+      if (c === ' ') { i++; continue; }
+      if (/[0-9.]/.test(c)) { var j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++; var num = s.slice(i, j); if (!/^\d*\.?\d+$|^\d+\.$/.test(num)) throw new Error('Zahl'); out.push({ t: 'n', v: parseFloat(num) }); i = j; continue; }
+      if (/[a-z]/.test(c)) { out.push({ t: 'v', v: c }); i++; continue; }
+      if ('+-*/^()'.indexOf(c) >= 0) { out.push({ t: c }); i++; continue; }
+      throw new Error('Zeichen ' + c);
+    }
+    /* implizite Multiplikation: 3x, 2(, )(, x(, )x, xy */
+    var res = [];
+    for (var k = 0; k < out.length; k++) {
+      var a = out[k - 1], b = out[k];
+      if (a && (a.t === 'n' || a.t === 'v' || a.t === ')') && (b.t === 'n' || b.t === 'v' || b.t === '(') && !(a.t === 'n' && b.t === 'n')) res.push({ t: '*' });
+      res.push(b);
+    }
+    return res;
+  }
+  function parseTerm(s) {
+    var tk = tokenize(s), p = 0;
+    if (!tk.length) throw new Error('leer');
+    function peek() { return tk[p]; }
+    function eat(t) { if (!tk[p] || tk[p].t !== t) throw new Error('erwartet ' + t); p++; }
+    function expr() { var n = term(); while (peek() && (peek().t === '+' || peek().t === '-')) { var op = tk[p++].t; n = { op: op, a: n, b: term() }; } return n; }
+    function term() { var n = unary(); while (peek() && (peek().t === '*' || peek().t === '/')) { var op = tk[p++].t; n = { op: op, a: n, b: unary() }; } return n; }
+    function unary() { if (peek() && (peek().t === '-' || peek().t === '+')) { var op = tk[p++].t; var u = unary(); return op === '-' ? { op: 'neg', a: u } : u; } return power(); }
+    function power() { var b = atom(); if (peek() && peek().t === '^') { p++; var e = unary(); return { op: '^', a: b, b: e }; } return b; }
+    function atom() {
+      var t = peek(); if (!t) throw new Error('Ende');
+      if (t.t === 'n') { p++; return { num: t.v }; }
+      if (t.t === 'v') { p++; return { v: t.v }; }
+      if (t.t === '(') { p++; var e = expr(); eat(')'); return e; }
+      throw new Error('unerwartet');
+    }
+    var tree = expr(); if (p !== tk.length) throw new Error('Rest');
+    return tree;
+  }
+  function evalTree(n, env) {
+    if (n.num !== undefined) return n.num;
+    if (n.v !== undefined) { if (!(n.v in env)) throw new Error('Variable ' + n.v); return env[n.v]; }
+    var a = evalTree(n.a, env);
+    if (n.op === 'neg') return -a;
+    var b = evalTree(n.b, env);
+    switch (n.op) { case '+': return a + b; case '-': return a - b; case '*': return a * b; case '/': return a / b; case '^': return Math.pow(a, b); }
+    throw new Error('op');
+  }
+  function varsOf(n, set) { set = set || {}; if (!n) return set; if (n.v) set[n.v] = 1; varsOf(n.a, set); varsOf(n.b, set); return set; }
+  /* gleichwertige Terme? prüft an mehreren Stellen */
+  function termEq(s1, s2) {
+    var t1, t2; try { t1 = parseTerm(s1); t2 = parseTerm(s2); } catch (e) { return false; }
+    var vs = Object.keys(Object.assign(varsOf(t1), varsOf(t2)));
+    var pts = [-2.5, -1.3, 0.7, 1.9, 3.1, 4.6];
+    for (var i = 0; i < pts.length; i++) {
+      var env = {}; vs.forEach(function (v, k) { env[v] = pts[(i + k * 2) % pts.length] + k * 0.37; });
+      var a = evalTree(t1, env), b = evalTree(t2, env);
+      if (!isFinite(a) || !isFinite(b) || Math.abs(a - b) > 1e-7 * Math.max(1, Math.abs(a))) return false;
+    }
+    return true;
+  }
+  function termValid(s) { try { parseTerm(s); return true; } catch (e) { return false; } }
+  /* Term schön darstellen: 3x^2 -> 3x², * -> · */
+  function tpretty(s) { return String(s).replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\*/g, '·').replace(/-/g, '−'); }
+  /* lineares Glied a·x mit Vorzeichen für Ausgabe */
+  function mono(c, v, first) {
+    if (c === 0) return first ? '0' : '';
+    var sign = c < 0 ? (first ? '−' : ' − ') : (first ? '' : ' + ');
+    var a = Math.abs(c), core = v ? ((a === 1 ? '' : a) + v) : String(a);
+    return sign + core;
+  }
+  function poly(coeffs) { /* [[c,'x²'],[c,'x'],[c,'']] */
+    var s = '', first = true;
+    coeffs.forEach(function (p) { if (p[0] === 0) return; s += mono(p[0], p[1], first); first = false; });
+    return s || '0';
+  }
+
+  function check(inp, raw) {
+    raw = String(raw == null ? '' : raw).trim();
+    if (inp.kind === 'mc') return raw === '' ? { ok: false, empty: true } : { ok: +raw === inp.answer };
+    if (!raw) return { ok: false, empty: true };
+    if (inp.kind === 'num') { var x = parseNum(raw); if (x === null) return { ok: false, msg: 'Gib eine Zahl ein, zum Beispiel 12 oder 3,5.' }; return { ok: Math.abs(x - inp.answer) <= (inp.tol != null ? inp.tol : 1e-9) }; }
+    if (inp.kind === 'frac') {
+      var f = parseFrac(raw); if (!f) return { ok: false, msg: 'Schreibe den Bruch so: 3/4. Ein gemischter Bruch geht so: 1 1/2.' };
+      var ans = F(inp.answer.n, inp.answer.d);
+      if (!feq(f, ans)) return { ok: false };
+      if (inp.reduce && !f.decimal && !f.mixed && !isReduced(f)) return { ok: false, almost: true, msg: 'Richtig gerechnet. Kürze das Ergebnis noch vollständig.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'term') {
+      if (!termValid(raw)) return { ok: false, msg: 'Der Term ist nicht lesbar. Beispiel: 3x + 12 oder 4(x − 2). Für „hoch 2“ schreibst du x^2.' };
+      if (!termEq(raw, inp.answer)) return { ok: false };
+      if (inp.form === 'expanded' && /\(/.test(raw)) return { ok: false, almost: true, msg: 'Der Term ist gleichwertig, aber noch nicht ausmultipliziert. Löse die Klammer auf.' };
+      if (inp.form === 'factored') { var tr = parseTerm(raw); while (tr.op === 'neg') tr = tr.a; if (!/\(/.test(raw) || (tr.op !== '*' && tr.op !== '^')) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht als Produkt geschrieben. Schreibe den Term als Produkt mit Klammer.' }; }
+      if (inp.form === 'factored' && !/\(/.test(raw)) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht ausgeklammert. Schreibe den Term als Produkt mit Klammer.' };
+      if (inp.factor) {
+        var z = clean(raw).toLowerCase().replace(/\s+/g, '').replace(/\*/g, ''), fct = String(inp.factor).toLowerCase().replace(/\s+/g, '');
+        if (!(z.indexOf(fct + '(') === 0 || (z.slice(-fct.length - 1) === ')' + fct && z.charAt(0) === '('))) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch mehr ausklammern. Klammere den größten gemeinsamen Faktor aus.' };
+      }
+      if (inp.form === 'simplified' && inp.maxTerms && (clean(raw).replace(/^[-+]/, '').split(/[+-]/).length > inp.maxTerms)) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch weiter zusammenfassen.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'text') { var opts = [].concat(inp.answer).map(function (a) { return String(a).toLowerCase(); }); return { ok: opts.indexOf(raw.toLowerCase()) >= 0 }; }
+    return { ok: false };
+  }
+  return { check: check, gcd: gcd, lcm: lcm, rnd: rnd, nz: nz, pick: pick, shuffle: shuffle, F: F, red: red, fmul: fmul, fdiv: fdiv, fadd: fadd, feq: feq,
+    isReduced: isReduced, fstr: fstr, fhtml: fhtml, fmtNum: fmtNum, clean: clean, parseNum: parseNum, parseFrac: parseFrac,
+    parseTerm: parseTerm, evalTree: evalTree, termEq: termEq, termValid: termValid, tpretty: tpretty, mono: mono, poly: poly };
+})();
+if (typeof module !== 'undefined') module.exports = M;
+
+</script>
+<script>
+window.CONFIG = {"jahrgang": "8", "endpoint": "https://script.google.com/macros/s/AKfycbxpbjq4u7xOEi94XymjPmODt4KIoBf1XvAVzBK-DMk21X8usQOQyz3LMQd5k41h41Ru/exec", "iservDomain": "", "version": "1.0.0", "backUrl": "../index.html"};
+/* Modul 005 · Binomische Formeln */
+var MODULE = (function () {
+  var T = M.tpretty, poly = M.poly;
+  function show(s) { return '<span class="big-math">' + s + '</span>'; }
+  function q2(A, B, C, v) {
+    v = v || 'x'; var parts = [];
+    if (A) parts.push((A === 1 ? '' : A === -1 ? '-' : A) + v + '^2');
+    if (B) parts.push((B === 1 ? '' : B === -1 ? '-' : B) + v);
+    if (C) parts.push(String(C));
+    return (parts.join('+') || '0').replace(/\+-/g, '-');
+  }
+  function q2p(A, B, C) { return T(poly([[A, 'x²'], [B, 'x'], [C, '']])); }
+  function px(p) { return p === 1 ? 'x' : p + 'x'; }
+  function br(p, a) { return '(' + px(p) + ' ' + (a < 0 ? '− ' + Math.abs(a) : '+ ' + a) + ')'; }
+  function brs(p, a) { return '(' + p + '*x+(' + a + '))'; }
+  function sqx(p) { return p === 1 ? 'x²' : '(' + p + 'x)² = ' + p * p + 'x²'; }
+  function termIn(label) { return { kind: 'term', form: 'expanded', label: label || 'Term ohne Klammern', placeholder: 'z. B. x^2 + 6x + 9' }; }
+  /* typische Fehler beim Quadrieren von (p x + a) */
+  function sqMist(p, a) {
+    var A = p * p, B = 2 * p * a, C = a * a;
+    return function (v) {
+      var s = v[0]; if (!M.termValid(s)) return null;
+      if (M.termEq(s, q2(A, 0, C))) return '<b>Achtung, typischer Fehler:</b> ' + T(br(p, a)) + '² ist nicht ' + q2p(A, 0, C) + '. Es fehlt das gemischte Glied 2 · ' + px(p) + ' · ' + (a < 0 ? '(' + T(String(a)) + ')' : a) + ' = ' + T(poly([[B, 'x']])) + '. Denk an die vier Teilflächen im Quadrat.';
+      if (M.termEq(s, q2(A, 0, -C)) && a < 0) return 'Das ist die dritte binomische Formel. Hier wird aber (' + px(p) + ' − ' + (-a) + ') mit sich selbst multipliziert: zweite binomische Formel.';
+      if (M.termEq(s, q2(A, B / 2, C))) return 'Das gemischte Glied kommt <b>zweimal</b> vor: 2 · ' + px(p) + ' · ' + Math.abs(a) + '.';
+      if (M.termEq(s, q2(A, B, -C))) return 'Die Zahl am Ende ist ein Quadrat: ' + (a < 0 ? '(' + T(String(a)) + ')' : a) + '² = ' + C + '. Ein Quadrat ist nie negativ.';
+      if (M.termEq(s, q2(A, -B, C))) return 'Prüfe das Vorzeichen des mittleren Glieds: Bei ' + (a < 0 ? '(a − b)² steht −2ab.' : '(a + b)² steht +2ab.');
+      if (p !== 1 && M.termEq(s, q2(p, B, C))) return 'Auch die Zahl vor dem x wird quadriert: (' + p + 'x)² = ' + p * p + 'x².';
+      return null;
+    };
+  }
+  /* Quadrat (a+b)² mit vier Teilflächen */
+  function square(a, b, opts) {
+    opts = opts || {};
+    var S = 220, u = S / (a + b), x0 = 40, y0 = 30, A = a * u, B = b * u, cols = ['#cfc2ee', '#f6d9a8', '#f6d9a8', '#efeafb'];
+    var R = [[x0, y0, A, A, opts.la || 'a²'], [x0 + A, y0, B, A, opts.lab || 'a·b'], [x0, y0 + A, A, B, opts.lab || 'a·b'], [x0 + A, y0 + A, B, B, opts.lb || 'b²']];
+    var s = '<svg class="viz" viewBox="0 0 300 270" role="img" aria-label="Quadrat mit vier Teilflächen" style="max-width:340px">';
+    R.forEach(function (r, i) {
+      var miss = opts.err && (i === 1 || i === 2);
+      s += '<rect x="' + r[0] + '" y="' + r[1] + '" width="' + r[2] + '" height="' + r[3] + '" fill="' + (miss ? '#fff' : cols[i]) + '" stroke="' + (miss ? '#b91c1c' : '#3d2a73') + '" stroke-width="2"' + (miss ? ' stroke-dasharray="6 4"' : '') + '/>';
+      var txt = miss ? 'fehlt!' : r[4];
+      if (r[2] >= 30 && r[3] >= 20) s += '<text x="' + (r[0] + r[2] / 2) + '" y="' + (r[1] + r[3] / 2 + 5) + '" font-size="' + (r[2] >= 50 ? 14 : 11) + '" font-weight="700" text-anchor="middle" fill="' + (miss ? '#b91c1c' : '#1c1830') + '">' + txt + '</text>';
+    });
+    s += '<text x="' + (x0 + A / 2) + '" y="22" font-size="14" font-weight="700" text-anchor="middle" fill="#3d2a73">' + (opts.ta || 'a') + '</text><text x="' + (x0 + A + B / 2) + '" y="22" font-size="14" font-weight="700" text-anchor="middle" fill="#b45309">' + (opts.tb || 'b') + '</text>';
+    s += '<text x="' + (x0 - 6) + '" y="' + (y0 + A / 2 + 5) + '" font-size="14" font-weight="700" text-anchor="end" fill="#3d2a73">' + (opts.ta || 'a') + '</text><text x="' + (x0 - 6) + '" y="' + (y0 + A + B / 2 + 5) + '" font-size="14" font-weight="700" text-anchor="end" fill="#b45309">' + (opts.tb || 'b') + '</text>';
+    if (opts.note) s += '<text x="296" y="266" font-size="10" text-anchor="end" fill="#5a5670">' + opts.note + '</text>';
+    return s + '</svg>';
+  }
+
+  var gen = {
+    erkennen: function () {
+      var a = M.rnd(2, 9), minus = Math.random() < 0.4, s = minus ? -1 : 1;
+      var right = q2p(1, 2 * a * s, a * a), cand = [q2p(1, 0, a * a), q2p(1, a * s, a * a), q2p(1, 0, -a * a), q2p(1, -2 * a * s, a * a), q2p(1, 2 * a * s, 2 * a)];
+      var seen = {}; seen[right] = 1; var wrong = cand.filter(function (x) { if (seen[x]) return false; seen[x] = 1; return true; }).slice(0, 3);
+      var opts = M.shuffle([right].concat(wrong));
+      return { skill: 'Binomische Formel erkennen', level: 1, q: 'Welcher Term ist gleichwertig zu ' + show(T(br(1, a * s)) + '²') + '?', inputs: [{ kind: 'mc', label: 'Wähle aus', options: opts, answer: opts.indexOf(right) }],
+        hints: [(minus ? 'Zweite' : 'Erste') + ' binomische Formel: ' + (minus ? '(a − b)² = a² − 2ab + b²' : '(a + b)² = a² + 2ab + b²') + '.', 'Hier ist a = x und b = ' + a + '. Das gemischte Glied ist 2 · x · ' + a + ' = ' + 2 * a + 'x.', 'Kontrolle mit x = 1: ' + T('(1 ' + (minus ? '− ' : '+ ') + a + ')²') + ' = ' + (1 + s * a) * (1 + s * a) + '.'],
+        solution: T(br(1, a * s)) + '² = x² ' + (minus ? '−' : '+') + ' 2 · x · ' + a + ' + ' + a + '² = ' + right + '.',
+        verify: function () { return M.termEq(brs(1, a * s) + '^2', q2(1, 2 * a * s, a * a)) ? true : 'falsch'; } };
+    },
+    fehler: function () {
+      var a = M.rnd(2, 9), x = M.rnd(1, 5), name = M.pick(['Tom', 'Lena', 'Emre', 'Mia']);
+      return { skill: 'Typischen Fehler (a + b)² prüfen', level: 1, q: name + ' behauptet: <span class="big-math">(x + ' + a + ')² = x² + ' + a * a + '</span><br>Prüfe das mit der Zahl x = ' + x + '.<br>a) Berechne (' + x + ' + ' + a + ')².<br>b) Berechne ' + x + '² + ' + a * a + '.',
+        inputs: [{ kind: 'num', answer: (x + a) * (x + a), label: 'a) (' + x + ' + ' + a + ')² =' }, { kind: 'num', answer: x * x + a * a, label: 'b) ' + x + '² + ' + a * a + ' =' }],
+        hints: ['Rechne bei a) zuerst die Klammer aus: ' + x + ' + ' + a + ' = ' + (x + a) + '. Quadriere dann.', 'Bei b): ' + x + '² = ' + x * x + '. Addiere ' + a * a + '.', 'Vergleiche beide Ergebnisse. Der Unterschied ist genau 2 · ' + x + ' · ' + a + ' = ' + 2 * x * a + '.'],
+        solution: 'a) ' + (x + a) + '² = ' + (x + a) * (x + a) + '. b) ' + x * x + ' + ' + a * a + ' = ' + (x * x + a * a) + '. Die Ergebnisse sind verschieden, also hat ' + name + ' nicht recht. Richtig ist (x + ' + a + ')² = x² + ' + 2 * a + 'x + ' + a * a + '. Es fehlt das gemischte Glied: 2 · ' + x + ' · ' + a + ' = ' + 2 * x * a + '.',
+        verify: function () { return (x + a) * (x + a) - (x * x + a * a) === 2 * x * a ? true : 'Differenz'; },
+        mistakes: function (v) { var p = M.parseNum(v[0]); if (p !== null && p === x * x + a * a) return 'Bei a) musst du zuerst die Klammer ausrechnen und dann quadrieren: ' + (x + a) + '².'; return null; } };
+    },
+    erste: function (lvl) {
+      var a = M.rnd(1, lvl >= 2 ? 12 : 9);
+      var inp = termIn(); inp.answer = q2(1, 2 * a, a * a);
+      return { src: brs(1, a) + '^2', skill: '1. binomische Formel', level: lvl, q: 'Multipliziere mit der 1. binomischen Formel aus. ' + show(T(br(1, a)) + '²'), inputs: [inp],
+        hints: ['(a + b)² = a² + 2ab + b². Hier ist a = x und b = ' + a + '.', 'a² = x², 2ab = 2 · x · ' + a + ' = ' + 2 * a + 'x, b² = ' + a + '² = ' + a * a + '.', 'Setze zusammen: x² + ' + 2 * a + 'x + ' + a * a + '.'],
+        solution: T(br(1, a)) + '² = x² + 2 · x · ' + a + ' + ' + a + '² = <b>' + q2p(1, 2 * a, a * a) + '</b>', mistakes: sqMist(1, a) };
+    },
+    zweite: function (lvl) {
+      var a = M.rnd(1, lvl >= 2 ? 12 : 9);
+      var inp = termIn(); inp.answer = q2(1, -2 * a, a * a);
+      return { src: brs(1, -a) + '^2', skill: '2. binomische Formel', level: lvl, q: 'Multipliziere mit der 2. binomischen Formel aus. ' + show(T(br(1, -a)) + '²'), inputs: [inp],
+        hints: ['(a − b)² = a² − 2ab + b². Hier ist a = x und b = ' + a + '.', 'a² = x², 2ab = 2 · x · ' + a + ' = ' + 2 * a + 'x, b² = ' + a * a + '.', 'Nur das mittlere Glied bekommt ein Minus. Das Quadrat ' + a + '² = ' + a * a + ' ist positiv.'],
+        solution: T(br(1, -a)) + '² = x² − 2 · x · ' + a + ' + ' + a + '² = <b>' + q2p(1, -2 * a, a * a) + '</b>', mistakes: sqMist(1, -a) };
+    },
+    dritte: function (lvl) {
+      var p = lvl >= 3 ? M.rnd(1, 4) : 1, a = M.rnd(1, lvl >= 2 ? 12 : 9), first = Math.random() < 0.5;
+      var inp = termIn(); inp.answer = q2(p * p, 0, -a * a);
+      var shown = first ? T(br(p, a) + br(p, -a)) : T(br(p, -a) + br(p, a));
+      return { src: brs(p, a) + '*' + brs(p, -a), skill: '3. binomische Formel', level: lvl, q: 'Multipliziere mit der 3. binomischen Formel aus. ' + show(shown), inputs: [inp],
+        hints: ['(a + b)(a − b) = a² − b². Hier ist a = ' + px(p) + ' und b = ' + a + '.', 'a² = ' + sqx(p) + ' und b² = ' + a * a + '.', 'Die gemischten Glieder heben sich weg: +' + p * a + 'x − ' + p * a + 'x = 0. Es bleibt ' + q2p(p * p, 0, -a * a) + '.'],
+        solution: shown + ' = ' + T(poly([[p * p, 'x²'], [-p * a, 'x'], [p * a, 'x'], [-a * a, '']])) + ' = <b>' + q2p(p * p, 0, -a * a) + '</b>',
+        mistakes: function (v) { if (!M.termValid(v[0])) return null; if (M.termEq(v[0], q2(p * p, 0, a * a))) return 'Das Vorzeichen stimmt nicht: (a + b)(a − b) = a² <b>−</b> b².'; if (M.termEq(v[0], q2(p * p, 2 * p * a, -a * a)) || M.termEq(v[0], q2(p * p, -2 * p * a, -a * a))) return 'Bei der 3. binomischen Formel heben sich die gemischten Glieder auf. Es gibt kein x-Glied.'; if (p > 1 && M.termEq(v[0], q2(p, 0, -a * a))) return 'Auch die Zahl vor dem x wird quadriert: (' + p + 'x)² = ' + p * p + 'x².'; return null; } };
+    },
+    koeff: function (lvl) {
+      var p, a; do { p = M.rnd(2, lvl >= 3 ? 6 : 4); a = M.nz(-7, 7); } while (M.gcd(p, a) !== 1);
+      var inp = termIn(); inp.answer = q2(p * p, 2 * p * a, a * a);
+      var nr = a > 0 ? 1 : 2;
+      return { src: brs(p, a) + '^2', skill: 'Binomische Formel mit Koeffizient', level: lvl, q: 'Multipliziere aus. ' + show(T(br(p, a)) + '²'), inputs: [inp],
+        hints: ['Das ist die ' + nr + '. binomische Formel mit a = ' + p + 'x und b = ' + Math.abs(a) + '.', 'a² = (' + p + 'x)² = ' + p * p + 'x². Auch die ' + p + ' wird quadriert.', '2ab = 2 · ' + p + 'x · ' + Math.abs(a) + ' = ' + 2 * p * Math.abs(a) + 'x und b² = ' + a * a + '.'],
+        solution: T(br(p, a)) + '² = (' + p + 'x)² ' + (a > 0 ? '+' : '−') + ' 2 · ' + p + 'x · ' + Math.abs(a) + ' + ' + Math.abs(a) + '² = <b>' + q2p(p * p, 2 * p * a, a * a) + '</b>', mistakes: sqMist(p, a) };
+    },
+    faktor: function (lvl) {
+      var p, a, kind = M.pick(['1', '2', '3']);
+      do { p = lvl >= 3 ? M.rnd(1, 4) : 1; a = M.rnd(1, 10); } while (M.gcd(p, a) !== 1);
+      var A = p * p, B = kind === '1' ? 2 * p * a : kind === '2' ? -2 * p * a : 0, C = kind === '3' ? -a * a : a * a;
+      var ans = kind === '1' ? '(' + p + 'x+' + a + ')^2' : kind === '2' ? '(' + p + 'x-' + a + ')^2' : '(' + p + 'x+' + a + ')*(' + p + 'x-' + a + ')';
+      ans = ans.replace(/\(1x/g, '(x');
+      var prettyAns = kind === '1' ? T(br(p, a)) + '²' : kind === '2' ? T(br(p, -a)) + '²' : T(br(p, a) + br(p, -a));
+      return { src: q2(A, B, C), skill: 'Faktorisieren mit binomischen Formeln', level: lvl, q: 'Schreibe als Produkt. Nutze eine binomische Formel. ' + show(q2p(A, B, C)),
+        inputs: [{ kind: 'term', form: 'factored', label: 'Produkt', placeholder: kind === '3' ? 'z. B. (x + 4)(x − 4)' : 'z. B. (x + 4)^2', answer: ans }],
+        hints: [kind === '3' ? 'Es gibt kein x-Glied und ein Minus zwischen zwei Quadraten. Das passt zur 3. Formel: a² − b² = (a + b)(a − b).' : 'Drei Glieder, außen zwei Quadrate: Das passt zur ' + kind + '. Formel: ' + (kind === '1' ? 'a² + 2ab + b² = (a + b)²' : 'a² − 2ab + b² = (a − b)²') + '.', 'Suche a und b: ' + (p === 1 ? 'x² ist das Quadrat von x, also a = x' : A + 'x² = (' + px(p) + ')², also a = ' + px(p)) + '. ' + a * a + ' = ' + a + '², also b = ' + a + '.', kind === '3' ? 'Schreibe (' + px(p) + ' + ' + a + ')(' + px(p) + ' − ' + a + ').' : 'Kontrolle des mittleren Glieds: 2 · ' + px(p) + ' · ' + a + ' = ' + 2 * p * a + 'x. Passt.'],
+        solution: q2p(A, B, C) + ' = <b>' + prettyAns + '</b>. Kontrolle durch Ausmultiplizieren ergibt wieder den Ausgangsterm.',
+        mistakes: function (v) { if (!M.termValid(v[0])) return null; if (kind !== '3' && M.termEq(v[0], (kind === '1' ? '(' + p + 'x-' + a + ')^2' : '(' + p + 'x+' + a + ')^2'))) return 'Fast. Schau auf das Vorzeichen des mittleren Glieds: ' + (kind === '1' ? 'Plus, also (a + b)².' : 'Minus, also (a − b)².'); return null; } };
+    },
+    kopf: function (lvl) {
+      var kind = M.pick(['plus', 'minus', 'dritte']), base = M.pick([20, 30, 40, 50, 60, 70, 80, 90]), d = M.rnd(1, lvl >= 3 ? 3 : 2), n1, n2, res, q, sol, hint;
+      if (kind === 'plus') { n1 = base + d; res = n1 * n1; q = n1 + '²'; hint = n1 + '² = (' + base + ' + ' + d + ')²'; sol = '(' + base + ' + ' + d + ')² = ' + base + '² + 2 · ' + base + ' · ' + d + ' + ' + d + '² = ' + M.fmtNum(base * base) + ' + ' + 2 * base * d + ' + ' + d * d + ' = ' + M.fmtNum(res); }
+      else if (kind === 'minus') { n1 = base - d; res = n1 * n1; q = n1 + '²'; hint = n1 + '² = (' + base + ' − ' + d + ')²'; sol = '(' + base + ' − ' + d + ')² = ' + base + '² − 2 · ' + base + ' · ' + d + ' + ' + d + '² = ' + M.fmtNum(base * base) + ' − ' + 2 * base * d + ' + ' + d * d + ' = ' + M.fmtNum(res); }
+      else { n1 = base - d; n2 = base + d; res = n1 * n2; q = n1 + ' · ' + n2; hint = n1 + ' · ' + n2 + ' = (' + base + ' − ' + d + ')(' + base + ' + ' + d + ')'; sol = '(' + base + ' − ' + d + ')(' + base + ' + ' + d + ') = ' + base + '² − ' + d + '² = ' + M.fmtNum(base * base) + ' − ' + d * d + ' = ' + M.fmtNum(res); }
+      return { skill: 'Kopfrechnen mit binomischen Formeln', level: lvl, q: 'Rechne geschickt im Kopf mit einer binomischen Formel. <span class="big-math">' + q + '</span>', inputs: [{ kind: 'num', answer: res, label: q + ' =' }],
+        hints: ['Zerlege in eine glatte Zehnerzahl und eine kleine Zahl: ' + hint + '.', kind === 'dritte' ? 'Das ist die 3. Formel: (a − b)(a + b) = a² − b².' : 'Nutze die ' + (kind === 'plus' ? '1.' : '2.') + ' Formel: ' + (kind === 'plus' ? '(a + b)² = a² + 2ab + b².' : '(a − b)² = a² − 2ab + b².'), 'Rechne: ' + base + '² = ' + M.fmtNum(base * base) + (kind === 'dritte' ? ' und ' + d + '² = ' + d * d + '.' : ', 2 · ' + base + ' · ' + d + ' = ' + 2 * base * d + ' und ' + d + '² = ' + d * d + '.')],
+        solution: sol + '.',
+        verify: function () { return res === (kind === 'dritte' ? (base - d) * (base + d) : n1 * n1) ? true : 'Kopfrechnung'; },
+        mistakes: function (v) { var x = M.parseNum(v[0]); if (x !== null && kind === 'plus' && x === base * base + d * d) return 'Typischer Fehler: Das gemischte Glied 2 · ' + base + ' · ' + d + ' = ' + 2 * base * d + ' fehlt.'; if (x !== null && kind === 'minus' && (x === base * base - d * d || x === base * base + d * d)) return 'Das gemischte Glied fehlt: Ziehe 2 · ' + base + ' · ' + d + ' = ' + 2 * base * d + ' ab und addiere ' + d * d + '.'; return null; } };
+    },
+    luecke: function (lvl) {
+      var p = M.rnd(2, 6), a = M.rnd(1, 9);
+      return { skill: 'Lücken in binomischen Formeln', level: 3, q: 'Ergänze die Lücken so, dass die Gleichung stimmt. ' + show('(□ + ' + a + ')² = ' + p * p + 'x² + △x + ' + a * a),
+        inputs: [{ kind: 'term', answer: p + 'x', label: '□ =', placeholder: 'z. B. 3x' }, { kind: 'num', answer: 2 * p * a, label: '△ =' }],
+        hints: ['□ zum Quadrat muss ' + p * p + 'x² ergeben.', '□ = ' + p + 'x, denn (' + p + 'x)² = ' + p * p + 'x².', '△x ist das gemischte Glied: 2 · ' + p + 'x · ' + a + '.'],
+        solution: '□ = ' + p + 'x und △ = 2 · ' + p + ' · ' + a + ' = ' + 2 * p * a + '. Also (' + p + 'x + ' + a + ')² = ' + q2p(p * p, 2 * p * a, a * a) + '.',
+        verify: function () { return M.termEq('(' + p + 'x+' + a + ')^2', q2(p * p, 2 * p * a, a * a)) ? true : 'falsch'; },
+        mistakes: function (v) { var x = M.parseNum(v[1]); if (x !== null && x === p * a) return 'Das gemischte Glied ist <b>2</b> · a · b. Du hast die 2 vergessen.'; if (M.termValid(v[0]) && M.termEq(v[0], p * p + 'x')) return '□ wird quadriert. Gesucht ist also die Zahl, deren Quadrat ' + p * p + ' ist.'; return null; } };
+    },
+    vereinf: function () {
+      var a, b, kind = M.pick(['qq', 'q3']), B, C, src, shown, first, second;
+      do {
+        a = M.rnd(1, 8); b = M.rnd(1, 8);
+        if (kind === 'qq') { B = 2 * a + 2 * b; C = a * a - b * b; src = '(x+' + a + ')^2-(x-' + b + ')^2'; shown = '(x + ' + a + ')² − (x − ' + b + ')²'; first = q2p(1, 2 * a, a * a); second = q2p(1, -2 * b, b * b); }
+        else { B = 2 * a; C = a * a + b * b; src = '(x+' + a + ')^2-(x+' + b + ')*(x-' + b + ')'; shown = '(x + ' + a + ')² − (x + ' + b + ')(x − ' + b + ')'; first = q2p(1, 2 * a, a * a); second = q2p(1, 0, -b * b); }
+      } while (B === 0);
+      var inp = { kind: 'term', form: 'simplified', maxTerms: 2, label: 'Vereinfachter Term', placeholder: 'z. B. 10x + 16', answer: q2(0, B, C) };
+      return { src: src, skill: 'Terme mit binomischen Formeln vereinfachen', level: 3, q: 'Vereinfache so weit wie möglich. ' + show(shown), inputs: [inp],
+        hints: ['Wende auf jeden Teil eine binomische Formel an.', 'Erster Teil: ' + first + '. Zweiter Teil: ' + second + '.', 'Setze den zweiten Teil in Klammern, weil davor ein Minus steht: (' + first + ') − (' + second + '). Alle Vorzeichen im zweiten Teil drehen sich um.'],
+        solution: shown + ' = ' + first + ' − (' + second + ') = <b>' + q2p(0, B, C) + '</b>',
+        mistakes: function (v) { if (!M.termValid(v[0])) return null; if (kind === 'qq' && M.termEq(v[0], q2(0, 2 * a - 2 * b, a * a + b * b))) return 'Achte auf das Minus vor der zweiten Klammer. Es dreht <b>alle</b> Vorzeichen um, auch beim mittleren Glied.'; if (M.termEq(v[0], q2(0, B, a * a - (kind === 'qq' ? -b * b : b * b)))) return 'Prüfe das Vorzeichen der Zahl am Ende. Das Minus vor der Klammer dreht sie um.'; return null; } };
+    },
+    wachstum: function () {
+      var a = M.rnd(1, 5), x = M.rnd(4, 15), N = 2 * a * x + a * a;
+      var inp = { kind: 'term', form: 'simplified', maxTerms: 2, label: 'a) Zuwachs als Term', placeholder: 'z. B. 6x + 9', answer: q2(0, 2 * a, a * a) };
+      return { src: '(x+' + a + ')^2-x^2', skill: 'Flächenzuwachs beim Quadrat', level: 3,
+        q: 'Ein Quadrat hat die Seitenlänge x cm. Jede Seite wird um ' + a + ' cm verlängert. Es entsteht ein größeres Quadrat.' + square(3, 1.2, { ta: 'x', tb: String(a), la: 'x²', lab: a + 'x', lb: a + '²', note: 'Skizze nicht maßstabsgetreu' }) + 'a) Um wie viel cm² wächst der Flächeninhalt? Gib einen Term an.<br>b) Der Flächeninhalt wächst um genau ' + N + ' cm². Wie lang war die Seite des alten Quadrats?',
+        inputs: [inp, { kind: 'num', answer: x, label: 'b) x =', unit: 'cm' }],
+        hints: ['Neuer Flächeninhalt: (x + ' + a + ')². Alter Flächeninhalt: x². Zuwachs: (x + ' + a + ')² − x².', '(x + ' + a + ')² − x² = x² + ' + 2 * a + 'x + ' + a * a + ' − x² = ' + q2p(0, 2 * a, a * a) + '. Im Bild sind das die beiden Streifen und das kleine Quadrat.', 'Löse ' + q2p(0, 2 * a, a * a) + ' = ' + N + ': Ziehe ' + a * a + ' ab und teile durch ' + 2 * a + '.'],
+        solution: 'a) (x + ' + a + ')² − x² = <b>' + q2p(0, 2 * a, a * a) + '</b>. b) ' + q2p(0, 2 * a, a * a) + ' = ' + N + ' ⇒ ' + (2 * a === 1 ? 'x' : 2 * a + 'x') + ' = ' + (N - a * a) + ' ⇒ x = ' + x + ' cm. Probe: ' + (x + a) + '² − ' + x + '² = ' + (x + a) * (x + a) + ' − ' + x * x + ' = ' + N + '.',
+        verify: function () { return (x + a) * (x + a) - x * x === N ? true : 'Probe'; } };
+    }
+  };
+
+  return {
+    id: '005', title: 'Binomische Formeln', bereich: 'Terme und Gleichungen', minutes: '45 bis 60',
+    vorkenntnisse: 'Summen multiplizieren (Modul 004), Quadratzahlen',
+    lead: 'Ist (a + b)² dasselbe wie a² + b²? Du lernst drei Formeln, mit denen du schneller rechnest, und einen typischen Fehler, den du nie mehr machst.',
+    einstieg: { html: '<p>Jonas soll im Kopf <b>31²</b> ausrechnen. Er denkt: „31 = 30 + 1. Also ist 31² = 30² + 1² = 900 + 1 = 901.“</p><p class="note">Stimmt das? Rechne 31 · 31 schriftlich nach. Was hat Jonas vergessen?</p><p>Das Quadrat einer Summe kommt in der Mathematik sehr oft vor. In diesem Modul lernst du die drei <b>binomischen Formeln</b>. Mit ihnen multiplizierst du schnell aus, rechnest geschickt im Kopf und schreibst Summen wieder als Produkt.</p>' },
+    ziele: ['Ich kenne die drei binomischen Formeln und kann die erste am Quadrat erklären.', 'Ich multipliziere Terme mit den binomischen Formeln aus.', 'Ich vermeide den Fehler (a + b)² = a² + b².', 'Ich erkenne binomische Formeln rückwärts und schreibe Summen als Produkt.', 'Ich nutze die Formeln zum Kopfrechnen.'],
+    fachwoerter: [['Binom', 'Eine Summe oder Differenz aus zwei Gliedern, zum Beispiel x + 3 oder 2x − 5.'], ['Gemischtes Glied', 'Das Glied 2ab in a² + 2ab + b². Es entsteht aus den beiden Rechtecken a · b.'], ['Faktorisieren', 'Eine Summe als Produkt schreiben, zum Beispiel x² − 9 = (x + 3)(x − 3).'], ['Quadrat eines Terms', 'Der Term mal sich selbst: (2x)² = 2x · 2x = 4x².']],
+    diagnose: [
+      { q: 'Was ergibt (−4)²?', options: ['16', '−16', '−8', 'Weiß ich noch nicht'], answer: 0, why: '(−4) · (−4) = 16. Minus mal Minus ergibt Plus.', review: 'Quadrieren negativer Zahlen' },
+      { q: 'Was ergibt (3x)²?', options: ['9x²', '3x²', '6x', 'Weiß ich noch nicht'], answer: 0, why: '(3x)² = 3x · 3x = 9x².', review: 'Produkte mit Variablen' },
+      { q: 'Was ergibt (x + 2)(x + 3)?', options: ['x² + 5x + 6', 'x² + 6', 'x² + 6x + 5', 'Weiß ich noch nicht'], answer: 0, why: 'Jedes Glied mit jedem: x² + 3x + 2x + 6 = x² + 5x + 6.', review: 'Summen multiplizieren (Modul 004)' },
+      { q: 'Welche Zahl ist eine Quadratzahl?', options: ['49', '27', '50', 'Weiß ich noch nicht'], answer: 0, why: '49 = 7 · 7.', review: 'Quadratzahlen bis 400' }],
+    erklaerung:
+      '<h3>1. Das Quadrat einer Summe</h3><p>Ein Quadrat hat die Seitenlänge a + b. Es besteht aus <b>vier</b> Teilflächen: einem Quadrat a², einem Quadrat b² und <b>zwei</b> Rechtecken a · b.</p>' + square(3, 2) +
+      '<p class="big-math">(a + b)² = a² + ab + ab + b² = a² + 2ab + b²</p>' +
+      '<div class="merk"><b>Merke: Die drei binomischen Formeln</b><br><span class="big-math">1. (a + b)² = a² + 2ab + b²</span><br><span class="big-math">2. (a − b)² = a² − 2ab + b²</span><br><span class="big-math">3. (a + b)(a − b) = a² − b²</span></div>' +
+      '<h3>2. Der häufigste Fehler</h3><p>(a + b)² ist <b>nicht</b> a² + b². Prüfe mit Zahlen: (3 + 4)² = 7² = 49, aber 3² + 4² = 9 + 16 = 25. Es fehlt das gemischte Glied 2 · 3 · 4 = 24. Genau das ist Jonas im Einstieg passiert: 31² = (30 + 1)² = 900 + 60 + 1 = 961.</p>' +
+      '<h3>3. Beispiele</h3><ul><li>(x + 5)² = x² + 2 · x · 5 + 5² = x² + 10x + 25</li><li>(2x − 3)² = (2x)² − 2 · 2x · 3 + 3² = 4x² − 12x + 9</li><li>(x + 7)(x − 7) = x² − 49. Die gemischten Glieder +7x und −7x heben sich auf.</li></ul>' +
+      '<h3>4. Rückwärts: Faktorisieren</h3><p>Siehst du zwei Quadrate und ein passendes gemischtes Glied, kannst du die Summe als Produkt schreiben:</p><p class="big-math">x² + 8x + 16 = (x + 4)²</p><p class="big-math">x² − 25 = (x + 5)(x − 5)</p><p>Prüfe immer das gemischte Glied: 2 · x · 4 = 8x. Passt.</p>' +
+      '<p class="note"><b>Eingabe-Tipp:</b> Für x² schreibst du x^2, für (x + 4)² schreibst du (x + 4)^2.</p>',
+    entdecken: {
+      html: '<p>Verändere a und b. Das Quadrat mit der Seite a + b ist maßstabsgetreu gezeichnet. Mit dem Knopf siehst du, was beim typischen Fehler fehlt.</p><div class="ctl"><label>a = <b id="v_a"></b> <input type="range" id="r_a" min="1" max="7" step="1" value="3"></label><label>b = <b id="v_b"></b> <input type="range" id="r_b" min="1" max="6" step="1" value="2"></label><button type="button" class="btn ghost" id="e_err">Fehler zeigen: nur a² + b²</button></div><div id="e_g"></div><div id="e_txt"></div>',
+      init: function (root, done) {
+        var n = 0, err = false, btn = root.querySelector('#e_err');
+        function draw() {
+          var a = +root.querySelector('#r_a').value, b = +root.querySelector('#r_b').value;
+          root.querySelector('#v_a').textContent = a; root.querySelector('#v_b').textContent = b;
+          root.querySelector('#e_g').innerHTML = square(a, b, { err: err, la: 'a² = ' + a * a, lab: 'a·b = ' + a * b, lb: 'b² = ' + b * b, ta: 'a = ' + a, tb: 'b = ' + b });
+          btn.textContent = err ? 'Ganzes Quadrat zeigen' : 'Fehler zeigen: nur a² + b²';
+          root.querySelector('#e_txt').innerHTML = '<p class="big-math">(' + a + ' + ' + b + ')² = ' + (a + b) + '² = ' + (a + b) * (a + b) + '</p><p class="big-math">' + a * a + ' + 2 · ' + a * b + ' + ' + b * b + ' = ' + (a * a + 2 * a * b + b * b) + '</p>' +
+            (err ? '<p class="fb bad">Nur a² + b² = ' + a * a + ' + ' + b * b + ' = ' + (a * a + b * b) + '. Es fehlen die beiden Rechtecke: 2ab = ' + 2 * a * b + '.</p>' : '<p class="note">Die zwei gleichen Rechtecke a · b ergeben das gemischte Glied 2ab.</p>');
+        }
+        function step() { n++; if (n >= 3) done('Richtig erkannt: Das Quadrat (a + b)² besteht aus a², b² und zwei Rechtecken a · b. Ohne das gemischte Glied 2ab ist die Rechnung falsch.'); }
+        root.querySelectorAll('input[type=range]').forEach(function (r) { r.addEventListener('input', function () { draw(); step(); }); });
+        btn.addEventListener('click', function () { err = !err; draw(); step(); });
+        draw();
+      }
+    },
+    beispiel: { title: 'Faktorisieren', q: 'Schreibe ' + show('9x² − 30x + 25') + ' als Produkt.',
+      steps: ['Drei Glieder, außen zwei Quadrate, in der Mitte ein Minus: Das könnte die 2. binomische Formel a² − 2ab + b² sein.', 'Quadrate finden: 9x² = (3x)², also a = 3x. 25 = 5², also b = 5.', 'Gemischtes Glied prüfen: 2 · a · b = 2 · 3x · 5 = 30x. Passt genau.', 'Ergebnis: 9x² − 30x + 25 = <b>(3x − 5)²</b>.', 'Kontrolle mit x = 1: 9 − 30 + 25 = 4 und (3 − 5)² = (−2)² = 4. Passt!'] },
+    tasks: { gen: gen, plan: { G: ['erkennen:1', 'fehler:1', 'erste:1', 'zweite:1'], S: ['fehler:1', 'erste:2', 'zweite:2', 'dritte:2', 'faktor:2'], E: ['koeff:2', 'dritte:3', 'faktor:3', 'kopf:2', 'luecke:3', 'vereinf:3'] },
+      extra: 'wachstum', test: ['erste:2', 'zweite:2', 'dritte:2', 'koeff:2', 'faktor:2', 'kopf:2'] },
+    lerncheck: ['Ich kann die drei binomischen Formeln aufschreiben.', 'Ich kann am Quadrat erklären, woher 2ab kommt.', 'Ich multipliziere mit den Formeln aus und faktorisiere rückwärts.', 'Ich rechne Aufgaben wie 49 · 51 geschickt im Kopf.']
+  };
+})();
+
+window.MODULE = MODULE;
+</script>
+<script>
+/* SOL Mathe 8 · Lern-Engine. Erwartet window.MODULE und window.CONFIG. */
+(function () {
+  'use strict';
+  var MOD = window.MODULE, CFG = window.CONFIG;
+  var KEY = 'sol8-' + MOD.id;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  /* Anzeige-Feinschliff: echtes Minuszeichen und 1x → x, nur im Text, nie in Attributen */
+  function nice(h) { return String(h == null ? '' : h).split(/(<[^>]*>)/).map(function (p) { return p.charAt(0) === '<' ? p : p.replace(/(^|[\s(=:\[{>])-(?=\d)/g, '$1\u2212').replace(/(^|[\s(=:+\u2212·>])1x(?![\w²³^])/g, '$1x'); }).join(''); }
+  function h(tag, attrs, html) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }); if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  var SECTIONS = [
+    ['start', 'Start'], ['einstieg', 'Einstieg'], ['ziele', 'Lernziele'], ['diagnose', 'Startdiagnose'], ['erklaerung', 'Erklärung'],
+    ['entdecken', 'Ausprobieren'], ['beispiel', 'Beispiel'], ['ueben', 'Üben'], ['weiterdenken', 'Weiterdenken'], ['test', 'Abschlusstest'],
+    ['lerncheck', 'Mein Lerncheck'], ['ergebnis', 'Ergebnis']
+  ];
+  var REQUIRED = ['einstieg', 'diagnose', 'erklaerung', 'entdecken', 'ueben', 'test', 'lerncheck'];
+  function req() { return S.way === 'E' ? REQUIRED.slice(0, 5).concat(['weiterdenken'], REQUIRED.slice(5)) : REQUIRED; }
+  var WAYS = { G: 'Sicher · G', S: 'Standard · G/E', E: 'Weiterdenken · E' };
+  var WAY_INFO = { G: 'Sicher: weniger Aufgaben, Tipps sind sofort sichtbar. Weiterdenken ist freiwillig.', S: 'Standard: du bearbeitest alle Pflichtaufgaben und kannst Tipps öffnen.', E: 'Weiterdenken: mehr und schwierigere Aufgaben. Die Weiterdenken-Aufgabe ist Pflicht.' };
+  var LC_SCALE = ['Sicher', 'Meistens', 'Mit Hilfe', 'Noch nicht'];
+
+  /* ---------- Zustand ---------- */
+  var S = load() || { v: 1, lerncode: '', klasse: '', email: '', way: 'S', started: false, sec: 'start', done: {}, diag: {}, diagChecked: false,
+    slots: [], extra: null, test: null, lc: {}, stats: { attempts: 0, firstTry: 0, hints: 0, solutions: 0 }, startedAt: null, sent: false, abgabeId: null };
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
+  function load() { try { var d = JSON.parse(localStorage.getItem(KEY) || 'null'); return d && d.v === 1 ? d : null; } catch (e) { return null; } }
+  function mark(k) { if (!S.done[k]) { S.done[k] = true; save(); progress(); navState(); } }
+
+  /* ---------- Normalisierung Lernende ---------- */
+  function normCode(v) { var t = String(v || '').toUpperCase().replace(/[^A-ZÄÖÜ]/g, ''); return t.length === 2 ? t : ''; }
+  function normKlasse(v) { var m = String(v || '').toLowerCase().replace(/[^a-z0-9]/g, '').match(new RegExp(CFG.jahrgang + '([a-z]?)$')); return m ? CFG.jahrgang + m[1] : ''; }
+  function emailOk(v) { v = String(v || '').trim(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) return false; return !CFG.iservDomain || v.toLowerCase().slice(-CFG.iservDomain.length - 1) === '@' + CFG.iservDomain.toLowerCase(); }
+
+  /* ---------- Aufgaben prüfen ---------- */
+  var checkInput = M.check;
+  function renderInputs(task, prefix, values) {
+    return task.inputs.map(function (inp, i) {
+      var id = prefix + '-' + i, val = values && values[i] != null ? values[i] : '';
+      if (inp.kind === 'mc') {
+        return '<fieldset class="mc"><legend>' + (inp.label || 'Wähle aus') + '</legend>' + inp.options.map(function (o, k) {
+          return '<label class="opt"><input type="radio" name="' + id + '" value="' + k + '"' + (String(val) === String(k) ? ' checked' : '') + '><span>' + o + '</span></label>';
+        }).join('') + '</fieldset>';
+      }
+      var mode = inp.kind === 'term' || inp.kind === 'text' ? 'text' : 'decimal';
+      return '<label class="inp"><span>' + (inp.label || 'Ergebnis') + '</span><span class="inrow"><input id="' + id + '" inputmode="' + mode + '" autocomplete="off" spellcheck="false" value="' + esc(val) + '"' + (inp.placeholder ? ' placeholder="' + esc(inp.placeholder) + '"' : '') + '>' + (inp.unit ? '<b class="unit">' + inp.unit + '</b>' : '') + '</span></label>';
+    }).join('');
+  }
+  function readInputs(task, prefix, root) {
+    return task.inputs.map(function (inp, i) {
+      if (inp.kind === 'mc') { var c = $('input[name="' + prefix + '-' + i + '"]:checked', root); return c ? c.value : ''; }
+      var e = $('#' + prefix + '-' + i, root); return e ? e.value : '';
+    });
+  }
+  /* Reproduzierbarer Zufall: gleiche Startzahl, gleiche Aufgabe (damit Fehlerhinweise nach dem Neuladen erhalten bleiben) */
+  function seeded(seed, fn) {
+    var orig = Math.random, s = seed >>> 0;
+    Math.random = function () { s = (s + 0x6D2B79F5) >>> 0; var t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+    try { return fn(); } finally { Math.random = orig; }
+  }
+  function revive(t) {
+    if (!t || t.seed == null || typeof t.mistakes === 'function' || !MOD.tasks.gen[t.key]) return t;
+    try { var r = gen(t.key, t.level, t.seed); if (r.q === t.q && r.mistakes) t.mistakes = r.mistakes; } catch (e) { }
+    return t;
+  }
+  function gen(key, level, seed) { if (seed == null) seed = Math.floor(Math.random() * 4294967296); var t = seeded(seed, function () { return MOD.tasks.gen[key](level || 2); }); t.seed = seed; t.key = key; t.level = t.level || level || 2; t.q = nice(t.q); t.solution = nice(t.solution); t.hints = (t.hints || []).map(nice); t.inputs.forEach(function (i) { if (i.options) i.options = i.options.map(nice); }); return t; }
+
+  /* ---------- Fortschritt und Navigation ---------- */
+  function progress() {
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    $('#bar').style.width = Math.round(n / req().length * 100) + '%';
+    $('#progText').textContent = n + ' von ' + req().length + ' Pflichtschritten';
+  }
+  function navState() {
+    $$('#nav a').forEach(function (a) { var k = a.dataset.sec; a.classList.toggle('active', k === S.sec); a.classList.toggle('done', !!S.done[k]); a.setAttribute('aria-current', k === S.sec ? 'step' : 'false'); });
+  }
+  function go(sec, noScroll) {
+    if (!S.started && sec !== 'start') { show('start'); fb('#startFb', 'Bitte trage zuerst Lerncode, Klasse und IServ-Adresse ein und tippe auf „Start“.', 'bad'); return; }
+    show(sec); if (!noScroll) { var m = $('#main'); if (m.getBoundingClientRect().top < 0) m.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function show(sec) {
+    S.sec = sec; save();
+    $$('.sec').forEach(function (s) { s.hidden = s.id !== 'sec-' + sec; });
+    navState();
+    if (RENDER[sec]) RENDER[sec]();
+    try { history.replaceState(null, '', '#' + sec); } catch (e) { }
+  }
+  function fb(sel, msg, kind) { var e = $(sel); if (!e) return; e.className = 'fb ' + (kind || ''); e.innerHTML = msg; }
+  function pager(sec) {
+    var i = SECTIONS.findIndex(function (s) { return s[0] === sec; });
+    var prev = SECTIONS[i - 1], next = SECTIONS[i + 1];
+    return '<div class="pager">' + (prev && i > 1 ? '<button class="btn ghost" data-go="' + prev[0] + '">← ' + prev[1] + '</button>' : '<span></span>') +
+      (next ? '<button class="btn" data-go="' + next[0] + '">' + next[1] + ' →</button>' : '') + '</div>';
+  }
+
+  /* ---------- Abschnitte ---------- */
+  var RENDER = {};
+  function buildShell() {
+    var app = $('#app');
+    app.innerHTML =
+      '<header class="hero"><div class="wrap hero-in"><div class="hero-top"><span class="brand">SOL Mathematik ' + CFG.jahrgang + ' · Oberschule Niedersachsen</span>' +
+      '<span class="tools"><button class="tbtn" id="easyBtn" aria-pressed="false">Leichter lesen</button><button class="tbtn" id="readBtn">Vorlesen</button><button class="tbtn" id="stopBtn">Stopp</button></span></div>' +
+      '<div class="hero-main"><div><p class="eyebrow">' + MOD.bereich + '</p><h1>' + MOD.title + '</h1><p class="lead">' + MOD.lead + '</p></div>' +
+      '<div class="badge"><span>Modul</span><strong>' + MOD.id + '</strong><span>' + MOD.minutes + ' Minuten</span></div></div></div></header>' +
+      '<div class="progress"><div class="wrap prog-in"><div class="track"><div id="bar"></div></div><span id="progText"></span></div></div>' +
+      '<div class="wrap layout"><nav id="nav" aria-label="Abschnitte">' + SECTIONS.map(function (s) { return '<a href="#' + s[0] + '" data-sec="' + s[0] + '">' + s[1] + '</a>'; }).join('') + '</nav>' +
+      '<main id="main">' + SECTIONS.map(function (s) { return '<section class="sec card" id="sec-' + s[0] + '" hidden aria-labelledby="h-' + s[0] + '"></section>'; }).join('') + '</main></div>' +
+      '<footer class="foot wrap"><a href="' + CFG.backUrl + '">← Zur Übersicht Klasse ' + CFG.jahrgang + '</a><span>© Dr. Edmund Bruns · CC BY-NC 4.0</span></footer>';
+    $('#nav').addEventListener('click', function (e) { var a = e.target.closest('a'); if (!a) return; e.preventDefault(); go(a.dataset.sec); });
+    app.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) { e.preventDefault(); go(b.dataset.go); } });
+    $('#easyBtn').addEventListener('click', function () { var on = document.body.classList.toggle('easy'); this.setAttribute('aria-pressed', String(on)); });
+    $('#readBtn').addEventListener('click', function () { if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); var sec = $('#sec-' + S.sec); var u = new SpeechSynthesisUtterance(sec.innerText.replace(/[←→]/g, '')); u.lang = 'de-DE'; u.rate = 0.95; speechSynthesis.speak(u); });
+    $('#stopBtn').addEventListener('click', function () { if ('speechSynthesis' in window) speechSynthesis.cancel(); });
+  }
+
+  RENDER.start = function () {
+    var s = $('#sec-start'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-start">Bevor du beginnst</h2>' +
+      '<div class="facts"><div><b>Klasse</b>' + CFG.jahrgang + '</div><div><b>Vorkenntnisse</b>' + MOD.vorkenntnisse + '</div><div><b>Du brauchst</b>Heft, Stift und dieses Gerät</div></div>' +
+      '<div class="grid2"><label class="inp"><span>Lerncode *</span><input id="lerncode" maxlength="2" autocomplete="off" placeholder="z. B. MS" value="' + esc(S.lerncode) + '"><small>Erster Buchstabe deines Vornamens und erster Buchstabe deines Nachnamens. Beispiel: Mia Schulte → MS</small></label>' +
+      '<label class="inp"><span>Klasse *</span><input id="klasse" maxlength="12" autocomplete="off" placeholder="z. B. ' + CFG.jahrgang + 'a" value="' + esc(S.klasse) + '"><small>„' + CFG.jahrgang + 'a“, „Klasse ' + CFG.jahrgang + 'a“ oder nur „' + CFG.jahrgang + '“ sind möglich.</small></label></div>' +
+      '<label class="inp"><span>IServ-E-Mail-Adresse *</span><input id="email" type="email" autocomplete="email" placeholder="vorname.nachname@…" value="' + esc(S.email) + '"><small>Deine Schul-Adresse aus IServ. Sie wird nur mit deinem Ergebnis an deine Lehrkraft übertragen.</small></label>' +
+      '<fieldset class="ways"><legend>Mein Lernweg</legend>' + Object.keys(WAYS).map(function (k) { return '<label class="way"><input type="radio" name="way" value="' + k + '"' + (S.way === k ? ' checked' : '') + '><span>' + WAYS[k] + '</span></label>'; }).join('') + '</fieldset>' +
+      '<p class="note" id="wayInfo">' + WAY_INFO[S.way] + '</p>' +
+      '<div class="actions"><button class="btn big" id="startBtn">Start</button>' + (S.started ? '<button class="btn ghost" id="resetBtn">Neu beginnen</button>' : '') + '</div><p class="fb" id="startFb" role="status"></p>';
+    $$('input[name=way]', s).forEach(function (r) { r.addEventListener('change', function () { if (S.slots.length && S.slots.some(function (x) { return x.solved; })) { fb('#startFb', 'Hinweis: Wenn du den Lernweg änderst, werden deine Übungsaufgaben neu zusammengestellt.', 'hint'); } $('#wayInfo').textContent = WAY_INFO[this.value]; }); });
+    ['lerncode', 'klasse', 'email'].forEach(function (id) { $('#' + id).addEventListener('input', function () { S[id] = this.value; save(); }); });
+    $('#startBtn').addEventListener('click', function () {
+      var c = normCode($('#lerncode').value), k = normKlasse($('#klasse').value), e = $('#email').value.trim();
+      if (!c) return fb('#startFb', 'Der Lerncode besteht aus genau zwei Buchstaben, zum Beispiel MS.', 'bad');
+      if (!k) return fb('#startFb', 'Diese Klasse gehört nicht zu Jahrgang ' + CFG.jahrgang + '. Schreibe zum Beispiel ' + CFG.jahrgang + 'a oder nur ' + CFG.jahrgang + '.', 'bad');
+      if (!emailOk(e)) return fb('#startFb', CFG.iservDomain ? 'Bitte gib deine IServ-Adresse ein. Sie endet auf @' + CFG.iservDomain + '.' : 'Bitte gib eine gültige IServ-E-Mail-Adresse ein.', 'bad');
+      var w = ($('input[name=way]:checked', s) || {}).value || 'S';
+      if (w !== S.way) { S.slots = []; S.extra = null; S.done.ueben = false; }
+      S.lerncode = c; S.klasse = k; S.email = e; S.way = w; S.started = true; if (!S.startedAt) S.startedAt = Date.now();
+      $('#lerncode').value = c; $('#klasse').value = k; save(); go('einstieg');
+    });
+    var rb = $('#resetBtn'); if (rb) rb.addEventListener('click', function () { if (!confirm('Wirklich neu beginnen? Dein bisheriger Stand in diesem Modul wird gelöscht.')) return; try { localStorage.removeItem(KEY); } catch (e) { } location.hash = ''; location.reload(); });
+  };
+
+  RENDER.einstieg = function () {
+    var s = $('#sec-einstieg'); if (s.dataset.r) return; s.dataset.r = 1;
+    var v = MOD.einstieg.video;
+    s.innerHTML = '<h2 id="h-einstieg">Einstieg</h2>' + (v ? '<div class="video"><iframe src="' + v.src + '" title="' + esc(v.title) + '" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' : '') +
+      '<div class="story">' + MOD.einstieg.html + '</div>' + pager('einstieg');
+    mark('einstieg');
+  };
+  RENDER.ziele = function () {
+    var s = $('#sec-ziele'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-ziele">Das lernst du in diesem Modul</h2><ul class="goals">' + MOD.ziele.map(function (z) { return '<li>' + z + '</li>'; }).join('') + '</ul>' +
+      (MOD.fachwoerter ? '<h3>Fachwörter</h3><dl class="terms">' + MOD.fachwoerter.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl>' : '') + pager('ziele');
+  };
+  RENDER.diagnose = function () {
+    var s = $('#sec-diagnose'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-diagnose">Startdiagnose</h2><p>Finde heraus, was du schon kannst. Das ist kein Test, es zählt nur für dich.</p>' +
+      MOD.diagnose.map(function (d, i) { return '<div class="task"><p class="q"><b>' + (i + 1) + '.</b> ' + d.q + '</p>' + d.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="dg' + i + '" value="' + k + '"' + (S.diag[i] === k ? ' checked' : '') + '><span>' + o + '</span></label>'; }).join('') + '<p class="fb" id="dgfb' + i + '"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="dgBtn">Auswerten</button></div><div class="fb" id="dgSum" role="status"></div>' + pager('diagnose');
+    $$('input[type=radio]', s).forEach(function (r) { r.addEventListener('change', function () { S.diag[+this.name.slice(2)] = +this.value; save(); }); });
+    $('#dgBtn').addEventListener('click', function () { evalDiag(true); });
+    if (S.diagChecked) evalDiag(false);
+  };
+  function evalDiag(user) {
+    var missing = MOD.diagnose.some(function (d, i) { return S.diag[i] == null; });
+    if (missing && user) return fb('#dgSum', 'Beantworte bitte alle Fragen. Wenn du etwas nicht weißt, wähle „Weiß ich noch nicht“.', 'bad');
+    var pts = 0, tips = [];
+    MOD.diagnose.forEach(function (d, i) { var ok = S.diag[i] === d.answer; if (ok) pts++; else if (d.review) tips.push(d.review); fb('#dgfb' + i, (ok ? '✓ ' : '✗ ') + d.why, ok ? 'good' : 'bad'); });
+    S.diagChecked = true; S.diagPts = pts; save(); mark('diagnose');
+    fb('#dgSum', '<b>' + pts + ' von ' + MOD.diagnose.length + ' richtig.</b> ' + (pts === MOD.diagnose.length ? 'Super, die Grundlagen sitzen. Du kannst auch den Lernweg „Weiterdenken“ wählen.' : 'Das solltest du dir vorher noch einmal ansehen:<ul>' + tips.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>'), pts === MOD.diagnose.length ? 'good' : 'hint');
+  }
+  RENDER.erklaerung = function () {
+    var s = $('#sec-erklaerung'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-erklaerung">Erklärung</h2>' + MOD.erklaerung + '<div class="actions"><button class="btn" id="exOk">Verstanden</button></div><p class="fb" id="exFb"></p>' + pager('erklaerung');
+    $('#exOk').addEventListener('click', function () { mark('erklaerung'); fb('#exFb', 'Prima. Probiere es jetzt selbst aus.', 'good'); });
+    if (S.done.erklaerung) fb('#exFb', '✓ Erledigt', 'good');
+  };
+  RENDER.entdecken = function () {
+    var s = $('#sec-entdecken'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-entdecken">Ausprobieren</h2><div id="explore">' + MOD.entdecken.html + '</div><p class="fb" id="enFb"></p>' + pager('entdecken');
+    MOD.entdecken.init($('#explore'), function (msg) { mark('entdecken'); if (msg) fb('#enFb', msg, 'good'); });
+  };
+  RENDER.beispiel = function () {
+    var s = $('#sec-beispiel'); if (s.dataset.r) return; s.dataset.r = 1;
+    var B = MOD.beispiel;
+    s.innerHTML = '<h2 id="h-beispiel">Beispiel: ' + B.title + '</h2><div class="task"><p class="q">' + B.q + '</p><ol class="steps" id="bsSteps"></ol><div class="actions"><button class="btn" id="bsNext">Nächster Schritt</button></div></div>' + pager('beispiel');
+    var i = 0; $('#bsNext').addEventListener('click', function () { if (i < B.steps.length) { $('#bsSteps').appendChild(h('li', null, B.steps[i])); i++; } if (i >= B.steps.length) { this.disabled = true; this.textContent = 'Alle Schritte gezeigt'; } });
+  };
+
+  /* Üben */
+  function plan() { return MOD.tasks.plan[S.way] || MOD.tasks.plan.S; }
+  RENDER.ueben = function () {
+    var s = $('#sec-ueben');
+    var p = plan();
+    if (S.slots.length !== p.length) { S.slots = p.map(function (k) { var parts = k.split(':'); return { key: parts[0], level: +(parts[1] || 2), task: gen(parts[0], +(parts[1] || 2)), solved: false, tries: 0, hints: 0, shown: false, values: [] }; }); save(); }
+    s.innerHTML = '<h2 id="h-ueben">Üben</h2><p>Bearbeite alle ' + p.length + ' Aufgaben. Bei jeder Aufgabe kannst du Tipps öffnen. Mit „Neue Aufgabe“ bekommst du neue Zahlen.</p><div id="slots"></div><div class="fb" id="ubSum" role="status"></div>' + pager('ueben');
+    var box = $('#slots'); S.slots.forEach(function (sl, i) { box.appendChild(slotCard(sl, i)); });
+    ubSum();
+  };
+  function levelTag(l) { return ['', 'Grundlage', 'Standard', 'Knobeln'][l] || ''; }
+  function slotCard(sl, i) {
+    var t = sl.task, c = h('div', { class: 'task' + (sl.solved ? ' solved' : ''), id: 'slot' + i });
+    var showHints = S.way === 'G' ? 1 : 0;
+    c.innerHTML = '<div class="thead"><span class="tag">' + levelTag(sl.level) + '</span><span class="tag plain">Aufgabe ' + (i + 1) + '</span>' + (sl.solved ? '<span class="tag ok">✓ gelöst</span>' : '') + '</div>' +
+      '<div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 's' + i, sl.values) + '</div>' +
+      '<div class="actions"><button class="btn" data-a="check">Prüfen</button><button class="btn ghost" data-a="hint">Tipp</button><button class="btn ghost" data-a="new">Neue Aufgabe</button></div>' +
+      '<div class="hints"></div><p class="fb" role="status"></p>';
+    var hintsBox = $('.hints', c);
+    function drawHints() { hintsBox.innerHTML = t.hints.slice(0, Math.max(sl.hints, showHints)).map(function (x, k) { return '<div class="hint"><b>Tipp ' + (k + 1) + ':</b> ' + x + '</div>'; }).join('') + (sl.shown ? '<div class="hint sol"><b>Lösungsweg:</b> ' + t.solution + '</div>' : ''); }
+    drawHints();
+    c.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-a]'); if (!b) return;
+      var a = b.dataset.a, f = $('.fb', c);
+      if (a === 'check') {
+        var vals = readInputs(t, 's' + i, c); sl.values = vals;
+        var res = t.inputs.map(function (inp, k) { return checkInput(inp, vals[k]); });
+        if (res.some(function (r) { return r.empty; })) { f.className = 'fb bad'; f.textContent = 'Fülle bitte alle Felder aus.'; return; }
+        sl.tries++; S.stats.attempts++;
+        var ok = res.every(function (r) { return r.ok; });
+        if (ok) {
+          if (!sl.solved) { sl.solved = true; if (sl.tries === 1 && !sl.hints && !sl.shown) S.stats.firstTry++; }
+          if (sl === S.extra) mark('weiterdenken');
+          f.className = 'fb good'; f.innerHTML = '✓ Richtig! ' + (t.praise || '');
+          c.classList.add('solved'); var hd = $('.thead', c); if (!$('.tag.ok', hd)) hd.appendChild(h('span', { class: 'tag ok' }, '✓ gelöst'));
+        } else {
+          var msg = (res.filter(function (r) { return r.msg; })[0] || {}).msg;
+          var spec = !msg && t.mistakes ? t.mistakes(vals) : null;
+          f.className = 'fb ' + (res.some(function (r) { return r.almost; }) ? 'hint' : 'bad');
+          f.innerHTML = msg || spec || (sl.tries >= 2 ? 'Noch nicht. Öffne einen Tipp, der hilft dir weiter.' : 'Noch nicht richtig. Prüfe deine Rechnung noch einmal.');
+        }
+        save(); ubSum();
+      } else if (a === 'hint') {
+        if (Math.max(sl.hints, showHints) < t.hints.length) { sl.hints = Math.max(sl.hints, showHints) + 1; S.stats.hints++; }
+        else if (!sl.shown) { sl.shown = true; S.stats.solutions++; }
+        drawHints(); save();
+        b.textContent = sl.shown ? 'Lösungsweg gezeigt' : (Math.max(sl.hints, showHints) >= t.hints.length ? 'Lösungsweg zeigen' : 'Weiterer Tipp');
+      } else if (a === 'new') {
+        if (!sl.solved && !sl.shown && sl.tries < 2) { f.className = 'fb hint'; f.textContent = 'Versuche die Aufgabe erst zweimal oder öffne den Lösungsweg. Dann bekommst du eine neue.'; return; }
+        var wasSolved = sl.solved;
+        var nt = gen(sl.key, sl.level); sl.task = nt; sl.tries = 0; sl.hints = 0; sl.shown = false; sl.values = []; sl.solved = false; if (wasSolved) sl.solved = false;
+        save(); c.replaceWith(slotCard(sl, i)); ubSum();
+      }
+    });
+    return c;
+  }
+  function ubSum() {
+    var n = S.slots.filter(function (x) { return x.solved; }).length;
+    if (n === S.slots.length && n > 0) { mark('ueben'); fb('#ubSum', '<b>Alle ' + n + ' Aufgaben gelöst.</b> Weiter geht es mit „Weiterdenken“ oder direkt mit dem Abschlusstest.', 'good'); }
+    else fb('#ubSum', n + ' von ' + S.slots.length + ' Aufgaben gelöst.', '');
+  }
+
+  RENDER.weiterdenken = function () {
+    var s = $('#sec-weiterdenken');
+    if (!S.extra) { S.extra = { task: gen(MOD.tasks.extra, 3), solved: false, hints: 0, shown: false, values: [], tries: 0 }; save(); }
+    var sl = S.extra, t = sl.task;
+    s.innerHTML = '<h2 id="h-weiterdenken">Weiterdenken</h2><p>' + (S.way === 'E' ? 'Diese Aufgabe ist für deinen Lernweg Pflicht.' : 'Diese Aufgabe ist freiwillig. Sie zeigt dir, ob du das Thema auch in neuen Situationen nutzen kannst.') + '</p>';
+    var c = slotCard(sl, 'x'); s.appendChild(c); s.insertAdjacentHTML('beforeend', pager('weiterdenken'));
+  };
+
+  /* Abschlusstest */
+  RENDER.test = function () {
+    var s = $('#sec-test');
+    if (!S.test) { S.test = { items: MOD.tasks.test.map(function (k) { var p = k.split(':'); return gen(p[0], +(p[1] || 2)); }), values: [], done: false, pts: 0, runs: 0, best: 0, details: [] }; save(); }
+    var T = S.test;
+    s.innerHTML = '<h2 id="h-test">Abschlusstest</h2><p>' + T.items.length + ' Aufgaben ohne Tipps. Rechne im Heft mit und trage dann deine Ergebnisse ein. Du wertest den Test einmal aus.</p>' +
+      T.items.map(function (t, i) { return '<div class="task" id="ti' + i + '"><div class="thead"><span class="tag plain">Aufgabe ' + (i + 1) + '</span></div><div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 't' + i, T.values[i]) + '</div><p class="fb"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="tBtn"' + (T.done ? ' disabled' : '') + '>Test auswerten</button>' + (T.done ? '<button class="btn ghost" id="tNew">Noch einmal mit neuen Aufgaben</button>' : '') + '</div><div class="fb" id="tSum" role="status"></div>' + pager('test');
+    T.items.forEach(function (t, i) { $$('input', $('#ti' + i)).forEach(function (el) { el.addEventListener('input', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); el.addEventListener('change', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); }); });
+    $('#tBtn').addEventListener('click', function () {
+      var vals = T.items.map(function (t, i) { return readInputs(t, 't' + i, $('#ti' + i)); });
+      var empty = vals.some(function (v) { return v.some(function (x) { return String(x).trim() === ''; }); });
+      if (empty && !confirm('Du hast noch nicht alle Felder ausgefüllt. Trotzdem auswerten?')) return;
+      T.values = vals; T.done = true; T.runs++; save(); showTest();
+      $('#tBtn').disabled = true;
+      if (!$('#tNew')) { var nb = h('button', { class: 'btn ghost', id: 'tNew' }, 'Noch einmal mit neuen Aufgaben'); $('#tBtn').after(nb); bindNew(); }
+    });
+    function bindNew() { var n = $('#tNew'); if (n) n.addEventListener('click', function () { if (!confirm('Neuer Test mit neuen Zahlen? Dein bestes Ergebnis bleibt gespeichert.')) return; var best = T.best, runs = T.runs; S.test = null; save(); RENDER.test(); S.test.best = best; S.test.runs = runs; save(); }); }
+    bindNew();
+    if (T.done) showTest();
+  };
+  function showTest() {
+    var T = S.test, pts = 0;
+    T.details = T.items.map(function (t, i) {
+      var res = t.inputs.map(function (inp, k) { return checkInput(inp, (T.values[i] || [])[k]); });
+      var ok = res.every(function (r) { return r.ok; }); if (ok) pts++;
+      var f = $('#ti' + i + ' .fb'); f.className = 'fb ' + (ok ? 'good' : 'bad'); f.innerHTML = ok ? '✓ Richtig' : '✗ Nicht richtig. <b>Lösung:</b> ' + t.solution;
+      $$('#ti' + i + ' input').forEach(function (e) { e.disabled = true; });
+      return { aufgabe: i + 1, skill: t.skill || t.key, richtig: ok };
+    });
+    T.pts = pts; T.best = Math.max(T.best || 0, pts); save(); mark('test');
+    var pct = Math.round(pts / T.items.length * 100);
+    fb('#tSum', '<b>' + pts + ' von ' + T.items.length + ' Aufgaben richtig (' + pct + ' %).</b> ' + verdict(pct), pct >= 80 ? 'good' : pct >= 50 ? 'hint' : 'bad');
+  }
+  function verdict(p) { return p >= 80 ? 'Sehr gut, du beherrschst das Thema.' : p >= 50 ? 'Ein guter Stand. Übe die falschen Aufgabentypen noch einmal.' : 'Arbeite die Erklärung und die Übungen noch einmal durch und nutze die Tipps.'; }
+
+  RENDER.lerncheck = function () {
+    var s = $('#sec-lerncheck'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-lerncheck">Mein Lerncheck</h2><p>Wie sicher bist du? Sei ehrlich, das hilft dir und deiner Lehrkraft.</p>' +
+      MOD.lerncheck.map(function (l, i) { return '<fieldset class="lc"><legend>' + l + '</legend>' + LC_SCALE.map(function (x, k) { return '<label class="chip"><input type="radio" name="lc' + i + '" value="' + k + '"' + (S.lc[i] === k ? ' checked' : '') + '><span>' + x + '</span></label>'; }).join('') + '</fieldset>'; }).join('') +
+      '<p class="fb" id="lcFb" role="status"></p>' + pager('lerncheck');
+    $$('input', s).forEach(function (r) { r.addEventListener('change', function () { S.lc[+this.name.slice(2)] = +this.value; save(); lcState(); }); });
+    lcState();
+  };
+  function lcState() { var n = MOD.lerncheck.filter(function (l, i) { return S.lc[i] != null; }).length; if (n === MOD.lerncheck.length) { mark('lerncheck'); fb('#lcFb', '✓ Lerncheck ausgefüllt.', 'good'); } else fb('#lcFb', n + ' von ' + MOD.lerncheck.length + ' Aussagen bewertet.', ''); }
+
+  /* Ergebnis und Abgabe */
+  function minutes() { return S.startedAt ? Math.max(1, Math.round((Date.now() - S.startedAt) / 60000)) : 0; }
+  function payload() {
+    var T = S.test || { pts: 0, items: [], details: [] };
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    if (!S.abgabeId) { S.abgabeId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); save(); }
+    return {
+      schema_version: '2.0', fach: 'Mathematik', jahrgang: String(CFG.jahrgang), modul_id: MOD.id, modul_titel: MOD.title, dateiversion: CFG.version,
+      lerncode: S.lerncode, klasse: S.klasse, email: S.email, lernweg: WAYS[S.way],
+      bearbeitungsstand: Math.round(n / req().length * 100), pflichtschritte: req().filter(function (k) { return S.done[k]; }),
+      diagnose_punkte: S.diagPts || 0, diagnose_max: MOD.diagnose.length,
+      uebungen_geloest: S.slots.filter(function (x) { return x.solved; }).length, uebungen_gesamt: S.slots.length,
+      uebungen_erster_versuch: S.stats.firstTry, tipps_genutzt: S.stats.hints, loesungswege_genutzt: S.stats.solutions,
+      weiterdenken_geloest: !!(S.extra && S.extra.solved),
+      test_punkte: T.done ? T.pts : 0, test_max: T.items.length, test_prozent: T.done && T.items.length ? Math.round(T.pts / T.items.length * 100) : 0,
+      test_durchlaeufe: T.runs || 0, test_details: T.details || [],
+      lerncheck: MOD.lerncheck.map(function (l, i) { return { aussage: l, einschaetzung: S.lc[i] != null ? LC_SCALE[S.lc[i]] : '' }; }),
+      bearbeitungszeit_min: minutes(), abgabe_id: S.abgabeId, zeitstempel_client: new Date().toISOString()
+    };
+  }
+  RENDER.ergebnis = function () {
+    var s = $('#sec-ergebnis'), p = payload();
+    var missing = req().filter(function (k) { return !S.done[k]; }).map(function (k) { return SECTIONS.find(function (x) { return x[0] === k; })[1]; });
+    s.innerHTML = '<h2 id="h-ergebnis">Mein Ergebnis</h2>' +
+      '<div class="summary"><div><b>Lerncode</b>' + esc(p.lerncode) + ' · ' + esc(p.klasse) + '</div><div><b>Bearbeitet</b>' + p.bearbeitungsstand + ' %</div><div><b>Abschlusstest</b>' + p.test_punkte + ' von ' + p.test_max + ' (' + p.test_prozent + ' %)</div><div><b>Übungen</b>' + p.uebungen_geloest + ' von ' + p.uebungen_gesamt + ' gelöst</div><div><b>Tipps genutzt</b>' + p.tipps_genutzt + '</div><div><b>Zeit</b>ca. ' + p.bearbeitungszeit_min + ' Min.</div></div>' +
+      (missing.length ? '<p class="fb hint">Noch offen: ' + missing.join(', ') + '. Du kannst trotzdem senden.</p>' : '<p class="fb good">Alle Pflichtschritte erledigt. Stark!</p>') +
+      '<p class="note">' + (S.test && S.test.done ? verdict(p.test_prozent) : 'Bearbeite den Abschlusstest, damit deine Lehrkraft sieht, was du kannst.') + '</p>' +
+      '<div class="actions"><button class="btn big" id="sendBtn">Ergebnis an die Lehrkraft senden</button><button class="btn ghost" id="copyBtn">Zusammenfassung kopieren</button><button class="btn ghost" onclick="window.print()">Drucken</button></div>' +
+      '<p class="fb" id="sendFb" role="status">' + (S.sent ? '✓ Bereits gesendet. Du kannst nach Änderungen erneut senden.' : '') + '</p>' + pager('ergebnis');
+    $('#sendBtn').addEventListener('click', send);
+    $('#copyBtn').addEventListener('click', function () {
+      var t = 'SOL Mathe ' + CFG.jahrgang + ' · Modul ' + MOD.id + ' ' + MOD.title + '\nLerncode: ' + p.lerncode + ' (' + p.klasse + ')\nBearbeitet: ' + p.bearbeitungsstand + ' %\nTest: ' + p.test_punkte + '/' + p.test_max + '\nÜbungen: ' + p.uebungen_geloest + '/' + p.uebungen_gesamt + '\nTipps: ' + p.tipps_genutzt;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { fb('#sendFb', 'Zusammenfassung kopiert.', 'good'); }, function () { prompt('Zum Kopieren markieren:', t); });
+    });
+  };
+  function isLive() { return /(?:edmundbruns\.com|pages\.dev)$/.test(location.hostname); }
+  function send() {
+    if (!S.started || !normCode(S.lerncode) || !normKlasse(S.klasse) || !emailOk(S.email)) { go('start'); return fb('#startFb', 'Bitte prüfe Lerncode, Klasse und IServ-Adresse.', 'bad'); }
+    var p = payload(), btn = $('#sendBtn');
+    if (!isLive() || !CFG.endpoint || CFG.endpoint.indexOf('script.google.com') < 0) { console.log('[SOL8] Vorschau, Payload:', p); return fb('#sendFb', 'Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an deine Lehrkraft.', 'hint'); }
+    btn.disabled = true; fb('#sendFb', 'Wird gesendet …', '');
+    window.ebSend(CFG.endpoint, p).then(function (r) {
+      btn.disabled = false;
+      if (r.ok) { S.sent = true; save(); fb('#sendFb', 'Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen.', 'good'); }
+      else fb('#sendFb', 'Nicht gespeichert: ' + esc(r.msg) + ' Dein Stand bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann noch einmal auf Senden.', 'bad');
+    });
+  }
+
+  /* ---------- Start ---------- */
+  (S.slots || []).forEach(function (sl) { revive(sl.task); });
+  if (S.extra) revive(S.extra.task);
+  if (S.test && S.test.items) S.test.items.forEach(revive);
+  buildShell(); progress();
+  var hash = (location.hash || '').slice(1);
+  var startSec = SECTIONS.some(function (s) { return s[0] === hash; }) ? hash : (S.started ? S.sec : 'start');
+  show(S.started ? startSec : 'start');
+  window.SOL8 = { state: function () { return S; }, payload: payload, checkInput: checkInput, gen: gen };
+})();
+
+</script>
+</body>
+</html>

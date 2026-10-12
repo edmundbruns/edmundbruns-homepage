@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#8a4317">
+<meta name="description" content="SOL Geschichte Jahrgang 5, Modul 003: Was verraten Familie, Schule und Wohnort über Wandel?">
+<title>SOL Geschichte 5 | Modul 003 | Was verraten Familie, Schule und Wohnort über Wandel?</title>
+<style>
+:root{--ink:#2a1c12;--paper:#fff;--cream:#f4ebe3;--soft:#f4ebe3;--bg:#f7f2ea;--green:#8a4317;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#e2d6ca;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #2a1c1214;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#2e1a0e,#8a4317);color:#fdf8f3;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#fdf8f3;color:#2e1a0e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#f6ebe1;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#8a4317,#d29a3a);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#3a2a1e;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow);min-width:0}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#3a2a1e}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.legend{font-weight:750;color:#3a2a1e}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#6a5a4c}
+.btn{background:var(--green);color:#fdf8f3;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff;min-width:0}
+@media(max-width:480px){.task{padding:12px 10px}}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#6a5a4c;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+fieldset{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#f6e7da}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zones.z4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.zones.z3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.task>label.legend{display:block;margin:8px 0 4px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px;cursor:pointer}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:650;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;max-width:100%;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .nr{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--green)}
+.orow span.t{flex:1;font-weight:650;min-width:0}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;flex:0 0 auto}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+@media(max-width:520px){.orow{flex-wrap:wrap}.orow span.t{flex:1 1 calc(100% - 44px)}.orow button:first-of-type{margin-left:auto}}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px;overflow:hidden}
+svg.pic{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d18aa)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#45362a}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#2e2118;color:#f4ebe3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#8c8178;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+blockquote.q{margin:10px 0;padding:10px 14px;border-left:4px solid var(--green);background:#fff;border-radius:0 10px 10px 0}
+blockquote.q p{margin:.35rem 0}
+.orig{font-size:.9rem;color:#6a5a4c;font-style:italic}
+.cloze{line-height:2.4}
+.cloze select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;min-height:44px}
+.cloze select.ok{border-color:var(--ok);background:var(--okbg)}
+.cloze select.no{border-color:var(--bad);background:var(--badbg)}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{background:var(--cream);font-weight:800}
+.tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+.tblwrap{overflow-x:auto;max-width:100%}
+.wort{font-size:.9rem;color:#45362a}
+.merk{background:#fff8ea;border:2px solid #e2c48d;border-radius:14px;padding:12px 14px;margin:12px 0}
+.merk b.k{display:block;color:var(--gold-text);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:2px}
+.fund{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px;align-items:start;margin:10px 0}
+@media(max-width:640px){.fund{grid-template-columns:minmax(0,1fr)}}
+.facts{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.facts li{border:1px solid var(--line);border-radius:10px;padding:7px 10px;background:#fff}
+.facts li b{color:var(--green)}
+.wq{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 7px;font-weight:800;margin-right:4px}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#6a5a4c;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 5 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Geschichte entdecken · Zeitreise 003</div>
+    <h1>Was verraten Familie, Schule und Wohnort über Wandel?</h1>
+    <p>Geschichte beginnt nicht erst bei den Pyramiden. Sie steckt auch in deiner Familie, in deiner Schule und in deinem Wohnort. In diesem Modul findest du heraus, was sich in den letzten hundert Jahren verändert hat und was gleich geblieben ist.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>003</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 11 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#familie">Meine Familie</a>
+ <a href="#schule">Schule früher und heute</a>
+ <a href="#quelle">Die Quelle</a>
+ <a href="#emsland">Rhede und das Emsland</a>
+ <a href="#interview">Zeitzeugen befragen</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 5a"><span class="hint">Möglich sind zum Beispiel 5a, Klasse 5a, R5a oder nur 5.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0;grid-column:1/-1"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul><li>Du vergleichst die Kindheit verschiedener Generationen.</li><li>Du vergleichst die Schule früher und heute.</li><li>Du lernst die Begriffe Wandel und Kontinuität kennen.</li><li>Du erfährst, wie sich Rhede und das Emsland seit 1950 verändert haben.</li><li>Du planst ein eigenes Interview mit einem Zeitzeugen.</li></ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Spurensuche starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Zeitreise 003</span>
+ <p><strong>Fall:</strong> Chronos blättert in einem alten Fotoalbum. Er seufzt und schreibt auf eine Karteikarte: <em>„Früher war alles ganz anders als heute.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Untersuche Familie, Schule und Wohnort. Finde heraus, was sich verändert hat und was gleich geblieben ist. Am Ende entscheidest du, ob Chronos recht hat.</p>
+</div>
+<p><strong>Zum Einstieg:</strong> Frag dich einmal: Wie sind deine Großeltern zur Schule gekommen? Gab es damals schon Handys? Und gab es deine Schule überhaupt schon?</p>
+<div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>In meinem Fotoalbum sind die Bilder schwarz-weiß. Da denkt man schnell, früher war die Welt grau. War sie aber nicht! Nur die Fotos waren es. Komm, wir sehen genauer hin.</p></div></div>
+<p><strong>Leitfrage:</strong> Was verraten Familie, Schule und Wohnort über Wandel?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Familienforscherin</span>
+ <span class="abz" id="abz2">Schulreporter</span>
+ <span class="abz" id="abz3">Ortskenner</span>
+ <span class="abz" id="abz4">Interviewprofi</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p><div class="task"><span class="tag">Vermutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D1. Was ist ein Zeitzeuge?</legend><div class="opts"><label><input type="radio" name="d1" value="a"><span>Eine Uhr, die besonders genau geht</span></label><label><input type="radio" name="d1" value="b"><span>Ein Mensch, der etwas selbst erlebt hat und davon erzählen kann</span></label><label><input type="radio" name="d1" value="c"><span>Ein Buch über Geschichte</span></label></div></fieldset></div><div class="task"><span class="tag">Richtig oder falsch</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D2. Vor etwa 70 Jahren hatten im Emsland schon fast alle Familien ein Auto.</legend><div class="opts"><label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label><label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label></div></fieldset></div><div class="task"><span class="tag">Vermutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D3. Was bedeutet das Wort „Wandel“ im Fach Geschichte?</legend><div class="opts"><label><input type="radio" name="d3" value="a"><span>Ein Spaziergang</span></label><label><input type="radio" name="d3" value="b"><span>Eine Veränderung im Lauf der Zeit</span></label><label><input type="radio" name="d3" value="c"><span>Ein altes Wort für Wand</span></label></div></fieldset></div><button class="btn" type="button" id="dCheck">Einschätzung auswerten</button><div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="familie">
+<h2>Spuren in der Familie</h2>
+<p>Jede Familie hat ihre eigene Geschichte. Deine Großeltern waren auch einmal so alt wie du. Ihre Kindheit sah aber in vielem anders aus als deine. Wenn sich etwas im Lauf der Zeit verändert, nennt man das <strong>Wandel</strong>.</p><div class="svgwrap"><svg class="pic" style="max-width:600px;margin:auto" viewBox="0 0 400 190" role="img" aria-label="Zeitleiste der Generationen: Kindheit der Urgroßeltern um 1930, der Großeltern um 1960, der Eltern um 1990 und deine Kindheit heute.">
+<rect width="400" height="190" fill="#fbf6ee"/>
+<text x="200" y="22" text-anchor="middle" font-size="15" fill="#6a5a4c">Wann waren sie ungefähr Kinder?</text>
+<line x1="14" y1="78" x2="384" y2="78" stroke="#2a1c12" stroke-width="4"/><path d="M384 70 L396 78 L384 86Z" fill="#2a1c12"/>
+<circle cx="55" cy="78" r="9" fill="#fff" stroke="#8a4317" stroke-width="3"/><text x="55" y="50" text-anchor="middle" font-size="17" font-weight="800" fill="#8a4317">um 1930</text><circle cx="55" cy="112" r="15" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M40 108 q15 -20 30 0" fill="#e9e6e1" stroke="#5b2c0f" stroke-width="1.2"/><path d="M49 117 q6 5 12 0" stroke="#2a1c12" stroke-width="1.6" fill="none"/><circle cx="50" cy="111" r="1.8" fill="#2a1c12"/><circle cx="60" cy="111" r="1.8" fill="#2a1c12"/><text x="55" y="150" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1c12">Urgroß-</text><text x="55" y="169" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1c12">eltern</text>
+<circle cx="150" cy="78" r="9" fill="#fff" stroke="#8a4317" stroke-width="3"/><text x="150" y="50" text-anchor="middle" font-size="17" font-weight="800" fill="#8a4317">um 1960</text><circle cx="150" cy="112" r="15" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M135 108 q15 -20 30 0" fill="#c9c4bd" stroke="#5b2c0f" stroke-width="1.2"/><path d="M144 117 q6 5 12 0" stroke="#2a1c12" stroke-width="1.6" fill="none"/><circle cx="145" cy="111" r="1.8" fill="#2a1c12"/><circle cx="155" cy="111" r="1.8" fill="#2a1c12"/><text x="150" y="150" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1c12">Groß-</text><text x="150" y="169" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1c12">eltern</text>
+<circle cx="245" cy="78" r="9" fill="#fff" stroke="#8a4317" stroke-width="3"/><text x="245" y="50" text-anchor="middle" font-size="17" font-weight="800" fill="#8a4317">um 1990</text><circle cx="245" cy="112" r="15" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M230 108 q15 -20 30 0" fill="#6b4a2e" stroke="#5b2c0f" stroke-width="1.2"/><path d="M239 117 q6 5 12 0" stroke="#2a1c12" stroke-width="1.6" fill="none"/><circle cx="240" cy="111" r="1.8" fill="#2a1c12"/><circle cx="250" cy="111" r="1.8" fill="#2a1c12"/><text x="245" y="150" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1c12">Eltern</text><text x="245" y="169" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1c12"></text>
+<circle cx="340" cy="78" r="9" fill="#fff" stroke="#8a4317" stroke-width="3"/><text x="340" y="50" text-anchor="middle" font-size="17" font-weight="800" fill="#8a4317">heute</text><circle cx="340" cy="112" r="15" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M325 108 q15 -20 30 0" fill="#a0522d" stroke="#5b2c0f" stroke-width="1.2"/><path d="M334 117 q6 5 12 0" stroke="#2a1c12" stroke-width="1.6" fill="none"/><circle cx="335" cy="111" r="1.8" fill="#2a1c12"/><circle cx="345" cy="111" r="1.8" fill="#2a1c12"/><text x="340" y="150" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1c12">Du</text><text x="340" y="169" text-anchor="middle" font-size="16" font-weight="700" fill="#2a1c12"></text>
+</svg></div><div class="legendlist" aria-hidden="true"><span>Zeitleiste: eigene Zeichnung, Jahreszahlen ungefähr</span></div><div class="task"><span class="tag">Zuordnen</span><p><strong>Auftrag:</strong> Ordne jede Karte der Generation zu, in deren Kindheit sie am besten passt.</p><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Eine falsch abgelegte Karte kannst du wieder antippen und neu ablegen.</p><div class="chips" id="generationenPieces" aria-label="Karten zum Zuordnen"></div><div class="zones z4"><div class="zone" data-task="generationen" data-zone="u" tabindex="0" role="button" aria-label="Ablegen bei Urgroßeltern, um 1930"><h4>Urgroßeltern, um 1930</h4><div class="drop"></div></div><div class="zone" data-task="generationen" data-zone="g" tabindex="0" role="button" aria-label="Ablegen bei Großeltern, um 1960"><h4>Großeltern, um 1960</h4><div class="drop"></div></div><div class="zone" data-task="generationen" data-zone="e" tabindex="0" role="button" aria-label="Ablegen bei Eltern, um 1990"><h4>Eltern, um 1990</h4><div class="drop"></div></div><div class="zone" data-task="generationen" data-zone="d" tabindex="0" role="button" aria-label="Ablegen bei Du, heute"><h4>Du, heute</h4><div class="drop"></div></div></div><button class="btn" type="button" id="generationenCheck">Zuordnung prüfen</button><button class="btn sec" type="button" id="generationenReset">Zurücksetzen</button><div class="fb" id="generationenFb" role="status" aria-live="polite"></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Pferd und Radio: ältere Zeit. Schwarz-Weiß-Fernsehen und Mondlandung: Großeltern. Kassette und erster Computer: Eltern. Tablet und Videoanruf: heute.</div></div>
+</section>
+
+<section class="card" id="schule">
+<h2>Schule früher und heute</h2>
+<div class="akte"><span class="stamp">Darstellung</span><p><strong>Schule auf dem Land um 1950.</strong> Verfassertext für dieses Modul nach dem Forschungsstand.</p><p>In vielen Dörfern im Emsland gab es nur eine kleine Volksschule. Oft saßen Kinder aus mehreren Jahrgängen zusammen in einem Raum. Eine Lehrkraft unterrichtete alle gleichzeitig. Die jüngeren Kinder schrieben mit einem Griffel auf eine Schiefertafel. Auch am Samstag war Unterricht. Die Regeln waren streng. Lehrer durften Kinder damals noch schlagen. Heute ist das streng verboten.</p></div><div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Achtung: Das ist eine Darstellung, kein Bericht aus der Zeit selbst. Echte Spuren von damals findest du zum Beispiel in alten Fotos, Schulheften oder in den Erzählungen deiner Großeltern.</p></div></div><p>Wandel heißt: Etwas hat sich verändert. Bleibt etwas über lange Zeit gleich, nennt man das <strong>Kontinuität</strong>.</p><div class="task"><span class="tag">Wandel oder Kontinuität?</span><p><strong>Auftrag:</strong> Ordne die Karten zu. Was gab es nur früher, was nur heute, was gibt es immer noch?</p><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Eine falsch abgelegte Karte kannst du wieder antippen und neu ablegen.</p><div class="chips" id="schulePieces" aria-label="Karten zum Zuordnen"></div><div class="zones z3"><div class="zone" data-task="schule" data-zone="frueher" tabindex="0" role="button" aria-label="Ablegen bei Nur früher, um 1950"><h4>Nur früher, um 1950</h4><div class="drop"></div></div><div class="zone" data-task="schule" data-zone="heute" tabindex="0" role="button" aria-label="Ablegen bei Nur heute"><h4>Nur heute</h4><div class="drop"></div></div><div class="zone" data-task="schule" data-zone="beides" tabindex="0" role="button" aria-label="Ablegen bei Früher und heute"><h4>Früher und heute</h4><div class="drop"></div></div></div><button class="btn" type="button" id="schuleCheck">Zuordnung prüfen</button><button class="btn sec" type="button" id="schuleReset">Zurücksetzen</button><div class="fb" id="schuleFb" role="status" aria-live="polite"></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Das Feld „Früher und heute“ ist für Dinge, die es damals schon gab und heute immer noch gibt.</div></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: ein Gesetz über die Schule von 1919</h2>
+<p>Dass alle Kinder zur Schule gehen müssen, ist gar nicht so selbstverständlich. 1919 wurde es in die erste demokratische Verfassung Deutschlands geschrieben. Eine Verfassung ist das wichtigste Gesetz eines Staates.</p><div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>Verfassung des Deutschen Reiches vom 11. August 1919 („Weimarer Verfassung“), Artikel 145.</strong> Beschlossen von der Nationalversammlung, dem gewählten Parlament der Deutschen.</p>
+ <blockquote class="q">
+  <p>„Es besteht allgemeine Schulpflicht. Ihrer Erfüllung dient grundsätzlich die Volksschule mit mindestens acht Schuljahren und die anschließende Fortbildungsschule bis zum vollendeten achtzehnten Lebensjahre. Der Unterricht und die Lernmittel in den Volksschulen und Fortbildungsschulen sind unentgeltlich.“</p>
+ </blockquote>
+ <p class="hint">Wörtlich zitiert. Worterklärungen: „grundsätzlich“ heißt hier „in der Regel“. „Lernmittel“ sind Bücher und Hefte. „Unentgeltlich“ heißt „kostenlos“.</p>
+</div><div class="task"><span class="tag">Quellenarbeit</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S1. Was steht in dieser Quelle? Wähle alle richtigen Aussagen aus.</legend><div class="opts"><label><input type="checkbox" name="s2" value="pflicht"><span>Alle Kinder müssen zur Schule gehen.</span></label><label><input type="checkbox" name="s2" value="acht"><span>Die Volksschule dauert mindestens acht Jahre.</span></label><label><input type="checkbox" name="s2" value="kosten"><span>Unterricht, Bücher und Hefte kosten in diesen Schulen nichts.</span></label><label><input type="checkbox" name="s2" value="gern"><span>Die Kinder gingen gern zur Schule.</span></label><label><input type="checkbox" name="s2" value="tablet"><span>Jedes Kind bekommt ein Tablet.</span></label></div></fieldset><button class="btn" type="button" id="s2Check">Prüfen</button><button class="btn sec" type="button" id="s2Reset">Zurücksetzen</button><div class="fb" id="s2Fb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Kontinuität und Wandel</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S2. Die Schulpflicht gibt es seit 1919 in ganz Deutschland, und es gibt sie bis heute. Heute dauert sie in Niedersachsen aber mindestens neun Jahre. Was zeigt das?</legend><div class="opts"><label><input type="radio" name="kont" value="a"><span>Nur Wandel: Mit der Schule hat sich alles verändert.</span></label><label><input type="radio" name="kont" value="b"><span>Nur Kontinuität: Es ist alles genauso geblieben.</span></label><label><input type="radio" name="kont" value="c"><span>Beides: Die Schulpflicht ist geblieben, das ist Kontinuität. Die Dauer hat sich verändert, das ist Wandel.</span></label></div></fieldset><button class="btn" type="button" id="kontCheck">Prüfen</button><div class="fb" id="kontFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="emsland">
+<h2>Rhede und das Emsland im Wandel</h2>
+<p>Rhede wird schon im Jahr 829 in einer Urkunde erwähnt. Über viele Jahrhunderte lebten die Menschen hier vor allem von der Landwirtschaft. Ein großer Teil des Emslandes bestand aus Moor und Heide. Das Leben war oft hart, die Menschen waren arm.</p><div class="svgwrap"><svg class="pic" style="max-width:640px;margin:auto" viewBox="0 0 400 230" role="img" aria-label="Zwei schematische Zeichnungen: links eine Moorlandschaft um 1950 mit Wasserlöchern, Birken und gestapeltem Torf, rechts dieselbe Gegend heute mit Feldern, Bauernhof, Straße und Windrad.">
+<rect width="400" height="230" fill="#fbf6ee"/>
+<rect x="6" y="34" width="190" height="160" rx="10" fill="#d9c7a3"/>
+<rect x="204" y="34" width="190" height="160" rx="10" fill="#dcebd2"/>
+<text x="101" y="24" text-anchor="middle" font-size="17" font-weight="800" fill="#8a4317">Moor um 1950</text>
+<text x="299" y="24" text-anchor="middle" font-size="16" font-weight="800" fill="#2f6b3a">Dieselbe Gegend heute</text>
+<rect x="6" y="34" width="190" height="62" rx="10" fill="#e9eef2"/>
+<rect x="204" y="34" width="190" height="62" rx="10" fill="#e3eef6"/>
+<path d="M6 96 H196 V194 H6Z" fill="#7a5a3a"/>
+<ellipse cx="50" cy="140" rx="26" ry="8" fill="#9fb7c9"/><ellipse cx="146" cy="146" rx="28" ry="8" fill="#9fb7c9"/>
+<g stroke="#5b544a" stroke-width="3"><line x1="40" y1="96" x2="40" y2="58"/><line x1="160" y1="96" x2="160" y2="64"/></g>
+<circle cx="40" cy="56" r="12" fill="#9bb26a"/><circle cx="160" cy="62" r="11" fill="#9bb26a"/>
+<g fill="#4a3220" stroke="#2a1c12" stroke-width="1"><rect x="96" y="112" width="12" height="8"/><rect x="110" y="112" width="12" height="8"/><rect x="103" y="104" width="12" height="8"/><rect x="124" y="112" width="12" height="8"/></g>
+<text x="101" y="184" text-anchor="middle" font-size="15" font-weight="700" fill="#fff" paint-order="stroke" stroke="#4a3220" stroke-width="4">nass, wenig Wege</text>
+<path d="M204 96 H394 V194 H204Z" fill="#9bc27a"/>
+<g stroke="#7aa35a" stroke-width="3"><path d="M210 120 H388 M210 140 H388 M210 160 H388 M210 180 H388"/></g>
+<path d="M270 96 L250 194 H272 L286 96Z" fill="#8c8c8c"/>
+<g transform="translate(320 54)"><rect x="0" y="16" width="44" height="26" fill="#c26b3a" stroke="#6e3412" stroke-width="2"/><path d="M-4 18 L22 0 L48 18Z" fill="#7a3a1a"/><rect x="18" y="26" width="9" height="16" fill="#4a3220"/></g>
+<g transform="translate(232 38)"><line x1="0" y1="58" x2="0" y2="12" stroke="#fff" stroke-width="4"/><path d="M0 12 L-2 -12 L2 -12Z M0 12 L20 22 L18 26Z M0 12 L-20 22 L-18 26Z" fill="#fff" stroke="#9aa1a6"/></g>
+<text x="299" y="184" text-anchor="middle" font-size="15" font-weight="700" fill="#2a1c12" paint-order="stroke" stroke="#dcebd2" stroke-width="5">Felder, Höfe, Straßen</text>
+<text x="200" y="216" text-anchor="middle" font-size="14" fill="#6a5a4c">Schematische Zeichnung, kein bestimmter Ort</text>
+</svg></div><div class="task"><span class="tag">Ursache-Folge-Kette</span><p><strong>Auftrag:</strong> Bringe die Kette in die richtige Reihenfolge. Sie beginnt mit der Ursache und endet mit der Folge.</p><div class="order" id="emslandList" aria-label="Liste zum Ordnen"></div><button class="btn" type="button" id="emslandCheck">Reihenfolge prüfen</button><button class="btn sec" type="button" id="emslandReset">Neu mischen</button><div class="fb" id="emslandFb" role="status" aria-live="polite"></div></div><div class="notice warn"><strong>Zwei Sichtweisen:</strong> 1950 waren die meisten Menschen froh über neues Ackerland. Heute sieht man das auch kritisch. Trockengelegte Moore geben viel Treibhausgas ab, das dem Klima schadet. Und viele Tiere und Pflanzen verlieren ihren Lebensraum. Deshalb werden manche Moore heute wieder nass gemacht.</div><div class="task" data-lw="weiter"><span class="tag">Weiterdenken · Zwei Sichtweisen</span><label class="legend" for="q2">Q2. Warum haben die Menschen 1950 das Trockenlegen der Moore anders bewertet als viele Menschen heute? Erkläre beide Sichtweisen.</label><textarea id="q2" placeholder="1950 fanden die Menschen das gut, weil ... Heute sehen manche das kritisch, denn ..."></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p><button class="btn" type="button" id="q2Check">Antwort prüfen</button><div class="fb" id="q2Fb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="interview">
+<h2>Zeitzeugen befragen: dein Interview</h2>
+<p>Die besten Quellen für die letzten hundert Jahre sitzen vielleicht bei dir zu Hause: deine Großeltern, ältere Nachbarn oder Verwandte. Sie sind <strong>Zeitzeugen</strong>. Was sie erzählen, ist eine <strong>mündliche Quelle</strong>.</p><div class="task"><span class="tag">Perspektive</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Z1. Opa erzählt: „Früher war die Schule viel strenger. Aber wir haben mehr gelernt als ihr heute!“ Wie gehst du mit dieser Aussage um?</legend><div class="opts"><label><input type="radio" name="zeitzeuge" value="a"><span>Das stimmt sicher, Opa war ja dabei.</span></label><label><input type="radio" name="zeitzeuge" value="b"><span>Das ist Opas Erinnerung und seine Meinung. Sie ist wertvoll, aber persönlich. Ich vergleiche sie mit anderen Quellen.</span></label><label><input type="radio" name="zeitzeuge" value="c"><span>Das ist bestimmt falsch, alte Leute erinnern sich nie richtig.</span></label></div></fieldset><button class="btn" type="button" id="zeitzeugeCheck">Prüfen</button><div class="fb" id="zeitzeugeFb" role="status" aria-live="polite"></div></div><div class="merk"><b class="k">Tipps für dein Interview</b>1. Frage vorher, ob die Person mitmachen möchte. 2. Stelle offene W-Fragen, zum Beispiel „Wie …?“ oder „Was …?“. 3. Hör gut zu und schreib Stichworte auf. 4. Frage am Ende, ob du die Antworten im Unterricht erzählen darfst.</div><div class="task"><span class="tag">Dein Interview</span><label class="legend" for="fragen">Z2. Plane dein eigenes Interview: Schreibe drei Fragen auf, die du einer älteren Person über ihre Kindheit, ihre Schulzeit oder ihren Wohnort stellen möchtest.</label><textarea id="fragen" placeholder="Wie sah dein Klassenzimmer aus? ..."></textarea><p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Wie sah dein Klassenzimmer aus?“ · „Was habt ihr in der Pause gespielt?“ · „Wie hat sich Rhede seit deiner Kindheit verändert?“</p><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p><button class="btn" type="button" id="fragenCheck">Antwort prüfen</button><div class="fb" id="fragenFb" role="status" aria-live="polite"></div></div><p class="hint">Schreibe hier keine Namen oder privaten Dinge über andere Menschen auf.</p>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Wandel</summary><div class="body">Eine Veränderung im Lauf der Zeit, zum Beispiel neue Technik oder neue Regeln in der Schule.</div></details><details class="gloss"><summary>Kontinuität</summary><div class="body">Etwas bleibt über lange Zeit gleich, zum Beispiel dass Kinder lesen und schreiben lernen.</div></details><details class="gloss"><summary>Generation</summary><div class="body">Alle Menschen, die ungefähr zur gleichen Zeit geboren sind. Kinder, Eltern und Großeltern sind drei Generationen.</div></details><details class="gloss"><summary>Zeitzeuge, Zeitzeugin</summary><div class="body">Ein Mensch, der etwas selbst erlebt hat und davon erzählen kann. Was er erzählt, ist eine mündliche Quelle.</div></details><details class="gloss"><summary>Interview</summary><div class="body">Ein Gespräch, bei dem eine Person Fragen stellt und eine andere antwortet.</div></details><details class="gloss"><summary>Verfassung</summary><div class="body">Das wichtigste Gesetz eines Staates. Darin steht, wie der Staat aufgebaut ist und welche Rechte die Menschen haben.</div></details><details class="gloss"><summary>Schulpflicht</summary><div class="body">Alle Kinder müssen eine bestimmte Zahl von Jahren zur Schule gehen.</div></details><details class="gloss"><summary>Emslandplan</summary><div class="body">Ein Plan des Staates ab 1950. Mit viel Geld wurden Moore und Heide in Ackerland verwandelt und Straßen und Betriebe gebaut.</div></details><details class="gloss"><summary>Perspektive</summary><div class="body">Die Sicht, aus der ein Mensch etwas betrachtet. Verschiedene Menschen können dasselbe unterschiedlich sehen.</div></details><h3>Woher stammen die Texte?</h3><details class="gloss"><summary>Nachweise der Quellen und Zahlen</summary><div class="body"><ul><li>Verfassung des Deutschen Reiches vom 11. August 1919, Artikel 145, wörtlich zitiert (amtlicher Text, gemeinfrei).</li><li>Emslandplan: einstimmiger Beschluss des Deutschen Bundestages am 5. Mai 1950; umgesetzt ab 1951 durch die Emsland GmbH, offiziell beendet 1989.</li><li>Rhede (Ems): erste urkundliche Erwähnung 829; etwa drei Viertel der Gemeindefläche werden landwirtschaftlich genutzt.</li><li>Schulpflicht in Niedersachsen heute: neun Jahre Vollzeitschulpflicht, danach in der Regel Berufsschulpflicht.</li><li>Der Text „Schule auf dem Land um 1950“ ist ein Verfassertext (Darstellung). Generationen-Zeitleiste und Moor-Zeichnung sind eigene schematische Zeichnungen.</li></ul></div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p><div id="selfcheck"><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann an Beispielen aus Familie und Schule erklären, was Wandel und was Kontinuität ist.</legend><div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann erklären, wie sich das Emsland seit 1950 verändert hat.</legend><div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann Fragen für ein Zeitzeugen-Interview formulieren und weiß, dass Erinnerungen persönlich sind.</legend><div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: die Karteikarte</h2>
+<div class="akte"><span class="stamp">Zu prüfen</span><p>Auf Chronos' Karteikarte steht: <em>„Früher war alles ganz anders als heute.“</em></p></div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0;margin:0"><legend class="legend">A1. Wie entscheidest du?</legend><div class="opts"><label><input type="radio" name="a1" value="a"><span>Die Karte stimmt. Früher war wirklich alles anders.</span></label><label><input type="radio" name="a1" value="b"><span>Die Karte stimmt nur zum Teil. Vieles hat sich gewandelt, zum Beispiel die Technik. Aber manches ist gleich geblieben, zum Beispiel die Schulpflicht. Das ist Kontinuität.</span></label><label><input type="radio" name="a1" value="c"><span>Die Karte ist falsch. Früher war alles genauso wie heute.</span></label></div></fieldset>
+ <button class="btn" type="button" id="a1Check">Entscheidung prüfen</button>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos eine kurze Nachricht mit zwei bis vier Sätzen. Nenne ein Beispiel für Wandel und ein Beispiel für Kontinuität.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, nicht alles war früher anders, denn ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Ein Beispiel für Wandel ist ..., weil ...“ · „Gleich geblieben ist ..., denn ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Begründung prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="fb" id="buildFb" role="status" aria-live="polite"></div>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" id="printBtn">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+</main></div>
+<footer>SOL Geschichte 5 · Modul 003 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-5" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-5"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={"modul": "003", "titel": "Was verraten Familie, Schule und Wohnort über Wandel?", "bereich": "Geschichte entdecken", "version": "1.0.0", "key": "sol-geschichte-5-003", "endpoint": "https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec", "next": "Weiter geht es mit Modul 004: Wie lebten Menschen in der Altsteinzeit?", "badges": [{"id": "abz1", "name": "Familienforscherin", "tasks": ["generationen"]}, {"id": "abz2", "name": "Schulreporter", "tasks": ["schule", "kont"]}, {"id": "abz3", "name": "Ortskenner", "tasks": ["emsland"]}, {"id": "abz4", "name": "Interviewprofi", "tasks": ["zeitzeuge", "fragen"]}], "startOk": "Alles bereit. Chronos hat sein Fotoalbum aufgeschlagen. Es geht weiter mit der Mission."};
+const TASKS=[{"id": "generationen", "typ": "zuord", "pieces": [{"k": "generationenk1", "t": "Mit Pferd und Wagen zum Markt fahren", "z": "u"}, {"k": "generationenk2", "t": "Radio hören ist etwas ganz Neues und Aufregendes", "z": "u"}, {"k": "generationenk3", "t": "Fernsehen gibt es nur in Schwarz-Weiß", "z": "g"}, {"k": "generationenk4", "t": "Die Mondlandung 1969 im Fernsehen sehen", "z": "g"}, {"k": "generationenk5", "t": "Musik von der Kassette hören", "z": "e"}, {"k": "generationenk6", "t": "Der erste Computer kommt ins Kinderzimmer", "z": "e"}, {"k": "generationenk7", "t": "Mit dem Tablet in der Schule lernen", "z": "d"}, {"k": "generationenk8", "t": "Mit Oma einen Videoanruf machen", "z": "d"}], "ok": "Alles richtig. Du siehst: In knapp hundert Jahren hat sich der Alltag stark gewandelt, besonders bei der Technik.", "hint": "Überlege bei jeder Karte: Welche Technik gab es damals schon?", "name": "Kindheit in vier Generationen", "komp": ["zeit_raum", "fachwissen"], "zones": ["u", "g", "e", "d"]}, {"id": "schule", "typ": "zuord", "pieces": [{"k": "schulek1", "t": "Schreiben auf einer Schiefertafel", "z": "frueher"}, {"k": "schulek2", "t": "Lehrer dürfen Kinder schlagen", "z": "frueher"}, {"k": "schulek3", "t": "Lernen mit Tablets und digitaler Tafel", "z": "heute"}, {"k": "schulek4", "t": "Schulsozialarbeit als Ansprechpartner bei Sorgen", "z": "heute"}, {"k": "schulek5", "t": "Lesen, Schreiben und Rechnen lernen", "z": "beides"}, {"k": "schulek6", "t": "Pausen auf dem Schulhof", "z": "beides"}], "ok": "Klasse sortiert. Manches hat sich gewandelt, zum Beispiel die Strafen und die Technik. Anderes ist gleich geblieben: Lesen, Schreiben und Rechnen lernt man bis heute. Das ist Kontinuität.", "hint": "Prüfe bei jeder Karte: Gab es das 1950? Gibt es das heute? Oder beides?", "name": "Schule früher und heute", "komp": ["fachwissen", "zeit_raum"], "zones": ["frueher", "heute", "beides"]}, {"id": "s2", "typ": "multi", "richtig": ["pflicht", "acht", "kosten"], "ok": "Richtig. Die Quelle nennt die Schulpflicht, die acht Jahre Volksschule und dass der Unterricht kostenlos ist. Ob die Kinder gern zur Schule gingen, verrät ein Gesetz nicht.", "hinweis": {"gern": "Darüber sagt ein Gesetz nichts. Dafür bräuchte man zum Beispiel Erzählungen von Zeitzeugen.", "tablet": "1919 gab es noch keine Tablets. Diese Antwort passt nur zu heute."}, "fehlt": "Es fehlen noch # zutreffende Antworten. ", "tipp": "Lies nur, was wirklich dasteht.", "name": "Was sagt die Quelle?", "komp": ["quellenarbeit"]}, {"id": "kont", "typ": "mc", "richtig": "c", "fb": {"a": "Nicht ganz. Die Schulpflicht selbst gibt es immer noch. Das ist etwas, das gleich geblieben ist.", "b": "Nicht ganz. Acht Jahre damals, mindestens neun heute. Da hat sich etwas verändert.", "c": "Genau. In der Geschichte gibt es oft beides gleichzeitig: Kontinuität und Wandel."}, "name": "Kontinuität und Wandel", "komp": ["zeit_raum", "historisches_urteil"], "zusatz": false}, {"id": "emsland", "typ": "order", "items": ["Nach dem Zweiten Weltkrieg ist das Emsland eine der ärmsten Gegenden Deutschlands. Viel Land ist nasses Moor.", "1950 beschließt der Bundestag den Emslandplan. Das Emsland bekommt viel Geld vom Staat.", "Riesige Pflüge brechen den Moorboden um. Gräben leiten das Wasser ab.", "Es entstehen neue Felder, Bauernhöfe, Straßen und Betriebe.", "Heute gilt das Emsland nicht mehr als arme Gegend."], "ok": "Genau. Das ist eine Ursache-Folge-Kette: Die Armut war der Grund für den Plan. Der Plan brachte Geld, das Geld machte die Arbeit im Moor möglich, und daraus folgten neue Felder und Arbeitsplätze.", "hint": "Frage dich: Was musste zuerst da sein, damit der nächste Schritt passieren konnte?", "name": "Ursache und Folge im Emsland", "komp": ["ursachen_folgen", "zeit_raum"]}, {"id": "q2", "typ": "text", "krit": {"min": 60, "worte": 14, "need": 2, "saetze": 2, "gruppen": [{"w": ["arm", "acker", "feld", "essen", "arbeit", "geld", "hof", "hunger", "nahrung", "landwirtschaft", "platz"], "miss": "Erkläre, warum die Menschen 1950 froh über neues Land waren."}, {"w": ["klima", "treibhaus", "gas", "co2", "tier", "pflanze", "natur", "umwelt", "lebensraum"], "miss": "Erkläre auch, warum man heute kritischer ist, zum Beispiel wegen Klima oder Natur."}], "ok": "Sehr gut. Du zeigst, dass Menschen zu verschiedenen Zeiten Dinge unterschiedlich bewerten. 1950 ging es um Essen und Arbeit, heute denken viele auch an Klima und Natur. Das nennt man Perspektive."}, "name": "Weiterdenken Moor", "komp": ["perspektivitaet"], "zusatz": true}, {"id": "zeitzeuge", "typ": "mc", "richtig": "b", "fb": {"a": "Opa war dabei, das macht seine Erzählung wertvoll. Aber Erinnerungen verändern sich mit der Zeit. Und ob man mehr gelernt hat, ist eine Meinung.", "b": "Genau. Zeitzeugen erzählen aus ihrer eigenen Sicht. Ein anderer Mensch hätte die gleiche Schule vielleicht ganz anders erlebt. Deshalb fragt man mehrere Zeitzeugen und vergleicht.", "c": "Das ist unfair. Zeitzeugen erinnern sich oft sehr genau. Man sollte ihre Erzählung nur mit anderen Quellen vergleichen."}, "name": "Zeitzeugen einschätzen", "komp": ["perspektivitaet", "quellenarbeit"], "zusatz": false}, {"id": "fragen", "typ": "text", "krit": {"min": 45, "worte": 10, "need": 1, "saetze": 3, "nover": true, "knapp": "Schreibe drei vollständige Fragen. Beginne zum Beispiel mit „Wie …?“, „Was …?“ oder „Welche …?“ und setze am Ende ein Fragezeichen.", "zuwenig": "Es sollen drei Fragen sein. Setze hinter jede Frage ein Fragezeichen. ", "gruppen": [{"w": ["wie ", "was ", "wo ", "wann ", "warum ", "welche", "wer ", "womit", "wieso", "weshalb", "wohin"], "miss": "Nutze W-Fragen, zum Beispiel „Wie …?“ oder „Was …?“."}], "ok": "Super Fragen. Damit bist du bereit für dein Interview. Frag zu Hause nach und bring die Antworten mit in den Unterricht. So entsteht eine echte mündliche Quelle."}, "name": "Interviewfragen", "komp": ["quellenarbeit"], "zusatz": false}];
+const DIAG={"fragen": [{"n": "d1", "r": "b"}, {"n": "d2", "r": "f"}, {"n": "d3", "r": "b"}], "alle": "Drei von drei. Super! Der Lernweg Weiterdenken könnte dir Spaß machen.", "fast": "Zwei von drei. Gute Grundlage. Im Modul lernst du, wie man Wandel erkennt.", "wenig": "Du hast # von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.", "extra": [{"n": "d2", "v": "r", "m": "Ein Hinweis vorab: Um 1955 hatten nur wenige Familien ein Auto. Viele fuhren Fahrrad oder gingen zu Fuß."}]};
+const ABS={"ok": ["b"], "fb": {"a": "Denk an die Schule: Lesen, Schreiben und Rechnen lernt man immer noch. Nicht alles hat sich verändert. Wähle noch einmal.", "b": "Sehr gut entschieden. Du erkennst Wandel und Kontinuität. Begründe das jetzt in A2.", "c": "Denk an die Schiefertafel und das Tablet. Da hat sich viel verändert. Wähle noch einmal."}, "krit": {"min": 60, "worte": 14, "need": 2, "saetze": 2, "gruppen": [{"w": ["wandel", "verander", "anders", "neu", "tablet", "fernseh", "computer", "schiefertafel", "griffel", "schlagen", "auto", "pferd", "moor", "handy", "technik"], "miss": "Nenne ein Beispiel für Wandel, also etwas, das sich verändert hat."}, {"w": ["kontinuit", "gleich geblieben", "geblieben", "immer noch", "bis heute", "gleich", "schulpflicht", "lesen", "schreiben", "rechnen", "pause", "landwirtschaft"], "miss": "Nenne auch ein Beispiel für Kontinuität, also etwas, das gleich geblieben ist."}], "ok": "Sehr gut. Du nennst Wandel und Kontinuität mit Beispielen. Genau so denken Historikerinnen und Historiker. Abzeichen Begründer freigeschaltet."}};
+const S={lernweg:"standard",done:{},punkte:{},placed:{},order:{},hot:{},fbs:{},texts:{},sent:false,built:false};
+const TMAP={};TASKS.forEach(t=>TMAP[t.id]=t);
+const PFLICHT=TASKS.filter(t=>!t.zusatz);
+const SCHRITTE=["start","diagnose"].concat(PFLICHT.map(t=>t.id),["lerncheck","abschluss"]);
+const MAXP=PFLICHT.length+3;
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function fbT(tid,msg,art){S.fbs[tid]={m:msg,a:art};fb("#"+tid+"Fb",msg,art);}
+function fbTClear(tid){delete S.fbs[tid];fbClear("#"+tid+"Fb");}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+function val(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","trotzdem","aber","jedoch","obwohl","wahrend","einerseits","andererseits"];
+function mische(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ (CFG.badges||[]).forEach(b=>{const e=document.getElementById(b.id);if(e)e.classList.toggle("on",b.tasks.every(k=>k==="a2"?(S.punkte.a2||0)>=1:!!S.done[k]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];S.punkte[k]=0;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Denkaufgabe zum Thema."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 5a."};
+ const m=t.match(/(?:^|[^0-9])5([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 5. Schreibe zum Beispiel 5a, Klasse 5b oder nur 5."};
+ return{ok:true,wert:"5"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb",CFG.startOk,"ok");
+ location.hash="mission";
+});
+
+/* ---------- Einstieg ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const fr=DIAG.fragen, offenD=fr.filter(f=>!val(f.n));
+ if(offenD.length){fb("#dFb","Beantworte bitte zuerst alle drei Fragen. Raten ist ausdrücklich erlaubt.","hint");return;}
+ const r=fr.filter(f=>val(f.n)===f.r).length;
+ let m=r===fr.length?DIAG.alle:(r===fr.length-1?DIAG.fast:DIAG.wenig.replace("#",r));
+ (DIAG.extra||[]).forEach(x=>{if(val(x.n)===x.v)m+=" "+x.m;});
+ fb("#dFb",m,r>=2?"ok":"hint");S.fbs.d={m:m,a:r>=2?"ok":"hint"};
+ fertig("diagnose");
+});
+
+/* ---------- Auswahl ---------- */
+function initMc(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const v=val(t.id);
+  if(!v){fbT(t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+  const ok=v===t.richtig, m=(t.fb&&t.fb[v])||(ok?"Richtig.":"Noch nicht.");
+  if(ok){fbT(t.id,m,"ok");fertig(t.id,1);}else{fbT(t.id,m,"hint");if(!t.zusatz)offen(t.id);}
+ });
+}
+function initMulti(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+  if(!sel.length){fbT(t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+  const fehlt=t.richtig.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!t.richtig.includes(x));
+  if(!fehlt.length&&!zuviel.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);return;}
+  let m="";
+  zuviel.forEach(z=>{if(t.hinweis&&t.hinweis[z])m+=t.hinweis[z]+" ";});
+  if(fehlt.length)m+=(fehlt.length===1?"Es fehlt noch eine zutreffende Antwort. ":t.fehlt.replace("#",fehlt.length));
+  fbT(t.id,(m+(t.tipp||"")).trim(),"hint");offen(t.id);
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);fbTClear(t.id);offen(t.id);});
+}
+
+/* ---------- Zuordnen mit Antippen oder Ziehen ---------- */
+let gew=null;
+function pieceHtml(t,p,cls){return '<button type="button" class="piece'+(cls?" "+cls:"")+'" draggable="true" data-task="'+t.id+'" data-k="'+p.k+'" aria-pressed="'+(gew&&gew.k===p.k?"true":"false")+'">'+p.t+'<\/button>';}
+function zeichneZ(t){
+ const pl=S.placed[t.id]||(S.placed[t.id]={});
+ const offenP=t.pieces.filter(p=>!pl[p.k]);
+ $("#"+t.id+"Pieces").innerHTML=offenP.map(p=>pieceHtml(t,p)).join("")||'<span class="hint">Alle Karten sind zugeordnet.<\/span>';
+ $$('.zone[data-task="'+t.id+'"] .drop').forEach(d=>d.innerHTML="");
+ t.pieces.forEach(p=>{const z=pl[p.k];if(z){const d=document.querySelector('.zone[data-task="'+t.id+'"][data-zone="'+z+'"] .drop');
+  if(d)d.insertAdjacentHTML("beforeend",pieceHtml(t,p,S.done[t.id]?"ok":""));}});
+ $$('.piece[data-task="'+t.id+'"]').forEach(b=>{
+  b.addEventListener("click",e=>{e.stopPropagation();
+   if(gew&&gew.k===b.dataset.k){gew=null;b.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gew={task:t.id,k:b.dataset.k};b.setAttribute("aria-pressed","true");
+   fbT(t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  b.addEventListener("dragstart",e=>{gew={task:t.id,k:b.dataset.k};try{e.dataTransfer.setData("text/plain",b.dataset.k);}catch(x){}});
+ });
+}
+function ablegen(t,zone){
+ if(!gew||gew.task!==t.id){fbT(t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[t.id][gew.k]=zone;gew=null;
+ if(S.done[t.id]){offen(t.id);}
+ zeichneZ(t);fbTClear(t.id);speichern();
+}
+function initZuord(t){
+ $$('.zone[data-task="'+t.id+'"]').forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.target!==z)return;if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");ablegen(t,z.dataset.zone);});
+ });
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const pl=S.placed[t.id], rest=t.pieces.filter(p=>!pl[p.k]);
+  if(rest.length){fbT(t.id,"Es sind noch "+rest.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+  let r=0;
+  t.pieces.forEach(p=>{const ok=pl[p.k]===p.z;if(ok)r++;const el=document.querySelector('.piece[data-k="'+p.k+'"]');if(el){el.classList.remove("ok","no");el.classList.add(ok?"ok":"no");}});
+  if(r===t.pieces.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.pieces.length+" stimmen bereits. Die grün umrandeten Karten sitzen richtig. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.placed[t.id]={};gew=null;offen(t.id);zeichneZ(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Reihenfolge ---------- */
+function zeichneO(t,fokus){
+ const o=S.order[t.id], fertigO=!!S.done[t.id];
+ $("#"+t.id+"List").innerHTML=o.map((i,pos)=>
+  '<div class="orow'+(fertigO?" ok":"")+'"><span class="nr" aria-hidden="true">'+(pos+1)+'<\/span><span class="t">'+t.items[i]+'<\/span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben: '+t.items[i].replace(/"/g,"")+'">&#8593;<\/button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten: '+t.items[i].replace(/"/g,"")+'">&#8595;<\/button><\/div>').join("");
+ $$("#"+t.id+"List button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=o.length)return;
+  [o[p],o[n]]=[o[n],o[p]];if(S.done[t.id])offen(t.id);zeichneO(t,{pos:n,dir:d});speichern();}));
+ if(fokus){const b=document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"][data-dir="'+fokus.dir+'"]')||document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"]');if(b)b.focus();}
+}
+function mischeO(t){const idx=t.items.map((_,i)=>i);let o;do{o=mische(idx);}while(o.join()===idx.join());S.order[t.id]=o;}
+function initOrder(t){
+ if(!S.order[t.id]||S.order[t.id].length!==t.items.length)mischeO(t);
+ zeichneO(t);
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const o=S.order[t.id], r=o.filter((v,i)=>v===i).length;
+  if(r===o.length){S.done[t.id]=true;zeichneO(t);fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+o.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{offen(t.id);mischeO(t);zeichneO(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Bild- und Kartenarbeit ---------- */
+function hotAufgabe(t){
+ const idx=S.hot[t.id]||0;
+ t.finds.forEach((f,i)=>{const el=document.getElementById(f.z);if(el)el.classList.toggle("found",i<idx);});
+ if(idx>=t.finds.length){$("#"+t.id+"Task").textContent=t.done;$("#"+t.id+"Alt").innerHTML="";return;}
+ const z=t.finds[idx];
+ $("#"+t.id+"Task").textContent="Suchauftrag "+(idx+1)+" von "+t.finds.length+": "+z.tipp;
+ $("#"+t.id+"Alt").innerHTML=t.alle.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.n+'<\/button>').join("");
+ $$("#"+t.id+"Alt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));
+}
+function hotWahl(t,id){
+ const idx=S.hot[t.id]||0, z=t.finds[idx]; if(!z)return;
+ if(id===z.z){
+  S.hot[t.id]=idx+1;
+  if(idx+1>=t.finds.length){fbT(t.id,z.ok+" Damit hast du alle "+t.finds.length+" gefunden.","ok");fertig(t.id,1);}
+  else{fbT(t.id,z.ok,"ok");}
+  hotAufgabe(t);speichern();
+ }else{
+  const g=t.alle.find(x=>x.id===id);
+  fbT(t.id,"Das ist „"+(g?g.n:"ein anderer Ort")+"“. Lies die Beschreibung noch einmal genau und sieh dir das Bild an.","hint");speichern();
+ }
+}
+function initHot(t){
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+  g.addEventListener("click",()=>hotWahl(t,g.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.hot[t.id]=0;offen(t.id);fbTClear(t.id);hotAufgabe(t);speichern();});
+ hotAufgabe(t);
+}
+
+/* ---------- Lückentext ---------- */
+function initLuecke(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  let r=0,leer=0;
+  t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}const ok=s.value===w;if(ok)r++;s.classList.add(ok?"ok":"no");});
+  if(leer){fbT(t.id,"Fülle zuerst alle "+t.richtig.length+" Lücken aus. Noch offen: "+leer+".","hint");return;}
+  if(r===t.richtig.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.richtig.length+" Lücken stimmen. Die rot markierten musst du noch einmal prüfen. "+t.hint,"hint");offen(t.id);}
+ });
+ t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.addEventListener("change",()=>{s.classList.remove("ok","no");});});
+}
+
+/* ---------- Freitexte ---------- */
+function bewerte(roh,k){
+ const t=norm(roh), wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<(k.min||40)||wort<(k.worte||10))return{p:0,lab:"zu knapp",msg:k.knapp||"Deine Antwort ist noch sehr kurz. Schreibe mindestens zwei vollständige Sätze."};
+ const treffer=k.gruppen.filter(g=>hat(t,g.w)), fehl=k.gruppen.filter(g=>!hat(t,g.w));
+ const verkn=k.nover||hat(t,VERKN), genug=saetze(roh)>=(k.saetze||2), need=k.need||k.gruppen.length;
+ if(treffer.length>=need&&verkn&&genug)return{p:1,lab:"vollständig",msg:k.ok};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(treffer.length<need)m+=fehl.slice(0,2).map(g=>g.miss).join(" ")+" ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „deshalb“ oder „dadurch“. ";
+ if(!genug)m+=(k.zuwenig||("Schreibe mindestens "+(k.saetze||2)+" vollständige Sätze. "));
+ return{p:(treffer.length>=1?0.5:0.25),lab:"teilweise",msg:m.trim()};
+}
+function initText(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const r=bewerte($("#"+t.id).value,t.krit);
+  S.texts[t.id]=r.lab;fbT(t.id,r.msg,r.p>=1?"ok":"hint");
+  if(!t.zusatz){if(r.p>=1)fertig(t.id,1);else offen(t.id);}else speichern();
+ });
+}
+
+/* ---------- Abschlussmission ---------- */
+function pruefeAbschluss(){
+ const a1=val("a1");
+ if(a1&&S.a2geprueft&&(S.punkte.a2||0)>0)fertig("abschluss");else{delete S.done.abschluss;fortschritt();speichern();}
+}
+$("#a1Check").addEventListener("click",()=>{
+ const v=val("a1");
+ if(!v){fbT("a1","Bitte wähle zuerst eine Entscheidung aus.","hint");return;}
+ const ok=ABS.ok.includes(v);S.punkte.a1=ok?1:0;
+ fbT("a1",ABS.fb[v]||"",ok?"ok":"hint");pruefeAbschluss();
+});
+$("#a2Check").addEventListener("click",()=>{
+ const r=bewerte($("#a2").value,ABS.krit);
+ S.punkte.a2=r.p>=1?1:(r.p>0?0.5:0);S.a2lab=r.lab;S.a2geprueft=true;
+ fbT("a2",r.msg,r.p>=1?"ok":"hint");pruefeAbschluss();
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3].map(i=>val("lc"+i)||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;S.punkte.lerncheck=0;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return PFLICHT.reduce((s,t)=>s+(S.punkte[t.id]||0),0)+(S.punkte.a1||0)+(S.punkte.a2||0)+(S.punkte.lerncheck||0);}
+function kompetenz(k){const ts=PFLICHT.filter(t=>(t.komp||[]).includes(k));if(k==="historisches_urteil")return eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1&&ts.every(t=>(S.punkte[t.id]||0)>=1));return eins(ts.length>0&&ts.every(t=>(S.punkte[t.id]||0)>=1));}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=Math.round(punkteGesamt()*10)/10, pct=Math.round(pkt/MAXP*100);
+ const luecken=[];
+ PFLICHT.forEach(t=>{if(!((S.punkte[t.id]||0)>=1))luecken.push(t.name);});
+ if(!((S.punkte.a1||0)>=1))luecken.push("Abschlussentscheidung");
+ if(!((S.punkte.a2||0)>=1))luecken.push("Begründung");
+ const erg={};PFLICHT.forEach(t=>erg[t.id]=S.punkte[t.id]||0);
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ const pfl={};PFLICHT.forEach(t=>pfl[t.id]={correct:(S.punkte[t.id]||0)>=1});
+ pfl.entscheidung={correct:(S.punkte.a1||0)>=1};pfl.begruendung={correct:(S.punkte.a2||0)>=1};
+ const zus={},zusB={};TASKS.filter(t=>t.zusatz).forEach(t=>{const e=document.getElementById(t.id);if(e&&e.tagName==="TEXTAREA"){zus[t.id]=e.value.trim();zusB[t.id]=S.texts[t.id]||"nicht bearbeitet";}else{zusB[t.id]=(S.punkte[t.id]||0)>=1?"richtig":"nicht gelöst";}});
+ if(!S.abgabeId)S.abgabeId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2);
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"5",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:Object.assign({leitfrage:$("#a2").value.trim(),begruendung:$("#a2").value.trim(),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},zus),
+  bewertung_freitexte:Object.assign({begruendung:S.a2lab||"nicht bearbeitet"},zusB),
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:MAXP,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:{fachwissen:kompetenz("fachwissen"),zeit_raum:kompetenz("zeit_raum"),quellenarbeit:kompetenz("quellenarbeit"),
+   ursachen_folgen:kompetenz("ursachen_folgen"),perspektivitaet:kompetenz("perspektivitaet"),historisches_urteil:kompetenz("historisches_urteil")},
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:MAXP,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:S.abgabeId};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 5, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(still){
+ if(!pflichtOk(!still)){if(!still)location.hash="start";return null;}
+ if(!val("a1")){if(!still){fb("#buildFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung (A1).","bad");location.hash="abschluss";}return null;}
+ if(!lerncheckWerte().every(Boolean)){if(!still){fb("#buildFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";}return null;}
+ S.punkte.a1=ABS.ok.includes(val("a1"))?1:0;
+ fbClear("#buildFb");
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?CFG.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter: "+CFG.next:"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const zeilen=PFLICHT.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":<\/strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)<\/li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ S.built=true;fortschritt();speichern();if(!still)location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>ergebnisBauen(false));
+$("#printBtn").addEventListener("click",()=>window.print());
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+async function senden(){
+ const p=ergebnisBauen(true)||ergebnisBauen(false);
+ if(!p)return;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+TASKS.forEach(t=>{
+ if(t.typ==="mc")initMc(t);else if(t.typ==="multi")initMulti(t);
+ else if(t.typ==="zuord"){initZuord(t);zeichneZ(t);}
+ else if(t.typ==="order")initOrder(t);else if(t.typ==="hot")initHot(t);
+ else if(t.typ==="luecke")initLuecke(t);else if(t.typ==="text")initText(t);
+});
+Object.entries(S.fbs||{}).forEach(([k,v])=>{if(k==="d")fb("#dFb",v.m,v.a);else fb("#"+k+"Fb",v.m,v.a);});
+TASKS.filter(t=>t.typ==="luecke"&&S.done[t.id]).forEach(t=>t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);if(s&&s.value===w)s.classList.add("ok");}));
+fortschritt();
+if(S.built)ergebnisBauen(true);
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>

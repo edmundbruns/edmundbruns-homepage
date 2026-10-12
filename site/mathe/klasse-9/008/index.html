@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modul 008 · Zehnerpotenzen | SOL Mathematik 9</title>
+<meta name="description" content="Die Sonne ist 150 000 000 km entfernt, ein Bakterium nur 0,000002 m lang. Mit Zehnerpotenzen schreibst du riesige und winzige Zahlen kurz und übersichtlich.">
+<link rel="canonical" href="https://www.edmundbruns.com/mathe/klasse-9/008/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#1e3a8a">
+<link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{--brand:#5b3fa0;--brand2:#3d2a73;--soft:#efeafb;--ink:#1c1830;--muted:#5a5670;--line:#d6d0e6;--paper:#f6f4fb;--card:#fff;
+--good:#166534;--goodbg:#ecfdf3;--bad:#991b1b;--badbg:#fff1f1;--warn:#8a4b06;--warnbg:#fff7e6;--focus:#f59e0b;--r:16px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+body.easy{font-size:19px;line-height:1.8;letter-spacing:.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+a{color:var(--brand)}:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.hero{background:linear-gradient(120deg,var(--brand2),var(--brand));color:#fff;padding:22px 0 30px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-weight:700;font-size:.95rem}.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tbtn{background:#fff;color:var(--ink);border:0;border-radius:10px;padding:8px 12px;font:inherit;font-weight:600;font-size:.88rem;cursor:pointer}
+.hero-main{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:18px}
+.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;opacity:.85;margin:0}
+.hero h1{font-size:clamp(1.8rem,4.6vw,3rem);line-height:1.1;margin:.2em 0 .3em}
+.lead{margin:0;max-width:640px;opacity:.95}
+.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:12px 20px;text-align:center;min-width:150px;display:flex;flex-direction:column}
+.badge strong{font-size:2rem;line-height:1.2}
+.progress{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.prog-in{display:flex;align-items:center;gap:14px;padding:10px 18px}
+.track{flex:1;height:10px;background:#e6e1f2;border-radius:9px;overflow:hidden}#bar{height:100%;width:0;background:var(--brand);transition:width .4s}
+#progText{font-size:.85rem;font-weight:700;white-space:nowrap}
+.layout{display:grid;grid-template-columns:230px 1fr;gap:22px;padding-top:22px;padding-bottom:30px;align-items:start}
+#nav{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;position:sticky;top:60px;display:flex;flex-direction:column}
+#nav a{text-decoration:none;color:var(--ink);font-weight:600;padding:8px 12px;border-radius:10px;font-size:.95rem}
+#nav a.done::after{content:" ✓";color:var(--good)}#nav a.active{background:var(--soft);color:var(--brand2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.sec h2{margin:0 0 .6em;font-size:1.6rem}.sec h3{margin:1.2em 0 .4em}
+.facts,.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 18px}
+.facts>div,.summary>div{background:var(--soft);border:1px solid #ddd3f3;border-radius:12px;padding:10px 12px}
+.facts b,.summary b{display:block;font-size:.85rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inp{display:block;margin:0 0 14px}.inp>span:first-child{display:block;font-weight:700;margin-bottom:4px}
+.inp small{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
+input[type=text],input[type=email],input:not([type]),input[inputmode]{width:100%;font:inherit;padding:11px 12px;border:2px solid #b9b2cc;border-radius:10px;background:#fff;color:var(--ink)}
+input:disabled{background:#f2f0f6}
+.inrow{display:flex;align-items:center;gap:8px}.inrow input{max-width:260px}.unit{font-weight:700}
+.inputs{display:flex;flex-wrap:wrap;gap:4px 18px}.inputs .inp{min-width:180px}
+fieldset{border:0;padding:0;margin:0 0 12px}legend{font-weight:700;margin-bottom:6px}
+.ways{display:flex;flex-wrap:wrap;gap:8px}.ways legend{width:100%}
+.way,.chip,.opt{position:relative;cursor:pointer}
+.way input,.chip input{position:absolute;opacity:0;pointer-events:none}
+.way span,.chip span{display:inline-block;border:2px solid #b9b2cc;border-radius:12px;padding:9px 14px;font-weight:700;background:#fff}
+.way input:checked+span,.chip input:checked+span{border-color:var(--brand);background:var(--soft);box-shadow:0 0 0 2px var(--brand) inset}
+.way input:focus-visible+span,.chip input:focus-visible+span{outline:3px solid var(--focus)}
+.chip span{padding:6px 12px;font-size:.92rem;margin:0 6px 6px 0}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;background:#fff}
+.opt input{margin-top:5px;accent-color:var(--brand);width:18px;height:18px}
+.note{background:var(--soft);border-left:5px solid var(--brand);padding:10px 14px;border-radius:10px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:11px;padding:10px 18px;background:var(--brand);color:#fff;cursor:pointer}
+.btn:hover{background:var(--brand2)}.btn.ghost{background:#ece8f5;color:var(--ink)}.btn.ghost:hover{background:#ddd5ee}
+.btn.big{padding:13px 26px;font-size:1.05rem}.btn:disabled{opacity:.55;cursor:default}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
+.fb{margin:10px 0 0;min-height:1em}.fb:empty{display:none}
+.fb.good,.fb.bad,.fb.hint{padding:10px 14px;border-radius:10px}
+.fb.good{background:var(--goodbg);color:var(--good)}.fb.bad{background:var(--badbg);color:var(--bad)}.fb.hint{background:var(--warnbg);color:var(--warn)}
+.fb ul{margin:.4em 0 0;padding-left:1.2em}
+.task{border:1px solid var(--line);border-left:6px solid var(--brand);border-radius:14px;padding:16px 18px;margin:14px 0;background:#fdfcff}
+.task.solved{border-left-color:var(--good)}
+.thead{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font-size:.75rem;font-weight:700;background:var(--soft);color:var(--brand2);border-radius:20px;padding:2px 10px}.tag.plain{background:#eee}.tag.ok{background:var(--goodbg);color:var(--good)}
+.q{margin:0 0 10px}.hints .hint{background:#fffbea;border:1px solid #f5e3a3;border-radius:10px;padding:8px 12px;margin-top:8px}.hint.sol{background:#f0f9ff;border-color:#bfe0f5}
+.merk{background:var(--soft);border:2px solid var(--brand);border-radius:14px;padding:12px 16px;margin:14px 0}.merk b:first-child{color:var(--brand2)}
+.goals li{margin:.3em 0}.terms div{margin:0 0 8px}.terms dt{font-weight:700}.terms dd{margin:0;color:var(--muted)}
+.steps li{margin:8px 0;padding:8px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.story{font-size:1.02rem}.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;margin-bottom:14px;background:#000}.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.95em;margin:0 .15em;line-height:1.15}
+.frac>span:first-child{border-bottom:2px solid currentColor;padding:0 .2em}
+.big-math{font-size:1.35rem;font-weight:700}
+.lc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.viz{width:100%;max-width:520px;height:auto;display:block;margin:8px 0}
+.ctl{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:10px 0}.ctl label{font-weight:700}
+.ctl input[type=range]{width:220px;accent-color:var(--brand)}
+.ctl select{font:inherit;padding:8px;border-radius:10px;border:2px solid #b9b2cc}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:34px;color:var(--muted);font-size:.9rem}
+table.tab{border-collapse:collapse;margin:10px 0}table.tab td,table.tab th{border:1px solid var(--line);padding:6px 12px;text-align:center}table.tab th{background:var(--soft)}
+@media (max-width:860px){.layout{grid-template-columns:1fr}#nav{position:static;flex-direction:row;overflow-x:auto;gap:4px;padding:8px;-webkit-overflow-scrolling:touch}#nav a{white-space:nowrap}
+.hero-main{flex-direction:column;align-items:flex-start}.badge{flex-direction:row;gap:10px;align-items:baseline;min-width:0}.badge strong{font-size:1.3rem}}
+@media (max-width:620px){body{font-size:16px}.card{padding:18px}.facts,.summary{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.inrow input{max-width:none}.pager .btn{padding:10px 12px}}
+@media print{.hero,.progress,#nav,.tools,.actions,.pager,.foot{display:none!important}.layout{display:block}.sec{display:block!important}.sec[hidden]{display:none!important}#sec-ergebnis{display:block!important}body{background:#fff}}
+
+:root{--brand:#1d4ed8;--brand2:#1e3a8a;--soft:#e8eefc;--line:#cfd9ef;--paper:#f4f7fc}.track{background:#dde6f7}#nav a.active{color:#1e3a8a}.facts>div,.summary>div{border-color:#cdd9f3}.merk{border-color:#1d4ed8}.merk b:first-child{color:#1e3a8a}.btn.ghost{background:#e5ecf9}.btn.ghost:hover{background:#d3def3}input:not([type]),input[inputmode],.way span,.chip span{border-color:#b3c0da}input:disabled{background:#eef2f8}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body>
+<div id="app"><noscript><p style="padding:20px">Dieses Lernmodul braucht JavaScript. Bitte aktiviere JavaScript in deinem Browser.</p></noscript></div>
+<script>
+/* SOL Mathe 8 · Rechenhilfen (Brüche, Terme, Zufall). Läuft im Browser und in Node. */
+var M = (function () {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a || 1; }
+  function lcm(a, b) { return Math.abs(a * b) / gcd(a, b); }
+  function rnd(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function nz(a, b) { var v; do { v = rnd(a, b); } while (v === 0); return v; }
+
+  /* Bruch {n,d} immer mit d>0 */
+  function F(n, d) { if (d === undefined) d = 1; if (d === 0) throw new Error('Nenner 0'); if (d < 0) { n = -n; d = -d; } return { n: n, d: d }; }
+  function red(f) { var g = gcd(f.n, f.d); return F(f.n / g, f.d / g); }
+  function fmul(a, b) { return red(F(a.n * b.n, a.d * b.d)); }
+  function fdiv(a, b) { return red(F(a.n * b.d, a.d * b.n)); }
+  function fadd(a, b) { return red(F(a.n * b.d + b.n * a.d, a.d * b.d)); }
+  function feq(a, b) { return a.n * b.d === b.n * a.d; }
+  function isReduced(f) { return gcd(f.n, f.d) === 1; }
+  function fstr(f) { f = red(f); return f.d === 1 ? String(f.n) : f.n + '/' + f.d; }
+  function fhtml(f, keep) {
+    if (!keep) f = red(f);
+    if (f.d === 1) return '<span class="num">' + fmtNum(f.n) + '</span>';
+    var s = f.n < 0 ? '−' : '';
+    return s + '<span class="frac"><span>' + Math.abs(f.n) + '</span><span>' + f.d + '</span></span>';
+  }
+  function fmtNum(x, dec) {
+    if (dec === undefined) { var r = Math.round(x * 1e6) / 1e6; dec = (String(r).split('.')[1] || '').length; }
+    var s = Math.abs(x).toFixed(dec).replace('.', ',');
+    var parts = s.split(','); parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    return (x < 0 ? '−' : '') + parts.join(',');
+  }
+
+  function clean(s) {
+    return String(s == null ? '' : s).trim()
+      .replace(/[−–—]/g, '-').replace(/[·×⋅]/g, '*').replace(/:/g, '/').replace(/÷/g, '/')
+      .replace(/\s+/g, ' ');
+  }
+  /* Zahl aus Eingabe: "1,5" "1.5" "-3" "1 000" ; null wenn keine Zahl */
+  function parseNum(s) {
+    s = clean(s).replace(/\s(?=\d{3}\b)/g, '').replace(/(mm²|cm²|dm²|m²|cm³|dm³|m³|mm|cm|dm|km|m|€|%|°|grad)$/i, '').trim();
+    if (!/^[+-]?(\d+([.,]\d+)?|[.,]\d+)$/.test(s)) return null;
+    return parseFloat(s.replace(',', '.'));
+  }
+  /* Bruch aus Eingabe: "3/4", "-3/4", "1 1/2", "0,75", "2" ; null wenn ungültig */
+  function parseFrac(s) {
+    s = clean(s);
+    var m;
+    if ((m = s.match(/^([+-])?\s*(\d+)\s+(\d+)\s*\/\s*(\d+)$/))) { var d = +m[4]; if (!d) return null; var f = F(+m[2] * d + +m[3], d); if (m[1] === '-') f.n = -f.n; f.mixed = true; return f; }
+    if ((m = s.match(/^([+-])?\s*\(?\s*(\d+)\s*\/\s*(\d+)\s*\)?$/))) { if (!+m[3]) return null; var g = F(+m[2], +m[3]); if (m[1] === '-') g.n = -g.n; return g; }
+    var x = parseNum(s); if (x === null) return null;
+    var den = 1; while (Math.abs(x * den - Math.round(x * den)) > 1e-9 && den < 1e6) den *= 10;
+    var r = red(F(Math.round(x * den), den)); r.decimal = true; return r;
+  }
+
+  /* ---------- Terme: Parser und Auswertung ---------- */
+  function tokenize(s) {
+    s = clean(s).toLowerCase().replace(/²/g, '^2').replace(/³/g, '^3').replace(/,/g, '.');
+    var out = [], i = 0;
+    while (i < s.length) {
+      var c = s[i];
+      if (c === ' ') { i++; continue; }
+      if (/[0-9.]/.test(c)) { var j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++; var num = s.slice(i, j); if (!/^\d*\.?\d+$|^\d+\.$/.test(num)) throw new Error('Zahl'); out.push({ t: 'n', v: parseFloat(num) }); i = j; continue; }
+      if (/[a-z]/.test(c)) { out.push({ t: 'v', v: c }); i++; continue; }
+      if ('+-*/^()'.indexOf(c) >= 0) { out.push({ t: c }); i++; continue; }
+      throw new Error('Zeichen ' + c);
+    }
+    /* implizite Multiplikation: 3x, 2(, )(, x(, )x, xy */
+    var res = [];
+    for (var k = 0; k < out.length; k++) {
+      var a = out[k - 1], b = out[k];
+      if (a && (a.t === 'n' || a.t === 'v' || a.t === ')') && (b.t === 'n' || b.t === 'v' || b.t === '(') && !(a.t === 'n' && b.t === 'n')) res.push({ t: '*' });
+      res.push(b);
+    }
+    return res;
+  }
+  function parseTerm(s) {
+    var tk = tokenize(s), p = 0;
+    if (!tk.length) throw new Error('leer');
+    function peek() { return tk[p]; }
+    function eat(t) { if (!tk[p] || tk[p].t !== t) throw new Error('erwartet ' + t); p++; }
+    function expr() { var n = term(); while (peek() && (peek().t === '+' || peek().t === '-')) { var op = tk[p++].t; n = { op: op, a: n, b: term() }; } return n; }
+    function term() { var n = unary(); while (peek() && (peek().t === '*' || peek().t === '/')) { var op = tk[p++].t; n = { op: op, a: n, b: unary() }; } return n; }
+    function unary() { if (peek() && (peek().t === '-' || peek().t === '+')) { var op = tk[p++].t; var u = unary(); return op === '-' ? { op: 'neg', a: u } : u; } return power(); }
+    function power() { var b = atom(); if (peek() && peek().t === '^') { p++; var e = unary(); return { op: '^', a: b, b: e }; } return b; }
+    function atom() {
+      var t = peek(); if (!t) throw new Error('Ende');
+      if (t.t === 'n') { p++; return { num: t.v }; }
+      if (t.t === 'v') { p++; return { v: t.v }; }
+      if (t.t === '(') { p++; var e = expr(); eat(')'); return e; }
+      throw new Error('unerwartet');
+    }
+    var tree = expr(); if (p !== tk.length) throw new Error('Rest');
+    return tree;
+  }
+  function evalTree(n, env) {
+    if (n.num !== undefined) return n.num;
+    if (n.v !== undefined) { if (!(n.v in env)) throw new Error('Variable ' + n.v); return env[n.v]; }
+    var a = evalTree(n.a, env);
+    if (n.op === 'neg') return -a;
+    var b = evalTree(n.b, env);
+    switch (n.op) { case '+': return a + b; case '-': return a - b; case '*': return a * b; case '/': return a / b; case '^': return Math.pow(a, b); }
+    throw new Error('op');
+  }
+  function varsOf(n, set) { set = set || {}; if (!n) return set; if (n.v) set[n.v] = 1; varsOf(n.a, set); varsOf(n.b, set); return set; }
+  /* gleichwertige Terme? prüft an mehreren Stellen */
+  function termEq(s1, s2) {
+    var t1, t2; try { t1 = parseTerm(s1); t2 = parseTerm(s2); } catch (e) { return false; }
+    var vs = Object.keys(Object.assign(varsOf(t1), varsOf(t2)));
+    var pts = [-2.5, -1.3, 0.7, 1.9, 3.1, 4.6];
+    for (var i = 0; i < pts.length; i++) {
+      var env = {}; vs.forEach(function (v, k) { env[v] = pts[(i + k * 2) % pts.length] + k * 0.37; });
+      var a = evalTree(t1, env), b = evalTree(t2, env);
+      if (!isFinite(a) || !isFinite(b) || Math.abs(a - b) > 1e-7 * Math.max(1, Math.abs(a))) return false;
+    }
+    return true;
+  }
+  function termValid(s) { try { parseTerm(s); return true; } catch (e) { return false; } }
+  /* Term schön darstellen: 3x^2 -> 3x², * -> · */
+  function tpretty(s) { return String(s).replace(/\^2/g, '²').replace(/\^3/g, '³').replace(/\*/g, '·').replace(/-/g, '−'); }
+  /* lineares Glied a·x mit Vorzeichen für Ausgabe */
+  function mono(c, v, first) {
+    if (c === 0) return first ? '0' : '';
+    var sign = c < 0 ? (first ? '−' : ' − ') : (first ? '' : ' + ');
+    var a = Math.abs(c), core = v ? ((a === 1 ? '' : a) + v) : String(a);
+    return sign + core;
+  }
+  function poly(coeffs) { /* [[c,'x²'],[c,'x'],[c,'']] */
+    var s = '', first = true;
+    coeffs.forEach(function (p) { if (p[0] === 0) return; s += mono(p[0], p[1], first); first = false; });
+    return s || '0';
+  }
+
+  function check(inp, raw) {
+    raw = String(raw == null ? '' : raw).trim();
+    if (inp.kind === 'mc') return raw === '' ? { ok: false, empty: true } : { ok: +raw === inp.answer };
+    if (!raw) return { ok: false, empty: true };
+    if (inp.kind === 'num') { var x = parseNum(raw); if (x === null) return { ok: false, msg: 'Gib eine Zahl ein, zum Beispiel 12 oder 3,5.' }; return { ok: Math.abs(x - inp.answer) <= (inp.tol != null ? inp.tol : 1e-9) }; }
+    if (inp.kind === 'frac') {
+      var f = parseFrac(raw); if (!f) return { ok: false, msg: 'Schreibe den Bruch so: 3/4. Ein gemischter Bruch geht so: 1 1/2.' };
+      var ans = F(inp.answer.n, inp.answer.d);
+      if (!feq(f, ans)) return { ok: false };
+      if (inp.reduce && !f.decimal && !f.mixed && !isReduced(f)) return { ok: false, almost: true, msg: 'Richtig gerechnet. Kürze das Ergebnis noch vollständig.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'term') {
+      if (!termValid(raw)) return { ok: false, msg: 'Der Term ist nicht lesbar. Beispiel: 3x + 12 oder 4(x − 2). Für „hoch 2“ schreibst du x^2.' };
+      if (!termEq(raw, inp.answer)) return { ok: false };
+      if (inp.form === 'expanded' && /\(/.test(raw)) return { ok: false, almost: true, msg: 'Der Term ist gleichwertig, aber noch nicht ausmultipliziert. Löse die Klammer auf.' };
+      if (inp.form === 'factored') { var tr = parseTerm(raw); while (tr.op === 'neg') tr = tr.a; if (!/\(/.test(raw) || (tr.op !== '*' && tr.op !== '^')) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht als Produkt geschrieben. Schreibe den Term als Produkt mit Klammer.' }; }
+      if (inp.form === 'factored' && !/\(/.test(raw)) return { ok: false, almost: true, msg: 'Gleichwertig, aber noch nicht ausgeklammert. Schreibe den Term als Produkt mit Klammer.' };
+      if (inp.factor) {
+        var z = clean(raw).toLowerCase().replace(/\s+/g, '').replace(/\*/g, ''), fct = String(inp.factor).toLowerCase().replace(/\s+/g, '');
+        if (!(z.indexOf(fct + '(') === 0 || (z.slice(-fct.length - 1) === ')' + fct && z.charAt(0) === '('))) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch mehr ausklammern. Klammere den größten gemeinsamen Faktor aus.' };
+      }
+      if (inp.form === 'simplified' && inp.maxTerms && (clean(raw).replace(/^[-+]/, '').split(/[+-]/).length > inp.maxTerms)) return { ok: false, almost: true, msg: 'Gleichwertig, aber du kannst noch weiter zusammenfassen.' };
+      return { ok: true };
+    }
+    if (inp.kind === 'text') { var opts = [].concat(inp.answer).map(function (a) { return String(a).toLowerCase(); }); return { ok: opts.indexOf(raw.toLowerCase()) >= 0 }; }
+    return { ok: false };
+  }
+  return { check: check, gcd: gcd, lcm: lcm, rnd: rnd, nz: nz, pick: pick, shuffle: shuffle, F: F, red: red, fmul: fmul, fdiv: fdiv, fadd: fadd, feq: feq,
+    isReduced: isReduced, fstr: fstr, fhtml: fhtml, fmtNum: fmtNum, clean: clean, parseNum: parseNum, parseFrac: parseFrac,
+    parseTerm: parseTerm, evalTree: evalTree, termEq: termEq, termValid: termValid, tpretty: tpretty, mono: mono, poly: poly };
+})();
+if (typeof module !== 'undefined') module.exports = M;
+
+</script>
+<script>
+window.CONFIG = {"jahrgang": "9", "endpoint": "https://script.google.com/macros/s/AKfycbxpbjq4u7xOEi94XymjPmODt4KIoBf1XvAVzBK-DMk21X8usQOQyz3LMQd5k41h41Ru/exec", "iservDomain": "", "version": "1.0.0", "backUrl": "../index.html"};
+/* Modul 008 · Zehnerpotenzen (Klasse 9) */
+var MODULE = (function () {
+  var C1 = '#1e3a8a', CF = '#e8eefc', CA = '#d97706', CH = '#1d4ed8';
+  function ex(n) { return n < 0 ? '−' + (-n) : String(n); }
+  function p10(n) { return '10<sup>' + ex(n) + '</sup>'; }
+  /* Zahl als Ziffernfolge d (erste Ziffer ≠ 0) und Exponent n: Wert = d[0],d[1..] · 10^n */
+  function man(d) { return parseFloat(d.charAt(0) + '.' + (d.slice(1) || '0')); }
+  function val(d, n) { return parseFloat(d.charAt(0) + '.' + (d.slice(1) || '0') + 'e' + n); }
+  function manH(d) { return d.length > 1 ? d.charAt(0) + ',' + d.slice(1) : d; }
+  function sciH(d, n) { return manH(d) + ' · ' + p10(n); }
+  function gdec(s) { return s.length > 4 ? s.replace(/(\d{3})(?=\d)/g, '$1\u202f') : s; }
+  function pn(s) { return M.parseNum(String(s).replace(/\s/g, '')); }
+  function group(s) { return s.length > 4 ? s.replace(/\B(?=(\d{3})+(?!\d))/g, '\u202f') : s; }
+  function toDec(d, n) {
+    var p = 1 + n;
+    if (p <= 0) return '0,' + gdec(new Array(-p + 1).join('0') + d);
+    if (p >= d.length) return group(d + new Array(p - d.length + 1).join('0'));
+    return group(d.slice(0, p)) + ',' + gdec(d.slice(p));
+  }
+  function digits(k) { var s = String(M.rnd(1, 9)); for (var i = 1; i < k; i++) s += (i === k - 1 ? M.rnd(1, 9) : M.rnd(0, 9)); return s; }
+  function norm(x) { /* Zahl -> {d, n} */ var e = Math.floor(Math.log10(x) + 1e-12), m = Math.round(x / Math.pow(10, e) * 1e9) / 1e9; if (m >= 10) { m /= 10; e++; } var s = String(m).replace('.', ''); return { d: s.replace(/0+$/, '') || '1', n: e }; }
+  function sciInputs(d, n, pre) { return [{ kind: 'num', label: (pre || '') + 'Vorfaktor a =', answer: man(d), placeholder: 'z. B. 4,5' }, { kind: 'num', label: 'Exponent n =', answer: n, placeholder: 'z. B. 7 oder −3' }]; }
+  function decIn(v, label, unit) { var o = { kind: 'num', label: label || 'Dezimalzahl', answer: v, tol: Math.abs(v) * 1e-9 }; if (unit) o.unit = unit; return o; }
+  function sciMistakes(d, n, small) {
+    return function (v) {
+      var a = M.parseNum(v[0]), k = M.parseNum(v[1]); if (a === null || k === null) return null;
+      if (a >= 10 || a < 1) { if (Math.abs(a * Math.pow(10, k) - val(d, n)) < Math.abs(val(d, n)) * 1e-9) return 'Der Wert stimmt, aber a muss zwischen 1 und 10 liegen (1 ≤ a &lt; 10). Verschiebe das Komma so, dass genau eine Ziffer ungleich 0 davor steht.'; return 'Der Vorfaktor a muss zwischen 1 und 10 liegen, zum Beispiel 4,5 und nicht 45.'; }
+      if (Math.abs(a - man(d)) < 1e-9 && k === -n && n !== 0) return small ? 'Bei Zahlen kleiner als 1 ist der Exponent <b>negativ</b>.' : 'Bei großen Zahlen ist der Exponent positiv.';
+      if (Math.abs(a - man(d)) < 1e-9 && Math.abs(k - n) === 1) return 'Der Vorfaktor stimmt. Zähle noch einmal genau, um wie viele Stellen das Komma wandert.';
+      return null;
+    };
+  }
+  function countHint(d, n) {
+    return n >= 0 ? 'Das Komma steht hinter der letzten Ziffer und wandert ' + n + ' Stellen nach links, bis nur noch eine Ziffer davor steht.' : 'Das Komma wandert ' + (-n) + ' Stellen nach rechts, bis die erste Ziffer ungleich 0 (die ' + d.charAt(0) + ') vor dem Komma steht.';
+  }
+
+  var gen = {
+    inSci: function (lvl) {
+      var d = digits(lvl <= 1 ? M.rnd(1, 2) : lvl === 2 ? M.rnd(2, 3) : M.rnd(3, 4)), n = lvl <= 1 ? M.rnd(3, 8) : lvl === 2 ? M.rnd(4, 10) : M.rnd(8, 14);
+      if (n < d.length - 1) n = d.length - 1;
+      var dec = toDec(d, n);
+      return { skill: 'Große Zahlen in Zehnerpotenz-Schreibweise', level: lvl, q: 'Schreibe in wissenschaftlicher Schreibweise a · ' + p10('n') + ' mit 1 ≤ a &lt; 10.<span class="big-math">' + dec + ' = □ · 10<sup>□</sup></span>',
+        inputs: sciInputs(d, n),
+        hints: ['Setze das Komma so, dass genau eine Ziffer ungleich 0 davor steht: a = ' + manH(d) + '.', countHint(d, n), 'Jede Stelle nach links bedeutet einen Faktor 10 mehr. Also n = ' + n + '.'],
+        solution: dec + ' = <b>' + sciH(d, n) + '</b>. Das Komma ist ' + n + ' Stellen nach links gewandert, also wird mit ' + p10(n) + ' = ' + toDec('1', n) + ' multipliziert.',
+        mistakes: sciMistakes(d, n, false),
+        verify: function () { return pn(dec) === val(d, n) && man(d) >= 1 && man(d) < 10 ? true : 'Umwandlung'; } };
+    },
+    klein: function (lvl) {
+      var d = digits(lvl <= 1 ? M.rnd(1, 2) : M.rnd(2, 3)), n = -M.rnd(lvl <= 1 ? 2 : 3, lvl >= 3 ? 9 : 6);
+      var dec = toDec(d, n);
+      return { skill: 'Kleine Zahlen in Zehnerpotenz-Schreibweise', level: lvl, q: 'Schreibe in wissenschaftlicher Schreibweise a · ' + p10('n') + ' mit 1 ≤ a &lt; 10.<span class="big-math">' + dec + ' = □ · 10<sup>□</sup></span>',
+        inputs: sciInputs(d, n),
+        hints: ['Die Zahl ist kleiner als 1. Dann ist der Exponent negativ.', countHint(d, n), 'a = ' + manH(d) + ' und n = ' + ex(n) + '.'],
+        solution: dec + ' = <b>' + sciH(d, n) + '</b>. Das Komma ist ' + (-n) + ' Stellen nach rechts gewandert. ' + p10(n) + ' = ' + toDec('1', n) + '.',
+        mistakes: sciMistakes(d, n, true),
+        verify: function () { return Math.abs(pn(dec) - val(d, n)) <= Math.abs(val(d, n)) * 1e-12 ? true : 'Umwandlung'; } };
+    },
+    ausSci: function (lvl) {
+      var d = digits(lvl <= 1 ? M.rnd(1, 2) : M.rnd(2, 3)), n = lvl <= 1 ? M.rnd(2, 7) : lvl === 2 ? M.pick([M.rnd(3, 9), -M.rnd(2, 5)]) : M.pick([M.rnd(6, 9), -M.rnd(3, 6)]);
+      var v = val(d, n), dec = toDec(d, n);
+      return { skill: 'Zehnerpotenz-Schreibweise in Dezimalzahl', level: lvl, q: 'Schreibe als Dezimalzahl (ohne Zehnerpotenz). <span class="big-math">' + sciH(d, n) + ' = ?</span>',
+        inputs: [decIn(v, 'Dezimalzahl')],
+        hints: [n > 0 ? 'Ein positiver Exponent macht die Zahl größer: Das Komma wandert nach rechts.' : 'Ein negativer Exponent macht die Zahl kleiner als 1: Das Komma wandert nach links.', 'Verschiebe das Komma von ' + manH(d) + ' um ' + Math.abs(n) + ' Stellen nach ' + (n > 0 ? 'rechts' : 'links') + '. Fülle fehlende Stellen mit Nullen auf.', 'Kontrolle: Die Zahl beginnt mit den Ziffern ' + d + (n > 0 ? ' und hat vor dem Komma ' + (n + 1) + ' Stellen.' : ' und hinter dem Komma stehen zuerst ' + (-n - 1) + ' Nullen.')],
+        solution: sciH(d, n) + ' = <b>' + dec + '</b>. Das Komma wandert ' + Math.abs(n) + ' Stellen nach ' + (n > 0 ? 'rechts' : 'links') + '.',
+        mistakes: function (x) { var y = M.parseNum(x[0]); if (y === null) return null; if (Math.abs(y - v * 10) < Math.abs(v) * 1e-6 || Math.abs(y - v / 10) < Math.abs(v) * 1e-6) return 'Fast: Du hast dich um eine Stelle verzählt. Das Komma wandert genau ' + Math.abs(n) + ' Stellen.'; if (n < 0 && y > 1) return 'Bei einem negativen Exponenten ist die Zahl kleiner als 1.'; return null; },
+        verify: function () { return Math.abs(pn(dec) - v) <= Math.abs(v) * 1e-12 && Math.abs(man(d) * Math.pow(10, n) - v) <= Math.abs(v) * 1e-9 ? true : 'Dezimal'; } };
+    },
+    mal10: function (lvl) {
+      var d = digits(M.rnd(2, 3)), e0 = M.rnd(-3, 1), k = M.rnd(2, lvl >= 3 ? 6 : 4), div = lvl >= 2 && Math.random() < 0.5, x = toDec(d, e0), r = div ? e0 - k : e0 + k;
+      if (r < -6 || r > 9) return gen.mal10(lvl);
+      var v = val(d, r), res = toDec(d, r);
+      return { skill: 'Mit Zehnerpotenzen multiplizieren und dividieren', level: lvl, q: 'Berechne ohne Taschenrechner. <span class="big-math">' + x + (div ? ' : ' : ' · ') + p10(k) + ' = ?</span>',
+        inputs: [decIn(v, 'Ergebnis')],
+        hints: [p10(k) + ' = ' + toDec('1', k) + '. ' + (div ? 'Durch ' + toDec('1', k) + ' teilen' : 'Mit ' + toDec('1', k) + ' multiplizieren') + ' heißt: Das Komma wandert ' + k + ' Stellen nach ' + (div ? 'links' : 'rechts') + '.', 'Starte bei ' + x + ' und verschiebe das Komma Stelle für Stelle. Fülle mit Nullen auf.', 'Das Ergebnis ist ' + (div ? 'kleiner' : 'größer') + ' als ' + x + '.'],
+        solution: x + (div ? ' : ' : ' · ') + p10(k) + ' = <b>' + res + '</b> (Komma ' + k + ' Stellen nach ' + (div ? 'links' : 'rechts') + ').',
+        mistakes: function (z) { var y = M.parseNum(z[0]); if (y === null) return null; var w = val(d, div ? e0 + k : e0 - k); if (Math.abs(y - w) < Math.abs(w) * 1e-6) return 'Du hast das Komma in die falsche Richtung verschoben. ' + (div ? 'Beim Dividieren wird die Zahl kleiner.' : 'Beim Multiplizieren wird die Zahl größer.'); return null; },
+        verify: function () { var a = pn(x), b = pn(res), f = Math.pow(10, k); return Math.abs((div ? a / f : a * f) - b) <= Math.abs(b) * 1e-9 ? true : 'Komma'; } };
+    },
+    vergleich: function (lvl) {
+      var big = Math.random() < 0.5, items = [], seen = {};
+      var base = lvl <= 1 ? M.rnd(3, 8) : M.rnd(-7, 9);
+      while (items.length < 4) {
+        var d = digits(M.rnd(1, 2)), n = base + M.rnd(-1, 1);
+        if (items.length === 0) { d = String(M.rnd(1, 3)); n = base + 1; } /* kleiner Vorfaktor, großer Exponent */
+        if (items.length === 1) { d = '9' + M.rnd(1, 8); n = base; } /* großer Vorfaktor, kleiner Exponent */
+        var key = sciH(d, n); if (seen[key]) continue; seen[key] = 1; items.push({ d: d, n: n, v: val(d, n) });
+      }
+      var vals = items.map(function (o) { return o.v; }), target = big ? Math.max.apply(null, vals) : Math.min.apply(null, vals);
+      if (vals.filter(function (v) { return v === target; }).length !== 1) return gen.vergleich(lvl);
+      items = M.shuffle(items); var ans = items.findIndex(function (o) { return o.v === target; }), w = items[ans];
+      return { skill: 'Zehnerpotenzen vergleichen', level: lvl, q: 'Welche Zahl ist am <b>' + (big ? 'größten' : 'kleinsten') + '</b>?',
+        inputs: [{ kind: 'mc', label: 'Wähle aus', options: items.map(function (o) { return sciH(o.d, o.n); }), answer: ans }],
+        hints: ['Vergleiche zuerst die Exponenten. Der Exponent sagt, wie viele Stellen die Zahl hat.', 'Ein um 1 größerer Exponent bedeutet: zehnmal so groß. Das gleicht kein Vorfaktor unter 10 aus.', 'Nur bei gleichem Exponenten entscheidet der Vorfaktor.'],
+        solution: 'Am ' + (big ? 'größten' : 'kleinsten') + ' ist <b>' + sciH(w.d, w.n) + '</b> = ' + (w.n >= -6 && w.n <= 12 ? toDec(w.d, w.n) : '') + '. ' + (big ? 'Sie hat den größten Exponenten' : 'Sie hat den kleinsten Exponenten') + (items.filter(function (o) { return o.n === w.n; }).length > 1 ? ' und bei gleichem Exponenten den ' + (big ? 'größeren' : 'kleineren') + ' Vorfaktor.' : '.'),
+        mistakes: function (v) { var c = items[+v[0]]; if (c && c.n !== w.n && (big ? man(c.d) > man(w.d) : man(c.d) < man(w.d))) return 'Achtung: Du hast nur auf den Vorfaktor geschaut. Wichtiger ist der Exponent.'; return null; },
+        verify: function () { var s = items.slice().sort(function (a, b) { return (a.n - b.n) || (man(a.d) - man(b.d)); }); return (big ? s[3] : s[0]) === w ? true : 'Vergleich'; } };
+    },
+    ordnen: function (lvl) {
+      var objs = [], seen = {};
+      var pool = M.pick([
+        [['Ameise', '4', -3], ['Sandkorn', '5', -4], ['Bakterium', '2', -6], ['Haar (Dicke)', '7', -5]],
+        [['Mount Everest', '8848', 3], ['Erddurchmesser', '1274', 7], ['Fußballfeld', '105', 2], ['Mond (Durchmesser)', '3474', 6]],
+        [['Berlin', '37', 6], ['Deutschland', '84', 7], ['Welt', '8', 9], ['Hannover', '535', 5]]]);
+      var unit = pool[0][0] === 'Berlin' ? 'Einwohner' : 'm';
+      pool = M.shuffle(pool).slice(0, 3);
+      pool.forEach(function (p, i) { objs.push({ name: p[0], d: p[1], n: p[2], v: val(p[1], p[2]), sh: i === 1 && p[2] >= -6 && p[2] <= 9 ? toDec(p[1], p[2]) : sciH(p[1], p[2]) }); });
+      var sorted = objs.slice().sort(function (a, b) { return a.v - b.v; });
+      function line(arr) { return arr.map(function (o) { return o.name; }).join(' &lt; '); }
+      var perms = [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]].map(function (p) { return p.map(function (i) { return sorted[i]; }); });
+      var right = perms[0], wrong = M.shuffle(perms.slice(1)).slice(0, 3);
+      var byMan = objs.slice().sort(function (a, b) { return man(a.d) - man(b.d); });
+      if (line(byMan) !== line(right) && wrong.map(line).indexOf(line(byMan)) < 0) wrong[0] = byMan;
+      var opts = M.shuffle([right].concat(wrong)), ans = opts.indexOf(right);
+      return { skill: 'Zehnerpotenzen ordnen', level: lvl, q: 'Ordne der Größe nach, beginne mit dem <b>kleinsten</b> Wert.<ul>' + objs.map(function (o) { return '<li>' + o.name + ': ' + o.sh + ' ' + unit + '</li>'; }).join('') + '</ul>',
+        inputs: [{ kind: 'mc', label: 'Richtige Reihenfolge', options: opts.map(line), answer: ans }],
+        hints: ['Schreibe alle Werte in derselben Form, am besten als a · ' + p10('n') + '.', objs.map(function (o) { return o.name + ': ' + sciH(o.d, o.n); }).join('; ') + '.', 'Ordne zuerst nach dem Exponenten. Je kleiner der Exponent, desto kleiner die Zahl.'],
+        solution: 'In Zehnerpotenz-Schreibweise: ' + sorted.map(function (o) { return o.name + ' ' + sciH(o.d, o.n); }).join(', ') + '. Also <b>' + line(right) + '</b>.',
+        mistakes: function (v) { var c = opts[+v[0]]; if (c && c === byMan && c !== right) return 'Du hast nur die Vorfaktoren verglichen. Entscheidend ist zuerst der Exponent.'; return null; },
+        verify: function () { for (var i = 1; i < 3; i++) if (!(right[i - 1].v < right[i].v)) return 'Reihenfolge'; return opts.map(line).filter(function (s) { return s === line(right); }).length === 1 ? true : 'doppelt'; } };
+    },
+    mult: function (lvl) {
+      var A = M.pick(['15', '2', '25', '3', '4', '12', '5', '6', '8']), B = M.pick(['2', '3', '4', '5', '6', '15', '25']), m = M.rnd(-6, 9), n = M.rnd(-6, 9);
+      if (m + n > 15 || m + n < -12) return gen.mult(lvl);
+      var p = norm(man(A) * man(B)), k = p.n + m + n, div = lvl >= 3 && Math.random() < 0.6;
+      var q, ans, sol, hints;
+      if (!div) {
+        q = '(' + sciH(A, m) + ') · (' + sciH(B, n) + ')'; ans = { d: p.d, n: k };
+        sol = 'Vorfaktoren: ' + manH(A) + ' · ' + manH(B) + ' = ' + M.fmtNum(man(A) * man(B)) + '. Zehnerpotenzen: ' + p10(m) + ' · ' + p10(n) + ' = ' + p10(m + n) + ' (Exponenten addieren).<br>' + M.fmtNum(man(A) * man(B)) + ' · ' + p10(m + n) + (p.n ? ' = ' + manH(p.d) + ' · 10 · ' + p10(m + n) : '') + ' = <b>' + sciH(ans.d, ans.n) + '</b>';
+        hints = ['Multipliziere die Vorfaktoren und die Zehnerpotenzen getrennt.', manH(A) + ' · ' + manH(B) + ' = ' + M.fmtNum(man(A) * man(B)) + ' und ' + p10(m) + ' · ' + p10(n) + ' = 10<sup>' + ex(m) + ' + ' + (n < 0 ? '(' + ex(n) + ')' : n) + '</sup>.', p.n ? 'Der Vorfaktor ' + M.fmtNum(man(A) * man(B)) + ' ist größer als 10. Schreibe ihn als ' + manH(p.d) + ' · 10 und erhöhe den Exponenten um 1.' : 'Der Vorfaktor liegt schon zwischen 1 und 10.'];
+      } else {
+        var P = { d: p.d, n: k };
+        q = '(' + sciH(P.d, P.n) + ') : (' + sciH(B, n) + ')'; ans = { d: A, n: m };
+        var qq = man(P.d) / man(B), qn = P.n - n;
+        sol = 'Vorfaktoren: ' + manH(P.d) + ' : ' + manH(B) + ' = ' + M.fmtNum(qq) + '. Zehnerpotenzen: ' + p10(P.n) + ' : ' + p10(n) + ' = ' + p10(qn) + ' (Exponenten subtrahieren).<br>' + M.fmtNum(qq) + ' · ' + p10(qn) + ' = <b>' + sciH(A, m) + '</b>';
+        hints = ['Dividiere die Vorfaktoren und die Zehnerpotenzen getrennt.', manH(P.d) + ' : ' + manH(B) + ' = ' + M.fmtNum(qq) + ' und ' + p10(P.n) + ' : ' + p10(n) + ' = 10<sup>' + ex(P.n) + ' − ' + (n < 0 ? '(' + ex(n) + ')' : n) + '</sup> = ' + p10(qn) + '.', qq < 1 ? 'Der Vorfaktor ' + M.fmtNum(qq) + ' ist kleiner als 1. Schreibe ihn als ' + manH(A) + ' · ' + p10(-1) + ' und verringere den Exponenten um 1.' : 'Der Vorfaktor liegt schon zwischen 1 und 10.'];
+      }
+      return { skill: div ? 'Zehnerpotenzen dividieren' : 'Zehnerpotenzen multiplizieren', level: lvl, q: 'Berechne und gib das Ergebnis in wissenschaftlicher Schreibweise an (1 ≤ a &lt; 10). <span class="big-math">' + q + '</span>',
+        inputs: sciInputs(ans.d, ans.n), hints: hints, solution: sol,
+        mistakes: function (v) { var a = M.parseNum(v[0]), e = M.parseNum(v[1]); if (a === null || e === null) return null; if (!div && e === m * n && m * n !== m + n) return 'Die Exponenten werden beim Multiplizieren <b>addiert</b>, nicht multipliziert.'; if (a >= 10) return 'Der Vorfaktor muss kleiner als 10 sein. Schreibe z. B. 12 = 1,2 · 10 und erhöhe den Exponenten um 1.'; return sciMistakes(ans.d, ans.n, false)(v); },
+        verify: function () { var lhs = div ? val(p.d, k) / val(B, n) : val(A, m) * val(B, n); return Math.abs(lhs - val(ans.d, ans.n)) <= Math.abs(lhs) * 1e-9 && man(ans.d) >= 1 && man(ans.d) < 10 ? true : 'Produkt'; } };
+    },
+    sach: function (lvl) {
+      var t = M.rnd(0, 3);
+      if (t === 0) {
+        var o = M.pick([['der Sonne', '15', 8, 500], ['einer Raumsonde am Mars', '228', 8, 760], ['einer Raumsonde am Jupiter', '78', 8, 2600], ['einer Raumsonde am Saturn', '144', 9, 4800]]);
+        return { skill: 'Sachaufgabe: Entfernungen im Weltall', level: lvl, q: 'Licht und Funksignale legen in einer Sekunde etwa <b>' + sciH('3', 5) + ' km</b> zurück. Die Entfernung von der Erde zu ' + o[0] + ' beträgt etwa <b>' + sciH(o[1], o[2]) + ' km</b>.<br>Wie viele Sekunden braucht ein Signal für diese Strecke?',
+          inputs: [{ kind: 'num', label: 'Zeit', answer: o[3], unit: 's' }],
+          hints: ['Zeit = Strecke : Geschwindigkeit.', 'Rechne (' + sciH(o[1], o[2]) + ') : (' + sciH('3', 5) + '). Teile die Vorfaktoren und subtrahiere die Exponenten.', manH(o[1]) + ' : 3 = ' + M.fmtNum(man(o[1]) / 3) + ' und ' + p10(o[2]) + ' : ' + p10(5) + ' = ' + p10(o[2] - 5) + '.'],
+          solution: 't = (' + sciH(o[1], o[2]) + ' km) : (' + sciH('3', 5) + ' km/s) = ' + M.fmtNum(man(o[1]) / 3) + ' · ' + p10(o[2] - 5) + ' s = <b>' + o[3] + ' s</b>' + ' (das sind etwa ' + M.fmtNum(Math.round(o[3] / 6) / 10) + ' Minuten).',
+          mistakes: function (v) { var x = M.parseNum(v[0]); if (x !== null && Math.abs(x - val(o[1], o[2]) * 3e5) < 1) return 'Du hast multipliziert. Zeit = Strecke <b>geteilt durch</b> Geschwindigkeit.'; return null; },
+          verify: function () { return Math.abs(val(o[1], o[2]) / 3e5 - o[3]) < 1e-6 ? true : 'Licht'; } };
+      }
+      if (t === 1) {
+        var a = M.pick(['1', '2', '25', '4', '5']), cnt = Math.round(1e-2 / val(a, -6));
+        return { skill: 'Sachaufgabe: Bakterien', level: lvl, q: 'Ein Bakterium ist etwa <b>' + sciH(a, -6) + ' m</b> lang. Wie viele dieser Bakterien passen hintereinander auf eine Strecke von <b>1 cm</b>?',
+          inputs: [{ kind: 'num', label: 'Anzahl', answer: cnt }],
+          hints: ['Rechne zuerst 1 cm in Meter um: 1 cm = 0,01 m = ' + p10(-2) + ' m.', 'Anzahl = ' + p10(-2) + ' m : (' + sciH(a, -6) + ' m).', '1 : ' + manH(a) + ' = ' + M.fmtNum(1 / man(a)) + ' und ' + p10(-2) + ' : ' + p10(-6) + ' = ' + p10(4) + '.'],
+          solution: p10(-2) + ' m : (' + sciH(a, -6) + ' m) = ' + M.fmtNum(1 / man(a)) + ' · ' + p10(4) + ' = <b>' + toDec(String(cnt).replace(/0+$/, ''), String(cnt).length - 1) + '</b>. So viele Bakterien passen auf 1 cm.',
+          mistakes: function (v) { var x = M.parseNum(v[0]); if (x !== null && (Math.abs(x - cnt * 100) < 1e-6 || Math.abs(x - cnt / 100) < 1e-6)) return 'Prüfe die Umrechnung: 1 cm = 0,01 m, nicht 1 m.'; return null; },
+          verify: function () { return Math.abs(cnt * val(a, -6) - 0.01) < 1e-12 ? true : 'Bakterien'; } };
+      }
+      if (t === 2) {
+        var g = M.pick([['Deutschland', '84', 7, '125', 2], ['Niedersachsen', '8', 6, '125', 2], ['Hamburg', '19', 6, '12', 2], ['Österreich', '9', 6, '13', 2]]);
+        var tot = norm(val(g[1], g[2]) * val(g[3], g[4]));
+        return { skill: 'Sachaufgabe: Bevölkerung und Verbrauch', level: lvl, q: 'In ' + g[0] + ' leben etwa <b>' + sciH(g[1], g[2]) + '</b> Menschen. Jeder Mensch verbraucht im Haushalt etwa <b>' + sciH(g[3], g[4]) + ' Liter</b> Wasser pro Tag.<br>Wie viele Liter Wasser sind das zusammen an einem Tag? Gib das Ergebnis in wissenschaftlicher Schreibweise an.',
+          inputs: sciInputs(tot.d, tot.n),
+          hints: ['Rechne Einwohner mal Verbrauch pro Person.', 'Vorfaktoren: ' + manH(g[1]) + ' · ' + manH(g[3]) + ' = ' + M.fmtNum(man(g[1]) * man(g[3])) + '. Exponenten: ' + g[2] + ' + ' + g[4] + ' = ' + (g[2] + g[4]) + '.', 'Achte darauf, dass der Vorfaktor zwischen 1 und 10 liegt.'],
+          solution: '(' + sciH(g[1], g[2]) + ') · (' + sciH(g[3], g[4]) + ' l) = ' + M.fmtNum(man(g[1]) * man(g[3])) + ' · ' + p10(g[2] + g[4]) + ' l = <b>' + sciH(tot.d, tot.n) + ' Liter</b>.',
+          mistakes: sciMistakes(tot.d, tot.n, false),
+          verify: function () { return Math.abs(val(tot.d, tot.n) - parseFloat(g[1].charAt(0) + '.' + (g[1].slice(1) || '0')) * Math.pow(10, g[2]) * man(g[3]) * Math.pow(10, g[4])) < 1 ? true : 'Wasser'; } };
+      }
+      var L = M.pick([4, 5, 6]), r = norm(5e6 * L * 1e6);
+      return { skill: 'Sachaufgabe: Blutkörperchen', level: lvl, q: 'In 1 mm³ Blut schwimmen etwa <b>' + sciH('5', 6) + '</b> rote Blutkörperchen. Ein Mensch hat etwa <b>' + L + ' Liter</b> Blut. Dabei gilt: 1 Liter = ' + sciH('1', 6) + ' mm³.<br>Wie viele rote Blutkörperchen hat dieser Mensch ungefähr? Gib das Ergebnis in wissenschaftlicher Schreibweise an.',
+        inputs: sciInputs(r.d, r.n),
+        hints: ['Rechne zuerst die Blutmenge in mm³ um: ' + L + ' l = ' + sciH(String(L), 6) + ' mm³.', 'Anzahl = (' + sciH('5', 6) + ') · (' + sciH(String(L), 6) + ').', '5 · ' + L + ' = ' + 5 * L + ' und ' + p10(6) + ' · ' + p10(6) + ' = ' + p10(12) + '. Schreibe ' + 5 * L + ' als ' + manH(r.d) + ' · 10.'],
+        solution: L + ' l = ' + sciH(String(L), 6) + ' mm³. (' + sciH('5', 6) + ') · (' + sciH(String(L), 6) + ') = ' + 5 * L + ' · ' + p10(12) + ' = <b>' + sciH(r.d, r.n) + '</b> rote Blutkörperchen.',
+        mistakes: sciMistakes(r.d, r.n, false),
+        verify: function () { return Math.abs(val(r.d, r.n) - 5 * L * 1e12) < 1 ? true : 'Blut'; } };
+    },
+    lichtjahr: function () {
+      var st = M.pick([['Proxima Centauri', 4.2], ['Sirius', 8.6], ['Altair', 16.7]]), ly = 3e5 * 3.15e7, dist = ly * st[1], nd = norm(dist), a2 = Math.round(man(nd.d) * 100) / 100;
+      return { skill: 'Lichtjahr (Transfer)', level: 3, q: 'Astronomen messen Entfernungen in <b>Lichtjahren</b>. Ein Lichtjahr ist die Strecke, die Licht in einem Jahr zurücklegt. Licht schafft ' + sciH('3', 5) + ' km pro Sekunde, ein Jahr hat etwa ' + sciH('315', 7) + ' Sekunden.<br>a) Wie viele km sind ein Lichtjahr?<br>b) Der Stern ' + st[0] + ' ist ' + M.fmtNum(st[1]) + ' Lichtjahre entfernt. Wie viele km sind das? Runde den Vorfaktor auf zwei Nachkommastellen.',
+        inputs: [{ kind: 'num', label: 'a) Vorfaktor a =', answer: 9.45 }, { kind: 'num', label: 'a) Exponent n =', answer: 12 }, { kind: 'num', label: 'b) Vorfaktor a =', answer: a2, tol: 0.005 }, { kind: 'num', label: 'b) Exponent n =', answer: nd.n }],
+        hints: ['Strecke = Geschwindigkeit · Zeit: (' + sciH('3', 5) + ') · (' + sciH('315', 7) + ').', '3 · 3,15 = 9,45 und ' + p10(5) + ' · ' + p10(7) + ' = ' + p10(12) + '. Ein Lichtjahr sind also etwa ' + sciH('945', 12) + ' km.', 'Für b) rechnest du ' + M.fmtNum(st[1]) + ' · 9,45 · ' + p10(12) + ' = ' + M.fmtNum(Math.round(st[1] * 9.45 * 1000) / 1000) + ' · ' + p10(12) + '. Schreibe den Vorfaktor zwischen 1 und 10.'],
+        solution: 'a) (' + sciH('3', 5) + ' km/s) · (' + sciH('315', 7) + ' s) = <b>' + sciH('945', 12) + ' km</b>.<br>b) ' + M.fmtNum(st[1]) + ' · ' + sciH('945', 12) + ' km = ' + M.fmtNum(Math.round(st[1] * 9.45 * 1000) / 1000) + ' · ' + p10(12) + ' km ≈ <b>' + M.fmtNum(a2, 2) + ' · ' + p10(nd.n) + ' km</b>.',
+        mistakes: function (v) { var e = M.parseNum(v[1]); if (e !== null && e === 5 * 7) return 'Die Exponenten werden beim Multiplizieren addiert: 5 + 7.'; var b = M.parseNum(v[2]); if (b !== null && b >= 10) return 'In b) muss der Vorfaktor zwischen 1 und 10 liegen.'; return null; },
+        verify: function () { return Math.abs(ly - 9.45e12) < 1 && Math.abs(a2 * Math.pow(10, nd.n) - dist) <= 0.0051 * Math.pow(10, nd.n) ? true : 'Lichtjahr'; } };
+    }
+  };
+
+  /* Entdecken: Größenordnungen */
+  var OBJ = [['Virus', -7], ['Sandkorn', -4], ['Mensch', 0], ['Brocken (Berg)', 3], ['Erde (Ø)', 7], ['Erde bis Sonne', 11]];
+  function ruler(lg) {
+    var x0 = 20, x1 = 320, lo = -9, hi = 12; function X(e) { return x0 + (e - lo) / (hi - lo) * (x1 - x0); }
+    var g = '<svg class="viz" viewBox="0 0 340 130" role="img" aria-label="Zahlenstrahl der Größenordnungen" style="max-width:520px"><line x1="' + x0 + '" y1="65" x2="' + x1 + '" y2="65" stroke="' + C1 + '" stroke-width="2"/>';
+    for (var e = lo; e <= hi; e++) g += '<line x1="' + X(e) + '" y1="' + (e % 3 === 0 ? 58 : 61) + '" x2="' + X(e) + '" y2="' + (e % 3 === 0 ? 72 : 69) + '" stroke="' + C1 + '"/>' + (e % 3 === 0 ? '<text x="' + X(e) + '" y="84" font-size="9" text-anchor="middle">10' + '</text><text x="' + (X(e) + 5) + '" y="78" font-size="7">' + ex(e) + '</text>' : '');
+    OBJ.forEach(function (o, i) { var up = i % 2 === 0; g += '<line x1="' + X(o[1]) + '" y1="65" x2="' + X(o[1]) + '" y2="' + (up ? 36 : 96) + '" stroke="#94a3b8" stroke-dasharray="2 2"/><text x="' + X(o[1]) + '" y="' + (up ? 30 : 108) + '" font-size="10" text-anchor="middle" fill="' + C1 + '">' + o[0] + '</text>'; });
+    g += '<path d="M' + X(lg) + ' 52 l-6 -10 h12 z" fill="' + CA + '"/><circle cx="' + X(lg) + '" cy="65" r="5" fill="' + CA + '" stroke="#fff" stroke-width="1.5"/>';
+    g += '<text x="330" y="126" font-size="9" text-anchor="end" fill="#5a5670">Längen in m · jeder Strich: Faktor 10</text></svg>';
+    return g;
+  }
+
+  return {
+    id: '008', title: 'Zehnerpotenzen', bereich: 'Zahlen und Größen', minutes: '45 bis 60',
+    vorkenntnisse: 'Dezimalzahlen, Multiplizieren und Dividieren mit 10, 100, 1000, Potenzen',
+    lead: 'Die Sonne ist 150 000 000 km entfernt, ein Bakterium nur 0,000002 m lang. Mit Zehnerpotenzen schreibst du riesige und winzige Zahlen kurz und übersichtlich.',
+    einstieg: { html: '<p>Die Erde ist etwa <b>150 000 000 km</b> von der Sonne entfernt. Ein rotes Blutkörperchen ist dagegen nur etwa <b>0,000 007 5 m</b> breit.</p><p class="note">Bei so vielen Nullen verzählt man sich schnell. Wie kann man solche Zahlen kurz und sicher aufschreiben und vergleichen?</p><p>Fachleute schreiben stattdessen <b>1,5 · 10<sup>8</sup> km</b> und <b>7,5 · 10<sup>−6</sup> m</b>. In diesem Modul lernst du diese <b>wissenschaftliche Schreibweise</b> und rechnest damit im Weltall, im Körper und mit der Bevölkerung.</p>' },
+    ziele: ['Ich weiß, was 10<sup>n</sup> und 10<sup>−n</sup> bedeuten.', 'Ich schreibe große und kleine Zahlen in der Form a · 10<sup>n</sup> mit 1 ≤ a &lt; 10.', 'Ich wandle Zahlen in Zehnerpotenz-Schreibweise in Dezimalzahlen um.', 'Ich vergleiche und ordne Zahlen in Zehnerpotenz-Schreibweise.', 'Ich multipliziere und dividiere mit Zehnerpotenzen, auch in Sachaufgaben.'],
+    fachwoerter: [['Zehnerpotenz', '10<sup>n</sup>: die 10 wird n-mal mit sich selbst multipliziert. 10<sup>3</sup> = 1000.'], ['Exponent', 'Die hochgestellte Zahl. Sie zeigt, um wie viele Stellen das Komma wandert.'], ['Negativer Exponent', '10<sup>−n</sup> = 1 : 10<sup>n</sup>, zum Beispiel 10<sup>−3</sup> = 0,001.'], ['Wissenschaftliche Schreibweise', 'Eine Zahl als a · 10<sup>n</sup> mit 1 ≤ a &lt; 10, zum Beispiel 4,5 · 10<sup>7</sup>.']],
+    diagnose: [
+      { q: 'Was ergibt 10³?', options: ['1000', '30', '100', 'Weiß ich noch nicht'], answer: 0, why: '10³ = 10 · 10 · 10 = 1000.', review: 'Potenzen (Klasse 7/8)' },
+      { q: 'Was ergibt 3,7 · 100?', options: ['370', '37', '3,700', 'Weiß ich noch nicht'], answer: 0, why: 'Mal 100: Das Komma wandert 2 Stellen nach rechts.', review: 'Mit Stufenzahlen multiplizieren' },
+      { q: 'Was ergibt 4500 : 1000?', options: ['4,5', '45', '0,45', 'Weiß ich noch nicht'], answer: 0, why: 'Durch 1000: Das Komma wandert 3 Stellen nach links.', review: 'Durch Stufenzahlen dividieren' },
+      { q: 'Welche Zahl ist größer?', options: ['0,4', '0,05', 'Beide sind gleich groß', 'Weiß ich noch nicht'], answer: 0, why: '0,4 = 0,40 und 0,40 > 0,05.', review: 'Dezimalzahlen vergleichen' }],
+    erklaerung:
+      '<h3>1. Zehnerpotenzen</h3><table class="tab" style="font-size:0.88em"><tr><th>Potenz</th><th>Wert</th><th>Potenz</th><th>Wert</th></tr>' + [[-1, '0,1', 1, '10'], [-2, '0,01', 2, '100'], [-3, '0,001', 3, '1000'], [-6, '0,000 001', 6, '1 000 000']].map(function (r) { return '<tr><td>' + p10(r[0]) + '</td><td>' + r[1] + '</td><td>' + p10(r[2]) + '</td><td>' + r[3] + '</td></tr>'; }).join('') + '</table>' +
+      '<p>Der Exponent zählt die Stellen: Bei ' + p10(6) + ' stehen 6 Nullen hinter der 1. Bei ' + p10(-3) + ' steht die 1 an der 3. Stelle nach dem Komma. Es gilt ' + p10(0) + ' = 1 und ' + p10(-3) + ' = 1 : ' + p10(3) + '.</p>' +
+      '<h3>2. Wissenschaftliche Schreibweise</h3><div class="merk"><b>Merke:</b> Jede positive Zahl lässt sich schreiben als <b>a · ' + p10('n') + '</b> mit <b>1 ≤ a &lt; 10</b>.<br>Große Zahl (≥ 10): Das Komma wandert nach <b>links</b>, n ist <b>positiv</b>. 45 000 000 = 4,5 · ' + p10(7) + '<br>Kleine Zahl (&lt; 1): Das Komma wandert nach <b>rechts</b>, n ist <b>negativ</b>. 0,000 36 = 3,6 · ' + p10(-4) + '</div>' +
+      '<p>Rückwärts verschiebst du das Komma von a um n Stellen: ' + sciH('27', 5) + ' = 270 000 und ' + sciH('8', -3) + ' = 0,008.</p>' +
+      '<h3>3. Vergleichen und ordnen</h3><p>Vergleiche zuerst die <b>Exponenten</b>. ' + sciH('2', 8) + ' ist größer als ' + sciH('95', 7) + ', denn 200 000 000 &gt; 95 000 000. Nur bei gleichem Exponenten entscheidet der Vorfaktor.</p>' +
+      '<h3>4. Rechnen</h3><p>Multipliziere die Vorfaktoren und die Zehnerpotenzen getrennt. Bei Zehnerpotenzen werden die Exponenten <b>addiert</b> (beim Dividieren subtrahiert):</p><p class="big-math">(3 · ' + p10(5) + ') · (4 · ' + p10(3) + ') = 12 · ' + p10(8) + ' = 1,2 · ' + p10(9) + '</p><p>Zum Schluss den Vorfaktor wieder zwischen 1 und 10 bringen: 12 = 1,2 · 10, also steigt der Exponent um 1.</p>' +
+      '<p class="note"><b>Taschenrechner:</b> Die Taste heißt meist <b>×10<sup>x</sup></b> oder <b>EE</b>/<b>EXP</b>. 4,5 · ' + p10(7) + ' tippst du als 4,5 ×10<sup>x</sup> 7. Die Anzeige 4.5E7 bedeutet ebenfalls 4,5 · ' + p10(7) + '.</p>',
+    entdecken: {
+      html: '<p>Wähle einen Vorfaktor und einen Exponenten. Die Zahl wird als Dezimalzahl und auf dem Zahlenstrahl der Größenordnungen gezeigt.</p><div class="ctl"><label>Vorfaktor a <select id="e_a"><option value="1">1</option><option value="2.5">2,5</option><option value="4">4</option><option value="7.5">7,5</option></select></label><label>Exponent n = <b id="v_n"></b> <input type="range" id="r_n" min="-9" max="12" step="1" value="-6"></label></div><p class="big-math" id="e_t"></p><div id="e_g"></div><p id="e_c"></p>',
+      init: function (root, done) {
+        var n = 0, S = root.querySelector('#e_a'), R = root.querySelector('#r_n');
+        function draw() {
+          var a = S.value, k = +R.value, d = a.replace('.', ''), lg = Math.log10(parseFloat(a)) + k;
+          root.querySelector('#v_n').textContent = ex(k);
+          root.querySelector('#e_t').innerHTML = sciH(d, k) + ' m = ' + toDec(d, k) + ' m';
+          root.querySelector('#e_g').innerHTML = ruler(lg);
+          var near = OBJ.reduce(function (b, o) { return Math.abs(o[1] - lg) < Math.abs(b[1] - lg) ? o : b; });
+          root.querySelector('#e_c').innerHTML = 'Das Komma wandert ' + Math.abs(k) + ' Stellen nach ' + (k >= 0 ? 'rechts' : 'links') + '. Größenordnung ungefähr wie: <b>' + near[0] + '</b>. Erhöhst du n um 1, wird die Zahl <b>zehnmal so groß</b>.';
+        }
+        function ch() { draw(); n++; if (n >= 3) done('Gut beobachtet: Jeder Schritt beim Exponenten verändert die Zahl um den Faktor 10. Der Vorfaktor verändert sie nur innerhalb einer Zehnerstufe.'); }
+        S.addEventListener('change', ch); R.addEventListener('input', ch); draw();
+      }
+    },
+    beispiel: { title: 'Wie lange braucht das Sonnenlicht?', q: 'Die Sonne ist etwa 1,5 · 10<sup>8</sup> km von der Erde entfernt. Licht legt in einer Sekunde etwa 3 · 10<sup>5</sup> km zurück. Wie lange ist das Licht unterwegs?',
+      steps: ['Ansatz: Zeit = Strecke : Geschwindigkeit = (1,5 · 10<sup>8</sup> km) : (3 · 10<sup>5</sup> km/s).', 'Vorfaktoren dividieren: 1,5 : 3 = 0,5.', 'Zehnerpotenzen dividieren: 10<sup>8</sup> : 10<sup>5</sup> = 10<sup>8 − 5</sup> = 10<sup>3</sup>.', 'Ergebnis: 0,5 · 10<sup>3</sup> s = 500 s. In wissenschaftlicher Schreibweise: 5 · 10<sup>2</sup> s.', 'Antwort: Das Licht braucht etwa 500 Sekunden, das sind gut 8 Minuten. Kontrolle: 500 s · 300 000 km/s = 150 000 000 km ✓.'] },
+    tasks: { gen: gen,
+      plan: { G: ['inSci:1', 'ausSci:1', 'mal10:1', 'vergleich:1'], S: ['inSci:2', 'klein:2', 'ausSci:2', 'vergleich:2', 'mult:2'], E: ['klein:2', 'ausSci:3', 'ordnen:2', 'mult:3', 'sach:2', 'inSci:3'] },
+      extra: 'lichtjahr', test: ['inSci:2', 'klein:2', 'ausSci:2', 'vergleich:2', 'mult:2', 'sach:2'] },
+    lerncheck: ['Ich schreibe große und kleine Zahlen als a · 10<sup>n</sup>.', 'Ich wandle Zehnerpotenz-Schreibweise in Dezimalzahlen um.', 'Ich vergleiche und ordne Zahlen in Zehnerpotenz-Schreibweise.', 'Ich rechne mit Zehnerpotenzen in Sachaufgaben.']
+  };
+})();
+
+window.MODULE = MODULE;
+</script>
+<script>
+/* SOL Mathe 8 · Lern-Engine. Erwartet window.MODULE und window.CONFIG. */
+(function () {
+  'use strict';
+  var MOD = window.MODULE, CFG = window.CONFIG;
+  var KEY = 'sol8-' + MOD.id;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  /* Anzeige-Feinschliff: echtes Minuszeichen und 1x → x, nur im Text, nie in Attributen */
+  function nice(h) { return String(h == null ? '' : h).split(/(<[^>]*>)/).map(function (p) { return p.charAt(0) === '<' ? p : p.replace(/(^|[\s(=:\[{>])-(?=\d)/g, '$1\u2212').replace(/(^|[\s(=:+\u2212·>])1x(?![\w²³^])/g, '$1x'); }).join(''); }
+  function h(tag, attrs, html) { var e = document.createElement(tag); if (attrs) Object.keys(attrs).forEach(function (k) { if (k === 'class') e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }); if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  var SECTIONS = [
+    ['start', 'Start'], ['einstieg', 'Einstieg'], ['ziele', 'Lernziele'], ['diagnose', 'Startdiagnose'], ['erklaerung', 'Erklärung'],
+    ['entdecken', 'Ausprobieren'], ['beispiel', 'Beispiel'], ['ueben', 'Üben'], ['weiterdenken', 'Weiterdenken'], ['test', 'Abschlusstest'],
+    ['lerncheck', 'Mein Lerncheck'], ['ergebnis', 'Ergebnis']
+  ];
+  var REQUIRED = ['einstieg', 'diagnose', 'erklaerung', 'entdecken', 'ueben', 'test', 'lerncheck'];
+  function req() { return S.way === 'E' ? REQUIRED.slice(0, 5).concat(['weiterdenken'], REQUIRED.slice(5)) : REQUIRED; }
+  var WAYS = { G: 'Sicher · G', S: 'Standard · G/E', E: 'Weiterdenken · E' };
+  var WAY_INFO = { G: 'Sicher: weniger Aufgaben, Tipps sind sofort sichtbar. Weiterdenken ist freiwillig.', S: 'Standard: du bearbeitest alle Pflichtaufgaben und kannst Tipps öffnen.', E: 'Weiterdenken: mehr und schwierigere Aufgaben. Die Weiterdenken-Aufgabe ist Pflicht.' };
+  var LC_SCALE = ['Sicher', 'Meistens', 'Mit Hilfe', 'Noch nicht'];
+
+  /* ---------- Zustand ---------- */
+  var S = load() || { v: 1, lerncode: '', klasse: '', email: '', way: 'S', started: false, sec: 'start', done: {}, diag: {}, diagChecked: false,
+    slots: [], extra: null, test: null, lc: {}, stats: { attempts: 0, firstTry: 0, hints: 0, solutions: 0 }, startedAt: null, sent: false, abgabeId: null };
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
+  function load() { try { var d = JSON.parse(localStorage.getItem(KEY) || 'null'); return d && d.v === 1 ? d : null; } catch (e) { return null; } }
+  function mark(k) { if (!S.done[k]) { S.done[k] = true; save(); progress(); navState(); } }
+
+  /* ---------- Normalisierung Lernende ---------- */
+  function normCode(v) { var t = String(v || '').toUpperCase().replace(/[^A-ZÄÖÜ]/g, ''); return t.length === 2 ? t : ''; }
+  function normKlasse(v) { var m = String(v || '').toLowerCase().replace(/[^a-z0-9]/g, '').match(new RegExp(CFG.jahrgang + '([a-z]?)$')); return m ? CFG.jahrgang + m[1] : ''; }
+  function emailOk(v) { v = String(v || '').trim(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) return false; return !CFG.iservDomain || v.toLowerCase().slice(-CFG.iservDomain.length - 1) === '@' + CFG.iservDomain.toLowerCase(); }
+
+  /* ---------- Aufgaben prüfen ---------- */
+  var checkInput = M.check;
+  function renderInputs(task, prefix, values) {
+    return task.inputs.map(function (inp, i) {
+      var id = prefix + '-' + i, val = values && values[i] != null ? values[i] : '';
+      if (inp.kind === 'mc') {
+        return '<fieldset class="mc"><legend>' + (inp.label || 'Wähle aus') + '</legend>' + inp.options.map(function (o, k) {
+          return '<label class="opt"><input type="radio" name="' + id + '" value="' + k + '"' + (String(val) === String(k) ? ' checked' : '') + '><span>' + o + '</span></label>';
+        }).join('') + '</fieldset>';
+      }
+      var mode = inp.kind === 'term' || inp.kind === 'text' ? 'text' : 'decimal';
+      return '<label class="inp"><span>' + (inp.label || 'Ergebnis') + '</span><span class="inrow"><input id="' + id + '" inputmode="' + mode + '" autocomplete="off" spellcheck="false" value="' + esc(val) + '"' + (inp.placeholder ? ' placeholder="' + esc(inp.placeholder) + '"' : '') + '>' + (inp.unit ? '<b class="unit">' + inp.unit + '</b>' : '') + '</span></label>';
+    }).join('');
+  }
+  function readInputs(task, prefix, root) {
+    return task.inputs.map(function (inp, i) {
+      if (inp.kind === 'mc') { var c = $('input[name="' + prefix + '-' + i + '"]:checked', root); return c ? c.value : ''; }
+      var e = $('#' + prefix + '-' + i, root); return e ? e.value : '';
+    });
+  }
+  /* Reproduzierbarer Zufall: gleiche Startzahl, gleiche Aufgabe (damit Fehlerhinweise nach dem Neuladen erhalten bleiben) */
+  function seeded(seed, fn) {
+    var orig = Math.random, s = seed >>> 0;
+    Math.random = function () { s = (s + 0x6D2B79F5) >>> 0; var t = s; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+    try { return fn(); } finally { Math.random = orig; }
+  }
+  function revive(t) {
+    if (!t || t.seed == null || typeof t.mistakes === 'function' || !MOD.tasks.gen[t.key]) return t;
+    try { var r = gen(t.key, t.level, t.seed); if (r.q === t.q && r.mistakes) t.mistakes = r.mistakes; } catch (e) { }
+    return t;
+  }
+  function gen(key, level, seed) { if (seed == null) seed = Math.floor(Math.random() * 4294967296); var t = seeded(seed, function () { return MOD.tasks.gen[key](level || 2); }); t.seed = seed; t.key = key; t.level = t.level || level || 2; t.q = nice(t.q); t.solution = nice(t.solution); t.hints = (t.hints || []).map(nice); t.inputs.forEach(function (i) { if (i.options) i.options = i.options.map(nice); }); return t; }
+
+  /* ---------- Fortschritt und Navigation ---------- */
+  function progress() {
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    $('#bar').style.width = Math.round(n / req().length * 100) + '%';
+    $('#progText').textContent = n + ' von ' + req().length + ' Pflichtschritten';
+  }
+  function navState() {
+    $$('#nav a').forEach(function (a) { var k = a.dataset.sec; a.classList.toggle('active', k === S.sec); a.classList.toggle('done', !!S.done[k]); a.setAttribute('aria-current', k === S.sec ? 'step' : 'false'); });
+  }
+  function go(sec, noScroll) {
+    if (!S.started && sec !== 'start') { show('start'); fb('#startFb', 'Bitte trage zuerst Lerncode, Klasse und IServ-Adresse ein und tippe auf „Start“.', 'bad'); return; }
+    show(sec); if (!noScroll) { var m = $('#main'); if (m.getBoundingClientRect().top < 0) m.scrollIntoView({ behavior: 'smooth' }); }
+  }
+  function show(sec) {
+    S.sec = sec; save();
+    $$('.sec').forEach(function (s) { s.hidden = s.id !== 'sec-' + sec; });
+    navState();
+    if (RENDER[sec]) RENDER[sec]();
+    try { history.replaceState(null, '', '#' + sec); } catch (e) { }
+  }
+  function fb(sel, msg, kind) { var e = $(sel); if (!e) return; e.className = 'fb ' + (kind || ''); e.innerHTML = msg; }
+  function pager(sec) {
+    var i = SECTIONS.findIndex(function (s) { return s[0] === sec; });
+    var prev = SECTIONS[i - 1], next = SECTIONS[i + 1];
+    return '<div class="pager">' + (prev && i > 1 ? '<button class="btn ghost" data-go="' + prev[0] + '">← ' + prev[1] + '</button>' : '<span></span>') +
+      (next ? '<button class="btn" data-go="' + next[0] + '">' + next[1] + ' →</button>' : '') + '</div>';
+  }
+
+  /* ---------- Abschnitte ---------- */
+  var RENDER = {};
+  function buildShell() {
+    var app = $('#app');
+    app.innerHTML =
+      '<header class="hero"><div class="wrap hero-in"><div class="hero-top"><span class="brand">SOL Mathematik ' + CFG.jahrgang + ' · Oberschule Niedersachsen</span>' +
+      '<span class="tools"><button class="tbtn" id="easyBtn" aria-pressed="false">Leichter lesen</button><button class="tbtn" id="readBtn">Vorlesen</button><button class="tbtn" id="stopBtn">Stopp</button></span></div>' +
+      '<div class="hero-main"><div><p class="eyebrow">' + MOD.bereich + '</p><h1>' + MOD.title + '</h1><p class="lead">' + MOD.lead + '</p></div>' +
+      '<div class="badge"><span>Modul</span><strong>' + MOD.id + '</strong><span>' + MOD.minutes + ' Minuten</span></div></div></div></header>' +
+      '<div class="progress"><div class="wrap prog-in"><div class="track"><div id="bar"></div></div><span id="progText"></span></div></div>' +
+      '<div class="wrap layout"><nav id="nav" aria-label="Abschnitte">' + SECTIONS.map(function (s) { return '<a href="#' + s[0] + '" data-sec="' + s[0] + '">' + s[1] + '</a>'; }).join('') + '</nav>' +
+      '<main id="main">' + SECTIONS.map(function (s) { return '<section class="sec card" id="sec-' + s[0] + '" hidden aria-labelledby="h-' + s[0] + '"></section>'; }).join('') + '</main></div>' +
+      '<footer class="foot wrap"><a href="' + CFG.backUrl + '">← Zur Übersicht Klasse ' + CFG.jahrgang + '</a><span>© Dr. Edmund Bruns · CC BY-NC 4.0</span></footer>';
+    $('#nav').addEventListener('click', function (e) { var a = e.target.closest('a'); if (!a) return; e.preventDefault(); go(a.dataset.sec); });
+    app.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) { e.preventDefault(); go(b.dataset.go); } });
+    $('#easyBtn').addEventListener('click', function () { var on = document.body.classList.toggle('easy'); this.setAttribute('aria-pressed', String(on)); });
+    $('#readBtn').addEventListener('click', function () { if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); var sec = $('#sec-' + S.sec); var u = new SpeechSynthesisUtterance(sec.innerText.replace(/[←→]/g, '')); u.lang = 'de-DE'; u.rate = 0.95; speechSynthesis.speak(u); });
+    $('#stopBtn').addEventListener('click', function () { if ('speechSynthesis' in window) speechSynthesis.cancel(); });
+  }
+
+  RENDER.start = function () {
+    var s = $('#sec-start'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-start">Bevor du beginnst</h2>' +
+      '<div class="facts"><div><b>Klasse</b>' + CFG.jahrgang + '</div><div><b>Vorkenntnisse</b>' + MOD.vorkenntnisse + '</div><div><b>Du brauchst</b>Heft, Stift und dieses Gerät</div></div>' +
+      '<div class="grid2"><label class="inp"><span>Lerncode *</span><input id="lerncode" maxlength="2" autocomplete="off" placeholder="z. B. MS" value="' + esc(S.lerncode) + '"><small>Erster Buchstabe deines Vornamens und erster Buchstabe deines Nachnamens. Beispiel: Mia Schulte → MS</small></label>' +
+      '<label class="inp"><span>Klasse *</span><input id="klasse" maxlength="12" autocomplete="off" placeholder="z. B. ' + CFG.jahrgang + 'a" value="' + esc(S.klasse) + '"><small>„' + CFG.jahrgang + 'a“, „Klasse ' + CFG.jahrgang + 'a“ oder nur „' + CFG.jahrgang + '“ sind möglich.</small></label></div>' +
+      '<label class="inp"><span>IServ-E-Mail-Adresse *</span><input id="email" type="email" autocomplete="email" placeholder="vorname.nachname@…" value="' + esc(S.email) + '"><small>Deine Schul-Adresse aus IServ. Sie wird nur mit deinem Ergebnis an deine Lehrkraft übertragen.</small></label>' +
+      '<fieldset class="ways"><legend>Mein Lernweg</legend>' + Object.keys(WAYS).map(function (k) { return '<label class="way"><input type="radio" name="way" value="' + k + '"' + (S.way === k ? ' checked' : '') + '><span>' + WAYS[k] + '</span></label>'; }).join('') + '</fieldset>' +
+      '<p class="note" id="wayInfo">' + WAY_INFO[S.way] + '</p>' +
+      '<div class="actions"><button class="btn big" id="startBtn">Start</button>' + (S.started ? '<button class="btn ghost" id="resetBtn">Neu beginnen</button>' : '') + '</div><p class="fb" id="startFb" role="status"></p>';
+    $$('input[name=way]', s).forEach(function (r) { r.addEventListener('change', function () { if (S.slots.length && S.slots.some(function (x) { return x.solved; })) { fb('#startFb', 'Hinweis: Wenn du den Lernweg änderst, werden deine Übungsaufgaben neu zusammengestellt.', 'hint'); } $('#wayInfo').textContent = WAY_INFO[this.value]; }); });
+    ['lerncode', 'klasse', 'email'].forEach(function (id) { $('#' + id).addEventListener('input', function () { S[id] = this.value; save(); }); });
+    $('#startBtn').addEventListener('click', function () {
+      var c = normCode($('#lerncode').value), k = normKlasse($('#klasse').value), e = $('#email').value.trim();
+      if (!c) return fb('#startFb', 'Der Lerncode besteht aus genau zwei Buchstaben, zum Beispiel MS.', 'bad');
+      if (!k) return fb('#startFb', 'Diese Klasse gehört nicht zu Jahrgang ' + CFG.jahrgang + '. Schreibe zum Beispiel ' + CFG.jahrgang + 'a oder nur ' + CFG.jahrgang + '.', 'bad');
+      if (!emailOk(e)) return fb('#startFb', CFG.iservDomain ? 'Bitte gib deine IServ-Adresse ein. Sie endet auf @' + CFG.iservDomain + '.' : 'Bitte gib eine gültige IServ-E-Mail-Adresse ein.', 'bad');
+      var w = ($('input[name=way]:checked', s) || {}).value || 'S';
+      if (w !== S.way) { S.slots = []; S.extra = null; S.done.ueben = false; }
+      S.lerncode = c; S.klasse = k; S.email = e; S.way = w; S.started = true; if (!S.startedAt) S.startedAt = Date.now();
+      $('#lerncode').value = c; $('#klasse').value = k; save(); go('einstieg');
+    });
+    var rb = $('#resetBtn'); if (rb) rb.addEventListener('click', function () { if (!confirm('Wirklich neu beginnen? Dein bisheriger Stand in diesem Modul wird gelöscht.')) return; try { localStorage.removeItem(KEY); } catch (e) { } location.hash = ''; location.reload(); });
+  };
+
+  RENDER.einstieg = function () {
+    var s = $('#sec-einstieg'); if (s.dataset.r) return; s.dataset.r = 1;
+    var v = MOD.einstieg.video;
+    s.innerHTML = '<h2 id="h-einstieg">Einstieg</h2>' + (v ? '<div class="video"><iframe src="' + v.src + '" title="' + esc(v.title) + '" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' : '') +
+      '<div class="story">' + MOD.einstieg.html + '</div>' + pager('einstieg');
+    mark('einstieg');
+  };
+  RENDER.ziele = function () {
+    var s = $('#sec-ziele'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-ziele">Das lernst du in diesem Modul</h2><ul class="goals">' + MOD.ziele.map(function (z) { return '<li>' + z + '</li>'; }).join('') + '</ul>' +
+      (MOD.fachwoerter ? '<h3>Fachwörter</h3><dl class="terms">' + MOD.fachwoerter.map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl>' : '') + pager('ziele');
+  };
+  RENDER.diagnose = function () {
+    var s = $('#sec-diagnose'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-diagnose">Startdiagnose</h2><p>Finde heraus, was du schon kannst. Das ist kein Test, es zählt nur für dich.</p>' +
+      MOD.diagnose.map(function (d, i) { return '<div class="task"><p class="q"><b>' + (i + 1) + '.</b> ' + d.q + '</p>' + d.options.map(function (o, k) { return '<label class="opt"><input type="radio" name="dg' + i + '" value="' + k + '"' + (S.diag[i] === k ? ' checked' : '') + '><span>' + o + '</span></label>'; }).join('') + '<p class="fb" id="dgfb' + i + '"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="dgBtn">Auswerten</button></div><div class="fb" id="dgSum" role="status"></div>' + pager('diagnose');
+    $$('input[type=radio]', s).forEach(function (r) { r.addEventListener('change', function () { S.diag[+this.name.slice(2)] = +this.value; save(); }); });
+    $('#dgBtn').addEventListener('click', function () { evalDiag(true); });
+    if (S.diagChecked) evalDiag(false);
+  };
+  function evalDiag(user) {
+    var missing = MOD.diagnose.some(function (d, i) { return S.diag[i] == null; });
+    if (missing && user) return fb('#dgSum', 'Beantworte bitte alle Fragen. Wenn du etwas nicht weißt, wähle „Weiß ich noch nicht“.', 'bad');
+    var pts = 0, tips = [];
+    MOD.diagnose.forEach(function (d, i) { var ok = S.diag[i] === d.answer; if (ok) pts++; else if (d.review) tips.push(d.review); fb('#dgfb' + i, (ok ? '✓ ' : '✗ ') + d.why, ok ? 'good' : 'bad'); });
+    S.diagChecked = true; S.diagPts = pts; save(); mark('diagnose');
+    fb('#dgSum', '<b>' + pts + ' von ' + MOD.diagnose.length + ' richtig.</b> ' + (pts === MOD.diagnose.length ? 'Super, die Grundlagen sitzen. Du kannst auch den Lernweg „Weiterdenken“ wählen.' : 'Das solltest du dir vorher noch einmal ansehen:<ul>' + tips.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>'), pts === MOD.diagnose.length ? 'good' : 'hint');
+  }
+  RENDER.erklaerung = function () {
+    var s = $('#sec-erklaerung'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-erklaerung">Erklärung</h2>' + MOD.erklaerung + '<div class="actions"><button class="btn" id="exOk">Verstanden</button></div><p class="fb" id="exFb"></p>' + pager('erklaerung');
+    $('#exOk').addEventListener('click', function () { mark('erklaerung'); fb('#exFb', 'Prima. Probiere es jetzt selbst aus.', 'good'); });
+    if (S.done.erklaerung) fb('#exFb', '✓ Erledigt', 'good');
+  };
+  RENDER.entdecken = function () {
+    var s = $('#sec-entdecken'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-entdecken">Ausprobieren</h2><div id="explore">' + MOD.entdecken.html + '</div><p class="fb" id="enFb"></p>' + pager('entdecken');
+    MOD.entdecken.init($('#explore'), function (msg) { mark('entdecken'); if (msg) fb('#enFb', msg, 'good'); });
+  };
+  RENDER.beispiel = function () {
+    var s = $('#sec-beispiel'); if (s.dataset.r) return; s.dataset.r = 1;
+    var B = MOD.beispiel;
+    s.innerHTML = '<h2 id="h-beispiel">Beispiel: ' + B.title + '</h2><div class="task"><p class="q">' + B.q + '</p><ol class="steps" id="bsSteps"></ol><div class="actions"><button class="btn" id="bsNext">Nächster Schritt</button></div></div>' + pager('beispiel');
+    var i = 0; $('#bsNext').addEventListener('click', function () { if (i < B.steps.length) { $('#bsSteps').appendChild(h('li', null, B.steps[i])); i++; } if (i >= B.steps.length) { this.disabled = true; this.textContent = 'Alle Schritte gezeigt'; } });
+  };
+
+  /* Üben */
+  function plan() { return MOD.tasks.plan[S.way] || MOD.tasks.plan.S; }
+  RENDER.ueben = function () {
+    var s = $('#sec-ueben');
+    var p = plan();
+    if (S.slots.length !== p.length) { S.slots = p.map(function (k) { var parts = k.split(':'); return { key: parts[0], level: +(parts[1] || 2), task: gen(parts[0], +(parts[1] || 2)), solved: false, tries: 0, hints: 0, shown: false, values: [] }; }); save(); }
+    s.innerHTML = '<h2 id="h-ueben">Üben</h2><p>Bearbeite alle ' + p.length + ' Aufgaben. Bei jeder Aufgabe kannst du Tipps öffnen. Mit „Neue Aufgabe“ bekommst du neue Zahlen.</p><div id="slots"></div><div class="fb" id="ubSum" role="status"></div>' + pager('ueben');
+    var box = $('#slots'); S.slots.forEach(function (sl, i) { box.appendChild(slotCard(sl, i)); });
+    ubSum();
+  };
+  function levelTag(l) { return ['', 'Grundlage', 'Standard', 'Knobeln'][l] || ''; }
+  function slotCard(sl, i) {
+    var t = sl.task, c = h('div', { class: 'task' + (sl.solved ? ' solved' : ''), id: 'slot' + i });
+    var showHints = S.way === 'G' ? 1 : 0;
+    c.innerHTML = '<div class="thead"><span class="tag">' + levelTag(sl.level) + '</span><span class="tag plain">Aufgabe ' + (i + 1) + '</span>' + (sl.solved ? '<span class="tag ok">✓ gelöst</span>' : '') + '</div>' +
+      '<div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 's' + i, sl.values) + '</div>' +
+      '<div class="actions"><button class="btn" data-a="check">Prüfen</button><button class="btn ghost" data-a="hint">Tipp</button><button class="btn ghost" data-a="new">Neue Aufgabe</button></div>' +
+      '<div class="hints"></div><p class="fb" role="status"></p>';
+    var hintsBox = $('.hints', c);
+    function drawHints() { hintsBox.innerHTML = t.hints.slice(0, Math.max(sl.hints, showHints)).map(function (x, k) { return '<div class="hint"><b>Tipp ' + (k + 1) + ':</b> ' + x + '</div>'; }).join('') + (sl.shown ? '<div class="hint sol"><b>Lösungsweg:</b> ' + t.solution + '</div>' : ''); }
+    drawHints();
+    c.addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-a]'); if (!b) return;
+      var a = b.dataset.a, f = $('.fb', c);
+      if (a === 'check') {
+        var vals = readInputs(t, 's' + i, c); sl.values = vals;
+        var res = t.inputs.map(function (inp, k) { return checkInput(inp, vals[k]); });
+        if (res.some(function (r) { return r.empty; })) { f.className = 'fb bad'; f.textContent = 'Fülle bitte alle Felder aus.'; return; }
+        sl.tries++; S.stats.attempts++;
+        var ok = res.every(function (r) { return r.ok; });
+        if (ok) {
+          if (!sl.solved) { sl.solved = true; if (sl.tries === 1 && !sl.hints && !sl.shown) S.stats.firstTry++; }
+          if (sl === S.extra) mark('weiterdenken');
+          f.className = 'fb good'; f.innerHTML = '✓ Richtig! ' + (t.praise || '');
+          c.classList.add('solved'); var hd = $('.thead', c); if (!$('.tag.ok', hd)) hd.appendChild(h('span', { class: 'tag ok' }, '✓ gelöst'));
+        } else {
+          var msg = (res.filter(function (r) { return r.msg; })[0] || {}).msg;
+          var spec = !msg && t.mistakes ? t.mistakes(vals) : null;
+          f.className = 'fb ' + (res.some(function (r) { return r.almost; }) ? 'hint' : 'bad');
+          f.innerHTML = msg || spec || (sl.tries >= 2 ? 'Noch nicht. Öffne einen Tipp, der hilft dir weiter.' : 'Noch nicht richtig. Prüfe deine Rechnung noch einmal.');
+        }
+        save(); ubSum();
+      } else if (a === 'hint') {
+        if (Math.max(sl.hints, showHints) < t.hints.length) { sl.hints = Math.max(sl.hints, showHints) + 1; S.stats.hints++; }
+        else if (!sl.shown) { sl.shown = true; S.stats.solutions++; }
+        drawHints(); save();
+        b.textContent = sl.shown ? 'Lösungsweg gezeigt' : (Math.max(sl.hints, showHints) >= t.hints.length ? 'Lösungsweg zeigen' : 'Weiterer Tipp');
+      } else if (a === 'new') {
+        if (!sl.solved && !sl.shown && sl.tries < 2) { f.className = 'fb hint'; f.textContent = 'Versuche die Aufgabe erst zweimal oder öffne den Lösungsweg. Dann bekommst du eine neue.'; return; }
+        var wasSolved = sl.solved;
+        var nt = gen(sl.key, sl.level); sl.task = nt; sl.tries = 0; sl.hints = 0; sl.shown = false; sl.values = []; sl.solved = false; if (wasSolved) sl.solved = false;
+        save(); c.replaceWith(slotCard(sl, i)); ubSum();
+      }
+    });
+    return c;
+  }
+  function ubSum() {
+    var n = S.slots.filter(function (x) { return x.solved; }).length;
+    if (n === S.slots.length && n > 0) { mark('ueben'); fb('#ubSum', '<b>Alle ' + n + ' Aufgaben gelöst.</b> Weiter geht es mit „Weiterdenken“ oder direkt mit dem Abschlusstest.', 'good'); }
+    else fb('#ubSum', n + ' von ' + S.slots.length + ' Aufgaben gelöst.', '');
+  }
+
+  RENDER.weiterdenken = function () {
+    var s = $('#sec-weiterdenken');
+    if (!S.extra) { S.extra = { task: gen(MOD.tasks.extra, 3), solved: false, hints: 0, shown: false, values: [], tries: 0 }; save(); }
+    var sl = S.extra, t = sl.task;
+    s.innerHTML = '<h2 id="h-weiterdenken">Weiterdenken</h2><p>' + (S.way === 'E' ? 'Diese Aufgabe ist für deinen Lernweg Pflicht.' : 'Diese Aufgabe ist freiwillig. Sie zeigt dir, ob du das Thema auch in neuen Situationen nutzen kannst.') + '</p>';
+    var c = slotCard(sl, 'x'); s.appendChild(c); s.insertAdjacentHTML('beforeend', pager('weiterdenken'));
+  };
+
+  /* Abschlusstest */
+  RENDER.test = function () {
+    var s = $('#sec-test');
+    if (!S.test) { S.test = { items: MOD.tasks.test.map(function (k) { var p = k.split(':'); return gen(p[0], +(p[1] || 2)); }), values: [], done: false, pts: 0, runs: 0, best: 0, details: [] }; save(); }
+    var T = S.test;
+    s.innerHTML = '<h2 id="h-test">Abschlusstest</h2><p>' + T.items.length + ' Aufgaben ohne Tipps. Rechne im Heft mit und trage dann deine Ergebnisse ein. Du wertest den Test einmal aus.</p>' +
+      T.items.map(function (t, i) { return '<div class="task" id="ti' + i + '"><div class="thead"><span class="tag plain">Aufgabe ' + (i + 1) + '</span></div><div class="q">' + t.q + '</div><div class="inputs">' + renderInputs(t, 't' + i, T.values[i]) + '</div><p class="fb"></p></div>'; }).join('') +
+      '<div class="actions"><button class="btn" id="tBtn"' + (T.done ? ' disabled' : '') + '>Test auswerten</button>' + (T.done ? '<button class="btn ghost" id="tNew">Noch einmal mit neuen Aufgaben</button>' : '') + '</div><div class="fb" id="tSum" role="status"></div>' + pager('test');
+    T.items.forEach(function (t, i) { $$('input', $('#ti' + i)).forEach(function (el) { el.addEventListener('input', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); el.addEventListener('change', function () { T.values[i] = readInputs(t, 't' + i, $('#ti' + i)); save(); }); }); });
+    $('#tBtn').addEventListener('click', function () {
+      var vals = T.items.map(function (t, i) { return readInputs(t, 't' + i, $('#ti' + i)); });
+      var empty = vals.some(function (v) { return v.some(function (x) { return String(x).trim() === ''; }); });
+      if (empty && !confirm('Du hast noch nicht alle Felder ausgefüllt. Trotzdem auswerten?')) return;
+      T.values = vals; T.done = true; T.runs++; save(); showTest();
+      $('#tBtn').disabled = true;
+      if (!$('#tNew')) { var nb = h('button', { class: 'btn ghost', id: 'tNew' }, 'Noch einmal mit neuen Aufgaben'); $('#tBtn').after(nb); bindNew(); }
+    });
+    function bindNew() { var n = $('#tNew'); if (n) n.addEventListener('click', function () { if (!confirm('Neuer Test mit neuen Zahlen? Dein bestes Ergebnis bleibt gespeichert.')) return; var best = T.best, runs = T.runs; S.test = null; save(); RENDER.test(); S.test.best = best; S.test.runs = runs; save(); }); }
+    bindNew();
+    if (T.done) showTest();
+  };
+  function showTest() {
+    var T = S.test, pts = 0;
+    T.details = T.items.map(function (t, i) {
+      var res = t.inputs.map(function (inp, k) { return checkInput(inp, (T.values[i] || [])[k]); });
+      var ok = res.every(function (r) { return r.ok; }); if (ok) pts++;
+      var f = $('#ti' + i + ' .fb'); f.className = 'fb ' + (ok ? 'good' : 'bad'); f.innerHTML = ok ? '✓ Richtig' : '✗ Nicht richtig. <b>Lösung:</b> ' + t.solution;
+      $$('#ti' + i + ' input').forEach(function (e) { e.disabled = true; });
+      return { aufgabe: i + 1, skill: t.skill || t.key, richtig: ok };
+    });
+    T.pts = pts; T.best = Math.max(T.best || 0, pts); save(); mark('test');
+    var pct = Math.round(pts / T.items.length * 100);
+    fb('#tSum', '<b>' + pts + ' von ' + T.items.length + ' Aufgaben richtig (' + pct + ' %).</b> ' + verdict(pct), pct >= 80 ? 'good' : pct >= 50 ? 'hint' : 'bad');
+  }
+  function verdict(p) { return p >= 80 ? 'Sehr gut, du beherrschst das Thema.' : p >= 50 ? 'Ein guter Stand. Übe die falschen Aufgabentypen noch einmal.' : 'Arbeite die Erklärung und die Übungen noch einmal durch und nutze die Tipps.'; }
+
+  RENDER.lerncheck = function () {
+    var s = $('#sec-lerncheck'); if (s.dataset.r) return; s.dataset.r = 1;
+    s.innerHTML = '<h2 id="h-lerncheck">Mein Lerncheck</h2><p>Wie sicher bist du? Sei ehrlich, das hilft dir und deiner Lehrkraft.</p>' +
+      MOD.lerncheck.map(function (l, i) { return '<fieldset class="lc"><legend>' + l + '</legend>' + LC_SCALE.map(function (x, k) { return '<label class="chip"><input type="radio" name="lc' + i + '" value="' + k + '"' + (S.lc[i] === k ? ' checked' : '') + '><span>' + x + '</span></label>'; }).join('') + '</fieldset>'; }).join('') +
+      '<p class="fb" id="lcFb" role="status"></p>' + pager('lerncheck');
+    $$('input', s).forEach(function (r) { r.addEventListener('change', function () { S.lc[+this.name.slice(2)] = +this.value; save(); lcState(); }); });
+    lcState();
+  };
+  function lcState() { var n = MOD.lerncheck.filter(function (l, i) { return S.lc[i] != null; }).length; if (n === MOD.lerncheck.length) { mark('lerncheck'); fb('#lcFb', '✓ Lerncheck ausgefüllt.', 'good'); } else fb('#lcFb', n + ' von ' + MOD.lerncheck.length + ' Aussagen bewertet.', ''); }
+
+  /* Ergebnis und Abgabe */
+  function minutes() { return S.startedAt ? Math.max(1, Math.round((Date.now() - S.startedAt) / 60000)) : 0; }
+  function payload() {
+    var T = S.test || { pts: 0, items: [], details: [] };
+    var n = req().filter(function (k) { return S.done[k]; }).length;
+    if (!S.abgabeId) { S.abgabeId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2); save(); }
+    return {
+      schema_version: '2.0', fach: 'Mathematik', jahrgang: String(CFG.jahrgang), modul_id: MOD.id, modul_titel: MOD.title, dateiversion: CFG.version,
+      lerncode: S.lerncode, klasse: S.klasse, email: S.email, lernweg: WAYS[S.way],
+      bearbeitungsstand: Math.round(n / req().length * 100), pflichtschritte: req().filter(function (k) { return S.done[k]; }),
+      diagnose_punkte: S.diagPts || 0, diagnose_max: MOD.diagnose.length,
+      uebungen_geloest: S.slots.filter(function (x) { return x.solved; }).length, uebungen_gesamt: S.slots.length,
+      uebungen_erster_versuch: S.stats.firstTry, tipps_genutzt: S.stats.hints, loesungswege_genutzt: S.stats.solutions,
+      weiterdenken_geloest: !!(S.extra && S.extra.solved),
+      test_punkte: T.done ? T.pts : 0, test_max: T.items.length, test_prozent: T.done && T.items.length ? Math.round(T.pts / T.items.length * 100) : 0,
+      test_durchlaeufe: T.runs || 0, test_details: T.details || [],
+      lerncheck: MOD.lerncheck.map(function (l, i) { return { aussage: l, einschaetzung: S.lc[i] != null ? LC_SCALE[S.lc[i]] : '' }; }),
+      bearbeitungszeit_min: minutes(), abgabe_id: S.abgabeId, zeitstempel_client: new Date().toISOString()
+    };
+  }
+  RENDER.ergebnis = function () {
+    var s = $('#sec-ergebnis'), p = payload();
+    var missing = req().filter(function (k) { return !S.done[k]; }).map(function (k) { return SECTIONS.find(function (x) { return x[0] === k; })[1]; });
+    s.innerHTML = '<h2 id="h-ergebnis">Mein Ergebnis</h2>' +
+      '<div class="summary"><div><b>Lerncode</b>' + esc(p.lerncode) + ' · ' + esc(p.klasse) + '</div><div><b>Bearbeitet</b>' + p.bearbeitungsstand + ' %</div><div><b>Abschlusstest</b>' + p.test_punkte + ' von ' + p.test_max + ' (' + p.test_prozent + ' %)</div><div><b>Übungen</b>' + p.uebungen_geloest + ' von ' + p.uebungen_gesamt + ' gelöst</div><div><b>Tipps genutzt</b>' + p.tipps_genutzt + '</div><div><b>Zeit</b>ca. ' + p.bearbeitungszeit_min + ' Min.</div></div>' +
+      (missing.length ? '<p class="fb hint">Noch offen: ' + missing.join(', ') + '. Du kannst trotzdem senden.</p>' : '<p class="fb good">Alle Pflichtschritte erledigt. Stark!</p>') +
+      '<p class="note">' + (S.test && S.test.done ? verdict(p.test_prozent) : 'Bearbeite den Abschlusstest, damit deine Lehrkraft sieht, was du kannst.') + '</p>' +
+      '<div class="actions"><button class="btn big" id="sendBtn">Ergebnis an die Lehrkraft senden</button><button class="btn ghost" id="copyBtn">Zusammenfassung kopieren</button><button class="btn ghost" onclick="window.print()">Drucken</button></div>' +
+      '<p class="fb" id="sendFb" role="status">' + (S.sent ? '✓ Bereits gesendet. Du kannst nach Änderungen erneut senden.' : '') + '</p>' + pager('ergebnis');
+    $('#sendBtn').addEventListener('click', send);
+    $('#copyBtn').addEventListener('click', function () {
+      var t = 'SOL Mathe ' + CFG.jahrgang + ' · Modul ' + MOD.id + ' ' + MOD.title + '\nLerncode: ' + p.lerncode + ' (' + p.klasse + ')\nBearbeitet: ' + p.bearbeitungsstand + ' %\nTest: ' + p.test_punkte + '/' + p.test_max + '\nÜbungen: ' + p.uebungen_geloest + '/' + p.uebungen_gesamt + '\nTipps: ' + p.tipps_genutzt;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { fb('#sendFb', 'Zusammenfassung kopiert.', 'good'); }, function () { prompt('Zum Kopieren markieren:', t); });
+    });
+  };
+  function isLive() { return /(?:edmundbruns\.com|pages\.dev)$/.test(location.hostname); }
+  function send() {
+    if (!S.started || !normCode(S.lerncode) || !normKlasse(S.klasse) || !emailOk(S.email)) { go('start'); return fb('#startFb', 'Bitte prüfe Lerncode, Klasse und IServ-Adresse.', 'bad'); }
+    var p = payload(), btn = $('#sendBtn');
+    if (!isLive() || !CFG.endpoint || CFG.endpoint.indexOf('script.google.com') < 0) { console.log('[SOL8] Vorschau, Payload:', p); return fb('#sendFb', 'Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an deine Lehrkraft.', 'hint'); }
+    btn.disabled = true; fb('#sendFb', 'Wird gesendet …', '');
+    window.ebSend(CFG.endpoint, p).then(function (r) {
+      btn.disabled = false;
+      if (r.ok) { S.sent = true; save(); fb('#sendFb', 'Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen.', 'good'); }
+      else fb('#sendFb', 'Nicht gespeichert: ' + esc(r.msg) + ' Dein Stand bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann noch einmal auf Senden.', 'bad');
+    });
+  }
+
+  /* ---------- Start ---------- */
+  (S.slots || []).forEach(function (sl) { revive(sl.task); });
+  if (S.extra) revive(S.extra.task);
+  if (S.test && S.test.items) S.test.items.forEach(revive);
+  buildShell(); progress();
+  var hash = (location.hash || '').slice(1);
+  var startSec = SECTIONS.some(function (s) { return s[0] === hash; }) ? hash : (S.started ? S.sec : 'start');
+  show(S.started ? startSec : 'start');
+  window.SOL8 = { state: function () { return S; }, payload: payload, checkInput: checkInput, gen: gen };
+})();
+
+</script>
+</body>
+</html>

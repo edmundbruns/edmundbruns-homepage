@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <script>try{var d=document.documentElement,s=localStorage;if(s.getItem('eb-theme')==='dark')d.dataset.theme='dark';if(s.getItem('eb-reading')==='easy')d.dataset.reading='easy';}catch(e){}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodenmodul Quellenarbeit | Dr. Edmund Bruns</title>
+  <meta name="description" content="SOL-Methodenmodul Quellenarbeit für Klasse 5 bis 10: Quellen und Darstellungen unterscheiden, Quellenarten, fünf Schritte, Perspektive und Glaubwürdigkeit.">
+  <link rel="canonical" href="https://www.edmundbruns.com/geschichte/quellenarbeit/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dr. Edmund Bruns">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Methodenmodul Quellenarbeit | Dr. Edmund Bruns">
+  <meta property="og:description" content="SOL-Methodenmodul Quellenarbeit für Klasse 5 bis 10: Quellen und Darstellungen unterscheiden, Quellenarten, fünf Schritte, Perspektive und Glaubwürdigkeit.">
+  <meta property="og:url" content="https://www.edmundbruns.com/geschichte/quellenarbeit/">
+  <meta property="og:image" content="https://www.edmundbruns.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#14292c">
+  <link rel="manifest" href="../../manifest.html">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/eb-extra.css">
+  <style>:root{ --accent:#7a4b2a; --accent-soft:#f1e2d4; }</style>
+<style>
+.q-app{max-width:900px}
+.q-panel{background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:22px 24px;margin:16px 0}
+.q-panel h2{margin-top:0}
+.q-hidden{display:none!important}
+.q-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.q-field label{display:block;font-weight:700;margin-bottom:4px}
+.q-field input,.q-field select,.q-app textarea{width:100%;padding:.65rem .8rem;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff;color:#14292c}
+.q-ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0}
+.q-way{border:2px solid var(--line);border-radius:16px;padding:12px 14px;cursor:pointer;background:#fff;text-align:left;font:inherit;color:#14292c}
+.q-way[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.q-way b{display:block}
+.q-progress{height:10px;background:var(--paper-2);border-radius:99px;overflow:hidden;margin:6px 0 2px}
+.q-progress i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.q-task{border-top:1px solid var(--line);padding-top:16px;margin-top:16px}
+.q-task h3{margin:0 0 6px}
+.q-opts{display:grid;gap:8px;margin:10px 0}
+.q-opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;color:#14292c}
+.q-opt input{margin-top:4px}
+.q-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--line)}
+.q-row select{padding:.5rem;border-radius:10px;border:1px solid var(--line);font:inherit}
+.q-fb{margin-top:8px;padding:10px 12px;border-radius:12px;font-weight:600}
+.q-fb.ok{background:#e1f2e6;color:#1d5a32}.q-fb.no{background:#fbe9e3;color:#8a3a22}
+.q-source{background:#fffaf0;border-left:5px solid var(--gold);padding:14px 18px;border-radius:0 14px 14px 0;font-family:Georgia,serif;line-height:1.6;color:#14292c}
+.q-source small{display:block;font-family:inherit;color:#6b5b3e;margin-top:6px}
+.q-steps5{counter-reset:s;list-style:none;padding:0;display:grid;gap:8px}
+.q-steps5 li{counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px 10px 52px;position:relative;color:#14292c}
+.q-steps5 li::before{content:counter(s);position:absolute;left:12px;top:9px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:800}
+.q-help{font-size:.92rem;color:var(--muted)}
+.q-nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.q-err{color:#a1381f;font-weight:700;margin-top:8px}
+.q-check{background:var(--accent-soft);border:1px solid var(--line);border-radius:18px;padding:16px 20px}
+pre.q-pre{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.82rem;max-height:240px;overflow:auto;color:#14292c}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <header class="site-header" id="siteHeader">
+    <nav class="nav shell" aria-label="Hauptnavigation">
+      <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">EB</span><span>Dr. Edmund Bruns</span></a>
+      <a class="nav-home" href="../../index.html"><svg class="home-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Startseite</span></a>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+    <nav class="eb-bc shell" aria-label="Brotkrumen"><a href="../../index.html">Start</a> <span aria-hidden="true">›</span> <a href="../../geschichte/index.html">Geschichte</a></nav>
+    <section class="page-hero shell">
+      <div class="eyebrow">SOL Geschichte · Methodenmodul · Klasse 5 bis 10</div>
+      <h1>Quellen <em>befragen.</em></h1>
+      <p class="lead">Woher wissen wir, was früher war? In diesem Modul lernst du, Quellen zu erkennen, zu untersuchen und kritisch zu beurteilen. Drei Lernwege machen es für jeden Jahrgang passend.</p>
+    </section>
+    
+
+<section class="section tight"><div class="shell q-app">
+
+<!-- 1 Start -->
+<div class="q-panel" id="pStart">
+  <h2>Los geht's</h2>
+  <p>In diesem Modul lernst du, wie Historikerinnen und Historiker mit Quellen arbeiten. Du brauchst etwa 45 bis 60 Minuten. Dein Stand wird auf diesem Gerät gespeichert.</p>
+  <div class="q-grid">
+    <div class="q-field"><label for="name">Name *</label><input id="name" autocomplete="name" required></div>
+    <div class="q-field"><label for="klasse">Klasse *</label><input id="klasse" placeholder="z. B. 7b" required></div>
+    <div class="q-field"><label for="email">E-Mail-Adresse *</label><input id="email" type="email" autocomplete="email" required></div>
+  </div>
+  <p style="margin:16px 0 4px"><strong>Wähle deinen Lernweg:</strong></p>
+  <div class="q-ways" id="ways">
+    <button type="button" class="q-way" data-way="basis" aria-pressed="false"><b>Basis</b><span class="q-help">für Klasse 5 und 6, mit vielen Hilfen</span></button>
+    <button type="button" class="q-way" data-way="aufbau" aria-pressed="false"><b>Aufbau</b><span class="q-help">für Klasse 7 und 8</span></button>
+    <button type="button" class="q-way" data-way="experte" aria-pressed="false"><b>Experte</b><span class="q-help">für Klasse 9 und 10, weniger Hilfen</span></button>
+  </div>
+  <div class="q-nav"><button class="btn" id="startBtn" type="button">Start: zur Einführung →</button></div>
+  <div class="q-err" id="startError" role="alert"></div>
+</div>
+
+<!-- 2 Einführung -->
+<div class="q-panel q-hidden" id="pIntro">
+  <h2>Einführung: Woher wissen wir, was früher war?</h2>
+  <p>Niemand von uns war im alten Rom oder im Mittelalter dabei. Trotzdem wissen wir viel darüber. Das verdanken wir <strong>Quellen</strong>.</p>
+  <div class="eb-box info"><strong>Quelle oder Darstellung?</strong>
+    <p><b>Quellen</b> stammen aus der Zeit, um die es geht: ein Brief, eine Münze, ein Foto, eine Burg, die Erzählung einer Zeitzeugin.</p>
+    <p><b>Darstellungen</b> wurden später über die Vergangenheit geschrieben oder gemacht: dein Schulbuch, ein Lexikonartikel, ein Dokumentarfilm, ein Historienroman.</p>
+  </div>
+  <h3>Vier Arten von Quellen</h3>
+  <div class="q-grid">
+    <div class="q-panel" style="margin:0"><b>📜 Schriftquellen</b><p class="q-help">Briefe, Urkunden, Tagebücher, Zeitungen, Gesetze</p></div>
+    <div class="q-panel" style="margin:0"><b>🖼 Bildquellen</b><p class="q-help">Gemälde, Fotos, Plakate, Karikaturen, Münzbilder</p></div>
+    <div class="q-panel" style="margin:0"><b>🏺 Sachquellen</b><p class="q-help">Werkzeuge, Kleidung, Gebäude, Ruinen, Alltagsgegenstände</p></div>
+    <div class="q-panel" style="margin:0"><b>🎙 Mündliche Quellen</b><p class="q-help">Erzählungen und Interviews von Zeitzeuginnen und Zeitzeugen</p></div>
+  </div>
+  <h3>Die fünf Schritte der Quellenarbeit</h3>
+  <ol class="q-steps5">
+    <li><b>Beschreiben:</b> Was ist das für eine Quelle? Wer hat sie wann und wo gemacht?</li>
+    <li><b>Einordnen:</b> In welcher Zeit und in welcher Situation ist sie entstanden?</li>
+    <li><b>Untersuchen:</b> Was steht darin oder was ist zu sehen? Was ist die Kernaussage?</li>
+    <li><b>Deuten:</b> Für wen war die Quelle gedacht? Welche Absicht und welche Sichtweise hat die Person, die sie gemacht hat?</li>
+    <li><b>Beurteilen:</b> Wie glaubwürdig ist die Quelle? Was verrät sie uns über unsere Frage, und was nicht?</li>
+  </ol>
+  <div class="eb-box tip"><strong>Merksatz</strong><p>Jede Quelle zeigt die Vergangenheit aus einem bestimmten Blickwinkel. Darum fragen wir immer: Wer spricht hier, und warum?</p></div>
+  <div class="q-nav"><button class="btn" type="button" data-go="pTasks">Weiter zu den Aufgaben →</button></div>
+</div>
+
+<!-- 3 Aufgaben -->
+<div class="q-panel q-hidden" id="pTasks">
+  <h2>Aufgaben</h2>
+  <div class="q-progress" aria-hidden="true"><i id="bar"></i></div>
+  <p class="q-help" id="progText">0 % bearbeitet</p>
+  <div id="tasks"></div>
+  <div class="q-nav"><button class="btn secondary" type="button" data-go="pIntro">← Einführung</button><button class="btn" type="button" data-go="pCheck">Weiter zu Mein Lerncheck →</button></div>
+</div>
+
+<!-- 4 Lerncheck + Ergebnis -->
+<div class="q-panel q-hidden" id="pCheck">
+  <h2>Mein Lerncheck</h2>
+  <div class="q-check" id="checkTasks"></div>
+  <h3 style="margin-top:22px">Wie sicher fühlst du dich jetzt bei der Quellenarbeit?</h3>
+  <div class="q-opts" id="self">
+    <label class="q-opt"><input type="radio" name="self" value="sehr sicher"> Sehr sicher: Ich kann die fünf Schritte allein anwenden.</label>
+    <label class="q-opt"><input type="radio" name="self" value="sicher"> Sicher: Mit der Merkkarte klappt es gut.</label>
+    <label class="q-opt"><input type="radio" name="self" value="teilweise"> Teilweise: Ich brauche noch Hilfe beim Deuten und Beurteilen.</label>
+    <label class="q-opt"><input type="radio" name="self" value="unsicher"> Unsicher: Ich möchte das noch einmal üben.</label>
+  </div>
+
+  <h2 style="margin-top:28px">Ergebnis</h2>
+  <p id="resultText"></p>
+  <div class="q-err q-hidden" id="gapWarn"></div>
+  <details><summary>Diese Daten werden übertragen</summary><pre class="q-pre" id="payloadPreview"></pre></details>
+  <label class="q-opt" style="margin-top:12px"><input type="checkbox" id="confirm"> Ich habe meine Angaben geprüft und möchte meine Ergebnisse zu diesem Modul an meine Lehrkraft senden.</label>
+  <div class="q-nav"><button class="btn secondary" type="button" data-go="pTasks">← Aufgaben</button><button class="btn" type="button" id="submitBtn">Ergebnis senden</button><button class="btn secondary" type="button" onclick="window.print()">Drucken</button></div>
+  <p id="submitStatus" role="status" style="font-weight:600"></p>
+</div>
+
+</div></section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid shell">
+      <div>
+        <div class="footer-title">Geschichte verstehen.</div>
+        <div class="footer-note">Interaktive SOL-Lernpfade für die Oberschule in Niedersachsen.</div>
+      </div>
+      <div class="footer-links">
+        <a href="../../index.html">Start</a>
+        <a href="../../kontakt/index.html">Kontakt</a>
+        <a href="../../impressum/index.html">Impressum</a>
+        <a href="../../datenschutz/index.html">Datenschutz</a>
+      </div>
+    </div>
+    <div class="copyright shell">
+      <span>© <span data-year></span> Dr. Edmund Bruns</span>
+      <span>Soweit nicht anders angegeben: CC BY-NC 4.0</span>
+    </div>
+  </footer>
+
+  <a class="backtop" href="#top" aria-label="Nach oben">↑</a>
+  <script src="../../assets/site.js"></script>
+  <script defer src="../../assets/search.js"></script>
+  <script defer src="../../assets/ux.js"></script>
+<script>
+(function(){
+const CONFIG={googleAppsScriptUrl:'https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec',schemaVersion:'1.1',key:'sol-geschichte-quellenarbeit'};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let state={way:'',started:false,answers:{},judgement:'',self:''};
+
+/* ---------- Aufgaben ---------- */
+const T=[
+ {id:'t1',type:'match',title:'1. Quelle oder Darstellung?',help:{basis:'Tipp: Stammt es aus der Zeit selbst? Dann ist es eine Quelle.',aufbau:'Achte auf das Entstehungsjahr.',experte:''},
+  opts:['Quelle','Darstellung'],rows:[['Eine römische Münze aus dem Jahr 120','Quelle'],['Ein Schulbuchtext von 2022 über die Römer','Darstellung'],['Der Brief eines Soldaten von 1916','Quelle'],['Ein Dokumentarfilm von 2015 über die Burgen im Mittelalter','Darstellung'],['Ein Foto vom Fall der Berliner Mauer 1989','Quelle'],['Ein Jugendroman von 2019, der in der Steinzeit spielt','Darstellung']],comp:'quellenarbeit'},
+ {id:'t2',type:'match',title:'2. Welche Quellenart ist das?',help:{basis:'Schau in der Einführung bei den vier Quellenarten nach.',aufbau:'',experte:''},
+  opts:['Schriftquelle','Bildquelle','Sachquelle','Mündliche Quelle'],rows:[['Ein Faustkeil aus der Steinzeit','Sachquelle'],['Das Tagebuch eines Mädchens von 1944','Schriftquelle'],['Ein Wahlplakat von 1919','Bildquelle'],['Ein Interview mit deiner Großmutter über ihre Schulzeit','Mündliche Quelle'],['Eine Burgruine','Sachquelle'],['Eine Urkunde Karls des Großen','Schriftquelle']],comp:'quellenarbeit'},
+ {id:'t3',type:'order',title:'3. Bringe die fünf Schritte in die richtige Reihenfolge.',help:{basis:'Die Reihenfolge steht in der Einführung.',aufbau:'',experte:''},
+  items:['Beschreiben','Einordnen','Untersuchen','Deuten','Beurteilen'],comp:'methode'},
+ {id:'t4',type:'mc',title:'4. Eine Schriftquelle untersuchen',
+  source:'„Gegen ein Uhr nachmittags zeigte meine Mutter meinem Onkel eine Wolke von ungewöhnlicher Größe und Gestalt. Ihre Form glich am ehesten einer Pinie. Sie stieg wie auf einem sehr hohen Stamm in die Höhe und breitete sich dann wie in Ästen aus. Mal war sie hell, mal schmutzig und fleckig, je nachdem, ob sie Erde oder Asche mit sich trug.“<small>Plinius der Jüngere, Brief an den Geschichtsschreiber Tacitus über den Ausbruch des Vesuvs im Jahr 79 n. Chr. Plinius war damals etwa 17 Jahre alt. Den Brief schrieb er rund 25 Jahre später. Gekürzt und frei übersetzt.</small>',
+  q:'Was beschreibt Plinius in diesem Ausschnitt?',options:['Die Aschewolke beim Ausbruch des Vesuvs','Einen Waldbrand in einem Pinienwald','Ein Gewitter über Rom'],correct:0,help:{basis:'Lies die Angaben unter dem Text: Worum geht es in dem Brief?',aufbau:'',experte:''},comp:'quellenarbeit'},
+ {id:'t5',type:'mc',title:'5. Glaubwürdigkeit beurteilen',q:'Was spricht dafür, dass der Bericht von Plinius glaubwürdig ist, und was schränkt das ein?',
+  options:['Er war Augenzeuge. Er schrieb den Brief aber erst viele Jahre später.','Er war Geschichtsschreiber und konnte deshalb nichts falsch machen.','Er hat alles erfunden, weil er noch jung war.'],correct:0,help:{basis:'Überlege: War er dabei? Wann hat er den Brief geschrieben?',aufbau:'Denke an Nähe zum Ereignis und zeitlichen Abstand.',experte:''},comp:'urteil'},
+ {id:'t6',type:'mc',title:'6. Eine Bildquelle deuten',
+  source:'Beschreibung einer Bildquelle: Ein Wahlplakat aus dem Jahr 1919 zeigt eine Frau, die ihren Stimmzettel in eine Wahlurne wirft. Daneben steht in großen Buchstaben ein Aufruf an die Frauen, zur Wahl zu gehen. 1919 durften Frauen in Deutschland zum ersten Mal wählen.<small>Vereinfachte Beschreibung zum Üben.</small>',
+  q:'Welche Absicht hatten die Menschen, die das Plakat gemacht haben?',options:['Frauen sollten überzeugt werden, ihr neues Wahlrecht zu nutzen.','Das Plakat sollte zeigen, wie eine Wahlurne gebaut ist.','Es sollte Frauen vom Wählen abhalten.'],correct:0,help:{basis:'Plakate wollen fast immer etwas erreichen. Was ruft der Text auf?',aufbau:'',experte:''},comp:'perspektive'},
+ {id:'t7',type:'mc',title:'7. Zwei Sichtweisen vergleichen',
+  source:'Quelle A, ein Grundherr um 1500: „Meine Bauern leben gut. Ich schütze sie, und sie geben mir dafür einen kleinen Teil ihrer Ernte.“<br><br>Quelle B, eine Bittschrift von Bauern um 1500: „Wir müssen so viele Abgaben leisten und so oft auf den Feldern des Herrn arbeiten, dass unsere eigenen Kinder hungern.“<small>Erfundene Beispiele zum Üben, angelehnt an typische Quellen der Zeit.</small>',
+  q:'Warum berichten die beiden Quellen so unterschiedlich?',options:['Grundherr und Bauern hatten unterschiedliche Interessen und sahen dieselbe Lage aus verschiedenen Blickwinkeln.','Eine der beiden Quellen muss gefälscht sein.','Die Bauern konnten nicht schreiben, deshalb ist Quelle B unwichtig.'],correct:0,help:{basis:'Überlege: Wer profitiert von den Abgaben, wer muss sie leisten?',aufbau:'',experte:''},comp:'perspektive'},
+ {id:'t8',type:'text',title:'8. Deine Quelle für die Zukunft',
+  q:{basis:'Wähle einen Gegenstand aus deinem Alltag, der in 100 Jahren eine Quelle sein könnte, zum Beispiel ein Handy, ein Zeugnis oder ein Foto. Beschreibe ihn und schreibe auf, was Menschen in 100 Jahren daraus über unsere Zeit erfahren könnten. (mindestens 100 Zeichen)',
+     aufbau:'Wähle einen Gegenstand aus deinem Alltag, der in 100 Jahren eine Quelle sein könnte. Wende die fünf Schritte an: Beschreibe ihn, ordne ihn ein und erkläre, was künftige Historikerinnen daraus erfahren könnten und was nicht. (mindestens 100 Zeichen)',
+     experte:'Wähle eine heutige Quelle, zum Beispiel einen Social-Media-Beitrag, ein Werbeplakat oder eine Nachrichtensendung. Erläutere mit den fünf Schritten, welche Aussagekraft und welche Grenzen sie für Historiker in 100 Jahren hätte. (mindestens 100 Zeichen)'},comp:'urteil'}
+];
+const CHECK=[
+ {id:'c1',type:'mc',q:'Welche der folgenden ist eine Quelle zur Zeit der Römer?',options:['Ein Mosaik aus einer römischen Villa','Ein Kinofilm über Gladiatoren','Ein Lexikonartikel über Rom'],correct:0},
+ {id:'c2',type:'mc',q:'In welchem Schritt fragst du nach Absicht und Sichtweise?',options:['Beschreiben','Deuten','Einordnen'],correct:1},
+ {id:'c3',type:'mc',q:'Warum sollte man mehrere Quellen zu einem Ereignis vergleichen?',options:['Weil jede Quelle nur einen Blickwinkel zeigt','Weil alte Quellen immer falsch sind','Weil eine Quelle allein zu kurz ist'],correct:0}
+];
+const REQ=T.map(t=>t.id).concat(CHECK.map(c=>c.id));
+
+/* ---------- Rendering ---------- */
+function shuffleOnce(arr,seed){const a=arr.slice();let s=seed;for(let i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;const j=Math.floor(s/233280*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function helpFor(t){const h=t.help&&t.help[state.way||'basis'];return h?`<p class="q-help">💡 ${h}</p>`:''}
+function fb(id){const a=state.answers[id];if(!a)return'';return `<div class="q-fb ${a.correct?'ok':'no'}">${a.correct?'Richtig!':(a.msg||'Noch nicht ganz. Versuche es noch einmal.')}</div>`}
+function renderTask(t){
+  let h=`<div class="q-task" id="w_${t.id}"><h3>${t.title}</h3>`;
+  if(t.source)h+=`<div class="q-source">${t.source}</div>`;
+  if(t.type==='match'){h+=helpFor(t);h+=t.rows.map((r,i)=>`<div class="q-row"><span>${r[0]}</span><select data-t="${t.id}" data-i="${i}" aria-label="${r[0]}"><option value="">bitte wählen</option>${t.opts.map(o=>`<option${(state.answers[t.id]?.val||[])[i]===o?' selected':''}>${o}</option>`).join('')}</select></div>`).join('');h+=`<div class="q-nav"><button class="btn small" type="button" data-check="${t.id}">Prüfen</button></div>`}
+  if(t.type==='order'){const cur=state.answers[t.id]?.val||shuffleOnce(t.items,7);h+=helpFor(t)+`<p class="q-help">Wähle für jede Position den passenden Schritt.</p>`;h+=t.items.map((_,i)=>`<div class="q-row"><span>Schritt ${i+1}</span><select data-t="${t.id}" data-i="${i}"><option value="">bitte wählen</option>${t.items.map(o=>`<option${(state.answers[t.id]?.val||[])[i]===o?' selected':''}>${o}</option>`).join('')}</select></div>`).join('');h+=`<div class="q-nav"><button class="btn small" type="button" data-check="${t.id}">Prüfen</button></div>`}
+  if(t.type==='mc'){h+=`<p><strong>${t.q}</strong></p>`+helpFor(t);h+='<div class="q-opts">'+t.options.map((o,i)=>`<label class="q-opt"><input type="radio" name="${t.id}" value="${i}"${state.answers[t.id]?.val==i?' checked':''}> ${o}</label>`).join('')+'</div>'}
+  if(t.type==='text'){h+=`<p>${t.q[state.way||'basis']}</p><textarea id="judgement" rows="6">${esc(state.judgement)}</textarea><p class="q-help" id="jCount"></p>`}
+  return h+`<div id="fb_${t.id}">${fb(t.id)}</div></div>`;
+}
+function esc(s){return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function render(){
+  $('#tasks').innerHTML=T.map(renderTask).join('');
+  $('#checkTasks').innerHTML=CHECK.map((c,k)=>`<div class="q-task" style="${k?'':'border:0;margin-top:0;padding-top:0'}"><p><strong>${k+1}. ${c.q}</strong></p><div class="q-opts">${c.options.map((o,i)=>`<label class="q-opt"><input type="radio" name="${c.id}" value="${i}"${state.answers[c.id]?.val==i?' checked':''}> ${o}</label>`).join('')}</div><div id="fb_${c.id}">${fb(c.id)}</div></div>`).join('');
+  bind();refresh();
+}
+function bind(){
+  $$('[data-check]').forEach(b=>b.onclick=()=>{const t=T.find(x=>x.id===b.dataset.check);const sels=$$(`select[data-t="${t.id}"]`);const val=sels.map(s=>s.value);
+    if(val.some(v=>!v)){$('#fb_'+t.id).innerHTML='<div class="q-fb no">Bitte wähle überall etwas aus.</div>';return}
+    const sol=t.type==='match'?t.rows.map(r=>r[1]):t.items;const wrong=val.filter((v,i)=>v!==sol[i]).length;
+    state.answers[t.id]={val,correct:wrong===0,msg:wrong?`${wrong} ${wrong===1?'Zuordnung ist':'Zuordnungen sind'} noch nicht richtig.`:''};$('#fb_'+t.id).innerHTML=fb(t.id);refresh()});
+  $$('#tasks input[type=radio], #checkTasks input[type=radio]').forEach(r=>r.onchange=()=>{const all=T.concat(CHECK);const t=all.find(x=>x.id===r.name);state.answers[t.id]={val:+r.value,correct:+r.value===t.correct,msg:'Noch nicht richtig. Lies die Quelle noch einmal genau.'};$('#fb_'+t.id).innerHTML=fb(t.id);refresh()});
+  const j=$('#judgement');if(j)j.oninput=()=>{state.judgement=j.value;if(j.value.trim().length>=100)state.answers.t8={val:'text',correct:true};else delete state.answers.t8;refresh()};
+  $$('#self input').forEach(r=>{r.checked=r.value===state.self;r.onchange=()=>{state.self=r.value;refresh()}});
+}
+function progress(){const done=REQ.filter(k=>state.answers[k]).length+(state.self?1:0);return Math.round(done/(REQ.length+1)*100)}
+function score(){return T.filter(t=>t.type!=='text').filter(t=>state.answers[t.id]?.correct).length}
+function normKl(k){const m=String(k).toLowerCase().replace(/[^a-z0-9]/g,'').match(/(10|[5-9])([a-z]?)$/);return m?m[1]+m[2]:''}
+function jg(k){const m=normKl(k).match(/^(10|[5-9])/);return m?m[1]:''}
+function uuid(){return (crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2))}
+function payload(){const missing=REQ.filter(x=>!state.answers[x]);if(!state.self)missing.push('selbsteinschaetzung');
+  const ok=id=>state.answers[id]?.correct?1:0;
+  return{schema_version:CONFIG.schemaVersion,fach:'Geschichte',jahrgang:jg($('#klasse').value),modul_id:'099',modul_titel:'Methodenmodul Quellenarbeit',name:$('#name').value.trim(),klasse:normKl($('#klasse').value)||$('#klasse').value.trim(),email:$('#email').value.trim(),lernweg:state.way,bearbeitungsstand:progress(),pflichtaufgaben:state.answers,
+  kompetenzen:{quellenarbeit:ok('t1')+ok('t2')+ok('t4'),methode:ok('t3'),perspektivitaet:ok('t6')+ok('t7'),historisches_urteil:ok('t5')+(state.judgement.trim().length>=100?1:0)},
+  abschlusstest_punkte:CHECK.filter(c=>state.answers[c.id]?.correct).length,abschlusstest_max:CHECK.length,selbsteinschaetzung:state.self,freitexte:{quelle_der_zukunft:state.judgement},fehlende_bereiche:missing,zeitstempel_client:new Date().toISOString(),abgabe_id:uuid(),hosting_modus:'cloudflare'}}
+function refresh(){const p=progress();$('#bar').style.width=p+'%';$('#progText').textContent=p+' % bearbeitet';const jc=$('#jCount');if(jc)jc.textContent=state.judgement.trim().length+' von mindestens 100 Zeichen';
+  const d=payload();$('#resultText').textContent=`Du hast ${p} % bearbeitet. In den Aufgaben hast du ${score()} von 7 richtig gelöst, im Lerncheck ${d.abschlusstest_punkte} von ${d.abschlusstest_max}.`;
+  $('#payloadPreview').textContent=JSON.stringify({...d,email:'••••••'},null,2);$('#gapWarn').classList.toggle('q-hidden',!d.fehlende_bereiche.length);$('#gapWarn').textContent=d.fehlende_bereiche.length?'Noch offen: '+d.fehlende_bereiche.join(', '):'';save()}
+function save(){try{localStorage.setItem(CONFIG.key,JSON.stringify({...state,name:$('#name').value,klasse:$('#klasse').value,email:$('#email').value}))}catch(e){}}
+function load(){try{const d=JSON.parse(localStorage.getItem(CONFIG.key)||'null');if(d){state={...state,...d};$('#name').value=d.name||'';$('#klasse').value=d.klasse||'';$('#email').value=d.email||''}}catch(e){}}
+function show(id){['pStart','pIntro','pTasks','pCheck'].forEach(p=>$('#'+p).classList.toggle('q-hidden',p!==id));window.scrollTo({top:$('#'+id).offsetTop-90,behavior:'smooth'})}
+
+/* ---------- Start ---------- */
+load();
+$$('.q-way').forEach(b=>{b.setAttribute('aria-pressed',b.dataset.way===state.way);b.onclick=()=>{state.way=b.dataset.way;$$('.q-way').forEach(x=>x.setAttribute('aria-pressed',x===b));render()}});
+$('#startBtn').onclick=()=>{const n=$('#name').value.trim(),k=$('#klasse').value.trim(),e=$('#email').value.trim();
+  if(!n||!k||!e){$('#startError').textContent='Bitte fülle Name, Klasse und E-Mail-Adresse aus.';return}
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){$('#startError').textContent='Bitte gib eine gültige E-Mail-Adresse ein.';return}
+  if(!jg(k)){$('#startError').textContent='Bitte gib deine Klasse mit Jahrgang an, zum Beispiel 7b.';return}$('#klasse').value=normKl(k);
+  if(!state.way){$('#startError').textContent='Bitte wähle einen Lernweg.';return}
+  state.started=true;$('#startError').textContent='';render();show('pIntro')};
+$$('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go));
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g&&!g.onclick)show(g.dataset.go)});
+$('#submitBtn').onclick=async()=>{if(!$('#confirm').checked){$('#submitStatus').textContent='Bitte bestätige zuerst, dass du deine Angaben geprüft hast.';return}
+  const d=payload();if(d.fehlende_bereiche.length&&!confirm('Es sind noch nicht alle Bereiche bearbeitet. Trotzdem senden?'))return;
+  $('#submitStatus').textContent='Übermittlung läuft …';
+  try{const r=await ebSend(CONFIG.googleAppsScriptUrl,d);
+    $('#submitStatus').textContent=r.ok?`Gespeichert ✓ ${d.bearbeitungsstand} % bearbeitet, ${d.abschlusstest_punkte} von ${d.abschlusstest_max} Punkten im Lerncheck. Deine Abgabe ist bei deiner Lehrkraft angekommen.`:'Nicht gespeichert: '+r.msg+' Dein Stand bleibt auf diesem Gerät. Prüfe deine Angaben und sende noch einmal.';}
+  catch(err){$('#submitStatus').textContent='Die Übermittlung hat nicht funktioniert. Dein Lernstand bleibt auf diesem Gerät gespeichert. Bitte versuche es später erneut.'}};
+['name','klasse','email'].forEach(id=>$('#'+id).addEventListener('input',save));
+render();
+})();
+</script>
+</body>
+</html>

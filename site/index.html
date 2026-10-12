@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<!-- Mirrored from bruns-homepage.pages.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Aug 2026 17:18:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <script>try{var d=document.documentElement,s=localStorage;if(s.getItem('eb-theme')==='dark')d.dataset.theme='dark';if(s.getItem('eb-reading')==='easy')d.dataset.reading='easy';}catch(e){}</script>
+  <link rel="manifest" href="manifest.html">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dr. Edmund Bruns. Digitale Lernräume, Schulsozialarbeit, Mathematik, Geschichte, Schach, Rätsel und Werkstattprojekte.">
+  <link rel="canonical" href="https://www.edmundbruns.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dr. Edmund Bruns">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Dr. Edmund Bruns | Bildung, Praxis und Ideen">
+  <meta property="og:description" content="Digitale Lernräume und Werkzeuge aus schulischer Praxis.">
+  <meta property="og:url" content="https://www.edmundbruns.com/">
+  <meta property="og:image" content="https://www.edmundbruns.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f4f1e8">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Dr. Edmund Bruns | Bildung, Praxis und Ideen</title>
+
+  <style>
+    :root {
+      --ink: #18302c;
+      --ink-soft: #394b45;
+      --paper: #f4f1e8;
+      --paper-green: #edf2ec;
+      --cream: #fffdf8;
+      --line: rgba(24,48,44,.15);
+      --muted: #697771;
+      --green: #405d28;
+      --green-soft: #e7ecd9;
+      --gold: #a55a12;
+      --gold-soft: #f4e6d2;
+      --shadow: 0 18px 50px rgba(38, 53, 44, .10);
+      --radius: 20px;
+      --max: 1300px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 82% 7%, rgba(132,159,103,.14), transparent 23rem),
+        radial-gradient(circle at 10% 18%, rgba(202,167,109,.13), transparent 25rem),
+        linear-gradient(180deg, #f8f5ed 0%, #f2f2e9 55%, #edf1ec 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    /* Dynamische Tageszeit-Begruessung */
+    .greeting{ font-family: Georgia, serif; font-style: italic; font-size: 1.08rem; color: var(--gold); margin: 0 0 12px; opacity: 0; transform: translateY(5px); transition: opacity .7s ease, transform .7s ease; }
+    .greeting.show{ opacity: 1; transform: none; }
+    body{ transition: background 1.4s ease; }
+    body.tod-morning{ background:
+        radial-gradient(circle at 82% 7%, rgba(255,205,120,.20), transparent 24rem),
+        radial-gradient(circle at 10% 18%, rgba(202,167,109,.13), transparent 25rem),
+        linear-gradient(180deg, #fbf6ea 0%, #f4f1e6 55%, #eef2ec 100%); }
+    body.tod-day{ background:
+        radial-gradient(circle at 82% 7%, rgba(132,159,103,.14), transparent 23rem),
+        radial-gradient(circle at 10% 18%, rgba(202,167,109,.13), transparent 25rem),
+        linear-gradient(180deg, #f8f5ed 0%, #f2f2e9 55%, #edf1ec 100%); }
+    body.tod-evening{ background:
+        radial-gradient(circle at 80% 6%, rgba(233,150,96,.20), transparent 26rem),
+        radial-gradient(circle at 8% 20%, rgba(180,120,90,.12), transparent 26rem),
+        linear-gradient(180deg, #f7f0e8 0%, #f2ece6 55%, #edeef0 100%); }
+    body.tod-night{ background:
+        radial-gradient(circle at 70% 6%, rgba(90,110,170,.16), transparent 26rem),
+        radial-gradient(circle at 10% 20%, rgba(120,130,160,.10), transparent 26rem),
+        linear-gradient(180deg, #eef1f2 0%, #eceef1 55%, #e8ecf1 100%); }
+    @media (prefers-reduced-motion: reduce){ .greeting{ transition:none; } body{ transition:none; } }
+
+    a { color: inherit; }
+    a, button { -webkit-tap-highlight-color: transparent; }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: -5rem;
+      z-index: 999;
+      padding: .8rem 1rem;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      transition: top .2s;
+    }
+
+    .skip-link:focus { top: 1rem; }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(248,245,237,.88);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      aspect-ratio: 1;
+      border-right: 1px solid var(--line);
+      padding-right: 14px;
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--green);
+    }
+
+    .brand-name {
+      font-family: Georgia, serif;
+      font-size: 1.22rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 1rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      height: 2px;
+      background: var(--green);
+      transition: right .2s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      right: 0;
+    }
+
+    .nav-utility {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: 12px;
+    }
+
+    .nav-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(255,255,255,.45);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .menu-button {
+      display: none;
+      margin-left: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,.7);
+      color: var(--ink);
+      padding: .65rem .8rem;
+      font: inherit;
+      font-weight: 800;
+    }
+
+    .hero {
+      padding: 46px 0 20px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(440px, 1.05fr);
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      margin: 0 0 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.9rem, 6.8vw, 6.7rem);
+      font-weight: 500;
+      line-height: .95;
+      letter-spacing: -.05em;
+    }
+
+    .hero h1 em {
+      position: relative;
+      display: inline-block;
+      color: #1f6d67;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .hero h1 em::after {
+      content: "";
+      position: absolute;
+      left: 1%;
+      right: -2%;
+      bottom: -.08em;
+      height: .09em;
+      border-radius: 999px;
+      background: #d4ac5f;
+      transform: rotate(-.8deg);
+      opacity: .95;
+    }
+
+
+    .hero-copy {
+      max-width: 640px;
+      margin-bottom: 24px;
+      color: var(--ink-soft);
+      font-family: Georgia, serif;
+      font-size: clamp(1.08rem, 1.5vw, 1.28rem);
+      line-height: 1.65;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: .78rem 1.1rem;
+      border-radius: 10px;
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(64,93,40,.18);
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 370px;
+      overflow: hidden;
+    }
+
+    .botanical-wash {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 58% 54%, rgba(187,200,165,.25), transparent 17rem),
+        radial-gradient(circle at 80% 45%, rgba(194,179,143,.16), transparent 16rem),
+        linear-gradient(135deg, transparent 0 48%, rgba(103,130,85,.08) 49% 51%, transparent 52%);
+      border-radius: 40% 60% 50% 50% / 52% 45% 55% 48%;
+    }
+
+    .botanical-wash::before,
+    .botanical-wash::after {
+      content: "❧";
+      position: absolute;
+      color: rgba(64,93,40,.18);
+      font-family: Georgia, serif;
+      font-size: 10rem;
+      transform: rotate(-18deg);
+    }
+
+    .botanical-wash::before { left: 4%; bottom: 0; }
+    .botanical-wash::after { right: 4%; top: 7%; transform: rotate(18deg) scaleX(-1); }
+
+    .orbit {
+      position: absolute;
+      inset: 8% 10%;
+      border: 1px dashed rgba(64,93,40,.22);
+      border-radius: 50%;
+    }
+
+    .seal {
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      z-index: 3;
+      width: 190px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      border: 8px double rgba(165,90,18,.45);
+      border-radius: 50%;
+      background: rgba(250,245,229,.96);
+      color: #2d2d22;
+      box-shadow: 0 14px 40px rgba(82,68,38,.18);
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .seal span {
+      font-family: Georgia, serif;
+      font-size: 1.65rem;
+      line-height: 1.1;
+    }
+
+    .seal small {
+      position: absolute;
+      bottom: 30px;
+      color: rgba(64,93,40,.65);
+      font-size: 1.25rem;
+    }
+
+    .hero-label {
+      position: absolute;
+      z-index: 4;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 162px;
+      padding: 14px 18px;
+      border: 1px solid rgba(74,74,49,.15);
+      border-radius: 14px;
+      background: rgba(255,253,248,.92);
+      box-shadow: var(--shadow);
+      font-family: Georgia, serif;
+      font-size: 1.08rem;
+    }
+
+    .hero-label b { font-size: 1.45rem; color: #77714c; }
+    .hero-label.one { top: 2%; left: 48%; }
+    .hero-label.two { top: 27%; left: 12%; }
+    .hero-label.three { top: 25%; right: 2%; }
+    .hero-label.four { bottom: 0; left: 44%; }
+
+    .cards-section {
+      padding: 16px 0 28px;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .portal-card {
+      position: relative;
+      display: flex;
+      min-height: 240px;
+      flex-direction: column;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.88);
+      box-shadow: 0 10px 26px rgba(45,58,51,.07);
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+
+    .portal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(45,58,51,.12);
+    }
+
+    .portal-card.new {
+      border-color: rgba(165,90,18,.7);
+      background: linear-gradient(180deg, #fffaf2 0%, #fffdf8 100%);
+      box-shadow: 0 12px 30px rgba(165,90,18,.11);
+    }
+
+    .new-ribbon {
+      position: absolute;
+      top: 10px;
+      left: -36px;
+      width: 112px;
+      padding: 5px 0;
+      background: var(--gold);
+      color: white;
+      text-align: center;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      transform: rotate(-45deg);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 14px;
+    }
+
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      aspect-ratio: 1;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 1.65rem;
+    }
+
+    .portal-card.new .card-icon {
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .portal-card h2 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    .portal-card p {
+      margin: 0 0 14px;
+      color: var(--ink-soft);
+      font-size: .92rem;
+      line-height: 1.45;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      padding: 4px 8px;
+      border-radius: 5px;
+      background: #edf0df;
+      color: #66705d;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    .portal-card.new .tag {
+      background: #f5ead7;
+      color: #7c5a31;
+    }
+
+    .portal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      color: var(--ink);
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-weight: 700;
+    }
+
+    .portal-card.new .portal-link { color: var(--gold); }
+
+    .interesting {
+      padding: 26px 0 72px;
+    }
+
+    .interesting-box {
+      display: grid;
+      grid-template-columns: .9fr 1.6fr;
+      gap: 28px;
+      align-items: stretch;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,253,248,.76);
+      box-shadow: 0 10px 30px rgba(41,55,47,.06);
+    }
+
+    .interesting-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 10px;
+    }
+
+    .star {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--green);
+      color: #f0d786;
+      font-size: 1.4rem;
+      flex: 0 0 auto;
+    }
+
+    .interesting-title h2 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    .interesting-title p {
+      margin: 2px 0 0;
+      color: var(--muted);
+    }
+
+    .interesting-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .feature-link {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px 28px;
+      gap: 18px;
+      align-items: center;
+      padding: 20px 16px;
+      border-left: 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+    }
+
+    .feature-link:last-child {
+      border-bottom: 0;
+    }
+
+    .feature-link:hover {
+      background: rgba(255,255,255,.45);
+    }
+
+    .feature-link .badge {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 6px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--gold);
+      color: white;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .feature-link time {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green);
+      font-size: .75rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .feature-link strong {
+      display: block;
+      margin-bottom: 5px;
+      font-family: Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      line-height: 1.08;
+    }
+
+    .feature-link span {
+      color: var(--ink-soft);
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+
+    .feature-link-arrow {
+      justify-self: end;
+      color: var(--green);
+      font-size: 1.5rem;
+    }
+
+    .feature-link.no-image {
+      grid-template-columns: minmax(0, 1fr) 28px;
+    }
+
+
+    .moor-image {
+      min-height: 118px;
+      border-radius: 12px;
+      background-image: url("assets/moor-feature.webp");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(23,37,31,.08);
+      box-shadow: 0 8px 20px rgba(23,37,31,.08);
+      overflow: hidden;
+    }
+
+
+    .statement {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(76px, 9vw, 125px) 0;
+      color: #edf3f0;
+      background: #14292c;
+    }
+
+    .statement::before {
+      content: "„";
+      position: absolute;
+      top: -88px;
+      right: 2vw;
+      color: rgba(255,255,255,.055);
+      font-family: Georgia, serif;
+      font-size: 34rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .statement-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .quote {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 5.4vw, 5.5rem);
+      font-weight: 500;
+      line-height: 1.01;
+      letter-spacing: -.045em;
+    }
+
+    .quote em {
+      color: #e2bd67;
+      font-style: italic;
+    }
+
+    .statement-copy {
+      color: rgba(255,255,255,.72);
+      font-size: 1.05rem;
+    }
+
+    .statement-copy > p {
+      margin: 0;
+      max-width: 620px;
+    }
+
+    .principles {
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 13px;
+      align-items: start;
+    }
+
+    .principle b {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%;
+      color: #e2bd67;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .principle strong {
+      display: block;
+      margin-bottom: 2px;
+      color: white;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      padding: 58px 0 38px;
+      border-top: 1px solid var(--line);
+      background: rgba(238,243,240,.56);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: end;
+    }
+
+    .footer-title {
+      margin-bottom: 10px;
+      font-family: Georgia, serif;
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: .03em;
+    }
+
+    .copyright {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 46px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .link-warning {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 100;
+      max-width: min(620px, calc(100% - 32px));
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: var(--ink);
+      color: white;
+      box-shadow: var(--shadow);
+      transform: translate(-50%, 140%);
+      transition: transform .25s;
+    }
+
+    .link-warning.show { transform: translate(-50%, 0); }
+
+    @media (max-width: 1080px) {
+      .nav-links, .nav-utility { display: none; }
+      .menu-button { display: inline-flex; }
+
+      .nav.open { flex-wrap: wrap; }
+      .nav.open .nav-links {
+        order: 3;
+        display: grid;
+        width: 100%;
+        gap: 4px;
+        margin: 0;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--cream);
+      }
+
+      .hero-grid,
+      .statement-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .statement-grid {
+        gap: 42px;
+      }
+
+      .hero-art {
+        max-width: 760px;
+        width: 100%;
+        margin-inline: auto;
+      }
+
+      .portal-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .interesting-box {
+        grid-template-columns: 1fr;
+      }
+
+
+    }
+
+    @media (max-width: 700px) {
+      .shell { width: min(calc(100% - 24px), var(--max)); }
+
+      .nav {
+        min-height: 68px;
+        flex-wrap: wrap;
+        gap: 8px;
+        min-width: 0;
+      }
+      header .ebux {
+        order: 3;
+        margin-left: auto !important;
+        flex: 0 0 auto;
+      }
+      .brand-mark { width: 44px; font-size: 1.7rem; }
+      .brand-name { font-size: 1rem; }
+
+      .hero {
+        padding: 34px 0 12px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 15vw, 4.4rem);
+      }
+
+      .hero h1::after {
+        width: 190px;
+      }
+
+      .hero-copy {
+        font-size: 1.02rem;
+      }
+
+      .hero-art {
+        min-height: 240px;
+      }
+
+      .hero-label {
+        min-width: 142px;
+        padding: 11px 13px;
+        font-size: .92rem;
+      }
+
+      .hero-label.one { left: 45%; }
+      .hero-label.two { left: 0; }
+      .hero-label.three { right: 0; }
+      .hero-label.four { left: 38%; }
+
+      .seal {
+        width: 150px;
+        padding: 20px;
+      }
+
+      .seal span { font-size: 1.25rem; }
+
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portal-card {
+        min-height: auto;
+      }
+
+      .feature-link,
+      .feature-link.no-image {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-link-arrow {
+        justify-self: start;
+      }
+
+      .moor-image {
+        min-height: 140px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+
+      .copyright {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 420px) {
+
+      .hero h1 em {
+        white-space: normal;
+      }
+
+      .brand-name { font-size: .92rem; }
+      .hero h1 { font-size: clamp(2.65rem, 14vw, 3.6rem); }
+
+      .hero-art {
+        min-height: 220px;
+      }
+
+      .hero-label {
+        min-width: 126px;
+        max-width: 145px;
+        gap: 8px;
+        padding: 9px 10px;
+        font-size: .82rem;
+      }
+
+      .hero-label b { font-size: 1.15rem; }
+
+      .seal {
+        width: 132px;
+      }
+
+      .seal span { font-size: 1.05rem; }
+
+      .interesting-title h2 {
+        font-size: 1.7rem;
+      }
+
+      .statement {
+        padding: 66px 0;
+      }
+
+      .quote {
+        font-size: clamp(2.65rem, 13vw, 4rem);
+      }
+
+      .statement::before {
+        font-size: 19rem;
+        top: -35px;
+        right: -20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* Dunkelmodus und einfache Ansicht (Startseite) */
+    html[data-theme="dark"]{ --ink:#e7efe9; --paper:#0f1c1a; --paper-green:#0e1a18; --cream:#16241f; --line:rgba(220,235,228,.16); --muted:#9fb2ab; --green:#5cb4a8; --green-soft:#22362f; --gold:#d7b36a; --gold-soft:#2a2419; }
+    html[data-theme="dark"] body{ background: radial-gradient(circle at 82% 7%, rgba(215,179,106,.06), transparent 24rem), radial-gradient(circle at 10% 18%, rgba(92,180,168,.06), transparent 25rem), linear-gradient(180deg,#0f1c1a 0%,#0d1917 55%,#0c1614 100%); }
+    html[data-theme="dark"] body.tod-morning, html[data-theme="dark"] body.tod-day, html[data-theme="dark"] body.tod-evening, html[data-theme="dark"] body.tod-night{ background: linear-gradient(180deg,#0f1c1a 0%,#0d1917 55%,#0c1614 100%); }
+    html[data-theme="dark"] header{ background:rgba(15,28,26,.86); }
+    html[data-theme="dark"] .greeting{ color:var(--gold); }
+    html[data-reading="easy"]{ font-size:110%; }
+    html[data-reading="easy"] .hero-copy{ font-size:1.05em; line-height:1.8; }
+
+    /* Zielgruppen und kuratierte Einstiege */
+    .pathways{padding:56px 0 24px}.section-kicker{margin:0 0 8px;color:var(--green);font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.section-intro{max-width:720px;margin:0 0 24px;color:var(--muted)}
+    .pathway-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.pathway{display:flex;min-height:145px;flex-direction:column;justify-content:space-between;padding:22px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.68);color:var(--ink);text-decoration:none;box-shadow:0 12px 30px rgba(24,48,44,.06);transition:transform .18s,box-shadow .18s,border-color .18s}.pathway:hover,.pathway:focus-visible{transform:translateY(-3px);border-color:var(--green);box-shadow:0 18px 38px rgba(24,48,44,.12)}.pathway-icon{font-size:1.45rem}.pathway strong{display:block;margin:12px 0 4px;font-family:Georgia,serif;font-size:1.15rem}.pathway span:last-child{color:var(--muted);font-size:.9rem}
+    .curated{padding:28px 0 40px}.curated-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.curated-card{padding:24px;border-radius:20px;background:var(--paper);border:1px solid var(--line);box-shadow:0 12px 30px rgba(24,48,44,.06)}.curated-card .badge{display:inline-block;margin-bottom:12px}.curated-card h2{margin:0 0 8px;font-size:1.35rem}.curated-card p{color:var(--muted)}.curated-card a{font-weight:800;color:var(--green)}
+    .finder-callout{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-top:22px;padding:25px;border-radius:20px;background:var(--ink);color:#fff}.finder-callout h2{margin:0 0 6px;font-size:1.45rem}.finder-callout p{margin:0;color:rgba(255,255,255,.75)}.finder-callout a{padding:12px 18px;border-radius:999px;background:var(--gold);color:#172f2b;font-weight:850;text-decoration:none;white-space:nowrap}
+    .practice-note{margin:22px 0 0;padding:18px 20px;border-left:5px solid var(--gold);border-radius:0 14px 14px 0;background:var(--gold-soft)}.practice-note strong{display:block;margin-bottom:4px;color:var(--green)}
+    .hero-jump{display:inline-flex;margin-top:18px;padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.64);color:var(--ink);font-weight:800;text-decoration:none}.hero-jump:hover,.hero-jump:focus-visible{border-color:var(--green);color:var(--green)}
+    @media(max-width:1100px){.curated-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:900px){.pathway-grid{grid-template-columns:repeat(2,1fr)}.curated-grid{grid-template-columns:1fr}.finder-callout{grid-template-columns:1fr}}
+    @media(max-width:540px){.pathway-grid{grid-template-columns:1fr}.pathway{min-height:0}}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Dr. Edmund Bruns – Bildung, Praxis und Ideen","url":"https://www.edmundbruns.com/","description":"Digitale Lernräume, Schulsozialarbeit, Mathematik, Geschichte, Schach, Rätsel und Werkstattprojekte.","inLanguage":"de","author":{"@type":"Person","name":"Dr. Edmund Bruns"}}</script>
+</head>
+
+<body>
+  <a class="skip-link" href="#hauptinhalt">Zum Inhalt springen</a>
+
+  <header id="header">
+    <nav class="nav shell" aria-label="Hauptnavigation">
+      <a class="brand" href="#start" aria-label="Zur Startseite">
+        <span class="brand-mark" aria-hidden="true">EB</span>
+        <span class="brand-name">Dr. Edmund Bruns</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#start">Startseite</a>
+        
+        
+        
+        
+      </div>
+
+      <div class="nav-utility">
+        <a class="nav-chip" data-link="kontakt" href="kontakt/index.html">✉ Kontakt</a>
+      </div>
+
+      <button class="menu-button" id="menuButton" type="button"
+              aria-expanded="false" aria-controls="navLinks">
+        Menü
+      </button>
+    </nav>
+  </header>
+
+  <main id="hauptinhalt">
+    <section class="hero" id="start">
+      <div class="hero-grid shell">
+        <div>
+          <p class="greeting" id="greeting" aria-live="polite"></p>
+          <h1>Bildung<br>braucht<br><em>eigene Wege.</em></h1>
+          <p class="hero-copy">
+            Digitale Lernräume und Werkzeuge aus schulischer Praxis.
+            Verständlich, offen zugänglich und so gebaut, dass sie im Alltag tatsächlich funktionieren.
+          </p>
+        </div>
+
+        <div class="hero-art" aria-label="Illustration verschiedener Arbeitsbereiche">
+          <div class="botanical-wash" aria-hidden="true"></div>
+          <div class="orbit" aria-hidden="true"></div>
+
+          <div class="hero-label one">
+            <b aria-hidden="true">♞</b><span>Schach</span>
+          </div>
+          <div class="hero-label two">
+            <b aria-hidden="true">∑</b><span>Mathematik</span>
+          </div>
+          <div class="hero-label three">
+            <b aria-hidden="true">👥</b><span>Schulsozialarbeit</span>
+          </div>
+          <div class="hero-label four">
+            <b aria-hidden="true">🛠</b><span>Werkstatt</span>
+          </div>
+
+          <div class="seal" aria-hidden="true">
+            <span>Ideen werden<br>Werkzeuge.</span>
+            <small>❦</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pathways shell" aria-label="Material finden">
+      <div class="finder-callout"><div><h2>Material gezielt finden</h2><p>Filtere Angebote nach Zielgruppe, Thema, Jahrgang, Materialart und Format.</p></div><a href="materialfinder/index.html">Materialfinder öffnen →</a></div>
+    </section>
+
+    <section class="curated shell" aria-labelledby="curated-title">
+      <p class="section-kicker">Ausgewählt</p><h2 id="curated-title">Vier gute Wege hinein</h2>
+      <div class="curated-grid">
+        <article class="curated-card" data-featured-card><span class="badge" data-featured-label>Material des Monats · Oktober 2026</span><h2 data-featured-title>Der Klassenrat von Klasse 1 bis 10</h2><p data-featured-description>Praxisheft für Niedersachsen: Ablauf, Rollen, klare Grenzen bei schwierigen Themen, Kopiervorlagen und Material für die Grundschule.</p><p class="mini" data-featured-updated>Stand: 4. Oktober 2026</p><a data-featured-link href="schulsozialarbeit/klassenrat/index.html">Zum Praxisheft →</a></article>
+        <article class="curated-card" data-curated-card><span class="badge" data-curated-label>Empfohlener Einstieg</span><h2 data-curated-title>Schulsozialarbeit verstehen</h2><p data-curated-description>Grundlagen, professionelle Rolle und systematische Lernwege für Studium und Praxis.</p><a data-curated-link href="schulsozialarbeit/index.html#sol">SOL-Lernreihe öffnen →</a></article>
+        <article class="curated-card" data-curated-card><span class="badge" data-curated-label>Direkt einsetzbar</span><h2 data-curated-title>Ludgerus-Schachdiplom</h2><p data-curated-description>Digitaler Lernweg in drei Stufen: Bronze, Silber, Gold. Am Ende steht ein Abschlusstest.</p><a data-curated-link href="https://ludgerus-schachdiplom.netlify.app/" target="_blank" rel="noopener">Diplom starten →</a></article>
+        <article class="curated-card" data-curated-card><span class="badge" data-curated-label>Neues Buch · Oktober 2026</span><h2 data-curated-title>Gut dokumentieren in der Schulsozialarbeit</h2><p data-curated-description>Zwölf Grundsätze, sechs erfundene Fälle und konkrete Anforderungen an Dokumentationssoftware.</p><a data-curated-link href="publikationen/#schulsozialarbeit">Buch ansehen →</a></article>
+      </div>
+      <aside class="practice-note"><strong>Warum diese Auswahl?</strong>Die vier Einstiege verbinden Demokratiebildung, Grundlagenwissen, selbstständiges Lernen und fachliche Dokumentation.</aside>
+    </section>
+
+    <section class="cards-section shell" id="bereiche">
+      <div class="portal-grid">
+
+        <article class="portal-card">
+          <div class="card-head">
+            <span class="card-icon" aria-hidden="true">👥</span>
+            <h2>Schulsozialarbeit</h2>
+          </div>
+          <p>
+            Fachwissen, Fallarbeit, Methoden, Vorlagen und digitale Lernmodule
+            für den konkreten Schulalltag.
+          </p>
+          <div class="tags">
+            <span class="tag">Praxiswissen</span>
+            <span class="tag">SOL-Lernmodule</span>
+            <span class="tag">Methodenkoffer</span>
+          </div>
+          <a class="portal-link" data-link="schulsozialarbeit" href="schulsozialarbeit/index.html">
+            Zum Bereich Schulsozialarbeit <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="portal-card new">
+          <div class="new-ribbon">NEU</div>
+          <div class="card-head">
+            <span class="card-icon" aria-hidden="true">♡</span>
+            <h2>Soziales Lernen</h2>
+          </div>
+          <p>
+            30 aufeinander aufbauende SOL-Module und kurze kooperative Übungen für Schüler:innen der Klassen 5 bis 10.
+            Gefühle, Kommunikation, Konflikte und Beteiligung werden verständlich und sicher bearbeitet.
+          </p>
+          <div class="tags">
+            <span class="tag">Klasse 5–10</span>
+            <span class="tag">Schüler:innen</span>
+            <span class="tag">Interaktiv</span>
+          </div>
+          <a class="portal-link" href="schulsozialarbeit/soziales-lernen/index.html">
+            Zu SOL Soziales Lernen <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="portal-card">
+          <div class="card-head">
+            <span class="card-icon" aria-hidden="true">∑</span>
+            <h2>Mathematik</h2>
+          </div>
+          <p>
+            Curriculumorientierte SOL-Lernpfade für Klasse 5 bis 10, im Aufbau.
+            Bereits verfügbar: Klasse 5 bis 9 mit 140 Modulen. Klasse 10 folgt.
+          </p>
+          <div class="tags">
+            <span class="tag">Klasse 5–10</span>
+            <span class="tag">Selbstlernen</span>
+            <span class="tag">Interaktiv</span>
+          </div>
+          <a class="portal-link" data-link="mathematik" href="mathe/index.html">
+            Zum Bereich Mathematik <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="portal-card new">
+          <div class="new-ribbon">NEU</div>
+          <div class="card-head">
+            <span class="card-icon" aria-hidden="true">⌛</span>
+            <h2>Geschichte &amp;<br>Erinnerung</h2>
+          </div>
+          <p>
+            SOL-Lernpfade für Klasse 5 bis 10, im Aufbau. Bereits verfügbar: Jahrgang 6, 7 und 8
+            vollständig, die ersten fünf Module für Jahrgang 5 und ein Methodenmodul Quellenarbeit für alle Jahrgänge. Dazu digitale
+            Lernreisen zu regionaler Geschichte, Biografien und Erinnerungskultur.
+          </p>
+          <div class="tags">
+            <span class="tag">Klasse 5–10</span>
+            <span class="tag">SOL-Lernpfade</span>
+            <span class="tag">Erinnerungskultur</span>
+          </div>
+          <a class="portal-link" href="geschichte/index.html">
+            Zum Bereich Geschichte <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="portal-card">
+          <div class="card-head">
+            <span class="card-icon" aria-hidden="true">♞</span>
+            <h2>Schach</h2>
+          </div>
+          <p>
+            Schach lernen, trainieren und vermitteln.
+            Vom ersten Zug bis zum strukturierten Schachdiplom.
+          </p>
+          <div class="tags">
+            <span class="tag">Schachdiplom</span>
+            <span class="tag">Training</span>
+            <span class="tag">AG-Material</span>
+          </div>
+          <a class="portal-link" data-link="schach" href="schach/einsteiger/index.html">
+            Zum Bereich Schach <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="portal-card">
+          <div class="card-head">
+            <span class="card-icon" aria-hidden="true">🧩</span>
+            <h2>Rätsel</h2>
+          </div>
+          <p>
+            Knobelaufgaben, Logik und ungewöhnliche Denkwege.
+            Von Schüler:innen für Schüler:innen.
+          </p>
+          <div class="tags">
+            <span class="tag">Logik</span>
+            <span class="tag">Freiarbeit</span>
+            <span class="tag">Denksport</span>
+          </div>
+          <a class="portal-link" data-link="raetsel" href="raetsel/index.html">
+            Zu den Rätseln <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="portal-card">
+          <div class="card-head">
+            <span class="card-icon" aria-hidden="true">🛠</span>
+            <h2>Werkstatt</h2>
+          </div>
+          <p>
+            Holzprojekte, Konstruktionen und Ideen,
+            bei denen Denken durch die Hände geht.
+          </p>
+          <div class="tags">
+            <span class="tag">Holz</span>
+            <span class="tag">DIY</span>
+            <span class="tag">Projekte</span>
+          </div>
+          <a class="portal-link" data-link="werkstatt" href="werkstatt/index.html">
+            Zur Werkstatt <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="portal-card">
+          <div class="card-head">
+            <span class="card-icon" aria-hidden="true">▣</span>
+            <h2>Lehrerzimmer</h2>
+          </div>
+          <p>
+            Schulgeschichten zwischen Logik, Chaos
+            und der pädagogisch fragwürdigen Wirklichkeit.
+          </p>
+          <div class="tags">
+            <span class="tag">Geschichten</span>
+            <span class="tag">Humor</span>
+            <span class="tag">Schulalltag</span>
+          </div>
+          <a class="portal-link" data-link="lehrerzimmer" href="lehrerzimmer/index.html">
+            Zum Lehrerzimmer <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="portal-card">
+          <div class="card-head">
+            <span class="card-icon" aria-hidden="true">▤</span>
+            <h2>Publikationen</h2>
+          </div>
+          <p>
+            Fachtexte, Bücher und Beiträge
+            aus Schulsozialarbeit, Bildung und Schach.
+          </p>
+          <div class="tags">
+            <span class="tag">Fachbücher</span>
+            <span class="tag">Beiträge</span>
+            <span class="tag">Veröffentlichungen</span>
+          </div>
+          <a class="portal-link" data-link="publikationen" href="publikationen/index.html">
+            Zu den Publikationen <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="statement" id="haltung">
+      <div class="statement-grid shell">
+        <blockquote class="quote">
+          Adler steigen keine Treppen. Sie brauchen
+          <em>Raum zum Fliegen.</em>
+        </blockquote>
+
+        <div class="statement-copy">
+          <p>
+            Gute Bildung zwingt nicht alle auf denselben Weg. Sie schafft verständliche Zugänge,
+            lässt Erkundung zu und macht Fortschritt sichtbar.
+          </p>
+
+          <div class="principles">
+            <div class="principle">
+              <b>01</b>
+              <div>
+                <strong>Praxis vor Dekoration</strong>
+                Jede Seite soll tatsächlich nutzbar sein.
+              </div>
+            </div>
+
+            <div class="principle">
+              <b>02</b>
+              <div>
+                <strong>Offen statt abgeschottet</strong>
+                Materialien sollen leicht zugänglich bleiben.
+              </div>
+            </div>
+
+            <div class="principle">
+              <b>03</b>
+              <div>
+                <strong>Eigenständigkeit statt Einheitsweg</strong>
+                Lernen darf unterschiedliche Routen nehmen.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-top shell">
+      <div>
+        <div class="footer-title">Gedacht. Erprobt. Geteilt.</div>
+        <div class="footer-note">Materialien und digitale Werkzeuge von Dr. Edmund Bruns.</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="neu/index.html">Neu</a>
+        <a href="ueber-mich/index.html">Über mich</a>
+        <a data-link="kontakt" href="kontakt/index.html">Kontakt</a>
+        <a data-link="impressum" href="impressum/index.html">Impressum</a>
+        <a data-link="datenschutz" href="datenschutz/index.html">Datenschutz</a>
+      </div>
+    </div>
+
+    <div class="copyright shell">
+      <span>© <span id="year"></span> Edmund Bruns</span>
+      <span>Soweit nicht anders angegeben: CC BY-NC 4.0</span>
+    </div>
+  </footer>
+
+  <script>
+    const LINKS = {
+      schulsozialarbeit: "/schulsozialarbeit/",
+      mathematik:       "/mathe/",
+      schach:           "/schach/einsteiger/",
+      raetsel:          "/raetsel/",
+      werkstatt:        "/werkstatt/",
+      lehrerzimmer:     "/lehrerzimmer/",
+      publikationen:    "/publikationen/",
+      solLernreihe:     "/schulsozialarbeit/#sol",
+      emslandlager:     "https://edmundbruns.github.io/emslandlager/",
+      kontakt:          "/kontakt/",
+      impressum:        "/impressum/",
+      datenschutz:      "/datenschutz/"
+    };
+
+    document.querySelectorAll("[data-link]").forEach(element => {
+      const key = element.dataset.link;
+      const url = LINKS[key];
+
+      if (url) element.href = url;
+      if (url && /^https?:\/\//.test(url)) {
+        element.setAttribute("target", "_blank");
+        element.setAttribute("rel", "noopener");
+      }
+
+    });
+
+    const menuButton = document.getElementById("menuButton");
+    const nav = document.querySelector(".nav");
+
+    menuButton.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.textContent = open ? "Schließen" : "Menü";
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script>
+  (function(){
+    var el = document.getElementById('greeting');
+    var h = new Date().getHours();
+    var tod, msg;
+    if (h >= 5 && h < 11){ tod = 'morning'; msg = 'Guten Morgen.'; }
+    else if (h >= 11 && h < 14){ tod = 'day'; msg = 'Zeit f\u00fcr einen Kaffee?'; }
+    else if (h >= 14 && h < 18){ tod = 'day'; msg = 'Guten Nachmittag.'; }
+    else if (h >= 18 && h < 22){ tod = 'evening'; msg = 'Guten Abend.'; }
+    else { tod = 'night'; msg = 'Sp\u00e4ter Abend-Besuch?'; }
+    document.body.classList.add('tod-' + tod);
+    if (el){ el.textContent = msg; requestAnimationFrame(function(){ el.classList.add('show'); }); }
+  })();
+  </script>
+  <script defer src="assets/featured1b05.js?v=20260728-6"></script>
+  <script defer src="assets/search.js"></script>
+  <script defer src="assets/ux.js"></script>
+</body>
+
+<!-- Mirrored from bruns-homepage.pages.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Aug 2026 17:18:46 GMT -->
+</html>
