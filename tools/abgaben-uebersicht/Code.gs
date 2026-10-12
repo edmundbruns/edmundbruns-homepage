@@ -25,8 +25,10 @@ function onOpen() {
 /** Einmal ausführen: legt alle Blätter, Formeln und die stündliche Aktualisierung an. */
 function einrichten() {
   var ss = SpreadsheetApp.getActive();
-  ss.setSpreadsheetLocale('de_DE');
+  // Formeln werden mit Komma-Trennern geschrieben: dafür kurz auf en_US, am Ende zurück auf de_DE.
+  ss.setSpreadsheetLocale('en_US');
   ss.setSpreadsheetTimeZone('Europe/Berlin');
+  SpreadsheetApp.flush();
   ['Übersicht', 'Matrix Mathe', 'Matrix Geschichte', 'Lernende', 'Nicht fertig', 'Problemstellen', 'Daten', 'Hinweise'].forEach(function (n, i) {
     var sh = ss.getSheetByName(n) || ss.insertSheet(n);
     ss.setActiveSheet(sh); ss.moveActiveSheet(i + 1);
@@ -34,6 +36,9 @@ function einrichten() {
   ss.getSheets().forEach(function (sh) { if (/^(Tabellenblatt|Sheet)\d+$/.test(sh.getName())) ss.deleteSheet(sh); });
   baueDaten_(ss); baueUebersicht_(ss); baueMatrix_(ss, 'Mathe'); baueMatrix_(ss, 'Geschichte');
   baueLernende_(ss); baueNichtFertig_(ss); baueHinweise_(ss);
+  SpreadsheetApp.flush();
+  ss.setSpreadsheetLocale('de_DE');
+  SpreadsheetApp.flush();
   ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'aktualisieren') ScriptApp.deleteTrigger(t); });
   ScriptApp.newTrigger('aktualisieren').timeBased().everyHours(1).create();
   aktualisieren();
