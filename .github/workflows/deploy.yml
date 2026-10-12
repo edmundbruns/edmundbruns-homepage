@@ -1,4 +1,5 @@
 name: Homepage veröffentlichen
+# Veröffentlicht site/ automatisch auf Cloudflare Pages, sobald sich dort etwas ändert.
 
 on:
   push:
