@@ -159,12 +159,14 @@ function baueUebersicht_(ss) {
   sh.getRange('B14').setNumberFormat('dd.mm.yyyy hh:mm');
   sh.getRange('A16').setValue('Stand je Klasse').setFontWeight('bold').setFontSize(12).setFontColor(FARBE);
   sh.getRange('A17').setValue('Rot: Ø Test unter etwa 50 %, Grün: sicher. Gute Grundlage für Gespräche mit Klassen- und Fachlehrkräften.').setFontColor('#666666').setFontStyle('italic');
-  sh.getRange('A18').setFormula('=IFERROR(QUERY(Daten!A2:M,"select A, B, C, count(D), avg(K), avg(J), max(L) where A <> \'\'' + BED + ' group by A, B, C order by A, B, C label A \'Fach\', B \'Jg.\', C \'Klasse\', count(D) \'Abgaben\', avg(K) \'Ø Test %\', avg(J) \'Ø bearbeitet %\', max(L) \'Letzte Abgabe\' format avg(K) \'0\', avg(J) \'0\', max(L) \'dd.mm.yyyy\'",0),"Noch keine Abgaben")');
+  sh.getRange('A18').setFormula('=IFERROR(QUERY(Daten!A2:M,"select A, B, C, count(A), avg(K), avg(J), max(L) where A <> \'\'' + BED + ' group by A, B, C order by A, B, C label A \'Fach\', B \'Jg.\', C \'Klasse\', count(A) \'Abgaben\', avg(K) \'Ø Test %\', avg(J) \'Ø bearbeitet %\', max(L) \'Letzte Abgabe\' format avg(K) \'0\', avg(J) \'0\', max(L) \'dd.mm.yyyy\'",0),"Noch keine Abgaben")');
   skala_(sh, 'E19:E300');
+  sh.getRange('E19:F300').setNumberFormat('0'); sh.getRange('G19:G300').setNumberFormat('dd.mm.yyyy');
   sh.getRange('I16').setValue('Wo hakt es? Schwächste Module zuerst').setFontWeight('bold').setFontSize(12).setFontColor(FARBE);
   sh.getRange('I17').setValue('Ø Test je Modul. Bei wenigen Abgaben noch wenig aussagekräftig.').setFontColor('#666666').setFontStyle('italic');
-  sh.getRange('I18').setFormula('=IFERROR(QUERY(Daten!A2:M,"select A, B, D, E, count(D), avg(K), avg(J) where A <> \'\' and K is not null' + BED + ' group by A, B, D, E order by avg(K) asc label A \'Fach\', B \'Jg.\', D \'Modul\', E \'Titel\', count(D) \'Abgaben\', avg(K) \'Ø Test %\', avg(J) \'Ø bearbeitet %\' format avg(K) \'0\', avg(J) \'0\'",0),"Noch keine Abgaben")');
+  sh.getRange('I18').setFormula('=IFERROR(QUERY(Daten!A2:M,"select A, B, D, E, count(A), avg(K), avg(J) where A <> \'\' and K is not null' + BED + ' group by A, B, D, E order by avg(K) asc label A \'Fach\', B \'Jg.\', D \'Modul\', E \'Titel\', count(A) \'Abgaben\', avg(K) \'Ø Test %\', avg(J) \'Ø bearbeitet %\' format avg(K) \'0\', avg(J) \'0\'",0),"Noch keine Abgaben")');
   skala_(sh, 'N19:N400');
+  sh.getRange('N19:O400').setNumberFormat('0');
   [30, 8, 10, 9, 10, 13, 14, 3, 11, 5, 7, 38, 9, 10, 13].forEach(function (w, i) { sh.setColumnWidth(i + 1, w * 7 + 10); });
   sh.setFrozenRows(4);
 }
@@ -173,14 +175,15 @@ function baueMatrix_(ss, fach) {
   var sh = ss.getSheetByName('Matrix ' + fach); sh.clear(); sh.setConditionalFormatRules([]);
   titel_(sh, fach + ': Ø Testergebnis (%) je Klasse und Modul', 'Zeilen: Klassen. Spalten: Modulnummern. Leer: noch keine Abgabe. Ohne Namen, daher gut für Konferenzen geeignet.');
   sh.getRange('A4').setFormula('=IFERROR(QUERY(Daten!A2:M,"select C, avg(K) where A = \'' + fach + '\' and K is not null' + BED + ' group by C pivot D format avg(K) \'0\'",0),"Noch keine Abgaben")');
-  skala_(sh, 'B5:AZ300'); sh.setColumnWidth(1, 90);
+  skala_(sh, 'B5:AZ300'); sh.getRange('B5:AZ300').setNumberFormat('0'); sh.setColumnWidth(1, 90);
 }
 
 function baueLernende_(ss) {
   var sh = ss.getSheetByName('Lernende'); sh.clear(); sh.setConditionalFormatRules([]);
   titel_(sh, 'Lernende: wer hat was abgegeben?', 'Eine Zeile je Lernende/r, Fach und Klasse.');
-  sh.getRange('A4').setFormula('=IFERROR(QUERY(Daten!A2:M,"select C, A, F, G, count(D), avg(K), avg(J), max(L) where A <> \'\'' + BED + ' group by C, A, F, G order by C, A, F label C \'Klasse\', A \'Fach\', F \'Name/Lerncode\', G \'E-Mail\', count(D) \'Abgaben\', avg(K) \'Ø Test %\', avg(J) \'Ø bearbeitet %\', max(L) \'Letzte Abgabe\' format avg(K) \'0\', avg(J) \'0\', max(L) \'dd.mm.yyyy\'",0),"Noch keine Abgaben")');
+  sh.getRange('A4').setFormula('=IFERROR(QUERY(Daten!A2:M,"select C, A, F, G, count(A), avg(K), avg(J), max(L) where A <> \'\'' + BED + ' group by C, A, F, G order by C, A, F label C \'Klasse\', A \'Fach\', F \'Name/Lerncode\', G \'E-Mail\', count(A) \'Abgaben\', avg(K) \'Ø Test %\', avg(J) \'Ø bearbeitet %\', max(L) \'Letzte Abgabe\' format avg(K) \'0\', avg(J) \'0\', max(L) \'dd.mm.yyyy\'",0),"Noch keine Abgaben")');
   skala_(sh, 'F5:F3000');
+  sh.getRange('F5:G3000').setNumberFormat('0'); sh.getRange('H5:H3000').setNumberFormat('dd.mm.yyyy');
   [10, 12, 26, 34, 9, 10, 13, 14].forEach(function (w, i) { sh.setColumnWidth(i + 1, w * 7 + 10); });
 }
 
@@ -188,6 +191,7 @@ function baueNichtFertig_(ss) {
   var sh = ss.getSheetByName('Nicht fertig'); sh.clear();
   titel_(sh, 'Abgegeben, aber nicht fertig bearbeitet (unter 100 %)', 'Für kurze Nachfragen: Wer hat abgebrochen und wo?');
   sh.getRange('A4').setFormula('=IFERROR(QUERY(Daten!A2:M,"select L, A, C, F, D, E, J, K where A <> \'\' and J < 100' + BED + ' order by L desc label L \'Eingang\', A \'Fach\', C \'Klasse\', F \'Name/Lerncode\', D \'Modul\', E \'Titel\', J \'Bearbeitet %\', K \'Test %\' format L \'dd.mm.yyyy hh:mm\'",0),"Keine")');
+  sh.getRange('A5:A3000').setNumberFormat('dd.mm.yyyy hh:mm'); sh.getRange('G5:H3000').setNumberFormat('0');
   [17, 12, 9, 24, 7, 40, 12, 9].forEach(function (w, i) { sh.setColumnWidth(i + 1, w * 7 + 10); });
 }
 
