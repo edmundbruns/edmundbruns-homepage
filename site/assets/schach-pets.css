@@ -1,0 +1,112 @@
+/* Schach-Pets: Figur mit Sprechblase für die Schachseiten
+   Einbau: <div class="sp-pet" data-pet="bauer" data-thema="einsteiger"></div>
+   im .page-hero (Klasse "has-pet" am Hero ergänzen). © Dr. Edmund Bruns */
+
+.sp-pet:empty { display: none; }
+
+.sp-pet {
+  --sp-fig: 190px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  width: 280px; max-width: 100%;
+}
+
+/* Hero zweispaltig, Figur rechts */
+.page-hero.has-pet {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: clamp(24px, 4vw, 56px);
+  align-items: end;
+}
+.page-hero.has-pet > :not(.sp-pet) { grid-column: 1; }
+.page-hero.has-pet > .eyebrow { justify-self: start; }
+.page-hero.has-pet > .sp-pet { grid-column: 2; grid-row: 1 / span 3; align-self: end; }
+
+/* Sprechblase */
+.sp-bubble {
+  position: relative; width: 100%;
+  padding: 14px 16px 12px;
+  border: 1px solid var(--line, rgba(23,37,31,.16));
+  border-radius: 18px;
+  background: var(--cream, #fbfdfc);
+  color: var(--ink, #14292c);
+  box-shadow: 0 12px 32px rgba(23, 37, 31, .10);
+  font-size: .98rem; line-height: 1.42;
+}
+.sp-bubble::after { /* Spitze nach unten zur Figur */
+  content: ""; position: absolute; left: 50%; bottom: -9px;
+  width: 16px; height: 16px; margin-left: -8px;
+  background: inherit;
+  border-right: 1px solid var(--line, rgba(23,37,31,.16));
+  border-bottom: 1px solid var(--line, rgba(23,37,31,.16));
+  transform: rotate(45deg);
+}
+.sp-name {
+  display: block; margin-bottom: 3px;
+  color: var(--accent, #1f6d67);
+  font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+}
+.sp-text { margin: 0; min-height: 4.2em; transition: opacity .25s ease; }
+.sp-text.sp-fade { opacity: 0; }
+.sp-next {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 8px; padding: 6px 12px; min-height: 34px;
+  border: 1px solid var(--line, rgba(23,37,31,.16)); border-radius: 999px;
+  background: transparent; color: var(--accent, #1f6d67);
+  font: inherit; font-size: .82rem; font-weight: 750; cursor: pointer;
+}
+.sp-next:hover { background: var(--accent-soft, #d9eee2); }
+.sp-next:focus-visible, .sp-figure:focus-visible {
+  outline: 3px solid var(--gold, #c99d4b); outline-offset: 3px;
+}
+
+/* Figur */
+.sp-figure {
+  display: block; padding: 0; border: 0; background: none; cursor: pointer;
+  border-radius: 16px;
+}
+.sp-figure img {
+  display: block; width: auto; height: var(--sp-fig); max-width: 100%;
+  filter: drop-shadow(0 10px 14px rgba(23, 37, 31, .18));
+  transform-origin: 50% 100%;
+}
+.sp-figure.sp-hop img { animation: sp-hop .55s ease; }
+@keyframes sp-hop {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  35% { transform: translateY(-10px) rotate(-3deg); }
+  65% { transform: translateY(0) rotate(2deg); }
+}
+
+/* Tablet: etwas kleiner */
+@media (max-width: 980px) {
+  .sp-pet { --sp-fig: 160px; width: 240px; }
+}
+
+/* Handy: Figur links, Blase rechts, unter dem Einleitungstext */
+@media (max-width: 720px) {
+  .page-hero.has-pet { display: block; }
+  .sp-pet {
+    --sp-fig: 112px;
+    flex-direction: row-reverse; align-items: center;
+    width: 100%; margin-top: 22px; gap: 14px;
+  }
+  .sp-bubble { flex: 1; font-size: .94rem; }
+  .sp-bubble::after { /* Spitze nach links zur Figur */
+    left: -9px; top: 50%; bottom: auto; margin: -8px 0 0;
+    border-right: 0; border-bottom: 1px solid var(--line, rgba(23,37,31,.16));
+    border-left: 1px solid var(--line, rgba(23,37,31,.16));
+  }
+  .sp-text { min-height: 0; }
+  .sp-figure { flex: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-figure.sp-hop img { animation: none; }
+  .sp-text { transition: none; }
+}
+
+@media print { .sp-pet { display: none; } }
+
+/* Dunkelmodus der Homepage */
+html[data-theme="dark"] .sp-name,
+html[data-theme="dark"] .sp-next { color: var(--green, #5cb4a8); }
+html[data-theme="dark"] .sp-bubble { box-shadow: 0 12px 32px rgba(0, 0, 0, .35); }
