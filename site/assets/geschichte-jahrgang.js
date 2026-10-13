@@ -14,6 +14,7 @@
     '5-6': { url: '/geschichte/klasse-5/006/', blurb: '45–60 Minuten · drei Lernwege · Überschuss, Arbeitsteilung und Tausch · Ötzi als Sachquelle', cta: 'Modul öffnen' },
     '5-7': { url: '/geschichte/klasse-5/007/', blurb: '45–60 Minuten · drei Lernwege · Nilkarte und Jahreslauf · Herodot als Textquelle', cta: 'Modul öffnen' },
     '5-8': { url: '/geschichte/klasse-5/008/', blurb: '45–60 Minuten · drei Lernwege · Gesellschaftspyramide · Pyramidenbau · Turiner Streikpapyrus als Textquelle', cta: 'Modul öffnen' },
+    '5-9': { url: '/geschichte/klasse-5/009/', blurb: '45–60 Minuten · drei Lernwege · Karte Griechenland · Olympische Spiele · Herodot als Textquelle', cta: 'Modul öffnen' },
     '6-1': external('https://001mittelalterliche-welt.pages.dev/', '50–60 Minuten · drei Lernwege · Übergang von der Antike zum Mittelalter · Quellenarbeit an Gregor von Tours'),
     '6-2': external('https://002grundherrschaft.pages.dev/', '50–60 Minuten · drei Lernwege · Schutz und Land gegen Abgaben und Dienste · Quellenarbeit am Prümer Urbar'),
     '6-3': external('https://003leben-auf-dem-land.pages.dev/', '50–60 Minuten · drei Lernwege · Dorfgemeinschaft, Allmende und Dreifelderwirtschaft · Arbeit mit Monatsbildern'),
