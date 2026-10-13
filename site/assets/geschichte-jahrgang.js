@@ -20,6 +20,7 @@
     '5-12': { url: '/geschichte/klasse-5/012/', blurb: '45–60 Minuten · drei Lernwege · Sage und Archäologie · Zeitleiste und Karte · Livius als Textquelle', cta: 'Modul öffnen' },
     '5-13': { url: '/geschichte/klasse-5/013/', blurb: '45–60 Minuten · drei Lernwege · Reich und arm in Rom · Romanisierung · Funde von Kalkriese als Sachquelle', cta: 'Modul öffnen' },
     '5-14': { url: '/geschichte/klasse-5/014/', blurb: '45–60 Minuten · drei Lernwege · Ursachen von innen und außen · Münzen als Sachquelle · Laktanz als Textquelle', cta: 'Modul öffnen' },
+    '5-15': { url: '/geschichte/klasse-5/015/', blurb: '45–60 Minuten · Abschluss-Lerncheck über die Module 001–014 · Zeitleiste · Quellenarten · Merksätze prüfen', cta: 'Lerncheck öffnen' },
     '6-1': external('https://001mittelalterliche-welt.pages.dev/', '50–60 Minuten · drei Lernwege · Übergang von der Antike zum Mittelalter · Quellenarbeit an Gregor von Tours'),
     '6-2': external('https://002grundherrschaft.pages.dev/', '50–60 Minuten · drei Lernwege · Schutz und Land gegen Abgaben und Dienste · Quellenarbeit am Prümer Urbar'),
     '6-3': external('https://003leben-auf-dem-land.pages.dev/', '50–60 Minuten · drei Lernwege · Dorfgemeinschaft, Allmende und Dreifelderwirtschaft · Arbeit mit Monatsbildern'),
