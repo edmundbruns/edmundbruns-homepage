@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#8a4317">
+<meta name="description" content="SOL Geschichte Jahrgang 5, Modul 010: Wie funktionierte die Demokratie in Athen?">
+<title>SOL Geschichte 5 | Modul 010 | Wie funktionierte die Demokratie in Athen?</title>
+<style>
+:root{--ink:#2a1c12;--paper:#fff;--cream:#f4ebe3;--soft:#f4ebe3;--bg:#f7f2ea;--green:#8a4317;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#e2d6ca;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #2a1c1214;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#2e1a0e,#8a4317);color:#fdf8f3;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#fdf8f3;color:#2e1a0e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#f6ebe1;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#8a4317,#d29a3a);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#3a2a1e;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow);min-width:0}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#3a2a1e}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.legend{font-weight:750;color:#3a2a1e}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#6a5a4c}
+.btn{background:var(--green);color:#fdf8f3;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff;min-width:0}
+@media(max-width:480px){.task{padding:12px 10px}}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#6a5a4c;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+fieldset{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#f6e7da}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zones.z4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.zones.z3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.task>label.legend{display:block;margin:8px 0 4px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px;cursor:pointer}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:650;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;max-width:100%;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .nr{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--green)}
+.orow span.t{flex:1;font-weight:650;min-width:0}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;flex:0 0 auto}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+@media(max-width:520px){.orow{flex-wrap:wrap}.orow span.t{flex:1 1 calc(100% - 44px)}.orow button:first-of-type{margin-left:auto}}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px;overflow:hidden}
+svg.pic{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d18aa)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#45362a}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#2e2118;color:#f4ebe3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#8c8178;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+blockquote.q{margin:10px 0;padding:10px 14px;border-left:4px solid var(--green);background:#fff;border-radius:0 10px 10px 0}
+blockquote.q p{margin:.35rem 0}
+.orig{font-size:.9rem;color:#6a5a4c;font-style:italic}
+.cloze{line-height:2.4}
+.cloze select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;min-height:44px}
+.cloze select.ok{border-color:var(--ok);background:var(--okbg)}
+.cloze select.no{border-color:var(--bad);background:var(--badbg)}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{background:var(--cream);font-weight:800}
+.tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+.tblwrap{overflow-x:auto;max-width:100%}
+.wort{font-size:.9rem;color:#45362a}
+.merk{background:#fff8ea;border:2px solid #e2c48d;border-radius:14px;padding:12px 14px;margin:12px 0}
+.merk b.k{display:block;color:var(--gold-text);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:2px}
+.fund{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px;align-items:start;margin:10px 0}
+@media(max-width:640px){.fund{grid-template-columns:minmax(0,1fr)}}
+.facts{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.facts li{border:1px solid var(--line);border-radius:10px;padding:7px 10px;background:#fff}
+.facts li b{color:var(--green)}
+.wq{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 7px;font-weight:800;margin-right:4px}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#6a5a4c;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 5 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Griechen und Römer · Zeitreise 010</div>
+    <h1>Wie funktionierte die Demokratie in Athen?</h1>
+    <p>Das Wort Demokratie kommt aus dem Griechischen und heißt „Herrschaft des Volkes“. In Athen durften Bürger vor 2500 Jahren selbst über Gesetze, Krieg und Frieden abstimmen. Aber wer gehörte eigentlich zum „Volk“? In diesem Modul untersuchst du die erste Demokratie der Welt.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>010</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 9 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#weg">Der Weg zur Demokratie</a>
+ <a href="#einrichtungen">Wer entscheidet was?</a>
+ <a href="#quelle">Die Quelle</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 5a"><span class="hint">Möglich sind zum Beispiel 5a, Klasse 5a, R5a oder nur 5.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0;grid-column:1/-1"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul><li>Du verfolgst den Weg Athens zur Demokratie auf einer Zeitleiste.</li><li>Du lernst Volksversammlung, Rat, Gericht und Strategen kennen.</li><li>Du findest heraus, wer mitbestimmen durfte und wer nicht.</li><li>Du untersuchst Tonscherben aus dem Scherbengericht als Sachquelle.</li><li>Du vergleichst die Demokratie in Athen mit heute.</li></ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Zeitreise starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Zeitreise 010</span>
+ <p><strong>Fall:</strong> Chronos hält einen Vortrag. Sein wichtigster Satz lautet: <em>„Athen war eine Demokratie wie Deutschland heute: Alle Menschen durften mitbestimmen.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Prüfe den Satz. Am Ende entscheidest du, ob Chronos ihn so sagen darf.</p>
+</div>
+<p><strong>Zum Einstieg:</strong> Vielleicht habt ihr in eurer Klasse schon einmal abgestimmt, etwa über ein Ausflugsziel. Oder ihr habt eine Klassensprecherin gewählt. Die Idee, gemeinsam abzustimmen, ist sehr alt. Ausprobiert wurde sie zuerst in Athen.</p>
+<div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Ich halte diesen Vortrag schon seit 300 Jahren, und bisher hat sich niemand beschwert. Aber vielleicht habe ich auch einfach nicht genau hingehört.</p></div></div>
+<p><strong>Leitfrage:</strong> Wie funktionierte die Demokratie in Athen?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Zeitreisende</span>
+ <span class="abz" id="abz2">Ratsmitglied</span>
+ <span class="abz" id="abz3">Scherbenleser</span>
+ <span class="abz" id="abz4">Begründerin</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p><div class="task"><span class="tag">Vermutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D1. Was bedeutet das griechische Wort „Demokratie“?</legend><div class="opts"><label><input type="radio" name="d1" value="a"><span>Herrschaft des Volkes</span></label><label><input type="radio" name="d1" value="b"><span>Herrschaft eines Königs</span></label><label><input type="radio" name="d1" value="c"><span>Herrschaft der Götter</span></label></div></fieldset></div><div class="task"><span class="tag">Richtig oder falsch</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D2. In Athen durften auch Frauen in der Volksversammlung abstimmen.</legend><div class="opts"><label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label><label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label></div></fieldset></div><div class="task"><span class="tag">Schätzfrage</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D3. Wie wurden in Athen viele Ämter vergeben?</legend><div class="opts"><label><input type="radio" name="d3" value="a"><span>Durch das Los</span></label><label><input type="radio" name="d3" value="b"><span>Durch einen Wettlauf</span></label><label><input type="radio" name="d3" value="c"><span>Der König bestimmte alle</span></label></div></fieldset></div><button class="btn" type="button" id="dCheck">Einschätzung auswerten</button><div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="weg">
+<h2>Der Weg zur Demokratie</h2>
+<p>Die Demokratie entstand nicht an einem Tag. Lange herrschten in Athen reiche, adlige Familien. Viele Bauern waren arm und verschuldet. Es gab Streit und Unruhen. Schritt für Schritt bekamen immer mehr Bürger Rechte.</p><div class="task"><span class="tag">Zeitleiste</span><p><strong>Auftrag:</strong> Bringe die Ereignisse in die richtige zeitliche Reihenfolge.</p><div class="order" id="wegList" aria-label="Liste zum Ordnen"></div><button class="btn" type="button" id="wegCheck">Reihenfolge prüfen</button><button class="btn sec" type="button" id="wegReset">Neu mischen</button><div class="fb" id="wegFb" role="status" aria-live="polite"></div></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Bei Jahren vor Christus gilt: Die größere Zahl ist früher. 594 v. Chr. kommt also vor 508 v. Chr.</div>
+</section>
+
+<section class="card" id="einrichtungen">
+<h2>Wer entscheidet was?</h2>
+<p>In Athen stimmten die Bürger <strong>selbst</strong> ab. Sie wählten nicht nur Vertreter wie heute. Viele Ämter wurden sogar <strong>ausgelost</strong>. So sollte jeder Bürger einmal an die Reihe kommen, nicht nur die Reichen.</p><div class="task"><span class="tag">Zuordnen</span><p><strong>Auftrag:</strong> Ordne jede Karte der richtigen Einrichtung zu.</p><p class="hint">Tippe eine Karte an und danach das passende Feld. Mit der Maus kannst du die Karten auch ziehen. Eine falsch abgelegte Karte kannst du wieder antippen und neu ablegen.</p><div class="chips" id="ortePieces" aria-label="Karten zum Zuordnen"></div><div class="zones z4"><div class="zone" data-task="orte" data-zone="volk" tabindex="0" role="button" aria-label="Ablegen bei Volksversammlung"><h4>Volksversammlung</h4><div class="drop"></div></div><div class="zone" data-task="orte" data-zone="rat" tabindex="0" role="button" aria-label="Ablegen bei Rat der 500"><h4>Rat der 500</h4><div class="drop"></div></div><div class="zone" data-task="orte" data-zone="gericht" tabindex="0" role="button" aria-label="Ablegen bei Volksgericht"><h4>Volksgericht</h4><div class="drop"></div></div><div class="zone" data-task="orte" data-zone="strat" tabindex="0" role="button" aria-label="Ablegen bei Strategen"><h4>Strategen</h4><div class="drop"></div></div></div><button class="btn" type="button" id="orteCheck">Zuordnung prüfen</button><button class="btn sec" type="button" id="orteReset">Zurücksetzen</button><div class="fb" id="orteFb" role="status" aria-live="polite"></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Pnyx und Abstimmung: Volksversammlung. Auslosen und Vorbereiten: Rat. Geschworene: Gericht. Heerführer: Strategen.</div></div><div class="task"><span class="tag">Mehrfachauswahl</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">W1. Wer durfte in der Volksversammlung mitbestimmen? Wähle alle richtigen Antworten aus.</legend><div class="opts"><label><input type="checkbox" name="wer" value="buerger"><span>Erwachsene Männer mit Bürgerrecht, also mit athenischen Eltern</span></label><label><input type="checkbox" name="wer" value="frauen"><span>Frauen</span></label><label><input type="checkbox" name="wer" value="metoeken"><span>Metöken: Zugezogene, die in Athen lebten und arbeiteten</span></label><label><input type="checkbox" name="wer" value="sklaven"><span>Versklavte Menschen</span></label></div></fieldset><button class="btn" type="button" id="werCheck">Prüfen</button><button class="btn sec" type="button" id="werReset">Zurücksetzen</button><div class="fb" id="werFb" role="status" aria-live="polite"></div></div><div class="svgwrap"><svg class="pic" style="max-width:600px;margin:auto" viewBox="0 0 400 168" role="img" aria-label="Schaubild mit zehn Figuren für die Einwohner Attikas. Nur etwa eine von zehn Figuren ist farbig: die männlichen Bürger, die mitbestimmen durften."><rect width="400" height="168" fill="#fbfaf6"/><text x="200" y="24" text-anchor="middle" font-size="16" font-weight="800" fill="#2a1c12">Von etwa zehn Menschen in Attika</text><text x="200" y="44" text-anchor="middle" font-size="16" font-weight="800" fill="#2a1c12">durfte ungefähr einer mitbestimmen</text><g transform="translate(0 18)"><g fill="#8a4317"><circle cx="30" cy="58" r="9"/><path d="M19 96 L21 72 Q30 66 39 72 L41 96Z"/></g><g fill="#cfc6b8"><circle cx="68" cy="58" r="9"/><path d="M57 96 L59 72 Q68 66 77 72 L79 96Z"/></g><g fill="#cfc6b8"><circle cx="106" cy="58" r="9"/><path d="M95 96 L97 72 Q106 66 115 72 L117 96Z"/></g><g fill="#cfc6b8"><circle cx="144" cy="58" r="9"/><path d="M133 96 L135 72 Q144 66 153 72 L155 96Z"/></g><g fill="#cfc6b8"><circle cx="182" cy="58" r="9"/><path d="M171 96 L173 72 Q182 66 191 72 L193 96Z"/></g><g fill="#cfc6b8"><circle cx="220" cy="58" r="9"/><path d="M209 96 L211 72 Q220 66 229 72 L231 96Z"/></g><g fill="#cfc6b8"><circle cx="258" cy="58" r="9"/><path d="M247 96 L249 72 Q258 66 267 72 L269 96Z"/></g><g fill="#cfc6b8"><circle cx="296" cy="58" r="9"/><path d="M285 96 L287 72 Q296 66 305 72 L307 96Z"/></g><g fill="#cfc6b8"><circle cx="334" cy="58" r="9"/><path d="M323 96 L325 72 Q334 66 343 72 L345 96Z"/></g><g fill="#cfc6b8"><circle cx="372" cy="58" r="9"/><path d="M361 96 L363 72 Q372 66 381 72 L383 96Z"/></g><g font-size="13" font-weight="700"><text x="30" y="118" text-anchor="middle" fill="#8a4317">Bürger</text><text x="220" y="118" text-anchor="middle" fill="#6a5a4c">Frauen, Kinder, Metöken und Versklavte</text></g></g><text x="392" y="160" text-anchor="end" font-size="12" fill="#6a5a4c">Schätzung, gerundet</text></svg></div><div class="legendlist" aria-hidden="true"><span>Schaubild: eigene Darstellung nach Schätzungen der Forschung</span></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: Namen auf Scherben</h2>
+<div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>Sachquelle: Ostraka, also Tonscherben mit Namen.</strong> Einmal im Jahr konnten die Bürger beim <strong>Scherbengericht</strong> einen Politiker verbannen, der ihnen zu mächtig erschien. Jeder ritzte einen Namen in eine Tonscherbe. Wer die meisten Stimmen bekam, musste Athen für zehn Jahre verlassen. Gültig war die Abstimmung nur, wenn mindestens 6000 Scherben abgegeben wurden.</p>
+ <ul class="facts">
+  <li><b>Was wurde gefunden?</b> Archäologen haben in Athen mehrere tausend solcher Scherben gefunden, viele davon auf dem Marktplatz, der Agora.</li>
+  <li><b>Ein bekannter Name:</b> Auf vielen Scherben steht „Themistokles, Sohn des Neokles“. Themistokles war ein berühmter Feldherr. Um 471 v. Chr. wurde er verbannt.</li>
+  <li><b>Ein rätselhafter Fund:</b> Am Nordhang der Akropolis fand man 190 Scherben mit seinem Namen, die nur von wenigen verschiedenen Händen beschriftet wurden. Sie wurden offenbar nie benutzt.</li>
+ </ul>
+ <p class="hint">Angaben nach dem Forschungsstand. Die Schreibweise auf den Scherben ist nicht immer gleich.</p>
+</div><div class="svgwrap"><svg class="pic" style="max-width:420px;margin:auto" viewBox="0 0 300 170" role="img" aria-label="Zeichnung einer Tonscherbe mit eingeritzten griechischen Buchstaben, die den Namen Themistokles ergeben.">
+<rect width="300" height="170" fill="#eef3f6"/>
+<path d="M40 40 Q90 18 170 26 Q250 30 262 74 Q270 118 220 140 Q150 160 80 146 Q30 132 26 92 Q24 58 40 40Z" fill="#c8794a" stroke="#7a3d1c" stroke-width="3"/>
+<text x="148" y="82" text-anchor="middle" font-size="24" font-family="Georgia,serif" fill="#3b1a0a" letter-spacing="2">ΘΕΜΙΣΘΟΚΛΕΣ</text>
+<text x="148" y="114" text-anchor="middle" font-size="20" font-family="Georgia,serif" fill="#3b1a0a" letter-spacing="2">ΝΕΟΚΛΕΟΣ</text>
+<text x="150" y="162" text-anchor="middle" font-size="12" fill="#2a1c12">Zeichnung nach einem Ostrakon</text>
+</svg></div><div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Ein Name auf einer Scherbe, und schon musste man für zehn Jahre die Koffer packen. Ich hätte gerne gewusst, was Themistokles dazu gesagt hat. Leider ist sein Kommentar nicht überliefert.</p></div></div><div class="task"><span class="tag">Quellenarbeit</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S1. Was sagen die vielen gefundenen Ostraka über die Demokratie in Athen aus?</legend><div class="opts"><label><input type="radio" name="s1" value="a"><span>Viele Bürger nahmen tatsächlich an den Abstimmungen teil und schrieben selbst Namen auf. Die Demokratie war für sie Alltag.</span></label><label><input type="radio" name="s1" value="b"><span>In Athen konnte niemand schreiben.</span></label><label><input type="radio" name="s1" value="c"><span>Die Scherben waren Spielzeug für Kinder.</span></label></div></fieldset><button class="btn" type="button" id="s1Check">Prüfen</button><div class="fb" id="s1Fb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Quellenkritik · Deuten</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S2. Die 190 Scherben mit dem Namen Themistokles wurden von nur wenigen Händen geschrieben und nie benutzt. Was könnte das bedeuten?</legend><div class="opts"><label><input type="radio" name="s2" value="a"><span>Themistokles hat sie selbst geschrieben, um gewählt zu werden.</span></label><label><input type="radio" name="s2" value="b"><span>Vielleicht hatten Gegner von Themistokles die Scherben vorbereitet, um sie an Bürger zu verteilen. So wollten sie die Abstimmung beeinflussen.</span></label><label><input type="radio" name="s2" value="c"><span>Das bedeutet, dass die Scherben gefälscht sind und es das Scherbengericht nie gab.</span></label></div></fieldset><button class="btn" type="button" id="s2Check">Prüfen</button><div class="fb" id="s2Fb" role="status" aria-live="polite"></div></div><div class="task" data-lw="weiter"><span class="tag">Weiterdenken · Damals und heute</span><label class="legend" for="q2">Q2. Vergleiche die Demokratie in Athen mit der Demokratie in Deutschland heute. Nenne zwei Unterschiede.</label><textarea id="q2" placeholder="Ein Unterschied ist, dass ... Außerdem ..."></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p><button class="btn" type="button" id="q2Check">Antwort prüfen</button><div class="fb" id="q2Fb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Demokratie</summary><div class="body">„Herrschaft des Volkes“. Die Bürger entscheiden selbst oder wählen Vertreter.</div></details><details class="gloss"><summary>Bürger</summary><div class="body">In Athen: ein erwachsener Mann mit athenischen Eltern. Nur er hatte politische Rechte.</div></details><details class="gloss"><summary>Volksversammlung</summary><div class="body">Die Versammlung aller Bürger Athens auf dem Hügel Pnyx. Sie entschied über Gesetze, Krieg und Frieden.</div></details><details class="gloss"><summary>Rat der 500</summary><div class="body">500 ausgeloste Bürger, die ein Jahr lang die Volksversammlung vorbereiteten.</div></details><details class="gloss"><summary>Stratege</summary><div class="body">Einer von zehn gewählten Heerführern Athens.</div></details><details class="gloss"><summary>Metöken</summary><div class="body">Zugezogene, die in Athen lebten und arbeiteten, aber kein Bürgerrecht hatten.</div></details><details class="gloss"><summary>Tyrann</summary><div class="body">Ein Alleinherrscher, der die Macht ohne Recht an sich gerissen hat.</div></details><details class="gloss"><summary>Scherbengericht</summary><div class="body">Abstimmung mit Tonscherben, den Ostraka. Der Politiker mit den meisten Stimmen musste Athen für zehn Jahre verlassen.</div></details><details class="gloss"><summary>Direkte Demokratie</summary><div class="body">Die Bürger stimmen selbst über alle wichtigen Fragen ab, statt Abgeordnete zu wählen.</div></details><h3>Woher stammen die Texte?</h3><details class="gloss"><summary>Nachweise der Quellen und Zahlen</summary><div class="body"><ul><li>Solons Reformen 594 v. Chr.; Herrschaft des Peisistratos ab etwa 561 v. Chr.; Reformen des Kleisthenes 508/507 v. Chr.; Perikles prägend etwa 461 bis 429 v. Chr.</li><li>Scherbengericht: Mindestzahl von 6000 Stimmen, Verbannung für zehn Jahre; Ostrakismos des Themistokles um 471 v. Chr. Fund von 190 vorbereiteten Ostraka mit dem Namen des Themistokles am Nordhang der Akropolis (Ausgrabung 1937).</li><li>Bevölkerung Attikas im 5. Jahrhundert v. Chr.: Schätzungen etwa 250.000 bis 300.000 Menschen, davon etwa 30.000 bis 40.000 männliche Bürger. Die Zahlen sind unsicher.</li><li>Schaubild und Scherbe: eigene Zeichnungen.</li></ul></div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p><div id="selfcheck"><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann erklären, wie die Demokratie in Athen entstand.</legend><div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann die Aufgaben von Volksversammlung, Rat, Gericht und Strategen beschreiben.</legend><div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann erklären, wer in Athen mitbestimmen durfte und wer nicht.</legend><div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: Chronos' Vortrag</h2>
+<div class="akte"><span class="stamp">Zu prüfen</span><p>In Chronos' Vortrag heißt es: <em>„Athen war eine Demokratie wie Deutschland heute: Alle Menschen durften mitbestimmen.“</em></p></div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0;margin:0"><legend class="legend">A1. Darf Chronos den Satz so sagen?</legend><div class="opts"><label><input type="radio" name="a1" value="a"><span>Ja. In Athen durften alle Menschen mitbestimmen.</span></label><label><input type="radio" name="a1" value="b"><span>Nein. In Athen stimmten die Bürger zwar direkt ab. Aber Frauen, Zugezogene und Versklavte waren ausgeschlossen. Mitbestimmen durfte nur eine Minderheit.</span></label><label><input type="radio" name="a1" value="c"><span>Nein. In Athen gab es gar keine Abstimmungen.</span></label></div></fieldset>
+ <button class="btn" type="button" id="a1Check">Entscheidung prüfen</button>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos einen besseren Satz für seinen Vortrag und begründe ihn mit zwei bis vier Sätzen. Nenne, was an Athen neu war, und wer ausgeschlossen war.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, dein Satz stimmt nicht ganz, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Neu war, dass ...“ · „Aber ausgeschlossen waren ...“ · „Deshalb würde ich sagen: ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Begründung prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="fb" id="buildFb" role="status" aria-live="polite"></div>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" id="printBtn">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+</main></div>
+<footer>SOL Geschichte 5 · Modul 010 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-5" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-5"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={"modul": "010", "titel": "Wie funktionierte die Demokratie in Athen?", "bereich": "Griechen und Römer", "version": "1.0.0", "key": "sol-geschichte-5-010", "endpoint": "https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec", "next": "Weiter geht es mit Modul 011: Wie lebten Kinder, Frauen, Männer und Versklavte in Griechenland?", "badges": [{"id": "abz1", "name": "Zeitreisende", "tasks": ["weg"]}, {"id": "abz2", "name": "Ratsmitglied", "tasks": ["orte", "wer"]}, {"id": "abz3", "name": "Scherbenleser", "tasks": ["s1", "s2"]}, {"id": "abz4", "name": "Begründerin", "tasks": ["a2"]}], "startOk": "Alles bereit. Chronos hat sein Rednerpult aufgestellt. Es geht weiter mit der Mission."};
+const TASKS=[{"id": "weg", "typ": "order", "items": ["Adlige Familien herrschen über Athen.", "594 v. Chr.: Solon verbietet, dass Bürger wegen ihrer Schulden zu Sklaven gemacht werden.", "Um 560 v. Chr.: Peisistratos reißt als Alleinherrscher, als Tyrann, die Macht an sich.", "508/507 v. Chr.: Kleisthenes gibt allen Bürgern Mitsprache in Rat und Volksversammlung.", "Um 450 v. Chr.: Unter Perikles erlebt die Demokratie ihre Blütezeit."], "ok": "Richtig. Von Solon über Kleisthenes bis Perikles: In rund 150 Jahren entwickelte sich die Demokratie. Kleisthenes gilt als ihr eigentlicher Begründer.", "hint": "Achte auf die Jahreszahlen. Vor Christus zählen die Jahre rückwärts: 594 ist früher als 508.", "name": "Weg zur Demokratie", "komp": ["zeit_raum", "ursachen_folgen"]}, {"id": "orte", "typ": "zuord", "pieces": [{"k": "ortek1", "t": "Trifft sich etwa 40-mal im Jahr auf dem Hügel Pnyx", "z": "volk"}, {"k": "ortek2", "t": "Hier stimmen alle Bürger über Gesetze, Krieg und Frieden ab", "z": "volk"}, {"k": "ortek3", "t": "500 Bürger, jedes Jahr neu ausgelost", "z": "rat"}, {"k": "ortek4", "t": "Bereitet die Abstimmungen der Volksversammlung vor", "z": "rat"}, {"k": "ortek5", "t": "Hunderte ausgeloste Bürger urteilen als Geschworene", "z": "gericht"}, {"k": "ortek6", "t": "Zehn gewählte Heerführer, oft erfahrene Männer", "z": "strat"}], "ok": "Alles richtig. Die Volksversammlung entschied, der Rat bereitete vor, die Gerichte sprachen Recht. Nur die Strategen wurden gewählt, weil man im Krieg Erfahrung brauchte.", "hint": "Lies genau: Geht es um Abstimmen, Vorbereiten, Urteilen oder um das Heer?", "name": "Einrichtungen der Demokratie", "komp": ["fachwissen"], "zones": ["volk", "rat", "gericht", "strat"]}, {"id": "wer", "typ": "multi", "richtig": ["buerger"], "ok": "Richtig. Nur erwachsene männliche Bürger durften mitbestimmen. Frauen, Zugezogene und Versklavte waren ausgeschlossen. Das war die große Mehrheit der Menschen.", "hinweis": {"frauen": "Nein. Frauen hatten in Athen kein Stimmrecht, auch wenn sie Bürgerinnen waren.", "metoeken": "Nein. Metöken zahlten Steuern und kämpften im Heer, durften aber nicht mitbestimmen.", "sklaven": "Nein. Versklavte galten als Besitz und hatten keine Rechte."}, "fehlt": "Es fehlen noch # zutreffende Antworten. ", "tipp": "Überlege genau: Wer gehörte zum „Volk“ nach dem Verständnis der Athener?", "name": "Wer durfte mitbestimmen?", "komp": ["perspektivitaet", "fachwissen"]}, {"id": "s1", "typ": "mc", "richtig": "a", "fb": {"a": "Richtig. Die Scherben sind ein direkter Beweis dafür, dass das Scherbengericht wirklich stattfand und dass viele Bürger mitmachten.", "b": "Nein. Die Scherben zeigen, dass viele Bürger zumindest einen Namen schreiben konnten.", "c": "Nein. Die Namen bekannter Politiker zeigen, dass es um Abstimmungen ging."}, "name": "Ostraka auswerten", "komp": ["quellenarbeit", "fachwissen"], "zusatz": false}, {"id": "s2", "typ": "mc", "richtig": "b", "fb": {"a": "Unwahrscheinlich. Wer würde sich selbst verbannen lassen wollen?", "b": "Genau, das vermuten viele Forscher. Schon in der ersten Demokratie versuchten Gruppen, Abstimmungen zu beeinflussen. Sicher wissen wir es aber nicht. Die Quelle lässt Fragen offen.", "c": "Nein. Es gibt Tausende andere Scherben. Das Scherbengericht ist gut belegt."}, "name": "Ostraka deuten", "komp": ["quellenarbeit", "perspektivitaet"], "zusatz": false}, {"id": "q2", "typ": "text", "krit": {"min": 50, "worte": 12, "need": 2, "saetze": 2, "nover": true, "gruppen": [{"w": ["frau", "alle erwachsen", "ab 18", "alle burger", "auslander", "jeder"], "miss": "Nenne einen Unterschied dazu, wer mitbestimmen darf, zum Beispiel: Heute dürfen auch Frauen wählen."}, {"w": ["vertreter", "abgeordnete", "bundestag", "parlament", "wahlen", "wahlt", "direkt", "selbst", "los", "auslos"], "miss": "Nenne einen Unterschied dazu, wie entschieden wird, zum Beispiel: Heute wählen wir Abgeordnete, damals stimmten die Bürger selbst ab."}], "ok": "Sehr guter Vergleich. Heute dürfen alle erwachsenen Staatsbürgerinnen und Staatsbürger wählen. Wir wählen meist Abgeordnete, die für uns entscheiden. Athen war eine direkte Demokratie, aber nur für wenige."}, "name": "Weiterdenken Demokratie heute", "komp": ["zeit_raum"], "zusatz": true}];
+const DIAG={"fragen": [{"n": "d1", "r": "a"}, {"n": "d2", "r": "f"}, {"n": "d3", "r": "a"}], "alle": "Drei von drei. Sehr gut! Der Lernweg Weiterdenken könnte dir Spaß machen.", "fast": "Zwei von drei. Gute Grundlage. Im Modul erfährst du, wie die Demokratie genau funktionierte.", "wenig": "Du hast # von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.", "extra": [{"n": "d2", "v": "r", "m": "Ein Hinweis vorab: In Athen durften nur Männer mit Bürgerrecht abstimmen."}]};
+const ABS={"ok": ["b"], "fb": {"a": "Denk an das Schaubild mit den zehn Figuren. Wähle noch einmal.", "b": "Sehr gut entschieden. Du würdigst die neue Idee und siehst zugleich ihre Grenzen. Begründe das jetzt in A2.", "c": "Doch, es gab Volksversammlungen, Wahlen, Lose und das Scherbengericht. Wähle noch einmal."}, "krit": {"min": 60, "worte": 14, "need": 3, "saetze": 2, "gruppen": [{"w": ["volksversammlung", "abstimm", "selbst", "direkt", "los", "rat", "burger", "gesetz", "mitbestimm"], "miss": "Erkläre, was neu war, zum Beispiel: Die Bürger stimmten selbst in der Volksversammlung ab."}, {"w": ["frau", "sklav", "versklav", "metok", "zugezogen", "ausgeschlossen", "nicht alle", "minderheit", "wenige"], "miss": "Nenne, wer ausgeschlossen war, zum Beispiel Frauen, Metöken oder Versklavte."}, {"w": ["aber", "weil", "deshalb", "jedoch", "nur"], "miss": "Verbinde deine Gedanken mit „aber“, „weil“ oder „deshalb“."}], "ok": "Sehr gut. Du zeigst, was an Athen bahnbrechend war und wo seine Grenzen lagen. Genau so urteilen Historikerinnen und Historiker. Abzeichen Begründerin freigeschaltet."}};
+const S={lernweg:"standard",done:{},punkte:{},placed:{},order:{},hot:{},fbs:{},texts:{},sent:false,built:false};
+const TMAP={};TASKS.forEach(t=>TMAP[t.id]=t);
+const PFLICHT=TASKS.filter(t=>!t.zusatz);
+const SCHRITTE=["start","diagnose"].concat(PFLICHT.map(t=>t.id),["lerncheck","abschluss"]);
+const MAXP=PFLICHT.length+3;
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function fbT(tid,msg,art){S.fbs[tid]={m:msg,a:art};fb("#"+tid+"Fb",msg,art);}
+function fbTClear(tid){delete S.fbs[tid];fbClear("#"+tid+"Fb");}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+function val(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","trotzdem","aber","jedoch","obwohl","wahrend","einerseits","andererseits"];
+function mische(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ (CFG.badges||[]).forEach(b=>{const e=document.getElementById(b.id);if(e)e.classList.toggle("on",b.tasks.every(k=>k==="a2"?(S.punkte.a2||0)>=1:!!S.done[k]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];S.punkte[k]=0;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Denkaufgabe zum Thema."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 5a."};
+ const m=t.match(/(?:^|[^0-9])5([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 5. Schreibe zum Beispiel 5a, Klasse 5b oder nur 5."};
+ return{ok:true,wert:"5"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb",CFG.startOk,"ok");
+ location.hash="mission";
+});
+
+/* ---------- Einstieg ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const fr=DIAG.fragen, offenD=fr.filter(f=>!val(f.n));
+ if(offenD.length){fb("#dFb","Beantworte bitte zuerst alle drei Fragen. Raten ist ausdrücklich erlaubt.","hint");return;}
+ const r=fr.filter(f=>val(f.n)===f.r).length;
+ let m=r===fr.length?DIAG.alle:(r===fr.length-1?DIAG.fast:DIAG.wenig.replace("#",r));
+ (DIAG.extra||[]).forEach(x=>{if(val(x.n)===x.v)m+=" "+x.m;});
+ fb("#dFb",m,r>=2?"ok":"hint");S.fbs.d={m:m,a:r>=2?"ok":"hint"};
+ fertig("diagnose");
+});
+
+/* ---------- Auswahl ---------- */
+function initMc(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const v=val(t.id);
+  if(!v){fbT(t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+  const ok=v===t.richtig, m=(t.fb&&t.fb[v])||(ok?"Richtig.":"Noch nicht.");
+  if(ok){fbT(t.id,m,"ok");fertig(t.id,1);}else{fbT(t.id,m,"hint");if(!t.zusatz)offen(t.id);}
+ });
+}
+function initMulti(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+  if(!sel.length){fbT(t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+  const fehlt=t.richtig.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!t.richtig.includes(x));
+  if(!fehlt.length&&!zuviel.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);return;}
+  let m="";
+  zuviel.forEach(z=>{if(t.hinweis&&t.hinweis[z])m+=t.hinweis[z]+" ";});
+  if(fehlt.length)m+=(fehlt.length===1?"Es fehlt noch eine zutreffende Antwort. ":t.fehlt.replace("#",fehlt.length));
+  fbT(t.id,(m+(t.tipp||"")).trim(),"hint");offen(t.id);
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);fbTClear(t.id);offen(t.id);});
+}
+
+/* ---------- Zuordnen mit Antippen oder Ziehen ---------- */
+let gew=null;
+function pieceHtml(t,p,cls){return '<button type="button" class="piece'+(cls?" "+cls:"")+'" draggable="true" data-task="'+t.id+'" data-k="'+p.k+'" aria-pressed="'+(gew&&gew.k===p.k?"true":"false")+'">'+p.t+'<\/button>';}
+function zeichneZ(t){
+ const pl=S.placed[t.id]||(S.placed[t.id]={});
+ const offenP=t.pieces.filter(p=>!pl[p.k]);
+ $("#"+t.id+"Pieces").innerHTML=offenP.map(p=>pieceHtml(t,p)).join("")||'<span class="hint">Alle Karten sind zugeordnet.<\/span>';
+ $$('.zone[data-task="'+t.id+'"] .drop').forEach(d=>d.innerHTML="");
+ t.pieces.forEach(p=>{const z=pl[p.k];if(z){const d=document.querySelector('.zone[data-task="'+t.id+'"][data-zone="'+z+'"] .drop');
+  if(d)d.insertAdjacentHTML("beforeend",pieceHtml(t,p,S.done[t.id]?"ok":""));}});
+ $$('.piece[data-task="'+t.id+'"]').forEach(b=>{
+  b.addEventListener("click",e=>{e.stopPropagation();
+   if(gew&&gew.k===b.dataset.k){gew=null;b.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gew={task:t.id,k:b.dataset.k};b.setAttribute("aria-pressed","true");
+   fbT(t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  b.addEventListener("dragstart",e=>{gew={task:t.id,k:b.dataset.k};try{e.dataTransfer.setData("text/plain",b.dataset.k);}catch(x){}});
+ });
+}
+function ablegen(t,zone){
+ if(!gew||gew.task!==t.id){fbT(t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[t.id][gew.k]=zone;gew=null;
+ if(S.done[t.id]){offen(t.id);}
+ zeichneZ(t);fbTClear(t.id);speichern();
+}
+function initZuord(t){
+ $$('.zone[data-task="'+t.id+'"]').forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.target!==z)return;if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");ablegen(t,z.dataset.zone);});
+ });
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const pl=S.placed[t.id], rest=t.pieces.filter(p=>!pl[p.k]);
+  if(rest.length){fbT(t.id,"Es sind noch "+rest.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+  let r=0;
+  t.pieces.forEach(p=>{const ok=pl[p.k]===p.z;if(ok)r++;const el=document.querySelector('.piece[data-k="'+p.k+'"]');if(el){el.classList.remove("ok","no");el.classList.add(ok?"ok":"no");}});
+  if(r===t.pieces.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.pieces.length+" stimmen bereits. Die grün umrandeten Karten sitzen richtig. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.placed[t.id]={};gew=null;offen(t.id);zeichneZ(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Reihenfolge ---------- */
+function zeichneO(t,fokus){
+ const o=S.order[t.id], fertigO=!!S.done[t.id];
+ $("#"+t.id+"List").innerHTML=o.map((i,pos)=>
+  '<div class="orow'+(fertigO?" ok":"")+'"><span class="nr" aria-hidden="true">'+(pos+1)+'<\/span><span class="t">'+t.items[i]+'<\/span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben: '+t.items[i].replace(/"/g,"")+'">&#8593;<\/button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten: '+t.items[i].replace(/"/g,"")+'">&#8595;<\/button><\/div>').join("");
+ $$("#"+t.id+"List button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=o.length)return;
+  [o[p],o[n]]=[o[n],o[p]];if(S.done[t.id])offen(t.id);zeichneO(t,{pos:n,dir:d});speichern();}));
+ if(fokus){const b=document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"][data-dir="'+fokus.dir+'"]')||document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"]');if(b)b.focus();}
+}
+function mischeO(t){const idx=t.items.map((_,i)=>i);let o;do{o=mische(idx);}while(o.join()===idx.join());S.order[t.id]=o;}
+function initOrder(t){
+ if(!S.order[t.id]||S.order[t.id].length!==t.items.length)mischeO(t);
+ zeichneO(t);
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const o=S.order[t.id], r=o.filter((v,i)=>v===i).length;
+  if(r===o.length){S.done[t.id]=true;zeichneO(t);fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+o.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{offen(t.id);mischeO(t);zeichneO(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Bild- und Kartenarbeit ---------- */
+function hotAufgabe(t){
+ const idx=S.hot[t.id]||0;
+ t.finds.forEach((f,i)=>{const el=document.getElementById(f.z);if(el)el.classList.toggle("found",i<idx);});
+ if(idx>=t.finds.length){$("#"+t.id+"Task").textContent=t.done;$("#"+t.id+"Alt").innerHTML="";return;}
+ const z=t.finds[idx];
+ $("#"+t.id+"Task").textContent="Suchauftrag "+(idx+1)+" von "+t.finds.length+": "+z.tipp;
+ $("#"+t.id+"Alt").innerHTML=t.alle.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.n+'<\/button>').join("");
+ $$("#"+t.id+"Alt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));
+}
+function hotWahl(t,id){
+ const idx=S.hot[t.id]||0, z=t.finds[idx]; if(!z)return;
+ if(id===z.z){
+  S.hot[t.id]=idx+1;
+  if(idx+1>=t.finds.length){fbT(t.id,z.ok+" Damit hast du alle "+t.finds.length+" gefunden.","ok");fertig(t.id,1);}
+  else{fbT(t.id,z.ok,"ok");}
+  hotAufgabe(t);speichern();
+ }else{
+  const g=t.alle.find(x=>x.id===id);
+  fbT(t.id,"Das ist „"+(g?g.n:"ein anderer Ort")+"“. Lies die Beschreibung noch einmal genau und sieh dir das Bild an.","hint");speichern();
+ }
+}
+function initHot(t){
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+  g.addEventListener("click",()=>hotWahl(t,g.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.hot[t.id]=0;offen(t.id);fbTClear(t.id);hotAufgabe(t);speichern();});
+ hotAufgabe(t);
+}
+
+/* ---------- Lückentext ---------- */
+function initLuecke(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  let r=0,leer=0;
+  t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}const ok=s.value===w;if(ok)r++;s.classList.add(ok?"ok":"no");});
+  if(leer){fbT(t.id,"Fülle zuerst alle "+t.richtig.length+" Lücken aus. Noch offen: "+leer+".","hint");return;}
+  if(r===t.richtig.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.richtig.length+" Lücken stimmen. Die rot markierten musst du noch einmal prüfen. "+t.hint,"hint");offen(t.id);}
+ });
+ t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.addEventListener("change",()=>{s.classList.remove("ok","no");});});
+}
+
+/* ---------- Freitexte ---------- */
+function bewerte(roh,k){
+ const t=norm(roh), wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<(k.min||40)||wort<(k.worte||10))return{p:0,lab:"zu knapp",msg:k.knapp||"Deine Antwort ist noch sehr kurz. Schreibe mindestens zwei vollständige Sätze."};
+ const treffer=k.gruppen.filter(g=>hat(t,g.w)), fehl=k.gruppen.filter(g=>!hat(t,g.w));
+ const verkn=k.nover||hat(t,VERKN), genug=saetze(roh)>=(k.saetze||2), need=k.need||k.gruppen.length;
+ if(treffer.length>=need&&verkn&&genug)return{p:1,lab:"vollständig",msg:k.ok};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(treffer.length<need)m+=fehl.slice(0,2).map(g=>g.miss).join(" ")+" ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „deshalb“ oder „dadurch“. ";
+ if(!genug)m+=(k.zuwenig||("Schreibe mindestens "+(k.saetze||2)+" vollständige Sätze. "));
+ return{p:(treffer.length>=1?0.5:0.25),lab:"teilweise",msg:m.trim()};
+}
+function initText(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const r=bewerte($("#"+t.id).value,t.krit);
+  S.texts[t.id]=r.lab;fbT(t.id,r.msg,r.p>=1?"ok":"hint");
+  if(!t.zusatz){if(r.p>=1)fertig(t.id,1);else offen(t.id);}else speichern();
+ });
+}
+
+/* ---------- Abschlussmission ---------- */
+function pruefeAbschluss(){
+ const a1=val("a1");
+ if(a1&&S.a2geprueft&&(S.punkte.a2||0)>0)fertig("abschluss");else{delete S.done.abschluss;fortschritt();speichern();}
+}
+$("#a1Check").addEventListener("click",()=>{
+ const v=val("a1");
+ if(!v){fbT("a1","Bitte wähle zuerst eine Entscheidung aus.","hint");return;}
+ const ok=ABS.ok.includes(v);S.punkte.a1=ok?1:0;
+ fbT("a1",ABS.fb[v]||"",ok?"ok":"hint");pruefeAbschluss();
+});
+$("#a2Check").addEventListener("click",()=>{
+ const r=bewerte($("#a2").value,ABS.krit);
+ S.punkte.a2=r.p>=1?1:(r.p>0?0.5:0);S.a2lab=r.lab;S.a2geprueft=true;
+ fbT("a2",r.msg,r.p>=1?"ok":"hint");pruefeAbschluss();
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3].map(i=>val("lc"+i)||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;S.punkte.lerncheck=0;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return PFLICHT.reduce((s,t)=>s+(S.punkte[t.id]||0),0)+(S.punkte.a1||0)+(S.punkte.a2||0)+(S.punkte.lerncheck||0);}
+function kompetenz(k){const ts=PFLICHT.filter(t=>(t.komp||[]).includes(k));if(k==="historisches_urteil")return eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1&&ts.every(t=>(S.punkte[t.id]||0)>=1));return eins(ts.length>0&&ts.every(t=>(S.punkte[t.id]||0)>=1));}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=Math.round(punkteGesamt()*10)/10, pct=Math.round(pkt/MAXP*100);
+ const luecken=[];
+ PFLICHT.forEach(t=>{if(!((S.punkte[t.id]||0)>=1))luecken.push(t.name);});
+ if(!((S.punkte.a1||0)>=1))luecken.push("Abschlussentscheidung");
+ if(!((S.punkte.a2||0)>=1))luecken.push("Begründung");
+ const erg={};PFLICHT.forEach(t=>erg[t.id]=S.punkte[t.id]||0);
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ const pfl={};PFLICHT.forEach(t=>pfl[t.id]={correct:(S.punkte[t.id]||0)>=1});
+ pfl.entscheidung={correct:(S.punkte.a1||0)>=1};pfl.begruendung={correct:(S.punkte.a2||0)>=1};
+ const zus={},zusB={};TASKS.filter(t=>t.zusatz).forEach(t=>{const e=document.getElementById(t.id);if(e&&e.tagName==="TEXTAREA"){zus[t.id]=e.value.trim();zusB[t.id]=S.texts[t.id]||"nicht bearbeitet";}else{zusB[t.id]=(S.punkte[t.id]||0)>=1?"richtig":"nicht gelöst";}});
+ if(!S.abgabeId)S.abgabeId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2);
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"5",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:Object.assign({leitfrage:$("#a2").value.trim(),begruendung:$("#a2").value.trim(),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},zus),
+  bewertung_freitexte:Object.assign({begruendung:S.a2lab||"nicht bearbeitet"},zusB),
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:MAXP,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:{fachwissen:kompetenz("fachwissen"),zeit_raum:kompetenz("zeit_raum"),quellenarbeit:kompetenz("quellenarbeit"),
+   ursachen_folgen:kompetenz("ursachen_folgen"),perspektivitaet:kompetenz("perspektivitaet"),historisches_urteil:kompetenz("historisches_urteil")},
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:MAXP,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:S.abgabeId};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 5, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(still){
+ if(!pflichtOk(!still)){if(!still)location.hash="start";return null;}
+ if(!val("a1")){if(!still){fb("#buildFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung (A1).","bad");location.hash="abschluss";}return null;}
+ if(!lerncheckWerte().every(Boolean)){if(!still){fb("#buildFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";}return null;}
+ S.punkte.a1=ABS.ok.includes(val("a1"))?1:0;
+ fbClear("#buildFb");
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?CFG.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter: "+CFG.next:"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const zeilen=PFLICHT.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":<\/strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)<\/li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ S.built=true;fortschritt();speichern();if(!still)location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>ergebnisBauen(false));
+$("#printBtn").addEventListener("click",()=>window.print());
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+async function senden(){
+ const p=ergebnisBauen(true)||ergebnisBauen(false);
+ if(!p)return;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+TASKS.forEach(t=>{
+ if(t.typ==="mc")initMc(t);else if(t.typ==="multi")initMulti(t);
+ else if(t.typ==="zuord"){initZuord(t);zeichneZ(t);}
+ else if(t.typ==="order")initOrder(t);else if(t.typ==="hot")initHot(t);
+ else if(t.typ==="luecke")initLuecke(t);else if(t.typ==="text")initText(t);
+});
+Object.entries(S.fbs||{}).forEach(([k,v])=>{if(k==="d")fb("#dFb",v.m,v.a);else fb("#"+k+"Fb",v.m,v.a);});
+TASKS.filter(t=>t.typ==="luecke"&&S.done[t.id]).forEach(t=>t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);if(s&&s.value===w)s.classList.add("ok");}));
+fortschritt();
+if(S.built)ergebnisBauen(true);
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>
