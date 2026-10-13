@@ -84,6 +84,7 @@
     '8-18': { url: '/geschichte/klasse-8/018/', blurb: '45–60 Minuten · Lerncheck über die Module 014–017 · Karte · Quellen und Urteile prüfen', cta: 'Lerncheck öffnen' },
     '9-8': { url: '/geschichte/klasse-9/008/', blurb: '45–60 Minuten · drei Lernwege · Ursachen und Wahlergebnisse · 30. Januar 1933 · Goebbels als Täterquelle', cta: 'Modul öffnen' },
     '9-9': { url: '/geschichte/klasse-9/009/', blurb: '45–60 Minuten · drei Lernwege · Ermächtigungsgesetz und Gleichschaltung · frühe Lager im Emsland · Rede von Otto Wels', cta: 'Modul öffnen' },
+    '9-10': { url: '/geschichte/klasse-9/010/', blurb: '45–60 Minuten · drei Lernwege · Mittel der Propaganda · Schritte der Ausgrenzung · Nürnberger Gesetze als Quelle', cta: 'Modul öffnen' },
     '9-17': { url: 'https://edmundbruns.github.io/emslandlager/', blurb: 'Digitale Lernreise zu den Emslandlagern, regionaler Geschichte und Erinnerungskultur.', cta: 'Lernreise öffnen', ext: true }
   };
 
