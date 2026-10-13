@@ -16,6 +16,7 @@
     '5-8': { url: '/geschichte/klasse-5/008/', blurb: '45–60 Minuten · drei Lernwege · Gesellschaftspyramide · Pyramidenbau · Turiner Streikpapyrus als Textquelle', cta: 'Modul öffnen' },
     '5-9': { url: '/geschichte/klasse-5/009/', blurb: '45–60 Minuten · drei Lernwege · Karte Griechenland · Olympische Spiele · Herodot als Textquelle', cta: 'Modul öffnen' },
     '5-10': { url: '/geschichte/klasse-5/010/', blurb: '45–60 Minuten · drei Lernwege · Zeitleiste Solon bis Perikles · Volksversammlung und Rat · Ostraka als Sachquelle', cta: 'Modul öffnen' },
+    '5-11': { url: '/geschichte/klasse-5/011/', blurb: '45–60 Minuten · drei Lernwege · Oikos · Athen und Sparta im Vergleich · Xenophon als Textquelle', cta: 'Modul öffnen' },
     '6-1': external('https://001mittelalterliche-welt.pages.dev/', '50–60 Minuten · drei Lernwege · Übergang von der Antike zum Mittelalter · Quellenarbeit an Gregor von Tours'),
     '6-2': external('https://002grundherrschaft.pages.dev/', '50–60 Minuten · drei Lernwege · Schutz und Land gegen Abgaben und Dienste · Quellenarbeit am Prümer Urbar'),
     '6-3': external('https://003leben-auf-dem-land.pages.dev/', '50–60 Minuten · drei Lernwege · Dorfgemeinschaft, Allmende und Dreifelderwirtschaft · Arbeit mit Monatsbildern'),
