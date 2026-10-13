@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#8a4317">
+<meta name="description" content="SOL Geschichte Jahrgang 5, Modul 008: Wie lebten Menschen im Alten Ägypten?">
+<title>SOL Geschichte 5 | Modul 008 | Wie lebten Menschen im Alten Ägypten?</title>
+<style>
+:root{--ink:#2a1c12;--paper:#fff;--cream:#f4ebe3;--soft:#f4ebe3;--bg:#f7f2ea;--green:#8a4317;--gold:#aa6d18;--gold-text:#8f5a12;--red:#9b352d;--blue:#1168c4;--line:#e2d6ca;--ok:#1d6b4f;--okbg:#eaf4ef;--warn:#7a4b12;--warnbg:#fdf5e7;--bad:#9b352d;--badbg:#fbeeee;--shadow:0 14px 40px #2a1c1214;--radius:18px;--focus:#1168c4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{min-height:44px}
+button{cursor:pointer}
+a{color:var(--blue)}
+:focus-visible{outline:4px solid var(--focus);outline-offset:3px;border-radius:6px}
+header{background:linear-gradient(130deg,#2e1a0e,#8a4317);color:#fdf8f3;padding:20px 16px 26px}
+.shell{max-width:1040px;margin:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;letter-spacing:.02em}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button{background:#fdf8f3;color:#2e1a0e;border:0;border-radius:12px;padding:9px 12px;font-weight:750;min-height:44px}
+.hero{margin-top:18px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+@media(max-width:720px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-weight:800;color:#e9c98f;text-transform:uppercase;letter-spacing:.09em;font-size:.8rem}
+.hero h1{font-size:clamp(1.7rem,4.4vw,2.9rem);line-height:1.08;margin:.3rem 0}
+.hero p{margin:.4rem 0;color:#f6ebe1;max-width:66ch}
+.badge{background:#ffffff22;border:1px solid #ffffff55;border-radius:16px;padding:14px 16px;text-align:center;min-width:120px}
+.badge strong{display:block;font-size:1.9rem;line-height:1}
+.progress{position:sticky;top:0;z-index:20;background:#fffffff2;border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.progress .shell{display:flex;align-items:center;gap:12px;padding:8px 16px}
+.track{flex:1;height:12px;background:var(--cream);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#8a4317,#d29a3a);transition:width .35s}
+.ptext{font-weight:750;font-size:.9rem;white-space:nowrap}
+.layout{max-width:1040px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.side{position:static!important}}
+.side{position:sticky;top:64px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow)}
+.side nav{display:grid;gap:2px}
+.side a{display:block;padding:9px 10px;border-radius:10px;text-decoration:none;color:#3a2a1e;font-weight:650;font-size:.94rem}
+.side a:hover{background:var(--cream)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:var(--shadow);min-width:0}
+@media(max-width:480px){.card{padding:16px 14px}}
+.card h2{margin:.1rem 0 .7rem;font-size:1.35rem;color:var(--green)}
+.card h3{margin:1.1rem 0 .4rem;font-size:1.08rem;color:#3a2a1e}
+.chronos{display:flex;gap:12px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:12px 14px;margin:12px 0}
+.chronos .av{flex:0 0 46px}
+.chronos p{margin:.15rem 0}
+.chronos .who{font-weight:800;color:var(--gold-text)}
+.akte{border:2px dashed var(--gold);border-radius:14px;padding:14px;background:#fdf8ee;margin:12px 0}
+.akte .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-weight:800;letter-spacing:.12em;padding:3px 9px;border-radius:6px;transform:rotate(-3deg);font-size:.78rem}
+.notice{background:var(--cream);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:12px 14px;margin:12px 0}
+.notice.warn{border-left-color:var(--gold);background:var(--warnbg)}
+.notice.privacy{border-left-color:var(--green);font-size:.94rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.field{display:grid;gap:5px;min-width:0}
+.field label,.legend{font-weight:750;color:#3a2a1e}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.88rem;color:#6a5a4c}
+.btn{background:var(--green);color:#fdf8f3;border:0;border-radius:12px;padding:12px 16px;font-weight:750;margin:6px 6px 0 0}
+.btn.sec{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn.gold{background:var(--gold)}
+.btn.danger{background:#fff;color:var(--red);border:1px solid var(--red)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.fb{display:none;margin-top:11px;padding:12px;border-radius:12px;font-weight:680}
+.fb.show{display:block}
+.fb.ok{color:var(--ok);background:var(--okbg);border:1px solid #9ccbb0}
+.fb.hint{color:var(--warn);background:var(--warnbg);border:1px solid #e8c99a}
+.fb.bad{color:var(--bad);background:var(--badbg);border:1px solid #ddaaaa}
+.task{border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0;background:#fff;min-width:0}
+@media(max-width:480px){.task{padding:12px 10px}}
+.task .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.78rem;font-weight:800;color:#6a5a4c;letter-spacing:.04em}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;cursor:pointer}
+.opts label:hover{background:var(--cream)}
+.opts input{margin-top:3px;min-height:auto;width:20px;height:20px;flex:0 0 auto}
+fieldset{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-weight:700;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--green);background:#f6e7da}
+.chip.ok{border-color:var(--ok);background:var(--okbg)}
+.chip.no{border-color:var(--bad);background:var(--badbg)}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:10px}
+.zones.z4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.zones.z3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.task>label.legend{display:block;margin:8px 0 4px}
+.zone{border:2px dashed var(--line);border-radius:14px;padding:10px;background:#fff;min-height:104px;cursor:pointer}
+.zone.over{border-color:var(--gold);background:#fffaf0}
+.zone h4{margin:.1rem 0 .5rem;font-size:.98rem;color:var(--green)}
+.zone .drop{display:flex;flex-wrap:wrap;gap:6px;min-height:44px}
+.piece{border:2px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:650;min-height:44px;display:inline-flex;align-items:center;gap:6px;text-align:left;max-width:100%;color:var(--ink)}
+.piece[aria-pressed=true]{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #aa6d1833}
+.piece.ok{border-color:var(--ok);background:var(--okbg)}
+.piece.no{border-color:var(--bad);background:var(--badbg)}
+.piece.ok::after,.chip.ok::after{content:' \2713';font-weight:900;color:var(--ok)}
+.piece.no::after,.chip.no::after{content:' \2717';font-weight:900;color:var(--bad)}
+.order{display:grid;gap:8px;margin:10px 0}
+.orow{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff}
+.orow .nr{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--green)}
+.orow span.t{flex:1;font-weight:650;min-width:0}
+.orow button{width:44px;min-height:44px;border:1px solid var(--line);background:var(--cream);border-radius:10px;font-size:1.1rem;font-weight:800;flex:0 0 auto}
+.orow.ok{border-color:var(--ok);background:var(--okbg)}
+@media(max-width:520px){.orow{flex-wrap:wrap}.orow span.t{flex:1 1 calc(100% - 44px)}.orow button:first-of-type{margin-left:auto}}
+.svgwrap{border:1px solid var(--line);border-radius:14px;background:#fff;padding:8px;margin-top:10px;overflow:hidden}
+svg.pic{width:100%;height:auto;display:block;touch-action:manipulation}
+.hot{cursor:pointer;transition:filter .15s}
+.svgwrap .hot:hover{filter:drop-shadow(0 0 5px #aa6d18aa)}
+.hot.found{filter:drop-shadow(0 0 6px #17633b)}
+.hot:focus-visible{outline:4px solid var(--focus)}
+.legendlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.legendlist span{font-size:.86rem;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--cream)}
+details.gloss{border:1px solid var(--line);border-radius:12px;background:#fff;margin:8px 0}
+details.gloss>summary{cursor:pointer;padding:11px 13px;font-weight:750;color:var(--green);list-style:none;display:flex;gap:9px;align-items:center;min-height:44px}
+details.gloss>summary::-webkit-details-marker{display:none}
+details.gloss>summary::before{content:'+';font-weight:900;color:var(--gold-text);width:1.1em;text-align:center}
+details.gloss[open]>summary::before{content:'\2212'}
+details.gloss .body{padding:0 13px 13px;color:#45362a}
+.scale{display:flex;gap:8px;flex-wrap:wrap}
+.scale label{flex:1 1 120px;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fff;cursor:pointer;font-weight:700}
+.scale input{margin-right:6px;min-height:auto}
+.result{display:none;margin-top:14px}
+.result.show{display:block}
+.score{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--green) var(--p,0%),var(--cream) 0);display:grid;place-items:center;font-weight:900;font-size:1.2rem;color:var(--green)}
+.ring i{background:var(--paper);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-style:normal}
+.lamp{width:18px;height:18px;border-radius:50%;display:inline-block;background:#bbb;margin-right:8px;border:1px solid #0002;vertical-align:middle}
+.lamp.g{background:#2f8f5b}.lamp.y{background:#d8a325}.lamp.r{background:#b6483f}
+.pay{background:#2e2118;color:#f4ebe3;border-radius:12px;padding:12px;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.abz{border:2px solid var(--line);border-radius:12px;padding:8px 12px;font-weight:800;color:#8c8178;background:#fff;font-size:.9rem}
+.abz.on{border-color:var(--gold);color:var(--gold-text);background:#fffaf0}
+blockquote.q{margin:10px 0;padding:10px 14px;border-left:4px solid var(--green);background:#fff;border-radius:0 10px 10px 0}
+blockquote.q p{margin:.35rem 0}
+.orig{font-size:.9rem;color:#6a5a4c;font-style:italic}
+.cloze{line-height:2.4}
+.cloze select{width:auto;max-width:100%;display:inline-block;margin:2px 3px;padding:6px 8px;border-radius:10px;border:2px solid var(--line);background:#fff;font-weight:700;min-height:44px}
+.cloze select.ok{border-color:var(--ok);background:var(--okbg)}
+.cloze select.no{border-color:var(--bad);background:var(--badbg)}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem;margin:8px 0}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+.tbl th{background:var(--cream);font-weight:800}
+.tbl td.n,.tbl th.n{text-align:right;white-space:nowrap}
+.tblwrap{overflow-x:auto;max-width:100%}
+.wort{font-size:.9rem;color:#45362a}
+.merk{background:#fff8ea;border:2px solid #e2c48d;border-radius:14px;padding:12px 14px;margin:12px 0}
+.merk b.k{display:block;color:var(--gold-text);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:2px}
+.fund{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px;align-items:start;margin:10px 0}
+@media(max-width:640px){.fund{grid-template-columns:minmax(0,1fr)}}
+.facts{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.facts li{border:1px solid var(--line);border-radius:10px;padding:7px 10px;background:#fff}
+.facts li b{color:var(--green)}
+.wq{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 7px;font-weight:800;margin-right:4px}
+footer{max-width:1040px;margin:10px auto 40px;padding:0 16px;color:#6a5a4c;font-size:.9rem}
+body.easy{font-size:19px}
+body.easy .card{padding:22px}
+body.easy p,body.easy li{line-height:1.75;max-width:62ch}
+body:not(.lw-weiter) [data-lw="weiter"]{display:none}
+body.lw-sicher [data-lw="standard"]{display:none}
+body:not(.lw-sicher) [data-lw="sicher"]{display:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{header,.progress,.side,.tools,.no-print,.btn{display:none!important}.layout{display:block}.card{box-shadow:none;break-inside:avoid}.result{display:block!important}body{background:#fff;font-size:11pt}}
+</style>
+<script>/* Abgabe senden und Antwort des Auswertungssystems lesen */
+window.ebSend=async function(url,payload){var r,t="",j=null;
+ try{r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});t=await r.text();}
+ catch(e){return{ok:false,msg:"Keine Verbindung zum Auswertungssystem. Prüfe das Internet und versuche es noch einmal."};}
+ try{j=JSON.parse(t);}catch(e){}
+ if(j&&(j.ok===true||/^(ok|gespeichert|success)$/i.test(String(j.status||""))))return{ok:true,data:j};
+ return{ok:false,msg:(j&&(j.error||j.message))?String(j.error||j.message):"Das Auswertungssystem hat die Abgabe nicht bestätigt."};};
+</script>
+</head>
+<body class="lw-standard">
+<header>
+ <div class="shell">
+  <div class="topline">
+   <div>SOL Geschichte 5 · Oberschule Niedersachsen</div>
+   <div class="tools" aria-label="Lesehilfen">
+    <button type="button" id="easyBtn" aria-pressed="false">Leichter lesen</button>
+    <button type="button" id="speakBtn">Vorlesen</button>
+    <button type="button" id="stopBtn">Stopp</button>
+   </div>
+  </div>
+  <div class="hero">
+   <div>
+    <div class="eyebrow">Frühe Menschen und Hochkulturen · Zeitreise 008</div>
+    <h1>Wie lebten Menschen im Alten Ägypten?</h1>
+    <p>Pharaonen, Gold und Pyramiden: So stellen sich viele das Alte Ägypten vor. Doch die meisten Menschen waren Bauern, Handwerker und Arbeiter. In diesem Modul lernst du die ganze Gesellschaft kennen und liest einen über 3000 Jahre alten Bericht über einen Streik.</p>
+   </div>
+   <div class="badge"><span>Modul</span><strong>008</strong><span>45 bis 60 Minuten</span></div>
+  </div>
+ </div>
+</header>
+<div class="progress"><div class="shell"><div class="track" role="progressbar" aria-label="Lernfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><div class="bar" id="pfill"></div></div><div class="ptext" id="ptext">0 von 10 Schritten</div></div></div>
+<div class="layout">
+<aside class="side no-print"><nav aria-label="Modulabschnitte">
+ <a href="#start">Start</a>
+ <a href="#mission">Die Mission</a>
+ <a href="#diagnose">Was glaubst du?</a>
+ <a href="#gesellschaft">Oben und unten</a>
+ <a href="#pyramiden">Pyramiden und Jenseits</a>
+ <a href="#quelle">Die Quelle</a>
+ <a href="#glossar">Fachwörter</a>
+ <a href="#lerncheck">Lerncheck</a>
+ <a href="#abschluss">Abschlussmission</a>
+ <a href="#ergebnis">Ergebnis</a>
+</nav></aside>
+<main id="content">
+
+<section class="card" id="start">
+<h2>Bevor du beginnst</h2>
+<div class="grid2">
+ <div class="field"><label for="name">Name oder Lerncode</label><input type="text" id="name" autocomplete="name" maxlength="80" required><span class="hint">Wenn du deinen Namen nicht eingeben möchtest, nutze deinen Lerncode.</span></div>
+ <div class="field"><label for="klasse">Klasse</label><input type="text" id="klasse" maxlength="30" required placeholder="zum Beispiel 5a"><span class="hint">Möglich sind zum Beispiel 5a, Klasse 5a, R5a oder nur 5.</span></div>
+ <div class="field"><label for="email">E-Mail-Adresse</label><input type="email" id="email" autocomplete="email" maxlength="120" required><span class="hint">An diese Adresse kann deine Rückmeldung gehen.</span></div>
+ <fieldset class="field" style="border:0;padding:0;margin:0;grid-column:1/-1"><legend class="legend">Mein Lernweg</legend>
+  <div class="chips" role="radiogroup" aria-label="Lernweg wählen">
+   <button type="button" class="chip" data-lwbtn="sicher" aria-pressed="false">Sicher werden</button>
+   <button type="button" class="chip" data-lwbtn="standard" aria-pressed="true">Standard</button>
+   <button type="button" class="chip" data-lwbtn="weiter" aria-pressed="false">Weiterdenken</button>
+  </div>
+  <p class="hint" id="lwInfo">Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.</p>
+ </fieldset>
+</div>
+<h3>Das lernst du in diesem Modul</h3>
+<ul><li>Du beschreibst den Aufbau der Gesellschaft im Alten Ägypten.</li><li>Du erfährst, wer die Pyramiden baute und warum.</li><li>Du lernst den Glauben an das Jenseits kennen.</li><li>Du liest den ältesten bekannten Bericht über einen Streik.</li><li>Du erkennst, warum wir über Reiche mehr wissen als über einfache Menschen.</li></ul>
+<div class="notice privacy"><strong>Datenschutz:</strong> Deine Eingaben werden nur auf diesem Gerät gespeichert, damit du später weiterarbeiten kannst. Erst wenn du am Ende auf „Ergebnis an die Lehrkraft senden“ tippst, werden die angezeigten Angaben übertragen. Es gibt keine Werbung, kein Tracking und keine Weitergabe an Dritte. Mit „Gespeicherten Stand löschen“ entfernst du alles wieder von diesem Gerät.</div>
+<button class="btn" type="button" id="startBtn">Zeitreise starten</button>
+<button class="btn danger" type="button" id="clearBtn">Gespeicherten Stand löschen</button>
+<div class="fb" id="startFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="mission">
+<h2>Die Mission</h2>
+<div class="akte">
+ <span class="stamp">Zeitreise 008</span>
+ <p><strong>Fall:</strong> Chronos möchte einen Film über das Alte Ägypten drehen. Sein erster Satz im Drehbuch lautet: <em>„Im Alten Ägypten lebten die Menschen in Gold und Pracht, genau wie ihr Pharao.“</em></p>
+ <p><strong>Dein Auftrag:</strong> Finde heraus, wie die Menschen wirklich lebten. Am Ende entscheidest du, ob der Satz ins Drehbuch darf.</p>
+</div>
+<p><strong>Zum Einstieg:</strong> Wenn du an das Alte Ägypten denkst, denkst du vielleicht an die goldene Maske des Tutanchamun. Sie ist berühmt auf der ganzen Welt. Aber wie sah eigentlich der Alltag einer Bäuerin oder eines Handwerkers aus?</p>
+<div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Gold sieht im Film einfach am besten aus. Aber ich will natürlich auch, dass mein Film stimmt. Hilf mir dabei.</p></div></div>
+<p><strong>Leitfrage:</strong> Wie lebten Menschen im Alten Ägypten?</p>
+<div class="badges" aria-label="Deine Abzeichen">
+ <span class="abz" id="abz1">Gesellschaftskennerin</span>
+ <span class="abz" id="abz2">Pyramidenforscher</span>
+ <span class="abz" id="abz3">Papyrusleserin</span>
+ <span class="abz" id="abz4">Begründer</span>
+</div>
+</section>
+
+<section class="card" id="diagnose">
+<h2>Was glaubst du?</h2>
+<p>Drei kurze Fragen zum Einstieg. Sie werden nicht benotet und helfen dir nur bei der Einschätzung.</p><div class="task"><span class="tag">Vermutung</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D1. Welche Gruppe war im Alten Ägypten am größten?</legend><div class="opts"><label><input type="radio" name="d1" value="a"><span>Die Bauern</span></label><label><input type="radio" name="d1" value="b"><span>Die Priester</span></label><label><input type="radio" name="d1" value="c"><span>Die Pharaonen</span></label></div></fieldset></div><div class="task"><span class="tag">Richtig oder falsch</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D2. Die Ägypter glaubten an ein Leben nach dem Tod.</legend><div class="opts"><label><input type="radio" name="d2" value="r"><span>Das stimmt</span></label><label><input type="radio" name="d2" value="f"><span>Das stimmt nicht</span></label></div></fieldset></div><div class="task"><span class="tag">Schätzfrage</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">D3. Worauf schrieben die Schreiber im Alten Ägypten oft?</legend><div class="opts"><label><input type="radio" name="d3" value="a"><span>Auf Papyrus, einer Art Papier aus einer Schilfpflanze</span></label><label><input type="radio" name="d3" value="b"><span>Auf Papier aus Holz wie heute</span></label><label><input type="radio" name="d3" value="c"><span>Auf Tablets</span></label></div></fieldset></div><button class="btn" type="button" id="dCheck">Einschätzung auswerten</button><div class="fb" id="dFb" role="status" aria-live="polite"></div>
+</section>
+
+<section class="card" id="gesellschaft">
+<h2>Oben und unten: die Gesellschaft</h2>
+<p>Die Gesellschaft im Alten Ägypten war wie eine <strong>Pyramide</strong> aufgebaut. Ganz oben stand eine einzige Person, ganz unten standen sehr viele Menschen. Wer in welche Schicht geboren wurde, blieb dort meistens sein Leben lang.</p><div class="task"><span class="tag">Reihenfolge</span><p><strong>Auftrag:</strong> Ordne die Gruppen von oben (viel Macht) nach unten (wenig Macht).</p><div class="order" id="pyramideList" aria-label="Liste zum Ordnen"></div><button class="btn" type="button" id="pyramideCheck">Reihenfolge prüfen</button><button class="btn sec" type="button" id="pyramideReset">Neu mischen</button><div class="fb" id="pyramideFb" role="status" aria-live="polite"></div></div><div class="notice" data-lw="sicher"><strong>Hilfe:</strong> Ganz oben steht der König. Die Bauern stehen weit unten, aber nicht ganz unten.</div><div class="svgwrap"><svg class="pic" style="max-width:640px;margin:auto" viewBox="0 0 400 190" role="img" aria-label="Zeichnung im Stil ägyptischer Grabbilder: Zwei Bauern schneiden Getreide mit Sicheln, eine Frau trägt einen Korb, ein Schreiber sitzt daneben und notiert die Ernte auf einer Papyrusrolle.">
+<rect width="400" height="190" fill="#f5ead2"/>
+<rect x="6" y="6" width="388" height="178" fill="none" stroke="#8a4317" stroke-width="3"/>
+<path d="M14 150 H386" stroke="#8a4317" stroke-width="3"/>
+<g stroke="#c9a14a" stroke-width="3"><path d="M24 150 v-56 M34 150 v-60 M44 150 v-54 M54 150 v-58 M64 150 v-55"/></g>
+<g fill="#e0b94e"><ellipse cx="24" cy="92" rx="3" ry="8"/><ellipse cx="34" cy="88" rx="3" ry="8"/><ellipse cx="44" cy="94" rx="3" ry="8"/><ellipse cx="54" cy="90" rx="3" ry="8"/><ellipse cx="64" cy="93" rx="3" ry="8"/></g>
+<g fill="#b5653a" stroke="#5b2c0f" stroke-width="1.2">
+<circle cx="96" cy="78" r="9"/><path d="M90 88 h12 l4 26 h-20Z"/><path d="M88 114 h22 l-2 36 h-6 l-2 -24 l-2 24 h-6Z" fill="#f5f2ea"/>
+<circle cx="146" cy="78" r="9"/><path d="M140 88 h12 l4 26 h-20Z"/><path d="M138 114 h22 l-2 36 h-6 l-2 -24 l-2 24 h-6Z" fill="#f5f2ea"/>
+<circle cx="206" cy="72" r="9"/><path d="M198 82 h16 l6 68 h-28Z" fill="#f5f2ea"/><path d="M196 62 h20 l-3 -12 h-14Z" fill="#c9a14a"/>
+<circle cx="300" cy="96" r="9"/><path d="M288 108 h24 l10 30 h-44Z" fill="#f5f2ea"/><path d="M282 138 h46 v12 h-46Z" fill="#f5f2ea"/></g>
+<path d="M84 98 q-12 -2 -14 10" stroke="#5b5b5b" stroke-width="3" fill="none"/><path d="M134 98 q-12 -2 -14 10" stroke="#5b5b5b" stroke-width="3" fill="none"/>
+<rect x="312" y="118" width="34" height="10" rx="3" fill="#efe2bf" stroke="#8a4317" stroke-width="1.5"/><path d="M318 123 h22" stroke="#2a1c12" stroke-width="1.2" stroke-dasharray="3 2"/>
+<g font-size="14" font-weight="700" fill="#2a1c12" paint-order="stroke" stroke="#f5ead2" stroke-width="4" stroke-linejoin="round">
+<text x="120" y="174" text-anchor="middle">Bauern bei der Ernte</text><text x="206" y="40" text-anchor="middle">Korbträgerin</text><text x="318" y="174" text-anchor="middle">Schreiber notiert</text></g>
+</svg></div><div class="legendlist" aria-hidden="true"><span>Zeichnung: eigene Darstellung im Stil ägyptischer Grabbilder</span></div><div class="task"><span class="tag">Bild verstehen</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">G1. Auf vielen Grabbildern sitzt ein Schreiber neben den Bauern und notiert die Ernte. Warum?</legend><div class="opts"><label><input type="radio" name="berufe" value="a"><span>Er schrieb auf, wie viel geerntet wurde. Davon mussten die Bauern einen Teil als Abgabe an den Pharao und die Tempel abliefern.</span></label><label><input type="radio" name="berufe" value="b"><span>Er schrieb Briefe an seine Freunde.</span></label><label><input type="radio" name="berufe" value="c"><span>Er malte das Grabbild.</span></label></div></fieldset><button class="btn" type="button" id="berufeCheck">Prüfen</button><div class="fb" id="berufeFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="pyramiden">
+<h2>Pyramiden und der Glaube an das Jenseits</h2>
+<p>Die Ägypter glaubten an ein Leben nach dem Tod, im <strong>Jenseits</strong>. Damit der Tote dort weiterleben konnte, sollte sein Körper erhalten bleiben. Deshalb wurden reiche Tote zu <strong>Mumien</strong> gemacht. Die Pharaonen ließen sich riesige Gräber bauen. Die größte Pyramide in Gizeh wurde um 2550 v. Chr. für Pharao Cheops errichtet.</p><div class="chronos"><div class="av"><svg width="46" height="46" aria-hidden="true" focusable="false" viewBox="0 0 46 46"><circle cx="23" cy="23" r="22" fill="#f4ebe3" stroke="#aa6d18" stroke-width="2"/><path d="M8 41c2-9 8-13 15-13s13 4 15 13" fill="#8a4317"/><circle cx="23" cy="18" r="8" fill="#f1d3b5" stroke="#5b2c0f" stroke-width="1.5"/><path d="M15 15c2-7 14-7 16 0" fill="#e9e1d6" stroke="#5b2c0f" stroke-width="1.2"/><circle cx="20" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><circle cx="26" cy="18.5" r="2.6" fill="none" stroke="#2a1c12" stroke-width="1.3"/><path d="M22.6 18.5h0.8M20 23q3 2 6 0" stroke="#2a1c12" stroke-width="1.2" fill="none"/><path d="M31 30h6l-2.4 4 2.4 4h-6l2.4-4z" fill="#e9c98f" stroke="#aa6d18" stroke-width="1.2"/></svg></div><div><p class="who">Chronos, Hüter der Zeit</p><p>Jahrhundertelang glaubte man, Tausende Sklaven hätten unter Peitschenhieben die Pyramiden gebaut. So zeigen es auch viele Filme. Aber die Archäologen haben etwas anderes gefunden.</p></div></div><div class="task"><span class="tag">Forschen wie Archäologen</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">P1. In Gizeh fanden Archäologen eine Siedlung der Pyramidenarbeiter mit Bäckereien, Brauereien und Schlafräumen. Daneben lagen die Gräber der Arbeiter. Was schließen Forscher daraus?</legend><div class="opts"><label><input type="radio" name="bau" value="a"><span>Die Pyramiden bauten vor allem bezahlte Arbeiter und Handwerker. Sie bekamen Brot und Bier als Lohn und wurden in eigenen Gräbern nahe der Pyramide begraben.</span></label><label><input type="radio" name="bau" value="b"><span>Außerirdische haben die Pyramiden gebaut.</span></label><label><input type="radio" name="bau" value="c"><span>Der Pharao hat die Pyramide allein gebaut.</span></label></div></fieldset><button class="btn" type="button" id="bauCheck">Prüfen</button><div class="fb" id="bauFb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Lückentext</span><p><strong>Auftrag:</strong> Wähle in jeder Lücke das passende Wort.</p><p class="cloze">Die Ägypter glaubten an ein Leben nach dem Tod, im <select id="jenseits_0" aria-label="Lücke 1"><option value="">bitte wählen</option><option value="Jenseits">Jenseits</option><option value="Ausland">Ausland</option><option value="Diesseits">Diesseits</option></select>. Damit der Körper erhalten blieb, wurde er zur <select id="jenseits_1" aria-label="Lücke 2"><option value="">bitte wählen</option><option value="Statue">Statue</option><option value="Pyramide">Pyramide</option><option value="Mumie">Mumie</option></select> gemacht. Das dauerte etwa <select id="jenseits_2" aria-label="Lücke 3"><option value="">bitte wählen</option><option value="zehn Jahre">zehn Jahre</option><option value="70 Tage">70 Tage</option><option value="eine Stunde">eine Stunde</option></select>. In das Grab legte man Essen, Möbel und Schmuck als <select id="jenseits_3" aria-label="Lücke 4"><option value="">bitte wählen</option><option value="Grabbeigaben">Grabbeigaben</option><option value="Steuern">Steuern</option><option value="Werkzeug für Bauern">Werkzeug für Bauern</option></select>. Das konnten sich aber nur <select id="jenseits_4" aria-label="Lücke 5"><option value="">bitte wählen</option><option value="alle Menschen">alle Menschen</option><option value="reiche Menschen">reiche Menschen</option><option value="die Versklavten">die Versklavten</option></select> leisten.</p><button class="btn" type="button" id="jenseitsCheck">Prüfen</button><div class="fb" id="jenseitsFb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="quelle">
+<h2>Die Quelle: der älteste Streik der Welt</h2>
+<p>Aus dem Dorf Deir el-Medina sind besonders viele Texte erhalten. Die Handwerker dort konnten oft selbst lesen und schreiben. Deshalb wissen wir über ihren Alltag mehr als über fast alle anderen Menschen im Alten Ägypten.</p><div class="akte">
+ <span class="stamp">Quelle</span>
+ <p><strong>Textquelle: der Turiner Streikpapyrus.</strong> In Deir el-Medina, einem Dorf bei Theben, lebten die Handwerker, die die Gräber der Pharaonen im Tal der Könige bauten und bemalten. Ihren Lohn bekamen sie in Getreide. Im 29. Regierungsjahr von Pharao Ramses III., um 1157 v. Chr., blieb der Lohn mehrfach aus. Da legten die Arbeiter die Arbeit nieder. Ein Schreiber hielt fest, was sie den Beamten zuriefen:</p>
+ <blockquote style="margin:10px 0;padding:10px 14px;background:#fff;border-radius:10px;font-size:1.08rem">„Wir hungern! Achtzehn Tage dieses Monats sind schon vergangen. […] Schreibt es dem Pharao, unserem guten Herrn!“</blockquote>
+ <p class="hint">Vereinfacht wiedergegeben nach dem Papyrus, der heute im Ägyptischen Museum in Turin liegt. Es ist der älteste bekannte Bericht über einen Streik.</p>
+</div><div class="task"><span class="tag">Quellenarbeit</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S1. Was erfährst du aus der Quelle? Wähle alle richtigen Aussagen aus.</legend><div class="opts"><label><input type="checkbox" name="s1" value="lohn"><span>Die Handwerker bekamen ihren Lohn in Getreide, also in Nahrung.</span></label><label><input type="checkbox" name="s1" value="aus"><span>Der Lohn war ausgeblieben, und die Arbeiter hatten Hunger.</span></label><label><input type="checkbox" name="s1" value="mut"><span>Die Arbeiter wehrten sich und forderten ihr Recht.</span></label><label><input type="checkbox" name="s1" value="pharao"><span>Die Arbeiter wandten sich an den Pharao, weil sie hofften, dass er ihnen hilft.</span></label><label><input type="checkbox" name="s1" value="sklaven"><span>Die Arbeiter waren Versklavte ohne jedes Recht.</span></label></div></fieldset><button class="btn" type="button" id="s1Check">Prüfen</button><button class="btn sec" type="button" id="s1Reset">Zurücksetzen</button><div class="fb" id="s1Fb" role="status" aria-live="polite"></div></div><div class="task"><span class="tag">Quellenkritik</span><fieldset style="border:0;padding:0;margin:0"><legend class="legend">S2. Die meisten Funde aus Ägypten stammen aus Gräbern und Palästen reicher Menschen. Was bedeutet das für unser Bild vom Alten Ägypten?</legend><div class="opts"><label><input type="radio" name="s2" value="a"><span>Alle Ägypter waren reich.</span></label><label><input type="radio" name="s2" value="b"><span>Über die Reichen wissen wir viel, über einfache Menschen wenig. Deshalb sind Quellen wie der Streikpapyrus so wertvoll.</span></label><label><input type="radio" name="s2" value="c"><span>Einfache Menschen gab es im Alten Ägypten nicht.</span></label></div></fieldset><button class="btn" type="button" id="s2Check">Prüfen</button><div class="fb" id="s2Fb" role="status" aria-live="polite"></div></div><div class="task" data-lw="weiter"><span class="tag">Weiterdenken · Perspektivwechsel</span><label class="legend" for="q2">Q2. Stell dir vor, du bist ein Beamter des Pharaos und hörst die Rufe der Arbeiter. Was denkst du? Schreibe zwei Sätze aus seiner Sicht und begründe sie.</label><textarea id="q2" placeholder="Als Beamter denke ich, dass ..., weil ..."></textarea><p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p><button class="btn" type="button" id="q2Check">Antwort prüfen</button><div class="fb" id="q2Fb" role="status" aria-live="polite"></div></div>
+</section>
+
+<section class="card" id="glossar">
+<h2>Fachwörter</h2>
+<details class="gloss"><summary>Gesellschaftspyramide</summary><div class="body">Ein Bild für den Aufbau einer Gesellschaft: oben wenige Menschen mit viel Macht, unten viele Menschen mit wenig Macht.</div></details><details class="gloss"><summary>Wesir</summary><div class="body">Der höchste Beamte im Alten Ägypten, gleich nach dem Pharao.</div></details><details class="gloss"><summary>Abgaben</summary><div class="body">Ein Teil der Ernte oder der Waren, den die Menschen an den Pharao oder die Tempel abgeben mussten.</div></details><details class="gloss"><summary>Papyrus</summary><div class="body">Ein Schreibmaterial aus der Papyruspflanze, die am Nil wuchs. Auch ein beschriebenes Blatt heißt Papyrus.</div></details><details class="gloss"><summary>Jenseits</summary><div class="body">Die Welt, in der die Toten nach dem Glauben der Ägypter weiterleben.</div></details><details class="gloss"><summary>Mumie</summary><div class="body">Ein toter Körper, der durch Austrocknen und Einwickeln in Leinenbinden haltbar gemacht wurde.</div></details><details class="gloss"><summary>Grabbeigaben</summary><div class="body">Dinge, die man den Toten ins Grab legte, zum Beispiel Essen, Möbel oder Schmuck.</div></details><details class="gloss"><summary>Streik</summary><div class="body">Arbeiter legen gemeinsam die Arbeit nieder, um eine Forderung durchzusetzen, zum Beispiel ihren Lohn.</div></details><details class="gloss"><summary>Überlieferung</summary><div class="body">Alles, was aus der Vergangenheit bis heute erhalten geblieben ist. Sie ist oft lückenhaft.</div></details><h3>Woher stammen die Texte?</h3><details class="gloss"><summary>Nachweise der Quellen und Zahlen</summary><div class="body"><ul><li>Turiner Streikpapyrus (Ägyptisches Museum Turin): Bericht des Schreibers Amunnacht aus dem 29. Regierungsjahr Ramses' III., um 1157 v. Chr.; Zitat vereinfacht wiedergegeben.</li><li>Arbeitersiedlung und Arbeitergräber in Gizeh: Ausgrabungen seit den 1990er-Jahren unter anderem unter Leitung von Mark Lehner und Zahi Hawass. Cheops-Pyramide um 2550 v. Chr.</li><li>Dauer der Mumifizierung etwa 70 Tage nach den Angaben Herodots (Historien II, 86) und dem Forschungsstand.</li><li>Grabbild: eigene Zeichnung im Stil ägyptischer Grabmalereien, kein bestimmtes Original.</li></ul></div></details>
+</section>
+
+<section class="card" id="lerncheck">
+<h2>Mein Lerncheck</h2>
+<p>Wähle für jede der drei Aussagen genau eine Antwort. Das ist keine Note, sondern deine eigene Einschätzung.</p><div id="selfcheck"><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann den Aufbau der Gesellschaft im Alten Ägypten beschreiben.</legend><div class="scale"><label><input type="radio" name="lc1" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc1" value="Geht schon">Geht schon</label><label><input type="radio" name="lc1" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann erklären, warum die Ägypter Mumien und Pyramiden bauten und wer sie errichtete.</legend><div class="scale"><label><input type="radio" name="lc2" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc2" value="Geht schon">Geht schon</label><label><input type="radio" name="lc2" value="Sicher">Sicher</label></div></fieldset></div><div class="task"><fieldset style="border:0;padding:0;margin:0"><legend class="legend">Ich kann aus dem Streikpapyrus etwas über das Leben einfacher Menschen herauslesen.</legend><div class="scale"><label><input type="radio" name="lc3" value="Noch unsicher">Noch unsicher</label><label><input type="radio" name="lc3" value="Geht schon">Geht schon</label><label><input type="radio" name="lc3" value="Sicher">Sicher</label></div></fieldset></div></div>
+<div class="grid2">
+ <div class="field"><label for="rCan">Das habe ich heute verstanden</label><textarea id="rCan"></textarea></div>
+ <div class="field"><label for="rHard">Das fiel mir noch schwer</label><textarea id="rHard"></textarea></div>
+</div>
+<div class="field"><label for="rOpen">Diese Frage ist bei mir noch offen</label><textarea id="rOpen"></textarea></div>
+<p class="hint">Schreibe hier nichts Privates. Es geht nur um dein Lernen im Fach Geschichte.</p>
+</section>
+
+<section class="card" id="abschluss">
+<h2>Abschlussmission: das Drehbuch</h2>
+<div class="akte"><span class="stamp">Zu prüfen</span><p>In Chronos' Drehbuch steht: <em>„Im Alten Ägypten lebten die Menschen in Gold und Pracht, genau wie ihr Pharao.“</em></p></div>
+<div class="task">
+ <span class="tag">Entscheidung</span>
+ <fieldset style="border:0;padding:0;margin:0"><legend class="legend">A1. Darf der Satz so ins Drehbuch?</legend><div class="opts"><label><input type="radio" name="a1" value="a"><span>Ja. Alle Ägypter waren reich, das zeigen die Gräber.</span></label><label><input type="radio" name="a1" value="b"><span>Nein. Nur wenige lebten in Pracht. Die meisten waren Bauern und Handwerker, die hart arbeiteten und Abgaben zahlten. Manche hatten sogar Hunger, wie der Streikpapyrus zeigt.</span></label><label><input type="radio" name="a1" value="c"><span>Nein. Der Pharao lebte genauso einfach wie die Bauern.</span></label></div></fieldset>
+ <button class="btn" type="button" id="a1Check">Entscheidung prüfen</button>
+ <div class="fb" id="a1Fb" role="status" aria-live="polite"></div>
+</div>
+<div class="task">
+ <span class="tag">Begründung</span>
+ <label class="legend" for="a2">A2. Schreibe Chronos einen besseren Satz für sein Drehbuch und begründe ihn mit zwei bis vier Sätzen. Nenne mindestens eine Gruppe und eine Quelle oder einen Fund als Beleg.</label>
+ <textarea id="a2" placeholder="Lieber Chronos, dein Satz stimmt nicht, weil ..."></textarea>
+ <p class="hint" data-lw="sicher"><strong>Satzanfänge:</strong> „Die meisten Menschen waren ...“ · „Das zeigt zum Beispiel ...“ · „Deshalb würde ich schreiben: ...“</p>
+ <p class="hint">Offene Antworten werden zusätzlich von der Lehrkraft gelesen.</p>
+ <button class="btn gold" type="button" id="a2Check">Begründung prüfen</button>
+ <div class="fb" id="a2Fb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+<section class="card" id="ergebnis">
+<h2>Dein Ergebnis</h2>
+<p class="notice"><strong>So gibst du ab:</strong> Schritt 1: „Ergebnis erstellen“. Danach erscheint deine Auswertung und der Knopf zum Senden (Schritt 2).</p>
+<button class="btn" type="button" id="buildBtn">Ergebnis erstellen</button>
+<div class="fb" id="buildFb" role="status" aria-live="polite"></div>
+<div class="result" id="resultPanel">
+ <div class="score">
+  <div class="ring" id="ring"><i id="ringTxt">0 / 0</i></div>
+  <div>
+   <p><span class="lamp" id="lamp"></span><strong id="lampTxt">Noch nicht ausgewertet</strong></p>
+   <p id="empfehlung"></p>
+  </div>
+ </div>
+ <h3>Aufgabenüberblick</h3>
+ <ul id="analyse"></ul>
+ <h3>Zusammenfassung für die Lehrkraft</h3>
+ <div class="pay" id="summary"></div>
+ <div class="no-print">
+  <button class="btn sec" type="button" id="copyBtn">Zusammenfassung kopieren</button>
+  <button class="btn sec" type="button" id="printBtn">Drucken</button>
+ </div>
+ <h3>Welche Daten werden gesendet?</h3>
+ <p>Zeitstempel, Name oder Lerncode, Klasse, E-Mail, Modulnummer und Modultitel, Themenbereich, Lernweg, Fortschritt, die Ergebnisse aller Aufgaben, deine Freitexte, der Lerncheck, die Gesamtpunktzahl und Hinweise auf Auffälligkeiten. Keine versteckten Gerätedaten.</p>
+ <button class="btn gold" type="button" id="sendBtn">Ergebnis an die Lehrkraft senden</button>
+ <button class="btn sec" type="button" id="retryBtn" hidden>Erneut senden</button>
+ <div class="fb" id="sendFb" role="status" aria-live="polite"></div>
+</div>
+</section>
+
+</main></div>
+<footer>SOL Geschichte 5 · Modul 008 · Keine Cookies, kein Tracking · Dr. Edmund Bruns</footer>
+<form name="sol-geschichte-5" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+ <input name="form-name" value="sol-geschichte-5"><input name="bot-field">
+ <input name="payload"><input name="modul_id"><input name="name"><input name="klasse"><input name="email"><input name="lernweg"><input name="punkte"><input name="zusammenfassung">
+</form>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const CFG={"modul": "008", "titel": "Wie lebten Menschen im Alten Ägypten?", "bereich": "Frühe Menschen und Hochkulturen", "version": "1.0.0", "key": "sol-geschichte-5-008", "endpoint": "https://script.google.com/macros/s/AKfycbxW2bLm50-p5pe5bVAzRtLPVPYWJ3g8vy1igABoN3LWr1FxzHsRkFWJSNrPLZYw-W7F6Q/exec", "next": "Weiter geht es mit Modul 009: Was verband und trennte die griechischen Poleis?", "badges": [{"id": "abz1", "name": "Gesellschaftskennerin", "tasks": ["pyramide", "berufe"]}, {"id": "abz2", "name": "Pyramidenforscher", "tasks": ["bau", "jenseits"]}, {"id": "abz3", "name": "Papyrusleserin", "tasks": ["s1", "s2"]}, {"id": "abz4", "name": "Begründer", "tasks": ["a2"]}], "startOk": "Alles bereit. Chronos hat die Kamera schon aufgebaut. Es geht weiter mit der Mission."};
+const TASKS=[{"id": "pyramide", "typ": "order", "items": ["Der Pharao: König und Vermittler zwischen Göttern und Menschen", "Wesir, hohe Beamte und Priester", "Schreiber, die lesen und schreiben konnten", "Handwerker und Händler", "Bauern, die größte Gruppe", "Diener und Versklavte, oft Kriegsgefangene"], "ok": "Richtig. Ganz oben stand der Pharao, ganz unten Diener und Versklavte. Die meisten Menschen waren Bauern. Schreiber hatten ein hohes Ansehen, weil nur wenige lesen und schreiben konnten.", "hint": "Frage dich: Wer hatte am meisten Macht? Und welche Gruppe war am größten?", "name": "Gesellschaftspyramide", "komp": ["fachwissen"]}, {"id": "berufe", "typ": "mc", "richtig": "a", "fb": {"a": "Richtig. Die Bauern mussten Abgaben in Getreide leisten. Damit wurden Beamte, Priester, Handwerker und Arbeiter versorgt. Ohne Schreiber hätte das nicht funktioniert.", "b": "Nein. Auf dem Feld arbeitete der Schreiber für den Staat. Er notierte die Ernte.", "c": "Nein, die Bilder malten Handwerker. Der Schreiber auf dem Bild notiert die Ernte."}, "name": "Schreiber und Abgaben", "komp": ["fachwissen", "ursachen_folgen"], "zusatz": false}, {"id": "bau", "typ": "mc", "richtig": "a", "fb": {"a": "Richtig. Heute gehen die meisten Forscher davon aus, dass vor allem ägyptische Arbeiter und Handwerker die Pyramiden bauten. Viele vermuten, dass Bauern während der Nilflut mitarbeiteten, weil sie dann nicht auf den Feldern arbeiten konnten. Leicht war die Arbeit trotzdem nicht.", "b": "Nein. Dafür gibt es keinen einzigen Beleg. Die Funde zeigen ganz deutlich: Menschen haben die Pyramiden gebaut.", "c": "Nein. Für den Bau brauchte man über viele Jahre Tausende Menschen."}, "name": "Wer baute die Pyramiden?", "komp": ["quellenarbeit", "perspektivitaet"], "zusatz": false}, {"id": "jenseits", "typ": "luecke", "richtig": ["Jenseits", "Mumie", "70 Tage", "Grabbeigaben", "reiche Menschen"], "ok": "Alles richtig. Die Mumifizierung war teuer. Arme Menschen wurden meist einfach im Wüstensand begraben.", "hint": "Lies den Satz vor und nach jeder Lücke genau.", "name": "Totenglaube", "komp": ["fachwissen", "zeit_raum"]}, {"id": "s1", "typ": "multi", "richtig": ["lohn", "aus", "mut", "pharao"], "ok": "Richtig. Die Quelle zeigt: Auch einfache Arbeiter konnten sich wehren. Und der Staat hatte Probleme, alle Menschen zu versorgen.", "hinweis": {"sklaven": "Nein. Die Handwerker von Deir el-Medina waren freie Arbeiter mit Lohn. Gerade deshalb konnten sie streiken."}, "fehlt": "Es fehlen noch # zutreffende Antworten. ", "tipp": "Prüfe jede Aussage: Steht das in der Quelle oder in der Einleitung?", "name": "Streikpapyrus auswerten", "komp": ["quellenarbeit"]}, {"id": "s2", "typ": "mc", "richtig": "b", "fb": {"a": "Nein. Die meisten Menschen waren Bauern. Ihre Häuser aus Lehm sind meist zerfallen.", "b": "Genau. Was erhalten bleibt, hängt davon ab, wer sich Steingräber und Schreiber leisten konnte. Historiker nennen das Überlieferung. Sie fragen immer: Wessen Stimme fehlt?", "c": "Doch, sehr viele sogar. Wir haben nur weniger Quellen über sie."}, "name": "Überlieferung", "komp": ["quellenarbeit", "perspektivitaet"], "zusatz": false}, {"id": "q2", "typ": "text", "krit": {"min": 50, "worte": 12, "need": 2, "saetze": 2, "gruppen": [{"w": ["arbeit", "grab", "pharao", "ordnung", "zuruck", "weiterarbeit", "ruhe", "befehl", "arger", "angst", "sorge"], "miss": "Schreibe, was der Beamte denkt, zum Beispiel über die Arbeit am Grab, die Ordnung oder den Pharao."}, {"w": ["getreide", "lohn", "vorrat", "hunger", "essen", "speicher", "versorg", "recht"], "miss": "Gehe auf das Problem ein: den fehlenden Lohn oder den Hunger."}], "ok": "Gut gemacht. Du hast die Sicht einer anderen Person eingenommen. Der Papyrus berichtet übrigens, dass die Arbeiter danach Getreide erhielten. Die Probleme kamen aber in den folgenden Monaten wieder."}, "name": "Weiterdenken Perspektivwechsel", "komp": ["perspektivitaet"], "zusatz": true}];
+const DIAG={"fragen": [{"n": "d1", "r": "a"}, {"n": "d2", "r": "r"}, {"n": "d3", "r": "a"}], "alle": "Drei von drei. Sehr gut! Der Lernweg Weiterdenken könnte dir Spaß machen.", "fast": "Zwei von drei. Gute Grundlage. Im Modul lernst du die ganze Gesellschaft kennen.", "wenig": "Du hast # von drei getroffen. Das ist völlig in Ordnung, genau dafür ist das Modul da. Der Lernweg Sicher werden gibt dir mehr Hilfen.", "extra": [{"n": "d1", "v": "b", "m": "Ein Hinweis vorab: Priester waren wichtig, aber die allermeisten Menschen waren Bauern."}]};
+const ABS={"ok": ["b"], "fb": {"a": "Denk an die Gesellschaftspyramide und an den Streikpapyrus. Die Gräber zeigen vor allem die Reichen. Wähle noch einmal.", "b": "Sehr gut entschieden. Du unterscheidest zwischen den wenigen Reichen und den vielen einfachen Menschen. Begründe das jetzt in A2.", "c": "Nein. Der Pharao lebte in großem Reichtum. Wähle noch einmal."}, "krit": {"min": 60, "worte": 14, "need": 3, "saetze": 2, "gruppen": [{"w": ["bauer", "handwerker", "arbeiter", "schreiber", "diener", "versklavt", "einfach", "meisten"], "miss": "Nenne eine Gruppe einfacher Menschen, zum Beispiel Bauern oder Handwerker."}, {"w": ["streik", "papyrus", "hunger", "grab", "siedlung", "fund", "quelle", "abgabe", "pyramide"], "miss": "Nenne einen Beleg, zum Beispiel den Streikpapyrus oder die Arbeitersiedlung."}, {"w": ["weil", "deshalb", "aber", "nur", "wenige", "zeigt"], "miss": "Verbinde deine Gedanken mit „weil“, „aber“ oder „deshalb“."}], "ok": "Sehr gut. Du beschreibst die Gesellschaft genauer und belegst deine Aussage. So wird aus einem Filmklischee ein Bild, das stimmt. Abzeichen Begründer freigeschaltet."}};
+const S={lernweg:"standard",done:{},punkte:{},placed:{},order:{},hot:{},fbs:{},texts:{},sent:false,built:false};
+const TMAP={};TASKS.forEach(t=>TMAP[t.id]=t);
+const PFLICHT=TASKS.filter(t=>!t.zusatz);
+const SCHRITTE=["start","diagnose"].concat(PFLICHT.map(t=>t.id),["lerncheck","abschluss"]);
+const MAXP=PFLICHT.length+3;
+
+/* ---------- Hilfsfunktionen ---------- */
+function fb(id,msg,art){const e=$(id);if(!e)return;e.textContent=msg;e.className="fb show "+(art||"hint");}
+function fbClear(id){const e=$(id);if(e){e.className="fb";e.textContent="";}}
+function fbT(tid,msg,art){S.fbs[tid]={m:msg,a:art};fb("#"+tid+"Fb",msg,art);}
+function fbTClear(tid){delete S.fbs[tid];fbClear("#"+tid+"Fb");}
+function norm(t){return String(t||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ß/g,"ss").toLowerCase().trim();}
+function hat(t,liste){return liste.some(w=>t.includes(w));}
+function saetze(t){return t.split(/[.!?]+/).filter(s=>s.trim().length>8).length;}
+function val(n){return (document.querySelector('input[name="'+n+'"]:checked')||{}).value;}
+const VERKN=["weil","denn","deshalb","deswegen","dadurch","damit","sodass","so dass","darum","daher","also","trotzdem","aber","jedoch","obwohl","wahrend","einerseits","andererseits"];
+function mische(a){const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+
+/* ---------- Fortschritt und Abzeichen ---------- */
+function fortschritt(){
+ const n=SCHRITTE.filter(k=>S.done[k]).length, pct=Math.round(n/SCHRITTE.length*100);
+ $("#pfill").style.width=pct+"%"; $("#pbar").setAttribute("aria-valuenow",pct);
+ $("#ptext").textContent=n+" von "+SCHRITTE.length+" Schritten";
+ (CFG.badges||[]).forEach(b=>{const e=document.getElementById(b.id);if(e)e.classList.toggle("on",b.tasks.every(k=>k==="a2"?(S.punkte.a2||0)>=1:!!S.done[k]));});
+}
+function fertig(k,p){S.done[k]=true;if(p!==undefined)S.punkte[k]=p;fortschritt();speichern();}
+function offen(k){delete S.done[k];S.punkte[k]=0;fortschritt();speichern();}
+
+/* ---------- Lernweg ---------- */
+function setLernweg(w){
+ S.lernweg=w;
+ document.body.classList.remove("lw-sicher","lw-standard","lw-weiter");
+ document.body.classList.add("lw-"+w);
+ $$("[data-lwbtn]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lwbtn===w)));
+ $("#lwInfo").textContent={
+  sicher:"Sicher werden: Du bekommst zusätzliche Hilfen und Satzanfänge.",
+  standard:"Standard: ausgewogene Mischung aus Erklärung und eigener Arbeit.",
+  weiter:"Weiterdenken: Du bekommst zusätzlich eine anspruchsvolle Denkaufgabe zum Thema."}[w];
+ speichern();
+}
+$$("[data-lwbtn]").forEach(b=>b.addEventListener("click",()=>setLernweg(b.dataset.lwbtn)));
+
+/* ---------- Start und Pflichtfelder ---------- */
+function klasseOk(v){
+ const t=norm(v).replace(/[^a-z0-9]/g,"");
+ if(!t)return{ok:false,msg:"Bitte trage deine Klasse ein, zum Beispiel 5a."};
+ const m=t.match(/(?:^|[^0-9])5([a-z]?)$/);
+ if(!m)return{ok:false,msg:"Diese Klasse gehört nicht zu Jahrgang 5. Schreibe zum Beispiel 5a, Klasse 5b oder nur 5."};
+ return{ok:true,wert:"5"+(m[1]||"")};
+}
+function pflichtOk(zeigen){
+ const n=$("#name").value.trim(), e=$("#email"), k=klasseOk($("#klasse").value);
+ if(!n){if(zeigen)fb("#startFb","Bitte trage deinen Namen oder deinen Lerncode ein.","bad");return false;}
+ if(!k.ok){if(zeigen)fb("#startFb",k.msg,"bad");return false;}
+ if(!e.value.trim()){if(zeigen)fb("#startFb","Bitte trage deine E-Mail-Adresse ein, zum Beispiel name@schule.de.","bad");return false;}
+ if(!e.checkValidity()){if(zeigen)fb("#startFb","Die E-Mail-Adresse sieht nicht vollständig aus. Sie braucht ein @ und einen Punkt, zum Beispiel name@schule.de.","bad");return false;}
+ return true;
+}
+$("#startBtn").addEventListener("click",()=>{
+ if(!pflichtOk(true))return;
+ fertig("start");
+ fb("#startFb",CFG.startOk,"ok");
+ location.hash="mission";
+});
+
+/* ---------- Einstieg ---------- */
+$("#dCheck").addEventListener("click",()=>{
+ const fr=DIAG.fragen, offenD=fr.filter(f=>!val(f.n));
+ if(offenD.length){fb("#dFb","Beantworte bitte zuerst alle drei Fragen. Raten ist ausdrücklich erlaubt.","hint");return;}
+ const r=fr.filter(f=>val(f.n)===f.r).length;
+ let m=r===fr.length?DIAG.alle:(r===fr.length-1?DIAG.fast:DIAG.wenig.replace("#",r));
+ (DIAG.extra||[]).forEach(x=>{if(val(x.n)===x.v)m+=" "+x.m;});
+ fb("#dFb",m,r>=2?"ok":"hint");S.fbs.d={m:m,a:r>=2?"ok":"hint"};
+ fertig("diagnose");
+});
+
+/* ---------- Auswahl ---------- */
+function initMc(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const v=val(t.id);
+  if(!v){fbT(t.id,"Bitte wähle zuerst eine Antwort aus.","hint");return;}
+  const ok=v===t.richtig, m=(t.fb&&t.fb[v])||(ok?"Richtig.":"Noch nicht.");
+  if(ok){fbT(t.id,m,"ok");fertig(t.id,1);}else{fbT(t.id,m,"hint");if(!t.zusatz)offen(t.id);}
+ });
+}
+function initMulti(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const sel=$$('input[name="'+t.id+'"]:checked').map(i=>i.value);
+  if(!sel.length){fbT(t.id,"Wähle zuerst mindestens eine Antwort aus.","hint");return;}
+  const fehlt=t.richtig.filter(x=>!sel.includes(x)), zuviel=sel.filter(x=>!t.richtig.includes(x));
+  if(!fehlt.length&&!zuviel.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);return;}
+  let m="";
+  zuviel.forEach(z=>{if(t.hinweis&&t.hinweis[z])m+=t.hinweis[z]+" ";});
+  if(fehlt.length)m+=(fehlt.length===1?"Es fehlt noch eine zutreffende Antwort. ":t.fehlt.replace("#",fehlt.length));
+  fbT(t.id,(m+(t.tipp||"")).trim(),"hint");offen(t.id);
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{$$('input[name="'+t.id+'"]').forEach(i=>i.checked=false);fbTClear(t.id);offen(t.id);});
+}
+
+/* ---------- Zuordnen mit Antippen oder Ziehen ---------- */
+let gew=null;
+function pieceHtml(t,p,cls){return '<button type="button" class="piece'+(cls?" "+cls:"")+'" draggable="true" data-task="'+t.id+'" data-k="'+p.k+'" aria-pressed="'+(gew&&gew.k===p.k?"true":"false")+'">'+p.t+'<\/button>';}
+function zeichneZ(t){
+ const pl=S.placed[t.id]||(S.placed[t.id]={});
+ const offenP=t.pieces.filter(p=>!pl[p.k]);
+ $("#"+t.id+"Pieces").innerHTML=offenP.map(p=>pieceHtml(t,p)).join("")||'<span class="hint">Alle Karten sind zugeordnet.<\/span>';
+ $$('.zone[data-task="'+t.id+'"] .drop').forEach(d=>d.innerHTML="");
+ t.pieces.forEach(p=>{const z=pl[p.k];if(z){const d=document.querySelector('.zone[data-task="'+t.id+'"][data-zone="'+z+'"] .drop');
+  if(d)d.insertAdjacentHTML("beforeend",pieceHtml(t,p,S.done[t.id]?"ok":""));}});
+ $$('.piece[data-task="'+t.id+'"]').forEach(b=>{
+  b.addEventListener("click",e=>{e.stopPropagation();
+   if(gew&&gew.k===b.dataset.k){gew=null;b.setAttribute("aria-pressed","false");return;}
+   $$(".piece").forEach(x=>x.setAttribute("aria-pressed","false"));
+   gew={task:t.id,k:b.dataset.k};b.setAttribute("aria-pressed","true");
+   fbT(t.id,"Karte ausgewählt. Tippe jetzt auf das Feld, in das sie gehört. Mit der Tastatur: Feld anspringen und Eingabetaste drücken.","hint");
+  });
+  b.addEventListener("dragstart",e=>{gew={task:t.id,k:b.dataset.k};try{e.dataTransfer.setData("text/plain",b.dataset.k);}catch(x){}});
+ });
+}
+function ablegen(t,zone){
+ if(!gew||gew.task!==t.id){fbT(t.id,"Wähle zuerst eine Karte aus, dann das Feld.","hint");return;}
+ S.placed[t.id][gew.k]=zone;gew=null;
+ if(S.done[t.id]){offen(t.id);}
+ zeichneZ(t);fbTClear(t.id);speichern();
+}
+function initZuord(t){
+ $$('.zone[data-task="'+t.id+'"]').forEach(z=>{
+  z.addEventListener("click",()=>ablegen(t,z.dataset.zone));
+  z.addEventListener("keydown",e=>{if(e.target!==z)return;if(e.key==="Enter"||e.key===" "){e.preventDefault();ablegen(t,z.dataset.zone);}});
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",e=>{e.preventDefault();z.classList.remove("over");ablegen(t,z.dataset.zone);});
+ });
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const pl=S.placed[t.id], rest=t.pieces.filter(p=>!pl[p.k]);
+  if(rest.length){fbT(t.id,"Es sind noch "+rest.length+" Karten übrig. Ordne zuerst alle zu.","hint");return;}
+  let r=0;
+  t.pieces.forEach(p=>{const ok=pl[p.k]===p.z;if(ok)r++;const el=document.querySelector('.piece[data-k="'+p.k+'"]');if(el){el.classList.remove("ok","no");el.classList.add(ok?"ok":"no");}});
+  if(r===t.pieces.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.pieces.length+" stimmen bereits. Die grün umrandeten Karten sitzen richtig. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.placed[t.id]={};gew=null;offen(t.id);zeichneZ(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Reihenfolge ---------- */
+function zeichneO(t,fokus){
+ const o=S.order[t.id], fertigO=!!S.done[t.id];
+ $("#"+t.id+"List").innerHTML=o.map((i,pos)=>
+  '<div class="orow'+(fertigO?" ok":"")+'"><span class="nr" aria-hidden="true">'+(pos+1)+'<\/span><span class="t">'+t.items[i]+'<\/span>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="-1" aria-label="Nach oben: '+t.items[i].replace(/"/g,"")+'">&#8593;<\/button>'+
+  '<button type="button" data-mv="'+pos+'" data-dir="1" aria-label="Nach unten: '+t.items[i].replace(/"/g,"")+'">&#8595;<\/button><\/div>').join("");
+ $$("#"+t.id+"List button").forEach(b=>b.addEventListener("click",()=>{
+  const p=+b.dataset.mv,d=+b.dataset.dir,n=p+d;
+  if(n<0||n>=o.length)return;
+  [o[p],o[n]]=[o[n],o[p]];if(S.done[t.id])offen(t.id);zeichneO(t,{pos:n,dir:d});speichern();}));
+ if(fokus){const b=document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"][data-dir="'+fokus.dir+'"]')||document.querySelector("#"+t.id+'List button[data-mv="'+fokus.pos+'"]');if(b)b.focus();}
+}
+function mischeO(t){const idx=t.items.map((_,i)=>i);let o;do{o=mische(idx);}while(o.join()===idx.join());S.order[t.id]=o;}
+function initOrder(t){
+ if(!S.order[t.id]||S.order[t.id].length!==t.items.length)mischeO(t);
+ zeichneO(t);
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const o=S.order[t.id], r=o.filter((v,i)=>v===i).length;
+  if(r===o.length){S.done[t.id]=true;zeichneO(t);fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+o.length+" stehen schon an der richtigen Stelle. "+t.hint,"hint");offen(t.id);}
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{offen(t.id);mischeO(t);zeichneO(t);fbTClear(t.id);speichern();});
+}
+
+/* ---------- Bild- und Kartenarbeit ---------- */
+function hotAufgabe(t){
+ const idx=S.hot[t.id]||0;
+ t.finds.forEach((f,i)=>{const el=document.getElementById(f.z);if(el)el.classList.toggle("found",i<idx);});
+ if(idx>=t.finds.length){$("#"+t.id+"Task").textContent=t.done;$("#"+t.id+"Alt").innerHTML="";return;}
+ const z=t.finds[idx];
+ $("#"+t.id+"Task").textContent="Suchauftrag "+(idx+1)+" von "+t.finds.length+": "+z.tipp;
+ $("#"+t.id+"Alt").innerHTML=t.alle.map(x=>'<button type="button" class="chip" data-hot="'+x.id+'">'+x.n+'<\/button>').join("");
+ $$("#"+t.id+"Alt .chip").forEach(b=>b.addEventListener("click",()=>hotWahl(t,b.dataset.hot)));
+}
+function hotWahl(t,id){
+ const idx=S.hot[t.id]||0, z=t.finds[idx]; if(!z)return;
+ if(id===z.z){
+  S.hot[t.id]=idx+1;
+  if(idx+1>=t.finds.length){fbT(t.id,z.ok+" Damit hast du alle "+t.finds.length+" gefunden.","ok");fertig(t.id,1);}
+  else{fbT(t.id,z.ok,"ok");}
+  hotAufgabe(t);speichern();
+ }else{
+  const g=t.alle.find(x=>x.id===id);
+  fbT(t.id,"Das ist „"+(g?g.n:"ein anderer Ort")+"“. Lies die Beschreibung noch einmal genau und sieh dir das Bild an.","hint");speichern();
+ }
+}
+function initHot(t){
+ $$('.hot[data-task="'+t.id+'"]').forEach(g=>{
+  g.addEventListener("click",()=>hotWahl(t,g.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();hotWahl(t,g.id);}});
+ });
+ $("#"+t.id+"Reset").addEventListener("click",()=>{S.hot[t.id]=0;offen(t.id);fbTClear(t.id);hotAufgabe(t);speichern();});
+ hotAufgabe(t);
+}
+
+/* ---------- Lückentext ---------- */
+function initLuecke(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  let r=0,leer=0;
+  t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.classList.remove("ok","no");if(!s.value){leer++;return;}const ok=s.value===w;if(ok)r++;s.classList.add(ok?"ok":"no");});
+  if(leer){fbT(t.id,"Fülle zuerst alle "+t.richtig.length+" Lücken aus. Noch offen: "+leer+".","hint");return;}
+  if(r===t.richtig.length){fbT(t.id,t.ok,"ok");fertig(t.id,1);}
+  else{fbT(t.id,r+" von "+t.richtig.length+" Lücken stimmen. Die rot markierten musst du noch einmal prüfen. "+t.hint,"hint");offen(t.id);}
+ });
+ t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);s.addEventListener("change",()=>{s.classList.remove("ok","no");});});
+}
+
+/* ---------- Freitexte ---------- */
+function bewerte(roh,k){
+ const t=norm(roh), wort=t.split(/\s+/).filter(Boolean).length;
+ if(t.length<(k.min||40)||wort<(k.worte||10))return{p:0,lab:"zu knapp",msg:k.knapp||"Deine Antwort ist noch sehr kurz. Schreibe mindestens zwei vollständige Sätze."};
+ const treffer=k.gruppen.filter(g=>hat(t,g.w)), fehl=k.gruppen.filter(g=>!hat(t,g.w));
+ const verkn=k.nover||hat(t,VERKN), genug=saetze(roh)>=(k.saetze||2), need=k.need||k.gruppen.length;
+ if(treffer.length>=need&&verkn&&genug)return{p:1,lab:"vollständig",msg:k.ok};
+ let m="Du bist auf dem richtigen Weg. ";
+ if(treffer.length<need)m+=fehl.slice(0,2).map(g=>g.miss).join(" ")+" ";
+ if(!verkn)m+="Verbinde deine Aussagen mit „weil“, „deshalb“ oder „dadurch“. ";
+ if(!genug)m+=(k.zuwenig||("Schreibe mindestens "+(k.saetze||2)+" vollständige Sätze. "));
+ return{p:(treffer.length>=1?0.5:0.25),lab:"teilweise",msg:m.trim()};
+}
+function initText(t){
+ $("#"+t.id+"Check").addEventListener("click",()=>{
+  const r=bewerte($("#"+t.id).value,t.krit);
+  S.texts[t.id]=r.lab;fbT(t.id,r.msg,r.p>=1?"ok":"hint");
+  if(!t.zusatz){if(r.p>=1)fertig(t.id,1);else offen(t.id);}else speichern();
+ });
+}
+
+/* ---------- Abschlussmission ---------- */
+function pruefeAbschluss(){
+ const a1=val("a1");
+ if(a1&&S.a2geprueft&&(S.punkte.a2||0)>0)fertig("abschluss");else{delete S.done.abschluss;fortschritt();speichern();}
+}
+$("#a1Check").addEventListener("click",()=>{
+ const v=val("a1");
+ if(!v){fbT("a1","Bitte wähle zuerst eine Entscheidung aus.","hint");return;}
+ const ok=ABS.ok.includes(v);S.punkte.a1=ok?1:0;
+ fbT("a1",ABS.fb[v]||"",ok?"ok":"hint");pruefeAbschluss();
+});
+$("#a2Check").addEventListener("click",()=>{
+ const r=bewerte($("#a2").value,ABS.krit);
+ S.punkte.a2=r.p>=1?1:(r.p>0?0.5:0);S.a2lab=r.lab;S.a2geprueft=true;
+ fbT("a2",r.msg,r.p>=1?"ok":"hint");pruefeAbschluss();
+});
+
+/* ---------- Lerncheck ---------- */
+function lerncheckWerte(){return[1,2,3].map(i=>val("lc"+i)||"");}
+$("#selfcheck").addEventListener("change",()=>{
+ if(lerncheckWerte().every(Boolean))fertig("lerncheck",1);else{delete S.done.lerncheck;S.punkte.lerncheck=0;fortschritt();}
+ speichern();
+});
+
+/* ---------- Speichern ---------- */
+function sammle(){
+ const d={inputs:{},radios:{},checks:[],state:S};
+ $$("input[id],textarea[id],select[id]").forEach(e=>{if(e.type!=="radio"&&e.type!=="checkbox")d.inputs[e.id]=e.value;});
+ $$("input[type=radio]:checked").forEach(e=>d.radios[e.name]=e.value);
+ $$("input[type=checkbox]:checked").forEach(e=>d.checks.push(e.name+"|"+e.value));
+ return d;
+}
+function speichern(){try{localStorage.setItem(CFG.key,JSON.stringify(sammle()));}catch(e){}}
+function laden(){
+ let d;try{d=JSON.parse(localStorage.getItem(CFG.key)||"null");}catch(e){d=null;}
+ if(!d)return false;
+ Object.entries(d.inputs||{}).forEach(([k,v])=>{const e=document.getElementById(k);if(e)e.value=v;});
+ Object.entries(d.radios||{}).forEach(([n,v])=>{$$('input[type=radio][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ (d.checks||[]).forEach(s=>{const i=s.indexOf("|");if(i<0)return;const n=s.slice(0,i),v=s.slice(i+1);
+  $$('input[type=checkbox][name="'+n+'"]').forEach(e=>{if(e.value===v)e.checked=true;});});
+ Object.assign(S,d.state||{});
+ return true;
+}
+$("#clearBtn").addEventListener("click",()=>{
+ if(!confirm("Möchtest du wirklich alle auf diesem Gerät gespeicherten Eingaben dieses Moduls löschen? Das lässt sich nicht rückgängig machen."))return;
+ try{localStorage.removeItem(CFG.key);}catch(e){}
+ location.reload();
+});
+let t0;document.addEventListener("input",()=>{clearTimeout(t0);t0=setTimeout(speichern,350);});
+document.addEventListener("change",()=>{clearTimeout(t0);t0=setTimeout(speichern,200);});
+
+/* ---------- Ergebnis ---------- */
+function eins(b){return b?1:0;}
+function punkteGesamt(){return PFLICHT.reduce((s,t)=>s+(S.punkte[t.id]||0),0)+(S.punkte.a1||0)+(S.punkte.a2||0)+(S.punkte.lerncheck||0);}
+function kompetenz(k){const ts=PFLICHT.filter(t=>(t.komp||[]).includes(k));if(k==="historisches_urteil")return eins((S.punkte.a1||0)>=1&&(S.punkte.a2||0)>=1&&ts.every(t=>(S.punkte[t.id]||0)>=1));return eins(ts.length>0&&ts.every(t=>(S.punkte[t.id]||0)>=1));}
+function payload(){
+ const k=klasseOk($("#klasse").value);
+ const pkt=Math.round(punkteGesamt()*10)/10, pct=Math.round(pkt/MAXP*100);
+ const luecken=[];
+ PFLICHT.forEach(t=>{if(!((S.punkte[t.id]||0)>=1))luecken.push(t.name);});
+ if(!((S.punkte.a1||0)>=1))luecken.push("Abschlussentscheidung");
+ if(!((S.punkte.a2||0)>=1))luecken.push("Begründung");
+ const erg={};PFLICHT.forEach(t=>erg[t.id]=S.punkte[t.id]||0);
+ erg.entscheidung=S.punkte.a1||0;erg.begruendung=S.punkte.a2||0;erg.lerncheck=S.punkte.lerncheck||0;
+ const pfl={};PFLICHT.forEach(t=>pfl[t.id]={correct:(S.punkte[t.id]||0)>=1});
+ pfl.entscheidung={correct:(S.punkte.a1||0)>=1};pfl.begruendung={correct:(S.punkte.a2||0)>=1};
+ const zus={},zusB={};TASKS.filter(t=>t.zusatz).forEach(t=>{const e=document.getElementById(t.id);if(e&&e.tagName==="TEXTAREA"){zus[t.id]=e.value.trim();zusB[t.id]=S.texts[t.id]||"nicht bearbeitet";}else{zusB[t.id]=(S.punkte[t.id]||0)>=1?"richtig":"nicht gelöst";}});
+ if(!S.abgabeId)S.abgabeId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now()+"-"+Math.random().toString(16).slice(2);
+ return{schema:"1.0",fach:"Geschichte",jahrgang:"5",modul_id:CFG.modul,modul_titel:CFG.titel,
+  themenbereich:CFG.bereich,dateiversion:CFG.version,
+  zeitstempel:new Date().toISOString(),
+  name:$("#name").value.trim(),klasse:k.ok?k.wert:$("#klasse").value.trim(),email:$("#email").value.trim(),
+  lernweg:S.lernweg,fortschritt:SCHRITTE.filter(x=>S.done[x]).length+" von "+SCHRITTE.length,
+  ergebnisse:erg,
+  freitexte:Object.assign({leitfrage:$("#a2").value.trim(),begruendung:$("#a2").value.trim(),
+   verstanden:$("#rCan").value.trim(),schwierig:$("#rHard").value.trim(),offene_frage:$("#rOpen").value.trim()},zus),
+  bewertung_freitexte:Object.assign({begruendung:S.a2lab||"nicht bearbeitet"},zusB),
+  lerncheck:lerncheckWerte(),
+  punkte:pkt,max_punkte:MAXP,prozent:pct,
+  auffaelligkeiten:luecken,
+  bearbeitungsstand:Math.round(SCHRITTE.filter(x=>S.done[x]).length/SCHRITTE.length*100),
+  pflichtaufgaben:pfl,
+  kompetenzen:{fachwissen:kompetenz("fachwissen"),zeit_raum:kompetenz("zeit_raum"),quellenarbeit:kompetenz("quellenarbeit"),
+   ursachen_folgen:kompetenz("ursachen_folgen"),perspektivitaet:kompetenz("perspektivitaet"),historisches_urteil:kompetenz("historisches_urteil")},
+  abschlusstest_punkte:pkt,
+  abschlusstest_max:MAXP,
+  selbsteinschaetzung:lerncheckWerte().filter(v=>v==="Sicher").length,
+  fehlende_bereiche:luecken,
+  hosting_modus:/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname)?"live":"lokal",
+  schema_version:"1.0",
+  modul_nummer:CFG.modul,
+  abgabe_id:S.abgabeId};
+}
+function zusammenfassung(p){
+ return "SOL Geschichte 5, Modul "+p.modul_id+": "+p.modul_titel
+ +"\nName: "+(p.name||"-")+"\nKlasse: "+(p.klasse||"-")+"\nLernweg: "+p.lernweg
+ +"\nFortschritt: "+p.fortschritt+"\nPunkte: "+p.punkte+" von "+p.max_punkte+" ("+p.prozent+" Prozent)"
+ +"\nNoch zu sichern: "+(p.auffaelligkeiten.join(", ")||"nichts")
+ +"\nLerncheck: "+(p.lerncheck.filter(Boolean).join(" | ")||"nicht vollständig")
+ +"\nBegründung: "+p.bewertung_freitexte.begruendung;
+}
+function ergebnisBauen(still){
+ if(!pflichtOk(!still)){if(!still)location.hash="start";return null;}
+ if(!val("a1")){if(!still){fb("#buildFb","Bitte triff zuerst in der Abschlussmission deine Entscheidung (A1).","bad");location.hash="abschluss";}return null;}
+ if(!lerncheckWerte().every(Boolean)){if(!still){fb("#buildFb","Bitte fülle zuerst alle drei Aussagen im Lerncheck aus.","bad");location.hash="lerncheck";}return null;}
+ S.punkte.a1=ABS.ok.includes(val("a1"))?1:0;
+ fbClear("#buildFb");
+ const p=payload();
+ $("#resultPanel").classList.add("show");
+ $("#ring").style.setProperty("--p",p.prozent+"%");
+ $("#ringTxt").textContent=p.punkte+" / "+p.max_punkte;
+ const l=$("#lamp");l.className="lamp "+(p.prozent>=80?"g":p.prozent>=50?"y":"r");
+ $("#lampTxt").textContent=p.prozent>=80?"Sicher unterwegs":p.prozent>=50?"Gute Grundlage, einzelne Stellen prüfen":"Wiederholung sinnvoll";
+ $("#empfehlung").textContent=p.prozent>=80?CFG.next:(p.auffaelligkeiten.length?"Sieh dir noch einmal an: "+p.auffaelligkeiten.join(", ")+". Danach geht es weiter: "+CFG.next:"Wiederhole die Abschnitte, die dir schwerfielen.");
+ const zeilen=PFLICHT.map(t=>[t.name,S.punkte[t.id]||0]).concat([["Abschlussentscheidung",S.punkte.a1||0],["Begründung",S.punkte.a2||0],["Lerncheck",S.punkte.lerncheck||0]]);
+ $("#analyse").innerHTML=zeilen.map(([n,v])=>"<li><strong>"+n+":<\/strong> "+(v>=1?"vollständig":v>0?"teilweise":"noch offen")+" ("+v+" P.)<\/li>").join("");
+ $("#summary").textContent=zusammenfassung(p);
+ S.built=true;fortschritt();speichern();if(!still)location.hash="ergebnis";
+ return p;
+}
+$("#buildBtn").addEventListener("click",()=>ergebnisBauen(false));
+$("#printBtn").addEventListener("click",()=>window.print());
+$("#copyBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("#summary").textContent);fb("#sendFb","Die Zusammenfassung wurde kopiert.","ok");}
+ catch(e){fb("#sendFb","Kopieren war nicht möglich. Markiere den Text bitte von Hand.","hint");}
+});
+async function senden(){
+ const p=ergebnisBauen(true)||ergebnisBauen(false);
+ if(!p)return;
+ const live=/(pages\.dev|netlify\.app|edmundbruns\.com)$/.test(location.hostname);
+ if(!live){fb("#sendFb","Vorschau-Modus: Hier wird nichts gesendet. Auf der veröffentlichten Seite geht dein Ergebnis an die Lehrkraft. Dein Stand bleibt auf diesem Gerät gespeichert.","hint");return;}
+ const b=$("#sendBtn");b.disabled=true;
+ fb("#sendFb","Übertragung läuft ...","hint");
+ try{
+  const r=await ebSend(CFG.endpoint,p);
+  if(!r.ok){speichern();$("#retryBtn").hidden=false;fb("#sendFb","Nicht gespeichert: "+r.msg+" Deine Arbeit bleibt auf diesem Gerät. Prüfe deine Angaben und tippe dann auf „Erneut senden“.","bad");return;}
+  S.sent=true;speichern();
+  $("#retryBtn").hidden=true;
+  fb("#sendFb","Gespeichert ✓ Dein Ergebnis ist bei deiner Lehrkraft angekommen. Falls die E-Mail-Rückmeldung freigegeben ist, erhältst du sie an deine Adresse.","ok");
+ }catch(e){
+  $("#retryBtn").hidden=false;
+  fb("#sendFb","Die Übertragung hat nicht geklappt, vermutlich wegen der Internetverbindung. Deine Arbeit ist nicht verloren, sie ist auf diesem Gerät gespeichert. Du kannst es mit „Erneut senden“ noch einmal versuchen oder die Zusammenfassung kopieren und der Lehrkraft schicken.","bad");
+ }finally{b.disabled=false;}
+}
+$("#sendBtn").addEventListener("click",senden);
+$("#retryBtn").addEventListener("click",senden);
+
+/* ---------- Lesehilfen ---------- */
+$("#easyBtn").addEventListener("click",()=>{
+ document.body.classList.toggle("easy");
+ $("#easyBtn").setAttribute("aria-pressed",String(document.body.classList.contains("easy")));
+});
+$("#speakBtn").addEventListener("click",()=>{
+ if(!("speechSynthesis" in window)){alert("Vorlesen wird von diesem Browser nicht unterstützt.");return;}
+ speechSynthesis.cancel();
+ const txt=$$("main section").map(s=>s.innerText).join(". ");
+ const u=new SpeechSynthesisUtterance(txt);u.lang="de-DE";u.rate=.95;speechSynthesis.speak(u);
+});
+$("#stopBtn").addEventListener("click",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+window.addEventListener("beforeunload",()=>{if("speechSynthesis" in window)speechSynthesis.cancel();});
+
+/* ---------- Start ---------- */
+const wieder=laden();
+setLernweg(S.lernweg||"standard");
+TASKS.forEach(t=>{
+ if(t.typ==="mc")initMc(t);else if(t.typ==="multi")initMulti(t);
+ else if(t.typ==="zuord"){initZuord(t);zeichneZ(t);}
+ else if(t.typ==="order")initOrder(t);else if(t.typ==="hot")initHot(t);
+ else if(t.typ==="luecke")initLuecke(t);else if(t.typ==="text")initText(t);
+});
+Object.entries(S.fbs||{}).forEach(([k,v])=>{if(k==="d")fb("#dFb",v.m,v.a);else fb("#"+k+"Fb",v.m,v.a);});
+TASKS.filter(t=>t.typ==="luecke"&&S.done[t.id]).forEach(t=>t.richtig.forEach((w,i)=>{const s=$("#"+t.id+"_"+i);if(s&&s.value===w)s.classList.add("ok");}));
+fortschritt();
+if(S.built)ergebnisBauen(true);
+if(wieder&&SCHRITTE.some(k=>S.done[k])){
+ fb("#startFb","Willkommen zurück. Dein gespeicherter Stand wurde geladen. Du kannst dort weitermachen, wo du aufgehört hast.","ok");
+}
+</script>
+</body>
+</html>
