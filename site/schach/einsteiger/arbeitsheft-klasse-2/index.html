@@ -294,7 +294,7 @@ document.head.insertAdjacentHTML('beforeend',`<style>
 .sq.mg{box-shadow:inset 0 0 0 100px rgba(241,196,15,.55)}
 .bw .sq{cursor:pointer}
 .bw .sq:hover{filter:brightness(1.08)}
-.sq.sel.l{background:#a9e4bd}.sq.sel.d{background:#5fbf83}.sq.sel{box-shadow:inset 0 0 0 3px #1e8449}.sq.sel:not(:has(.pc))::after{content:'';position:absolute;inset:28%;border-radius:50%;background:#1e8449;box-shadow:0 0 0 2px #fff}.sq.sel:has(.pc)::after{content:'✓';position:absolute;top:3%;right:3%;width:42%;height:42%;border-radius:50%;background:#1e8449;color:#fff;font:bold 11px/1 Arial,sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff;z-index:2}.sq.sel .pc{transform:scale(1.06)}
+.sq.sel.l{background:#b9d6f7}.sq.sel.d{background:#6fa3dc}.sq.sel{box-shadow:inset 0 0 0 3px #1f5fa8}.sq.sel:not(:has(.pc))::after{content:'';position:absolute;inset:28%;border-radius:50%;background:#1f5fa8;box-shadow:0 0 0 2px #fff}.sq.sel:has(.pc)::after{content:'';position:absolute;top:6%;right:6%;width:30%;height:30%;border-radius:50%;background:#1f5fa8;box-shadow:0 0 0 2px #fff;z-index:2}.sq.sel .pc{transform:scale(1.06)}.sq.sel.ri.l{background:#a9e4bd}.sq.sel.ri.d{background:#5fbf83}.sq.sel.ri{box-shadow:inset 0 0 0 3px #1e8449}.sq.sel.fa.l{background:#f5b7b1}.sq.sel.fa.d{background:#e67e73}.sq.sel.fa{box-shadow:inset 0 0 0 3px #b03a2e}.sq.sel.ri::after,.sq.sel.fa::after{inset:auto!important;top:4%!important;right:4%!important;width:44%!important;height:44%!important;border-radius:50%;color:#fff;font:bold 12px/1 Arial,sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff;z-index:2}.sq.sel.ri::after{content:'✓'!important;background:#1e8449!important}.sq.sel.fa::after{content:'✗'!important;background:#b03a2e!important}.sq.sel.ri:not(:has(.pc))::after,.sq.sel.fa:not(:has(.pc))::after{inset:22%!important;top:22%!important;right:22%!important;width:auto!important;height:auto!important;font-size:15px}
 .bw.ok{outline:4px solid var(--ok);outline-offset:2px}.bw.bad{outline:4px solid var(--bad);outline-offset:2px}
 body.show-sol .sq.so{box-shadow:inset 0 0 0 3px #c0392b}
 .pc{display:block;width:88%;height:88%;background-image:var(--piece-sprite);background-size:600% 200%;background-repeat:no-repeat;pointer-events:none;filter:drop-shadow(0 1px 1px #0003);position:relative;z-index:1}
@@ -585,7 +585,8 @@ const ensure=id=>{if(!DONE.has(id))renderSheet(T.find(t=>t.id===id))};
 const renderAll=()=>T.forEach(t=>ensure(t.id));
 function check(el){const as=el.querySelectorAll('.a');let ok=0,leer=0;
  as.forEach(x=>{const isB=x.classList.contains('bw'),v=isB?(x.dataset.v||''):x.value.trim();x.classList.remove('ok','bad');if(!v){leer++;return}
-  if(isB?correctBW(x):correct(v,x.dataset.a)){x.classList.add('ok');ok++}else x.classList.add('bad')});
+  if(isB?correctBW(x):correct(v,x.dataset.a)){x.classList.add('ok');ok++}else x.classList.add('bad');
+  if(isB){const al=x.dataset.a.split(/[ |]/);x.querySelectorAll('.sq.sel').forEach(q=>{const r=al.includes(q.dataset.s);q.classList.toggle('ri',r);q.classList.toggle('fa',!r)})}});
  const fb=el.querySelector('.fb'),tot=as.length;let say;
  if(leer===tot){fb.textContent='Trage zuerst etwas ein. 🤔';fb.className='fb try';say='Trage zuerst etwas ein.'}
  else if(ok===tot){fb.textContent='Super gemacht! Alles richtig! 🎉🌟';fb.className='fb good';say='Super gemacht! Alles richtig!'}
@@ -614,7 +615,7 @@ $('#main').addEventListener('click',e=>{const sh=e.target.closest('.sheet');if(!
   if(a==='check')check(sh);else if(a==='new')renderSheet(tp);else if(a==='print')doPrint();
   else{$('#printbox').innerHTML=[1,2,3].map(l=>`<section class="sheet" style="--c:${B[tp.b].c}">${paperHTML(tp,l,false)}</section>`).join('');markSol($('#printbox'));doPrint('p3')}
   return}
- const sqEl=e.target.closest('.bw .sq');if(sqEl){const b=sqEl.closest('.bw'),s=sqEl.dataset.s;let v=(b.dataset.v||'').split(' ').filter(Boolean);if(b.dataset.mode==='one')v=v.includes(s)?[]:[s];else v=v.includes(s)?v.filter(x=>x!==s):v.concat(s);b.dataset.v=v.join(' ');b.querySelectorAll('.sq').forEach(q=>q.classList.toggle('sel',v.includes(q.dataset.s)));b.classList.remove('ok','bad');return}
+ const sqEl=e.target.closest('.bw .sq');if(sqEl){const b=sqEl.closest('.bw'),s=sqEl.dataset.s;let v=(b.dataset.v||'').split(' ').filter(Boolean);if(b.dataset.mode==='one')v=v.includes(s)?[]:[s];else v=v.includes(s)?v.filter(x=>x!==s):v.concat(s);b.dataset.v=v.join(' ');b.querySelectorAll('.sq').forEach(q=>{q.classList.toggle('sel',v.includes(q.dataset.s));q.classList.remove('ri','fa')});b.classList.remove('ok','bad');return}
  if(e.target.closest('input,select,option'))return;
  const t=e.target.closest('.item,.intro');if(t)speak(speechOf(t),t)});
 $('#main').addEventListener('input',e=>{const x=e.target;if(!x.classList.contains('a'))return;x.classList.remove('ok','bad');
