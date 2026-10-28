@@ -294,14 +294,14 @@ document.head.insertAdjacentHTML('beforeend',`<style>
 .sq.mg{box-shadow:inset 0 0 0 100px rgba(241,196,15,.55)}
 .bw .sq{cursor:pointer}
 .bw .sq:hover{filter:brightness(1.08)}
-.sq.sel::after{content:'';position:absolute;inset:28%;border-radius:50%;background:rgba(39,174,96,.9);box-shadow:0 0 0 2px #fff}
+.sq.sel.l{background:#a9e4bd}.sq.sel.d{background:#5fbf83}.sq.sel{box-shadow:inset 0 0 0 3px #1e8449}.sq.sel:not(:has(.pc))::after{content:'';position:absolute;inset:28%;border-radius:50%;background:#1e8449;box-shadow:0 0 0 2px #fff}.sq.sel:has(.pc)::after{content:'✓';position:absolute;top:3%;right:3%;width:42%;height:42%;border-radius:50%;background:#1e8449;color:#fff;font:bold 11px/1 Arial,sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff;z-index:2}.sq.sel .pc{transform:scale(1.06)}
 .bw.ok{outline:4px solid var(--ok);outline-offset:2px}.bw.bad{outline:4px solid var(--bad);outline-offset:2px}
 body.show-sol .sq.so{box-shadow:inset 0 0 0 3px #c0392b}
 .pc{display:block;width:88%;height:88%;background-image:var(--piece-sprite);background-size:600% 200%;background-repeat:no-repeat;pointer-events:none;filter:drop-shadow(0 1px 1px #0003);position:relative;z-index:1}
 .pcbig{display:inline-flex;width:72px;height:72px;align-items:center;justify-content:center;background:#f0d9b5;border-radius:10px;vertical-align:middle}
 .pcbig .pc{width:90%;height:90%}
 .pcs{display:inline-flex;gap:2px;vertical-align:middle;flex-wrap:wrap}.pcs .pcbig{width:34px;height:34px;border-radius:6px}
-@media print{.brd{max-width:62mm}.items:has(.item:nth-child(5)):has(.brd){grid-template-columns:1fr 1fr 1fr!important}.items:has(.item:nth-child(5)) .brd{max-width:54mm}.sq.sel::after{display:none}.pcbig{width:16mm;height:16mm}.pcs .pcbig{width:8mm;height:8mm}}
+@media print{.sq.sel.l{background:#f0d9b5}.sq.sel.d{background:#b58863}.sq.sel{box-shadow:none}.sq.sel .pc{transform:none}.brd{max-width:62mm}.items:has(.item:nth-child(5)):has(.brd){grid-template-columns:1fr 1fr 1fr!important}.items:has(.item:nth-child(5)) .brd{max-width:54mm}.sq.sel::after{display:none}.pcbig{width:16mm;height:16mm}.pcs .pcbig{width:8mm;height:8mm}}
 </style>`);
 const FL='abcdefgh',SQ=(f,r)=>FL[f]+(r+1),PQ=s=>[FL.indexOf(s[0]),+s[1]-1];
 const ALL=times(64,i=>SQ(i%8,Math.floor(i/8)));
