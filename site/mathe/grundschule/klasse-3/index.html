@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interaktives Mathe-Arbeitsheft für Klasse 3 der Grundschule in Niedersachsen: 22 Arbeitsblätter in drei Stufen, mit Vorlesefunktion und A4-Druck.">
+<link rel="canonical" href="https://www.edmundbruns.com/mathe/grundschule/klasse-3/">
+<title>Mathe Klasse 3 · Arbeitsheft</title>
+<style>
+:root{--ink:#2c3e50;--bg:#f0f7ff;--ok:#27ae60;--bad:#e74c3c;--line:#e3e9f0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Andika","Comic Sans MS","Chalkboard SE","Trebuchet MS",system-ui,sans-serif;font-size:18px;line-height:1.45}
+.wrap{max-width:960px;margin:0 auto}
+header{background:#fff;border-bottom:4px solid #3498db;padding:16px}
+h1{margin:0;color:#e74c3c;font-size:1.8rem;line-height:1.2}
+.sub{color:#6b7c8c;font-size:.95rem}
+.btabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.btab{font:inherit;font-size:.95rem;background:#f4f7fb;border:2px solid var(--c);border-radius:999px;padding:6px 14px;cursor:pointer;color:var(--ink);display:flex;align-items:center;gap:8px}
+.btab .bdot{width:12px;height:12px;border-radius:50%;background:var(--c);flex-shrink:0}
+.btab .cnt{font-size:.75rem;background:#fff;border-radius:999px;padding:0 7px;color:#555;border:1px solid var(--line)}
+.btab.on{background:var(--c);color:#fff;font-weight:bold}
+.btab.on .bdot{background:#fff}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:10px;padding:12px;border-radius:14px;background:#f7f9fc;border:2px solid var(--c)}
+.tile{font:inherit;font-size:.95rem;text-align:left;display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--ink);line-height:1.2}
+.tile:hover{border-color:var(--c)}
+.tile.on{border-color:var(--c);background:var(--c);color:#fff;font-weight:bold}
+.tnr{min-width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:.85rem;flex-shrink:0}
+.tile.on .tnr{background:#fff;color:var(--c)}
+.toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:12px;padding-top:12px;border-top:2px dashed var(--line)}
+.tgroup{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tl{font-size:.85rem;color:#555}
+.btn{font:inherit;font-size:.95rem;border:none;border-radius:10px;padding:8px 14px;cursor:pointer;color:#fff;background:var(--c,#3498db);box-shadow:0 3px 0 rgba(0,0,0,.2)}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.btn.ghost{background:#fff;color:var(--ink);border:2px solid #cfd8e3;box-shadow:none}
+.seg{display:inline-flex;border:2px solid var(--c);border-radius:12px;overflow:hidden;background:#fff}
+.seg button{font:inherit;border:none;background:#fff;padding:3px 12px;cursor:pointer;color:var(--c);display:flex;flex-direction:column;align-items:center;line-height:1.15;font-size:1rem}
+.seg button small{font-size:.7rem;color:#555}
+.seg button+button{border-left:2px solid var(--c)}
+.seg button.on{background:var(--c);color:#fff}
+.seg button.on small{color:#fff}
+#allLv{--c:#34495e}
+main{padding:16px}
+.sheet{display:none;background:#fff;border:4px solid var(--c);border-radius:20px;padding:22px;margin-bottom:24px;box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.sheet.active{display:block}
+.shead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.sheet h2{margin:0;color:var(--c);font-size:1.5rem;display:flex;align-items:center;gap:10px;line-height:1.2}
+.bnr{min-width:34px;height:34px;border-radius:50%;background:var(--c);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.tag{display:inline-block;font-size:.72rem;background:var(--c);color:#fff;border-radius:6px;padding:1px 8px;margin-bottom:6px}
+.pstufe,.pfoot,.ponly{display:none}
+.namezeile{display:flex;gap:20px;flex-wrap:wrap;font-size:.95rem;margin:12px 0;color:#666}
+.namezeile span{flex:1;min-width:170px;border-bottom:2px dotted #aaa;padding-bottom:2px}
+.intro{background:#f7f9fc;border-left:6px solid var(--c);border-radius:8px;padding:8px 12px;margin-bottom:14px;display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.pre{margin-bottom:14px;text-align:center}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.items.wide{grid-template-columns:1fr}
+.item{border:2px solid var(--line);border-radius:14px;padding:12px;display:flex;gap:8px;align-items:center;align-content:center;flex-wrap:wrap;font-size:1.15rem;cursor:pointer;transition:background .2s}
+.item.speaking,.intro.speaking{background:#fff8dc;border-color:#f1c40f}
+.nr{font-weight:bold;color:#fff;background:var(--c);border-radius:50%;width:1.6em;height:1.6em;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.say{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:2px solid var(--c);background:#fff;color:var(--c);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.say svg{width:18px;height:18px}
+.say:hover{background:var(--c);color:#fff}
+body.no-tts .say{display:none}
+.big{font-size:1.35rem;font-weight:bold}
+.op{font-size:1.4rem;margin:0 4px}
+input.a{font:inherit;font-size:1.2rem;width:3em;text-align:center;border:3px solid var(--c);border-radius:10px;padding:2px;outline:none;cursor:text}
+input.a.dg{width:1.6em!important;padding:0;border-radius:6px}
+input.a.dg::placeholder{color:transparent}
+body.show-sol input.a.dg::placeholder{color:#c0392b}
+input.a:focus{border-color:#f1c40f}
+select.a{font:inherit;font-size:1.05rem;border:3px solid var(--c);border-radius:10px;padding:2px 4px;background:#fff;max-width:100%}
+.a.ok{border-color:var(--ok)!important;background:#eafaf1}
+.a.bad{border-color:var(--bad)!important;background:#fdecea}
+.po{display:none}
+.sol{display:none;font-size:.85rem;color:#c0392b;font-weight:bold}
+body.show-sol .sol{display:inline}
+.wline{display:inline-block;width:60%;border-bottom:2px dotted #999;height:1.2em}
+.foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.fb{font-weight:bold;font-size:1.1rem}
+.fb.good{color:var(--ok)}.fb.try{color:#d35400}
+.pn{display:flex;justify-content:space-between;gap:8px;margin-top:14px;padding-top:12px;border-top:2px dashed var(--line)}
+.pn button{font:inherit;font-size:.9rem;background:none;border:none;color:var(--c);cursor:pointer;padding:4px}
+.note{font-size:.8rem;color:#7f8c8d;text-align:center;padding:0 16px 24px}
+/* Bausteine */
+.box{width:100%}
+.vis{max-width:100%;height:auto;vertical-align:middle}
+.emo{font-size:1.5rem;letter-spacing:2px;word-break:break-all}
+.m{display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:.72rem;margin:2px;vertical-align:middle;font-family:Arial,sans-serif;color:#2c3e50}
+.k{border-radius:50%}
+.k1,.k2,.k5{background:radial-gradient(#f0b27a,#a04000);color:#fff}
+.k1{width:30px;height:30px}.k2{width:33px;height:33px}.k5{width:36px;height:36px}
+.k10,.k20,.k50{background:radial-gradient(#f9e79f,#c9a227)}
+.k10{width:34px;height:34px}.k20{width:38px;height:38px}.k50{width:42px;height:42px}
+.k100{width:42px;height:42px;background:radial-gradient(#f7dc6f,#c9a227);border:4px solid #bdc3c7}
+.k200{width:46px;height:46px;background:radial-gradient(#ecf0f1,#95a5a6);border:5px solid #d4a017}
+.s{border-radius:5px;height:38px}
+.s500{width:70px;background:#c8d1d6;border:2px solid #7f8c8d}
+.s1000{width:74px;background:#f5b7b1;border:2px solid #c0392b}
+.s2000{width:78px;background:#aed6f1;border:2px solid #2e86c1}
+.s5000{width:82px;background:#f5cba7;border:2px solid #ca6f1e}
+.sr{border-collapse:collapse;font-size:1.3rem;font-family:"Courier New",monospace;margin:0 auto}
+.sr td{width:1.7em;height:1.7em;text-align:center;padding:0}
+.sr tr.res td{border-top:3px solid var(--ink);padding-top:3px}
+.mauer{display:inline-flex;flex-direction:column;align-items:center;gap:3px;margin:0 auto}
+.mr{display:flex;gap:3px}
+.st{min-width:3.3em;min-height:2.2em;border:2px solid #a04000;background:#fdf2e9;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;padding:2px 4px}
+.st input.a{width:2.8em}
+table.bp{border-collapse:collapse;margin:0 auto}
+table.bp td{width:2em;height:2em;border:2px solid #7f8c8d;text-align:center;font-weight:bold;background:#fdfefe}
+table.tab{border-collapse:collapse;margin:0 auto;font-size:1rem}
+table.tab td,table.tab th{border:2px solid #cfd8e3;padding:3px 10px;text-align:left}
+table.tab th{background:#f7f9fc}
+@media (max-width:560px){.sheet{padding:14px}main{padding:10px}h1{font-size:1.45rem}.tiles{grid-template-columns:1fr 1fr;padding:8px}.tile{font-size:.85rem;padding:6px}.btab{font-size:.85rem;padding:5px 10px}}
+/* Druck: jedes Blatt füllt genau eine A4-Seite */
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff!important;margin:0;padding:0}
+  body{font-size:16px}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  header,.noprint,.note,.say{display:none!important}
+  main{padding:0}.wrap{max-width:none;margin:0}
+  .sheet{display:none!important;width:210mm;height:296mm;padding:9mm 10mm;margin:0;border:none!important;border-radius:0;box-shadow:none!important;break-before:page;page-break-before:always;overflow:hidden;background:#fff}
+  .sheet.active{display:block!important}
+  body.printall #main .sheet{display:block!important}
+  body.p3 #main{display:none!important}
+  body.p3 #printbox .sheet{display:block!important}
+  #printbox .sheet:first-child{break-before:auto;page-break-before:auto}
+  .paper{height:100%;display:flex;flex-direction:column;border:2.5px solid var(--c);border-radius:14px;padding:6mm 7mm 4mm}
+  .pstufe{display:block;text-align:right;color:var(--c);font-weight:bold;font-size:1.2rem;line-height:1.1}
+  .pstufe small{font-size:.7rem;color:#555}
+  .ponly{display:block}
+  .namezeile{margin:3mm 0}
+  .intro{cursor:default;margin-bottom:3mm;padding:5px 10px}
+  .pre{margin-bottom:3mm}
+  .items{flex:1 1 0;min-height:0;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:3mm}
+  .items.wide{grid-template-columns:1fr}
+  .items.pc3{grid-template-columns:1fr 1fr 1fr}
+  .item{padding:2mm 4mm;border-width:1.5px;cursor:default;font-size:1.05rem}
+  input.a{height:10mm;border:2px solid #555!important;background:#fff!important;color:#000}
+  input.a.dg{height:8mm}
+  select.a{display:none!important}
+  .po{display:inline-block;font-size:.9rem;border:2px dashed #999;border-radius:8px;padding:1px 6px}
+  .kar{width:100%;height:24mm;margin-top:1mm;background-image:linear-gradient(#cfd8e3 1px,transparent 1px),linear-gradient(90deg,#cfd8e3 1px,transparent 1px);background-size:5mm 5mm;border:1px solid #cfd8e3}
+  .pfoot{display:block;margin-top:3mm;font-size:.7rem;color:#888;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="noprint">
+  <div class="wrap">
+    <a href="/mathe/index.html" style="display:inline-block;margin-bottom:6px;font-size:.85rem;color:#2b7bd8;text-decoration:none">← Mathematik bei Dr. Edmund Bruns</a>
+    <h1>🎈 Mathe Klasse 3 · Mein Arbeitsheft</h1>
+    <div class="sub">Zahlenraum bis 1000 · Schriftliches Rechnen · 22 Blätter in 3 Stufen · Tippe auf eine Aufgabe, dann wird sie vorgelesen.</div>
+    <nav>
+      <div class="btabs" id="btabs"></div>
+      <div class="tiles" id="tiles"></div>
+    </nav>
+    <div class="toolbar">
+      <div class="tgroup"><span class="tl">Stufe für alle Blätter:</span><div class="seg" id="allLv"></div></div>
+      <div class="tgroup">
+        <button class="btn ghost" id="solBtn">Lösungen zeigen</button>
+        <button class="btn ghost" id="allNew">Alle neu mischen</button>
+        <button class="btn" id="printAll">Ganzes Heft drucken</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main><div class="wrap" id="main"></div></main>
+<div id="printbox"></div>
+<div class="note">Orientiert an den Kompetenzbereichen des Kerncurriculums Mathematik für die Grundschule in Niedersachsen. Bei jedem Laden entstehen neue Aufgaben. © Dr. Edmund Bruns · CC BY-NC 4.0</div>
+
+<script>
+const B={
+ zo:{n:"Zahlen und Operationen",c:"#2b7bd8"},
+ gm:{n:"Größen und Messen",c:"#e67e22"},
+ rf:{n:"Raum und Form",c:"#27ae60"},
+ ms:{n:"Muster und Strukturen",c:"#8e44ad"},
+ dz:{n:"Daten und Zufall",c:"#d63a6a"}
+};
+const ST=[null,{s:'★☆☆',n:'Starter'},{s:'★★☆',n:'Könner'},{s:'★★★',n:'Profi'}];
+const r=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const times=(n,f)=>Array.from({length:n},(_,i)=>f(i));
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function uniq(n,f){const out=[],seen=new Set();let g=0;while(out.length<n&&g<1500){g++;const it=f(out.length);const k=it.q+'|'+it.a;if(!seen.has(k)){seen.add(k);out.push(it)}}return out}
+const opts3=(ans,all)=>shuf([ans,...shuf(all.filter(x=>x!==ans)).slice(0,2)]);
+const distinct=(n,a,b)=>{let x;do{x=times(n,()=>r(a,b))}while(new Set(x).size<n);return x};
+const rr=(a,b,s)=>s*r(Math.ceil(a/s),Math.floor(b/s));
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const NB='\u202F';
+const fmt=n=>{const s=String(n);return Math.abs(n)>=10000?s.replace(/\B(?=(\d{3})+(?!\d))/g,NB):s};
+const euro=c=>`${Math.floor(c/100)},${String(c%100).padStart(2,'0')}${NB}€`;
+const eA=c=>`${Math.floor(c/100)},${String(c%100).padStart(2,'0')}`;
+const NAMEN=['Lena','Tim','Mia','Ben','Emma','Noah','Lea','Paul','Ayla','Jonas','Finn','Ella','Mats','Lina','Elif','Leon'];
+const WT=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+const COL={rot:'#e74c3c',blau:'#3498db',gelb:'#f1c40f',grün:'#27ae60'};
+const rd=(n,s)=>Math.round(n/s)*s;
+
+/* ---------- Bildbausteine ---------- */
+function strahlG(min,max,ts,ls,k){const n=Math.round((max-min)/ts),st=400/n;let t='';
+ for(let i=0;i<=n;i++){const v=min+i*ts,x=40+i*st,lab=v===min||v===max||v%ls===0,mid=!lab&&ls%2===0&&v%(ls/2)===0;
+  t+=`<line x1="${x}" y1="${lab?20:mid?24:27}" x2="${x}" y2="${lab?44:mid?40:37}" stroke="#2c3e50" stroke-width="${lab?2.5:1.4}"/>`;
+  if(lab)t+=`<text x="${x}" y="60" text-anchor="middle" font-size="13" font-family="Arial">${fmt(v)}</text>`}
+ const x=40+(k-min)/ts*st;return `<svg viewBox="0 0 480 64" class="vis" style="width:100%;max-width:480px"><line x1="30" y1="32" x2="450" y2="32" stroke="#2c3e50" stroke-width="2"/>${t}<path d="M${x} 18 l-7 -14 h14 z" fill="#e74c3c"/></svg>`}
+function uhr(h,m=0){const ah=((h%12)+m/60)*30*Math.PI/180,am=m*6*Math.PI/180;let t='';
+ for(let i=0;i<60;i++){const b=i*6*Math.PI/180,l=i%5===0?6:3;t+=`<line x1="${(60+54*Math.sin(b)).toFixed(1)}" y1="${(60-54*Math.cos(b)).toFixed(1)}" x2="${(60+(54-l)*Math.sin(b)).toFixed(1)}" y2="${(60-(54-l)*Math.cos(b)).toFixed(1)}" stroke="#2c3e50" stroke-width="${i%5===0?2:1}"/>`}
+ for(let i=1;i<=12;i++){const b=i*30*Math.PI/180;t+=`<text x="${(60+41*Math.sin(b)).toFixed(1)}" y="${(64.5-41*Math.cos(b)).toFixed(1)}" text-anchor="middle" font-size="12" font-family="Arial" fill="#2c3e50">${i}</text>`}
+ return `<svg viewBox="0 0 120 120" width="112" height="112" class="vis"><circle cx="60" cy="60" r="57" fill="#fff" stroke="#2c3e50" stroke-width="4"/>${t}<line x1="60" y1="60" x2="${(60+44*Math.sin(am)).toFixed(1)}" y2="${(60-44*Math.cos(am)).toFixed(1)}" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/><line x1="60" y1="60" x2="${(60+28*Math.sin(ah)).toFixed(1)}" y2="${(60-28*Math.cos(ah)).toFixed(1)}" stroke="#e74c3c" stroke-width="6" stroke-linecap="round"/><circle cx="60" cy="60" r="4" fill="#2c3e50"/></svg>`}
+function ta(h,m){const mm=String(m).padStart(2,'0'),out=[];[h,h===12?0:h+12].forEach(x=>{out.push(`${x}:${mm}`,`${x}.${mm}`);if(m===0)out.push(String(x))});return out.join('|')}
+function ta24(h,m){const mm=String(m).padStart(2,'0'),o=[`${h}:${mm}`,`${h}.${mm}`];if(m===0)o.push(String(h));return o.join('|')}
+const t24=(h,m)=>`${h}:${String(m).padStart(2,'0')}`;
+function geldBild(arr){return arr.map(v=>{const cls=v>=500?`m s s${v}`:`m k k${v}`;const lab=v<100?`${v} ct`:`${v/100} €`;return `<span class="${cls}">${lab}</span>`}).join('')}
+function geldArr(V,M,kmin,kmax){const arr=[];let s=0;const k=r(kmin,kmax);for(let i=0;i<k;i++){const op=V.filter(v=>s+v<=M);if(!op.length)break;const v=pick(op);arr.push(v);s+=v}arr.sort((x,y)=>y-x);return[arr,s]}
+function dienes(h,z,e){const u=7;let s='',x=2;
+ for(let i=0;i<h;i++){s+=`<rect x="${x}" y="2" width="${10*u}" height="${10*u}" fill="#f8c471" stroke="#9c640c"/>`;for(let k=1;k<10;k++)s+=`<line x1="${x+k*u}" y1="2" x2="${x+k*u}" y2="${2+10*u}" stroke="#9c640c" stroke-width=".5"/><line x1="${x}" y1="${2+k*u}" x2="${x+10*u}" y2="${2+k*u}" stroke="#9c640c" stroke-width=".5"/>`;x+=10*u+6}
+ for(let i=0;i<z;i++){s+=`<rect x="${x}" y="2" width="${u}" height="${10*u}" fill="#5dade2" stroke="#1b4f72"/>`;for(let k=1;k<10;k++)s+=`<line x1="${x}" y1="${2+k*u}" x2="${x+u}" y2="${2+k*u}" stroke="#1b4f72" stroke-width=".5"/>`;x+=u+4}
+ if(e){x+=4;for(let i=0;i<e;i++){const c=Math.floor(i/5),rw=i%5;s+=`<rect x="${x+c*(u+4)}" y="${2+10*u-(rw+1)*(u+3)+3}" width="${u}" height="${u}" fill="#58d68d" stroke="#186a3b"/>`}x+=Math.ceil(e/5)*(u+4)}
+ return `<svg viewBox="0 0 ${x+2} ${10*u+4}" width="${x+2}" height="${10*u+4}" class="vis">${s}</svg>`}
+function punktfeld(rw,c){let s='';for(let i=0;i<rw;i++)for(let j=0;j<c;j++)s+=`<circle cx="${12+j*20}" cy="${12+i*20}" r="7" fill="#e74c3c"/>`;return `<svg viewBox="0 0 ${c*20+4} ${rw*20+4}" width="${c*20+4}" height="${rw*20+4}" class="vis">${s}</svg>`}
+function chart(cats,vals,step,lab,unit=''){const top=Math.ceil(Math.max(...vals)/(step*lab))*step*lab+step*lab*0,H=150,bw=38,gap=24,W=50+cats.length*(bw+gap);let s='';
+ const sc=v=>10+H-v/top*H;
+ for(let v=0;v<=top;v+=step){const y=sc(v),L=(v/step)%lab===0;s+=`<line x1="44" y1="${y}" x2="${W}" y2="${y}" stroke="${L?'#aab7c4':'#e1e6ec'}" stroke-width="1"/>`;if(L)s+=`<text x="38" y="${y+4}" text-anchor="end" font-size="11" font-family="Arial">${fmt(v)}</text>`}
+ const C=['#5dade2','#f5b041','#58d68d','#ec7063','#af7ac5','#48c9b0'];
+ cats.forEach((c,i)=>{const x=56+i*(bw+gap),y=sc(vals[i]);s+=`<rect x="${x}" y="${y}" width="${bw}" height="${10+H-y}" fill="${C[i%6]}" stroke="#2c3e50" stroke-width="1"/><text x="${x+bw/2}" y="${H+30}" text-anchor="middle" font-size="16">${c}</text>`});
+ s+=`<line x1="44" y1="10" x2="44" y2="${H+10}" stroke="#2c3e50" stroke-width="2"/><line x1="44" y1="${H+10}" x2="${W}" y2="${H+10}" stroke="#2c3e50" stroke-width="2"/>`;
+ return `<svg viewBox="0 0 ${W+4} ${H+40}" width="${W+4}" height="${H+40}" class="vis">${s}</svg>`}
+function rad(cols){const n=cols.length,R=46;let s='';
+ if(n===1)s=`<circle cx="50" cy="52" r="${R}" fill="${COL[cols[0]]}" stroke="#2c3e50" stroke-width="2"/>`;
+ else cols.forEach((c,i)=>{const a0=i/n*2*Math.PI-Math.PI/2,a1=(i+1)/n*2*Math.PI-Math.PI/2;s+=`<path d="M50 52 L${(50+R*Math.cos(a0)).toFixed(2)} ${(52+R*Math.sin(a0)).toFixed(2)} A${R} ${R} 0 0 1 ${(50+R*Math.cos(a1)).toFixed(2)} ${(52+R*Math.sin(a1)).toFixed(2)} Z" fill="${COL[c]}" stroke="#2c3e50" stroke-width="1.5"/>`});
+ return `<svg viewBox="0 0 100 104" width="96" height="100" class="vis">${s}<circle cx="50" cy="52" r="4" fill="#2c3e50"/><path d="M50 30 l-5 -18 h10 z" fill="#2c3e50"/></svg>`}
+function gridSVG(cells,W,H,o={}){const z=o.z||20;let s='';
+ const set=new Set(cells.map(c=>c[0]+','+c[1]));
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++)s+=`<rect x="${2+x*z}" y="${2+y*z}" width="${z}" height="${z}" fill="${set.has(x+','+y)?(o.col||'#5dade2'):'#fff'}" stroke="${o.light?'#e1e6ec':'#b5c1cc'}" stroke-width="1"/>`;
+ if(o.axis==='v')s+=`<line x1="${2+W/2*z}" y1="0" x2="${2+W/2*z}" y2="${H*z+4}" stroke="#e74c3c" stroke-width="3"/>`;
+ if(o.lab)s+=`<text x="4" y="14" font-size="13" font-weight="bold" font-family="Arial">${o.lab}</text>`;
+ return `<svg viewBox="0 0 ${W*z+4} ${H*z+4}" width="${W*z+4}" height="${H*z+4}" class="vis">${s}</svg>`}
+function polyo(n,W,H){let cells=[[r(0,W-1),r(0,H-1)]];const has=(x,y)=>cells.some(c=>c[0]===x&&c[1]===y);let g=0;
+ while(cells.length<n&&g<500){g++;const[cx,cy]=pick(cells),[dx,dy]=pick([[1,0],[-1,0],[0,1],[0,-1]]),x=cx+dx,y=cy+dy;if(x>=0&&x<W&&y>=0&&y<H&&!has(x,y))cells.push([x,y])}
+ const mx=Math.min(...cells.map(c=>c[0])),my=Math.min(...cells.map(c=>c[1]));return cells.map(c=>[c[0]-mx,c[1]-my])}
+function umfang(cells){const set=new Set(cells.map(c=>c[0]+','+c[1]));let u=0;cells.forEach(([x,y])=>[[1,0],[-1,0],[0,1],[0,-1]].forEach(([a,b])=>{if(!set.has((x+a)+','+(y+b)))u++}));return u}
+const ext=cells=>[Math.max(...cells.map(c=>c[0]))+1,Math.max(...cells.map(c=>c[1]))+1];
+function foldFaces(cells){const key=c=>c[0]+','+c[1],set=new Set(cells.map(key)),face={};
+ const roll={E:s=>[s[4],s[5],s[2],s[3],s[1],s[0]],W:s=>[s[5],s[4],s[2],s[3],s[0],s[1]],N:s=>[s[2],s[3],s[1],s[0],s[4],s[5]],S:s=>[s[3],s[2],s[0],s[1],s[4],s[5]]};
+ const D={E:[1,0],W:[-1,0],N:[0,-1],S:[0,1]};const q=[[cells[0],[0,1,2,3,4,5]]];face[key(cells[0])]=0;
+ while(q.length){const[c,s]=q.shift();for(const d in D){const n=[c[0]+D[d][0],c[1]+D[d][1]],k=key(n);if(set.has(k)&&!(k in face)){const ns=roll[d](s);face[k]=ns[0];q.push([n,ns])}}}
+ return face}
+const isNet=cells=>new Set(Object.values(foldFaces(cells))).size===6;
+function turm(hs){const u=24,d=10,H=Math.max(...hs);let s='';const base=8+d+H*u;
+ hs.forEach((h,i)=>{for(let j=0;j<h;j++){const x=4+i*u,y=base-(j+1)*u;
+  s+=`<rect x="${x}" y="${y}" width="${u}" height="${u}" fill="#85c1e9" stroke="#1b4f72"/><polygon points="${x},${y} ${x+u},${y} ${x+u+d},${y-d} ${x+d},${y-d}" fill="#d6eaf8" stroke="#1b4f72"/><polygon points="${x+u},${y} ${x+u+d},${y-d} ${x+u+d},${y+u-d} ${x+u},${y+u}" fill="#3498db" stroke="#1b4f72"/>`}});
+ return `<svg viewBox="0 0 ${hs.length*u+d+8} ${base+4}" width="${hs.length*u+d+8}" height="${base+4}" class="vis">${s}</svg>`}
+const bauplan=g=>`<table class="bp">${g.map(rw=>`<tr>${rw.map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')}</table>`;
+function koerper(n){const S='stroke="#2c3e50" stroke-width="2"',F='#aed6f1';let s;
+ if(n==='Würfel')s=`<polygon points="10,30 50,30 50,70 10,70" fill="${F}" ${S}/><polygon points="10,30 30,12 70,12 50,30" fill="#d6eaf8" ${S}/><polygon points="50,30 70,12 70,52 50,70" fill="#85c1e9" ${S}/>`;
+ else if(n==='Quader')s=`<polygon points="4,40 56,40 56,70 4,70" fill="${F}" ${S}/><polygon points="4,40 20,26 72,26 56,40" fill="#d6eaf8" ${S}/><polygon points="56,40 72,26 72,56 56,70" fill="#85c1e9" ${S}/>`;
+ else if(n==='Kugel')s=`<circle cx="40" cy="42" r="32" fill="${F}" ${S}/><ellipse cx="40" cy="42" rx="32" ry="9" fill="none" stroke="#2c3e50" stroke-width="1.2" stroke-dasharray="4 3"/>`;
+ else if(n==='Zylinder')s=`<path d="M12 20 V66 A28 8 0 0 0 68 66 V20" fill="${F}" ${S}/><ellipse cx="40" cy="20" rx="28" ry="8" fill="#d6eaf8" ${S}/>`;
+ else if(n==='Kegel')s=`<path d="M40 6 L12 64 A28 8 0 0 0 68 64 Z" fill="${F}" ${S}/><path d="M12 64 A28 8 0 0 1 68 64" fill="none" stroke="#2c3e50" stroke-width="1.2" stroke-dasharray="4 3"/>`;
+ else s=`<polygon points="8,62 52,62 40,6" fill="${F}" ${S}/><polygon points="52,62 72,48 40,6" fill="#85c1e9" ${S}/><polyline points="8,62 28,48 72,48" fill="none" stroke="#2c3e50" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="28" y1="48" x2="40" y2="6" stroke="#2c3e50" stroke-width="1.2" stroke-dasharray="4 3"/>`;
+ return `<svg viewBox="0 0 80 80" width="78" height="78" class="vis">${s}</svg>`}
+const KOERPER=['Würfel','Quader','Kugel','Zylinder','Kegel','Pyramide'];
+function mauer(rows){const a=[];const h=`<div class="mauer">${rows.map(rw=>`<div class="mr">${rw.map(v=>{if(v===null)return '<span class="st">@</span>';return `<span class="st">${fmt(v)}</span>`}).join('')}</div>`).join('')}</div>`;return h}
+function mauerBuild(bottom){const rows=[bottom];while(rows[0].length>1){const p=rows[0];rows.unshift(times(p.length-1,i=>p[i]+p[i+1]))}return rows}
+function mauerItem(rows,hide,s){const a=[];const shown=rows.map((rw,i)=>rw.map((v,j)=>{if(hide.has(i+','+j)){a.push(v);return null}return v}));return{q:mauer(shown),a,s:s||'Zahlenmauer. Zwei Steine nebeneinander ergeben zusammen den Stein darüber. Fülle die leeren Steine.'}}
+/* schriftliches Rechnen mit Ziffernkästchen */
+function schrift(nums,op,res){const w=Math.max(...nums.map(n=>String(n).length),String(res).length)+1;
+ const row=(s,pre)=>{const c=Array(w).fill('');const t=String(s);for(let i=0;i<t.length;i++)c[w-t.length+i]=t[i];if(pre)c[0]=pre;return c};
+ let h='<table class="sr">';nums.forEach((n,i)=>{h+='<tr>'+row(n,i===nums.length-1?op:'').map(c=>`<td>${c}</td>`).join('')+'</tr>'});
+ const rs=String(res),rc=Array(w).fill('');for(let i=0;i<rs.length;i++)rc[w-rs.length+i]='§';
+ h+='<tr class="res">'+rc.map(c=>`<td>${c}</td>`).join('')+'</tr></table>';return{q:h,a:rs.split('')}}
+function schriftMal(a,b){const p=a*b,top=[...String(a),'·',...String(b)],rs=String(p),w=Math.max(top.length,rs.length);
+ const pad=arr=>Array(w-arr.length).fill('').concat(arr);
+ let h='<table class="sr"><tr>'+pad(top).map(c=>`<td>${c}</td>`).join('')+'</tr><tr class="res">'+pad(rs.split('').map(()=>'§')).map(c=>`<td>${c}</td>`).join('')+'</tr></table>';
+ return{q:h,a:rs.split('')}}
+const KAR='<div class="kar ponly"></div>';
+const E0=['null','eins','zwei','drei','vier','fünf','sechs','sieben','acht','neun','zehn','elf','zwölf','dreizehn','vierzehn','fünfzehn','sechzehn','siebzehn','achtzehn','neunzehn'];
+const Z0=['','','zwanzig','dreißig','vierzig','fünfzig','sechzig','siebzig','achtzig','neunzig'];
+function w100(n){if(n<20)return E0[n];const e=n%10,z=Math.floor(n/10);return (e?(e===1?'ein':E0[e])+'und':'')+Z0[z]}
+function w1000(n){const h=Math.floor(n/100),rest=n%100;return (h?(h===1?'ein':E0[h])+'hundert':'')+(rest?w100(rest):'')}
+function words(n){if(n===0)return 'null';const t=Math.floor(n/1000),rest=n%1000;let s='';if(t)s+=(t===1?'ein':w1000(t).replace(/eins$/,'ein'))+'tausend';if(rest)s+=w1000(rest);return s}
+
+/* ===== Klasse 3 ===== */
+const showSeq=(sq,m)=>'<span class="big">'+sq.map((v,i)=>i===m?'</span>@<span class="big">':fmt(v)).join(', ')+'</span>';
+const T=[
+{id:'zahlen1000',b:'zo',t:'Zahlen bis 1000',i:L=>L===1?'Eine Hunderterplatte ist 100, eine Zehnerstange 10, ein Würfel 1.':L===2?'H steht für Hunderter, Z für Zehner, E für Einer.':'Achte genau auf die Stellen. 10 Zehner sind 1 Hunderter.',
+ g(L){if(L===1){const it=uniq(4,()=>{const h=r(1,3),z=r(0,6),e=r(0,9);return{q:dienes(h,z,e)+'<span>Das sind @.</span>',a:[100*h+10*z+e],s:'Zähle die Hunderterplatten, die Zehnerstangen und die Würfel. Wie viele sind es?'}});
+   return it.concat(uniq(2,()=>{const h=r(1,9),z=r(0,9),e=r(0,9);return{q:`${h} Hunderter, ${z} Zehner und ${e} Einer sind @`,a:[100*h+10*z+e]}}))}
+  if(L===2){const it=uniq(4,()=>{const n=r(101,999);return{q:`${n} = @ H @ Z @ E`,a:[Math.floor(n/100),Math.floor(n/10)%10,n%10],s:`Zerlege die Zahl ${n} in Hunderter, Zehner und Einer.`}});
+   uniq(2,()=>{const h=r(1,9),z=r(0,9),e=r(1,9);return{q:`${100*h} + ${10*z} + ${e} = @`,a:[100*h+10*z+e]}}).forEach(x=>it.push(x));
+   uniq(2,()=>{const h=r(1,9),e=r(1,9);return{q:`Die Zahl hat ${h} Hunderter, 0 Zehner und ${e} Einer. Sie heißt @`,a:[100*h+e]}}).forEach(x=>it.push(x));return it}
+  const it=uniq(2,()=>{const h=r(1,9),z=r(0,9),e=r(1,9);return{q:`${e} Einer, ${h} Hunderter und ${z} Zehner sind @`,a:[100*h+10*z+e]}});
+  uniq(2,()=>{const h=r(1,7),z=r(10,19),e=r(0,9);return{q:`${h} H ${z} Z ${e} E = @`,a:[100*h+10*z+e],s:`${h} Hunderter, ${z} Zehner und ${e} Einer. Welche Zahl ist das?`}}).forEach(x=>it.push(x));
+  uniq(2,()=>{const n=r(102,987),st=pick([['Zehnerstelle',1],['Hunderterstelle',2],['Einerstelle',0]]);return{q:`Welche Ziffer steht an der ${st[0]} von ${n}? @`,a:[Math.floor(n/10**st[1])%10]}}).forEach(x=>it.push(x));
+  const d=distinct(3,1,9).sort((a,b)=>b-a);it.push({q:`Lege mit den Ziffern ${shuf(d).join(', ')} die größte Zahl: @`,a:[+d.join('')]},{q:`Lege mit denselben Ziffern ${d.slice().reverse().join(', ')} die kleinste Zahl: @`,a:[+d.slice().reverse().join('')]});return it}},
+{id:'strahl1000',b:'zo',t:'Zahlenstrahl und Nachbarn',wide:1,i:'Wo zeigt der Pfeil hin? Schau, wie weit es von Strich zu Strich geht.',
+ g(L){const it=[];
+  if(L===1){uniq(3,()=>{const k=100*pick([1,2,3,4,6,7,8,9]);return{q:strahlG(0,1000,100,500,k)+'<span>Der Pfeil zeigt auf @.</span>',a:[k]}}).forEach(x=>it.push(x));
+   for(let s=0;s<2;s++){const st=100*r(0,3),sq=times(7,i=>st+100*i),m=r(1,6),m2=(m+3)%7;const a=[];const q=sq.map((v,i)=>{if(i===m||i===m2){a.push(v);return'@'}return`<span class="big">${v}</span>`}).join(' , ');it.push({q:'<span>Welche Zahlen fehlen?</span> '+q,a})}return it}
+  const nb=(s,lab)=>{let n;do{n=r(101,999)}while(n%s===0);const lo=n-n%s;return{q:`${lab}: @ < <span class="big">${n}</span> < @`,a:[lo,lo+s]}};
+  if(L===2){uniq(3,()=>{let k;do{k=50*r(1,19)}while(k%500===0);return{q:strahlG(0,1000,50,500,k)+'<span>Der Pfeil zeigt auf @.</span>',a:[k]}}).forEach(x=>it.push(x));uniq(3,()=>nb(100,'Nachbarhunderter')).forEach(x=>it.push(x));return it}
+  uniq(3,()=>{const mn=100*r(1,8);let k;do{k=mn+5*r(1,19)}while(k%50===0);return{q:strahlG(mn,mn+100,5,50,k)+'<span>Der Pfeil zeigt auf @.</span>',a:[k]}}).forEach(x=>it.push(x));uniq(3,()=>nb(10,'Nachbarzehner')).forEach(x=>it.push(x));return it}},
+{id:'vergleichen1000',b:'zo',t:'Zahlen vergleichen und ordnen',i:'Vergleiche zuerst die Hunderter, dann die Zehner, dann die Einer.',
+ g(L){const cmp=(A,va,vb)=>({q:`<span class="big">${A}</span> @ <span class="big">${vb}</span>`,a:[va<vb?'<':va>vb?'>':'='],o:[['<','>','=']]});
+  if(L===1)return uniq(8,()=>{const h=distinct(2,1,9);return cmp(...(()=>{const va=100*h[0]+r(0,99);return[va,va,100*h[1]+r(0,99)]})())});
+  if(L===2)return uniq(8,()=>{const va=r(100,999),h=Math.floor(va/100);let vb=Math.random()<.15?va:100*h+r(0,99);return cmp(va,va,vb)});
+  const it=uniq(6,()=>{let A,va;if(Math.random()<.5){const x=100*r(1,6),y=10*r(1,9);va=x+y;A=`${x} + ${y}`}else{const x=100*r(3,9),y=r(10,99);va=x-y;A=`${x} − ${y}`}return cmp(A,va,va+pick([-10,-1,0,1,10,100]))});
+  uniq(2,i=>{const n=distinct(3,100,999),t=i?Math.max(...n):Math.min(...n);return{q:`Welche Zahl ist am ${i?'größten':'kleinsten'}? @`,a:[String(t)],o:[n.map(String)]}}).forEach(x=>it.push(x));return it}},
+{id:'runden3',b:'zo',t:'Runden',i:'Bei 0, 1, 2, 3, 4 wird abgerundet. Bei 5, 6, 7, 8, 9 wird aufgerundet.',
+ g(L){const z=n=>({q:`${n} auf Zehner gerundet: @`,a:[rd(n,10)]}),h=n=>({q:`${n} auf Hunderter gerundet: @`,a:[rd(n,100)]});
+  if(L===1)return uniq(8,()=>{let n;do{n=r(11,99)}while(n%10===0);return z(n)});
+  if(L===2)return uniq(8,i=>i<4?z(r(101,989)):h(r(101,949)));
+  return uniq(8,i=>{if(i<3)return h(pick([r(950,999),r(140,160),r(345,355),r(645,655)]));if(i<5)return z(pick([r(995,999),r(395,399),r(695,699)]));
+   const a=r(101,499),b=r(101,449);return{q:`Überschlage: ${a} + ${b} ≈ @`,a:[rd(a,100)+rd(b,100)],s:`Runde beide Zahlen auf Hunderter und rechne: ${a} plus ${b} ist ungefähr wie viel?`}})}},
+{id:'kopfplus3',b:'zo',t:'Addieren im Kopf',i:L=>L===1?'Rechne mit Hundertern wie mit Einern: 3 + 4 = 7, also 300 + 400 = 700.':'Zerlege die zweite Zahl. Beispiel: 348 + 25 = 348 + 20 + 5 = 373.',
+ g(L){if(L===1)return uniq(8,i=>{if(i<4){const a=r(1,8),b=r(1,9-a);return{q:`${100*a} + ${100*b} = @`,a:[100*(a+b)]}}const a=10*r(11,90),b=10*r(1,9);return a+b<=1000?{q:`${a} + ${b} = @`,a:[a+b]}:{q:`${a-100} + ${b} = @`,a:[a-100+b]}});
+  if(L===2)return uniq(8,i=>{const a=r(101,890);if(i<3){const b=r(2,9);return{q:`${a} + ${b} = @`,a:[a+b]}}if(i<6){const b=10*r(1,9);return{q:`${a} + ${b} = @`,a:[a+b]}}const b=100*r(1,Math.floor((999-a)/100)||1);return{q:`${a} + ${b} = @`,a:[a+b]}});
+  return uniq(8,i=>{let a,b;do{a=r(101,800);b=r(11,99)}while(a%10+b%10<10||a+b>1000);if(i<6)return{q:`${a} + ${b} = @`,a:[a+b]};return{q:`${a} + @ = ${a+b}`,a:[b]}})}},
+{id:'kopfminus3',b:'zo',t:'Subtrahieren im Kopf',i:L=>L===1?'Rechne mit Hundertern wie mit Einern: 7 − 4 = 3, also 700 − 400 = 300.':'Zerlege die zweite Zahl. Beispiel: 373 − 25 = 373 − 20 − 5 = 348.',
+ g(L){if(L===1)return uniq(8,i=>{if(i<4){const a=r(2,10),b=r(1,a-1);return{q:`${100*a} − ${100*b} = @`,a:[100*(a-b)]}}const a=10*r(20,99),b=10*r(1,9);return{q:`${a} − ${b} = @`,a:[a-b]}});
+  if(L===2)return uniq(8,i=>{const a=r(150,999);if(i<3){const b=r(2,9);return{q:`${a} − ${b} = @`,a:[a-b]}}if(i<6){const b=10*r(1,9);return{q:`${a} − ${b} = @`,a:[a-b]}}const b=100*r(1,Math.floor(a/100)-1||1);return{q:`${a} − ${b} = @`,a:[a-b]}});
+  return uniq(8,i=>{let a,b;do{a=r(150,999);b=r(11,99)}while(a%10>=b%10);if(i<6)return{q:`${a} − ${b} = @`,a:[a-b]};return{q:`${a} − @ = ${a-b}`,a:[b]}})}},
+{id:'schrplus3',b:'zo',t:'Schriftlich addieren',pc:3,i:'Rechne von rechts nach links: erst die Einer, dann die Zehner, dann die Hunderter. Denk an den Übertrag.',
+ g(L){return uniq(6,()=>{let n;
+  if(L===1)do{n=[r(100,899),r(100,899)]}while(String(n[0]).split('').some((d,i)=>+d+ +String(n[1])[i]>9)||sum(n)>999);
+  else if(L===2)do{n=[r(100,800),r(100,800)]}while(sum(n)>999||(n[0]%10+n[1]%10<10&&Math.floor(n[0]/10)%10+Math.floor(n[1]/10)%10<10));
+  else do{n=[r(100,500),r(50,400),r(10,300)]}while(sum(n)>999);
+  const s=schrift(n,'+',sum(n));return{q:s.q,a:s.a,s:`Rechne schriftlich: ${n.join(' plus ')}. Schreibe das Ergebnis Ziffer für Ziffer.`}})}},
+{id:'schrminus3',b:'zo',t:'Schriftlich subtrahieren',pc:3,i:'Rechne von rechts nach links. Wenn oben die kleinere Ziffer steht, brauchst du einen Übertrag.',
+ g(L){return uniq(6,()=>{let a,b;const dig=(x,i)=>Math.floor(x/10**i)%10;
+  if(L===1)do{a=r(300,999);b=r(100,a-100)}while([0,1,2].some(i=>dig(a,i)<dig(b,i)));
+  else if(L===2)do{a=r(300,999);b=r(100,a-50)}while([0,1,2].filter(i=>dig(a,i)<dig(b,i)).length!==1);
+  else do{a=pick([r(300,999),100*r(3,9),100*r(3,9)+r(1,9)]);b=r(100,a-20)}while([0,1].filter(i=>dig(a,i)<dig(b,i)).length<2);
+  const s=schrift([a,b],'−',a-b);return{q:s.q,a:s.a,s:`Rechne schriftlich: ${a} minus ${b}. Schreibe das Ergebnis Ziffer für Ziffer.`}})}},
+{id:'einmaleins3',b:'zo',t:'Einmaleins und Geteilt',i:L=>L===1?'Wiederhole die Reihen von 2, 3, 4, 5 und 10.':L===2?'Übe die schweren Reihen von 6, 7, 8 und 9.':'Mal und geteilt gemischt. Manchmal fehlt eine Zahl.',
+ g(L){const f=A=>{const a=pick(A),b=r(1,10);return Math.random()<.5?{q:`${a} · ${b} = @`,a:[a*b]}:{q:`${b} · ${a} = @`,a:[a*b]}};
+  if(L===1)return uniq(8,()=>f([2,3,4,5,10]));
+  if(L===2)return uniq(8,()=>f([6,7,8,9]));
+  return uniq(8,i=>{const a=r(2,10),b=r(2,10);return[{q:`${a*b} : ${a} = @`,a:[b]},{q:`@ · ${b} = ${a*b}`,a:[a]},{q:`${a*b} : @ = ${b}`,a:[a]},{q:`${a} · ${b} = @`,a:[a*b]}][i%4]})}},
+{id:'division3',b:'zo',t:'Teilen mit Rest',i:'Nicht immer geht es auf. Was übrig bleibt, ist der Rest. Der Rest ist immer kleiner als die Zahl, durch die du teilst.',
+ g(L){if(L===1)return uniq(8,()=>{const d=r(2,9),k=r(2,10);return{q:`${d*k} : ${d} = @`,a:[k]}});
+  const R=(lo,hi)=>{const d=r(lo,hi),k=r(2,9),re=r(1,d-1);return{q:`${d*k+re} : ${d} = @ Rest @`,a:[k,re]}};
+  if(L===2)return uniq(8,()=>R(2,5));
+  const it=uniq(6,()=>R(6,9));
+  const n=r(17,31),t=pick([4,5,6]);it.push({q:`${n} Kinder sitzen an Tischen. An jeden Tisch passen ${t} Kinder. Wie viele Tische werden ganz voll? @`,a:[Math.floor(n/t)]});
+  const m=r(20,45),p=pick([6,8]);it.push({q:`${m} Eier werden in Schachteln zu je ${p} Eiern gepackt. Wie viele Eier bleiben übrig? @`,a:[m%p]});return it}},
+{id:'halbschr3',b:'zo',t:'Malnehmen und Teilen mit großen Zahlen',i:L=>L===1?'3 · 4 = 12, also 3 · 40 = 120. 8 : 4 = 2, also 80 : 4 = 20.':L===2?'Zerlege: 4 · 23 = 4 · 20 + 4 · 3 = 80 + 12 = 92.':'Zerlege in Zehner und Einer und rechne in Schritten.',
+ g(L){if(L===1)return uniq(8,i=>{const a=r(2,9),b=r(2,9);return i%2?{q:`${a} · ${10*b} = @`,a:[10*a*b]}:{q:`${10*a*b} : ${a} = @`,a:[10*b]}});
+  if(L===2)return uniq(8,i=>{const a=r(2,6);let b;do{b=r(12,29)}while(b%10===0);if(i<3)return{q:`${a} · ${b} = ${a} · ${b-b%10} + ${a} · ${b%10} = @ + @ = @`,a:[a*(b-b%10),a*(b%10),a*b],s:`Zerlege ${a} mal ${b} in zwei leichte Aufgaben und rechne.`};
+   if(i<6)return{q:`${a} · ${b} = @`,a:[a*b]};const d=r(2,4),q=pick([11,12,13,21,22,23,31,32]);return{q:`${d*q} : ${d} = @`,a:[q]}});
+  return uniq(8,i=>{if(i<3){const a=r(3,9),b=r(13,49);return{q:`${a} · ${b} = @`,a:[a*b]}}if(i<6){const d=r(3,6),q=r(13,29);return{q:`${d*q} : ${d} = @`,a:[q]}}const a=r(3,9),b=10*r(2,9);return{q:`@ · ${a} = ${a*b}`,a:[b]}})}},
+{id:'sach3',b:'zo',t:'Sachaufgaben',wide:1,i:L=>L<3?'Lies genau. Überlege: plus, minus, mal oder geteilt?':'Diese Aufgaben haben zwei Schritte. Schreibe die Rechnung auf.',
+ g(L){const S1=[
+  ()=>{const a=r(120,450),b=r(80,350);return[`In der Schule gibt es ${a} Mädchen und ${b} Jungen. Wie viele Kinder sind es zusammen?`,a+b,'Kinder']},
+  ()=>{const a=r(400,900),b=r(120,a-50);return[`Ein Zug hat ${a} Plätze. ${b} Plätze sind besetzt. Wie viele Plätze sind noch frei?`,a-b,'Plätze']},
+  ()=>{const a=r(3,9),b=pick([6,8,12,24]);return[`Eine Packung hat ${b} Flaschen. Wie viele Flaschen sind in ${a} Packungen?`,a*b,'Flaschen']},
+  ()=>{const d=pick([3,4,5,6]),k=r(6,15);return[`${d*k} Bonbons werden gerecht an ${d} Kinder verteilt. Wie viele Bonbons bekommt jedes Kind?`,k,'Bonbons']},
+  ()=>{const a=r(250,600),b=r(150,350);return[`Familie Meyer fährt am Samstag ${a} km und am Sonntag ${b} km. Wie viele Kilometer fährt sie insgesamt?`,a+b,'km']}];
+  const S3=[
+  ()=>{const a=r(4,8),p=r(12,25),g=pick([200,300,500]);return[`Die Klasse fährt in den Zoo. ${a} Erwachsene zahlen je ${p} € Eintritt. Sie bezahlen mit ${g} €. Wie viel Geld bekommen sie zurück?`,g-a*p,'€']},
+  ()=>{const a=r(150,400),b=r(80,200),c=r(50,150);return[`Im Kino sind ${a} Plätze. Am Nachmittag kommen ${b} Kinder und ${c} Erwachsene. Wie viele Plätze bleiben frei?`,a-b-c,'Plätze']},
+  ()=>{const k=r(4,8),p=r(6,9),e=r(5,20);return[`${k} Kinder kaufen je ${p} Hefte. Der Lehrer kauft noch ${e} Hefte dazu. Wie viele Hefte sind es zusammen?`,k*p+e,'Hefte']},
+  ()=>{const t=pick([4,5,6]),k=r(5,9),f=r(3,t*k-5);return[`In einer Turnhalle stehen ${k} Bänke. Auf jede Bank passen ${t} Kinder. ${f} Plätze sind noch frei. Wie viele Kinder sitzen schon?`,t*k-f,'Kinder']},
+  ()=>{const w=r(150,300),d=r(2,3);return[`Lea liest jeden Tag 20 Seiten. Ihr Buch hat ${w} Seiten. Nach ${d*5} Tagen: Wie viele Seiten muss sie noch lesen?`,w-20*d*5,'Seiten']}];
+  if(L<3){const S=L===1?S1.slice(0,4):S1;return shuf(S).slice(0,4).map(f=>{const[t,e,u]=f();return{q:`<div class="box">${t}<br>Rechnung: <span class="wline"></span><br>Antwort: @ ${u}</div>`,a:[e],s:`${t} Schreibe die Rechnung und die Antwort.`}})}
+  return shuf(S3).slice(0,4).map(f=>{let x;do{x=f()}while(x[1]<0);const[t,e,u]=x;return{q:`<div class="box">${t}<br>Rechnung: <span class="wline"></span><br>Antwort: @ ${u}</div>`,a:[e],s:`${t} Schreibe die Rechnung und die Antwort.`}})}},
+{id:'geld3',b:'gm',t:'Geld mit Komma',i:L=>L===1?'Mit Komma: 2,50 € sind 2 Euro und 50 Cent. 100 Cent sind 1 Euro.':L===2?'Rechne mit Geld. Schreibe mit Komma: 3,45 €.':'Einkaufen: Rechne die Preise zusammen und das Rückgeld aus.',
+ g(L){if(L===1){const it=uniq(3,()=>{const c=5*r(21,199);return{q:`${c} ct = @ €`,a:[eA(c)]}});
+   uniq(3,()=>{const c=5*r(21,199);return{q:`${euro(c)} = @ ct`,a:[c]}}).forEach(x=>it.push(x));
+   uniq(2,()=>{const[ea]=geldArr([500,200,100],900,1,3),[ca]=geldArr([50,20,10],90,1,3);const v=sum(ea)+sum(ca);return{q:`<div>${geldBild(ea.concat(ca))}</div><span>Das sind @ €.</span>`,a:[eA(v)]}}).forEach(x=>it.push(x));return it}
+  if(L===2)return uniq(8,i=>{if(i<4){const a=5*r(20,300),b=5*r(20,300);return{q:`${euro(a)} + ${euro(b)} = @ €`,a:[eA(a+b)]}}const g=pick([500,1000,2000]),p=5*r(40,g/5-10);return{q:`Etwas kostet ${euro(p)}. Du bezahlst mit ${euro(g)}. Rückgeld: @ €`,a:[eA(g-p)]}});
+  const W=[['Brot 🍞',189,349],['Milch 🥛',89,149],['Äpfel 🍎',199,299],['Käse 🧀',229,399],['Saft 🧃',99,199]];
+  const it=uniq(3,()=>{const w=shuf(W).slice(0,3).map(([n,a,b])=>[n,r(a,b)]),t=sum(w.map(x=>x[1]));return{q:`<div class="box">${w.map(([n,p])=>`${n} ${euro(p)}`).join(' · ')}</div><span>Zusammen: @ € · Rückgeld von 20 €: @ €</span>`,a:[eA(t),eA(2000-t)],s:`Du kaufst ${w.map(([n,p])=>`${n.split(' ')[0]} für ${euro(p)}`).join(', ')}. Wie viel kostet alles zusammen? Wie viel Rückgeld bekommst du von 20 Euro?`}});
+  uniq(3,()=>{const n=r(2,5),p=10*r(6,25);return{q:`${n} Hefte zu je ${euro(p)} kosten @ €.`,a:[eA(n*p)]}}).forEach(x=>it.push(x));return it}},
+{id:'zeit3',b:'gm',t:'Uhrzeit und Zeitspannen',i:L=>L===1?'Lies die Uhr genau ab. Der lange Zeiger zeigt die Minuten.':L===2?'1 Stunde = 60 Minuten. Rechne von der Uhrzeit aus weiter.':'Zeitspanne: Rechne erst bis zur vollen Stunde, dann weiter.',
+ g(L){const it=[];
+  if(L===1){uniq(4,()=>{const h=r(1,12),m=5*r(0,11);return{q:uhr(h,m)+'<span>Es ist @ Uhr.</span>',a:[ta(h,m)],s:'Wie spät ist es? Schreibe die Uhrzeit.'}}).forEach(x=>it.push(x));it.push({q:'1 h = @ min',a:[60]},{q:'1 Tag = @ h',a:[24]});return it}
+  if(L===2){uniq(4,()=>{const h=r(7,18),m=5*r(0,11),d=5*r(3,11),e=h*60+m+d;return{q:`Es ist ${t24(h,m)} Uhr. In ${d} min ist es @ Uhr.`,a:[ta24(Math.floor(e/60),e%60)]}}).forEach(x=>it.push(x));
+   it.push(pick([{q:'2 h = @ min',a:[120]},{q:'3 h = @ min',a:[180]}]));const v=r(65,115);it.push({q:`${v} min = @ h @ min`,a:[Math.floor(v/60),v%60]});return it}
+  uniq(4,()=>{const h=r(7,15),m=5*r(1,11),d=5*r(14,40),e=h*60+m+d;return{q:`Von ${t24(h,m)} Uhr bis ${t24(Math.floor(e/60),e%60)} Uhr sind es @ h @ min.`,a:[Math.floor(d/60),d%60]}}).forEach(x=>it.push(x));
+  uniq(2,()=>{const h=r(14,18),m=5*r(0,11),dh=1,dm=5*r(1,11),e=h*60+m+60*dh+dm;return{q:`Ein Film beginnt um ${t24(h,m)} Uhr und dauert ${dh} h ${dm} min. Er endet um @ Uhr.`,a:[ta24(Math.floor(e/60),e%60)]}}).forEach(x=>it.push(x));return it}},
+{id:'laengen3',b:'gm',t:'Längen',i:L=>L===1?'1 cm = 10 mm · 1 m = 100 cm · 1 km = 1000 m':'Rechne in die kleinere Einheit um. 1 cm = 10 mm · 1 m = 100 cm · 1 km = 1000 m',
+ g(L){if(L===1)return uniq(8,()=>{const k=r(2,9);return pick([{q:`${k} cm = @ mm`,a:[10*k]},{q:`${k} m = @ cm`,a:[100*k]},{q:`${k} km = @ m`,a:[1000*k]},{q:`${100*k} cm = @ m`,a:[k]},{q:`${10*k} mm = @ cm`,a:[k]}])});
+  if(L===2){const it=uniq(6,i=>{const k=r(1,9);return[{q:`${k} cm ${r(1,9)} mm = @ mm`},{q:`${k} m ${10*r(1,9)} cm = @ cm`},{q:`${k} km ${100*r(1,9)} m = @ m`}].map(o=>{const[a,u1,b,u2]=o.q.split(' ');const f=u1==='cm'?10:u1==='m'?100:1000;return{q:o.q,a:[+a*f+ +b]}})[i%3]});
+   uniq(2,()=>{const k=r(1,3);const P=pick([[`${k} m`,100*k,`${pick([90,100,110,150,250,300])} cm`],[`${k} km`,1000*k,`${pick([900,1000,1500,2000,3000])} m`]]);const vb=parseInt(P[2]);const va=P[1];return{q:`<span class="big">${P[0]}</span> @ <span class="big">${P[2]}</span>`,a:[va<vb?'<':va>vb?'>':'='],o:[['<','>','=']]}}).forEach(x=>it.push(x));return it}
+  const it=uniq(3,()=>{const m=r(1,3),c=pick([25,50,75,20,40,60,80]);return{q:`${m},${c} m = @ cm`,a:[100*m+c]}});
+  const w=r(4,9)*100;it.push({q:`Lea geht ${w} m zur Schule und denselben Weg zurück. Das sind @ m. Bis 2 km fehlen noch @ m.`,a:[2*w,2000-2*w]});
+  const S=[['Ein Marienkäfer ist etwa','5 mm',['5 mm','5 cm','5 m']],['Ein Lineal ist etwa','30 cm',['30 cm','30 mm','3 m']],['Ein Marathon ist etwa','42 km',['42 km','42 m','420 m']],['Ein Haus ist etwa','10 m',['10 m','10 km','10 cm']]];
+  shuf(S).slice(0,2).forEach(([t,a,o])=>it.push({q:`${t} @ lang.`,a:[a],o:[shuf(o)]}));return it}},
+{id:'gewichte3',b:'gm',t:'Gewichte',i:'1 kg = 1000 g. Ein halbes Kilogramm sind 500 g.',
+ g(L){const S=[['Ein Apfel wiegt etwa','150 g',['150 g','150 kg','15 kg']],['Ein Schulranzen wiegt etwa','4 kg',['4 kg','4 g','40 kg']],['Ein Kind wiegt etwa','30 kg',['30 kg','30 g','300 kg']],['Eine Tafel Schokolade wiegt etwa','100 g',['100 g','100 kg','1 g']],['Ein Brief wiegt etwa','20 g',['20 g','20 kg','2 kg']]];
+  const est=n=>shuf(S).slice(0,n).map(([t,a,o])=>({q:`${t} @.`,a:[a],o:[shuf(o)]}));
+  if(L===1){const it=uniq(5,()=>{const k=r(1,9);return Math.random()<.5?{q:`${k} kg = @ g`,a:[1000*k]}:{q:`${1000*k} g = @ kg`,a:[k]}});return it.concat(est(3))}
+  if(L===2){const it=uniq(3,()=>{const k=r(1,4),g=50*r(1,19);return{q:`${k} kg ${g} g = @ g`,a:[1000*k+g]}});
+   uniq(2,()=>{const v=50*r(21,79);return{q:`${v} g = @ kg @ g`,a:[Math.floor(v/1000),v%1000]}}).forEach(x=>it.push(x));
+   const w=[pick([100,200,500]),pick([50,100,200]),pick([10,20,50])];it.push({q:`Auf der Waage liegen ${w.join(' g, ')} g. Zusammen sind das @ g.`,a:[sum(w)]});it.push({q:'500 g + 500 g = @ kg',a:[1]});it.push(...est(1));return it}
+  const it=uniq(3,()=>{const g=50*r(1,19);return{q:`1 kg − ${g} g = @ g`,a:[1000-g]}});
+  it.push(pick([{q:'Wie viele Päckchen zu 250 g ergeben 1 kg? @',a:[4]},{q:'Wie viele Päckchen zu 200 g ergeben 1 kg? @',a:[5]},{q:'Wie viele Päckchen zu 125 g ergeben 1 kg? @',a:[8]}]));
+  uniq(2,()=>{const k=r(1,3),g=pick([900,1000,1500,2000,2500,3000]);const va=1000*k;return{q:`<span class="big">${k} kg</span> @ <span class="big">${g} g</span>`,a:[va<g?'<':va>g?'>':'='],o:[['<','>','=']]}}).forEach(x=>it.push(x));
+  it.push({q:'Ein halbes Kilogramm sind @ g.',a:[500]});return it}},
+{id:'koerper3',b:'rf',t:'Körper und Würfelnetze',i:L=>L===1?'Wie heißt der Körper?':L===2?'Ecken sind Spitzen, Kanten sind Linien, Flächen sind die Seiten.':'Ein Würfelnetz kannst du zu einem Würfel falten. Stell es dir genau vor.',
+ g(L){const nm=()=>{const n=pick(KOERPER);return{q:koerper(n)+'<span>Das ist ein(e) @</span>',a:[n],o:[opts3(n,KOERPER)],s:'Wie heißt dieser Körper?'}};
+  if(L===1)return uniq(6,nm);
+  const P={Würfel:[8,12,6],Quader:[8,12,6],Pyramide:[5,8,5]},K=['Ecken','Kanten','Flächen'];
+  if(L===2)return uniq(6,()=>{const n=pick(Object.keys(P)),k=r(0,2);return{q:koerper(n)+`<span>${n==='Pyramide'?'Die':'Der'} ${n} hat @ ${K[k]}.</span>`,a:[P[n][k]]}});
+  const it=uniq(4,i=>{let c;const want=i%2===0;do{c=polyo(6,4,3)}while(isNet(c)!==want);const[w,h]=ext(c);return{q:gridSVG(c,w,h,{z:22,col:'#f5b041'})+'<span>Ist das ein Würfelnetz? @</span>',a:[want?'ja':'nein'],o:[['ja','nein']],s:'Kannst du diese Form zu einem Würfel falten?'}});
+  uniq(2,()=>{const w=r(2,3),g=times(2,()=>times(w,()=>r(1,4)));return{q:bauplan(g)+'<span>Du brauchst @ Würfel.</span>',a:[sum(g.flat())],s:'Bauplan. Jede Zahl sagt, wie viele Würfel übereinander stehen. Wie viele Würfel brauchst du?'}}).forEach(x=>it.push(x));return shuf(it)}},
+{id:'flaechen3',b:'rf',t:'Flächen vergleichen',i:'Zähle die Kästchen. Je mehr Kästchen, desto größer ist die Fläche.',
+ g(L){if(L===1)return uniq(6,()=>{const c=polyo(r(5,12),5,4),[w,h]=ext(c);return{q:gridSVG(c,w,h)+'<span>Die Fläche ist @ Kästchen groß.</span>',a:[c.length],s:'Wie viele Kästchen ist die Fläche groß?'}});
+  if(L===2)return uniq(4,()=>{const n=distinct(2,6,14),A=polyo(n[0],5,4),Bc=polyo(n[1],5,4);const[w1,h1]=ext(A),[w2,h2]=ext(Bc);return{q:`<div class="box">${gridSVG(A,w1,h1,{lab:'A'})} &nbsp; ${gridSVG(Bc,w2,h2,{col:'#58d68d',lab:'B'})}</div><span>A: @ Kästchen · B: @ Kästchen · Größer ist @</span>`,a:[n[0],n[1],n[0]>n[1]?'A':'B'],o:[null,null,['A','B']],s:'Zähle die Kästchen von Fläche A und Fläche B. Welche Fläche ist größer?'}});
+  const it=uniq(3,()=>{const c=polyo(r(10,16),6,4),[w,h]=ext(c);return{q:gridSVG(c,w,h,{z:18})+'<span>Fläche: @ Kästchen. Bis 20 Kästchen fehlen @.</span>',a:[c.length,20-c.length],s:'Zähle die Kästchen. Wie viele fehlen bis 20?'}});
+  uniq(3,()=>{const a=r(3,6),b=r(4,9);return{q:`Ein Rechteck hat ${a} Reihen mit je ${b} Kästchen. Es ist @ Kästchen groß.`,a:[a*b]}}).forEach(x=>it.push(x));return it}},
+{id:'zahlenmauern3',b:'ms',t:'Zahlenmauern',i:'Zwei Steine nebeneinander ergeben zusammen den Stein darüber. Manchmal musst du rückwärts rechnen.',
+ g(L){if(L===1)return uniq(4,()=>{const rows=mauerBuild(times(3,()=>10*r(5,25)));return mauerItem(rows,new Set(['0,0','1,0','1,1']))});
+  if(L===2)return uniq(4,()=>{const rows=mauerBuild(times(3,()=>r(50,240)));return mauerItem(rows,new Set(['1,0','1,1','2,1']))});
+  return uniq(4,()=>{let rows;do{rows=mauerBuild(times(4,()=>r(20,130)))}while(rows[0][0]>1000);return mauerItem(rows,new Set(pick([['0,0','1,1','2,0','2,2','3,1'],['1,0','1,1','2,1','3,0','3,3'],['0,0','1,0','2,1','2,2','3,2']])))})}},
+{id:'muster3',b:'ms',t:'Zahlenfolgen',i:L=>L<3?'Finde die Regel. Welche Zahl fehlt?':'Die Regel kann auch abwechseln oder verdoppeln.',
+ g(L){const sq=(s,st)=>times(5,i=>s+i*st);
+  if(L===1)return uniq(8,()=>{const st=pick([10,50,100,-100]),s=st>0?rr(0,500,st):rr(500,999,100),q=sq(s,st);return{q:showSeq(q,4),a:[q[4]]}});
+  if(L===2)return uniq(8,()=>{const st=pick([25,15,20,-20,-25,9,-9]),s=st>0?r(0,600):r(300,999),q=sq(s,st),m=r(1,4);return{q:showSeq(q,m),a:[q[m]]}});
+  const it=uniq(4,()=>{const[p,q]=pick([[100,-10],[50,-20],[25,25],[200,-100],[10,-1]]),s=r(50,300),a=[s];for(let i=1;i<6;i++)a.push(a[i-1]+(i%2?p:q));return{q:showSeq(a,5),a:[a[5]]}});
+  uniq(2,()=>{const s=r(3,12),a=times(5,i=>s*2**i);return{q:showSeq(a,4),a:[a[4]]}}).forEach(x=>it.push(x));
+  const R=['+25','+50','−20','· 2','−100'];uniq(2,()=>{const rl=pick(R);let a;if(rl==='· 2'){const s=r(5,20);a=times(4,i=>s*2**i)}else{const st=rl[0]==='+'?+rl.slice(1):-rl.slice(1);const s=st>0?r(50,400):r(500,900);a=times(4,i=>s+i*st)}return{q:`<span class="big">${a.join(', ')}</span><span>Die Regel ist @</span>`,a:[rl],o:[opts3(rl,R)]}}).forEach(x=>it.push(x));return it}},
+{id:'diagramm3',b:'dz',t:'Diagramme lesen',i:L=>L===1?'Die Kinder der Klasse 3 haben ihren Schulweg gezählt. Ein Kästchen steht für 2 Kinder.':'Schau genau auf die Zahlen an der Seite. Wofür steht ein Kästchen?',
+ g(L){const cats=['🚶','🚲','🚌','🚗'],st=L===1?2:L===2?5:10;let v;
+  if(L===1)v=distinct(4,1,8).map(x=>2*x);else if(L===2)v=distinct(4,1,8).map(x=>5*x);else v=distinct(4,2,16).map(x=>5*x);
+  const pre=chart(cats,v,st,L===3?2:2),txt={'🚶':'zu Fuß','🚲':'mit dem Fahrrad','🚌':'mit dem Bus','🚗':'mit dem Auto'};
+  const[a,b,c]=shuf(cats),ia=cats.indexOf(a),ib=cats.indexOf(b),mx=cats[v.indexOf(Math.max(...v))];
+  const items=[{q:`Wie viele Kinder kommen ${txt[a]}? @`,a:[v[ia]]},{q:`Wie viele Kinder kommen ${txt[b]}? @`,a:[v[ib]]},{q:'Wie kommen die meisten Kinder? @',a:[mx],o:[cats]},{q:`Wie viele Kinder kommen ${txt[a]} oder ${txt[b]}? @`,a:[v[ia]+v[ib]]},{q:`Unterschied zwischen ${a} und ${c}: @`,a:[Math.abs(v[ia]-v[cats.indexOf(c)])]}];
+  if(L===3)items.push({q:'Wie viele Kinder wurden insgesamt gefragt? @',a:[sum(v)]});
+  return{pre,items}}},
+{id:'kombi3',b:'dz',t:'Kombinieren und Zufall',i:L=>L===1?'Ein Würfel hat die Zahlen 1 bis 6. Ist das sicher, möglich oder unmöglich?':L===2?'Jedes Teil kann mit jedem anderen kombiniert werden. Tipp: Zeichne oder mal nehmen.':'Überlege genau, wie viele Möglichkeiten es gibt. Ordne die Möglichkeiten in einer Liste.',
+ g(L){const W=['sicher','möglich','unmöglich'],E=[['Du würfelst eine 7.','unmöglich'],['Du würfelst eine Zahl kleiner als 7.','sicher'],['Du würfelst eine 6.','möglich'],['Du würfelst eine gerade Zahl.','möglich'],['Du würfelst eine 0.','unmöglich'],['Du würfelst eine Zahl von 1 bis 6.','sicher'],['Du würfelst eine Zahl größer als 4.','möglich']];
+  const ev=n=>shuf(E).slice(0,n).map(([t,a])=>({q:`🎲 ${t} Das ist @`,a:[a],o:[W]}));
+  if(L===1)return ev(6);
+  const cl=()=>{const a=r(2,4),b=r(2,4);return{q:`<span class="emo">${'👕'.repeat(a)} ${'👖'.repeat(b)}</span><span>${a} T-Shirts und ${b} Hosen. Wie viele verschiedene Kombinationen gibt es? @</span>`,a:[a*b]}};
+  if(L===2){const it=uniq(3,cl);uniq(1,()=>{const a=r(2,5),b=r(2,4);return{q:`Beim Eis gibt es ${a} Sorten und ${b} Arten von Streuseln. Jedes Eis bekommt 1 Sorte und 1 Art Streusel. Wie viele verschiedene Eis gibt es? @`,a:[a*b]}}).forEach(x=>it.push(x));return it.concat(ev(2))}
+  const it=uniq(2,()=>{const a=r(2,3),b=r(2,3),c=r(2,3);return{q:`Zum Frühstück gibt es ${a} Brotsorten, ${b} Beläge und ${c} Getränke. Wie viele verschiedene Frühstücke gibt es? @`,a:[a*b*c]}});
+  it.push(pick([{q:'Wie viele zweistellige Zahlen kannst du aus den Ziffern 1, 2 und 3 legen? Jede Ziffer darf nur einmal vorkommen. @',a:[6]},{q:'Wie viele zweistellige Zahlen kannst du aus den Ziffern 4, 5, 6 und 7 legen? Jede Ziffer darf nur einmal vorkommen. @',a:[12]}]));
+  const n=r(3,5);it.push({q:`${n} Kinder geben sich zur Begrüßung gegenseitig je einmal die Hand. Wie oft werden Hände geschüttelt? @`,a:[n*(n-1)/2]});
+  return it.concat(ev(2))}}
+];
+
+
+/* ---------- Vorlesen ---------- */
+const TTS='speechSynthesis' in window;
+if(!TTS)document.body.classList.add('no-tts');
+const SAY=`<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>`;
+const sayBtn=`<button class="say noprint" type="button" aria-label="Vorlesen" title="Vorlesen">${SAY}</button>`;
+const EMO={'🐶':'Hund','🐱':'Katze','🐭':'Maus','🐰':'Hase','🦊':'Fuchs','🐻':'Bär','🐼':'Panda','🐸':'Frosch','🐵':'Affe','🐷':'Schwein','🐮':'Kuh','🦁':'Löwe','🍎':'Apfel','🍌':'Banane','🍓':'Erdbeere','🍐':'Birne','🍇':'Trauben','🍉':'Melone','⚽':'Fußball','🏀':'Basketball','🎾':'Tennis','🏊':'Schwimmen','🚲':'Fahrrad','🚗':'Auto','🚌':'Bus','🚶':'zu Fuß','👕':'T-Shirt','👖':'Hose','🧢':'Mütze','👟':'Schuhe'};
+const SYM={'<':'kleiner','>':'größer','=':'gleich','+':'plus','−':'minus','·':'mal',':':'geteilt durch'};
+const UN={km:'Kilometer',cm:'Zentimeter',mm:'Millimeter',m:'Meter',kg:'Kilogramm',g:'Gramm',t:'Tonnen',ml:'Milliliter',l:'Liter',min:'Minuten',h:'Stunden',s:'Sekunden',ct:'Cent'};
+let voice=null;
+function pickVoice(){if(!TTS)return;const v=speechSynthesis.getVoices().filter(v=>/^de/i.test(v.lang));voice=v.find(v=>/google|natural|online/i.test(v.name))||v[0]||null}
+if(TTS){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function cleanSpeech(t){
+ Object.keys(EMO).forEach(k=>{t=t.split(k).join(' '+EMO[k]+' ')});
+ t=t.replace(/\p{Extended_Pictographic}|\uFE0F/gu,' ').replace(new RegExp(NB,'g'),'')
+  .replace(/(\d{1,2}):(\d{2})\s*Uhr/g,(m,h,mm)=>`${h} Uhr ${+mm?+mm:''}`)
+  .replace(/(\d+),(\d{2})\s*€/g,(m,e,c)=>+e?`${e} Euro ${+c?+c+' Cent':''}`:`${+c} Cent`)
+  .replace(/Maßstab\s*(\d+)\s*:\s*([\d]+)/g,'Maßstab $1 zu $2')
+  .replace(/(\d|Lücke)\s*(km|cm|mm|kg|ml|min|ct|m|g|t|l|h|s)(?![\wäöüß])/g,(m,a,u)=>a+' '+UN[u])
+  .replace(/(\d)\s*\+\s*/g,'$1 plus ').replace(/\s\+\s/g,' plus ')
+  .replace(/−/g,' minus ').replace(/·/g,' mal ').replace(/\s:\s/g,' geteilt durch ')
+  .replace(/≈/g,' ungefähr ').replace(/=/g,' ist gleich ').replace(/€/g,' Euro ')
+  .replace(/</g,' kleiner ').replace(/>/g,' größer ').replace(/\s+/g,' ').trim();
+ return t}
+function speechOf(el){
+ if(el.classList.contains('intro'))return cleanSpeech(el.textContent);
+ const opts=[...el.querySelectorAll('select.a')].map(s=>[...s.options].slice(1).map(o=>SYM[o.value]||EMO[o.value]||o.value));
+ let txt;
+ if(el.dataset.s)txt=el.dataset.s;
+ else{const c=el.cloneNode(true);
+  c.querySelectorAll('.sol,.po,.nr,.say,svg,.emo,.m,.wline,.sr,.mauer,table,.kar').forEach(x=>x.remove());
+  c.querySelectorAll('input.a,select.a').forEach(x=>x.replaceWith(' Lücke '));
+  c.querySelectorAll('br').forEach(x=>x.replaceWith('. '));
+  txt=c.textContent}
+ txt=cleanSpeech(txt);
+ opts.forEach(o=>{const w=o.length>1?o.slice(0,-1).join(', ')+' oder '+o[o.length-1]:o[0];txt=txt.replace(/[\s.]+$/,'');txt+=(/[?!]$/.test(txt)?' ':'. ')+'Wähle: '+w+'.'});
+ return txt}
+function speak(text,el){if(!TTS||!text)return;speechSynthesis.cancel();
+ document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
+ const u=new SpeechSynthesisUtterance(text);u.lang='de-DE';u.rate=.88;if(voice)u.voice=voice;
+ if(el){el.classList.add('speaking');u.onend=u.onerror=()=>el.classList.remove('speaking')}
+ speechSynthesis.speak(u)}
+
+/* ---------- Prüfen ---------- */
+const norm=v=>String(v).replace(/[\s€]/g,'').toLowerCase();
+const numv=v=>{v=norm(v);if(/^\d{1,3}(\.\d{3})+$/.test(v))v=v.replace(/\./g,'');v=v.replace(',','.');return /^-?\d+(\.\d+)?$/.test(v)?parseFloat(v):NaN};
+function correct(v,ans){const al=ans.split('|'),n=norm(v);if(al.some(a=>norm(a)===n))return true;const x=numv(v);return !isNaN(x)&&al.some(a=>{const y=numv(a);return !isNaN(y)&&Math.abs(x-y)<1e-9})}
+
+/* ---------- Darstellung ---------- */
+const $=s=>document.querySelector(s);
+const LV={};T.forEach(t=>LV[t.id]=2);
+let curId=T[0].id;
+const intro=(tp,L)=>typeof tp.i==='function'?tp.i(L):tp.i;
+function itemsHTML(items){return items.map((it,k)=>{let j=0;
+ const q=it.q.replace(/[@§]/g,m=>{const o=it.o&&it.o[j],ans=String(it.a[j]),first=ans.split('|')[0],sol=esc(first);j++;
+  if(m==='§')return `<input class="a dg" type="text" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Ziffer" placeholder="${sol}" data-a="${esc(ans)}">`;
+  if(o)return `<select class="a" data-a="${esc(ans)}" aria-label="Antwort"><option value="">?</option>${o.map(v=>`<option>${esc(v)}</option>`).join('')}</select><span class="po">${o.map(v=>'○ '+esc(v)).join('&nbsp;&nbsp;')}</span><span class="sol">${sol}</span>`;
+  const w=Math.max(2.8,first.length*.72+1.4).toFixed(1);
+  return `<input class="a" style="width:${w}em" type="text" inputmode="decimal" autocomplete="off" aria-label="Antwort" data-a="${esc(ans)}"><span class="sol">${sol}</span>`});
+ return `<div class="item"${it.s?` data-s="${esc(it.s)}"`:''}><span class="nr">${k+1}</span>${sayBtn}${q}</div>`}).join('')}
+function paperHTML(tp,L,live){const b=B[tp.b],nr=T.indexOf(tp)+1,d=tp.g(L),items=Array.isArray(d)?d:d.items,pre=Array.isArray(d)?'':d.pre;
+ const prev=T[nr-2],next=T[nr],pc=typeof tp.pc==='function'?tp.pc(L):tp.pc,wide=typeof tp.wide==='function'?tp.wide(L):tp.wide;
+ return `<div class="paper">
+ <div class="shead"><div><span class="tag">${b.n}</span><h2><span class="bnr">${nr}</span>${tp.t}</h2></div>
+  ${live?`<div class="seg noprint" role="group" aria-label="Stufe">${[1,2,3].map(l=>`<button type="button" class="${l===L?'on':''}" data-lv="${l}">${ST[l].s}<small>${ST[l].n}</small></button>`).join('')}</div>`:''}
+  <div class="pstufe">${ST[L].s}<br><small>${ST[L].n}</small></div></div>
+ <div class="namezeile"><span>Name:</span><span>Datum:</span></div>
+ <div class="intro">${sayBtn}<div>${intro(tp,L)}</div></div>${pre?`<div class="pre">${pre}</div>`:''}
+ <div class="items${wide?' wide':''}${pc===3?' pc3':''}">${itemsHTML(items)}</div>
+ <div class="pfoot">Mathe Klasse 3 · Blatt ${nr} · ${b.n} · Stufe ${ST[L].s} ${ST[L].n} · © Dr. Edmund Bruns</div>
+ ${live?`<div class="foot noprint"><button class="btn" data-act="check">✅ Prüfen</button><button class="btn ghost" data-act="new">Neue Aufgaben</button><button class="btn ghost" data-act="print">Blatt drucken</button><button class="btn ghost" data-act="print3">In 3 Stufen drucken</button><span class="fb" aria-live="polite"></span></div>
+ <div class="pn noprint"><span>${prev?`<button data-go="${prev.id}">← ${prev.t}</button>`:''}</span><span>${next?`<button data-go="${next.id}">${next.t} →</button>`:''}</span></div>`:''}
+ </div>`}
+function renderSheet(tp){$('#s-'+tp.id).innerHTML=paperHTML(tp,LV[tp.id],true)}
+function check(el){const as=el.querySelectorAll('.a');let ok=0,leer=0;
+ as.forEach(x=>{const v=x.value.trim();x.classList.remove('ok','bad');if(!v){leer++;return}
+  if(correct(v,x.dataset.a)){x.classList.add('ok');ok++}else x.classList.add('bad')});
+ const fb=el.querySelector('.fb'),tot=as.length;let say;
+ if(leer===tot){fb.textContent='Trage zuerst etwas ein. 🤔';fb.className='fb try';say='Trage zuerst etwas ein.'}
+ else if(ok===tot){fb.textContent='Super gemacht! Alles richtig! 🎉🌟';fb.className='fb good';say='Super gemacht! Alles richtig!'}
+ else{say=`Du hast ${ok} von ${tot} richtig. `+(leer?`${leer} fehlen noch. `:'')+'Schau dir die roten Felder noch einmal an.';fb.textContent=say+' 💪';fb.className='fb try'}
+ speak(say)}
+function buildNav(){const cb=T.find(t=>t.id===curId).b;
+ $('#btabs').innerHTML=Object.keys(B).map(k=>`<button type="button" class="btab${k===cb?' on':''}" data-b="${k}" style="--c:${B[k].c}"><span class="bdot"></span>${B[k].n}<span class="cnt">${T.filter(t=>t.b===k).length}</span></button>`).join('');
+ $('#tiles').style.setProperty('--c',B[cb].c);
+ $('#tiles').innerHTML=T.filter(t=>t.b===cb).map(t=>`<button type="button" class="tile${t.id===curId?' on':''}" data-id="${t.id}"><span class="tnr">${T.indexOf(t)+1}</span>${t.t}</button>`).join('');
+ const all=T.every(t=>LV[t.id]===LV[T[0].id])?LV[T[0].id]:0;
+ $('#allLv').innerHTML=[1,2,3].map(l=>`<button type="button" class="${l===all?'on':''}" data-all="${l}">${ST[l].s}<small>${ST[l].n}</small></button>`).join('')}
+function show(id,scroll){curId=id;T.forEach(t=>$('#s-'+t.id).classList.toggle('active',t.id===id));buildNav();
+ try{history.replaceState(null,'','#'+id)}catch(e){}
+ if(scroll)$('#s-'+id).scrollIntoView({behavior:'smooth',block:'start'})}
+function doPrint(cls){if(TTS)speechSynthesis.cancel();if(cls)document.body.classList.add(cls);window.print()}
+
+$('#main').innerHTML=T.map(t=>`<section class="sheet" id="s-${t.id}" style="--c:${B[t.b].c}"></section>`).join('');
+T.forEach(renderSheet);
+$('#btabs').addEventListener('click',e=>{const b=e.target.closest('[data-b]');if(b)show(T.find(t=>t.b===b.dataset.b).id,false)});
+$('#tiles').addEventListener('click',e=>{const t=e.target.closest('[data-id]');if(t)show(t.dataset.id,true)});
+$('#allLv').addEventListener('click',e=>{const b=e.target.closest('[data-all]');if(!b)return;T.forEach(t=>{LV[t.id]=+b.dataset.all;renderSheet(t)});buildNav()});
+$('#main').addEventListener('click',e=>{const sh=e.target.closest('.sheet');if(!sh)return;const tp=T.find(t=>'s-'+t.id===sh.id);
+ const lv=e.target.closest('[data-lv]');if(lv){LV[tp.id]=+lv.dataset.lv;renderSheet(tp);buildNav();return}
+ const go=e.target.closest('[data-go]');if(go){show(go.dataset.go,true);return}
+ const act=e.target.closest('[data-act]');
+ if(act){const a=act.dataset.act;
+  if(a==='check')check(sh);else if(a==='new')renderSheet(tp);else if(a==='print')doPrint();
+  else{$('#printbox').innerHTML=[1,2,3].map(l=>`<section class="sheet" style="--c:${B[tp.b].c}">${paperHTML(tp,l,false)}</section>`).join('');doPrint('p3')}
+  return}
+ if(e.target.closest('input,select,option'))return;
+ const t=e.target.closest('.item,.intro');if(t)speak(speechOf(t),t)});
+$('#main').addEventListener('input',e=>{const x=e.target;if(!x.classList.contains('a'))return;x.classList.remove('ok','bad');
+ if(x.classList.contains('dg')&&x.value.length===1){const all=[...x.closest('.item').querySelectorAll('input.dg')],i=all.indexOf(x);if(i>0)all[i-1].focus()}});
+$('#main').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList.contains('a'))check(e.target.closest('.sheet'))});
+$('#printAll').onclick=()=>doPrint('printall');
+window.addEventListener('afterprint',()=>{document.body.classList.remove('printall','p3');$('#printbox').innerHTML=''});
+$('#solBtn').onclick=()=>{const on=document.body.classList.toggle('show-sol');$('#solBtn').textContent=on?'Lösungen verstecken':'Lösungen zeigen'};
+$('#allNew').onclick=()=>T.forEach(renderSheet);
+const start=location.hash.slice(1);show(T.some(t=>t.id===start)?start:T[0].id,false);
+</script>
+</body>
+</html>
