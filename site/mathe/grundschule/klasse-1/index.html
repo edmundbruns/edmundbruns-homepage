@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interaktives Mathe-Arbeitsheft für Klasse 1 der Grundschule in Niedersachsen: 21 Arbeitsblätter in drei Stufen, mit Vorlesefunktion und A4-Druck.">
+<link rel="canonical" href="https://www.edmundbruns.com/mathe/grundschule/klasse-1/">
+<title>Mathe Klasse 1 · Arbeitsheft</title>
+<style>
+:root{--ink:#2c3e50;--bg:#f0f7ff;--ok:#27ae60;--bad:#e74c3c;--line:#e3e9f0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Andika","Comic Sans MS","Chalkboard SE","Trebuchet MS",system-ui,sans-serif;font-size:18px;line-height:1.45}
+.wrap{max-width:960px;margin:0 auto}
+/* ---------- Kopf und Navigation ---------- */
+header{background:#fff;border-bottom:4px solid #3498db;padding:16px}
+h1{margin:0;color:#e74c3c;font-size:1.8rem;line-height:1.2}
+.sub{color:#6b7c8c;font-size:.95rem}
+.btabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.btab{font:inherit;font-size:.95rem;background:#f4f7fb;border:2px solid var(--c);border-radius:999px;padding:6px 14px;cursor:pointer;color:var(--ink);display:flex;align-items:center;gap:8px}
+.btab .bdot{width:12px;height:12px;border-radius:50%;background:var(--c);flex-shrink:0}
+.btab .cnt{font-size:.75rem;background:#fff;border-radius:999px;padding:0 7px;color:#555;border:1px solid var(--line)}
+.btab.on{background:var(--c);color:#fff;font-weight:bold}
+.btab.on .bdot{background:#fff}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:10px;padding:12px;border-radius:14px;background:#f7f9fc;border:2px solid var(--c)}
+.tile{font:inherit;font-size:.95rem;text-align:left;display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--ink);line-height:1.2}
+.tile:hover{border-color:var(--c)}
+.tile.on{border-color:var(--c);background:var(--c);color:#fff;font-weight:bold}
+.tnr{min-width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:.85rem;flex-shrink:0}
+.tile.on .tnr{background:#fff;color:var(--c)}
+.toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:12px;padding-top:12px;border-top:2px dashed var(--line)}
+.tgroup{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tl{font-size:.85rem;color:#555}
+.btn{font:inherit;font-size:.95rem;border:none;border-radius:10px;padding:8px 14px;cursor:pointer;color:#fff;background:var(--c,#3498db);box-shadow:0 3px 0 rgba(0,0,0,.2)}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.btn.ghost{background:#fff;color:var(--ink);border:2px solid #cfd8e3;box-shadow:none}
+/* Stufenwahl */
+.seg{display:inline-flex;border:2px solid var(--c);border-radius:12px;overflow:hidden;background:#fff}
+.seg button{font:inherit;border:none;background:#fff;padding:3px 12px;cursor:pointer;color:var(--c);display:flex;flex-direction:column;align-items:center;line-height:1.15;font-size:1rem}
+.seg button small{font-size:.7rem;color:#555}
+.seg button+button{border-left:2px solid var(--c)}
+.seg button.on{background:var(--c);color:#fff}
+.seg button.on small{color:#fff}
+#allLv{--c:#34495e}
+/* ---------- Blatt ---------- */
+main{padding:16px}
+.sheet{display:none;background:#fff;border:4px solid var(--c);border-radius:20px;padding:22px;margin-bottom:24px;box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.sheet.active{display:block}
+.shead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.sheet h2{margin:0;color:var(--c);font-size:1.5rem;display:flex;align-items:center;gap:10px;line-height:1.2}
+.bnr{min-width:34px;height:34px;border-radius:50%;background:var(--c);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.tag{display:inline-block;font-size:.72rem;background:var(--c);color:#fff;border-radius:6px;padding:1px 8px;margin-bottom:6px}
+.pstufe,.pfoot{display:none}
+.namezeile{display:flex;gap:20px;flex-wrap:wrap;font-size:.95rem;margin:12px 0;color:#666}
+.namezeile span{flex:1;min-width:170px;border-bottom:2px dotted #aaa;padding-bottom:2px}
+.intro{background:#f7f9fc;border-left:6px solid var(--c);border-radius:8px;padding:8px 12px;margin-bottom:14px;display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.pre{margin-bottom:14px;text-align:center}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.items.wide{grid-template-columns:1fr}
+.item{border:2px solid var(--line);border-radius:14px;padding:12px;display:flex;gap:8px;align-items:center;align-content:center;flex-wrap:wrap;font-size:1.15rem;cursor:pointer;transition:background .2s}
+.item.speaking,.intro.speaking{background:#fff8dc;border-color:#f1c40f}
+.nr{font-weight:bold;color:#fff;background:var(--c);border-radius:50%;width:1.6em;height:1.6em;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.say{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:2px solid var(--c);background:#fff;color:var(--c);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.say svg{width:18px;height:18px}
+.say:hover{background:var(--c);color:#fff}
+body.no-tts .say{display:none}
+.big{font-size:1.4rem;font-weight:bold}
+.op{font-size:1.4rem;margin:0 4px}
+input.a{font:inherit;font-size:1.25rem;width:3em;text-align:center;border:3px solid var(--c);border-radius:10px;padding:2px;outline:none;cursor:text}
+input.a:focus{border-color:#f1c40f}
+select.a{font:inherit;font-size:1.1rem;border:3px solid var(--c);border-radius:10px;padding:2px 4px;background:#fff}
+.a.ok{border-color:var(--ok)!important;background:#eafaf1}
+.a.bad{border-color:var(--bad)!important;background:#fdecea}
+.po{display:none}
+.sol{display:none;font-size:.85rem;color:#c0392b;font-weight:bold}
+body.show-sol .sol{display:inline}
+.wline{display:inline-block;width:60%;border-bottom:2px dotted #999;height:1.2em}
+.foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.fb{font-weight:bold;font-size:1.1rem}
+.fb.good{color:var(--ok)}.fb.try{color:#d35400}
+.pn{display:flex;justify-content:space-between;gap:8px;margin-top:14px;padding-top:12px;border-top:2px dashed var(--line)}
+.pn button{font:inherit;font-size:.9rem;background:none;border:none;color:var(--c);cursor:pointer;padding:4px}
+.note{font-size:.8rem;color:#7f8c8d;text-align:center;padding:0 16px 24px}
+/* ---------- Bausteine ---------- */
+.feld{display:inline-grid;grid-template-columns:repeat(5,22px);gap:3px;background:#bdc3c7;padding:4px;border-radius:6px;border:2px solid var(--ink)}
+.feld.z20{grid-template-columns:repeat(5,22px) 4px repeat(5,22px)}
+.feld .c{width:22px;height:22px;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center}
+.feld .c i{width:16px;height:16px;border-radius:50%;background:#e74c3c;display:block}
+.pk{display:inline-flex;flex-wrap:wrap;gap:3px;max-width:120px;vertical-align:middle}
+.pk i{width:17px;height:17px;border-radius:50%;background:#e74c3c;display:block;position:relative}
+.pk i:nth-child(5n){margin-right:6px}
+.pk i.x{background:#f5b7b1}
+.pk i.x::after{content:"";position:absolute;left:-3px;right:-3px;top:7px;height:3px;background:#2c3e50;transform:rotate(-45deg)}
+.emo{font-size:1.6rem;letter-spacing:2px;word-break:break-all}
+.haus{display:inline-block;margin:0 auto}
+.dach{width:150px;height:56px;background:var(--c);clip-path:polygon(50% 0,100% 100%,0 100%);color:#fff;font-weight:bold;font-size:1.4rem;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px;margin:0 auto}
+.stockwerke{width:132px;margin:0 auto;border:2px solid var(--ink)}
+.stock{display:grid;grid-template-columns:1fr 1fr}
+.stock+.stock{border-top:2px solid var(--ink)}
+.stock div{padding:4px;text-align:center;font-size:1.2rem}
+.stock div:first-child{border-right:2px solid var(--ink)}
+.stock input.a{width:2.4em}
+.m{display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:.78rem;margin:2px;vertical-align:middle;font-family:Arial,sans-serif}
+.m1{width:40px;height:40px;border-radius:50%;background:radial-gradient(#f7dc6f,#c9a227);border:4px solid #bdc3c7}
+.m2{width:46px;height:46px;border-radius:50%;background:radial-gradient(#ecf0f1,#95a5a6);border:5px solid #d4a017}
+.s5{width:72px;height:38px;border-radius:5px;background:#c8d1d6;border:2px solid #7f8c8d}
+.s10{width:76px;height:40px;border-radius:5px;background:#f5b7b1;border:2px solid #c0392b}
+.lage{display:inline-grid;grid-template-columns:repeat(3,58px);gap:5px;background:#dfe6ee;padding:6px;border-radius:12px}
+.lage div{height:58px;font-size:2.1rem;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:8px}
+.lrow{display:flex;align-items:center;gap:8px;margin:4px 0}
+.bar{height:18px;background-image:linear-gradient(90deg,rgba(0,0,0,.35) 1px,transparent 1px);background-size:18px 18px;border:1px solid rgba(0,0,0,.45);border-radius:3px}
+.formen{display:flex;flex-wrap:wrap;gap:4px;width:100%}
+table.daten{border-collapse:collapse;margin:0 auto;font-size:1.05rem}
+table.daten th,table.daten td{border:2px solid #cfd8e3;padding:5px 12px;text-align:left}
+table.daten th{background:#f7f9fc}
+.beutel{display:inline-block;background:#f3e5d0;border:3px solid #a0785a;border-radius:10px 10px 30px 30px;padding:6px 10px;font-size:1.3rem;letter-spacing:2px}
+.box{width:100%}
+@media (max-width:560px){.sheet{padding:14px}main{padding:10px}h1{font-size:1.45rem}.tiles{grid-template-columns:1fr 1fr;padding:8px}.tile{font-size:.85rem;padding:6px}.btab{font-size:.85rem;padding:5px 10px}}
+/* ---------- Druck: jedes Blatt füllt genau eine A4-Seite ---------- */
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff!important;margin:0;padding:0}
+  body{font-size:17px}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  header,.noprint,.note,.say{display:none!important}
+  main{padding:0}.wrap{max-width:none;margin:0}
+  .sheet{display:none!important;width:210mm;height:296mm;padding:9mm 10mm;margin:0;border:none!important;border-radius:0;box-shadow:none!important;break-before:page;page-break-before:always;overflow:hidden;background:#fff}
+  .sheet.active{display:block!important}
+  body.printall #main .sheet{display:block!important}
+  body.p3 #main{display:none!important}
+  body.p3 #printbox .sheet{display:block!important}
+  #printbox .sheet:first-child{break-before:auto;page-break-before:auto}
+  .items.pc3{grid-template-columns:1fr 1fr 1fr}
+  table.daten td,table.daten th{padding:2px 10px}
+  .paper{height:100%;display:flex;flex-direction:column;border:2.5px solid var(--c);border-radius:14px;padding:6mm 7mm 4mm}
+  .pstufe{display:block;text-align:right;color:var(--c);font-weight:bold;font-size:1.2rem;line-height:1.1}
+  .pstufe small{font-size:.7rem;color:#555}
+  .namezeile{margin:3mm 0}
+  .intro{cursor:default;margin-bottom:4mm}
+  .pre{margin-bottom:4mm}
+  .items{flex:1 1 0;min-height:0;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:3.5mm}
+  .items.wide{grid-template-columns:1fr}
+  .item{padding:2mm 4mm;border-width:1.5px;cursor:default}
+  input.a{width:15mm;height:11mm;border:2px solid #555!important;background:#fff!important;color:#000}
+  .stock input.a{width:12mm;height:9mm}
+  select.a{display:none!important}
+  .po{display:inline-block;font-size:.95rem;border:2px dashed #999;border-radius:8px;padding:1px 6px}
+  .pfoot{display:block;margin-top:3mm;font-size:.7rem;color:#888;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="noprint">
+  <div class="wrap">
+    <a href="/mathe/index.html" style="display:inline-block;margin-bottom:6px;font-size:.85rem;color:#2b7bd8;text-decoration:none">← Mathematik bei Dr. Edmund Bruns</a>
+    <h1>🎈 Mathe Klasse 1 · Mein Arbeitsheft</h1>
+    <div class="sub">Zahlenraum bis 20 · 21 Blätter in 3 Stufen · Tippe auf eine Aufgabe, dann wird sie vorgelesen.</div>
+    <nav>
+      <div class="btabs" id="btabs"></div>
+      <div class="tiles" id="tiles"></div>
+    </nav>
+    <div class="toolbar">
+      <div class="tgroup"><span class="tl">Stufe für alle Blätter:</span><div class="seg" id="allLv"></div></div>
+      <div class="tgroup">
+        <button class="btn ghost" id="solBtn">Lösungen zeigen</button>
+        <button class="btn ghost" id="allNew">Alle neu mischen</button>
+        <button class="btn" id="printAll">Ganzes Heft drucken</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main><div class="wrap" id="main"></div></main>
+<div id="printbox"></div>
+<div class="note">Orientiert an den Kompetenzbereichen des Kerncurriculums Mathematik für die Grundschule in Niedersachsen. Bei jedem Laden entstehen neue Aufgaben.</div>
+
+<script>
+const B={
+ zo:{n:"Zahlen und Operationen",c:"#2b7bd8"},
+ gm:{n:"Größen und Messen",c:"#e67e22"},
+ rf:{n:"Raum und Form",c:"#27ae60"},
+ ms:{n:"Muster und Strukturen",c:"#8e44ad"},
+ dz:{n:"Daten und Zufall",c:"#d63a6a"}
+};
+const ST=[null,{s:'★☆☆',n:'Starter'},{s:'★★☆',n:'Könner'},{s:'★★★',n:'Profi'}];
+const r=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const times=(n,f)=>Array.from({length:n},(_,i)=>f(i));
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function uniq(n,f){const out=[],seen=new Set();let g=0;while(out.length<n&&g<1000){g++;const it=f(out.length);const k=it.q+'|'+it.a;if(!seen.has(k)){seen.add(k);out.push(it)}}return out}
+const opts3=(ans,all)=>shuf([ans,...shuf(all.filter(x=>x!==ans)).slice(0,2)]);
+
+/* ---------- Bausteine ---------- */
+function feld(n){const big=n>10,cols=big?10:5;let h=`<div class="feld${big?' z20':''}">`;
+ for(let i=0;i<cols*2;i++){if(big&&i%10===5)h+='<span></span>';h+=`<div class="c">${i<n?'<i></i>':''}</div>`}
+ return h+'</div>'}
+const dots=(n,cross=0)=>`<span class="pk">${times(n,i=>`<i${i>=n-cross?' class="x"':''}></i>`).join('')}</span>`;
+function uhr(h){const a=(h%12)*30*Math.PI/180,hx=60+27*Math.sin(a),hy=60-27*Math.cos(a);let t='';
+ for(let i=1;i<=12;i++){const b=i*30*Math.PI/180;t+=`<text x="${(60+44*Math.sin(b)).toFixed(1)}" y="${(64-44*Math.cos(b)).toFixed(1)}" text-anchor="middle" font-size="13" font-family="Arial" fill="#2c3e50">${i}</text>`}
+ return `<svg viewBox="0 0 120 120" width="105" height="105"><circle cx="60" cy="60" r="56" fill="#fff" stroke="#2c3e50" stroke-width="4"/>${t}<line x1="60" y1="60" x2="60" y2="18" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/><line x1="60" y1="60" x2="${hx.toFixed(1)}" y2="${hy.toFixed(1)}" stroke="#e74c3c" stroke-width="6" stroke-linecap="round"/><circle cx="60" cy="60" r="4" fill="#2c3e50"/></svg>`}
+function form(t,w=70){const col=pick(['#3498db','#e67e22','#27ae60','#9b59b6','#e74c3c','#f1c40f']);let s;
+ if(t==='Kreis')s=`<circle cx="40" cy="40" r="${r(22,34)}"/>`;
+ else if(t==='Dreieck')s=`<polygon points="${pick(['40,6 74,72 6,72','10,10 72,40 10,72','8,72 40,10 66,72','10,8 72,8 40,72'])}"/>`;
+ else if(t==='Quadrat'){const k=r(38,62),o=(80-k)/2;s=`<rect x="${o}" y="${o}" width="${k}" height="${k}"/>`}
+ else{const a=r(62,74),b=r(26,40);s=Math.random()<.5?`<rect x="${(80-a)/2}" y="${(80-b)/2}" width="${a}" height="${b}"/>`:`<rect x="${(80-b)/2}" y="${(80-a)/2}" width="${b}" height="${a}"/>`}
+ return `<svg viewBox="0 0 80 80" width="${w}" height="${w}" fill="${col}" stroke="#2c3e50" stroke-width="2">${s}</svg>`}
+function strahl(k,max=20,lab=5){const st=400/max;let t='';for(let i=0;i<=max;i++){const x=20+i*st,lg=i%5===0;
+  t+=`<line x1="${x}" y1="${lg?22:27}" x2="${x}" y2="${lg?42:37}" stroke="#2c3e50" stroke-width="${lg?2.5:1.5}"/>`;
+  if(i%lab===0)t+=`<text x="${x}" y="59" text-anchor="middle" font-size="13" font-family="Arial">${i}</text>`}
+ const x=20+k*st;return `<svg viewBox="0 0 440 64" style="width:100%;max-width:440px"><line x1="10" y1="32" x2="432" y2="32" stroke="#2c3e50" stroke-width="2"/>${t}<path d="M${x} 20 l-7 -14 h14 z" fill="#e74c3c"/></svg>`}
+function strich(n){let s='',x=6;const g=Math.floor(n/5),rest=n%5;
+ for(let i=0;i<g;i++){for(let j=0;j<4;j++)s+=`<line x1="${x+j*6}" y1="4" x2="${x+j*6}" y2="26"/>`;s+=`<line x1="${x-4}" y1="22" x2="${x+22}" y2="8"/>`;x+=34}
+ for(let j=0;j<rest;j++)s+=`<line x1="${x+j*6}" y1="4" x2="${x+j*6}" y2="26"/>`;
+ return `<svg height="30" width="${x+rest*6+4}" stroke="#2c3e50" stroke-width="2.5" stroke-linecap="round">${s}</svg>`}
+const geld=arr=>arr.map(v=>`<span class="m ${v<=2?'m':'s'}${v}">${v} €</span>`).join('');
+function geldArr(V,M,kmax){const arr=[];let s=0;const k=r(2,kmax);for(let i=0;i<k;i++){const op=V.filter(v=>s+v<=M);if(!op.length)break;const v=pick(op);arr.push(v);s+=v}arr.sort((x,y)=>y-x);return[arr,s]}
+function bars(ls){const L='ABC',cols=['#e74c3c','#3498db','#f1c40f'];return `<div class="box">${ls.map((l,i)=>`<div class="lrow"><b>${L[i]}</b><div class="bar" style="width:${l*18}px;background-color:${cols[i]}"></div></div>`).join('')}</div>`}
+const NAMEN=['Lena','Tim','Mia','Ben','Emma','Noah','Lea','Paul','Ayla','Jonas','Finn','Ella'];
+const WT=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+const MO=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+const TIERE=['🐶','🐱','🐭','🐰','🦊','🐻','🐼','🐸','🐵','🐷','🐮','🦁'];
+const FARB=['🔴','🔵','🟡','🟢','⭐','🔺','🟣'];
+const distinct=(n,a,b)=>{let x;do{x=times(n,()=>r(a,b))}while(new Set(x).size<n);return x};
+
+/* ---------- Themen mit 3 Stufen (L = 1, 2, 3) ---------- */
+const T=[
+{id:'zaehlen',b:'zo',t:'Zählen und Anzahlen',i:'Zähle genau. Im Zehnerfeld liegen immer 5 Punkte in einer Reihe. Das hilft dir beim schnellen Sehen.',
+ g(L){const R=[[1,10,3,8],[5,20,6,12],[11,20,10,20]][L-1];
+  const it=uniq(4,()=>{const n=r(R[0],R[1]);return{q:feld(n)+'<span>Es sind @ Punkte.</span>',a:[n]}});
+  shuf(['🍎','⭐','🐞','🎈','🐟','🌼']).slice(0,2).forEach(e=>{const n=r(R[2],R[3]);it.push({q:`<span class="emo">${e.repeat(n)}</span><span>Wie viele sind es? @</span>`,a:[n]})});return it}},
+{id:'nachbar',b:'zo',t:'Nachbarzahlen',i:L=>L<3?'Schreibe die Zahl davor und die Zahl danach. Das sind die Nachbarzahlen.':'Die Zahlen stehen der Reihe nach. Schreibe die fehlenden Zahlen.',
+ g(L){const M=L===1?10:20;return uniq(8,()=>{const f=L<3?0:r(0,2);
+  if(f===0){const n=r(1,M-1);return{q:`@ <span class="big">${n}</span> @`,a:[n-1,n+1]}}
+  if(f===1){const n=r(0,17);return{q:`<span class="big">${n}</span> @ @`,a:[n+1,n+2]}}
+  const n=r(3,20);return{q:`@ @ <span class="big">${n}</span>`,a:[n-2,n-1]}})}},
+{id:'vergleichen',b:'zo',t:'Zahlen vergleichen',i:'Setze das richtige Zeichen ein: <b>&lt;</b> kleiner, <b>&gt;</b> größer, <b>=</b> gleich. Das Krokodil-Maul ist immer zur größeren Zahl offen.',
+ g(L){return uniq(8,()=>{let A,Bv,va,vb;
+  if(L<3){const M=L===1?10:20;va=r(0,M);vb=Math.random()<.2?va:r(0,M);A=va;Bv=vb}
+  else{if(Math.random()<.5){const x=r(1,10),y=r(1,10);va=x+y;A=`${x} + ${y}`}else{const p=r(5,20),q=r(1,p-1);va=p-q;A=`${p} − ${q}`}vb=Math.max(0,va+r(-2,2));Bv=vb}
+  return{q:`<span class="big">${A}</span> @ <span class="big">${Bv}</span>`,a:[va<vb?'<':va>vb?'>':'='],o:[['<','>','=']]}})}},
+{id:'strahl',b:'zo',t:'Zahlenstrahl und Zahlenreihe',wide:1,i:'Schau auf den Zahlenstrahl. Wo zeigt der Pfeil hin? Unten fehlen Zahlen in der Reihe.',
+ g(L){const M=L===1?10:20,lab=L===3?10:5;
+  const it=uniq(3,()=>{let k;do{k=r(1,M-1)}while(k%lab===0);return{q:strahl(k,M,lab)+'<span>Der Pfeil zeigt auf @.</span>',a:[k]}});
+  for(let s=0;s<2;s++){let seq,nm=3;
+   if(L===1){const st=r(0,4);seq=times(6,i=>st+i);nm=2}
+   else if(L===2){const st=r(0,12);seq=times(8,i=>st+i)}
+   else if(s===0){const st=2*r(0,3);seq=times(7,i=>st+2*i)}else{const st=r(14,20);seq=times(7,i=>st-i)}
+   const miss=shuf(times(seq.length,i=>i)).slice(0,nm),a=[];
+   const q=seq.map((v,i)=>{if(miss.includes(i)){a.push(v);return'@'}return`<span class="big">${v}</span>`}).join(' , ');it.push({q:'<span>Welche Zahlen fehlen?</span> '+q,a})}
+  return it}},
+{id:'zerlegen',b:'zo',t:'Zahlen zerlegen',i:'Im Zahlenhaus ergeben die beiden Zahlen in einem Stockwerk zusammen die Dachzahl.',
+ g(L){const H=[[3,6,3],[5,10,3],[8,10,4]][L-1];
+  const it=uniq(2,()=>{const n=r(H[0],H[1]),parts=shuf(times(n+1,i=>i)).slice(0,H[2]).sort((x,y)=>x-y),a=[];
+   const rows=parts.map(l=>{if(Math.random()<.5){a.push(n-l);return`<div class="stock"><div>${l}</div><div>@</div></div>`}a.push(l);return`<div class="stock"><div>@</div><div>${n-l}</div></div>`}).join('');
+   return{q:`<div class="haus"><div class="dach">${n}</div><div class="stockwerke">${rows}</div></div>`,a,s:`Zahlenhaus mit der Dachzahl ${n}. Welche Zahlen fehlen in den Stockwerken?`}});
+  return it.concat(uniq(4,()=>{const n=L===1?r(3,6):L===2?r(4,10):r(11,20),x=r(1,n-1);return L===3&&Math.random()<.5?{q:`${n} = @ + ${x}`,a:[n-x]}:{q:`${n} = ${x} + @`,a:[n-x]}}))}},
+{id:'verliebt',b:'zo',t:'Verliebte Zahlen',i:L=>L<3?'Verliebte Zahlen ergeben zusammen immer <b>10</b>.':'Verliebte Zahlen ergeben zusammen <b>10</b>. Bei der <b>20</b> klappt es genauso.',
+ g(L){if(L===1)return uniq(6,()=>{const a=r(1,9);return{q:feld(a)+`<span>${a} + @ = 10</span>`,a:[10-a]}});
+  if(L===2)return uniq(8,()=>{const a=r(1,9);return Math.random()<.5?{q:`${a} + @ = 10`,a:[10-a]}:{q:`@ + ${a} = 10`,a:[10-a]}});
+  return uniq(8,()=>{const t=r(0,3),a=r(1,9);if(t===0)return{q:`${a} + @ = 10`,a:[10-a]};if(t===1)return{q:`10 − ${a} = @`,a:[10-a]};const b=r(11,19);return t===2?{q:`${b} + @ = 20`,a:[20-b]}:{q:`@ + ${b} = 20`,a:[20-b]}})}},
+{id:'plus10',b:'zo',t:'Plus bis 10',i:'Rechne. Du kannst Finger, Plättchen oder das Zehnerfeld benutzen.',
+ g(L){if(L===1)return uniq(6,()=>{const a=r(1,4),b=r(1,6-a);return{q:`<div class="box">${dots(a)}<b class="op">+</b>${dots(b)}</div><span>${a} + ${b} = @</span>`,a:[a+b]}});
+  if(L===2)return uniq(8,i=>{if(i<6){const a=r(0,9),b=r(1,10-a);return{q:`${a} + ${b} = @`,a:[a+b]}}const a=r(1,8),c=r(a+1,10);return{q:`${a} + @ = ${c}`,a:[c-a]}});
+  return uniq(8,i=>{if(i<3){const a=r(1,8),c=r(a+1,10);return{q:`${a} + @ = ${c}`,a:[c-a]}}if(i<5){const b=r(1,8),c=r(b+1,10);return{q:`@ + ${b} = ${c}`,a:[c-b]}}const a=r(1,5),b=r(1,8-a),c=r(1,10-a-b);return{q:`${a} + ${b} + ${c} = @`,a:[a+b+c]}})}},
+{id:'minus10',b:'zo',t:'Minus bis 10',i:'Rechne. Bei Minus wird es weniger.',
+ g(L){if(L===1)return uniq(6,()=>{const a=r(2,6),b=r(1,a-1);return{q:`<div class="box">${dots(a,b)}</div><span>${a} − ${b} = @</span>`,a:[a-b]}});
+  if(L===2)return uniq(8,i=>{if(i<6){const a=r(2,10),b=r(1,a);return{q:`${a} − ${b} = @`,a:[a-b]}}const a=r(3,10),c=r(0,a-1);return{q:`${a} − @ = ${c}`,a:[a-c]}});
+  return uniq(8,i=>{const a=r(3,10),b=r(1,a-1);if(i<3)return{q:`@ − ${b} = ${a-b}`,a:[a]};if(i<5)return{q:`${a} − @ = ${a-b}`,a:[b]};const x=r(5,10),y=r(1,x-3),z=r(1,x-y-1);return{q:`${x} − ${y} − ${z} = @`,a:[x-y-z]}})}},
+{id:'verdoppeln',b:'zo',t:'Verdoppeln und Halbieren',i:L=>L<3?'Verdoppeln heißt: zweimal die gleiche Zahl. Halbieren heißt: gerecht in zwei gleiche Teile teilen.':'Tipp: 6 + 7 ist wie 6 + 6 und noch 1 dazu. Bei „gleiche Zahlen“ stehen in beiden Kästchen dieselben Zahlen.',
+ g(L){if(L===1)return uniq(8,i=>{if(i<4){const a=r(1,5);return{q:`<div class="box">${dots(a)}<b class="op">+</b>${dots(a)}</div><span>${a} + ${a} = @</span>`,a:[2*a]}}const h=r(1,5);return{q:`<div class="box">${dots(2*h)}</div><span>Die Hälfte von ${2*h} ist @</span>`,a:[h]}});
+  if(L===2)return uniq(8,i=>{if(i<4){const a=r(1,10);return{q:`Das Doppelte von ${a}:<br>${a} + ${a} = @`,a:[2*a]}}const h=r(1,10);return{q:`Die Hälfte von ${2*h} ist @`,a:[h]}});
+  return uniq(8,i=>{if(i<3){const a=r(2,9);return{q:`${a} + ${a+1} = @`,a:[2*a+1]}}if(i<5){const h=r(2,10);return{q:`Gleiche Zahlen:<br>@ + @ = ${2*h}`,a:[h,h]}}if(i<7){const a=r(6,10);return{q:`Das Doppelte von ${a} ist @`,a:[2*a]}}const h=r(6,10);return{q:`Die Hälfte von ${2*h} ist @`,a:[h]}})}},
+{id:'bis20',b:'zo',t:'Rechnen bis 20',i:L=>L<3?'Rechne mit den Einern. Die Zehn bleibt gleich.':'Die kleine Aufgabe hilft dir bei der großen Aufgabe.',
+ g(L){if(L===1)return uniq(8,i=>{const x=r(1,9);if(i%2===0)return{q:`10 + ${x} = @`,a:[10+x]};return Math.random()<.5?{q:`${10+x} − ${x} = @`,a:[10]}:{q:`${10+x} − 10 = @`,a:[x]}});
+  if(L===2)return uniq(8,i=>{if(i%2===0){const x=r(0,8),y=r(1,9-x);return{q:`${10+x} + ${y} = @`,a:[10+x+y]}}const x=r(1,9),y=r(1,x);return{q:`${10+x} − ${y} = @`,a:[10+x-y]}});
+  return uniq(8,i=>{const plus=i%2===0;let x,y;if(plus){x=r(1,8);y=r(1,9-x)}else{x=r(2,9);y=r(1,x)}
+   if(i<4)return plus?{q:`${x} + ${y} = ${x+y}<br>${10+x} + ${y} = @`,a:[10+x+y]}:{q:`${x} − ${y} = ${x-y}<br>${10+x} − ${y} = @`,a:[10+x-y]};
+   return plus?{q:`${10+x} + @ = ${10+x+y}`,a:[y]}:{q:`${10+x} − @ = ${10+x-y}`,a:[y]}})}},
+{id:'zehner',b:'zo',t:'Über die 10 rechnen',i:L=>L<3?'Rechne in zwei Schritten. Bei Plus: erst bis zur 10, dann weiter. Bei Minus: erst zurück zur 10, dann weiter.':'Rechne über die 10. Denk an die zwei Schritte im Kopf.',
+ g(L){const P=()=>{const a=r(5,9),b=r(11-a,9);return[a,b]},M=()=>{const a=r(11,18),b=r(a-9,9);return[a,b]};
+  const hp=()=>{const[a,b]=P();return{q:`${a} + ${b} = ${a} + ${10-a} + @ = @`,a:[b-(10-a),a+b]}},hm=()=>{const[a,b]=M();return{q:`${a} − ${b} = ${a} − ${a-10} − @ = @`,a:[b-(a-10),a-b]}};
+  if(L===1)return uniq(6,i=>i<4?hp():hm());
+  if(L===2)return uniq(8,i=>{if(i<2)return hp();if(i<4)return hm();if(i<6){const[a,b]=P();return{q:`${a} + ${b} = @`,a:[a+b]}}const[a,b]=M();return{q:`${a} − ${b} = @`,a:[a-b]}});
+  return uniq(8,i=>{if(i<3){const[a,b]=P();return{q:`${a} + ${b} = @`,a:[a+b]}}if(i<6){const[a,b]=M();return{q:`${a} − ${b} = @`,a:[a-b]}}if(i===6){const[a,b]=P();return{q:`${a} + @ = ${a+b}`,a:[b]}}const[a,b]=M();return{q:`${a} − @ = ${a-b}`,a:[b]}})}},
+{id:'geschichten',b:'zo',t:'Rechengeschichten',wide:1,i:L=>L<3?'Hör gut zu oder lies genau. Wähle <b>+</b> oder <b>−</b> und schreibe die Antwort auf.':'Hier passiert zweimal etwas. Rechne in zwei Schritten.',
+ g(L){if(L<3){const M=L===1?10:20,PL=()=>{const a=r(2,M-2),b=r(1,Math.min(9,M-a));return[a,b]},MI=()=>{const a=r(4,M),b=r(1,a-1);return[a,b]};
+   const S=[
+    ()=>{const n=pick(NAMEN),[a,b]=PL();return[`${n} hat ${a} Äpfel 🍎. ${n} bekommt noch ${b} Äpfel dazu. Wie viele Äpfel hat ${n} jetzt?`,'+',a+b,'Äpfel']},
+    ()=>{const[a,b]=MI();return[`Im Bus sitzen ${a} Kinder 🚌. An der Haltestelle steigen ${b} Kinder aus. Wie viele Kinder sitzen noch im Bus?`,'−',a-b,'Kinder']},
+    ()=>{const[a,b]=PL();return[`Auf dem Teich schwimmen ${a} Enten 🦆. Dann kommen ${b} Enten dazu. Wie viele Enten sind es jetzt?`,'+',a+b,'Enten']},
+    ()=>{const[a,b]=MI();return[`Auf dem Baum sitzen ${a} Vögel 🐦. ${b} Vögel fliegen weg. Wie viele Vögel sitzen noch auf dem Baum?`,'−',a-b,'Vögel']},
+    ()=>{const[n1,n2]=shuf(NAMEN),[a,b]=PL();return[`${n1} hat ${a} Murmeln. ${n2} hat ${b} Murmeln. Wie viele Murmeln haben beide zusammen?`,'+',a+b,'Murmeln']},
+    ()=>{const n=pick(NAMEN),[a,b]=MI();return[`${n} hat ${a} Bonbons 🍬 und verschenkt ${b} Bonbons. Wie viele Bonbons hat ${n} noch?`,'−',a-b,'Bonbons']}];
+   return shuf(S).slice(0,5).map(f=>{const[t,z,e,u]=f();return{q:`<div class="box">${t}<br>Rechenzeichen: @ &nbsp;&nbsp; Antwort: @ ${u}</div>`,a:[z,e],o:[['+','−'],null],s:`${t} Wähle plus oder minus. Schreibe dann die Antwort.`}})}
+  const S3=[
+   ()=>{const a=r(5,12),b=r(1,a-2),c=r(1,Math.min(9,20-(a-b)));return[`Im Bus sitzen ${a} Kinder 🚌. An der Haltestelle steigen ${b} Kinder aus und ${c} Kinder ein. Wie viele Kinder sitzen jetzt im Bus?`,a-b+c,'Kinder']},
+   ()=>{const n=pick(NAMEN),a=r(3,10),b=r(1,Math.min(9,20-a)),c=r(1,Math.min(9,a+b-1));return[`${n} hat ${a} Äpfel 🍎. ${n} bekommt ${b} Äpfel dazu und isst dann ${c} Äpfel auf. Wie viele Äpfel hat ${n} jetzt?`,a+b-c,'Äpfel']},
+   ()=>{const[n1,n2,n3]=shuf(NAMEN),a=r(2,8),b=r(2,8),c=r(1,Math.min(9,20-a-b));return[`${n1} hat ${a} Murmeln, ${n2} hat ${b} Murmeln und ${n3} hat ${c} Murmeln. Wie viele Murmeln haben alle zusammen?`,a+b+c,'Murmeln']},
+   ()=>{const a=r(8,18),b=r(1,Math.min(9,a-3)),c=r(1,Math.min(9,a-b-1));return[`Auf dem Baum sitzen ${a} Vögel 🐦. ${b} Vögel fliegen weg. Dann fliegen noch ${c} Vögel weg. Wie viele Vögel sitzen noch auf dem Baum?`,a-b-c,'Vögel']},
+   ()=>{const a=r(3,10),b=r(1,Math.min(9,20-a)),c=r(1,Math.min(9,a+b-1));return[`Auf dem Teller liegen ${a} Kekse 🍪. Mama legt ${b} Kekse dazu. Die Kinder essen ${c} Kekse. Wie viele Kekse liegen noch auf dem Teller?`,a+b-c,'Kekse']}];
+  return shuf(S3).slice(0,4).map(f=>{const[t,e,u]=f();return{q:`<div class="box">${t}<br>Rechnung: <span class="wline"></span><br>Antwort: @ ${u}</div>`,a:[e],s:`${t} Schreibe die Rechnung und die Antwort.`}})}},
+{id:'geld',b:'gm',t:'Geld zählen',i:L=>L<3?'Zähle das Geld. Fange mit dem größten Schein oder der größten Münze an.':'Zähle zuerst dein Geld. Rechne dann: Was bleibt übrig? Was fehlt noch?',
+ g(L){if(L<3)return uniq(6,()=>{const[arr,s]=L===1?geldArr([1,2,5],10,4):geldArr([1,2,5,10],20,5);return{q:`<div>${geld(arr)}</div><span>Das sind @ €.</span>`,a:[s]}});
+  const D=['Ein Ball ⚽','Ein Buch 📕','Ein Spiel 🎲','Ein Teddy 🧸','Eine Mütze 🧢'];
+  return uniq(5,i=>{let arr,s;do{[arr,s]=geldArr([1,2,5,10],18,4)}while(s<3);const mehr=i%2===0,p=mehr?r(s+1,20):r(1,s-1);
+   return{q:`<div>${geld(arr)}</div><span>${pick(D)} kostet ${p} €. ${mehr?'Wie viel Geld fehlt dir noch?':'Wie viel Geld bleibt dir übrig?'} @ €</span>`,a:[mehr?p-s:s-p]}})}},
+{id:'zeit',b:'gm',t:'Uhr und Kalender',i:L=>L<3?'Der kurze rote Zeiger zeigt die Stunde. Der lange Zeiger steht oben auf der 12.':'Der kurze rote Zeiger zeigt die Stunde. Rechne mit der Uhr weiter.',
+ g(L){const it=[],push=x=>it.push(x);
+  if(L<3){uniq(3,()=>{const h=r(1,12);return{q:uhr(h)+'<span>Es ist @ Uhr.</span>',a:[h+'|'+(h+12)]}}).forEach(push);
+   uniq(L===1?2:3,()=>{const i=r(0,6),nach=L===1||Math.random()<.5,ans=nach?WT[(i+1)%7]:WT[(i+6)%7];return{q:`${nach?'Nach':'Vor'} ${WT[i]} kommt @`,a:[ans],o:[opts3(ans,WT)]}}).forEach(push);
+   const J={Frühling:'🌷🐣',Sommer:'☀️🏖️',Herbst:'🍂🍄',Winter:'☃️❄️'},j=pick(Object.keys(J));
+   push({q:`<span class="emo">${J[j]}</span><span>Welche Jahreszeit ist das? @</span>`,a:[j],o:[Object.keys(J)]});
+   push({q:'Wie viele Tage hat eine Woche? @',a:[7]});return it}
+  uniq(3,()=>{const h=r(1,12),d=r(1,3),e=(h+d-1)%12+1;return{q:uhr(h)+`<span>In ${d} ${d===1?'Stunde':'Stunden'} ist es @ Uhr.</span>`,a:[e+'|'+(e+12)]}}).forEach(push);
+  const REL=[['Morgen ist',1],['Übermorgen ist',2],['Gestern war',-1],['Vorgestern war',-2]];
+  uniq(3,()=>{const i=r(0,6),[t,d]=pick(REL),ans=WT[(i+d+7)%7];return{q:`Heute ist ${WT[i]}.<br>${t} @`,a:[ans],o:[opts3(ans,WT)]}}).forEach(push);
+  const m=r(0,10),ans=MO[m+1];push({q:`Nach ${MO[m]} kommt @`,a:[ans],o:[opts3(ans,MO)]});
+  push({q:'Wie viele Monate hat ein Jahr? @',a:[12]});return it}},
+{id:'laenge',b:'gm',t:'Längen vergleichen',i:'Vergleiche die Streifen. Zähle die Kästchen.',
+ g(L){const it=[],cnt=(a,b)=>uniq(4,()=>{const n=r(a,b);return{q:`<div class="bar" style="width:${n*18}px;background-color:#27ae60"></div><span>Der Streifen ist @ Kästchen lang.</span>`,a:[n]}});
+  if(L===1){for(let s=0;s<2;s++){const ls=distinct(2,2,9);it.push({q:bars(ls)+'<div>Welcher Streifen ist länger? @</div>',a:[ls[0]>ls[1]?'A':'B'],o:[['A','B']]})}return it.concat(cnt(2,8))}
+  if(L===2){for(let s=0;s<2;s++){const ls=distinct(3,3,12);it.push({q:bars(ls)+'<div>Am längsten: @ &nbsp; Am kürzesten: @</div>',a:['ABC'[ls.indexOf(Math.max(...ls))],'ABC'[ls.indexOf(Math.min(...ls))]],o:[['A','B','C'],['A','B','C']]})}return it.concat(cnt(3,12))}
+  for(let s=0;s<2;s++){const ls=distinct(3,3,14);it.push({q:bars(ls)+'<div>Am längsten: @ &nbsp; Um wie viele Kästchen ist er länger als der kürzeste? @</div>',a:['ABC'[ls.indexOf(Math.max(...ls))],Math.max(...ls)-Math.min(...ls)],o:[['A','B','C'],null]})}
+  uniq(2,()=>{const n=r(10,15);return{q:`<div class="bar" style="width:${n*18}px;background-color:#27ae60"></div><span>Der Streifen ist @ Kästchen lang.</span>`,a:[n]}}).forEach(x=>it.push(x));
+  uniq(2,()=>{const ls=[r(2,8),r(2,8)];return{q:bars(ls)+'<div>A und B werden aneinandergelegt. Wie lang sind beide zusammen? @ Kästchen</div>',a:[ls[0]+ls[1]]}}).forEach(x=>it.push(x));return it}},
+{id:'formen',b:'rf',t:'Formen erkennen',i:'Kreis, Dreieck, Quadrat oder Rechteck? Schau auf die Ecken und Seiten.',
+ g(L){const N=['Kreis','Dreieck','Quadrat','Rechteck'],E={Kreis:0,Dreieck:3,Quadrat:4,Rechteck:4};
+  if(L===1)return shuf(N).concat(shuf(N).slice(0,2)).map(t=>({q:form(t)+'<span>Das ist ein @</span>',a:[t],o:[N]}));
+  const row=(t,pl,f=x=>x===t)=>{let seq;do{seq=times(L===2?8:10,()=>pick(N))}while(!seq.some(f));return{q:`<div class="formen">${seq.map(x=>form(x,L===2?40:34)).join('')}</div><span>Wie viele ${pl} siehst du? @</span>`,a:[seq.filter(f).length]}};
+  if(L===2){const it=shuf(N).map(t=>({q:form(t)+'<span>Das ist ein @</span>',a:[t],o:[N]}));shuf(N).slice(0,2).forEach(t=>it.push({q:form(t)+'<span>Wie viele Ecken? @</span>',a:[E[t]]}));it.push(row('Dreieck','Dreiecke'));return it}
+  const it=[row('Dreieck','Dreiecke'),row('Kreis','Kreise'),row('','Vierecke (Quadrate und Rechtecke)',x=>x==='Quadrat'||x==='Rechteck')];
+  shuf(['Dreieck','Quadrat','Rechteck']).slice(0,2).forEach(t=>it.push({q:form(t)+'<span>Wie viele Ecken? @</span>',a:[E[t]]}));
+  const k=r(2,4);it.push({q:`Wie viele Ecken haben ${k} Dreiecke zusammen? @`,a:[3*k]});
+  it.push(pick([{q:'Ein Quadrat und ein Dreieck haben zusammen @ Ecken.',a:[7]},{q:'Zwei Quadrate haben zusammen @ Ecken.',a:[8]},{q:'Ein Rechteck und ein Kreis haben zusammen @ Ecken.',a:[4]}]));return it}},
+{id:'lage',b:'rf',t:'Links, rechts, oben, unten',i:L=>L<3?'Schau auf das Tierbild. Wer sitzt wo?':'Schau auf das Tierbild. Lege den Finger auf das Start-Tier und gehe die Schritte.',
+ g(L){const R=L===1?2:3,C=3,n=R*C,pool=shuf(TIERE).slice(0,n),ok=(y,x)=>y>=0&&y<R&&x>=0&&x<C;
+  const D=[['links neben',0,-1,'nach links'],['rechts neben',0,1,'nach rechts'],['über',-1,0,'nach oben'],['unter',1,0,'nach unten']];
+  const one=()=>{const i=r(0,n-1),y=Math.floor(i/C),x=i%C,d=pick(D.filter(d=>ok(y+d[1],x+d[2]))),t=pool[(y+d[1])*C+x+d[2]];
+   return{q:`Wer ist ${d[0]} ${pool[i]}? @`,a:[t],o:[opts3(t,pool.filter(p=>p!==pool[i]))]}};
+  let items;
+  if(L===1)items=uniq(5,one);
+  else if(L===2){items=uniq(6,one);items.push({q:'Wer sitzt in der Mitte? @',a:[pool[4]],o:[shuf([pool[4],pool[0],pool[8]])]})}
+  else{items=uniq(4,()=>{const i=r(0,8),y=Math.floor(i/3),x=i%3,d1=pick(D.filter(d=>ok(y+d[1],x+d[2]))),y1=y+d1[1],x1=x+d1[2];
+    const d2=pick(D.filter(d=>ok(y1+d[1],x1+d[2])&&!(d[1]===-d1[1]&&d[2]===-d1[2]))),t=pool[(y1+d2[1])*3+x1+d2[2]];
+    return{q:`Start bei ${pool[i]}. Gehe 1 Feld ${d1[3]} und dann 1 Feld ${d2[3]}. Wo bist du? @`,a:[t],o:[opts3(t,pool.filter(p=>p!==pool[i]))]}}).concat(uniq(2,one))}
+  return{pre:`<div class="lage">${pool.map(p=>`<div>${p}</div>`).join('')}</div>`,items}}},
+{id:'muster',b:'ms',t:'Muster fortsetzen',i:L=>L<3?'Finde die Regel. Wie geht es weiter?':'Finde die Regel. Bei den Zahlen kann die Lücke auch in der Mitte sein.',
+ g(L){const a=uniq(4,()=>{let unit;if(L===1)unit=shuf(FARB).slice(0,2);else if(L===2)unit=shuf(FARB).slice(0,r(2,3));
+    else{const[A,Bb,C]=shuf(FARB);unit=pick([[A,Bb,Bb],[A,A,Bb],[A,Bb,C,C],[A,A,Bb,C],[A,Bb,Bb,C]])}
+    const p=unit.length,len=r(2*p+1,3*p),seq=times(len,i=>unit[i%p]);
+    return{q:`<span class="emo">${seq.join('')}</span><span>Was kommt als Nächstes? @</span>`,a:[unit[len%p]],o:[shuf([...new Set([...unit,pick(FARB)])])]}});
+  const b=uniq(4,()=>{let st,s;
+    if(L===1){st=pick([1,1,2]);s=r(0,5)}else if(L===2){st=pick([1,2,2,3,5,-1,-2]);s=st===5?0:st>0?r(0,6):r(10,20)}
+    else{st=pick([2,3,5,-2,-3]);s=st===5?0:st>0?r(0,20-4*st):r(-4*st,20)}
+    const seq=times(5,i=>s+i*st),m=L===3?r(1,4):4;
+    return{q:'<span class="big">'+seq.map((v,i)=>i===m?'</span>@<span class="big">':v).join(', ')+'</span>',a:[seq[m]]}});
+  return a.concat(b)}},
+{id:'tausch',b:'ms',t:'Tauschaufgaben und Umkehraufgaben',i:L=>L===1?'<b>Tauschaufgabe:</b> Die Zahlen tauschen die Plätze. Das Ergebnis bleibt gleich.':L===2?'<b>Tauschaufgabe:</b> Die Zahlen tauschen die Plätze, das Ergebnis bleibt gleich.<br><b>Umkehraufgabe:</b> Minus macht die Plus-Aufgabe wieder rückgängig.':'Eine <b>Aufgabenfamilie</b> hat 4 Aufgaben mit denselben 3 Zahlen.',
+ g(L){if(L===1)return uniq(6,()=>{const a=r(1,8),b=r(1,10-a);return{q:`${a} + ${b} = ${a+b}<br>${b} + ${a} = @`,a:[a+b]}});
+  if(L===2)return uniq(8,i=>{const a=r(1,9),b=r(1,Math.min(9,20-a)),c=a+b;return i<4?{q:`${a} + ${b} = ${c}<br>${b} + ${a} = @`,a:[c]}:{q:`${a} + ${b} = ${c}<br>${c} − ${b} = @`,a:[a]}});
+  return uniq(4,()=>{const[a,b]=distinct(2,2,9),c=a+b;return{q:`<div class="box"><b>Familie ${a}, ${b}, ${c}</b><br>${a} + ${b} = @<br>${b} + ${a} = @<br>${c} − ${a} = @<br>${c} − ${b} = @</div>`,a:[c,c,b,a],s:`Aufgabenfamilie mit den Zahlen ${a}, ${b} und ${c}. Rechne alle vier Aufgaben.`}})}},
+{id:'daten',b:'dz',pc:3,t:'Strichlisten lesen',i:'Die Klasse 1b hat ihr Lieblingsobst gezählt. Fünf Striche bilden ein Bündel.',
+ g(L){const F=L===1?['🍎','🍌','🍓']:['🍎','🍌','🍓','🍐'];let cs;
+  if(L===1)cs=distinct(3,1,6);else if(L===2)cs=distinct(4,2,12);else do{cs=distinct(4,2,8)}while(cs.reduce((x,y)=>x+y)>20);
+  const pre=`<table class="daten"><tr><th>Obst</th><th>Strichliste</th></tr>${F.map((f,i)=>`<tr><td class="emo">${f}</td><td>${strich(cs[i])}</td></tr>`).join('')}</table>`;
+  const mx=F[cs.indexOf(Math.max(...cs))],mn=F[cs.indexOf(Math.min(...cs))],cnt=f=>({q:`Wie viele Kinder mögen ${f} am liebsten? @`,a:[cs[F.indexOf(f)]]});
+  let items;
+  if(L<3){items=F.map(cnt);items.push({q:'Welches Obst mögen die meisten Kinder? @',a:[mx],o:[F]},{q:'Welches Obst mögen die wenigsten Kinder? @',a:[mn],o:[F]});
+   if(L===2)items.push({q:`Wie viele Kinder mögen ${mx} mehr als ${mn}? @`,a:[Math.max(...cs)-Math.min(...cs)]})}
+  else{const[f1,f2]=shuf(F);items=[cnt(f1),cnt(f2),{q:'Welches Obst mögen die meisten Kinder? @',a:[mx],o:[F]},
+   {q:`Wie viele Kinder mögen ${f1} oder ${f2} am liebsten? @`,a:[cs[F.indexOf(f1)]+cs[F.indexOf(f2)]]},
+   {q:`Wie viele Kinder mögen ${mx} mehr als ${mn}? @`,a:[Math.max(...cs)-Math.min(...cs)]},
+   {q:'Wie viele Kinder wurden insgesamt gefragt? @',a:[cs.reduce((x,y)=>x+y)]}]}
+  return{pre,items}}},
+{id:'zufall',b:'dz',t:'Sicher, möglich, unmöglich',i:L=>L===1?'Du ziehst mit geschlossenen Augen eine Kugel aus dem Beutel. Ist das sicher oder unmöglich?':'Du ziehst mit geschlossenen Augen eine Kugel aus dem Beutel. Ist das sicher, möglich oder unmöglich?',
+ g(L){const C={'🔴':'rote','🔵':'blaue','🟡':'gelbe','🟢':'grüne'},K=Object.keys(C),W=L===1?['sicher','unmöglich']:['sicher','möglich','unmöglich'];
+  const it=uniq(L===3?4:6,i=>{const typ=W[i%W.length],n=r(3,6);let bag,x;
+   if(typ==='sicher'){x=pick(K);bag=Array(n).fill(x)}
+   else if(typ==='möglich'){const[p,q]=shuf(K),k=r(1,n-1);bag=shuf([...Array(k).fill(p),...Array(n-k).fill(q)]);x=pick([p,q])}
+   else{const[p,q,z]=shuf(K);bag=times(n,()=>pick([p,q]));x=z}
+   return{q:`<span class="beutel">${bag.join('')}</span><span>Du ziehst eine ${C[x]} Kugel. Das ist @</span>`,a:[typ],o:[W]}}).sort(()=>Math.random()-.5);
+  if(L===3)uniq(2,()=>{const[p,q]=shuf(K),k=r(4,6),m=r(1,k-2),bag=shuf([...Array(k).fill(p),...Array(m).fill(q)]);
+   return{q:`<span class="beutel">${bag.join('')}</span><span>Welche Farbe ziehst du am ehesten? @</span>`,a:[p],o:[shuf([p,q])]}}).forEach(x=>it.push(x));
+  return it}}
+];
+
+/* ---------- Vorlesen ---------- */
+const TTS='speechSynthesis' in window;
+if(!TTS)document.body.classList.add('no-tts');
+const SAY=`<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>`;
+const sayBtn=`<button class="say noprint" type="button" aria-label="Vorlesen" title="Vorlesen">${SAY}</button>`;
+const EMO={'🐶':'Hund','🐱':'Katze','🐭':'Maus','🐰':'Hase','🦊':'Fuchs','🐻':'Bär','🐼':'Panda','🐸':'Frosch','🐵':'Affe','🐷':'Schwein','🐮':'Kuh','🦁':'Löwe','🍎':'Apfel','🍌':'Banane','🍓':'Erdbeere','🍐':'Birne','🔴':'rot','🔵':'blau','🟡':'gelb','🟢':'grün','⭐':'Stern','🔺':'Dreieck','🟣':'lila'};
+const SYM={'<':'kleiner','>':'größer','=':'gleich','+':'plus','−':'minus'};
+let voice=null;
+function pickVoice(){if(!TTS)return;const v=speechSynthesis.getVoices().filter(v=>/^de/i.test(v.lang));voice=v.find(v=>/google|natural|online/i.test(v.name))||v[0]||null}
+if(TTS){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function cleanSpeech(t){
+ Object.keys(EMO).forEach(k=>{t=t.split(k).join(' '+EMO[k]+' ')});
+ return t.replace(/\p{Extended_Pictographic}|️/gu,' ')
+  .replace(/(\d)\s*\+\s*/g,'$1 plus ').replace(/\s\+\s/g,' plus ')
+  .replace(/−/g,' minus ').replace(/=/g,' ist gleich ').replace(/€/g,' Euro ')
+  .replace(/</g,' kleiner ').replace(/>/g,' größer ').replace(/\s+/g,' ').trim()}
+function speechOf(el){
+ if(el.classList.contains('intro'))return cleanSpeech(el.textContent);
+ const opts=[...el.querySelectorAll('select.a')].map(s=>[...s.options].slice(1).map(o=>SYM[o.value]||EMO[o.value]||o.value));
+ let txt;
+ if(el.dataset.s)txt=el.dataset.s;
+ else{const c=el.cloneNode(true);
+  c.querySelectorAll('.sol,.po,.nr,.say,.feld,.pk,svg,.emo,.m,.lage,.bar,.lrow,.beutel,.formen,.dach,.stockwerke,.wline').forEach(x=>x.remove());
+  c.querySelectorAll('input.a,select.a').forEach(x=>x.replaceWith(' Lücke '));
+  c.querySelectorAll('br').forEach(x=>x.replaceWith('. '));
+  txt=c.textContent}
+ txt=cleanSpeech(txt);
+ opts.forEach(o=>{const w=o.length>1?o.slice(0,-1).join(', ')+' oder '+o[o.length-1]:o[0];txt+='. Wähle: '+w+'.'});
+ return txt}
+function speak(text,el){if(!TTS||!text)return;speechSynthesis.cancel();
+ document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
+ const u=new SpeechSynthesisUtterance(text);u.lang='de-DE';u.rate=.85;if(voice)u.voice=voice;
+ if(el){el.classList.add('speaking');u.onend=u.onerror=()=>el.classList.remove('speaking')}
+ speechSynthesis.speak(u)}
+
+/* ---------- Darstellung ---------- */
+const $=s=>document.querySelector(s);
+const LV={};T.forEach(t=>LV[t.id]=2);
+let curId=T[0].id;
+const intro=(tp,L)=>typeof tp.i==='function'?tp.i(L):tp.i;
+function itemsHTML(items){return items.map((it,k)=>{let j=0;
+ const q=it.q.replace(/@/g,()=>{const o=it.o&&it.o[j],ans=String(it.a[j]),sol=esc(ans.split('|')[0]);j++;
+  if(o)return `<select class="a" data-a="${esc(ans)}" aria-label="Antwort"><option value="">?</option>${o.map(v=>`<option>${esc(v)}</option>`).join('')}</select><span class="po">${o.map(v=>'○ '+esc(v)).join('&nbsp;&nbsp;')}</span><span class="sol">${sol}</span>`;
+  return `<input class="a" type="text" inputmode="numeric" autocomplete="off" aria-label="Antwort" data-a="${esc(ans)}"><span class="sol">${sol}</span>`});
+ return `<div class="item"${it.s?` data-s="${esc(it.s)}"`:''}><span class="nr">${k+1}</span>${sayBtn}${q}</div>`}).join('')}
+function paperHTML(tp,L,live){const b=B[tp.b],nr=T.indexOf(tp)+1,d=tp.g(L),items=Array.isArray(d)?d:d.items,pre=Array.isArray(d)?'':d.pre;
+ const prev=T[nr-2],next=T[nr];
+ return `<div class="paper">
+ <div class="shead"><div><span class="tag">${b.n}</span><h2><span class="bnr">${nr}</span>${tp.t}</h2></div>
+  ${live?`<div class="seg noprint" role="group" aria-label="Stufe">${[1,2,3].map(l=>`<button type="button" class="${l===L?'on':''}" data-lv="${l}">${ST[l].s}<small>${ST[l].n}</small></button>`).join('')}</div>`:''}
+  <div class="pstufe">${ST[L].s}<br><small>${ST[L].n}</small></div></div>
+ <div class="namezeile"><span>Name:</span><span>Datum:</span></div>
+ <div class="intro">${sayBtn}<div>${intro(tp,L)}</div></div>${pre?`<div class="pre">${pre}</div>`:''}
+ <div class="items${tp.wide?' wide':''}${tp.pc===3?' pc3':''}">${itemsHTML(items)}</div>
+ <div class="pfoot">Mathe Klasse 1 · Blatt ${nr} · ${b.n} · Stufe ${ST[L].s} ${ST[L].n}</div>
+ ${live?`<div class="foot noprint"><button class="btn" data-act="check">✅ Prüfen</button><button class="btn ghost" data-act="new">Neue Aufgaben</button><button class="btn ghost" data-act="print">Blatt drucken</button><button class="btn ghost" data-act="print3">In 3 Stufen drucken</button><span class="fb" aria-live="polite"></span></div>
+ <div class="pn noprint"><span>${prev?`<button data-go="${prev.id}">← ${prev.t}</button>`:''}</span><span>${next?`<button data-go="${next.id}">${next.t} →</button>`:''}</span></div>`:''}
+ </div>`}
+function renderSheet(tp){$('#s-'+tp.id).innerHTML=paperHTML(tp,LV[tp.id],true)}
+function check(el){const as=el.querySelectorAll('.a');let ok=0,leer=0;
+ as.forEach(x=>{const v=x.value.trim();x.classList.remove('ok','bad');if(!v){leer++;return}
+  if(x.dataset.a.split('|').includes(v)){x.classList.add('ok');ok++}else x.classList.add('bad')});
+ const fb=el.querySelector('.fb'),tot=as.length;let say;
+ if(leer===tot){fb.textContent='Trage zuerst etwas ein. 🤔';fb.className='fb try';say='Trage zuerst etwas ein.'}
+ else if(ok===tot){fb.textContent='Super gemacht! Alles richtig! 🎉🌟';fb.className='fb good';say='Super gemacht! Alles richtig!'}
+ else{say=`Du hast ${ok} von ${tot} richtig. `+(leer?`${leer} fehlen noch. `:'')+'Schau dir die roten Felder noch einmal an.';fb.textContent=say+' 💪';fb.className='fb try'}
+ speak(say)}
+function buildNav(){const cb=T.find(t=>t.id===curId).b;
+ $('#btabs').innerHTML=Object.keys(B).map(k=>`<button type="button" class="btab${k===cb?' on':''}" data-b="${k}" style="--c:${B[k].c}"><span class="bdot"></span>${B[k].n}<span class="cnt">${T.filter(t=>t.b===k).length}</span></button>`).join('');
+ $('#tiles').style.setProperty('--c',B[cb].c);
+ $('#tiles').innerHTML=T.filter(t=>t.b===cb).map(t=>`<button type="button" class="tile${t.id===curId?' on':''}" data-id="${t.id}"><span class="tnr">${T.indexOf(t)+1}</span>${t.t}</button>`).join('');
+ const all=T.every(t=>LV[t.id]===LV[T[0].id])?LV[T[0].id]:0;
+ $('#allLv').innerHTML=[1,2,3].map(l=>`<button type="button" class="${l===all?'on':''}" data-all="${l}">${ST[l].s}<small>${ST[l].n}</small></button>`).join('')}
+function show(id,scroll){curId=id;T.forEach(t=>$('#s-'+t.id).classList.toggle('active',t.id===id));buildNav();
+ try{history.replaceState(null,'','#'+id)}catch(e){}
+ if(scroll)$('#s-'+id).scrollIntoView({behavior:'smooth',block:'start'})}
+function doPrint(cls){if(TTS)speechSynthesis.cancel();if(cls)document.body.classList.add(cls);window.print()}
+
+$('#main').innerHTML=T.map(t=>`<section class="sheet" id="s-${t.id}" style="--c:${B[t.b].c}"></section>`).join('');
+T.forEach(renderSheet);
+$('#btabs').addEventListener('click',e=>{const b=e.target.closest('[data-b]');if(b)show(T.find(t=>t.b===b.dataset.b).id,false)});
+$('#tiles').addEventListener('click',e=>{const t=e.target.closest('[data-id]');if(t)show(t.dataset.id,true)});
+$('#allLv').addEventListener('click',e=>{const b=e.target.closest('[data-all]');if(!b)return;T.forEach(t=>{LV[t.id]=+b.dataset.all;renderSheet(t)});buildNav()});
+$('#main').addEventListener('click',e=>{const sh=e.target.closest('.sheet');if(!sh)return;const tp=T.find(t=>'s-'+t.id===sh.id);
+ const lv=e.target.closest('[data-lv]');if(lv){LV[tp.id]=+lv.dataset.lv;renderSheet(tp);buildNav();return}
+ const go=e.target.closest('[data-go]');if(go){show(go.dataset.go,true);return}
+ const act=e.target.closest('[data-act]');
+ if(act){const a=act.dataset.act;
+  if(a==='check')check(sh);else if(a==='new')renderSheet(tp);else if(a==='print')doPrint();
+  else{$('#printbox').innerHTML=[1,2,3].map(l=>`<section class="sheet" style="--c:${B[tp.b].c}">${paperHTML(tp,l,false)}</section>`).join('');doPrint('p3')}
+  return}
+ if(e.target.closest('input,select,option'))return;
+ const t=e.target.closest('.item,.intro');if(t)speak(speechOf(t),t)});
+$('#main').addEventListener('input',e=>{if(e.target.classList.contains('a'))e.target.classList.remove('ok','bad')});
+$('#main').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList.contains('a'))check(e.target.closest('.sheet'))});
+$('#printAll').onclick=()=>doPrint('printall');
+window.addEventListener('afterprint',()=>{document.body.classList.remove('printall','p3');$('#printbox').innerHTML=''});
+$('#solBtn').onclick=()=>{const on=document.body.classList.toggle('show-sol');$('#solBtn').textContent=on?'Lösungen verstecken':'Lösungen zeigen'};
+$('#allNew').onclick=()=>T.forEach(renderSheet);
+const start=location.hash.slice(1);show(T.some(t=>t.id===start)?start:T[0].id,false);
+</script>
+</body>
+</html>
