@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interaktives Schach-Arbeitsheft für Klasse 1: 20 Arbeitsblätter in drei Stufen mit anklickbarem Schachbrett, Vorlesefunktion und A4-Druck.">
+<link rel="canonical" href="https://www.edmundbruns.com/schach/einsteiger/arbeitsheft-klasse-1/">
+<title>Schach Klasse 1 · Arbeitsheft</title>
+<style>
+:root{--ink:#2c3e50;--bg:#f0f7ff;--ok:#27ae60;--bad:#e74c3c;--line:#e3e9f0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Andika","Comic Sans MS","Chalkboard SE","Trebuchet MS",system-ui,sans-serif;font-size:18px;line-height:1.45}
+.wrap{max-width:960px;margin:0 auto}
+header{background:#fff;border-bottom:4px solid #3498db;padding:16px}
+h1{margin:0;color:#e74c3c;font-size:1.8rem;line-height:1.2}
+.sub{color:#6b7c8c;font-size:.95rem}
+.btabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.btab{font:inherit;font-size:.95rem;background:#f4f7fb;border:2px solid var(--c);border-radius:999px;padding:6px 14px;cursor:pointer;color:var(--ink);display:flex;align-items:center;gap:8px}
+.btab .bdot{width:12px;height:12px;border-radius:50%;background:var(--c);flex-shrink:0}
+.btab .cnt{font-size:.75rem;background:#fff;border-radius:999px;padding:0 7px;color:#555;border:1px solid var(--line)}
+.btab.on{background:var(--c);color:#fff;font-weight:bold}
+.btab.on .bdot{background:#fff}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:10px;padding:12px;border-radius:14px;background:#f7f9fc;border:2px solid var(--c)}
+.tile{font:inherit;font-size:.95rem;text-align:left;display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer;color:var(--ink);line-height:1.2}
+.tile:hover{border-color:var(--c)}
+.tile.on{border-color:var(--c);background:var(--c);color:#fff;font-weight:bold}
+.tnr{min-width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:.85rem;flex-shrink:0}
+.tile.on .tnr{background:#fff;color:var(--c)}
+.toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:12px;padding-top:12px;border-top:2px dashed var(--line)}
+.tgroup{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tl{font-size:.85rem;color:#555}
+.btn{font:inherit;font-size:.95rem;border:none;border-radius:10px;padding:8px 14px;cursor:pointer;color:#fff;background:var(--c,#3498db);box-shadow:0 3px 0 rgba(0,0,0,.2)}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.btn.ghost{background:#fff;color:var(--ink);border:2px solid #cfd8e3;box-shadow:none}
+.seg{display:inline-flex;border:2px solid var(--c);border-radius:12px;overflow:hidden;background:#fff}
+.seg button{font:inherit;border:none;background:#fff;padding:3px 12px;cursor:pointer;color:var(--c);display:flex;flex-direction:column;align-items:center;line-height:1.15;font-size:1rem}
+.seg button small{font-size:.7rem;color:#555}
+.seg button+button{border-left:2px solid var(--c)}
+.seg button.on{background:var(--c);color:#fff}
+.seg button.on small{color:#fff}
+#allLv{--c:#34495e}
+main{padding:16px}
+.sheet{display:none;background:#fff;border:4px solid var(--c);border-radius:20px;padding:22px;margin-bottom:24px;box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.sheet.active{display:block}
+.shead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.sheet h2{margin:0;color:var(--c);font-size:1.5rem;display:flex;align-items:center;gap:10px;line-height:1.2}
+.bnr{min-width:34px;height:34px;border-radius:50%;background:var(--c);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.tag{display:inline-block;font-size:.72rem;background:var(--c);color:#fff;border-radius:6px;padding:1px 8px;margin-bottom:6px}
+.pstufe,.pfoot,.ponly{display:none}
+.namezeile{display:flex;gap:20px;flex-wrap:wrap;font-size:.95rem;margin:12px 0;color:#666}
+.namezeile span{flex:1;min-width:170px;border-bottom:2px dotted #aaa;padding-bottom:2px}
+.intro{background:#f7f9fc;border-left:6px solid var(--c);border-radius:8px;padding:8px 12px;margin-bottom:14px;display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.pre{margin-bottom:14px;text-align:center}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.items.wide{grid-template-columns:1fr}
+.item{border:2px solid var(--line);border-radius:14px;padding:12px;display:flex;gap:8px;align-items:center;align-content:center;flex-wrap:wrap;font-size:1.15rem;cursor:pointer;transition:background .2s}
+.item.speaking,.intro.speaking{background:#fff8dc;border-color:#f1c40f}
+.nr{font-weight:bold;color:#fff;background:var(--c);border-radius:50%;width:1.6em;height:1.6em;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.say{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:2px solid var(--c);background:#fff;color:var(--c);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.say svg{width:18px;height:18px}
+.say:hover{background:var(--c);color:#fff}
+body.no-tts .say{display:none}
+.big{font-size:1.35rem;font-weight:bold}
+.op{font-size:1.4rem;margin:0 4px}
+input.a{font:inherit;font-size:1.2rem;width:3em;text-align:center;border:3px solid var(--c);border-radius:10px;padding:2px;outline:none;cursor:text}
+input.a.dg{width:1.6em!important;padding:0;border-radius:6px}
+input.a.dg::placeholder{color:transparent}
+body.show-sol input.a.dg::placeholder{color:#c0392b}
+input.a:focus{border-color:#f1c40f}
+select.a{font:inherit;font-size:1.05rem;border:3px solid var(--c);border-radius:10px;padding:2px 4px;background:#fff;max-width:100%}
+.a.ok{border-color:var(--ok)!important;background:#eafaf1}
+.a.bad{border-color:var(--bad)!important;background:#fdecea}
+.po{display:none}
+.sol{display:none;font-size:.85rem;color:#c0392b;font-weight:bold}
+body.show-sol .sol{display:inline}
+.wline{display:inline-block;width:60%;border-bottom:2px dotted #999;height:1.2em}
+.foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.fb{font-weight:bold;font-size:1.1rem}
+.fb.good{color:var(--ok)}.fb.try{color:#d35400}
+.pn{display:flex;justify-content:space-between;gap:8px;margin-top:14px;padding-top:12px;border-top:2px dashed var(--line)}
+.pn button{font:inherit;font-size:.9rem;background:none;border:none;color:var(--c);cursor:pointer;padding:4px}
+.note{font-size:.8rem;color:#7f8c8d;text-align:center;padding:0 16px 24px}
+/* Bausteine */
+.box{width:100%}
+.vis{max-width:100%;height:auto;vertical-align:middle}
+.emo{font-size:1.5rem;letter-spacing:2px;word-break:break-all}
+.m{display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:.72rem;margin:2px;vertical-align:middle;font-family:Arial,sans-serif;color:#2c3e50}
+.k{border-radius:50%}
+.k1,.k2,.k5{background:radial-gradient(#f0b27a,#a04000);color:#fff}
+.k1{width:30px;height:30px}.k2{width:33px;height:33px}.k5{width:36px;height:36px}
+.k10,.k20,.k50{background:radial-gradient(#f9e79f,#c9a227)}
+.k10{width:34px;height:34px}.k20{width:38px;height:38px}.k50{width:42px;height:42px}
+.k100{width:42px;height:42px;background:radial-gradient(#f7dc6f,#c9a227);border:4px solid #bdc3c7}
+.k200{width:46px;height:46px;background:radial-gradient(#ecf0f1,#95a5a6);border:5px solid #d4a017}
+.s{border-radius:5px;height:38px}
+.s500{width:70px;background:#c8d1d6;border:2px solid #7f8c8d}
+.s1000{width:74px;background:#f5b7b1;border:2px solid #c0392b}
+.s2000{width:78px;background:#aed6f1;border:2px solid #2e86c1}
+.s5000{width:82px;background:#f5cba7;border:2px solid #ca6f1e}
+.sr{border-collapse:collapse;font-size:1.3rem;font-family:"Courier New",monospace;margin:0 auto}
+.sr td{width:1.7em;height:1.7em;text-align:center;padding:0}
+.sr tr.res td{border-top:3px solid var(--ink);padding-top:3px}
+.mauer{display:inline-flex;flex-direction:column;align-items:center;gap:3px;margin:0 auto}
+.mr{display:flex;gap:3px}
+.st{min-width:3.3em;min-height:2.2em;border:2px solid #a04000;background:#fdf2e9;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;padding:2px 4px}
+.st input.a{width:2.8em}
+table.bp{border-collapse:collapse;margin:0 auto}
+table.bp td{width:2em;height:2em;border:2px solid #7f8c8d;text-align:center;font-weight:bold;background:#fdfefe}
+table.tab{border-collapse:collapse;margin:0 auto;font-size:1rem}
+table.tab td,table.tab th{border:2px solid #cfd8e3;padding:3px 10px;text-align:left}
+table.tab th{background:#f7f9fc}
+@media (max-width:560px){.sheet{padding:14px}main{padding:10px}h1{font-size:1.45rem}.tiles{grid-template-columns:1fr 1fr;padding:8px}.tile{font-size:.85rem;padding:6px}.btab{font-size:.85rem;padding:5px 10px}}
+/* Druck: jedes Blatt füllt genau eine A4-Seite */
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff!important;margin:0;padding:0}
+  body{font-size:16px}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  header,.noprint,.note,.say{display:none!important}
+  main{padding:0}.wrap{max-width:none;margin:0}
+  .sheet{display:none!important;width:210mm;height:296mm;padding:9mm 10mm;margin:0;border:none!important;border-radius:0;box-shadow:none!important;break-before:page;page-break-before:always;overflow:hidden;background:#fff}
+  .sheet.active{display:block!important}
+  body.printall #main .sheet{display:block!important}
+  body.p3 #main{display:none!important}
+  body.p3 #printbox .sheet{display:block!important}
+  #printbox .sheet:first-child{break-before:auto;page-break-before:auto}
+  .paper{height:100%;display:flex;flex-direction:column;border:2.5px solid var(--c);border-radius:14px;padding:6mm 7mm 4mm}
+  .pstufe{display:block;text-align:right;color:var(--c);font-weight:bold;font-size:1.2rem;line-height:1.1}
+  .pstufe small{font-size:.7rem;color:#555}
+  .ponly{display:block}
+  .namezeile{margin:3mm 0}
+  .intro{cursor:default;margin-bottom:3mm;padding:5px 10px}
+  .pre{margin-bottom:3mm}
+  .items{flex:1 1 0;min-height:0;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:3mm}
+  .items.wide{grid-template-columns:1fr}
+  .items.pc3{grid-template-columns:1fr 1fr 1fr}
+  .item{padding:2mm 4mm;border-width:1.5px;cursor:default;font-size:1.05rem}
+  input.a{height:10mm;border:2px solid #555!important;background:#fff!important;color:#000}
+  input.a.dg{height:8mm}
+  select.a{display:none!important}
+  .po{display:inline-block;font-size:.9rem;border:2px dashed #999;border-radius:8px;padding:1px 6px}
+  .kar{width:100%;height:24mm;margin-top:1mm;background-image:linear-gradient(#cfd8e3 1px,transparent 1px),linear-gradient(90deg,#cfd8e3 1px,transparent 1px);background-size:5mm 5mm;border:1px solid #cfd8e3}
+  .pfoot{display:block;margin-top:3mm;font-size:.7rem;color:#888;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header class="noprint">
+  <div class="wrap">
+    <a href="/schach/einsteiger/index.html" style="display:inline-block;margin-bottom:6px;font-size:.85rem;color:#2b7bd8;text-decoration:none">← Schach für Einsteiger</a>
+    <h1>🎈 Schach Klasse 1 · Mein Arbeitsheft</h1>
+    <div class="sub">Schach lernen von Anfang an · 20 Blätter in 3 Stufen · Tippe auf eine Aufgabe, dann wird sie vorgelesen. Auf dem Brett tippst du die Felder an.</div>
+    <nav>
+      <div class="btabs" id="btabs"></div>
+      <div class="tiles" id="tiles"></div>
+    </nav>
+    <div class="toolbar">
+      <div class="tgroup"><span class="tl">Stufe für alle Blätter:</span><div class="seg" id="allLv"></div></div>
+      <div class="tgroup">
+        <button class="btn ghost" id="solBtn">Lösungen zeigen</button>
+        <button class="btn ghost" id="allNew">Alle neu mischen</button>
+        <button class="btn" id="printAll">Ganzes Heft drucken</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main><div class="wrap" id="main"></div></main>
+<div id="printbox"></div>
+<div class="note">Grundlagen des Schachspiels für Klasse 1. Bei jedem Laden entstehen neue Aufgaben. © Dr. Edmund Bruns · CC BY-NC 4.0 · Schachfiguren: Cburnett / jurgenwesterhof, <a href="https://commons.wikimedia.org/wiki/File:Chess_Pieces_Sprite.svg" target="_blank" rel="noopener">Chess Pieces Sprite.svg</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a></div>
+
+<script>
+let B={
+ zo:{n:"Zahlen und Operationen",c:"#2b7bd8"},
+ gm:{n:"Größen und Messen",c:"#e67e22"},
+ rf:{n:"Raum und Form",c:"#27ae60"},
+ ms:{n:"Muster und Strukturen",c:"#8e44ad"},
+ dz:{n:"Daten und Zufall",c:"#d63a6a"}
+};
+const ST=[null,{s:'★☆☆',n:'Starter'},{s:'★★☆',n:'Könner'},{s:'★★★',n:'Profi'}];
+const r=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const times=(n,f)=>Array.from({length:n},(_,i)=>f(i));
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function uniq(n,f){const out=[],seen=new Set();let g=0;while(out.length<n&&g<1500){g++;const it=f(out.length);if(!it)continue;const k=it.q!==undefined?it.q+'|'+it.a:JSON.stringify(it);if(!seen.has(k)){seen.add(k);out.push(it)}}return out}
+const opts3=(ans,all)=>shuf([ans,...shuf(all.filter(x=>x!==ans)).slice(0,2)]);
+const distinct=(n,a,b)=>{let x;do{x=times(n,()=>r(a,b))}while(new Set(x).size<n);return x};
+const rr=(a,b,s)=>s*r(Math.ceil(a/s),Math.floor(b/s));
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const NB='\u202F';
+const fmt=n=>{const s=String(n);return Math.abs(n)>=10000?s.replace(/\B(?=(\d{3})+(?!\d))/g,NB):s};
+const euro=c=>`${Math.floor(c/100)},${String(c%100).padStart(2,'0')}${NB}€`;
+const eA=c=>`${Math.floor(c/100)},${String(c%100).padStart(2,'0')}`;
+const NAMEN=['Lena','Tim','Mia','Ben','Emma','Noah','Lea','Paul','Ayla','Jonas','Finn','Ella','Mats','Lina','Elif','Leon'];
+const WT=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+const COL={rot:'#e74c3c',blau:'#3498db',gelb:'#f1c40f',grün:'#27ae60'};
+const rd=(n,s)=>Math.round(n/s)*s;
+
+/* ---------- Bildbausteine ---------- */
+function strahlG(min,max,ts,ls,k){const n=Math.round((max-min)/ts),st=400/n;let t='';
+ for(let i=0;i<=n;i++){const v=min+i*ts,x=40+i*st,lab=v===min||v===max||v%ls===0,mid=!lab&&ls%2===0&&v%(ls/2)===0;
+  t+=`<line x1="${x}" y1="${lab?20:mid?24:27}" x2="${x}" y2="${lab?44:mid?40:37}" stroke="#2c3e50" stroke-width="${lab?2.5:1.4}"/>`;
+  if(lab)t+=`<text x="${x}" y="60" text-anchor="middle" font-size="13" font-family="Arial">${fmt(v)}</text>`}
+ const x=40+(k-min)/ts*st;return `<svg viewBox="0 0 480 64" class="vis" style="width:100%;max-width:480px"><line x1="30" y1="32" x2="450" y2="32" stroke="#2c3e50" stroke-width="2"/>${t}<path d="M${x} 18 l-7 -14 h14 z" fill="#e74c3c"/></svg>`}
+function uhr(h,m=0){const ah=((h%12)+m/60)*30*Math.PI/180,am=m*6*Math.PI/180;let t='';
+ for(let i=0;i<60;i++){const b=i*6*Math.PI/180,l=i%5===0?6:3;t+=`<line x1="${(60+54*Math.sin(b)).toFixed(1)}" y1="${(60-54*Math.cos(b)).toFixed(1)}" x2="${(60+(54-l)*Math.sin(b)).toFixed(1)}" y2="${(60-(54-l)*Math.cos(b)).toFixed(1)}" stroke="#2c3e50" stroke-width="${i%5===0?2:1}"/>`}
+ for(let i=1;i<=12;i++){const b=i*30*Math.PI/180;t+=`<text x="${(60+41*Math.sin(b)).toFixed(1)}" y="${(64.5-41*Math.cos(b)).toFixed(1)}" text-anchor="middle" font-size="12" font-family="Arial" fill="#2c3e50">${i}</text>`}
+ return `<svg viewBox="0 0 120 120" width="112" height="112" class="vis"><circle cx="60" cy="60" r="57" fill="#fff" stroke="#2c3e50" stroke-width="4"/>${t}<line x1="60" y1="60" x2="${(60+44*Math.sin(am)).toFixed(1)}" y2="${(60-44*Math.cos(am)).toFixed(1)}" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/><line x1="60" y1="60" x2="${(60+28*Math.sin(ah)).toFixed(1)}" y2="${(60-28*Math.cos(ah)).toFixed(1)}" stroke="#e74c3c" stroke-width="6" stroke-linecap="round"/><circle cx="60" cy="60" r="4" fill="#2c3e50"/></svg>`}
+function ta(h,m){const mm=String(m).padStart(2,'0'),out=[];[h,h===12?0:h+12].forEach(x=>{out.push(`${x}:${mm}`,`${x}.${mm}`);if(m===0)out.push(String(x))});return out.join('|')}
+function ta24(h,m){const mm=String(m).padStart(2,'0'),o=[`${h}:${mm}`,`${h}.${mm}`];if(m===0)o.push(String(h));return o.join('|')}
+const t24=(h,m)=>`${h}:${String(m).padStart(2,'0')}`;
+function geldBild(arr){return arr.map(v=>{const cls=v>=500?`m s s${v}`:`m k k${v}`;const lab=v<100?`${v} ct`:`${v/100} €`;return `<span class="${cls}">${lab}</span>`}).join('')}
+function geldArr(V,M,kmin,kmax){const arr=[];let s=0;const k=r(kmin,kmax);for(let i=0;i<k;i++){const op=V.filter(v=>s+v<=M);if(!op.length)break;const v=pick(op);arr.push(v);s+=v}arr.sort((x,y)=>y-x);return[arr,s]}
+function dienes(h,z,e){const u=7;let s='',x=2;
+ for(let i=0;i<h;i++){s+=`<rect x="${x}" y="2" width="${10*u}" height="${10*u}" fill="#f8c471" stroke="#9c640c"/>`;for(let k=1;k<10;k++)s+=`<line x1="${x+k*u}" y1="2" x2="${x+k*u}" y2="${2+10*u}" stroke="#9c640c" stroke-width=".5"/><line x1="${x}" y1="${2+k*u}" x2="${x+10*u}" y2="${2+k*u}" stroke="#9c640c" stroke-width=".5"/>`;x+=10*u+6}
+ for(let i=0;i<z;i++){s+=`<rect x="${x}" y="2" width="${u}" height="${10*u}" fill="#5dade2" stroke="#1b4f72"/>`;for(let k=1;k<10;k++)s+=`<line x1="${x}" y1="${2+k*u}" x2="${x+u}" y2="${2+k*u}" stroke="#1b4f72" stroke-width=".5"/>`;x+=u+4}
+ if(e){x+=4;for(let i=0;i<e;i++){const c=Math.floor(i/5),rw=i%5;s+=`<rect x="${x+c*(u+4)}" y="${2+10*u-(rw+1)*(u+3)+3}" width="${u}" height="${u}" fill="#58d68d" stroke="#186a3b"/>`}x+=Math.ceil(e/5)*(u+4)}
+ return `<svg viewBox="0 0 ${x+2} ${10*u+4}" width="${x+2}" height="${10*u+4}" class="vis">${s}</svg>`}
+function punktfeld(rw,c){let s='';for(let i=0;i<rw;i++)for(let j=0;j<c;j++)s+=`<circle cx="${12+j*20}" cy="${12+i*20}" r="7" fill="#e74c3c"/>`;return `<svg viewBox="0 0 ${c*20+4} ${rw*20+4}" width="${c*20+4}" height="${rw*20+4}" class="vis">${s}</svg>`}
+function chart(cats,vals,step,lab,unit=''){const top=Math.ceil(Math.max(...vals)/(step*lab))*step*lab+step*lab*0,H=150,bw=38,gap=24,W=50+cats.length*(bw+gap);let s='';
+ const sc=v=>10+H-v/top*H;
+ for(let v=0;v<=top;v+=step){const y=sc(v),L=(v/step)%lab===0;s+=`<line x1="44" y1="${y}" x2="${W}" y2="${y}" stroke="${L?'#aab7c4':'#e1e6ec'}" stroke-width="1"/>`;if(L)s+=`<text x="38" y="${y+4}" text-anchor="end" font-size="11" font-family="Arial">${fmt(v)}</text>`}
+ const C=['#5dade2','#f5b041','#58d68d','#ec7063','#af7ac5','#48c9b0'];
+ cats.forEach((c,i)=>{const x=56+i*(bw+gap),y=sc(vals[i]);s+=`<rect x="${x}" y="${y}" width="${bw}" height="${10+H-y}" fill="${C[i%6]}" stroke="#2c3e50" stroke-width="1"/><text x="${x+bw/2}" y="${H+30}" text-anchor="middle" font-size="16">${c}</text>`});
+ s+=`<line x1="44" y1="10" x2="44" y2="${H+10}" stroke="#2c3e50" stroke-width="2"/><line x1="44" y1="${H+10}" x2="${W}" y2="${H+10}" stroke="#2c3e50" stroke-width="2"/>`;
+ return `<svg viewBox="0 0 ${W+4} ${H+40}" width="${W+4}" height="${H+40}" class="vis">${s}</svg>`}
+function rad(cols){const n=cols.length,R=46;let s='';
+ if(n===1)s=`<circle cx="50" cy="52" r="${R}" fill="${COL[cols[0]]}" stroke="#2c3e50" stroke-width="2"/>`;
+ else cols.forEach((c,i)=>{const a0=i/n*2*Math.PI-Math.PI/2,a1=(i+1)/n*2*Math.PI-Math.PI/2;s+=`<path d="M50 52 L${(50+R*Math.cos(a0)).toFixed(2)} ${(52+R*Math.sin(a0)).toFixed(2)} A${R} ${R} 0 0 1 ${(50+R*Math.cos(a1)).toFixed(2)} ${(52+R*Math.sin(a1)).toFixed(2)} Z" fill="${COL[c]}" stroke="#2c3e50" stroke-width="1.5"/>`});
+ return `<svg viewBox="0 0 100 104" width="96" height="100" class="vis">${s}<circle cx="50" cy="52" r="4" fill="#2c3e50"/><path d="M50 30 l-5 -18 h10 z" fill="#2c3e50"/></svg>`}
+function gridSVG(cells,W,H,o={}){const z=o.z||20;let s='';
+ const set=new Set(cells.map(c=>c[0]+','+c[1]));
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++)s+=`<rect x="${2+x*z}" y="${2+y*z}" width="${z}" height="${z}" fill="${set.has(x+','+y)?(o.col||'#5dade2'):'#fff'}" stroke="${o.light?'#e1e6ec':'#b5c1cc'}" stroke-width="1"/>`;
+ if(o.axis==='v')s+=`<line x1="${2+W/2*z}" y1="0" x2="${2+W/2*z}" y2="${H*z+4}" stroke="#e74c3c" stroke-width="3"/>`;
+ if(o.lab)s+=`<text x="4" y="14" font-size="13" font-weight="bold" font-family="Arial">${o.lab}</text>`;
+ return `<svg viewBox="0 0 ${W*z+4} ${H*z+4}" width="${W*z+4}" height="${H*z+4}" class="vis">${s}</svg>`}
+function polyo(n,W,H){let cells=[[r(0,W-1),r(0,H-1)]];const has=(x,y)=>cells.some(c=>c[0]===x&&c[1]===y);let g=0;
+ while(cells.length<n&&g<500){g++;const[cx,cy]=pick(cells),[dx,dy]=pick([[1,0],[-1,0],[0,1],[0,-1]]),x=cx+dx,y=cy+dy;if(x>=0&&x<W&&y>=0&&y<H&&!has(x,y))cells.push([x,y])}
+ const mx=Math.min(...cells.map(c=>c[0])),my=Math.min(...cells.map(c=>c[1]));return cells.map(c=>[c[0]-mx,c[1]-my])}
+function umfang(cells){const set=new Set(cells.map(c=>c[0]+','+c[1]));let u=0;cells.forEach(([x,y])=>[[1,0],[-1,0],[0,1],[0,-1]].forEach(([a,b])=>{if(!set.has((x+a)+','+(y+b)))u++}));return u}
+const ext=cells=>[Math.max(...cells.map(c=>c[0]))+1,Math.max(...cells.map(c=>c[1]))+1];
+function foldFaces(cells){const key=c=>c[0]+','+c[1],set=new Set(cells.map(key)),face={};
+ const roll={E:s=>[s[4],s[5],s[2],s[3],s[1],s[0]],W:s=>[s[5],s[4],s[2],s[3],s[0],s[1]],N:s=>[s[2],s[3],s[1],s[0],s[4],s[5]],S:s=>[s[3],s[2],s[0],s[1],s[4],s[5]]};
+ const D={E:[1,0],W:[-1,0],N:[0,-1],S:[0,1]};const q=[[cells[0],[0,1,2,3,4,5]]];face[key(cells[0])]=0;
+ while(q.length){const[c,s]=q.shift();for(const d in D){const n=[c[0]+D[d][0],c[1]+D[d][1]],k=key(n);if(set.has(k)&&!(k in face)){const ns=roll[d](s);face[k]=ns[0];q.push([n,ns])}}}
+ return face}
+const isNet=cells=>new Set(Object.values(foldFaces(cells))).size===6;
+function turm(hs){const u=24,d=10,H=Math.max(...hs);let s='';const base=8+d+H*u;
+ hs.forEach((h,i)=>{for(let j=0;j<h;j++){const x=4+i*u,y=base-(j+1)*u;
+  s+=`<rect x="${x}" y="${y}" width="${u}" height="${u}" fill="#85c1e9" stroke="#1b4f72"/><polygon points="${x},${y} ${x+u},${y} ${x+u+d},${y-d} ${x+d},${y-d}" fill="#d6eaf8" stroke="#1b4f72"/><polygon points="${x+u},${y} ${x+u+d},${y-d} ${x+u+d},${y+u-d} ${x+u},${y+u}" fill="#3498db" stroke="#1b4f72"/>`}});
+ return `<svg viewBox="0 0 ${hs.length*u+d+8} ${base+4}" width="${hs.length*u+d+8}" height="${base+4}" class="vis">${s}</svg>`}
+const bauplan=g=>`<table class="bp">${g.map(rw=>`<tr>${rw.map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')}</table>`;
+function koerper(n){const S='stroke="#2c3e50" stroke-width="2"',F='#aed6f1';let s;
+ if(n==='Würfel')s=`<polygon points="10,30 50,30 50,70 10,70" fill="${F}" ${S}/><polygon points="10,30 30,12 70,12 50,30" fill="#d6eaf8" ${S}/><polygon points="50,30 70,12 70,52 50,70" fill="#85c1e9" ${S}/>`;
+ else if(n==='Quader')s=`<polygon points="4,40 56,40 56,70 4,70" fill="${F}" ${S}/><polygon points="4,40 20,26 72,26 56,40" fill="#d6eaf8" ${S}/><polygon points="56,40 72,26 72,56 56,70" fill="#85c1e9" ${S}/>`;
+ else if(n==='Kugel')s=`<circle cx="40" cy="42" r="32" fill="${F}" ${S}/><ellipse cx="40" cy="42" rx="32" ry="9" fill="none" stroke="#2c3e50" stroke-width="1.2" stroke-dasharray="4 3"/>`;
+ else if(n==='Zylinder')s=`<path d="M12 20 V66 A28 8 0 0 0 68 66 V20" fill="${F}" ${S}/><ellipse cx="40" cy="20" rx="28" ry="8" fill="#d6eaf8" ${S}/>`;
+ else if(n==='Kegel')s=`<path d="M40 6 L12 64 A28 8 0 0 0 68 64 Z" fill="${F}" ${S}/><path d="M12 64 A28 8 0 0 1 68 64" fill="none" stroke="#2c3e50" stroke-width="1.2" stroke-dasharray="4 3"/>`;
+ else s=`<polygon points="8,62 52,62 40,6" fill="${F}" ${S}/><polygon points="52,62 72,48 40,6" fill="#85c1e9" ${S}/><polyline points="8,62 28,48 72,48" fill="none" stroke="#2c3e50" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="28" y1="48" x2="40" y2="6" stroke="#2c3e50" stroke-width="1.2" stroke-dasharray="4 3"/>`;
+ return `<svg viewBox="0 0 80 80" width="78" height="78" class="vis">${s}</svg>`}
+const KOERPER=['Würfel','Quader','Kugel','Zylinder','Kegel','Pyramide'];
+function mauer(rows){const a=[];const h=`<div class="mauer">${rows.map(rw=>`<div class="mr">${rw.map(v=>{if(v===null)return '<span class="st">@</span>';return `<span class="st">${fmt(v)}</span>`}).join('')}</div>`).join('')}</div>`;return h}
+function mauerBuild(bottom){const rows=[bottom];while(rows[0].length>1){const p=rows[0];rows.unshift(times(p.length-1,i=>p[i]+p[i+1]))}return rows}
+function mauerItem(rows,hide,s){const a=[];const shown=rows.map((rw,i)=>rw.map((v,j)=>{if(hide.has(i+','+j)){a.push(v);return null}return v}));return{q:mauer(shown),a,s:s||'Zahlenmauer. Zwei Steine nebeneinander ergeben zusammen den Stein darüber. Fülle die leeren Steine.'}}
+/* schriftliches Rechnen mit Ziffernkästchen */
+function schrift(nums,op,res){const w=Math.max(...nums.map(n=>String(n).length),String(res).length)+1;
+ const row=(s,pre)=>{const c=Array(w).fill('');const t=String(s);for(let i=0;i<t.length;i++)c[w-t.length+i]=t[i];if(pre)c[0]=pre;return c};
+ let h='<table class="sr">';nums.forEach((n,i)=>{h+='<tr>'+row(n,i===nums.length-1?op:'').map(c=>`<td>${c}</td>`).join('')+'</tr>'});
+ const rs=String(res),rc=Array(w).fill('');for(let i=0;i<rs.length;i++)rc[w-rs.length+i]='§';
+ h+='<tr class="res">'+rc.map(c=>`<td>${c}</td>`).join('')+'</tr></table>';return{q:h,a:rs.split('')}}
+function schriftMal(a,b){const p=a*b,top=[...String(a),'·',...String(b)],rs=String(p),w=Math.max(top.length,rs.length);
+ const pad=arr=>Array(w-arr.length).fill('').concat(arr);
+ let h='<table class="sr"><tr>'+pad(top).map(c=>`<td>${c}</td>`).join('')+'</tr><tr class="res">'+pad(rs.split('').map(()=>'§')).map(c=>`<td>${c}</td>`).join('')+'</tr></table>';
+ return{q:h,a:rs.split('')}}
+const KAR='<div class="kar ponly"></div>';
+const E0=['null','eins','zwei','drei','vier','fünf','sechs','sieben','acht','neun','zehn','elf','zwölf','dreizehn','vierzehn','fünfzehn','sechzehn','siebzehn','achtzehn','neunzehn'];
+const Z0=['','','zwanzig','dreißig','vierzig','fünfzig','sechzig','siebzig','achtzig','neunzig'];
+function w100(n){if(n<20)return E0[n];const e=n%10,z=Math.floor(n/10);return (e?(e===1?'ein':E0[e])+'und':'')+Z0[z]}
+function w1000(n){const h=Math.floor(n/100),rest=n%100;return (h?(h===1?'ein':E0[h])+'hundert':'')+(rest?w100(rest):'')}
+function words(n){if(n===0)return 'null';const t=Math.floor(n/1000),rest=n%1000;let s='';if(t)s+=(t===1?'ein':w1000(t).replace(/eins$/,'ein'))+'tausend';if(rest)s+=w1000(rest);return s}
+
+const SPRITE='url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIyNzAiIGhlaWdodD0iOTAiPgogICAgPCEtLSB3aGl0ZSBraW5nIC8vLS0+CiAgICA8ZyBzdHlsZT0iZmlsbDpub25lOyBmaWxsLW9wYWNpdHk6MTsgZmlsbC1ydWxlOmV2ZW5vZGQ7IHN0cm9rZTojMDAwMDAwOyBzdHJva2Utd2lkdGg6MS41OyBzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6NDsgc3Ryb2tlLWRhc2hhcnJheTpub25lOyBzdHJva2Utb3BhY2l0eToxOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwwKSI+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDIyLjUsMTEuNjMgTCAyMi41LDYiCiAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS1saW5lam9pbjptaXRlcjsiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDIwLDggTCAyNSw4IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojMDAwMDAwOyBzdHJva2UtbGluZWpvaW46bWl0ZXI7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAyMi41LDI1IEMgMjIuNSwyNSAyNywxNy41IDI1LjUsMTQuNSBDIDI1LjUsMTQuNSAyNC41LDEyIDIyLjUsMTIgQyAyMC41LDEyIDE5LjUsMTQuNSAxOS41LDE0LjUgQyAxOCwxNy41IDIyLjUsMjUgMjIuNSwyNSIKICAgICAgICBzdHlsZT0iZmlsbDojZmZmZmZmOyBzdHJva2U6IzAwMDAwMDsgc3Ryb2tlLWxpbmVjYXA6YnV0dDsgc3Ryb2tlLWxpbmVqb2luOm1pdGVyOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTEuNSwzNyBDIDE3LDQwLjUgMjcsNDAuNSAzMi41LDM3IEwgMzIuNSwzMCBDIDMyLjUsMzAgNDEuNSwyNS41IDM4LjUsMTkuNSBDIDM0LjUsMTMgMjUsMTYgMjIuNSwyMy41IEwgMjIuNSwyNyBMIDIyLjUsMjMuNSBDIDE5LDE2IDkuNSwxMyA2LjUsMTkuNSBDIDMuNSwyNS41IDExLjUsMjkuNSAxMS41LDI5LjUgTCAxMS41LDM3IHogIgogICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7IHN0cm9rZTojMDAwMDAwOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTEuNSwzMCBDIDE3LDI3IDI3LDI3IDMyLjUsMzAiCiAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOiMwMDAwMDA7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAxMS41LDMzLjUgQyAxNywzMC41IDI3LDMwLjUgMzIuNSwzMy41IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojMDAwMDAwOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTEuNSwzNyBDIDE3LDM0IDI3LDM0IDMyLjUsMzciCiAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOiMwMDAwMDA7IiAvPgogICAgPC9nPiAgICAKICAgIAogICAgPCEtLSB3aGl0ZSBxdWVlbiAvLy0tPgogICAgPGcgc3R5bGU9Im9wYWNpdHk6MTsgZmlsbDojZmZmZmZmOyBmaWxsLW9wYWNpdHk6MTsgZmlsbC1ydWxlOmV2ZW5vZGQ7IHN0cm9rZTojMDAwMDAwOyBzdHJva2Utd2lkdGg6MS41OyBzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6NDsgc3Ryb2tlLWRhc2hhcnJheTpub25lOyBzdHJva2Utb3BhY2l0eToxOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDUsMCkiPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSA5IDEzIEEgMiAyIDAgMSAxICA1LDEzIEEgMiAyIDAgMSAxICA5IDEzIHoiCiAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEsLTEpIiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSA5IDEzIEEgMiAyIDAgMSAxICA1LDEzIEEgMiAyIDAgMSAxICA5IDEzIHoiCiAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTUuNSwtNS41KSIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gOSAxMyBBIDIgMiAwIDEgMSAgNSwxMyBBIDIgMiAwIDEgMSAgOSAxMyB6IgogICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMyLC0xKSIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gOSAxMyBBIDIgMiAwIDEgMSAgNSwxMyBBIDIgMiAwIDEgMSAgOSAxMyB6IgogICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcsLTQuNSkiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDkgMTMgQSAyIDIgMCAxIDEgIDUsMTMgQSAyIDIgMCAxIDEgIDkgMTMgeiIKICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNCwtNCkiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDksMjYgQyAxNy41LDI0LjUgMzAsMjQuNSAzNiwyNiBMIDM4LDE0IEwgMzEsMjUgTCAzMSwxMSBMIDI1LjUsMjQuNSBMIDIyLjUsOS41IEwgMTkuNSwyNC41IEwgMTQsMTAuNSBMIDE0LDI1IEwgNywxNCBMIDksMjYgeiAiCiAgICAgICAgc3R5bGU9InN0cm9rZS1saW5lY2FwOmJ1dHQ7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSA5LDI2IEMgOSwyOCAxMC41LDI4IDExLjUsMzAgQyAxMi41LDMxLjUgMTIuNSwzMSAxMiwzMy41IEMgMTAuNSwzNC41IDEwLjUsMzYgMTAuNSwzNiBDIDksMzcuNSAxMSwzOC41IDExLDM4LjUgQyAxNy41LDM5LjUgMjcuNSwzOS41IDM0LDM4LjUgQyAzNCwzOC41IDM1LjUsMzcuNSAzNCwzNiBDIDM0LDM2IDM0LjUsMzQuNSAzMywzMy41IEMgMzIuNSwzMSAzMi41LDMxLjUgMzMuNSwzMCBDIDM0LjUsMjggMzYsMjggMzYsMjYgQyAyNy41LDI0LjUgMTcuNSwyNC41IDksMjYgeiAiCiAgICAgICAgc3R5bGU9InN0cm9rZS1saW5lY2FwOmJ1dHQ7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAxMS41LDMwIEMgMTUsMjkgMzAsMjkgMzMuNSwzMCIKICAgICAgICBzdHlsZT0iZmlsbDpub25lOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTIsMzMuNSBDIDE4LDMyLjUgMjcsMzIuNSAzMywzMy41IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IiAvPgogICAgPC9nPgogICAgCiAgICA8IS0tIHdoaXRlIGJpc2hvcCAvLy0tPgogICAgPGcgc3R5bGU9Im9wYWNpdHk6MTsgZmlsbDpub25lOyBmaWxsLXJ1bGU6ZXZlbm9kZDsgZmlsbC1vcGFjaXR5OjE7IHN0cm9rZTojMDAwMDAwOyBzdHJva2Utd2lkdGg6MS41OyBzdHJva2UtbGluZWNhcDpyb3VuZDsgc3Ryb2tlLWxpbmVqb2luOnJvdW5kOyBzdHJva2UtbWl0ZXJsaW1pdDo0OyBzdHJva2UtZGFzaGFycmF5Om5vbmU7IHN0cm9rZS1vcGFjaXR5OjE7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5MCwwKSI+CiAgICAgICAgPGcgc3R5bGU9ImZpbGw6I2ZmZmZmZjsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS1saW5lY2FwOmJ1dHQ7Ij4gCiAgICAgICAgICAgIDxwYXRoCiAgICAgICAgICAgIGQ9Ik0gOSwzNiBDIDEyLjM5LDM1LjAzIDE5LjExLDM2LjQzIDIyLjUsMzQgQyAyNS44OSwzNi40MyAzMi42MSwzNS4wMyAzNiwzNiBDIDM2LDM2IDM3LjY1LDM2LjU0IDM5LDM4IEMgMzguMzIsMzguOTcgMzcuMzUsMzguOTkgMzYsMzguNSBDIDMyLjYxLDM3LjUzIDI1Ljg5LDM4Ljk2IDIyLjUsMzcuNSBDIDE5LjExLDM4Ljk2IDEyLjM5LDM3LjUzIDksMzguNSBDIDcuNjQ2LDM4Ljk5IDYuNjc3LDM4Ljk3IDYsMzggQyA3LjM1NCwzNi4wNiA5LDM2IDksMzYgeiIgLz4KICAgICAgICAgICAgPHBhdGgKICAgICAgICAgICAgZD0iTSAxNSwzMiBDIDE3LjUsMzQuNSAyNy41LDM0LjUgMzAsMzIgQyAzMC41LDMwLjUgMzAsMzAgMzAsMzAgQyAzMCwyNy41IDI3LjUsMjYgMjcuNSwyNiBDIDMzLDI0LjUgMzMuNSwxNC41IDIyLjUsMTAuNSBDIDExLjUsMTQuNSAxMiwyNC41IDE3LjUsMjYgQyAxNy41LDI2IDE1LDI3LjUgMTUsMzAgQyAxNSwzMCAxNC41LDMwLjUgMTUsMzIgeiIgLz4KICAgICAgICAgICAgPHBhdGgKICAgICAgICAgICAgZD0iTSAyNSA4IEEgMi41IDIuNSAwIDEgMSAgMjAsOCBBIDIuNSAyLjUgMCAxIDEgIDI1IDggeiIgLz4KICAgICAgICA8L2c+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDE3LjUsMjYgTCAyNy41LDI2IE0gMTUsMzAgTCAzMCwzMCBNIDIyLjUsMTUuNSBMIDIyLjUsMjAuNSBNIDIwLDE4IEwgMjUsMTgiCiAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS1saW5lam9pbjptaXRlcjsiIC8+CiAgICA8L2c+CgogICAgPCEtLSB3aGl0ZSBrbmlnaHQgLy8tLT4KICAgIDxnIHN0eWxlPSJvcGFjaXR5OjE7IGZpbGw6bm9uZTsgZmlsbC1vcGFjaXR5OjE7IGZpbGwtcnVsZTpldmVub2RkOyBzdHJva2U6IzAwMDAwMDsgc3Ryb2tlLXdpZHRoOjEuNTsgc3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjQ7IHN0cm9rZS1kYXNoYXJyYXk6bm9uZTsgc3Ryb2tlLW9wYWNpdHk6MTsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzNSwwKSI+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDIyLDEwIEMgMzIuNSwxMSAzOC41LDE4IDM4LDM5IEwgMTUsMzkgQyAxNSwzMCAyNSwzMi41IDIzLDE4IgogICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7IHN0cm9rZTojMDAwMDAwOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMjQsMTggQyAyNC4zOCwyMC45MSAxOC40NSwyNS4zNyAxNiwyNyBDIDEzLDI5IDEzLjE4LDMxLjM0IDExLDMxIEMgOS45NTgsMzAuMDYgMTIuNDEsMjcuOTYgMTEsMjggQyAxMCwyOCAxMS4xOSwyOS4yMyAxMCwzMCBDIDksMzAgNS45OTcsMzEgNiwyNiBDIDYsMjQgMTIsMTQgMTIsMTQgQyAxMiwxNCAxMy44OSwxMi4xIDE0LDEwLjUgQyAxMy4yNyw5LjUwNiAxMy41LDguNSAxMy41LDcuNSBDIDE0LjUsNi41IDE2LjUsMTAgMTYuNSwxMCBMIDE4LjUsMTAgQyAxOC41LDEwIDE5LjI4LDguMDA4IDIxLDcgQyAyMiw3IDIyLDEwIDIyLDEwIgogICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7IHN0cm9rZTojMDAwMDAwOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gOS41IDI1LjUgQSAwLjUgMC41IDAgMSAxIDguNSwyNS41IEEgMC41IDAuNSAwIDEgMSA5LjUgMjUuNSB6IgogICAgICAgIHN0eWxlPSJmaWxsOiMwMDAwMDA7IHN0cm9rZTojMDAwMDAwOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTUgMTUuNSBBIDAuNSAxLjUgMCAxIDEgIDE0LDE1LjUgQSAwLjUgMS41IDAgMSAxICAxNSAxNS41IHoiCiAgICAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMC44NjYsMC41LC0wLjUsMC44NjYsOS42OTMsLTUuMTczKSIKICAgICAgICBzdHlsZT0iZmlsbDojMDAwMDAwOyBzdHJva2U6IzAwMDAwMDsiIC8+CiAgICA8L2c+CiAgICAKICAgIDwhLS0gd2hpdGUgcm9vayAvLy0tPgogICAgPGcgc3R5bGU9Im9wYWNpdHk6MTsgZmlsbDojZmZmZmZmOyBmaWxsLW9wYWNpdHk6MTsgZmlsbC1ydWxlOmV2ZW5vZGQ7IHN0cm9rZTojMDAwMDAwOyBzdHJva2Utd2lkdGg6MS41OyBzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6NDsgc3Ryb2tlLWRhc2hhcnJheTpub25lOyBzdHJva2Utb3BhY2l0eToxOyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTgwLDApIj4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gOSwzOSBMIDM2LDM5IEwgMzYsMzYgTCA5LDM2IEwgOSwzOSB6ICIKICAgICAgICBzdHlsZT0ic3Ryb2tlLWxpbmVjYXA6YnV0dDsiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDEyLDM2IEwgMTIsMzIgTCAzMywzMiBMIDMzLDM2IEwgMTIsMzYgeiAiCiAgICAgICAgc3R5bGU9InN0cm9rZS1saW5lY2FwOmJ1dHQ7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAxMSwxNCBMIDExLDkgTCAxNSw5IEwgMTUsMTEgTCAyMCwxMSBMIDIwLDkgTCAyNSw5IEwgMjUsMTEgTCAzMCwxMSBMIDMwLDkgTCAzNCw5IEwgMzQsMTQiCiAgICAgICAgc3R5bGU9InN0cm9rZS1saW5lY2FwOmJ1dHQ7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAzNCwxNCBMIDMxLDE3IEwgMTQsMTcgTCAxMSwxNCIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMzEsMTcgTCAzMSwyOS41IEwgMTQsMjkuNSBMIDE0LDE3IgogICAgICAgIHN0eWxlPSJzdHJva2UtbGluZWNhcDpidXR0OyBzdHJva2UtbGluZWpvaW46bWl0ZXI7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAzMSwyOS41IEwgMzIuNSwzMiBMIDEyLjUsMzIgTCAxNCwyOS41IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAxMSwxNCBMIDM0LDE0IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojMDAwMDAwOyBzdHJva2UtbGluZWpvaW46bWl0ZXI7IiAvPgogICAgPC9nPgoKICAgIDwhLS0gd2hpdGUgcGF3biAvLy0tPiAgICAKICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIyNSwwKSI+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDIyLDkgQyAxOS43OSw5IDE4LDEwLjc5IDE4LDEzIEMgMTgsMTMuODkgMTguMjksMTQuNzEgMTguNzgsMTUuMzggQyAxNi44MywxNi41IDE1LjUsMTguNTkgMTUuNSwyMSBDIDE1LjUsMjMuMDMgMTYuNDQsMjQuODQgMTcuOTEsMjYuMDMgQyAxNC45MSwyNy4wOSAxMC41LDMxLjU4IDEwLjUsMzkuNSBMIDMzLjUsMzkuNSBDIDMzLjUsMzEuNTggMjkuMDksMjcuMDkgMjYuMDksMjYuMDMgQyAyNy41NiwyNC44NCAyOC41LDIzLjAzIDI4LjUsMjEgQyAyOC41LDE4LjU5IDI3LjE3LDE2LjUgMjUuMjIsMTUuMzggQyAyNS43MSwxNC43MSAyNiwxMy44OSAyNiwxMyBDIDI2LDEwLjc5IDI0LjIxLDkgMjIsOSB6ICIKICAgICAgICBzdHlsZT0ib3BhY2l0eToxOyBmaWxsOiNmZmZmZmY7IGZpbGwtb3BhY2l0eToxOyBmaWxsLXJ1bGU6bm9uemVybzsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS13aWR0aDoxLjU7IHN0cm9rZS1saW5lY2FwOnJvdW5kOyBzdHJva2UtbGluZWpvaW46bWl0ZXI7IHN0cm9rZS1taXRlcmxpbWl0OjQ7IHN0cm9rZS1kYXNoYXJyYXk6bm9uZTsgc3Ryb2tlLW9wYWNpdHk6MTsiIC8+CiAgICA8L2c+CiAgICAKICAgIDwhLS0gYmxhY2sga2luZyAvLy0tPgogICAgPGcgc3R5bGU9ImZpbGw6bm9uZTsgZmlsbC1vcGFjaXR5OjE7IGZpbGwtcnVsZTpldmVub2RkOyBzdHJva2U6IzAwMDAwMDsgc3Ryb2tlLXdpZHRoOjEuNTsgc3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjQ7IHN0cm9rZS1kYXNoYXJyYXk6bm9uZTsgc3Ryb2tlLW9wYWNpdHk6MTsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsNDUpIj4KICAgICAgICA8cGF0aCAKICAgICAgICAgICAgZD0iTSAyMi41LDExLjYzIEwgMjIuNSw2IgogICAgICAgICAgICBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6IzAwMDAwMDsgc3Ryb2tlLWxpbmVqb2luOm1pdGVyOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgICAgICBkPSJNIDIyLjUsMjUgQyAyMi41LDI1IDI3LDE3LjUgMjUuNSwxNC41IEMgMjUuNSwxNC41IDI0LjUsMTIgMjIuNSwxMiBDIDIwLjUsMTIgMTkuNSwxNC41IDE5LjUsMTQuNSBDIDE4LDE3LjUgMjIuNSwyNSAyMi41LDI1IiAKICAgICAgICAgICAgc3R5bGU9ImZpbGw6IzAwMDAwMDtmaWxsLW9wYWNpdHk6MTsgc3Ryb2tlLWxpbmVjYXA6YnV0dDsgc3Ryb2tlLWxpbmVqb2luOm1pdGVyOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgICAgIGQ9Ik0gMTEuNSwzNyBDIDE3LDQwLjUgMjcsNDAuNSAzMi41LDM3IEwgMzIuNSwzMCBDIDMyLjUsMzAgNDEuNSwyNS41IDM4LjUsMTkuNSBDIDM0LjUsMTMgMjUsMTYgMjIuNSwyMy41IEwgMjIuNSwyNyBMIDIyLjUsMjMuNSBDIDE5LDE2IDkuNSwxMyA2LjUsMTkuNSBDIDMuNSwyNS41IDExLjUsMjkuNSAxMS41LDI5LjUgTCAxMS41LDM3IHogIgogICAgICAgICAgIHN0eWxlPSJmaWxsOiMwMDAwMDA7IHN0cm9rZTojMDAwMDAwOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgICAgIGQ9Ik0gMjAsOCBMIDI1LDgiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS1saW5lam9pbjptaXRlcjsiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICAgICBkPSJNIDMyLDI5LjUgQyAzMiwyOS41IDQwLjUsMjUuNSAzOC4wMywxOS44NSBDIDM0LjE1LDE0IDI1LDE4IDIyLjUsMjQuNSBMIDIyLjUxLDI2LjYgTCAyMi41LDI0LjUgQyAyMCwxOCA5LjkwNiwxNCA2Ljk5NywxOS44NSBDIDQuNSwyNS41IDExLjg1LDI4Ljg1IDExLjg1LDI4Ljg1IgogICAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojZmZmZmZmOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgICAgIGQ9Ik0gMTEuNSwzMCBDIDE3LDI3IDI3LDI3IDMyLjUsMzAgTSAxMS41LDMzLjUgQyAxNywzMC41IDI3LDMwLjUgMzIuNSwzMy41IE0gMTEuNSwzNyBDIDE3LDM0IDI3LDM0IDMyLjUsMzciCiAgICAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOiNmZmZmZmY7IiAvPgogICAgPC9nPgogICAgCiAgICA8IS0tIGJsYWNrIHF1ZWVuIC8vLS0+CiAgICA8ZyBzdHlsZT0ib3BhY2l0eToxOyBmaWxsOjAwMDAwMDsgZmlsbC1vcGFjaXR5OjE7IGZpbGwtcnVsZTpldmVub2RkOyBzdHJva2U6IzAwMDAwMDsgc3Ryb2tlLXdpZHRoOjEuNTsgc3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjQ7IHN0cm9rZS1kYXNoYXJyYXk6bm9uZTsgc3Ryb2tlLW9wYWNpdHk6MTsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ1LDQ1KSI+CiAgICAgICAgPGcgc3R5bGU9ImZpbGw6IzAwMDAwMDsgc3Ryb2tlOm5vbmU7Ij4KICAgICAgICAgICAgPGNpcmNsZSBjeD0iNiIgICAgY3k9IjEyIiByPSIyLjc1IiAvPgogICAgICAgICAgICA8Y2lyY2xlIGN4PSIxNCIgICBjeT0iOSIgIHI9IjIuNzUiIC8+CiAgICAgICAgICAgIDxjaXJjbGUgY3g9IjIyLjUiIGN5PSI4IiAgcj0iMi43NSIgLz4KICAgICAgICAgICAgPGNpcmNsZSBjeD0iMzEiICAgY3k9IjkiICByPSIyLjc1IiAvPgogICAgICAgICAgICA8Y2lyY2xlIGN4PSIzOSIgICBjeT0iMTIiIHI9IjIuNzUiIC8+CiAgICAgICAgPC9nPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSA5LDI2IEMgMTcuNSwyNC41IDMwLDI0LjUgMzYsMjYgTCAzOC41LDEzLjUgTCAzMSwyNSBMIDMwLjcsMTAuOSBMIDI1LjUsMjQuNSBMIDIyLjUsMTAgTCAxOS41LDI0LjUgTCAxNC4zLDEwLjkgTCAxNCwyNSBMIDYuNSwxMy41IEwgOSwyNiB6IgogICAgICAgIHN0eWxlPSJzdHJva2UtbGluZWNhcDpidXR0OyBzdHJva2U6IzAwMDAwMDsiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDksMjYgQyA5LDI4IDEwLjUsMjggMTEuNSwzMCBDIDEyLjUsMzEuNSAxMi41LDMxIDEyLDMzLjUgQyAxMC41LDM0LjUgMTAuNSwzNiAxMC41LDM2IEMgOSwzNy41IDExLDM4LjUgMTEsMzguNSBDIDE3LjUsMzkuNSAyNy41LDM5LjUgMzQsMzguNSBDIDM0LDM4LjUgMzUuNSwzNy41IDM0LDM2IEMgMzQsMzYgMzQuNSwzNC41IDMzLDMzLjUgQyAzMi41LDMxIDMyLjUsMzEuNSAzMy41LDMwIEMgMzQuNSwyOCAzNiwyOCAzNiwyNiBDIDI3LjUsMjQuNSAxNy41LDI0LjUgOSwyNiB6IgogICAgICAgIHN0eWxlPSJzdHJva2UtbGluZWNhcDpidXR0OyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTEsMzguNSBBIDM1LDM1IDEgMCAwIDM0LDM4LjUiCiAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS1saW5lY2FwOmJ1dHQ7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAxMSwyOSBBIDM1LDM1IDEgMCAxIDM0LDI5IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojZmZmZmZmOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTIuNSwzMS41IEwgMzIuNSwzMS41IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojZmZmZmZmOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTEuNSwzNC41IEEgMzUsMzUgMSAwIDAgMzMuNSwzNC41IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojZmZmZmZmOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTAuNSwzNy41IEEgMzUsMzUgMSAwIDAgMzQuNSwzNy41IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojZmZmZmZmOyIgLz4KICAgIDwvZz4KICAgICAKICAgIDwhLS0gYmxhY2sgYmlzaG9wIC8vLS0+CiAgICA8ZyBzdHlsZT0ib3BhY2l0eToxOyBmaWxsOm5vbmU7IGZpbGwtcnVsZTpldmVub2RkOyBmaWxsLW9wYWNpdHk6MTsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS13aWR0aDoxLjU7IHN0cm9rZS1saW5lY2FwOnJvdW5kOyBzdHJva2UtbGluZWpvaW46cm91bmQ7IHN0cm9rZS1taXRlcmxpbWl0OjQ7IHN0cm9rZS1kYXNoYXJyYXk6bm9uZTsgc3Ryb2tlLW9wYWNpdHk6MTsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwLDQ1KSI+CiAgICAgICAgPGcgc3R5bGU9ImZpbGw6IzAwMDAwMDsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS1saW5lY2FwOmJ1dHQ7Ij4gCiAgICAgICAgICAgIDxwYXRoCiAgICAgICAgICAgICAgICBkPSJNIDksMzYgQyAxMi4zOSwzNS4wMyAxOS4xMSwzNi40MyAyMi41LDM0IEMgMjUuODksMzYuNDMgMzIuNjEsMzUuMDMgMzYsMzYgQyAzNiwzNiAzNy42NSwzNi41NCAzOSwzOCBDIDM4LjMyLDM4Ljk3IDM3LjM1LDM4Ljk5IDM2LDM4LjUgQyAzMi42MSwzNy41MyAyNS44OSwzOC45NiAyMi41LDM3LjUgQyAxOS4xMSwzOC45NiAxMi4zOSwzNy41MyA5LDM4LjUgQyA3LjY0NiwzOC45OSA2LjY3NywzOC45NyA2LDM4IEMgNy4zNTQsMzYuMDYgOSwzNiA5LDM2IHoiIC8+CiAgICAgICAgICAgIDxwYXRoCiAgICAgICAgICAgICAgICBkPSJNIDE1LDMyIEMgMTcuNSwzNC41IDI3LjUsMzQuNSAzMCwzMiBDIDMwLjUsMzAuNSAzMCwzMCAzMCwzMCBDIDMwLDI3LjUgMjcuNSwyNiAyNy41LDI2IEMgMzMsMjQuNSAzMy41LDE0LjUgMjIuNSwxMC41IEMgMTEuNSwxNC41IDEyLDI0LjUgMTcuNSwyNiBDIDE3LjUsMjYgMTUsMjcuNSAxNSwzMCBDIDE1LDMwIDE0LjUsMzAuNSAxNSwzMiB6IiAvPgogICAgICAgICAgICA8cGF0aAogICAgICAgICAgICAgICAgZD0iTSAyNSA4IEEgMi41IDIuNSAwIDEgMSAgMjAsOCBBIDIuNSAyLjUgMCAxIDEgIDI1IDggeiIgLz4KICAgICAgICA8L2c+CiAgICAgICAgPHBhdGgKICAgICAgICAgICBkPSJNIDE3LjUsMjYgTCAyNy41LDI2IE0gMTUsMzAgTCAzMCwzMCBNIDIyLjUsMTUuNSBMIDIyLjUsMjAuNSBNIDIwLDE4IEwgMjUsMTgiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOiNmZmZmZmY7IHN0cm9rZS1saW5lam9pbjptaXRlcjsiIC8+CiAgICA8L2c+CiAgICAKICAgIDwhLS0gYmxhY2sga25pZ2h0IC8vLS0+CiAgICA8ZyBzdHlsZT0ib3BhY2l0eToxOyBmaWxsOm5vbmU7IGZpbGwtb3BhY2l0eToxOyBmaWxsLXJ1bGU6ZXZlbm9kZDsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS13aWR0aDoxLjU7IHN0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0OyBzdHJva2UtZGFzaGFycmF5Om5vbmU7IHN0cm9rZS1vcGFjaXR5OjE7IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzUsNDUpIj4KICAgICAgICA8cGF0aAogICAgICAgICAgIGQ9Ik0gMjIsMTAgQyAzMi41LDExIDM4LjUsMTggMzgsMzkgTCAxNSwzOSBDIDE1LDMwIDI1LDMyLjUgMjMsMTgiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6IzAwMDAwMDsgc3Ryb2tlOiMwMDAwMDA7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgICAgZD0iTSAyNCwxOCBDIDI0LjM4LDIwLjkxIDE4LjQ1LDI1LjM3IDE2LDI3IEMgMTMsMjkgMTMuMTgsMzEuMzQgMTEsMzEgQyA5Ljk1OCwzMC4wNiAxMi40MSwyNy45NiAxMSwyOCBDIDEwLDI4IDExLjE5LDI5LjIzIDEwLDMwIEMgOSwzMCA1Ljk5NywzMSA2LDI2IEMgNiwyNCAxMiwxNCAxMiwxNCBDIDEyLDE0IDEzLjg5LDEyLjEgMTQsMTAuNSBDIDEzLjI3LDkuNTA2IDEzLjUsOC41IDEzLjUsNy41IEMgMTQuNSw2LjUgMTYuNSwxMCAxNi41LDEwIEwgMTguNSwxMCBDIDE4LjUsMTAgMTkuMjgsOC4wMDggMjEsNyBDIDIyLDcgMjIsMTAgMjIsMTAiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6IzAwMDAwMDsgc3Ryb2tlOiMwMDAwMDA7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgICAgZD0iTSA5LjUgMjUuNSBBIDAuNSAwLjUgMCAxIDEgOC41LDI1LjUgQSAwLjUgMC41IDAgMSAxIDkuNSAyNS41IHoiCiAgICAgICAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZjsgc3Ryb2tlOiNmZmZmZmY7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgICAgZD0iTSAxNSAxNS41IEEgMC41IDEuNSAwIDEgMSAgMTQsMTUuNSBBIDAuNSAxLjUgMCAxIDEgIDE1IDE1LjUgeiIKICAgICAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCgwLjg2NiwwLjUsLTAuNSwwLjg2Niw5LjY5MywtNS4xNzMpIgogICAgICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7IHN0cm9rZTojZmZmZmZmOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgICAgIGQ9Ik0gMjQuNTUsMTAuNCBMIDI0LjEsMTEuODUgTCAyNC42LDEyIEMgMjcuNzUsMTMgMzAuMjUsMTQuNDkgMzIuNSwxOC43NSBDIDM0Ljc1LDIzLjAxIDM1Ljc1LDI5LjA2IDM1LjI1LDM5IEwgMzUuMiwzOS41IEwgMzcuNDUsMzkuNSBMIDM3LjUsMzkgQyAzOCwyOC45NCAzNi42MiwyMi4xNSAzNC4yNSwxNy42NiBDIDMxLjg4LDEzLjE3IDI4LjQ2LDExLjAyIDI1LjA2LDEwLjUgTCAyNC41NSwxMC40IHogIgogICAgICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7IHN0cm9rZTpub25lOyIgLz4KICAgIDwvZz4KICAgIAogICAgPCEtLSBibGFjayByb29rIC8vLS0+CiAgICA8ZyBzdHlsZT0ib3BhY2l0eToxOyBmaWxsOjAwMDAwMDsgZmlsbC1vcGFjaXR5OjE7IGZpbGwtcnVsZTpldmVub2RkOyBzdHJva2U6IzAwMDAwMDsgc3Ryb2tlLXdpZHRoOjEuNTsgc3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjQ7IHN0cm9rZS1kYXNoYXJyYXk6bm9uZTsgc3Ryb2tlLW9wYWNpdHk6MTsiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE4MCw0NSkiPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSA5LDM5IEwgMzYsMzkgTCAzNiwzNiBMIDksMzYgTCA5LDM5IHogIgogICAgICAgIHN0eWxlPSJzdHJva2UtbGluZWNhcDpidXR0OyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTIuNSwzMiBMIDE0LDI5LjUgTCAzMSwyOS41IEwgMzIuNSwzMiBMIDEyLjUsMzIgeiAiCiAgICAgICAgc3R5bGU9InN0cm9rZS1saW5lY2FwOmJ1dHQ7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAxMiwzNiBMIDEyLDMyIEwgMzMsMzIgTCAzMywzNiBMIDEyLDM2IHogIgogICAgICAgIHN0eWxlPSJzdHJva2UtbGluZWNhcDpidXR0OyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTQsMjkuNSBMIDE0LDE2LjUgTCAzMSwxNi41IEwgMzEsMjkuNSBMIDE0LDI5LjUgeiAiCiAgICAgICAgc3R5bGU9InN0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTQsMTYuNSBMIDExLDE0IEwgMzQsMTQgTCAzMSwxNi41IEwgMTQsMTYuNSB6ICIKICAgICAgICBzdHlsZT0ic3Ryb2tlLWxpbmVjYXA6YnV0dDsiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDExLDE0IEwgMTEsOSBMIDE1LDkgTCAxNSwxMSBMIDIwLDExIEwgMjAsOSBMIDI1LDkgTCAyNSwxMSBMIDMwLDExIEwgMzAsOSBMIDM0LDkgTCAzNCwxNCBMIDExLDE0IHogIgogICAgICAgIHN0eWxlPSJzdHJva2UtbGluZWNhcDpidXR0OyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTIsMzUuNSBMIDMzLDM1LjUgTCAzMywzNS41IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojZmZmZmZmOyBzdHJva2Utd2lkdGg6MTsgc3Ryb2tlLWxpbmVqb2luOm1pdGVyOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTMsMzEuNSBMIDMyLDMxLjUiCiAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTsgc3Ryb2tlOiNmZmZmZmY7IHN0cm9rZS13aWR0aDoxOyBzdHJva2UtbGluZWpvaW46bWl0ZXI7IiAvPgogICAgICAgIDxwYXRoCiAgICAgICAgZD0iTSAxNCwyOS41IEwgMzEsMjkuNSIKICAgICAgICBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6I2ZmZmZmZjsgc3Ryb2tlLXdpZHRoOjE7IHN0cm9rZS1saW5lam9pbjptaXRlcjsiIC8+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDE0LDE2LjUgTCAzMSwxNi41IgogICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTojZmZmZmZmOyBzdHJva2Utd2lkdGg6MTsgc3Ryb2tlLWxpbmVqb2luOm1pdGVyOyIgLz4KICAgICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMTEsMTQgTCAzNCwxNCIKICAgICAgICBzdHlsZT0iZmlsbDpub25lOyBzdHJva2U6I2ZmZmZmZjsgc3Ryb2tlLXdpZHRoOjE7IHN0cm9rZS1saW5lam9pbjptaXRlcjsiIC8+CiAgICA8L2c+CiAgICAKICAgIDwhLS0gYmxhY2sgcGF3biAvLy0tPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjI1LDQ1KSI+CiAgICAgICAgPHBhdGgKICAgICAgICBkPSJNIDIyLDkgQyAxOS43OSw5IDE4LDEwLjc5IDE4LDEzIEMgMTgsMTMuODkgMTguMjksMTQuNzEgMTguNzgsMTUuMzggQyAxNi44MywxNi41IDE1LjUsMTguNTkgMTUuNSwyMSBDIDE1LjUsMjMuMDMgMTYuNDQsMjQuODQgMTcuOTEsMjYuMDMgQyAxNC45MSwyNy4wOSAxMC41LDMxLjU4IDEwLjUsMzkuNSBMIDMzLjUsMzkuNSBDIDMzLjUsMzEuNTggMjkuMDksMjcuMDkgMjYuMDksMjYuMDMgQyAyNy41NiwyNC44NCAyOC41LDIzLjAzIDI4LjUsMjEgQyAyOC41LDE4LjU5IDI3LjE3LDE2LjUgMjUuMjIsMTUuMzggQyAyNS43MSwxNC43MSAyNiwxMy44OSAyNiwxMyBDIDI2LDEwLjc5IDI0LjIxLDkgMjIsOSB6ICIKICAgICAgICBzdHlsZT0ib3BhY2l0eToxOyBmaWxsOiMwMDAwMDA7IGZpbGwtb3BhY2l0eToxOyBmaWxsLXJ1bGU6bm9uemVybzsgc3Ryb2tlOiMwMDAwMDA7IHN0cm9rZS13aWR0aDoxLjU7IHN0cm9rZS1saW5lY2FwOnJvdW5kOyBzdHJva2UtbGluZWpvaW46bWl0ZXI7IHN0cm9rZS1taXRlcmxpbWl0OjQ7IHN0cm9rZS1kYXNoYXJyYXk6bm9uZTsgc3Ryb2tlLW9wYWNpdHk6MTsiIC8+CiAgICA8L2c+Cjwvc3ZnPg==")';
+/* ===== Schach Klasse 1 ===== */
+B={
+ br:{n:"Das Schachbrett",c:"#a0522d"},
+ fi:{n:"Die Figuren",c:"#2b7bd8"},
+ zu:{n:"So ziehen die Figuren",c:"#27ae60"},
+ sc:{n:"Schlagen und Schützen",c:"#d35400"},
+ ma:{n:"Schach und Matt",c:"#c0392b"}
+};
+document.head.insertAdjacentHTML('beforeend',`<style>
+:root{--piece-sprite:${SPRITE}}
+.brd{display:grid;grid-template-columns:14px repeat(8,1fr);width:100%;max-width:252px;margin:0 auto;user-select:none;-webkit-user-select:none;border-radius:4px}
+.brd .sq{aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative}
+.sq.l{background:#f0d9b5}.sq.d{background:#b58863}
+.brd .crd{font-size:.62rem;display:flex;align-items:center;justify-content:center;color:#5d6d7e;font-family:Arial,sans-serif}
+.sq.mk::before{content:'';position:absolute;inset:8%;border-radius:50%;border:3px solid #e74c3c;box-sizing:border-box}
+.sq.mg{box-shadow:inset 0 0 0 100px rgba(241,196,15,.55)}
+.bw .sq{cursor:pointer}
+.bw .sq:hover{filter:brightness(1.08)}
+.sq.sel::after{content:'';position:absolute;inset:28%;border-radius:50%;background:rgba(39,174,96,.9);box-shadow:0 0 0 2px #fff}
+.bw.ok{outline:4px solid var(--ok);outline-offset:2px}.bw.bad{outline:4px solid var(--bad);outline-offset:2px}
+body.show-sol .sq.so{box-shadow:inset 0 0 0 3px #c0392b}
+.pc{display:block;width:88%;height:88%;background-image:var(--piece-sprite);background-size:600% 200%;background-repeat:no-repeat;pointer-events:none;filter:drop-shadow(0 1px 1px #0003);position:relative;z-index:1}
+.pcbig{display:inline-flex;width:72px;height:72px;align-items:center;justify-content:center;background:#f0d9b5;border-radius:10px;vertical-align:middle}
+.pcbig .pc{width:90%;height:90%}
+.pcs{display:inline-flex;gap:2px;vertical-align:middle;flex-wrap:wrap}.pcs .pcbig{width:34px;height:34px;border-radius:6px}
+@media print{.brd{max-width:62mm}.items:has(.item:nth-child(5)) .brd{max-width:49mm}.sq.sel::after{display:none}.pcbig{width:16mm;height:16mm}.pcs .pcbig{width:8mm;height:8mm}}
+</style>`);
+const FL='abcdefgh',SQ=(f,r)=>FL[f]+(r+1),PQ=s=>[FL.indexOf(s[0]),+s[1]-1];
+const ALL=times(64,i=>SQ(i%8,Math.floor(i/8)));
+const VAL={p:1,n:3,b:3,r:5,q:9,k:0},NAME={k:'König',q:'Dame',r:'Turm',b:'Läufer',n:'Springer',p:'Bauer'},ART={k:'der',q:'die',r:'der',b:'der',n:'der',p:'der'},AKK={k:'den',q:'die',r:'den',b:'den',n:'den',p:'den'};
+const NAMES=['König','Dame','Turm','Läufer','Springer','Bauer'];
+const DIR={r:[[1,0],[-1,0],[0,1],[0,-1]],b:[[1,1],[1,-1],[-1,1],[-1,-1]]};DIR.q=DIR.r.concat(DIR.b);DIR.k=DIR.q;
+const KN=[[1,2],[2,1],[-1,2],[-2,1],[1,-2],[2,-1],[-1,-2],[-2,-1]],onB=(x,y)=>x>=0&&x<8&&y>=0&&y<8;
+function att(pos,s){const p=pos[s];if(!p)return[];const c=p[0],t=p[1],[f,r]=PQ(s),out=[];
+ if(t==='n'||t==='k')(t==='n'?KN:DIR.k).forEach(([a,b])=>{if(onB(f+a,r+b))out.push(SQ(f+a,r+b))});
+ else if(t==='p'){const d=c==='w'?1:-1;[-1,1].forEach(a=>{if(onB(f+a,r+d))out.push(SQ(f+a,r+d))})}
+ else DIR[t].forEach(([a,b])=>{let x=f+a,y=r+b;while(onB(x,y)){const q=SQ(x,y);out.push(q);if(pos[q])break;x+=a;y+=b}});
+ return out}
+function mv(pos,s){const p=pos[s],c=p[0];
+ if(p[1]==='p'){const[f,r]=PQ(s),d=c==='w'?1:-1,out=[];if(onB(f,r+d)&&!pos[SQ(f,r+d)]){out.push(SQ(f,r+d));if(r===(c==='w'?1:6)&&!pos[SQ(f,r+2*d)])out.push(SQ(f,r+2*d))}
+  att(pos,s).forEach(q=>{if(pos[q]&&pos[q][0]!==c)out.push(q)});return out}
+ return att(pos,s).filter(q=>!pos[q]||pos[q][0]!==c)}
+const kingSq=(pos,c)=>Object.keys(pos).find(s=>pos[s]===c+'k');
+const attackedBy=(pos,sq,c)=>Object.keys(pos).some(s=>pos[s][0]===c&&att(pos,s).includes(sq));
+const opp=c=>c==='w'?'b':'w';
+const inCheck=(pos,c)=>{const k=kingSq(pos,c);return !!k&&attackedBy(pos,k,opp(c))};
+function doMove(pos,f,t){const n={...pos};n[t]=n[f];delete n[f];if(n[t][1]==='p'&&(t[1]==='8'||t[1]==='1'))n[t]=n[t][0]+'q';return n}
+function legal(pos,c,from){const out=[];Object.keys(pos).filter(s=>pos[s][0]===c&&(!from||s===from)).forEach(s=>mv(pos,s).forEach(t=>{if(pos[t]&&pos[t][1]==='k')return;if(!inCheck(doMove(pos,s,t),c))out.push([s,t])}));return out}
+const isMate=pos=>inCheck(pos,'b')&&legal(pos,'b').length===0;
+const isPatt=pos=>!inCheck(pos,'b')&&legal(pos,'b').length===0;
+const kDist=(a,b)=>{const[x1,y1]=PQ(a),[x2,y2]=PQ(b);return Math.max(Math.abs(x1-x2),Math.abs(y1-y2))};
+const COLS={k:0,q:1,b:2,n:3,r:4,p:5};
+const pc=p=>`<span class="pc" style="background-position:${COLS[p[1]]*20}% ${p[0]==='w'?0:100}%"></span>`;
+const big=p=>`<span class="pcbig">${pc(p)}</span>`;
+function brett(pos,o={}){let h=`<div class="brd${o.click?' a bw" ¤':'"'}>`;
+ for(let r=7;r>=0;r--){h+=`<div class="crd">${r+1}</div>`;for(let f=0;f<8;f++){const s=SQ(f,r),p=pos[s];h+=`<div class="sq ${(f+r)%2?'l':'d'}${o.mk&&o.mk.includes(s)?' mk':''}${o.mg&&o.mg.includes(s)?' mg':''}" data-s="${s}">${p?pc(p):''}</div>`}}
+ return h+'<div></div>'+FL.split('').map(x=>`<div class="crd">${x}</div>`).join('')+'</div>'}
+const pawnOk=(p,s)=>p[1]!=='p'||(s[1]!=='1'&&s[1]!=='8');
+function place(list,fixed={}){const pos={...fixed};list.forEach(p=>{let s,g=0;do{s=pick(ALL);g++}while((pos[s]||!pawnOk(p,s))&&g<200);pos[s]=p});return pos}
+const sqOf=(pos,p)=>Object.keys(pos).find(s=>pos[s]===p);
+const desc=(pos,s)=>`${pos[s][0]==='w'?'weiß':'schwarz'}${pos[s][1]==='q'?'e':'er'} ${NAME[pos[s][1]]} auf ${s}`;
+function gen(f,ok,max=4000){for(let i=0;i<max;i++){const x=f();if(x&&ok(x))return x}return null}
+const KLICK=' Tippe die Felder an.';
+const BLK=['p','n','b','r','q'];
+const youngLight=s=>{const[f,r]=PQ(s);return (f+r)%2===1};
+
+/* ---- Bausteine für die Gangart-Blätter ---- */
+function zugTopic(t,id,title,intro){return{id,b:'zu',t:title,i:intro,g(L){
+ const me='w'+t,art=ART[t][0].toUpperCase()+ART[t].slice(1),nm=NAME[t];
+ const okSq=s=>t!=='p'||(s[1]>='2'&&s[1]<='7');
+ const mvs=(pos,s)=>t==='k'?legal(pos,'w',s).map(m=>m[1]):mv(pos,s);
+ if(L===1)return uniq(4,()=>{let s;do{s=pick(ALL)}while(!okSq(s));if(t==='p'&&Math.random()<.5)s=FL[r(0,7)]+'2';const pos={[s]:me},a=mvs(pos,s);return{q:brett(pos,{click:1,mk:[s]})+`<span>Tippe alle Felder an, auf die ${ART[t]} ${nm} ziehen kann.</span>`,a:[a.sort().join(' ')],s:`${art} ${nm} steht auf ${s}. Tippe alle Felder an, auf die ${ART[t]} ${nm} ziehen kann.`}});
+ if(L===2)return uniq(4,()=>gen(()=>{let s;do{s=pick(ALL)}while(!okSq(s));const own=t==='k'?[]:times(r(1,2),()=>pick(['wp','wn','wb'].filter(x=>x!==me))),blk=t==='k'?[pick(['br','bb','bq']),'bp']:times(r(1,2),()=>pick(['bp','bn','bb','br']));const pos=place(own.concat(blk),{[s]:me,...(t==='k'?{}:{})});if(t==='k'&&inCheck(pos,'w'))return null;const a=mvs(pos,s);return{pos,s,a}},x=>x.a.length>=2&&x.a.length<=12&&(t!=='p'||x.a.some(q=>x.pos[q]))||(x.a.length>=2&&x.a.length<=12&&t!=='p'))).map(({pos,s,a})=>({q:brett(pos,{click:1,mk:[s]})+`<span>Tippe alle Felder an, auf die ${ART[t]} rot umkreiste ${nm} ziehen kann. Auch Schlagen zählt.</span>`,a:[a.sort().join(' ')],s:`${art} weiße ${nm} steht auf ${s}. Tippe alle Felder an, auf die ${ART[t]} ${nm} ziehen oder schlagen kann. Deine eigenen Figuren darfst du nicht schlagen.${t==='k'?' Der König darf nicht ins Schach ziehen.':''}`}));
+ const it=uniq(2,()=>gen(()=>{let s;do{s=pick(ALL)}while(!okSq(s));const pos=place(times(3,()=>pick(['bp','bn','bb','br'])),{[s]:me});if(t==='k'&&inCheck(pos,'w'))return null;const cap=mvs(pos,s).filter(q=>pos[q]);return{pos,s,cap}},x=>x.cap.length===1)).map(({pos,s,cap})=>({q:brett(pos,{click:1,mk:[s]})+`<span>Welche schwarze Figur kann ${ART[t]} ${nm} schlagen? Tippe sie an.</span>`,a:[cap[0]],mode:'one',s:`${art} weiße ${nm} steht auf ${s}. Welche schwarze Figur kann ${ART[t]==='die'?'sie':'er'} schlagen? Tippe sie an.`}));
+ uniq(2,()=>gen(()=>{let s;do{s=pick(ALL)}while(!okSq(s));const pos=place(t==='k'?[pick(['br','bb','bq'])]:times(r(2,3),()=>pick(['wp','bp','bn','wn','wb'].filter(x=>x!==me))),{[s]:me});if(t==='k'&&inCheck(pos,'w'))return null;return{pos,s,n:mvs(pos,s).length}},x=>x.n>=1&&x.n<=14)).forEach(({pos,s,n})=>it.push({q:brett(pos,{mk:[s]})+`<span>Wie viele Felder kann ${ART[t]} rot umkreiste ${nm} erreichen? @</span>`,a:[n],s:`${art} weiße ${nm} steht auf ${s}. Wie viele Felder kann ${ART[t]==='die'?'sie':'er'} in einem Zug erreichen? Schlagen zählt mit.`}));
+ return it}}}
+
+const T=[
+/* ===== Das Schachbrett ===== */
+{id:'felder',b:'br',t:'Felder und Farben',i:L=>L===1?'Das Schachbrett hat helle und dunkle Felder. Rechts unten liegt immer ein helles Feld.':L===2?'Jede Linie und jede Reihe hat 8 Felder: 4 helle und 4 dunkle.':'Auch ohne Bild: a1 ist dunkel. Von dort wechseln die Farben immer ab.',
+ g(L){if(L===1){const it=uniq(4,()=>{const s=pick(ALL);return{q:brett({},{mk:[s]})+'<span>Das markierte Feld ist @</span>',a:[youngLight(s)?'hell':'dunkel'],o:[['hell','dunkel']],s:'Schau auf das rot markierte Feld. Ist es hell oder dunkel?'}});
+   it.push({q:'Wie viele Felder hat das Schachbrett? @',a:[64]},{q:'Rechts unten liegt immer ein @ Feld.',a:['helles'],o:[['helles','dunkles']]});return it}
+  if(L===2){const it=uniq(4,i=>{const lin=i%2===0,k=r(0,7),light=Math.random()<.5,set=times(8,j=>lin?SQ(k,j):SQ(j,k)).filter(s=>youngLight(s)===light);const nm=lin?`auf der Linie ${FL[k]}`:`auf der Reihe ${k+1}`;return{q:brett({},{click:1})+`<span>Tippe alle ${light?'hellen':'dunklen'} Felder ${nm} an.</span>`,a:[set.sort().join(' ')],s:`Tippe alle ${light?'hellen':'dunklen'} Felder ${nm} an.`}});
+   it.push({q:'Wie viele helle Felder hat das Schachbrett? @',a:[32]},{q:'Wie viele Felder hat eine Reihe? @',a:[8]});return it}
+  const it=uniq(4,()=>{const s=pick(ALL);return{q:`Welche Farbe hat das Feld <b>${s}</b>? @`,a:[youngLight(s)?'hell':'dunkel'],o:[['hell','dunkel']]}});
+  uniq(2,()=>{const s=pick(ALL);return{q:brett({},{click:1})+`<span>Tippe das Feld <b>${s}</b> an.</span>`,a:[s],mode:'one',s:`Tippe das Feld ${s} an.`}}).forEach(x=>it.push(x));return it}},
+{id:'linien',b:'br',t:'Linien, Reihen, Diagonalen',i:'Eine <b>Linie</b> geht von unten nach oben (a bis h). Eine <b>Reihe</b> geht von links nach rechts (1 bis 8). Eine <b>Diagonale</b> geht schräg.',
+ g(L){const line=k=>times(8,j=>SQ(k,j)),row=k=>times(8,j=>SQ(j,k));
+  const diag=()=>{const s=pick(ALL),[f,rk]=PQ(s),d=pick([[1,1],[1,-1]]);let a=f,b=rk;while(onB(a-d[0],b-d[1])){a-=d[0];b-=d[1]}const out=[];while(onB(a,b)){out.push(SQ(a,b));a+=d[0];b+=d[1]}return out};
+  if(L===1)return uniq(6,()=>{const lin=Math.random()<.5,k=r(0,7);return{q:brett({},{mg:lin?line(k):row(k)})+'<span>Das gelbe ist eine @</span>',a:[lin?'Linie':'Reihe'],o:[['Linie','Reihe']],s:'Schau auf die gelben Felder. Ist das eine Linie oder eine Reihe?'}});
+  if(L===2){const it=uniq(4,()=>{const t=pick(['Linie','Reihe','Diagonale']);let m;if(t==='Linie')m=line(r(0,7));else if(t==='Reihe')m=row(r(0,7));else{do{m=diag()}while(m.length<4)}return{q:brett({},{mg:m})+'<span>Das gelbe ist eine @</span>',a:[t],o:[['Linie','Reihe','Diagonale']],s:'Schau auf die gelben Felder. Ist das eine Linie, eine Reihe oder eine Diagonale?'}});
+   uniq(2,i=>{const k=r(0,7),lin=i===0;return{q:brett({},{click:1})+`<span>Tippe alle Felder der ${lin?'Linie '+FL[k]:'Reihe '+(k+1)} an.</span>`,a:[(lin?line(k):row(k)).sort().join(' ')],s:`Tippe alle Felder der ${lin?'Linie '+FL[k]:'Reihe '+(k+1)} an.`}}).forEach(x=>it.push(x));return it}
+  const it=uniq(2,()=>{let d;do{d=diag()}while(d.length<4||d.length>7);return{q:brett({},{click:1})+`<span>Tippe alle Felder der Diagonale von <b>${d[0]}</b> bis <b>${d[d.length-1]}</b> an.</span>`,a:[d.slice().sort().join(' ')],s:`Tippe alle Felder der Diagonale von ${d[0]} bis ${d[d.length-1]} an.`}});
+  uniq(2,()=>{let d;do{d=diag()}while(d.length<3||d.length>7);return{q:`Wie viele Felder hat die Diagonale von <b>${d[0]}</b> bis <b>${d[d.length-1]}</b>? @`,a:[d.length]}}).forEach(x=>it.push(x));
+  it.push({q:'Wie viele Felder hat die längste Diagonale? @',a:[8]});
+  const t=pick(['Diagonale','Linie','Reihe']),ex=t==='Diagonale'?'c1, d2, e3, f4':t==='Linie'?'d1, d2, d3, d4':'a5, b5, c5, d5';it.push({q:`Die Felder <b>${ex}</b> liegen auf einer @`,a:[t],o:[['Linie','Reihe','Diagonale']]});return it}},
+{id:'feldnamen',b:'br',t:'Feldnamen',i:'Jedes Feld hat einen Namen: erst der Buchstabe der Linie, dann die Zahl der Reihe. Beispiel: e4.',
+ g(L){const near=s=>{const[f,rk]=PQ(s),o=[[1,0],[0,1],[-1,0],[0,-1],[1,1]].map(([a,b])=>onB(f+a,rk+b)?SQ(f+a,rk+b):null).filter(Boolean);return opts3(s,o.concat([s]))};
+  if(L===1)return uniq(6,()=>{const s=pick(ALL);return{q:brett({},{mk:[s]})+'<span>Das markierte Feld heißt @</span>',a:[s],o:[near(s)],s:'Wie heißt das rot markierte Feld?'}});
+  if(L===2){const it=uniq(4,()=>{const s=pick(ALL);return{q:brett({},{click:1})+`<span>Tippe das Feld <b>${s}</b> an.</span>`,a:[s],mode:'one',s:`Tippe das Feld ${s} an.`}});
+   uniq(2,()=>{const s=pick(ALL);return{q:brett({},{mk:[s]})+'<span>Das markierte Feld heißt @</span>',a:[s],s:'Wie heißt das rot markierte Feld? Schreibe den Namen.'}}).forEach(x=>it.push(x));return it}
+  const it=uniq(3,()=>{const p=pick(['wn','wb','wr','bq','bk','wk']),s=pick(ALL);return{q:brett({[s]:p})+`<span>Auf welchem Feld steht ${ART[p[1]]} ${NAME[p[1]]}? @</span>`,a:[s],s:`Auf welchem Feld steht ${ART[p[1]]} ${NAME[p[1]]}? Schreibe den Feldnamen.`}});
+  uniq(3,()=>{const[a,b]=shuf(ALL);return{q:brett({},{click:1})+`<span>Tippe die Felder <b>${a}</b> und <b>${b}</b> an.</span>`,a:[[a,b].sort().join(' ')],s:`Tippe die Felder ${a} und ${b} an.`}}).forEach(x=>it.push(x));return it}},
+/* ===== Die Figuren ===== */
+{id:'figuren',b:'fi',t:'Die Figuren kennen',i:'Es gibt sechs Figuren: König, Dame, Turm, Läufer, Springer und Bauer.',
+ g(L){if(L===1)return uniq(6,()=>{const t=pick(['k','q','r','b','n','p']),c=pick(['w','b']);return{q:big(c+t)+'<span>Das ist ein(e) @</span>',a:[NAME[t]],o:[opts3(NAME[t],NAMES)],s:'Wie heißt diese Figur?'}});
+  if(L===2){const it=uniq(4,()=>{const pos=place(shuf(['wk','wq','wr','wb','wn','bp','bn','bb']).slice(0,5)),s=pick(Object.keys(pos)),t=pos[s][1];return{q:brett(pos)+`<span>Welche Figur steht auf <b>${s}</b>? @</span>`,a:[NAME[t]],o:[opts3(NAME[t],NAMES)],s:`Welche Figur steht auf dem Feld ${s}?`}});
+   it.push({q:'Wie viele Bauern hat jeder Spieler am Anfang? @',a:[8]},{q:'Wie viele Figuren hat jeder Spieler am Anfang insgesamt? @',a:[16]});return it}
+  const it=uniq(3,()=>gen(()=>{const t=pick(['r','n','b','p']),c=pick(['w','b']),pos=place(times(r(2,3),()=>c+t).concat(times(4,()=>pick(['wk','bk','wq','bq','wn','bb','wp','bp','wr','br'])).filter(p=>p!==c+t))),a=Object.keys(pos).filter(s=>pos[s]===c+t);return{pos,t,c,a}},x=>x.a.length>=2)).map(({pos,t,c,a})=>({q:brett(pos,{click:1})+`<span>Tippe alle ${c==='w'?'weißen':'schwarzen'} ${t==='p'?'Bauern':NAME[t]==='Turm'?'Türme':NAME[t]+''} an.</span>`,a:[a.sort().join(' ')],s:`Tippe alle ${c==='w'?'weißen':'schwarzen'} ${t==='p'?'Bauern':t==='r'?'Türme':t==='n'?'Springer':'Läufer'} an.`}));
+  uniq(3,()=>{const pos=place(times(r(5,8),()=>pick(['wk','bk','wq','bq','wn','bb','wp','bp','wr','br','bn','wb']))),n=Object.values(pos).filter(p=>p[0]==='b').length;return{q:brett(pos)+'<span>Wie viele schwarze Figuren stehen auf dem Brett? @</span>',a:[n],s:'Zähle die schwarzen Figuren auf dem Brett. Auch Bauern zählen.'}}).forEach(x=>it.push(x));return it}},
+{id:'grundstellung',b:'fi',t:'Die Grundstellung',i:L=>L===1?'So stehen die Figuren am Anfang. Merke: Die Dame steht auf ihrer eigenen Farbe.':L===2?'Eine Figur fehlt. Schau genau auf die Grundstellung.':'Zwei Figuren haben die Plätze getauscht. Findest du sie?',
+ g(L){const START={};'rnbqkbnr'.split('').forEach((t,f)=>{START[SQ(f,0)]='w'+t;START[SQ(f,7)]='b'+t;START[SQ(f,1)]='wp';START[SQ(f,6)]='bp'});
+  if(L===1){const items=uniq(4,()=>{const s=SQ(r(0,7),pick([0,7])),t=START[s][1];return{q:`Welche Figur steht am Anfang auf <b>${s}</b>? @`,a:[NAME[t]],o:[opts3(NAME[t],NAMES.slice(0,5))]}});
+   items.push({q:'Auf welcher Reihe stehen die weißen Bauern? @',a:[2]},{q:'Auf welcher Reihe stehen die schwarzen Bauern? @',a:[7]});return{pre:brett(START),items}}
+  if(L===2){const it=uniq(4,()=>{const s=pick(Object.keys(START).filter(s=>START[s][1]!=='p')),pos={...START};delete pos[s];return{q:brett(pos)+'<span>Welche Figur fehlt? @</span>',a:[NAME[START[s][1]]],o:[opts3(NAME[START[s][1]],NAMES.slice(0,5))],s:'Eine Figur fehlt in der Grundstellung. Welche Figur ist es?'}});
+   it.push({q:'Die weiße Dame steht am Anfang auf einem @ Feld.',a:['hellen'],o:[['hellen','dunklen']]},{q:'Die schwarze Dame steht am Anfang auf einem @ Feld.',a:['dunklen'],o:[['hellen','dunklen']]});return it}
+  return uniq(4,()=>gen(()=>{const rank=pick([0,7]),[f1,f2]=distinct(2,0,7),a=SQ(f1,rank),b=SQ(f2,rank);if(START[a]===START[b])return null;const pos={...START};[pos[a],pos[b]]=[pos[b],pos[a]];return{pos,a,b}},x=>!!x)).map(({pos,a,b})=>({q:brett(pos,{click:1})+'<span>Zwei Figuren stehen falsch. Tippe beide an.</span>',a:[[a,b].sort().join(' ')],s:'Zwei Figuren haben in der Grundstellung die Plätze getauscht. Tippe beide an.'}))}},
+{id:'wert',b:'fi',t:'Wert der Figuren',i:'Bauer = 1 · Springer = 3 · Läufer = 3 · Turm = 5 · Dame = 9. Der König ist unbezahlbar.',
+ g(L){const T5=['p','n','b','r','q'];
+  if(L===1){const it=uniq(5,()=>{const t=pick(T5);return{q:big('w'+t)+`<span>${ART[t][0].toUpperCase()+ART[t].slice(1)} ${NAME[t]} ist @ Bauern wert.</span>`,a:[VAL[t]],s:`Wie viele Bauern ist ${ART[t]} ${NAME[t]} wert?`}});it.push({q:big('wk')+'<span>Der König ist @</span>',a:['unbezahlbar'],o:[['1 Bauer wert','9 Bauern wert','unbezahlbar']],s:'Wie viel ist der König wert?'});return it}
+  if(L===2){const it=uniq(4,()=>{let a,b;do{[a,b]=shuf(T5)}while(VAL[a]===VAL[b]);return{q:`${big('w'+a)} oder ${big('w'+b)}<br>Mehr wert ist: @`,a:[NAME[VAL[a]>VAL[b]?a:b]],o:[[NAME[a],NAME[b]]],s:`Was ist mehr wert: ${ART[a]} ${NAME[a]} oder ${ART[b]} ${NAME[b]}?`}});
+   uniq(2,()=>{const[a,b]=shuf(T5);return{q:`${big('w'+a)} + ${big('w'+b)} = @ Bauern`,a:[VAL[a]+VAL[b]],s:`${NAME[a]} und ${NAME[b]} zusammen sind wie viele Bauern wert?`}}).forEach(x=>it.push(x));return it}
+  const row=a=>`<span class="pcs">${a.map(t=>big(t)).join('')}</span>`;
+  const it=uniq(3,()=>{const w=times(r(2,4),()=>'w'+pick(T5)),b=times(r(2,4),()=>'b'+pick(T5)),sw=sum(w.map(p=>VAL[p[1]])),sb=sum(b.map(p=>VAL[p[1]]));return{q:`<div class="box">Weiß: ${row(w)}<br>Schwarz: ${row(b)}</div><span>Mehr Material hat @</span>`,a:[sw>sb?'Weiß':sw<sb?'Schwarz':'beide gleich'],o:[['Weiß','Schwarz','beide gleich']],s:`Weiß hat ${w.map(p=>NAME[p[1]]).join(', ')}. Schwarz hat ${b.map(p=>NAME[p[1]]).join(', ')}. Wer hat mehr Material?`}});
+  uniq(3,()=>{let a,b;do{[a,b]=shuf(['n','b','r','q','p'])}while(false);return{q:`Du gibst ${AKK[a]} ${NAME[a]} und bekommst ${AKK[b]} ${NAME[b]}. Das ist @`,a:[VAL[b]>VAL[a]?'ein guter Tausch':VAL[b]<VAL[a]?'ein schlechter Tausch':'ein gleicher Tausch'],o:[['ein guter Tausch','ein schlechter Tausch','ein gleicher Tausch']]}}).forEach(x=>it.push(x));return it}},
+/* ===== So ziehen die Figuren ===== */
+zugTopic('r','turm','Der Turm','Der Turm zieht gerade: nach oben, unten, links und rechts, so weit er will. Er springt nicht über Figuren.'),
+zugTopic('b','laeufer','Der Läufer','Der Läufer zieht schräg auf den Diagonalen, so weit er will. Er bleibt immer auf seiner Farbe.'),
+zugTopic('q','dame','Die Dame','Die Dame zieht wie Turm und Läufer zusammen: gerade und schräg, so weit sie will.'),
+zugTopic('k','koenig','Der König','Der König zieht nur ein Feld weit, in jede Richtung. Er darf nicht auf ein Feld, das angegriffen ist.'),
+zugTopic('n','springer','Der Springer','Der Springer springt: zwei Felder gerade und eins zur Seite. Er darf über Figuren springen.'),
+zugTopic('p','bauer','Der Bauer','Der Bauer zieht ein Feld nach vorn. Beim ersten Zug darf er zwei Felder gehen. Er schlägt schräg nach vorn.'),
+/* ===== Schlagen und Schützen ===== */
+{id:'schlagen',b:'sc',t:'Schlagen',i:L=>L<3?'Eine Figur schlägt, indem sie auf das Feld der gegnerischen Figur zieht.':'Schlage die wertvollste Figur! Denk an die Werte: Bauer 1, Springer 3, Läufer 3, Turm 5, Dame 9.',
+ g(L){if(L===1)return uniq(4,()=>gen(()=>{const t=pick(['r','b','q','n']),s=pick(ALL),pos=place(times(3,()=>pick(['bp','bn','bb','br'])),{[s]:'w'+t}),cap=mv(pos,s).filter(q=>pos[q]);return{pos,s,t,cap}},x=>x.cap.length===1)).map(({pos,s,t,cap})=>({q:brett(pos,{click:1})+`<span>Welche schwarze Figur kann ${ART[t]} ${NAME[t]} schlagen? Tippe sie an.</span>`,a:[cap[0]],mode:'one',s:`${ART[t]==='die'?'Die':'Der'} weiße ${NAME[t]} steht auf ${s}. Welche schwarze Figur kann ${ART[t]==='die'?'sie':'er'} schlagen?`}));
+  if(L===2)return uniq(4,()=>gen(()=>{const w=shuf(['wr','wb','wn','wq']).slice(0,2),pos=place(w.concat(times(r(3,4),()=>pick(['bp','bn','bb','br'])))),cap=[...new Set(Object.keys(pos).filter(s=>pos[s][0]==='w').flatMap(s=>mv(pos,s)).filter(q=>pos[q]&&pos[q][0]==='b'))];return{pos,cap}},x=>x.cap.length>=1&&x.cap.length<=3)).map(({pos,cap})=>({q:brett(pos,{click:1})+'<span>Tippe alle schwarzen Figuren an, die Weiß schlagen kann.</span>',a:[cap.sort().join(' ')],s:'Tippe alle schwarzen Figuren an, die eine weiße Figur schlagen kann.'}));
+  return uniq(4,()=>gen(()=>{const w=shuf(['wr','wb','wn','wq']).slice(0,2),pos=place(w.concat(times(4,()=>pick(['bp','bn','bb','br','bq'])))),cap=[...new Set(Object.keys(pos).filter(s=>pos[s][0]==='w').flatMap(s=>mv(pos,s)).filter(q=>pos[q]&&pos[q][0]==='b'))];const v=cap.map(q=>VAL[pos[q][1]]),mx=Math.max(...v);return{pos,cap,best:cap[v.indexOf(mx)],uniq:v.filter(x=>x===mx).length===1}},x=>x.cap.length>=2&&x.uniq)).map(({pos,best})=>({q:brett(pos,{click:1})+'<span>Weiß ist am Zug. Tippe die wertvollste Figur an, die Weiß schlagen kann.</span>',a:[best],mode:'one',s:'Weiß ist am Zug. Welche ist die wertvollste schwarze Figur, die Weiß schlagen kann? Tippe sie an.'}))}},
+{id:'gedeckt',b:'sc',t:'Gedeckt oder ungedeckt',i:L=>L<3?'Eine Figur ist gedeckt, wenn eine eigene Figur sie beschützt. Wird sie geschlagen, kann zurückgeschlagen werden.':'Lohnt sich der Schlag? Wenn die Figur gedeckt ist, wird deine Figur zurückgeschlagen.',
+ g(L){const def=(pos,s)=>Object.keys(pos).some(q=>q!==s&&pos[q][0]===pos[s][0]&&att(pos,q).includes(s));
+  if(L===1)return uniq(4,i=>gen(()=>{const s=pick(ALL),pos=place(times(r(1,2),()=>pick(['bp','bn','bb','br'])),{[s]:pick(['bn','bb','br','bq'])});return{pos,s,d:def(pos,s)}},x=>x.d===(i%2===0))).map(({pos,s,d})=>({q:brett(pos,{mk:[s]})+'<span>Ist die markierte Figur gedeckt? @</span>',a:[d?'ja':'nein'],o:[['ja','nein']],s:`Schau auf die markierte schwarze Figur auf ${s}. Ist sie gedeckt?`}));
+  if(L===2)return uniq(4,()=>gen(()=>{const pos=place(times(4,()=>pick(['bp','bn','bb','br','bq']))),u=Object.keys(pos).filter(s=>!def(pos,s));return{pos,u}},x=>x.u.length>=1&&x.u.length<=3)).map(({pos,u})=>({q:brett(pos,{click:1})+'<span>Tippe alle schwarzen Figuren an, die <b>nicht</b> gedeckt sind.</span>',a:[u.sort().join(' ')],s:'Tippe alle schwarzen Figuren an, die nicht gedeckt sind.'}));
+  return uniq(6,i=>gen(()=>{const w=pick(['wn','wb','wr','wq']),ws=pick(ALL),pos=place(times(r(2,3),()=>pick(['bp','bn','bb','br','bq'])),{[ws]:w}),caps=mv(pos,ws).filter(q=>pos[q]);if(caps.length!==1)return null;const x=caps[0],good=!def(pos,x)||VAL[pos[x][1]]>=VAL[w[1]];return{pos,ws,x,good}},x=>!!x&&x.good===(i%2===0))).map(({pos,ws,x,good})=>({q:brett(pos,{mk:[x]})+`<span>Lohnt es sich für Weiß, die markierte Figur zu schlagen? @</span>`,a:[good?'ja':'nein'],o:[['ja','nein']],s:`Die weiße Figur auf ${ws} kann die markierte Figur auf ${x} schlagen. Lohnt sich das?`}))}},
+{id:'umwandlung',b:'sc',t:'Bauernumwandlung',i:L=>L===1?'Erreicht ein Bauer die letzte Reihe, wird er zu einer Dame, einem Turm, einem Läufer oder einem Springer.':L===2?'Bauernrennen: Wer ist zuerst auf der letzten Reihe? Denk an den Doppelschritt am Anfang.':'Der Bauer kann auch durch Schlagen auf die letzte Reihe kommen.',
+ g(L){const steps=(c,s)=>{const R=+s[1];return c==='w'?8-R-(R===2?1:0):R-1-(R===7?1:0)};
+  if(L===1){const it=uniq(4,()=>{const s=FL[r(0,7)]+r(2,7),pos={[s]:'wp'};return{q:brett(pos)+'<span>Wie viele Züge braucht der Bauer bis zur letzten Reihe? @</span>',a:[steps('w',s)],s:`Der weiße Bauer steht auf ${s}. Wie viele Züge braucht er bis zur letzten Reihe?`}});
+   it.push({q:'Meistens verwandelt man den Bauern in eine @',a:['Dame'],o:[['Dame','Turm','Springer']]},{q:'Darf sich ein Bauer in einen König verwandeln? @',a:['nein'],o:[['ja','nein']]});return it}
+  if(L===2){const it=uniq(4,()=>gen(()=>{const[fw,fb]=distinct(2,0,7);if(Math.abs(fw-fb)<2)return null;const ws=SQ(fw,r(1,5)),bs=SQ(fb,r(2,6)),pos={[ws]:'wp',[bs]:'bp'};return{pos,w:steps('w',ws),b:steps('b',bs)}},x=>!!x)).map(({pos,w,b})=>({q:brett(pos)+'<span>Weiß ist am Zug. Wer verwandelt zuerst? @</span>',a:[w<=b?'Weiß':'Schwarz'],o:[['Weiß','Schwarz']],s:'Bauernrennen. Weiß ist am Zug. Beide Bauern laufen los. Wer kommt zuerst auf die letzte Reihe?'}));
+   uniq(2,()=>{const s=FL[r(0,7)]+r(3,7),pos={[s]:'wp'};return{q:brett(pos,{click:1})+'<span>Tippe das Feld an, auf dem sich der Bauer verwandelt.</span>',a:[s[0]+'8'],mode:'one',s:`Der weiße Bauer steht auf ${s}. Auf welchem Feld verwandelt er sich?`}}).forEach(x=>it.push(x));return it}
+  const it=uniq(4,()=>gen(()=>{const f=r(0,7),s=SQ(f,6),pos={[s]:'wp'};[-1,0,1].forEach(d=>{if(onB(f+d,7)&&Math.random()<.55)pos[SQ(f+d,7)]=pick(['bn','br','bb','bq'])});const a=mv(pos,s);return{pos,s,a}},x=>x.a.length>=1)).map(({pos,s,a})=>({q:brett(pos,{click:1})+'<span>Tippe alle Felder an, auf denen sich der Bauer verwandeln kann.</span>',a:[a.sort().join(' ')],s:`Der weiße Bauer steht auf ${s}. Auf welchen Feldern kann er sich verwandeln? Auch Schlagen zählt.`}));
+  uniq(2,i=>{const s=i?FL[r(0,7)]+'2':FL[r(0,7)]+'7';return{q:`Ein ${i?'weißer':'schwarzer'} Bauer steht auf <b>${s}</b>. Wie viele Züge braucht er mindestens bis zur letzten Reihe? @`,a:[5]}}).forEach(x=>it.push(x));return it}},
+/* ===== Schach und Matt ===== */
+{id:'schach',b:'ma',t:'Schach erkennen',i:L=>L===1?'Schach heißt: Der König wird angegriffen.':L===2?'Nur eine weiße Figur gibt Schach. Welche ist es?':'Wohin muss die Figur ziehen, damit sie Schach gibt?',
+ g(L){if(L===1)return uniq(6,i=>gen(()=>{const bk=pick(ALL),w=pick(['wr','wb','wq','wn','wp']),pos=place([w],{[bk]:'bk'});return{pos,c:inCheck(pos,'b')}},x=>x.c===(i%2===0))).map(({pos,c})=>({q:brett(pos)+'<span>Steht der schwarze König im Schach? @</span>',a:[c?'ja':'nein'],o:[['ja','nein']],s:'Steht der schwarze König im Schach?'}));
+  if(L===2)return uniq(4,()=>gen(()=>{const bk=pick(ALL),pos=place(shuf(['wr','wb','wq','wn']).slice(0,3),{[bk]:'bk'}),ch=Object.keys(pos).filter(s=>pos[s][0]==='w'&&att(pos,s).includes(bk));return{pos,ch}},x=>x.ch.length===1)).map(({pos,ch})=>({q:brett(pos,{click:1})+'<span>Welche weiße Figur gibt Schach? Tippe sie an.</span>',a:[ch[0]],mode:'one',s:'Der schwarze König steht im Schach. Welche weiße Figur greift ihn an? Tippe sie an.'}));
+  return uniq(4,()=>gen(()=>{const bk=pick(ALL),t=pick(['r','b','q','n']),s=pick(ALL),pos=place([],{[bk]:'bk',[s]:'w'+t});if(Object.keys(pos).length<2||inCheck(pos,'b'))return null;const a=mv(pos,s).filter(q=>inCheck(doMove(pos,s,q),'b'));return{pos,s,t,a}},x=>!!x&&x.a.length>=1&&x.a.length<=5)).map(({pos,s,t,a})=>({q:brett(pos,{click:1})+`<span>Tippe alle Felder an, auf denen ${ART[t]} ${NAME[t]} Schach gibt.</span>`,a:[a.sort().join(' ')],s:`${ART[t]==='die'?'Die':'Der'} weiße ${NAME[t]} steht auf ${s}. Auf welchen Feldern gibt ${ART[t]==='die'?'sie':'er'} dem schwarzen König Schach? Tippe alle an.`}))}},
+{id:'abwehren',b:'ma',t:'Schach abwehren',i:L=>L===1?'Der König kann aus dem Schach weggehen. Er darf aber nicht auf ein angegriffenes Feld.':L===2?'Man kann ein Schach auch abwehren, indem man eine Figur dazwischenstellt.':'Drei Wege gegen Schach: wegziehen, dazwischenstellen oder die angreifende Figur schlagen.',
+ g(L){if(L===1)return uniq(4,()=>gen(()=>{const bk=pick(ALL),pos=place([pick(['wr','wq','wb']),...(Math.random()<.5?[pick(['wr','wn','wb'])]:[])],{[bk]:'bk'});if(!inCheck(pos,'b'))return null;if(Object.keys(pos).some(s=>pos[s][0]==='w'&&kDist(s,bk)===1))return null;const a=legal(pos,'b').map(m=>m[1]);return{pos,a}},x=>!!x&&x.a.length>=1&&x.a.length<=5)).map(({pos,a})=>({q:brett(pos,{click:1})+'<span>Tippe alle Felder an, auf die der König flüchten kann.</span>',a:[a.sort().join(' ')],s:'Der schwarze König steht im Schach. Tippe alle Felder an, auf die er flüchten kann.'}));
+  if(L===2)return uniq(4,()=>gen(()=>{const bk=pick(ALL),wsl=pick(['wr','wq','wb']),pos=place([wsl,pick(['bn','bb','br'])],{[bk]:'bk'});if(!inCheck(pos,'b'))return null;const chk=Object.keys(pos).find(s=>pos[s][0]==='w'&&att(pos,s).includes(bk));if(kDist(chk,bk)<2)return null;const a=[...new Set(legal(pos,'b').filter(m=>pos[m[0]][1]!=='k'&&m[1]!==chk).map(m=>m[1]))];return{pos,a}},x=>!!x&&x.a.length>=1)).map(({pos,a})=>({q:brett(pos,{click:1})+'<span>Auf welches Feld kann sich eine schwarze Figur dazwischenstellen? Tippe es an.</span>',a:[a.join('|')],mode:'one',s:'Der schwarze König steht im Schach. Eine schwarze Figur kann sich dazwischenstellen. Tippe das Feld an, auf das sie ziehen muss.'}));
+  return uniq(4,()=>gen(()=>{const bk=pick(ALL),pos=place([pick(['wr','wq','wb','wn']),...(Math.random()<.6?[pick(['bn','bb','br'])]:[]),...(Math.random()<.4?['wr']:[])],{[bk]:'bk'});if(!inCheck(pos,'b'))return null;return{pos,n:legal(pos,'b').length}},x=>!!x&&x.n>=1&&x.n<=6)).map(({pos,n})=>({q:brett(pos)+'<span>Wie viele Züge hat Schwarz, um das Schach abzuwehren? @</span>',a:[n],s:'Der schwarze König steht im Schach. Wie viele verschiedene Züge hat Schwarz, um das Schach abzuwehren? Zähle alle Wege.'}))}},
+{id:'matt',b:'ma',t:'Matt oder nicht?',i:L=>L===1?'Matt heißt: Der König steht im Schach und kann sich nicht mehr retten. Dann ist das Spiel aus.':L===2?'Schach oder Matt? Prüfe alle Fluchtfelder des Königs.':'Patt heißt: Der König steht nicht im Schach, aber Schwarz hat keinen Zug mehr. Dann ist es unentschieden.',
+ g(L){const mk=(extra)=>{const edge=pick(['r8','r1','fa','fh']);let bk;if(edge[0]==='r')bk=FL[r(0,7)]+edge[1];else bk=edge[1]+r(1,8);const[bf,br]=PQ(bk);let wk,g=0;do{const a=bf+r(-2,2),b=br+r(-2,2);wk=onB(a,b)?SQ(a,b):null;g++}while((!wk||kDist(wk,bk)<2)&&g<50);if(!wk)return null;const pos=place(extra,{[bk]:'bk',[wk]:'wk'});if(Object.keys(pos).length<2+extra.length)return null;if(inCheck(pos,'w'))return null;return pos};
+  const W1=()=>[pick(['wq','wr'])],W2=()=>pick([['wq'],['wr'],['wr','wr'],['wq','wn'],['wr','wb'],['wq','bp']]);
+  if(L===1)return uniq(6,i=>gen(()=>mk(W1()),p=>!!p&&inCheck(p,'b')&&isMate(p)===(i%2===0),30000)).map(pos=>({q:brett(pos)+'<span>Ist der schwarze König matt? @</span>',a:[isMate(pos)?'ja':'nein'],o:[['ja','nein']],s:'Der schwarze König steht im Schach. Ist er matt?'}));
+  if(L===2)return uniq(6,i=>gen(()=>mk(W2()),p=>!!p&&inCheck(p,'b')&&isMate(p)===(i%2===0),30000)).map(pos=>({q:brett(pos)+'<span>Das ist @</span>',a:[isMate(pos)?'Matt':'Schach'],o:[['Schach','Matt']],s:'Schwarz ist am Zug. Ist das nur Schach oder schon Matt?'}));
+  const K=['Schach','Matt','Patt'],typ=p=>isMate(p)?'Matt':isPatt(p)?'Patt':inCheck(p,'b')?'Schach':'nichts';
+  return uniq(6,i=>gen(()=>mk(W1()),p=>!!p&&typ(p)===K[i%3],40000)).map(pos=>({q:brett(pos)+'<span>Schwarz ist am Zug. Das ist @</span>',a:[typ(pos)],o:[K],s:'Schwarz ist am Zug. Ist das Schach, Matt oder Patt?'}))}},
+{id:'mattin1',b:'ma',t:'Matt in einem Zug',i:L=>L===1?'Grundreihenmatt: Der König ist hinter seinen eigenen Bauern eingesperrt. Der Turm setzt auf der letzten Reihe matt.':'Weiß ist am Zug und setzt matt. Prüfe genau: Kann der König danach noch flüchten?',
+ g(L){const mates=pos=>[...new Set(legal(pos,'w').filter(([f,t])=>isMate(doMove(pos,f,t))).map(m=>m[1]))];
+  const ok=p=>!!p&&!inCheck(p,'b')&&!inCheck(p,'w')&&legal(p,'b').length>0;
+  let mk;
+  if(L===1)mk=()=>{const kf=pick([0,1,2,5,6,7]),bk=SQ(kf,7),pos={[bk]:'bk'};[-1,0,1].forEach(d=>{if(onB(kf+d,6))pos[SQ(kf+d,6)]='bp'});let rs;do{rs=SQ(r(0,7),r(0,4))}while(pos[rs]||Math.abs(PQ(rs)[0]-kf)<2);pos[rs]=pick(['wr','wq']);let wk;do{wk=SQ(r(0,7),r(0,1))}while(pos[wk]);pos[wk]='wk';return pos};
+  else if(L===2)mk=()=>{const pos=matt_mk(['wq']);return pos};
+  else mk=()=>matt_mk(pick([['wr','wr'],['wq','wn'],['wr','wb'],['wq','wb'],['wr','wn','bp']]));
+  return uniq(4,()=>gen(()=>{const p=mk();if(!ok(p))return null;const m=mates(p);return m.length>=1&&m.length<=2?{p,m}:null},x=>!!x,40000)).map(({p,m})=>({q:brett(p,{click:1})+'<span>Weiß zieht und setzt matt. Tippe das Feld an, auf das Weiß ziehen muss.</span>',a:[m.join('|')],mode:'one',s:'Weiß ist am Zug und kann in einem Zug matt setzen. Tippe das Feld an, auf das die weiße Figur ziehen muss.'}))}},
+{id:'regeln',b:'ma',t:'Spielregeln',i:L=>L<3?'Wichtige Regeln für jede Schachpartie.':'Die Rochade: König und Turm ziehen in einem Zug. Der König geht zwei Felder zum Turm, der Turm springt über ihn.',
+ g(L){const P1=[['Wer beginnt eine Schachpartie?','Weiß',['Weiß','Schwarz']],['Wie ziehen die Spieler?','abwechselnd',['abwechselnd','wie sie wollen']],['Wie viele Züge darf man auf einmal machen?','einen',['einen','zwei','drei']],['Darf man den König schlagen?','nein',['ja','nein']],['Was ist das Ziel im Schach?','Matt setzen',['Matt setzen','alle Bauern schlagen','die Dame schlagen']],['Darf man eine eigene Figur schlagen?','nein',['ja','nein']],['Wie viele Könige hat jeder Spieler?','einen',['einen','zwei']]];
+  const P2=[['Was passiert bei Patt?','unentschieden',['Weiß gewinnt','Schwarz gewinnt','unentschieden']],['Darf der König ins Schach ziehen?','nein',['ja','nein']],['Du berührst eine eigene Figur. Dann musst du','sie ziehen',['sie ziehen','eine andere ziehen']],['Wie viele Felder darf ein Bauer beim ersten Zug höchstens gehen?','zwei',['eins','zwei','drei']],['Welche Figur darf über andere springen?','Springer',['Springer','Läufer','Turm']],['Du stehst im Schach. Musst du etwas dagegen tun?','ja',['ja','nein']],['Welche Figur kann nie rückwärts ziehen?','Bauer',['Bauer','König','Springer']]];
+  const P3=[['Welche Figuren ziehen bei der Rochade?','König und Turm',['König und Turm','König und Dame','Turm und Läufer']],['Wie viele Felder zieht der König bei der Rochade?','zwei',['eins','zwei','drei']],['Darfst du rochieren, wenn dein König im Schach steht?','nein',['ja','nein']],['Darfst du rochieren, wenn dein König schon gezogen hat?','nein',['ja','nein']],['Kurze Rochade: Auf welches Feld zieht der weiße König?','g1',['g1','f1','c1']],['Lange Rochade: Auf welches Feld zieht der weiße König?','c1',['c1','b1','d1']],['Kurze Rochade: Auf welches Feld zieht der weiße Turm?','f1',['f1','g1','e1']],['Darf zwischen König und Turm eine Figur stehen?','nein',['ja','nein']]];
+  return shuf(L===1?P1:L===2?P2:P3).slice(0,6).map(([q,a,o])=>({q:`${q} @`,a:[a],o:[o]}))}}
+];
+function matt_mk(extra){const edge=pick(['r8','r8','fa','fh']);let bk=edge[0]==='r'?FL[r(0,7)]+'8':edge[1]+r(1,8);const[bf,br]=PQ(bk);let wk,g=0;do{const a=bf+r(-2,2),b=br+r(-3,0);wk=onB(a,b)?SQ(a,b):null;g++}while((!wk||kDist(wk,bk)<2)&&g<50);if(!wk)return null;const pos=place(extra,{[bk]:'bk',[wk]:'wk'});return Object.keys(pos).length===2+extra.length?pos:null}
+/* Bildschirm: „Tippe … an“, Druck: „Kreuze … an“ */
+document.head.insertAdjacentHTML('beforeend','<style>.prnt{display:none}@media print{.scrn{display:none}.prnt{display:inline}}</style>');
+T.forEach(tp=>{const g=tp.g;tp.g=L=>{const d=g(L);(Array.isArray(d)?d:d.items).forEach(it=>{it.q=it.q.replace(/Tippe (.{1,90}?) an([.,])/g,(m,x,p)=>`<span class="scrn">Tippe ${x} an${p}</span><span class="prnt">Kreuze ${x} an${p}</span>`)});return d}});
+
+
+/* ---------- Vorlesen ---------- */
+const TTS='speechSynthesis' in window;
+if(!TTS)document.body.classList.add('no-tts');
+const SAY=`<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>`;
+const sayBtn=`<button class="say noprint" type="button" aria-label="Vorlesen" title="Vorlesen">${SAY}</button>`;
+const EMO={'🐶':'Hund','🐱':'Katze','🐭':'Maus','🐰':'Hase','🦊':'Fuchs','🐻':'Bär','🐼':'Panda','🐸':'Frosch','🐵':'Affe','🐷':'Schwein','🐮':'Kuh','🦁':'Löwe','🍎':'Apfel','🍌':'Banane','🍓':'Erdbeere','🍐':'Birne','🍇':'Trauben','🍉':'Melone','⚽':'Fußball','🏀':'Basketball','🎾':'Tennis','🏊':'Schwimmen','🚲':'Fahrrad','🚗':'Auto','🚌':'Bus','🚶':'zu Fuß','👕':'T-Shirt','👖':'Hose','🧢':'Mütze','👟':'Schuhe'};
+const SYM={'<':'kleiner','>':'größer','=':'gleich','+':'plus','−':'minus','·':'mal',':':'geteilt durch'};
+const UN={km:'Kilometer',cm:'Zentimeter',mm:'Millimeter',m:'Meter',kg:'Kilogramm',g:'Gramm',t:'Tonnen',ml:'Milliliter',l:'Liter',min:'Minuten',h:'Stunden',s:'Sekunden',ct:'Cent'};
+let voice=null;
+function pickVoice(){if(!TTS)return;const v=speechSynthesis.getVoices().filter(v=>/^de/i.test(v.lang));voice=v.find(v=>/google|natural|online/i.test(v.name))||v[0]||null}
+if(TTS){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function cleanSpeech(t){
+ Object.keys(EMO).forEach(k=>{t=t.split(k).join(' '+EMO[k]+' ')});
+ t=t.replace(/\p{Extended_Pictographic}|\uFE0F/gu,' ').replace(new RegExp(NB,'g'),'')
+  .replace(/(\d{1,2}):(\d{2})\s*Uhr/g,(m,h,mm)=>`${h} Uhr ${+mm?+mm:''}`)
+  .replace(/(\d+),(\d{2})\s*€/g,(m,e,c)=>+e?`${e} Euro ${+c?+c+' Cent':''}`:`${+c} Cent`)
+  .replace(/Maßstab\s*(\d+)\s*:\s*([\d]+)/g,'Maßstab $1 zu $2')
+  .replace(/(\d|Lücke)\s*(km|cm|mm|kg|ml|min|ct|m|g|t|l|h|s)(?![\wäöüß])/g,(m,a,u)=>a+' '+UN[u])
+  .replace(/(\d)\s*\+\s*/g,'$1 plus ').replace(/\s\+\s/g,' plus ')
+  .replace(/−/g,' minus ').replace(/·/g,' mal ').replace(/\s:\s/g,' geteilt durch ')
+  .replace(/≈/g,' ungefähr ').replace(/=/g,' ist gleich ').replace(/€/g,' Euro ')
+  .replace(/</g,' kleiner ').replace(/>/g,' größer ').replace(/\s+/g,' ').trim();
+ return t}
+function speechOf(el){
+ if(el.classList.contains('intro'))return cleanSpeech(el.textContent);
+ const opts=[...el.querySelectorAll('select.a')].map(s=>[...s.options].slice(1).map(o=>SYM[o.value]||EMO[o.value]||o.value));
+ let txt;
+ if(el.dataset.s)txt=el.dataset.s;
+ else{const c=el.cloneNode(true);
+  c.querySelectorAll('.sol,.po,.nr,.say,svg,.emo,.m,.wline,.sr,.mauer,table,.kar,.brd,.pcbig').forEach(x=>x.remove());
+  c.querySelectorAll('input.a,select.a').forEach(x=>x.replaceWith(' Lücke '));
+  c.querySelectorAll('br').forEach(x=>x.replaceWith('. '));
+  txt=c.textContent}
+ txt=cleanSpeech(txt);
+ opts.forEach(o=>{const w=o.length>1?o.slice(0,-1).join(', ')+' oder '+o[o.length-1]:o[0];txt=txt.replace(/[\s.]+$/,'');txt+=(/[?!]$/.test(txt)?' ':'. ')+'Wähle: '+w+'.'});
+ return txt}
+function speak(text,el){if(!TTS||!text)return;speechSynthesis.cancel();
+ document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
+ const u=new SpeechSynthesisUtterance(text);u.lang='de-DE';u.rate=.88;if(voice)u.voice=voice;
+ if(el){el.classList.add('speaking');u.onend=u.onerror=()=>el.classList.remove('speaking')}
+ speechSynthesis.speak(u)}
+
+/* ---------- Prüfen ---------- */
+const norm=v=>String(v).replace(/[\s€]/g,'').toLowerCase();
+const numv=v=>{v=norm(v);if(/^\d{1,3}(\.\d{3})+$/.test(v))v=v.replace(/\./g,'');v=v.replace(',','.');return /^-?\d+(\.\d+)?$/.test(v)?parseFloat(v):NaN};
+function correctBW(x){const v=(x.dataset.v||'').split(' ').filter(Boolean),a=x.dataset.a;if(x.dataset.mode==='one')return v.length===1&&a.split('|').includes(v[0]);return v.slice().sort().join(' ')===a.split(' ').filter(Boolean).sort().join(' ')}
+function correct(v,ans){const al=ans.split('|'),n=norm(v);if(al.some(a=>norm(a)===n))return true;const x=numv(v);return !isNaN(x)&&al.some(a=>{const y=numv(a);return !isNaN(y)&&Math.abs(x-y)<1e-9})}
+
+/* ---------- Darstellung ---------- */
+const $=s=>document.querySelector(s);
+const LV={};T.forEach(t=>LV[t.id]=2);
+let curId=T[0].id;
+const intro=(tp,L)=>typeof tp.i==='function'?tp.i(L):tp.i;
+function itemsHTML(items){return items.map((it,k)=>{let j=0;
+ const q=it.q.replace(/[@§¤]/g,m=>{const o=it.o&&it.o[j],ans=String(it.a[j]),first=ans.split('|')[0],sol=esc(first);j++;
+  if(m==='¤')return `data-a="${esc(ans)}" data-mode="${it.mode||'all'}" role="group" aria-label="Schachbrett"`;
+  if(m==='§')return `<input class="a dg" type="text" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Ziffer" placeholder="${sol}" data-a="${esc(ans)}">`;
+  if(o)return `<select class="a" data-a="${esc(ans)}" aria-label="Antwort"><option value="">?</option>${o.map(v=>`<option>${esc(v)}</option>`).join('')}</select><span class="po">${o.map(v=>'○ '+esc(v)).join('&nbsp;&nbsp;')}</span><span class="sol">${sol}</span>`;
+  const w=Math.max(2.8,first.length*.72+1.4).toFixed(1);
+  return `<input class="a" style="width:${w}em" type="text" inputmode="decimal" autocomplete="off" aria-label="Antwort" data-a="${esc(ans)}"><span class="sol">${sol}</span>`});
+ return `<div class="item"${it.s?` data-s="${esc(it.s)}"`:''}><span class="nr">${k+1}</span>${sayBtn}${q}</div>`}).join('')}
+function paperHTML(tp,L,live){const b=B[tp.b],nr=T.indexOf(tp)+1,d=tp.g(L),items=Array.isArray(d)?d:d.items,pre=Array.isArray(d)?'':d.pre;
+ const prev=T[nr-2],next=T[nr],pc=typeof tp.pc==='function'?tp.pc(L):tp.pc,wide=typeof tp.wide==='function'?tp.wide(L):tp.wide;
+ return `<div class="paper">
+ <div class="shead"><div><span class="tag">${b.n}</span><h2><span class="bnr">${nr}</span>${tp.t}</h2></div>
+  ${live?`<div class="seg noprint" role="group" aria-label="Stufe">${[1,2,3].map(l=>`<button type="button" class="${l===L?'on':''}" data-lv="${l}">${ST[l].s}<small>${ST[l].n}</small></button>`).join('')}</div>`:''}
+  <div class="pstufe">${ST[L].s}<br><small>${ST[L].n}</small></div></div>
+ <div class="namezeile"><span>Name:</span><span>Datum:</span></div>
+ <div class="intro">${sayBtn}<div>${intro(tp,L)}</div></div>${pre?`<div class="pre">${pre}</div>`:''}
+ <div class="items${wide?' wide':''}${pc===3?' pc3':''}">${itemsHTML(items)}</div>
+ <div class="pfoot">Schach Klasse 1 · Blatt ${nr} · ${b.n} · Stufe ${ST[L].s} ${ST[L].n} · © Dr. Edmund Bruns</div>
+ ${live?`<div class="foot noprint"><button class="btn" data-act="check">✅ Prüfen</button><button class="btn ghost" data-act="new">Neue Aufgaben</button><button class="btn ghost" data-act="print">Blatt drucken</button><button class="btn ghost" data-act="print3">In 3 Stufen drucken</button><span class="fb" aria-live="polite"></span></div>
+ <div class="pn noprint"><span>${prev?`<button data-go="${prev.id}">← ${prev.t}</button>`:''}</span><span>${next?`<button data-go="${next.id}">${next.t} →</button>`:''}</span></div>`:''}
+ </div>`}
+function markSol(root){root.querySelectorAll('.bw').forEach(b=>b.dataset.a.split(/[ |]/).forEach(s=>{const q=b.querySelector(`[data-s="${s}"]`);if(q)q.classList.add('so')}))}
+const DONE=new Set();
+function renderSheet(tp){const el=$('#s-'+tp.id);el.innerHTML=paperHTML(tp,LV[tp.id],true);markSol(el);DONE.add(tp.id)}
+const ensure=id=>{if(!DONE.has(id))renderSheet(T.find(t=>t.id===id))};
+const renderAll=()=>T.forEach(t=>ensure(t.id));
+function check(el){const as=el.querySelectorAll('.a');let ok=0,leer=0;
+ as.forEach(x=>{const isB=x.classList.contains('bw'),v=isB?(x.dataset.v||''):x.value.trim();x.classList.remove('ok','bad');if(!v){leer++;return}
+  if(isB?correctBW(x):correct(v,x.dataset.a)){x.classList.add('ok');ok++}else x.classList.add('bad')});
+ const fb=el.querySelector('.fb'),tot=as.length;let say;
+ if(leer===tot){fb.textContent='Trage zuerst etwas ein. 🤔';fb.className='fb try';say='Trage zuerst etwas ein.'}
+ else if(ok===tot){fb.textContent='Super gemacht! Alles richtig! 🎉🌟';fb.className='fb good';say='Super gemacht! Alles richtig!'}
+ else{say=`Du hast ${ok} von ${tot} richtig. `+(leer?`${leer} fehlen noch. `:'')+'Schau dir die roten Felder noch einmal an.';fb.textContent=say+' 💪';fb.className='fb try'}
+ speak(say)}
+function buildNav(){const cb=T.find(t=>t.id===curId).b;
+ $('#btabs').innerHTML=Object.keys(B).map(k=>`<button type="button" class="btab${k===cb?' on':''}" data-b="${k}" style="--c:${B[k].c}"><span class="bdot"></span>${B[k].n}<span class="cnt">${T.filter(t=>t.b===k).length}</span></button>`).join('');
+ $('#tiles').style.setProperty('--c',B[cb].c);
+ $('#tiles').innerHTML=T.filter(t=>t.b===cb).map(t=>`<button type="button" class="tile${t.id===curId?' on':''}" data-id="${t.id}"><span class="tnr">${T.indexOf(t)+1}</span>${t.t}</button>`).join('');
+ const all=T.every(t=>LV[t.id]===LV[T[0].id])?LV[T[0].id]:0;
+ $('#allLv').innerHTML=[1,2,3].map(l=>`<button type="button" class="${l===all?'on':''}" data-all="${l}">${ST[l].s}<small>${ST[l].n}</small></button>`).join('')}
+function show(id,scroll){curId=id;ensure(id);T.forEach(t=>$('#s-'+t.id).classList.toggle('active',t.id===id));buildNav();
+ try{history.replaceState(null,'','#'+id)}catch(e){}
+ if(scroll)$('#s-'+id).scrollIntoView({behavior:'smooth',block:'start'})}
+function doPrint(cls){if(TTS)speechSynthesis.cancel();if(cls)document.body.classList.add(cls);window.print()}
+
+$('#main').innerHTML=T.map(t=>`<section class="sheet" id="s-${t.id}" style="--c:${B[t.b].c}"></section>`).join('');
+$('#btabs').addEventListener('click',e=>{const b=e.target.closest('[data-b]');if(b)show(T.find(t=>t.b===b.dataset.b).id,false)});
+$('#tiles').addEventListener('click',e=>{const t=e.target.closest('[data-id]');if(t)show(t.dataset.id,true)});
+$('#allLv').addEventListener('click',e=>{const b=e.target.closest('[data-all]');if(!b)return;T.forEach(t=>{LV[t.id]=+b.dataset.all});DONE.clear();renderSheet(T.find(t=>t.id===curId));buildNav()});
+$('#main').addEventListener('click',e=>{const sh=e.target.closest('.sheet');if(!sh)return;const tp=T.find(t=>'s-'+t.id===sh.id);
+ const lv=e.target.closest('[data-lv]');if(lv){LV[tp.id]=+lv.dataset.lv;renderSheet(tp);buildNav();return}
+ const go=e.target.closest('[data-go]');if(go){show(go.dataset.go,true);return}
+ const act=e.target.closest('[data-act]');
+ if(act){const a=act.dataset.act;
+  if(a==='check')check(sh);else if(a==='new')renderSheet(tp);else if(a==='print')doPrint();
+  else{$('#printbox').innerHTML=[1,2,3].map(l=>`<section class="sheet" style="--c:${B[tp.b].c}">${paperHTML(tp,l,false)}</section>`).join('');markSol($('#printbox'));doPrint('p3')}
+  return}
+ const sqEl=e.target.closest('.bw .sq');if(sqEl){const b=sqEl.closest('.bw'),s=sqEl.dataset.s;let v=(b.dataset.v||'').split(' ').filter(Boolean);if(b.dataset.mode==='one')v=v.includes(s)?[]:[s];else v=v.includes(s)?v.filter(x=>x!==s):v.concat(s);b.dataset.v=v.join(' ');b.querySelectorAll('.sq').forEach(q=>q.classList.toggle('sel',v.includes(q.dataset.s)));b.classList.remove('ok','bad');return}
+ if(e.target.closest('input,select,option'))return;
+ const t=e.target.closest('.item,.intro');if(t)speak(speechOf(t),t)});
+$('#main').addEventListener('input',e=>{const x=e.target;if(!x.classList.contains('a'))return;x.classList.remove('ok','bad');
+ if(x.classList.contains('dg')&&x.value.length===1){const all=[...x.closest('.item').querySelectorAll('input.dg')],i=all.indexOf(x);if(i>0)all[i-1].focus()}});
+$('#main').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList.contains('a'))check(e.target.closest('.sheet'))});
+$('#printAll').onclick=()=>{renderAll();doPrint('printall')};
+window.addEventListener('afterprint',()=>{document.body.classList.remove('printall','p3');$('#printbox').innerHTML=''});
+$('#solBtn').onclick=()=>{const on=document.body.classList.toggle('show-sol');$('#solBtn').textContent=on?'Lösungen verstecken':'Lösungen zeigen'};
+$('#allNew').onclick=()=>{DONE.clear();renderSheet(T.find(t=>t.id===curId))};
+const start=location.hash.slice(1);show(T.some(t=>t.id===start)?start:T[0].id,false);
+</script>
+</body>
+</html>

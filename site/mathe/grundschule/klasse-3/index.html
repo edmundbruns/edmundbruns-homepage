@@ -171,7 +171,7 @@ table.tab th{background:#f7f9fc}
 <div class="note">Orientiert an den Kompetenzbereichen des Kerncurriculums Mathematik für die Grundschule in Niedersachsen. Bei jedem Laden entstehen neue Aufgaben. © Dr. Edmund Bruns · CC BY-NC 4.0</div>
 
 <script>
-const B={
+let B={
  zo:{n:"Zahlen und Operationen",c:"#2b7bd8"},
  gm:{n:"Größen und Messen",c:"#e67e22"},
  rf:{n:"Raum und Form",c:"#27ae60"},
@@ -184,7 +184,7 @@ const pick=a=>a[Math.floor(Math.random()*a.length)];
 const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const times=(n,f)=>Array.from({length:n},(_,i)=>f(i));
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-function uniq(n,f){const out=[],seen=new Set();let g=0;while(out.length<n&&g<1500){g++;const it=f(out.length);const k=it.q+'|'+it.a;if(!seen.has(k)){seen.add(k);out.push(it)}}return out}
+function uniq(n,f){const out=[],seen=new Set();let g=0;while(out.length<n&&g<1500){g++;const it=f(out.length);if(!it)continue;const k=it.q!==undefined?it.q+'|'+it.a:JSON.stringify(it);if(!seen.has(k)){seen.add(k);out.push(it)}}return out}
 const opts3=(ans,all)=>shuf([ans,...shuf(all.filter(x=>x!==ans)).slice(0,2)]);
 const distinct=(n,a,b)=>{let x;do{x=times(n,()=>r(a,b))}while(new Set(x).size<n);return x};
 const rr=(a,b,s)=>s*r(Math.ceil(a/s),Math.floor(b/s));
@@ -472,7 +472,7 @@ function speechOf(el){
  let txt;
  if(el.dataset.s)txt=el.dataset.s;
  else{const c=el.cloneNode(true);
-  c.querySelectorAll('.sol,.po,.nr,.say,svg,.emo,.m,.wline,.sr,.mauer,table,.kar').forEach(x=>x.remove());
+  c.querySelectorAll('.sol,.po,.nr,.say,svg,.emo,.m,.wline,.sr,.mauer,table,.kar,.brd,.pcbig').forEach(x=>x.remove());
   c.querySelectorAll('input.a,select.a').forEach(x=>x.replaceWith(' Lücke '));
   c.querySelectorAll('br').forEach(x=>x.replaceWith('. '));
   txt=c.textContent}
@@ -488,6 +488,7 @@ function speak(text,el){if(!TTS||!text)return;speechSynthesis.cancel();
 /* ---------- Prüfen ---------- */
 const norm=v=>String(v).replace(/[\s€]/g,'').toLowerCase();
 const numv=v=>{v=norm(v);if(/^\d{1,3}(\.\d{3})+$/.test(v))v=v.replace(/\./g,'');v=v.replace(',','.');return /^-?\d+(\.\d+)?$/.test(v)?parseFloat(v):NaN};
+function correctBW(x){const v=(x.dataset.v||'').split(' ').filter(Boolean),a=x.dataset.a;if(x.dataset.mode==='one')return v.length===1&&a.split('|').includes(v[0]);return v.slice().sort().join(' ')===a.split(' ').filter(Boolean).sort().join(' ')}
 function correct(v,ans){const al=ans.split('|'),n=norm(v);if(al.some(a=>norm(a)===n))return true;const x=numv(v);return !isNaN(x)&&al.some(a=>{const y=numv(a);return !isNaN(y)&&Math.abs(x-y)<1e-9})}
 
 /* ---------- Darstellung ---------- */
@@ -496,7 +497,8 @@ const LV={};T.forEach(t=>LV[t.id]=2);
 let curId=T[0].id;
 const intro=(tp,L)=>typeof tp.i==='function'?tp.i(L):tp.i;
 function itemsHTML(items){return items.map((it,k)=>{let j=0;
- const q=it.q.replace(/[@§]/g,m=>{const o=it.o&&it.o[j],ans=String(it.a[j]),first=ans.split('|')[0],sol=esc(first);j++;
+ const q=it.q.replace(/[@§¤]/g,m=>{const o=it.o&&it.o[j],ans=String(it.a[j]),first=ans.split('|')[0],sol=esc(first);j++;
+  if(m==='¤')return `data-a="${esc(ans)}" data-mode="${it.mode||'all'}" role="group" aria-label="Schachbrett"`;
   if(m==='§')return `<input class="a dg" type="text" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="Ziffer" placeholder="${sol}" data-a="${esc(ans)}">`;
   if(o)return `<select class="a" data-a="${esc(ans)}" aria-label="Antwort"><option value="">?</option>${o.map(v=>`<option>${esc(v)}</option>`).join('')}</select><span class="po">${o.map(v=>'○ '+esc(v)).join('&nbsp;&nbsp;')}</span><span class="sol">${sol}</span>`;
   const w=Math.max(2.8,first.length*.72+1.4).toFixed(1);
@@ -515,10 +517,14 @@ function paperHTML(tp,L,live){const b=B[tp.b],nr=T.indexOf(tp)+1,d=tp.g(L),items
  ${live?`<div class="foot noprint"><button class="btn" data-act="check">✅ Prüfen</button><button class="btn ghost" data-act="new">Neue Aufgaben</button><button class="btn ghost" data-act="print">Blatt drucken</button><button class="btn ghost" data-act="print3">In 3 Stufen drucken</button><span class="fb" aria-live="polite"></span></div>
  <div class="pn noprint"><span>${prev?`<button data-go="${prev.id}">← ${prev.t}</button>`:''}</span><span>${next?`<button data-go="${next.id}">${next.t} →</button>`:''}</span></div>`:''}
  </div>`}
-function renderSheet(tp){$('#s-'+tp.id).innerHTML=paperHTML(tp,LV[tp.id],true)}
+function markSol(root){root.querySelectorAll('.bw').forEach(b=>b.dataset.a.split(/[ |]/).forEach(s=>{const q=b.querySelector(`[data-s="${s}"]`);if(q)q.classList.add('so')}))}
+const DONE=new Set();
+function renderSheet(tp){const el=$('#s-'+tp.id);el.innerHTML=paperHTML(tp,LV[tp.id],true);markSol(el);DONE.add(tp.id)}
+const ensure=id=>{if(!DONE.has(id))renderSheet(T.find(t=>t.id===id))};
+const renderAll=()=>T.forEach(t=>ensure(t.id));
 function check(el){const as=el.querySelectorAll('.a');let ok=0,leer=0;
- as.forEach(x=>{const v=x.value.trim();x.classList.remove('ok','bad');if(!v){leer++;return}
-  if(correct(v,x.dataset.a)){x.classList.add('ok');ok++}else x.classList.add('bad')});
+ as.forEach(x=>{const isB=x.classList.contains('bw'),v=isB?(x.dataset.v||''):x.value.trim();x.classList.remove('ok','bad');if(!v){leer++;return}
+  if(isB?correctBW(x):correct(v,x.dataset.a)){x.classList.add('ok');ok++}else x.classList.add('bad')});
  const fb=el.querySelector('.fb'),tot=as.length;let say;
  if(leer===tot){fb.textContent='Trage zuerst etwas ein. 🤔';fb.className='fb try';say='Trage zuerst etwas ein.'}
  else if(ok===tot){fb.textContent='Super gemacht! Alles richtig! 🎉🌟';fb.className='fb good';say='Super gemacht! Alles richtig!'}
@@ -530,33 +536,33 @@ function buildNav(){const cb=T.find(t=>t.id===curId).b;
  $('#tiles').innerHTML=T.filter(t=>t.b===cb).map(t=>`<button type="button" class="tile${t.id===curId?' on':''}" data-id="${t.id}"><span class="tnr">${T.indexOf(t)+1}</span>${t.t}</button>`).join('');
  const all=T.every(t=>LV[t.id]===LV[T[0].id])?LV[T[0].id]:0;
  $('#allLv').innerHTML=[1,2,3].map(l=>`<button type="button" class="${l===all?'on':''}" data-all="${l}">${ST[l].s}<small>${ST[l].n}</small></button>`).join('')}
-function show(id,scroll){curId=id;T.forEach(t=>$('#s-'+t.id).classList.toggle('active',t.id===id));buildNav();
+function show(id,scroll){curId=id;ensure(id);T.forEach(t=>$('#s-'+t.id).classList.toggle('active',t.id===id));buildNav();
  try{history.replaceState(null,'','#'+id)}catch(e){}
  if(scroll)$('#s-'+id).scrollIntoView({behavior:'smooth',block:'start'})}
 function doPrint(cls){if(TTS)speechSynthesis.cancel();if(cls)document.body.classList.add(cls);window.print()}
 
 $('#main').innerHTML=T.map(t=>`<section class="sheet" id="s-${t.id}" style="--c:${B[t.b].c}"></section>`).join('');
-T.forEach(renderSheet);
 $('#btabs').addEventListener('click',e=>{const b=e.target.closest('[data-b]');if(b)show(T.find(t=>t.b===b.dataset.b).id,false)});
 $('#tiles').addEventListener('click',e=>{const t=e.target.closest('[data-id]');if(t)show(t.dataset.id,true)});
-$('#allLv').addEventListener('click',e=>{const b=e.target.closest('[data-all]');if(!b)return;T.forEach(t=>{LV[t.id]=+b.dataset.all;renderSheet(t)});buildNav()});
+$('#allLv').addEventListener('click',e=>{const b=e.target.closest('[data-all]');if(!b)return;T.forEach(t=>{LV[t.id]=+b.dataset.all});DONE.clear();renderSheet(T.find(t=>t.id===curId));buildNav()});
 $('#main').addEventListener('click',e=>{const sh=e.target.closest('.sheet');if(!sh)return;const tp=T.find(t=>'s-'+t.id===sh.id);
  const lv=e.target.closest('[data-lv]');if(lv){LV[tp.id]=+lv.dataset.lv;renderSheet(tp);buildNav();return}
  const go=e.target.closest('[data-go]');if(go){show(go.dataset.go,true);return}
  const act=e.target.closest('[data-act]');
  if(act){const a=act.dataset.act;
   if(a==='check')check(sh);else if(a==='new')renderSheet(tp);else if(a==='print')doPrint();
-  else{$('#printbox').innerHTML=[1,2,3].map(l=>`<section class="sheet" style="--c:${B[tp.b].c}">${paperHTML(tp,l,false)}</section>`).join('');doPrint('p3')}
+  else{$('#printbox').innerHTML=[1,2,3].map(l=>`<section class="sheet" style="--c:${B[tp.b].c}">${paperHTML(tp,l,false)}</section>`).join('');markSol($('#printbox'));doPrint('p3')}
   return}
+ const sqEl=e.target.closest('.bw .sq');if(sqEl){const b=sqEl.closest('.bw'),s=sqEl.dataset.s;let v=(b.dataset.v||'').split(' ').filter(Boolean);if(b.dataset.mode==='one')v=v.includes(s)?[]:[s];else v=v.includes(s)?v.filter(x=>x!==s):v.concat(s);b.dataset.v=v.join(' ');b.querySelectorAll('.sq').forEach(q=>q.classList.toggle('sel',v.includes(q.dataset.s)));b.classList.remove('ok','bad');return}
  if(e.target.closest('input,select,option'))return;
  const t=e.target.closest('.item,.intro');if(t)speak(speechOf(t),t)});
 $('#main').addEventListener('input',e=>{const x=e.target;if(!x.classList.contains('a'))return;x.classList.remove('ok','bad');
  if(x.classList.contains('dg')&&x.value.length===1){const all=[...x.closest('.item').querySelectorAll('input.dg')],i=all.indexOf(x);if(i>0)all[i-1].focus()}});
 $('#main').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList.contains('a'))check(e.target.closest('.sheet'))});
-$('#printAll').onclick=()=>doPrint('printall');
+$('#printAll').onclick=()=>{renderAll();doPrint('printall')};
 window.addEventListener('afterprint',()=>{document.body.classList.remove('printall','p3');$('#printbox').innerHTML=''});
 $('#solBtn').onclick=()=>{const on=document.body.classList.toggle('show-sol');$('#solBtn').textContent=on?'Lösungen verstecken':'Lösungen zeigen'};
-$('#allNew').onclick=()=>T.forEach(renderSheet);
+$('#allNew').onclick=()=>{DONE.clear();renderSheet(T.find(t=>t.id===curId))};
 const start=location.hash.slice(1);show(T.some(t=>t.id===start)?start:T[0].id,false);
 </script>
 </body>
