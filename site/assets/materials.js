@@ -105,6 +105,7 @@ MATERIALS.push(
  {t:'Elternbriefe Schach',topic:'Schach',aud:['Lehrkräfte'],year:'',type:'Praxistool',format:'Online',time:'bis 30 Minuten',d:'Vorlagen für die Einladung zur Schach-AG und für Turniere.',u:'/schach/schachlehrende/elternbrief/'},
  {t:'Schach-Lehrbrett',topic:'Schach',aud:['Lehrkräfte'],year:'',type:'Praxistool',format:'Online',time:'variabel',d:'Digitales Demobrett mit Präsentationsmodus, Arbeitsblattgenerator und Klassenabstimmung.',u:'https://schach-lehrbrett.pages.dev/'},
  {t:'Methodenmodul Quellenarbeit',topic:'Geschichte',aud:['Schüler:innen','Lehrkräfte'],year:'5–10',type:'SOL-Modul',format:'Online',time:'30–60 Minuten',d:'Quellen erkennen, untersuchen und beurteilen. Drei Lernwege für Klasse 5 bis 10.',u:'/geschichte/quellenarbeit/'},
+ {t:'5-Minuten-Rätsel',topic:'Rätsel',aud:['Schüler:innen','Lehrkräfte'],year:'2–6',type:'Sammlung',format:'Online',time:'5 Minuten',d:'20 kurze Rätsel zu Zahlen, Logik, Wörtern und Schach mit Timer, Tipp und Lösung.',u:'/raetsel/5-minuten/'},
  {t:'Bild- und Worträtsel Grundschule und DaZ',topic:'Rätsel',aud:['Schüler:innen','Lehrkräfte'],year:'',type:'Sammlung',format:'Online',time:'bis 30 Minuten',d:'Sechs Rätsel mit Bildern und Vorlesefunktion für Klasse 1 bis 4 und DaZ.',u:'/raetsel/grundschule-daz/'},
  {t:'Werkstatt-Anleitungen',topic:'Werkstatt',aud:['Lehrkräfte','Schüler:innen'],year:'',type:'Projekt',format:'Online',time:'mehrere Stunden',d:'Frühstücksbrett, Stiftehalter, Nistkasten und Kieselbild Schritt für Schritt.',u:'/werkstatt/anleitungen/'}
 );
