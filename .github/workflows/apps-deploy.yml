@@ -1,0 +1,37 @@
+name: Eigenständige Lern-Apps veröffentlichen
+# Veröffentlicht die Lern-Apps unter apps/ auf ihren eigenen Cloudflare-Pages-Projekten.
+# Die Adressen (*.pages.dev) bleiben dadurch gleich, und der im Browser gespeicherte
+# Lernstand der Kinder geht nicht verloren.
+
+on:
+  push:
+    branches: [main]
+    paths: ['apps/**', '.github/workflows/apps-deploy.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: apps-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - folder: apps/ludgerus-schachschule-2
+            project: ludgerusschachdiplom2
+          - folder: apps/ludgerus-schachschule-3
+            project: ludgerusdiplom3
+    steps:
+      - uses: actions/checkout@v4
+      - name: ${{ matrix.folder }} auf Cloudflare Pages (${{ matrix.project }})
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 480e351e75c5fbf638b262039af377a1
+          command: pages deploy ${{ matrix.folder }} --project-name=${{ matrix.project }} --branch=main --commit-dirty=true
