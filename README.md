@@ -4,6 +4,7 @@ Dieses Archiv ist die Hauptablage der Homepage von Dr. Edmund Bruns.
 
 - `site/` enthält die komplette Website, so wie sie online steht.
 - `apps/` enthält die Lern-Apps mit eigener Adresse (Schachschule 2 und 3), siehe `apps/README.md`.
+- `skripte/README.md` verzeichnet alle Google-Apps-Skripte hinter den Abgaben und beschreibt, wie man sie aktualisiert, ohne dass sich die Adresse ändert.
 - `tools/` enthält die Bauwerkzeuge für die SOL-Module (Mathematik und Geschichte) und Prüfskripte.
 
 ## Veröffentlichung
