@@ -259,86 +259,180 @@ function narrate(lines,done){
 /* ---------- Szene ---------- */
 function sceneSVG(st){
   const f=st?st.flags:{};
-  const books=["#7a2a1c","#244a6b","#4a5d23","#6b4a1c","#3a2a5c","#8a6a1c","#5c1f2a","#2c4a3a","#6b2e1c","#1f3a5c"];
-  let shelf=""; for(let r=0;r<4;r++){ let x=46; for(let k=0;k<11;k++){ const w=12+((k*7+r*3)%9), h=74-((k*5+r)%4)*8; shelf+=`<rect x="${x}" y="${190+r*96-h}" width="${w}" height="${h}" fill="${books[(k+r*3)%books.length]}" stroke="#1a0f05" stroke-width="1"/><rect x="${x+2}" y="${190+r*96-h+10}" width="${w-4}" height="3" fill="#d9b25a" opacity=".6"/>`; x+=w+2; if(x>200) break; } }
-  let rain=""; for(let k=0;k<28;k++){ const x=300+((k*37)%150), y=((k*53)%170)+90; rain+=`<line x1="${x}" y1="${y}" x2="${x-6}" y2="${y+22}" stroke="#9fb7d6" stroke-width="1.5" opacity=".55"><animate attributeName="y1" values="${y-60};${y+120}" dur="${.7+(k%5)*.12}s" repeatCount="indefinite"/><animate attributeName="y2" values="${y-38};${y+142}" dur="${.7+(k%5)*.12}s" repeatCount="indefinite"/></line>`; }
-  let board=""; // Brett in leichter Perspektive
-  for(let r=0;r<8;r++) for(let c=0;c<8;c++){ const y0=398+r*7, y1=y0+7, w0=150+r*3, w1=150+(r+1)*3, xl0=500-w0/2, xl1=500-w1/2;
-    const ax=xl0+c*w0/8, bx=xl0+(c+1)*w0/8, cx=xl1+(c+1)*w1/8, dx=xl1+c*w1/8; board+=`<polygon points="${ax},${y0} ${bx},${y0} ${cx},${y1} ${dx},${y1}" fill="${(r+c)%2?"#769656":"#eeeed2"}"/>`; }
+  /* Bücher: unterschiedliche Höhen, Breiten, Farben, ein schräg stehendes Buch pro Brett */
+  const BC=["#6e2418","#1f3f5c","#3f5220","#5e3f17","#33264f","#7a5c18","#4f1b25","#264236","#5c2a18","#1b3350","#4a3a2a","#2f2f2f"];
+  let shelf=""; for(let r=0;r<4;r++){ let x=48; const base=190+r*96; let k=0;
+    while(x<196){ const w=10+((k*7+r*5)%8), h=62+((k*13+r*7)%18), c=BC[(k*5+r*3)%BC.length];
+      if(k===5+r%3){ shelf+=`<g transform="rotate(-14 ${x} ${base})"><rect x="${x}" y="${base-h+2}" width="${w+2}" height="${h-2}" fill="${c}"/><rect x="${x}" y="${base-h+2}" width="${w+2}" height="${h-2}" fill="url(#spine)"/></g>`; x+=w+18; k++; continue; }
+      shelf+=`<rect x="${x}" y="${base-h}" width="${w}" height="${h}" fill="${c}"/><rect x="${x}" y="${base-h}" width="${w}" height="${h}" fill="url(#spine)"/>`+
+        (k%3===0?`<rect x="${x+1.5}" y="${base-h+8}" width="${w-3}" height="2" fill="#c9a24a" opacity=".75"/><rect x="${x+1.5}" y="${base-14}" width="${w-3}" height="2" fill="#c9a24a" opacity=".75"/>`:`<rect x="${x+2}" y="${base-h+12}" width="${w-4}" height="8" fill="#000" opacity=".18"/>`);
+      x+=w+1; k++; }
+    shelf+=`<rect x="40" y="${base}" width="182" height="9" fill="url(#shelfb)"/><rect x="40" y="${base+9}" width="182" height="10" fill="#000" opacity=".35" filter="url(#soft)"/>`; }
+  /* Regen nur hinter der Scheibe */
+  let rain=""; for(let k=0;k<40;k++){ const x=292+((k*41)%176), y=((k*59)%200)+60, d=(.55+(k%6)*.09).toFixed(2);
+    rain+=`<line x1="${x}" y1="${y}" x2="${x-4}" y2="${y+16}" stroke="#a9c1e0" stroke-width="1.1" opacity=".45"><animate attributeName="y1" values="${y-140};${y+120}" dur="${d}s" repeatCount="indefinite"/><animate attributeName="y2" values="${y-124};${y+136}" dur="${d}s" repeatCount="indefinite"/></line>`; }
+  let drops=""; for(let k=0;k<26;k++){ const x=294+((k*67)%172), y=80+((k*89)%205), r=1+(k%3)*.6; drops+=`<circle cx="${x}" cy="${y}" r="${r}" fill="#cfe0f5" opacity=".35"/><circle cx="${x-.4}" cy="${y-.5}" r="${r*.35}" fill="#fff" opacity=".6"/>`; }
+  /* Brett in Perspektive */
+  let board=""; for(let r=0;r<8;r++) for(let c=0;c<8;c++){ const y0=398+r*7, y1=y0+7, w0=150+r*3, w1=150+(r+1)*3, xl0=500-w0/2, xl1=500-w1/2;
+    const ax=xl0+c*w0/8, bx=xl0+(c+1)*w0/8, cx=xl1+(c+1)*w1/8, dx=xl1+c*w1/8; board+=`<polygon points="${ax},${y0} ${bx},${y0} ${cx},${y1} ${dx},${y1}" fill="${(r+c)%2?"#6f8c52":"#e6e2c6"}"/>`; }
+  const panel=(x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="url(#panelf)"/><path d="M${x} ${y+h} V${y} H${x+w}" stroke="#8a5a2c" stroke-width="2" fill="none" opacity=".7"/><path d="M${x+w} ${y} V${y+h} H${x}" stroke="#140a03" stroke-width="2" fill="none" opacity=".8"/>`;
   return `
   <defs>
-    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d2a20"/><stop offset="1" stop-color="#121a14"/></linearGradient>
-    <pattern id="damask" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30 6 C40 18 40 26 30 32 C20 26 20 18 30 6 Z M30 34 C38 42 38 50 30 56 C22 50 22 42 30 34Z" fill="#26362a" opacity=".55"/></pattern>
-    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a3418"/><stop offset="1" stop-color="#2e1a0b"/></linearGradient>
-    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2410"/><stop offset="1" stop-color="#1a0f06"/></linearGradient>
-    <linearGradient id="desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b3d1a"/><stop offset="1" stop-color="#3a200c"/></linearGradient>
-    <linearGradient id="goldf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6dd9a"/><stop offset=".5" stop-color="#b8862a"/><stop offset="1" stop-color="#6a4d14"/></linearGradient>
-    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1426"/><stop offset="1" stop-color="#1c2a44"/></linearGradient>
-    <radialGradient id="lamp" cx="0.66" cy="0.6" r="0.5"><stop offset="0" stop-color="#ffd27a" stop-opacity=".42"/><stop offset=".5" stop-color="#ffb347" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
-    <radialGradient id="vig" cx=".5" cy=".5" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/></radialGradient>
-    <linearGradient id="velvet" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4a0f14"/><stop offset=".5" stop-color="#7a1c22"/><stop offset="1" stop-color="#4a0f14"/></linearGradient>
-    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a929e"/><stop offset="1" stop-color="#2b3038"/></linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.32" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" result="a" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 -.12"/><feComposite in="a" in2="SourceGraphic" operator="in" result="b"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="b"/></feMerge></filter>
+    <filter id="canvas" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="1" seed="7" result="n"/><feColorMatrix in="n" result="a" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .22 0"/><feComposite in="a" in2="SourceGraphic" operator="in" result="b"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="b"/></feMerge></filter>
+    <filter id="soft" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <clipPath id="winclip"><rect x="292" y="78" width="176" height="214"/></clipPath>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16231a"/><stop offset=".6" stop-color="#1f3024"/><stop offset="1" stop-color="#16221a"/></linearGradient>
+    <pattern id="damask" width="56" height="70" patternUnits="userSpaceOnUse"><path d="M28 6 C38 16 40 26 28 35 C16 26 18 16 28 6 Z M28 38 C34 46 34 54 28 62 C22 54 22 46 28 38Z M0 35 C6 41 6 47 0 52 M56 35 C50 41 50 47 56 52" fill="#2b3f2f" opacity=".5"/></pattern>
+    <linearGradient id="panelf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f2d14"/><stop offset="1" stop-color="#341c0b"/></linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5c3517"/><stop offset="1" stop-color="#3a200c"/></linearGradient>
+    <linearGradient id="woodv" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a200c"/><stop offset=".5" stop-color="#5c3517"/><stop offset="1" stop-color="#3a200c"/></linearGradient>
+    <linearGradient id="shelfb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a5a2c"/><stop offset="1" stop-color="#4a2a12"/></linearGradient>
+    <linearGradient id="spine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".45"/><stop offset=".35" stop-color="#fff" stop-opacity=".12"/><stop offset=".6" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#000" stop-opacity=".5"/></linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2410"/><stop offset="1" stop-color="#1c1006"/></linearGradient>
+    <linearGradient id="desktop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a4620"/><stop offset="1" stop-color="#5a3216"/></linearGradient>
+    <linearGradient id="desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5e3517"/><stop offset="1" stop-color="#341c0a"/></linearGradient>
+    <linearGradient id="goldf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d991"/><stop offset=".35" stop-color="#c79b3e"/><stop offset=".65" stop-color="#8c6522"/><stop offset="1" stop-color="#d8b05a"/></linearGradient>
+    <linearGradient id="goldd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6a4a14"/><stop offset="1" stop-color="#3a2808"/></linearGradient>
+    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#070d1c"/><stop offset=".7" stop-color="#16243d"/><stop offset="1" stop-color="#22324e"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".07"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <radialGradient id="moon" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f4efd8"/><stop offset=".6" stop-color="#d9d3b8"/><stop offset="1" stop-color="#b9b39a"/></radialGradient>
+    <radialGradient id="lamp" cx="0.65" cy="0.68" r="0.55"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".38"/><stop offset=".45" stop-color="#ffaa45" stop-opacity=".1"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <radialGradient id="vig" cx=".55" cy=".55" r=".78"><stop offset=".5" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".78"/></radialGradient>
+    <linearGradient id="velvet" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3d0b10"/><stop offset=".18" stop-color="#7a1c22"/><stop offset=".32" stop-color="#4a0f14"/><stop offset=".5" stop-color="#86222a"/><stop offset=".68" stop-color="#4a0f14"/><stop offset=".85" stop-color="#7a1c22"/><stop offset="1" stop-color="#3d0b10"/></linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a929e"/><stop offset=".5" stop-color="#4b525c"/><stop offset="1" stop-color="#22262c"/></linearGradient>
+    <radialGradient id="cbg" cx=".45" cy=".35" r=".8"><stop offset="0" stop-color="#5e5038"/><stop offset=".55" stop-color="#2e2618"/><stop offset="1" stop-color="#14100a"/></radialGradient>
+    <radialGradient id="skin" cx=".42" cy=".38" r=".7"><stop offset="0" stop-color="#e9c39a"/><stop offset=".6" stop-color="#c8936a"/><stop offset="1" stop-color="#8a5a3a"/></radialGradient>
+    <linearGradient id="suit" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3a42"/><stop offset=".5" stop-color="#1c1c22"/><stop offset="1" stop-color="#0c0c10"/></linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8b6ae"/><stop offset="1" stop-color="#6e6c66"/></linearGradient>
+    <radialGradient id="plight" cx=".5" cy="0" r=".9"><stop offset="0" stop-color="#ffe2a0" stop-opacity=".35"/><stop offset="1" stop-color="#ffe2a0" stop-opacity="0"/></radialGradient>
+    <linearGradient id="rug" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a1518"/><stop offset="1" stop-color="#3a0c0e"/></linearGradient>
+    <linearGradient id="spill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb0de" stop-opacity=".12"/><stop offset="1" stop-color="#8fb0de" stop-opacity="0"/></linearGradient>
   </defs>
-  <rect width="1000" height="640" fill="url(#wall)"/><rect width="1000" height="420" fill="url(#damask)"/>
-  <rect y="400" width="1000" height="140" fill="url(#wood)"/><g stroke="#24140a" stroke-width="2">${[0,1,2,3,4,5,6,7].map(k=>`<rect x="${20+k*125}" y="415" width="105" height="110" fill="none" opacity=".7"/>`).join("")}</g>
-  <rect y="398" width="1000" height="8" fill="#7a4a22"/>
-  <rect y="540" width="1000" height="100" fill="url(#floor)"/><g stroke="#120a04" stroke-width="2" opacity=".6">${[0,1,2,3,4,5,6,7,8,9,10].map(k=>`<line x1="${k*100}" y1="540" x2="${k*100-((k-5)*30)}" y2="640"/>`).join("")}</g>
+  <!-- Wand -->
+  <rect width="1000" height="640" fill="url(#wall)"/><rect width="1000" height="400" fill="url(#damask)"/>
+  <rect y="0" width="1000" height="26" fill="url(#wood)"/><rect y="26" width="1000" height="5" fill="#8a5a2c"/><rect y="31" width="1000" height="10" fill="#000" opacity=".3" filter="url(#soft)"/>
+  <!-- Wandvertäfelung -->
+  <g filter="url(#grain)"><rect y="398" width="1000" height="146" fill="url(#wood)"/>${[0,1,2,3,4,5,6,7].map(k=>panel(18+k*125,418,104,104)).join("")}</g>
+  <rect y="394" width="1000" height="8" fill="#8a5a2c"/><rect y="402" width="1000" height="3" fill="#2a1608"/>
+  <rect y="534" width="1000" height="10" fill="#2a1608"/>
+  <!-- Boden -->
+  <g filter="url(#grain)"><rect y="544" width="1000" height="96" fill="url(#floor)"/></g>
+  <g stroke="#0e0703" stroke-width="1.5" opacity=".7">${Array.from({length:14},(_,k)=>`<line x1="${k*80-20}" y1="544" x2="${(k*80-20-500)*1.6+500}" y2="640"/>`).join("")}<line x1="0" y1="575" x2="1000" y2="575" opacity=".5"/><line x1="0" y1="610" x2="1000" y2="610" opacity=".5"/></g>
+  <polygon points="300,560 740,560 790,640 250,640" fill="url(#rug)"/><polygon points="312,566 728,566 772,636 268,636" fill="none" stroke="#c9a24a" stroke-width="3" opacity=".55"/><polygon points="326,574 714,574 750,630 290,630" fill="none" stroke="#1f3a5c" stroke-width="5" opacity=".6"/>
   <!-- Fenster -->
-  <rect x="285" y="70" width="190" height="230" fill="url(#night)" stroke="#3a2410" stroke-width="10"/>
-  <circle cx="430" cy="110" r="16" fill="#e8e2c8" opacity=".75"/><g>${rain}</g>
-  <path d="M380 70 V300 M285 185 H475" stroke="#3a2410" stroke-width="7"/>
-  <path d="M262 52 C280 160 270 260 290 320 L262 320 Z" fill="url(#velvet)"/><path d="M498 52 C480 160 490 260 470 320 L498 320 Z" fill="url(#velvet)"/><rect x="250" y="44" width="262" height="12" rx="4" fill="url(#goldf)"/>
+  <rect x="262" y="306" width="236" height="14" fill="#000" opacity=".35" filter="url(#soft)"/>
+  <g clip-path="url(#winclip)">
+    <rect x="292" y="78" width="176" height="214" fill="url(#night)"/>
+    <circle cx="428" cy="112" r="30" fill="#e8e2c8" opacity=".12" filter="url(#glow)"/><circle cx="428" cy="112" r="13" fill="url(#moon)"/>
+    <path d="M292 292 V250 H312 V238 H330 V252 H352 V226 L366 214 L380 226 V256 H402 V244 H426 V262 H446 V236 H468 V292 Z" fill="#060a14"/>
+    <rect x="358" y="232" width="5" height="7" fill="#e8b85a" opacity=".85"/><rect x="430" y="268" width="4" height="6" fill="#e8b85a" opacity=".6"/>
+    ${rain}${drops}
+    <rect x="292" y="78" width="176" height="214" fill="url(#glass)"/>
+  </g>
+  <rect x="286" y="72" width="188" height="226" fill="none" stroke="#3a2410" stroke-width="12"/>
+  <rect x="280" y="66" width="200" height="238" fill="none" stroke="#5c3517" stroke-width="3"/>
+  <path d="M380 78 V292 M292 186 H468" stroke="#3a2410" stroke-width="7"/><path d="M378 78 V292 M292 184 H468" stroke="#6a4220" stroke-width="1.5"/>
+  <rect x="270" y="298" width="220" height="10" fill="#6a4220"/><rect x="270" y="298" width="220" height="3" fill="#9a6a38"/>
+  <polygon points="300,320 460,320 520,544 240,544" fill="url(#spill)" filter="url(#glow)"/>
+  <path d="M256 52 C276 140 266 250 288 330 L250 330 Z" fill="url(#velvet)"/><path d="M504 52 C484 140 494 250 472 330 L510 330 Z" fill="url(#velvet)"/>
+  <path d="M258 214 Q274 222 286 214" stroke="#c9a24a" stroke-width="4" fill="none"/><path d="M474 214 Q486 222 502 214" stroke="#c9a24a" stroke-width="4" fill="none"/>
+  <rect x="244" y="44" width="272" height="9" rx="4" fill="url(#goldf)"/><circle cx="244" cy="48" r="7" fill="url(#goldf)"/><circle cx="516" cy="48" r="7" fill="url(#goldf)"/>
   <!-- Regal -->
-  <rect x="30" y="80" width="190" height="460" fill="url(#wood)" stroke="#1a0f05" stroke-width="4"/>
-  ${[0,1,2,3].map(r=>`<rect x="36" y="${190+r*96}" width="178" height="8" fill="#7a4a22"/>`).join("")}${shelf}
+  <rect x="34" y="92" width="196" height="458" fill="#000" opacity=".45" filter="url(#soft)" transform="translate(6 6)"/>
+  <g filter="url(#grain)"><rect x="30" y="80" width="200" height="465" fill="url(#woodv)"/><rect x="40" y="96" width="182" height="440" fill="#1e1006"/></g>
+  <rect x="24" y="74" width="212" height="14" fill="url(#shelfb)"/>
+  ${shelf}
+  <g transform="translate(170 87)"><ellipse cx="18" cy="-1" rx="16" ry="4" fill="#000" opacity=".4"/><path d="M8 0 Q6 -28 18 -36 Q30 -28 28 0 Z" fill="#cfc8b4"/><circle cx="18" cy="-42" r="8" fill="#d9d2be"/></g>
   <!-- Gemälde oder Tresor -->
-  ${f.painting?`<rect x="560" y="95" width="150" height="170" fill="#151a1f" stroke="#0a0c0f" stroke-width="4"/>
-     <rect x="572" y="107" width="126" height="146" rx="6" fill="url(#steel)" stroke="#1f2329" stroke-width="3"/>
-     <circle cx="635" cy="175" r="30" fill="#2b3038" stroke="#9aa3ae" stroke-width="4"/><circle cx="635" cy="175" r="7" fill="#9aa3ae"/>
-     ${f.safe?`<rect x="572" y="107" width="126" height="146" rx="6" fill="#0a0c0f" opacity=".85"/><text x="635" y="185" text-anchor="middle" fill="#d9b25a" font-family="Cinzel" font-size="16">offen</text>`:""}
-     <rect x="520" y="300" width="70" height="88" fill="#3a2410" opacity=".0"/>`
-   :`<rect x="545" y="80" width="180" height="200" fill="url(#goldf)" stroke="#4a3410" stroke-width="3" transform="rotate(2.5 635 180)"/>
-     <g transform="rotate(2.5 635 180)"><rect x="562" y="97" width="146" height="166" fill="#2a2216"/>
-     <circle cx="635" cy="160" r="30" fill="#c9a87a"/><path d="M590 263 C595 210 615 196 635 196 C655 196 675 210 680 263 Z" fill="#1a1410"/>
-     <path d="M612 150 Q635 130 658 150" stroke="#3a2a1a" stroke-width="7" fill="none"/><rect x="618" y="168" width="34" height="5" rx="2" fill="#3a2a1a"/>
-     <path d="M630 208 L635 222 L640 208 Z" fill="#7a1c22"/><text x="635" y="290" text-anchor="middle" font-family="Cinzel" font-size="12" fill="#2a1c05">V. BRANDT</text></g>`}
+  <rect x="600" y="62" width="70" height="8" rx="3" fill="url(#goldf)"/><path d="M585 70 L685 70 L740 300 L530 300 Z" fill="url(#plight)" filter="url(#glow)"/>
+  ${f.painting?`<rect x="548" y="84" width="176" height="200" fill="#1a2219"/><rect x="548" y="84" width="176" height="200" fill="none" stroke="#2b3f2f" stroke-width="2" stroke-dasharray="4 3"/>
+     <rect x="566" y="104" width="138" height="160" rx="6" fill="#000" opacity=".5" filter="url(#soft)"/>
+     <rect x="566" y="100" width="138" height="160" rx="6" fill="url(#steel)" stroke="#16191d" stroke-width="3"/><rect x="574" y="108" width="122" height="144" rx="4" fill="none" stroke="#9aa3ae" stroke-width="1" opacity=".5"/>
+     <circle cx="635" cy="180" r="32" fill="#2b3038" stroke="#aab2bc" stroke-width="4"/>${Array.from({length:12},(_,i)=>`<line x1="${635+26*Math.cos(i*Math.PI/6)}" y1="${180+26*Math.sin(i*Math.PI/6)}" x2="${635+31*Math.cos(i*Math.PI/6)}" y2="${180+31*Math.sin(i*Math.PI/6)}" stroke="#aab2bc" stroke-width="2"/>`).join("")}<circle cx="635" cy="180" r="8" fill="#aab2bc"/><rect x="676" y="170" width="16" height="22" rx="3" fill="#aab2bc"/>
+     ${f.safe?`<rect x="566" y="100" width="138" height="160" rx="6" fill="#07080a" opacity=".9"/><text x="635" y="186" text-anchor="middle" fill="#d9b25a" font-family="Cinzel" font-size="15">offen</text>`:""}`
+   :`<g transform="rotate(2 635 182)">
+     <rect x="551" y="90" width="180" height="204" fill="#000" opacity=".55" filter="url(#soft)"/>
+     <rect x="545" y="80" width="180" height="204" fill="url(#goldf)"/><rect x="553" y="88" width="164" height="188" fill="url(#goldd)"/><rect x="557" y="92" width="156" height="180" fill="url(#goldf)"/>
+     ${[[549,84],[721,84],[549,280],[721,280]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="7" fill="url(#goldf)" stroke="#6a4a14" stroke-width="1"/>`).join("")}
+     <g filter="url(#canvas)"><rect x="563" y="98" width="144" height="168" fill="url(#cbg)"/>
+      <path d="M570 266 C573 232 598 214 635 211 C672 214 697 232 700 266 Z" fill="url(#suit)"/>
+      <path d="M614 216 L628 262 L620 266 L604 224 Z M656 216 L642 262 L650 266 L666 224 Z" fill="#2c2c34"/>
+      <path d="M622 212 L635 244 L648 212 Z" fill="#e6dcc4"/><path d="M631 217 L639 217 L642 246 L635 256 L628 246 Z" fill="#6e1a20"/><path d="M631 217 L639 217 L637 222 L633 222 Z" fill="#4e1016"/>
+      <path d="M621 186 L649 186 L651 214 L619 214 Z" fill="#a8764e"/><path d="M621 196 Q635 206 649 196 V214 H621 Z" fill="#7a5034"/>
+      <ellipse cx="611" cy="170" rx="4.5" ry="9" fill="#b07a52"/><ellipse cx="659" cy="170" rx="4.5" ry="9" fill="#a06a44"/>
+      <path d="M610 160 C610 137 621 132 635 132 C649 132 660 137 660 160 C660 179 652 193 635 199 C618 193 610 179 610 160 Z" fill="url(#skin)"/>
+      <ellipse cx="648" cy="175" rx="10" ry="18" fill="#6a3e24" opacity=".22"/>
+      <path d="M611 163 C608 140 620 133 635 133 C651 133 662 141 659 163 C657 151 652 147 646 146 C640 150 630 150 624 146 C617 148 613 153 611 163 Z" fill="url(#hair)"/>
+      <path d="M611 163 C610 172 612 178 614 182 L612 160 Z M659 163 C660 172 658 178 656 182 L658 160 Z" fill="#8d8b84"/>
+      <path d="M618 156 Q625 152 631 156" stroke="#5a554c" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M639 156 Q645 152 652 156" stroke="#5a554c" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="625" cy="164" rx="6" ry="3.5" fill="#8a5a3a" opacity=".35"/><ellipse cx="645" cy="164" rx="6" ry="3.5" fill="#8a5a3a" opacity=".35"/>
+      <ellipse cx="625" cy="164.5" rx="2.4" ry="1.8" fill="#2a1c10"/><ellipse cx="645" cy="164.5" rx="2.4" ry="1.8" fill="#2a1c10"/><circle cx="625.8" cy="163.8" r=".7" fill="#fff"/><circle cx="645.8" cy="163.8" r=".7" fill="#fff"/>
+      <circle cx="625" cy="165" r="7.5" fill="#fff" fill-opacity=".05" stroke="#c9a24a" stroke-width="1.2"/><circle cx="645" cy="165" r="7.5" fill="#fff" fill-opacity=".05" stroke="#c9a24a" stroke-width="1.2"/><path d="M632.5 164 Q635 162 637.5 164" stroke="#c9a24a" stroke-width="1.2" fill="none"/>
+      <path d="M636 166 L632 181 Q635 184 640 181" stroke="#8a5434" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M624 186 Q630 182 635 185 Q640 182 646 186 Q640 190 635 188 Q630 190 624 186 Z" fill="#8d8b84"/><path d="M628 192 Q635 195 642 192" stroke="#7a4a32" stroke-width="1.3" fill="none"/>
+      <ellipse cx="623" cy="148" rx="9" ry="4" fill="#fff" opacity=".12"/>
+      
+      <rect x="563" y="98" width="144" height="168" fill="url(#glass)"/></g>
+     <rect x="610" y="286" width="50" height="10" rx="2" fill="url(#goldf)"/><text x="635" y="294" text-anchor="middle" font-family="Cinzel" font-size="7" font-weight="700" fill="#2a1c05">V. BRANDT</text></g>`}
   <!-- Tür -->
-  <rect x="845" y="110" width="135" height="430" fill="url(#desk)" stroke="#1a0f05" stroke-width="6"/>
-  <rect x="862" y="132" width="101" height="160" fill="none" stroke="#2a1608" stroke-width="4"/><rect x="862" y="310" width="101" height="200" fill="none" stroke="#2a1608" stroke-width="4"/>
-  <circle cx="870" cy="330" r="9" fill="url(#goldf)"/><rect x="862" y="345" width="26" height="26" fill="#eeeed2" stroke="url(#goldf)" stroke-width="3"/><path d="M862 358 H888 M875 345 V371" stroke="#769656" stroke-width="5" opacity=".7"/>
-  ${f.door?`<rect x="845" y="110" width="135" height="430" fill="#ffd27a" opacity=".55"/>`:""}
+  <rect x="852" y="118" width="135" height="430" fill="#000" opacity=".5" filter="url(#soft)"/>
+  <rect x="836" y="100" width="156" height="444" fill="url(#shelfb)"/>
+  <g filter="url(#grain)"><rect x="846" y="110" width="136" height="432" fill="url(#desk)"/>${panel(862,130,104,165)}${panel(862,312,104,205)}</g>
+  <rect x="846" y="538" width="136" height="4" fill="#ffcf7a" opacity=".55"/>
+  <rect x="864" y="318" width="20" height="44" rx="4" fill="url(#goldf)"/><circle cx="874" cy="330" r="7" fill="url(#goldf)" stroke="#6a4a14"/><path d="M872 344 h4 v10 h-4 z" fill="#1a0f05"/>
+  <g transform="translate(870 372)"><rect width="24" height="24" fill="url(#goldf)"/><rect x="3" y="3" width="9" height="9" fill="#efe6c8"/><rect x="12" y="3" width="9" height="9" fill="#6f8c52"/><rect x="3" y="12" width="9" height="9" fill="#6f8c52"/><rect x="12" y="12" width="9" height="9" fill="#efe6c8"/></g>
+  ${f.door?`<rect x="846" y="110" width="136" height="432" fill="#ffd27a" opacity=".55"/>`:""}
   <!-- Papierkorb -->
-  <path d="M250 520 L262 590 L312 590 L324 520 Z" fill="#4a3018" stroke="#1a0f05" stroke-width="3"/><g stroke="#2a1608" stroke-width="2">${[0,1,2,3,4].map(k=>`<line x1="${258+k*14}" y1="522" x2="${264+k*12}" y2="588"/>`).join("")}</g>
-  <circle cx="275" cy="516" r="10" fill="#f4ecd2"/><circle cx="295" cy="512" r="12" fill="#efe5cc"/><circle cx="308" cy="518" r="8" fill="#f4ecd2"/>
+  <ellipse cx="287" cy="592" rx="44" ry="8" fill="#000" opacity=".5" filter="url(#soft)"/>
+  <path d="M250 522 L263 590 L311 590 L324 522 Z" fill="#5a3a1a"/>${Array.from({length:8},(_,k)=>`<path d="M${252+k*9.5} 522 L${264+k*6.6} 590" stroke="#2a1608" stroke-width="2"/>`).join("")}${[534,550,566,580].map(y=>`<path d="M${250+(y-522)*.19} ${y} H${324-(y-522)*.19}" stroke="#7a5228" stroke-width="2" opacity=".8"/>`).join("")}
+  <ellipse cx="287" cy="522" rx="37" ry="5" fill="#2a1608"/>
+  <path d="M266 520 l6 -10 l8 4 l6 -8 l7 9 l-4 7 z" fill="#efe7d0" stroke="#bdb293"/><path d="M288 518 l5 -12 l9 2 l6 6 l-6 6 z" fill="#f6efdc" stroke="#bdb293"/><path d="M300 522 l4 -7 l8 2 l2 6 z" fill="#e6dcc0" stroke="#bdb293"/>
   <!-- Schreibtisch -->
-  <rect x="330" y="455" width="380" height="20" fill="#7a4a22"/><rect x="345" y="475" width="350" height="95" fill="url(#desk)" stroke="#1a0f05" stroke-width="3"/>
-  <rect x="455" y="490" width="130" height="38" rx="3" fill="#4a2a12" stroke="#2a1608" stroke-width="2"/><circle cx="520" cy="509" r="5" fill="url(#goldf)"/>${f.drawer?`<rect x="455" y="528" width="130" height="14" fill="#2a1608"/>`:""}
+  <ellipse cx="520" cy="582" rx="210" ry="12" fill="#000" opacity=".55" filter="url(#soft)"/>
+  <g filter="url(#grain)">
+   <polygon points="318,452 722,452 734,470 306,470" fill="url(#desktop)"/><rect x="306" y="470" width="428" height="10" fill="#4a2a12"/>
+   <rect x="322" y="480" width="118" height="100" fill="url(#desk)"/><rect x="600" y="480" width="118" height="100" fill="url(#desk)"/><rect x="440" y="480" width="160" height="56" fill="url(#desk)"/>
+   ${panel(330,490,102,38)}${panel(330,536,102,38)}${panel(608,490,102,38)}${panel(608,536,102,38)}
+  </g>
+  <rect x="455" y="488" width="130" height="38" rx="2" fill="#3a200c" stroke="#1a0f05" stroke-width="2"/><rect x="455" y="488" width="130" height="3" fill="#7a4a22"/>
+  ${[[381,509],[381,555],[659,509],[659,555]].map(([x,y])=>`<rect x="${x-11}" y="${y-2}" width="22" height="4" rx="2" fill="url(#goldf)"/>`).join("")}
+  <path d="M512 501 h16 v14 h-16 z" fill="url(#goldf)"/><circle cx="520" cy="506" r="2.5" fill="#1a0f05"/><path d="M519 507 h2 v5 h-2 z" fill="#1a0f05"/>
+  ${f.drawer?`<rect x="451" y="524" width="138" height="16" fill="#2a1608"/><rect x="455" y="524" width="130" height="3" fill="#7a4a22"/><path d="M470 528 h40 l-3 8 h-34 z" fill="#efe7d0"/>`:""}
+  <rect x="440" y="536" width="160" height="5" fill="#000" opacity=".4"/>
   <!-- Brett -->
-  <polygon points="420,392 580,392 588,458 412,458" fill="#3a2410"/>${board}
-  <g transform="translate(470 383) scale(.11)"><image href="${PIECES.wK}" width="200" height="200"/></g><g transform="translate(520 386) scale(.1)"><image href="${PIECES.bQ}" width="200" height="200"/></g><g transform="translate(445 400) scale(.1)"><image href="${PIECES.wR}" width="200" height="200"/></g>
+  <ellipse cx="500" cy="462" rx="96" ry="6" fill="#000" opacity=".5" filter="url(#soft)"/>
+  <polygon points="418,391 582,391 590,459 410,459" fill="#4a2a12"/><polygon points="410,459 590,459 590,464 410,464" fill="#2a1608"/>${board}
+  <g transform="translate(468 380) scale(.12)"><image href="${PIECES.wK}" width="200" height="200"/></g><g transform="translate(518 383) scale(.11)"><image href="${PIECES.bQ}" width="200" height="200"/></g><g transform="translate(442 398) scale(.11)"><image href="${PIECES.wR}" width="200" height="200"/></g><g transform="translate(548 400) scale(.1)"><image href="${PIECES.bP}" width="200" height="200"/></g><g transform="translate(486 410) scale(.11)"><image href="${PIECES.wN}" width="200" height="200"/></g>
   <!-- Telegramm -->
-  <g transform="rotate(-8 380 440)"><rect x="345" y="425" width="62" height="36" fill="#f4ecd2" stroke="#c8b380"/><path d="M352 434 H398 M352 442 H392 M352 450 H396" stroke="#8a7a50" stroke-width="2"/></g>
+  <g transform="rotate(-8 380 440)"><rect x="347" y="429" width="62" height="36" fill="#000" opacity=".35" filter="url(#soft)"/><rect x="345" y="425" width="62" height="36" fill="#f1e7c9"/><rect x="345" y="425" width="62" height="7" fill="#c8b380"/><path d="M352 438 H398 M352 445 H392 M352 452 H396" stroke="#7a6a44" stroke-width="1.6"/></g>
   <!-- Lampe -->
+  <ellipse cx="652" cy="457" rx="30" ry="5" fill="#000" opacity=".5" filter="url(#soft)"/>
   <ellipse cx="652" cy="455" rx="26" ry="6" fill="url(#goldf)"/><rect x="649" y="412" width="6" height="43" fill="url(#goldf)"/><path d="M630 430 Q652 420 674 430" stroke="url(#goldf)" stroke-width="4" fill="none"/>
   <path d="M598 398 Q652 384 706 398 L700 416 Q652 426 604 416 Z" fill="#1f6a42" stroke="#0f2a1c" stroke-width="3"/><path d="M606 400 Q652 390 698 400" stroke="#7fd4a0" stroke-width="2" fill="none" opacity=".6"/>
-  <ellipse cx="652" cy="418" rx="44" ry="5" fill="#ffe7a8" opacity=".85"/>
+  <ellipse cx="652" cy="418" rx="44" ry="5" fill="#ffe7a8" opacity=".9"/><ellipse cx="652" cy="440" rx="80" ry="20" fill="#ffd27a" opacity=".22" filter="url(#glow)"/>
   <!-- Schachuhr auf Beistelltisch -->
-  <rect x="730" y="470" width="100" height="10" fill="#7a4a22"/><rect x="770" y="480" width="20" height="70" fill="#4a2a12"/>
-  <rect x="738" y="430" width="84" height="40" rx="6" fill="#4a2a12" stroke="#1a0f05" stroke-width="3"/><circle cx="760" cy="450" r="13" fill="#f6efdc" stroke="#1a0f05" stroke-width="2"/><circle cx="800" cy="450" r="13" fill="#f6efdc" stroke="#1a0f05" stroke-width="2"/>
-  <path d="M760 450 L760 441 M800 450 L807 445" stroke="#1a0f05" stroke-width="2"/><rect x="752" y="424" width="14" height="6" fill="#c8333a"/><rect x="794" y="424" width="14" height="6" fill="#1a0f05"/>
+  <ellipse cx="780" cy="582" rx="46" ry="7" fill="#000" opacity=".5" filter="url(#soft)"/>
+  <rect x="726" y="468" width="108" height="10" rx="2" fill="url(#shelfb)"/><rect x="772" y="478" width="16" height="96" fill="url(#woodv)"/><path d="M750 580 Q780 566 810 580" stroke="#4a2a12" stroke-width="8" fill="none"/>
+  <rect x="740" y="436" width="84" height="34" rx="5" fill="#000" opacity=".4" filter="url(#soft)"/>
+  <path d="M738 470 L744 432 L816 432 L822 470 Z" fill="url(#desk)" stroke="#1a0f05" stroke-width="2"/>
+  <circle cx="762" cy="451" r="12" fill="#f6efdc" stroke="url(#goldf)" stroke-width="2.5"/><circle cx="800" cy="451" r="12" fill="#f6efdc" stroke="url(#goldf)" stroke-width="2.5"/>
+  <path d="M762 451 L762 443 M800 451 L806 446" stroke="#1a0f05" stroke-width="1.8"/><path d="M762 451 L767 451 M800 451 L800 456" stroke="#1a0f05" stroke-width="1.2"/><path d="M805 440 l3 -2 l1 4 z" fill="#c8333a"/>
+  <rect x="755" y="425" width="14" height="7" rx="2" fill="#a82a30"/><rect x="793" y="425" width="14" height="7" rx="2" fill="#1a0f05"/>
   <!-- Licht -->
   <rect width="1000" height="640" fill="url(#lamp)" style="mix-blend-mode:screen"/><rect width="1000" height="640" fill="url(#vig)"/>
   <!-- Fundstellen -->
-  <rect class="hs" data-hs="regal" tabindex="0" x="30" y="80" width="190" height="460" rx="6"><title>Bücherregal</title></rect>
-  <rect class="hs" data-hs="fenster" tabindex="0" x="285" y="70" width="190" height="230" rx="6"><title>Fenster</title></rect>
-  <rect class="hs" data-hs="${f.painting?"tresor":"gemaelde"}" tabindex="0" x="545" y="80" width="185" height="205" rx="6"><title>${f.painting?"Tresor":"Gemälde"}</title></rect>
-  <rect class="hs" data-hs="tuer" tabindex="0" x="845" y="110" width="135" height="430" rx="6"><title>Tür</title></rect>
-  <rect class="hs" data-hs="papierkorb" tabindex="0" x="246" y="500" width="82" height="94" rx="6"><title>Papierkorb</title></rect>
-  <rect class="hs" data-hs="schublade" tabindex="0" x="450" y="485" width="140" height="62" rx="6"><title>Schreibtischschublade</title></rect>
-  <rect class="hs" data-hs="brett" tabindex="0" x="410" y="372" width="180" height="90" rx="6"><title>Schachbrett</title></rect>
+  <rect class="hs" data-hs="regal" tabindex="0" x="26" y="76" width="208" height="470" rx="6"><title>Bücherregal</title></rect>
+  <rect class="hs" data-hs="fenster" tabindex="0" x="280" y="66" width="200" height="240" rx="6"><title>Fenster</title></rect>
+  <rect class="hs" data-hs="${f.painting?"tresor":"gemaelde"}" tabindex="0" x="543" y="78" width="186" height="220" rx="6"><title>${f.painting?"Tresor":"Gemälde"}</title></rect>
+  <rect class="hs" data-hs="tuer" tabindex="0" x="840" y="104" width="148" height="440" rx="6"><title>Tür</title></rect>
+  <rect class="hs" data-hs="papierkorb" tabindex="0" x="244" y="502" width="86" height="94" rx="6"><title>Papierkorb</title></rect>
+  <rect class="hs" data-hs="schublade" tabindex="0" x="450" y="484" width="140" height="58" rx="6"><title>Schreibtischschublade</title></rect>
+  <rect class="hs" data-hs="brett" tabindex="0" x="408" y="372" width="184" height="92" rx="6"><title>Schachbrett</title></rect>
   <rect class="hs" data-hs="telegramm" tabindex="0" x="338" y="415" width="76" height="56" rx="6"><title>Telegramm</title></rect>
-  <rect class="hs" data-hs="uhr" tabindex="0" x="730" y="418" width="100" height="62" rx="6"><title>Schachuhr</title></rect>
-  <rect class="hs" data-hs="lampe" tabindex="0" x="610" y="360" width="86" height="98" rx="6"><title>Lampe</title></rect>`;
+  <rect class="hs" data-hs="uhr" tabindex="0" x="728" y="420" width="104" height="58" rx="6"><title>Schachuhr</title></rect>
+  <rect class="hs" data-hs="lampe" tabindex="0" x="596" y="380" width="114" height="80" rx="6"><title>Lampe</title></rect>`;
 }
 
 /* ---------- Brett ---------- */
