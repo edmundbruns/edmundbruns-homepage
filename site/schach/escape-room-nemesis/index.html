@@ -449,14 +449,14 @@ h1,h2,h3,.cz{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:
     <a class="homelink" href="../../index.html">← edmundbruns.com</a>
     <span class="kicker">Ludgerusschule Rhede (Ems) · Escape-Room Klasse 8–10</span>
     <h1 class="logo glitch"><small>Der Schach-Hack</small>NEMESIS</h1>
-    <p class="tag">Eine Schach-KI hat das Schulnetz übernommen. Acht Firewalls, ein alter Schachcomputer und 45 Minuten bis zur Löschung.</p>
+    <p class="tag">Eine Schach-KI hat das Schulnetz übernommen. Acht Firewalls, ein alter Schachcomputer und ein Countdown bis zur Löschung.</p>
     <div class="hero" id="hero"></div>
     <div class="titlebtns">
       <button class="btn" id="bContinue" style="display:none">▶ Weiterspielen</button>
       <button class="btn" id="bNew">⌁ Hack starten</button>
       <button class="btn ghost small" id="bLead">Für die Spielleitung</button>
     </div>
-    <p class="foot">Für 2 bis 5 Personen pro Team · Klasse 8 bis 10 · Spielstärke ca. 1000 bis 1600 Elo · ca. 45 Minuten<br>Es werden keine personenbezogenen Daten gespeichert oder versendet.<br>© Dr. Edmund Bruns · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0</a> · Schachfiguren: Colin M. L. Burnett (GPLv2+)</p>
+    <p class="foot">Für 2 bis 5 Personen pro Team · Klasse 8 bis 10 · Spielstärke ca. 1000 bis 1600 Elo · online 25 Minuten, als Rallye 45 Minuten<br>Es werden keine personenbezogenen Daten gespeichert oder versendet.<br>© Dr. Edmund Bruns · <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC 4.0</a> · Schachfiguren: Colin M. L. Burnett (GPLv2+)</p>
   </section>
 
   <!-- SETUP -->
@@ -469,8 +469,8 @@ h1,h2,h3,.cz{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:
       <input class="field" id="teamName" maxlength="28" placeholder="z. B. Team Zugzwang" autocomplete="off">
       <label class="lb">Wie spielt ihr?</label>
       <div class="modes">
-        <button class="mode sel" data-mode="online"><span class="ic">📱</span><b>Online</b><span>Alles auf einem Gerät, im Klassenraum oder zu Hause.</span></button>
-        <button class="mode" data-mode="gelaende"><span class="ic">🗺️</span><b>Schulgelände</b><span>Rallye mit QR-Stationen an echten Orten der Schule.</span></button>
+        <button class="mode sel" data-mode="online"><span class="ic">📱</span><b>Online</b><span>Alles auf einem Gerät, im Klassenraum oder zu Hause. ⏱ 25 Minuten</span></button>
+        <button class="mode" data-mode="gelaende"><span class="ic">🗺️</span><b>Schulgelände</b><span>Rallye mit QR-Stationen an echten Orten der Schule. ⏱ 45 Minuten</span></button>
       </div>
       <div id="startWrap" style="display:none">
         <label class="lb" for="startSt">Eure Startstation (sagt euch die Spielleitung)</label>
@@ -2821,7 +2821,8 @@ var qrcode = function() {
    ===================================================================== */
 const CONFIG = {
   PIN: "NEMESIS",               // PIN für die Spielleitung
-  MINUTES: 45,                  // Spielzeit
+  MINUTES: 45,                  // Spielzeit Rallye auf dem Schulgelände
+  MINUTES_ONLINE: 25,           // Spielzeit online
   HINT_PENALTY: 60,             // Strafsekunden pro Tipp
   PASSWORD: "ENDSPIEL",
   finale: { place:"Büro der Schulsozialarbeit (Kreativzentrum)", code:"KERN",
@@ -3320,13 +3321,14 @@ let timerInt=null;
 function tick(){
   if(!S||!S.start) return;
   const now=S.end||Date.now();
-  const left=CONFIG.MINUTES*60-(now-S.start)/1000-S.penalty;
+  const left=limitMin()*60-(now-S.start)/1000-S.penalty;
   const c=$("#clock"); c.textContent=(left<0?"⌛ ":"⏳ ")+mmss(left);
   c.classList.toggle("warn",left<300 && !S.end);
   if(left<60 && left>0 && !S.end) SND.tick();
   if(left<0 && !S.overtimeTaunt && !S.end && S.phase!=="dialog"){ S.overtimeTaunt=true; save();
     dialog([STORY.over1,STORY.over2]); }
 }
+function limitMin(){ return S&&S.mode==="online"?CONFIG.MINUTES_ONLINE:CONFIG.MINUTES; }
 function startTimer(){ clearInterval(timerInt); timerInt=setInterval(tick,1000); tick(); }
 
 function enterGame(){ requestWake();
@@ -3496,7 +3498,7 @@ function finaleMate(){
 }
 
 /* Sieg */
-function rankTitle(sec){ if(sec<=30*60) return "Elite-Hacker"; if(sec<=40*60) return "Profi-Hacker"; if(sec<=45*60) return "Firewall-Knacker"; return "Hartnäckige Hacker"; }
+function rankTitle(sec){ const L=limitMin()*60; if(sec<=L*2/3) return "Elite-Hacker"; if(sec<=L*8/9) return "Profi-Hacker"; if(sec<=L) return "Firewall-Knacker"; return "Hartnäckige Hacker"; }
 let certN=0;
 function certSVG(){
   const used=(S.end-S.start)/1000+S.penalty, hints=Object.values(S.hints).reduce((a,b)=>a+b,0), d=new Date(S.end);
@@ -3634,7 +3636,7 @@ function openLead(){
     F:"Passwort ENDSPIEL · Matt in 3: 1. Sd5–e7+ Kh8 2. Dh5xh7+!! Kxh7 3. Td3–h3# (Anastasias Matt)"};
   $("#lead").innerHTML=`<div style="height:3vh"></div><div class="panel">
     <span class="kicker">Spielleitung</span><h2 style="margin:.4em 0">NEMESIS · Der Schach-Hack</h2>
-    <p>Escape-Room für Klasse 8 bis 10 (Spielstärke ca. 1000 bis 1600 Elo), Teams mit 2 bis 5 Personen, ein Smartphone oder Tablet pro Team, ca. 45 Minuten. Online-Modus: alles auf einem Gerät. Gelände-Modus: QR-Plakate an acht Orten, Finale im Büro der Schulsozialarbeit.</p>
+    <p>Escape-Room für Klasse 8 bis 10 (Spielstärke ca. 1000 bis 1600 Elo), Teams mit 2 bis 5 Personen, ein Smartphone oder Tablet pro Team. Spielzeit: online 25 Minuten, als Rallye auf dem Gelände 45 Minuten. Online-Modus: alles auf einem Gerät. Gelände-Modus: QR-Plakate an acht Orten, Finale im Büro der Schulsozialarbeit.</p>
     <h3>Ablauf Gelände-Rallye</h3>
     <ol><li>Plakate drucken und an den Orten aufhängen (Start-Plakat im Forum).</li><li>Jedes Team bekommt ein Startkärtchen mit einer anderen Startstation. So stehen nie alle an einem Ort.</li><li>Alle scannen gemeinsam im Forum das Start-Plakat, geben einen Teamnamen ein und wählen ihre Startstation.</li><li>Nach jeder Firewall verrät LUDO per Rätsel den nächsten Ort. Dort scannen die Kinder das Plakat oder tippen den Code ein.</li><li>Nach acht Stationen treffen sich alle zum Finale. Die Urkunde zeigt Zeit und Tipps.</li></ol>
     <p class="muted">Hinweis: Die Spielstände liegen nur im Browser des jeweiligen Geräts. Es werden keine Daten gesendet. Die QR-Codes zeigen auf genau diese Seite, darum bitte von der veröffentlichten Homepage-Adresse aus drucken.</p>
