@@ -90,7 +90,8 @@ label.lb{display:block;font-weight:800;margin:14px 0 8px}
 @media(max-width:420px){.modes{grid-template-columns:1fr}}
 /* ---------- HUD ---------- */
 .hud{position:sticky;top:0;z-index:20;margin:0 -14px 14px;padding:10px 14px 10px;background:linear-gradient(180deg,rgba(11,16,36,.97),rgba(11,16,36,.85));border-bottom:1px solid rgba(242,195,91,.18);backdrop-filter:blur(8px)}
-.hudrow{display:flex;align-items:center;gap:10px}
+.hudrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hudrow .seals{order:5;flex:0 0 100%}
 .clock{display:flex;align-items:center;gap:8px;font-family:Cinzel,serif;font-weight:900;font-size:1.35rem;color:var(--gold3);padding:6px 14px;border-radius:999px;background:rgba(242,195,91,.1);border:1px solid rgba(242,195,91,.35)}
 .clock.warn{color:#ffd0d0;border-color:#e5484d;background:rgba(229,72,77,.15);animation:pulse 1s infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 6px rgba(229,72,77,.15)}}
@@ -219,6 +220,7 @@ label.lb{display:block;font-weight:800;margin:14px 0 8px}
 .map{width:100%;max-width:420px;display:block;margin:0 auto}
 .mapgo{cursor:pointer}.mapgo:active{opacity:.8}
 .travel h2{margin:.2em 0}
+details.learn summary{cursor:pointer;list-style:none}details.learn summary::-webkit-details-marker{display:none}
 .riddle{font-size:1.08rem;font-weight:800;font-style:italic;color:#3b2a0e;background:#fff6dc;border-radius:14px;padding:14px;border-left:5px solid var(--gold2)}
 .codeIn{letter-spacing:.3em;text-transform:uppercase;text-align:center;font-family:Cinzel,serif}
 .qrhint{display:flex;gap:10px;align-items:center;font-size:.9rem;font-weight:700;color:#5a4214}
@@ -301,6 +303,33 @@ main{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
   .hintbtn{font-size:.88rem;padding:8px 12px}
   .portrait{flex-basis:62px;width:62px;height:62px}
   .dlg{padding:10px}
+}
+@media(max-width:600px){
+  main{padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+  .hintbar .muted{display:none}
+  .map{max-height:50vh;width:auto;max-width:100%}
+  .tlc{padding:8px 10px;font-size:.88rem;gap:8px}.tlc .num{flex-basis:28px;height:28px}.tl{gap:7px}
+  .board{max-width:min(420px,100%,calc(100svh - 300px))!important}
+  .ffinner{min-height:200px}
+  .hud{padding-top:max(8px,env(safe-area-inset-top));padding-bottom:8px;margin-bottom:8px}
+  .hudrow{flex-wrap:nowrap;gap:8px}
+  .hudrow .team{display:none}
+  .hudrow .seals{order:0;flex:1 1 auto;margin:0;display:grid;grid-template-columns:repeat(8,minmax(0,30px));gap:3px;justify-content:center}
+  .hudrow .seal{border-width:1.5px}
+  .clock{font-size:1rem;padding:5px 9px;gap:4px;flex:0 0 auto;white-space:nowrap}
+  .iconbtn{width:36px;height:36px;flex:0 0 36px}
+  .sthead{gap:10px;margin-bottom:8px}
+  .medal{flex:0 0 46px;width:46px;height:46px;border-width:2px}
+  .parch .sub{font-size:.68rem;letter-spacing:.05em}
+  .parch h2{font-size:1.12rem;margin:.05em 0}
+  .where{font-size:.72rem;padding:2px 8px}
+  .task{margin:4px 0 8px}
+  .learn{padding:8px 10px;font-size:.86rem;margin:8px 0}
+  .hintbar{margin-top:10px}
+  .msg{margin-top:6px;min-height:1.3em}
+  .qtext{font-size:1.02rem;margin:2px 0 8px}
+  .opts{gap:8px}
+  .travel h2{font-size:1.1rem}
 }
 @media(max-width:350px){ .team small{display:none} .logo{font-size:1.75rem} .clock{font-size:1rem} }
 @media(max-height:620px){ .bubble{max-height:40vh} .hero{height:180px} }
@@ -387,9 +416,9 @@ main{padding-bottom:calc(60px + env(safe-area-inset-bottom))}
       <div class="hudrow">
         <div class="clock" id="clock">⏳ 45:00</div>
         <div class="team" id="hudTeam"><small>Team</small>…</div>
+        <div class="seals" id="seals"></div>
         <button class="iconbtn" id="bMenu" aria-label="Menü">☰</button>
       </div>
-      <div class="seals" id="seals"></div>
     </div>
     <div id="stage"></div>
   </section>
@@ -2871,6 +2900,7 @@ function toast(t){ const e=$("#toast"); e.textContent=t; e.classList.add("on"); 
 function show(id){ $$(".screen").forEach(s=>s.classList.toggle("on",s.id===id)); window.scrollTo({top:0,behavior:"smooth"}); }
 function esc(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 function shuffle(a,seed){ a=a.slice(); let x=seed||Math.floor(Math.random()*1e9); for(let i=a.length-1;i>0;i--){ x=(x*9301+49297)%233280; const j=Math.floor(x/233280*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function into(e){ if(!e) return; setTimeout(()=>{ const r=e.getBoundingClientRect(); if(r.bottom>innerHeight-8||r.top<70) e.scrollIntoView({behavior:"smooth",block:r.height>innerHeight*.6?"start":"center"}); },120); }
 function burst(){ const b=document.createElement("div"); b.className="burst"; b.innerHTML="<div></div>"; document.body.appendChild(b); setTimeout(()=>b.remove(),1100); }
 function confetti(){ const c=document.createElement("div"); c.className="confetti"; const cols=["#f2c35b","#fff1c9","#8b5cf6","#2fbf71","#ff7a7f","#4f7fd6"];
   for(let i=0;i<120;i++){ const p=document.createElement("i"); p.style.left=Math.random()*100+"vw"; p.style.background=cols[i%cols.length]; p.style.animationDuration=(2.5+Math.random()*2.5)+"s"; p.style.animationDelay=(Math.random()*1.2)+"s"; c.appendChild(p); }
@@ -2944,16 +2974,17 @@ PUZ[1] = {
          "Der erste Buchstabe ist ein R, der zweite ein O. Das Wort ist ein besonderer Zug von König und Turm."],
   mount(el, solve, api){
     const code=["b6","g2","d8","a3","f5","c1","h7"];
-    el.innerHTML=`<div class="task">Brief des Grafen: <i>„Das Zauberwort verrate ich nur in Schachschrift, hahaha!“</i></div>
-      <div class="riddle cz" style="text-align:center;font-style:normal;letter-spacing:.08em">${code.join(" · ")}</div>
-      <div class="learn"><b>So liest man ein Feld:</b> Zuerst der Buchstabe (die Linie, von links a bis rechts h), dann die Zahl (die Reihe, von unten 1 bis oben 8). Tippt die Felder der Reihe nach an!</div>
-      ${boardHTML(8,{content:sq=>`<span class="letter">${CIPHER[(8-+sq[1])*8+FILES.indexOf(sq[0])]}</span>`})}
-      <div class="row" style="margin-top:14px"><input class="field codeIn" id="cIn" maxlength="10" placeholder="Zauberwort" autocomplete="off"><button class="btn small" id="cOk">Prüfen</button></div>
-      <div class="msg" id="cMsg"></div>`;
+    el.innerHTML=`<div class="riddle" style="font-size:.95rem;padding:10px 12px"><i>„Das Zauberwort verrate ich nur in Schachschrift, hahaha!“</i><div class="cz" style="text-align:center;font-style:normal;letter-spacing:.06em;font-size:1.05rem;margin-top:6px">${code.join(" · ")}</div></div>
+      <details class="learn"><summary><b>So liest man ein Feld</b> (antippen)</summary>Zuerst der Buchstabe (die Linie, von links a bis rechts h), dann die Zahl (die Reihe, von unten 1 bis oben 8). Tippt die Felder der Reihe nach an!</details>
+      <div class="row" style="margin:8px 0"><input class="field codeIn" id="cIn" maxlength="10" placeholder="Zauberwort" autocomplete="off" style="padding:10px 12px"><button class="hintbtn" id="cDel" aria-label="Letzten Buchstaben löschen">⌫</button><button class="btn small" id="cOk">Prüfen</button></div>
+      <div class="msg" id="cMsg" style="margin:0 0 6px"></div>
+      ${boardHTML(8,{content:sq=>`<span class="letter">${CIPHER[(8-+sq[1])*8+FILES.indexOf(sq[0])]}</span>`})}`;
     const inp=el.querySelector("#cIn");
     el.querySelectorAll(".sq").forEach(s=>s.onclick=()=>{ SND.click(); s.classList.add("pick"); setTimeout(()=>s.classList.remove("pick"),500); inp.value=(inp.value+s.querySelector(".letter").textContent).slice(0,10); });
     const check=()=>{ const v=inp.value.trim().toUpperCase(); if(v==="ROCHADE") solve(); else { api.bad(el.querySelector("#cMsg"),"Der Käfig rührt sich nicht. Prüft die Felder noch einmal!"); inp.value=""; } };
     el.querySelector("#cOk").onclick=check; inp.onkeydown=e=>{ if(e.key==="Enter") check(); };
+    el.querySelector("#cDel").onclick=()=>{ inp.value=inp.value.slice(0,-1); SND.click(); };
+    inp.setAttribute("inputmode","none"); inp.addEventListener("focus",()=>inp.removeAttribute("inputmode"),{once:true});
   }
 };
 
@@ -2992,10 +3023,10 @@ function quizEngine(el, qs, solve, api){
     el.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
       const k=+b.dataset.k;
       if(k===q.a){ SND.ok(); b.classList.add("right"); el.querySelectorAll(".opt").forEach(x=>x.disabled=true);
-        const e=el.querySelector("#qe"); e.textContent=q.e; e.classList.add("on"); el.querySelector("#qn").style.display="inline-flex"; }
+        const e=el.querySelector("#qe"); e.textContent=q.e; e.classList.add("on"); el.querySelector("#qn").style.display="inline-flex"; into(el.querySelector("#qn")); }
       else { SND.bad(); b.classList.add("no","shake"); b.disabled=true; }
     });
-    el.querySelector("#qn").onclick=()=>{ i++; if(i>=qs.length) solve(); else draw(); };
+    el.querySelector("#qn").onclick=()=>{ i++; if(i>=qs.length) solve(); else { draw(); into(el.querySelector(".qtext")); } };
   };
   draw();
 }
@@ -3078,9 +3109,9 @@ PUZ[4] = {
         el.querySelector("#ffi").classList.add("flip"); el.querySelector("#ffbtns").style.visibility="hidden";
         if(right){ SND.ok(); done++; queue.shift(); } else { SND.bad(); queue.push(queue.shift()); }
         el.querySelector("#ffn").style.display="inline-flex";
-        el.querySelector("#ffn").textContent=queue.length?(right?"Nächste Karte":"Karte kommt später nochmal"):"Fertig!";
+        el.querySelector("#ffn").textContent=queue.length?(right?"Nächste Karte":"Karte kommt später nochmal"):"Fertig!"; into(el.querySelector("#ffn"));
       });
-      el.querySelector("#ffn").onclick=draw;
+      el.querySelector("#ffn").onclick=()=>{ draw(); into(el.querySelector(".ffcard")); };
     };
     draw();
   }
@@ -3098,17 +3129,18 @@ PUZ[5] = {
   hints:["Die Dame zieht gerade und schräg, so weit sie will. Eigene Figuren versperren den Weg. Gegnerische Figuren darf sie schlagen, aber nicht überspringen.",
          "Es sind genau 11 Felder. Das Feld b5 gehört nicht dazu, d4 auch nicht. Das Feld b4 (der schwarze Bauer) gehört dazu."],
   mount(el, solve, api){
-    el.innerHTML=`<div class="qtext">Teil 1: Vor über 500 Jahren war die Dame eine schwache Figur. Wie durfte sie damals ziehen?</div>
+    el.innerHTML=`<div class="qtext" id="dq1">Teil 1: Vor über 500 Jahren war die Dame eine schwache Figur. Wie durfte sie damals ziehen?</div>
       <div class="opts" id="dq">${["Nur ein Feld schräg","Nur geradeaus nach vorne, wie ein Bauer","Nur, wenn der König es erlaubt"].map((o,k)=>`<button class="opt" data-k="${k}">${o}</button>`).join("")}</div>
       <div class="expl" id="de">Richtig! Damals hieß sie noch „Wesir“ und war eine Beraterin des Königs. Um das Jahr 1500 bekam sie ihre Superkräfte.</div>
-      <div id="d2" style="display:none;margin-top:16px">
+      <div id="d2" style="display:none;margin-top:10px">
         <div class="qtext">Teil 2: Tippt <u>alle</u> Felder an, auf die die Dame ziehen kann.</div>
-        <div class="learn">Weißer Bauer = eigene Figur, versperrt den Weg. Schwarzer Bauer = darf geschlagen werden.</div>
+        <div class="learn">Weißer Bauer versperrt den Weg. Schwarzer Bauer darf geschlagen werden.</div>
         <div id="dB"></div>
         <div class="row" style="justify-content:center;margin-top:12px"><button class="btn small" id="dOk">Prüfen</button></div><div class="msg" id="dM"></div>
       </div>`;
     el.querySelectorAll("#dq .opt").forEach(b=>b.onclick=()=>{
-      if(+b.dataset.k===0){ SND.ok(); b.classList.add("right"); el.querySelectorAll("#dq .opt").forEach(x=>x.disabled=true); el.querySelector("#de").classList.add("on"); el.querySelector("#d2").style.display="block"; setTimeout(()=>el.querySelector("#d2").scrollIntoView({behavior:"smooth",block:"start"}),300); }
+      if(+b.dataset.k===0){ SND.ok(); b.classList.add("right"); el.querySelectorAll("#dq .opt").forEach(x=>x.disabled=true); el.querySelector("#de").classList.add("on");
+        setTimeout(()=>{ el.querySelector("#dq").style.display="none"; el.querySelector("#dq1").style.display="none"; el.querySelector("#de").style.marginTop="0"; el.querySelector("#d2").style.display="block"; into(el.querySelector("#d2")); },1600); }
       else { SND.bad(); b.classList.add("no","shake"); b.disabled=true; }
     });
     const P={b2:"wQ",d4:"wP",b4:"bP"}, SOL=["a1","a2","a3","b1","b3","b4","c1","c2","c3","d2","e2"];
@@ -3192,8 +3224,7 @@ PUZ[7] = {
       const cur=path[path.length-1];
       el.innerHTML=`<div class="task">Springt mit Frieda zu allen drei 🏀 und dann zum Korb 🥅. Tippt einfach auf ein Zielfeld.</div>
         ${boardHTML(N,{max:380,content:sq=>{ if(sq===cur) return pimg("wN"); if(pawns.includes(sq)) return pimg("bP"); if(balls.includes(sq)&&!got.has(sq)) return `<span class="emo">🏀</span>`; if(sq===goal) return `<span class="emo">🥅</span>`; return ""; }})}
-        <div class="row" style="justify-content:center;margin-top:10px;gap:8px"><span class="where" style="font-size:.9rem">Sprünge: ${path.length-1}</span><span class="where" style="font-size:.9rem">Bälle: ${got.size}/3</span></div>
-        <div class="row" style="justify-content:center;margin-top:10px"><button class="hintbtn" id="kU">↶ Zurück</button><button class="hintbtn" id="kR">↺ Neustart</button><button class="hintbtn" id="kD">${danger?"Gefahr ausblenden":"⚠ Gefahr zeigen"}</button></div>
+        <div class="row" style="justify-content:center;margin-top:8px;gap:6px"><span class="where" style="font-size:.85rem">🦘 ${path.length-1}</span><span class="where" style="font-size:.85rem">🏀 ${got.size}/3</span><button class="hintbtn" id="kU" aria-label="Zurück">↶</button><button class="hintbtn" id="kR" aria-label="Neustart">↺</button><button class="hintbtn" id="kD">${danger?"⚠ aus":"⚠ Gefahr"}</button></div>
         <div class="msg" id="kM"></div>`;
       const b=el.querySelector(".board");
       [[1,2],[2,1],[-1,2],[-2,1],[1,-2],[2,-1],[-1,-2],[-2,-1]].forEach(([dx,dy])=>{ const f=FILES.indexOf(cur[0])+dx, r=+cur[1]+dy; if(f>=0&&f<N&&r>=1&&r<=N){ const q=FILES[f]+r; if(!pawns.includes(q)) sqEl(el,q).classList.add("tgt"); } });
@@ -3317,9 +3348,9 @@ function showMap(){
   const n=nextId(), isF=n==="F";
   const p=isF?place(8):place(n-1);
   $("#stage").innerHTML=`<div class="parch travel"><div class="sub">${isF?"Das Finale":"Station "+(S.solved.length+1)+" von 8"}</div>
-    <h2>${isF?"Zum Grafen!":"Auf zur nächsten Figur!"}</h2>${mapSVG()}
-    <div class="riddle" style="margin-top:12px">${esc(p.riddle)}</div>
-    <div class="center" style="margin-top:16px"><button class="btn" id="goSt">${isF?"Zum Finale":"Hinschleichen: "+esc(p.place)}</button></div></div>`;
+    <h2>${isF?"Zum Grafen!":"Auf zur nächsten Figur!"}</h2>
+    <div class="riddle" style="margin:8px 0 10px">${esc(p.riddle)}</div>
+    <div class="center" style="margin-bottom:12px"><button class="btn" id="goSt">${isF?"Zum Finale":"Hinschleichen: "+esc(p.place)}</button></div>${mapSVG()}</div>`;
   const go=()=>{ SND.magic(); if(isF) openFinale(); else { S.current=n; save(); openStation(n); } };
   $("#goSt").onclick=go;
   $$("#stage .mapgo").forEach(g=>{ g.onclick=go; g.onkeydown=e=>{ if(e.key==="Enter"||e.key===" ") go(); }; });
@@ -3332,7 +3363,7 @@ function showTravel(msg){
     <h2>${isF?"Auf zum Finale!":"Wohin führt die Spur?"}</h2>
     <div class="row" style="align-items:flex-start;gap:12px;flex-wrap:nowrap"><div style="flex:0 0 74px">${GERDA}</div><div class="riddle" style="flex:1">${esc(p.riddle)}</div></div>
     <div class="center" style="margin:10px 0"><button class="hintbtn" id="reveal">📍 Ort verraten</button><div id="revealed" class="where" style="display:none;margin-top:8px;font-size:1rem"></div></div>
-    <div class="learn"><b>Angekommen?</b> Scannt den QR-Code am Plakat mit der Kamera. Oder tippt hier den Code vom Plakat ein:</div>
+    <div class="learn"><b>Angekommen?</b> QR-Code am Plakat scannen oder Code eintippen:</div>
     <div class="row"><input class="field codeIn" id="code" maxlength="6" placeholder="CODE" autocomplete="off"><button class="btn small" id="codeOk">Öffnen</button></div>
     <div class="msg ${msg?"bad":""}" id="tm">${msg?esc(msg):""}</div></div>`;
   $("#reveal").onclick=()=>{ const r=$("#revealed"); r.style.display="inline-flex"; r.textContent="📍 "+p.place; };
@@ -3351,7 +3382,7 @@ function arrive(id,code,manual){
 /* Station */
 function openStation(id){
   const s=st(id), P=PUZ[id], p=place(id-1);
-  S.current=id; save();
+  S.current=id; save(); window.scrollTo({top:0});
   const used=S.hints[id]||0;
   $("#stage").innerHTML=`<div class="parch" id="stCard">
     <div class="sthead"><div class="medal" id="medal">${pimg(s.piece,"")}</div>
@@ -3362,8 +3393,8 @@ function openStation(id){
   const hintLabel=()=>{ const u=S.hints[id]||0; $("#hintL").textContent= u>=2?"Alle Tipps genutzt":`Gerda fragen (Tipp ${u+1}/2, +1 Min.)`; $("#hintB").disabled=u>=2; };
   const showHints=()=>{ const u=S.hints[id]||0; const hb=$("#hb"); if(u){ hb.innerHTML=P.hints.slice(0,u).map((h,i)=>`<div>🪿 <b>Tipp ${i+1}:</b> ${esc(h)}</div>`).join('<div style="height:6px"></div>'); hb.classList.add("on"); } };
   hintLabel(); showHints();
-  $("#hintB").onclick=()=>{ const u=S.hints[id]||0; if(u>=2) return; S.hints[id]=u+1; S.penalty+=CONFIG.HINT_PENALTY; save(); SND.click(); hintLabel(); showHints(); tick(); };
-  const api={ bad:(m,t)=>{ SND.bad(); m.className="msg bad"; m.textContent=t; m.classList.remove("shake"); void m.offsetWidth; m.classList.add("shake"); } };
+  $("#hintB").onclick=()=>{ const u=S.hints[id]||0; if(u>=2) return; S.hints[id]=u+1; S.penalty+=CONFIG.HINT_PENALTY; save(); SND.click(); hintLabel(); showHints(); tick(); into($("#hb")); };
+  const api={ bad:(m,t)=>{ SND.bad(); m.className="msg bad"; m.textContent=t; m.classList.remove("shake"); void m.offsetWidth; m.classList.add("shake"); into(m); } };
   const mount=()=>P.mount($("#pz"), ()=>solved(id), api);
   if(!S.seenIntro) S.seenIntro={};
   if(!S.seenIntro[id]){ S.seenIntro[id]=1; save(); $("#pz").innerHTML=`<div class="center muted" style="color:#7a5a24;padding:30px 0">…</div>`; S.phase="dialog"; dialog(P.intro,()=>{ S.phase="play"; mount(); }); }
