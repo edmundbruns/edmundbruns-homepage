@@ -206,12 +206,15 @@ label.lb{display:block;font-weight:800;margin:14px 0 8px}
 .tlc .yr{margin-left:auto;font-family:Cinzel,serif;font-weight:900;color:#1d8a4f;display:none}
 .tl.done .yr{display:block}
 /* Weizen */
-.wheat{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;max-width:460px;margin:8px auto}
-.wsq{aspect-ratio:.8;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:4px 2px;font-weight:900;font-size:.8rem;cursor:pointer;position:relative;overflow:hidden}
+.wheat{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:520px;margin:10px auto}
+.wsq{min-height:96px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:8px 4px 6px;font-weight:900;cursor:pointer;position:relative;box-shadow:0 3px 0 rgba(0,0,0,.18)}
 .wsq:nth-child(odd){background:var(--dark);color:#fff}.wsq:nth-child(even){background:var(--light);color:#5a3b1c}
-.wsq .n{font-family:Cinzel,serif;font-size:1rem;line-height:1}
-.wsq .g{font-size:.65rem;opacity:.8}
-.wsq .pile{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:14px;line-height:.8;text-align:center}
+.wsq .n{display:grid;place-items:center;min-width:2.4em;height:2.4em;padding:0 .35em;border-radius:999px;background:#fffaf0;color:#3b2a0e;font-family:Cinzel,serif;font-weight:900;font-size:1.5rem;line-height:1;box-shadow:0 0 0 3px #d99a2b;visibility:hidden}
+.wsq .n.on{visibility:visible}
+.wsq .n.q{background:#1d2340;color:#ffe8a8;box-shadow:0 0 0 3px #f2c35b}
+.wsq .g{font-size:.95rem;font-weight:900}
+.wsq .pile{font-size:.95rem;line-height:1;min-height:1em}
+@media(min-width:560px){.wheat{grid-template-columns:repeat(8,1fr)} .wsq .n{font-size:1.15rem}}
 /* Reise / Karte */
 .map{width:100%;max-width:420px;display:block;margin:0 auto}
 .travel h2{margin:.2em 0}
@@ -3224,15 +3227,15 @@ PUZ[8] = {
          "Auf dem siebten Feld (g1) liegen 64 Körner."],
   mount(el, solve, api){
     const vals=[1,2,4,8,16,32,64,128]; let shown=0;
-    el.innerHTML=`<div class="task">Tippt die ersten Felder der untersten Reihe an. Wie viele Körner liegen auf dem 8. Feld (h1)?</div>
-      <div class="wheat" id="wh">${vals.map((v,i)=>`<div class="wsq" data-i="${i}"><span class="pile"></span><span class="n">${i===7?"?":""}</span><span class="g">${FILES[i]}1</span></div>`).join("")}</div>
+    el.innerHTML=`<div class="task">Tippt nacheinander auf a1, b1 und c1. Rechnet dann weiter: Wie viele Körner liegen auf dem 8. Feld (h1)?</div>
+      <div class="wheat" id="wh">${vals.map((v,i)=>`<div class="wsq" data-i="${i}"><span class="pile"></span><span class="n ${i===7?"on q":""}">${i===7?"?":""}</span><span class="g">${FILES[i]}1</span></div>`).join("")}</div>
       <div class="row" style="margin-top:14px"><input class="field" id="wIn" inputmode="numeric" placeholder="Körner auf h1"><button class="btn small" id="wOk">Prüfen</button></div><div class="msg" id="wM"></div>`;
     const piles=["·","··","∴","⁘","✲","✲✲","✲✲✲","✲✲✲✲"];
     el.querySelectorAll(".wsq").forEach(s=>s.onclick=()=>{ const i=+s.dataset.i;
-      if(i===shown && i<3){ shown++; SND.click(); s.querySelector(".n").textContent=vals[i]; s.querySelector(".pile").textContent="🌾"; }
+      if(i===shown && i<3){ shown++; SND.click(); const n=s.querySelector(".n"); n.textContent=vals[i]; n.classList.add("on"); s.querySelector(".pile").textContent="🌾"; }
       else if(i>=3){ api.bad(el.querySelector("#wM"),"Ab hier müsst ihr selbst weiterrechnen!"); } });
     const check=()=>{ const v=parseInt(el.querySelector("#wIn").value.replace(/\D/g,""),10);
-      if(v===128){ el.querySelectorAll(".wsq").forEach((s,i)=>{ s.querySelector(".n").textContent=vals[i]; s.querySelector(".pile").textContent="🌾"; }); setTimeout(solve,900); }
+      if(v===128){ el.querySelectorAll(".wsq").forEach((s,i)=>{ const n=s.querySelector(".n"); n.textContent=vals[i]; n.className="n on"; s.querySelector(".pile").textContent="🌾"; }); setTimeout(solve,900); }
       else api.bad(el.querySelector("#wM"),"Das stimmt noch nicht. Verdoppelt Feld für Feld!"); };
     el.querySelector("#wOk").onclick=check; el.querySelector("#wIn").onkeydown=e=>{ if(e.key==="Enter") check(); };
   }
