@@ -205,6 +205,28 @@ h1,h2,h3,.cz{font-family:"Playfair Display",Georgia,serif}
 .lead{max-width:860px;margin:0 auto;padding:20px 14px}.lead h3{color:var(--brass)}
 .lead table{width:100%;border-collapse:collapse;font-size:.9rem}.lead td{border-bottom:1px solid rgba(255,255,255,.12);padding:6px 5px;vertical-align:top}
 #win{padding:16px}.certwrap{max-width:560px;margin:10px auto;border-radius:8px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6)}.certwrap svg{display:block;width:100%;height:auto}
+
+@media(max-width:899px){
+  #game.on{display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden}
+  #game{padding-bottom:max(8px,env(safe-area-inset-bottom))}
+  .top5{flex:0 0 auto;margin-bottom:4px}
+  .bolt{width:22px;height:22px;font-size:.66rem}
+  .wrap5{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:6px}
+  .wrap5>div:first-child{flex:0 0 auto}
+  .players{font-size:.75rem;margin:0 2px 4px}
+  #game .board{max-width:min(100%,calc(100dvh - 370px));margin:8px auto 4px}
+  .paper{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;padding:8px 10px;overflow:auto}
+  .paper h3{font-size:1rem;margin:0 0 2px}
+  .paper .stage{font-size:.66rem}
+  .comm{flex:1 1 auto;min-height:4em;overflow:auto;font-size:.92rem;line-height:1.35}
+  .yourmove{padding:5px 8px;margin-top:4px;font-size:.88rem}
+  .msg5{min-height:1.2em;margin-top:2px;font-size:.88rem}
+  #hint .row{margin-top:4px}#hint .hintbtn{padding:5px 10px;font-size:.8rem}
+  #hint .hintbox{position:fixed;left:10px;right:10px;bottom:max(12px,env(safe-area-inset-bottom));z-index:45;font-size:.9rem;box-shadow:0 10px 30px rgba(0,0,0,.5);padding:10px 12px}
+  #hint .hintbox:after{content:'Antippen zum Schließen';display:block;margin-top:6px;font-size:.72rem;opacity:.7}
+  .ctrl{margin-top:4px}
+  .score{flex:0 0 auto;max-height:none;white-space:nowrap;overflow-x:auto;overflow-y:hidden;margin-top:4px;padding:3px 6px;font-size:.85rem;line-height:1.5}
+}
 </style>
 </head>
 <body>
@@ -246,7 +268,7 @@ h1,h2,h3,.cz{font-family:"Playfair Display",Georgia,serif}
     <div class="paper">
       <div class="stage" id="stage">Eröffnung</div><h3 id="sTitle">Die Partie beginnt</h3>
       <div class="comm" id="comm"></div>
-      <div class="yourmove" id="your">♚ Ihr seid am Zug. Welchen Zug spielte Fischer?</div>
+      <div class="yourmove" id="your">♚ Euer Zug: Was spielte Fischer?</div>
       <div class="msg5" id="msg"></div>
       <div id="hint"></div>
       <div class="ctrl"><button class="hintbtn" id="bSkip" style="display:none">⏩ Schneller</button></div>
@@ -2424,7 +2446,7 @@ function startTimer(){ clearInterval(timerInt); timerInt=setInterval(tick,1000);
 /* ---------- Anzeige ---------- */
 let B=null, auto=null, fast=false;
 function renderBolts(){ $("#bolts").innerHTML=STAGES.map((s,i)=>`<span class="bolt ${i<S.stage?"open":i===S.stage?"cur":""}" title="Riegel ${i+1}">${i<S.stage?"✓":i+1}</span>`).join(""); }
-function renderScore(){ let h=""; for(let i=0;i<S.ply;i++){ if(i%2===0) h+=`<span class="n">${i/2+1}.</span> `; h+=`<span class="${i%2?"b":""} ${i===S.ply-1?"cur":""}">${DEp(G.san[i])}</span> `; } $("#score").innerHTML=h||"<i>Noch kein Zug</i>"; const c=$("#score .cur"); if(c) c.scrollIntoView({block:"nearest"}); }
+function renderScore(){ let h=""; for(let i=0;i<S.ply;i++){ if(i%2===0) h+=`<span class="n">${i/2+1}.</span> `; h+=`<span class="${i%2?"b":""} ${i===S.ply-1?"cur":""}">${DEp(G.san[i])}</span> `; } $("#score").innerHTML=h||"<i>Noch kein Zug</i>"; const sc=$("#score"); sc.scrollLeft=sc.scrollWidth; sc.scrollTop=sc.scrollHeight; }
 function lastSq(p){ if(p<=0) return null; const u=G.uci[p-1]; return [u.slice(0,2),u.slice(2,4)]; }
 function setPly(p){ S.ply=p; save(); B.set(G.fens[p],lastSq(p)); renderScore(); }
 
@@ -2442,7 +2464,7 @@ function startStage(){
   if(S.stage>=STAGES.length){ finish(); return; }
   const st=STAGES[S.stage]; const need=st.plies[S.sub||0];
   $("#stage").textContent=`Riegel ${S.stage+1} von ${STAGES.length}`; $("#sTitle").textContent=st.title; $("#msg").textContent=""; $("#msg").className="msg5";
-  const H=hintBlock("st"+S.stage,st.hints); $("#hint").innerHTML=H.html; H.bind($("#hint"));
+  const H=hintBlock("st"+S.stage,st.hints); $("#hint").innerHTML=H.html; H.bind($("#hint")); const hb=$("#hint .hintbox"); if(hb){ hb.onclick=()=>hb.classList.remove("on"); if(innerWidth<900) hb.classList.remove("on"); const btn=$("#hint .hintbtn"); const old=btn.onclick; btn.onclick=()=>{ old&&old(); hb.classList.add("on"); }; if(btn.disabled){ btn.disabled=false; btn.textContent="💡 Tipps zeigen"; btn.onclick=()=>hb.classList.add("on"); } }
   runTo(need,()=>{ $("#comm").textContent=(S.sub||0)===0?st.intro:`Weiter! Zug ${S.sub+1} von ${st.plies.length}.`; $("#your").classList.add("on"); B.locked=false; });
 }
 function onMove(m){
