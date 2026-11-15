@@ -2834,7 +2834,7 @@ const CONFIG = {
       riddle:"Analoger Datenspeicher mit Tausenden Seiten. Kein WLAN nötig. Leise sein!" },
     { id:4, piece:"wQ", name:"Firewall 4", role:"Legenden", letter:"S", place:"Mensa", code:"M4S",
       riddle:"Hier wird mittags Energie getankt. Nicht per Ladekabel, sondern per Teller." },
-    { id:5, piece:"wB", name:"Firewall 5", role:"Spieß", letter:"N", place:"Kletterwand auf dem Schulhof", code:"K5W",
+    { id:5, piece:"wB", name:"Firewall 5", role:"Doppelangriff", letter:"N", place:"Kletterwand auf dem Schulhof", code:"K5W",
       riddle:"Vertikaler Parcours mit bunten Griffen. Wer hier hoch will, braucht Kraft und Nerven." },
     { id:6, piece:"wP", name:"Firewall 6", role:"Elo", letter:"I", place:"Tischkicker", code:"T6K",
       riddle:"Zweiundzwanzig kleine Spieler an Stangen. Hier zählt jede Hundertstelsekunde." },
@@ -3208,18 +3208,18 @@ PUZ[4] = {
   }
 };
 
-/* 5 · Spieß */
+/* 5 · Doppelangriff */
 PUZ[5] = {
-  title:"Der Spieß", type:"Taktik",
+  title:"Der Doppelangriff", type:"Taktik",
   intro:[
     {who:"gerda",text:"Firewall fünf. Diesmal braucht ihr zwei Züge. Schwarz hat König und Dame ungünstig aufgestellt. Findet den Trick."},
     {who:"graf",text:"Meine Dame steht perfekt. Sie greift euren Springer auf f3 und den Bauern auf h2 an. Ihr steht unter Druck."}],
   outro:[
-    {who:"gerda",text:"Spieß! Der Läufer gibt Schach, und dahinter steht die Dame auf derselben Diagonale. Schlägt sie den Läufer, nimmt der Springer zurück."},
+    {who:"gerda",text:"Doppelangriff! Der Läufer steht genau zwischen König und Dame. Er gibt Schach und greift gleichzeitig die Dame an. Schlägt sie den Läufer, nimmt der Springer zurück."},
     {who:"graf",text:"Dame verloren. Ich speichere diesen Fehler. Er wird sich nicht wiederholen."}],
   hints:["Schaut auf die Diagonale vom schwarzen König auf c7 bis zur Dame auf f4.",
          "Der Läufer zieht nach e5 und gibt Schach. Dort ist er vom Springer gedeckt."],
-  mount(el, solve, api){ boardPuzzle(el,"spiess",solve,api,{task:"Weiß ist am Zug und gewinnt in <b>zwei Zügen</b> die Dame. NEMESIS antwortet nach eurem ersten Zug.",ok:"Die Dame ist gefallen!",good:"Schach! Was macht NEMESIS jetzt?",after:"NEMESIS hat reagiert. Jetzt holt euch die Beute!",wcheck:"Schach, aber das gewinnt nichts. Sucht den Spieß!",wrong:"Das gewinnt nichts. Die schwarze Dame bleibt gefährlich."}); }
+  mount(el, solve, api){ boardPuzzle(el,"spiess",solve,api,{task:"Weiß ist am Zug und gewinnt in <b>zwei Zügen</b> die Dame. NEMESIS antwortet nach eurem ersten Zug.",ok:"Die Dame ist gefallen!",good:"Schach! Was macht NEMESIS jetzt?",after:"NEMESIS hat reagiert. Jetzt holt euch die Beute!",wcheck:"Schach, aber das gewinnt nichts. Sucht den Doppelangriff!",wrong:"Das gewinnt nichts. Die schwarze Dame bleibt gefährlich."}); }
 };
 
 /* 6 · Elo */
@@ -3627,7 +3627,7 @@ function openLead(){
   show("lead");
   const sol={1:"Se5–g6+ (Springergabel gegen Kh8 und Th4)",2:"Stimmt: Rochade mit angegriffenem Turm, dritter Springer, berührt-geführt, 50-Züge-Regel · Stimmt nicht: Rochade nach Königszug, Rochade aus dem Schach, en passant später, Patt verloren",
     3:"Code 7429 (2014 · Niederlande · 829 · Niederdeutsch)",4:"Lasker 27 Jahre · Fischer 1972 · Menchik 1927 · Polgár schlug Kasparow · Deep Blue 1997 · Carlsen 2882",
-    5:"1. Lb2–e5+ (Spieß), nach Dxe5 2. Sxe5",6:"E ≈ 0,24 · Mia 1415 · Ben 1585",7:"a1, b6, c8, d3, e7, f4, g2, h5 (a1 und d3 sind vorgegeben)",8:"1. Kf3–f4! (König vor den Bauern), danach weiter mit Gewinnzügen",
+    5:"1. Lb2–e5+ (Doppelangriff auf König und Dame), nach Dxe5 2. Sxe5",6:"E ≈ 0,24 · Mia 1415 · Ben 1585",7:"a1, b6, c8, d3, e7, f4, g2, h5 (a1 und d3 sind vorgegeben)",8:"1. Kf3–f4! (König vor den Bauern), danach weiter mit Gewinnzügen",
     F:"Passwort ENDSPIEL · Matt in 3: 1. Sd5–e7+ Kh8 2. Dh5xh7+!! Kxh7 3. Td3–h3# (Anastasias Matt)"};
   $("#lead").innerHTML=`<div style="height:3vh"></div><div class="panel">
     <span class="kicker">Spielleitung</span><h2 style="margin:.4em 0">NEMESIS · Der Schach-Hack</h2>
