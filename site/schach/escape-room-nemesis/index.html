@@ -3231,23 +3231,23 @@ PUZ[6] = {
   outro:[
     {who:"gerda",text:"Exakt! Wer gegen Stärkere gewinnt, bekommt viele Punkte. Wer gegen Schwächere verliert, verliert viele. So bleibt das System fair."},
     {who:"graf",text:"Korrekt gerechnet. Ich hätte nicht gedacht, dass ihr Potenzen könnt."}],
-  hints:["10 hoch 0,5 ist ungefähr 3,16. Also ist E gleich 1 geteilt durch 4,16.",
-         "Mia: 1400 + 20 · 0,76. Ben bekommt genauso viele Punkte abgezogen."],
+  hints:["Der Unterschied ist 400, also steht im Exponenten 400 ÷ 400 = 1. Und 10 hoch 1 ist 10.",
+         "Für Mia ist E = 1/11. Sie bekommt 22 · 10/11 = 20 Punkte dazu. Ben verliert genauso viele."],
   mount(el, solve, api){
     let step=0;
-    const card=`<div class="formula"><div><b>Erwartete Punkte</b></div><div class="mono">E = 1 ÷ (1 + 10<sup>(Gegner − ich) ÷ 400</sup>)</div><div style="margin-top:6px"><b>Neue Elo</b></div><div class="mono">neu = alt + 20 · (Ergebnis − E)</div><div class="mini2">Ergebnis: Sieg = 1, Remis = 0,5, Niederlage = 0. Taschenrechner erlaubt!</div></div>`;
+    const card=`<div class="formula"><div><b>Erwartete Punkte</b></div><div class="mono">E = 1 ÷ (1 + 10<sup>(Gegner − ich) ÷ 400</sup>)</div><div style="margin-top:6px"><b>Neue Elo</b></div><div class="mono">neu = alt + 22 · (Ergebnis − E)</div><div class="mini2">Ergebnis: Sieg = 1, Remis = ½, Niederlage = 0. Rechnet mit Brüchen, dann kommen ganze Zahlen heraus!</div></div>`;
     const draw=()=>{
       let body="";
-      if(step===0) body=`<div class="qtext">Mia (Elo 1400) spielt gegen Ben (Elo 1600). Wie viele Punkte erwartet die Formel für Mia?</div>
-        <div class="opts">${["etwa 0,24","etwa 0,50","etwa 0,76"].map((o,k)=>`<button class="opt" data-k="${k}">${o}</button>`).join("")}</div>`;
-      else if(step===1) body=`<div class="qtext">Überraschung: Mia gewinnt! Wie lautet ihre neue Elo-Zahl (gerundet)?</div>
+      if(step===0) body=`<div class="qtext">Mia (Elo 1400) spielt gegen Ben (Elo 1800). Wie viele Punkte erwartet die Formel für Mia?</div>
+        <div class="opts">${["E = 1/11","E = 1/2","E = 10/11"].map((o,k)=>`<button class="opt" data-k="${k}">${o}</button>`).join("")}</div>`;
+      else if(step===1) body=`<div class="qtext">Überraschung: Mia gewinnt! Wie lautet ihre neue Elo-Zahl?</div>
         <div class="row"><input class="field" id="eIn" inputmode="numeric" placeholder="neue Elo von Mia"><button class="btn small" id="eOk">Prüfen</button></div>`;
-      else body=`<div class="qtext">Und Ben? Wie lautet seine neue Elo-Zahl nach der Niederlage (gerundet)?</div>
+      else body=`<div class="qtext">Und Ben? Wie lautet seine neue Elo-Zahl nach der Niederlage?</div>
         <div class="row"><input class="field" id="eIn" inputmode="numeric" placeholder="neue Elo von Ben"><button class="btn small" id="eOk">Prüfen</button></div>`;
       el.innerHTML=card+`<div class="qcount" style="margin-top:10px">${[0,1,2].map(k=>`<i class="${k<step?"done":k===step?"cur":""}"></i>`).join("")}</div>`+body+`<div class="msg" id="eM"></div>`;
       if(step===0) el.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ if(+b.dataset.k===0){ SND.ok(); step=1; draw(); } else { b.classList.add("no","shake"); b.disabled=true; api.bad(el.querySelector("#eM"),"Nicht ganz. Setzt die Zahlen in die Formel ein."); } });
-      else { const want=step===1?1415:1585, inp=el.querySelector("#eIn");
-        const chk=()=>{ const v=parseInt(inp.value.replace(/\D/g,""),10); if(v===want){ SND.ok(); if(step===2) setTimeout(solve,600); else { step=2; draw(); } } else api.bad(el.querySelector("#eM"),"Das stimmt noch nicht. Rechnet mit E = 0,24 für Mia und 0,76 für Ben."); };
+      else { const want=step===1?1420:1780, inp=el.querySelector("#eIn");
+        const chk=()=>{ const v=Number(inp.value.trim().replace(",",".")); if(v===want){ SND.ok(); if(step===2) setTimeout(solve,600); else { step=2; draw(); } } else api.bad(el.querySelector("#eM"),"Das stimmt noch nicht. Für Mia ist E = 1/11, für Ben E = 10/11. Bitte nur eine ganze Zahl eingeben."); };
         el.querySelector("#eOk").onclick=chk; inp.onkeydown=e=>{ if(e.key==="Enter") chk(); }; }
     };
     draw();
@@ -3627,7 +3627,7 @@ function openLead(){
   show("lead");
   const sol={1:"Se5–g6+ (Springergabel gegen Kh8 und Th4)",2:"Stimmt: Rochade mit angegriffenem Turm, dritter Springer, berührt-geführt, 50-Züge-Regel · Stimmt nicht: Rochade nach Königszug, Rochade aus dem Schach, en passant später, Patt verloren",
     3:"Code 7429 (2014 · Niederlande · 829 · Niederdeutsch)",4:"Lasker 27 Jahre · Fischer 1972 · Menchik 1927 · Polgár schlug Kasparow · Deep Blue 1997 · Carlsen 2882",
-    5:"1. Lb2–e5+ (Doppelangriff auf König und Dame), nach Dxe5 2. Sxe5",6:"E ≈ 0,24 · Mia 1415 · Ben 1585",7:"a1, b6, c8, d3, e7, f4, g2, h5 (a1 und d3 sind vorgegeben)",8:"1. Kf3–f4! (König vor den Bauern), danach weiter mit Gewinnzügen",
+    5:"1. Lb2–e5+ (Doppelangriff auf König und Dame), nach Dxe5 2. Sxe5",6:"Mia 1400 gegen Ben 1800, Faktor 22 · E(Mia) = 1/11 · Mia 1420 · Ben 1780",7:"a1, b6, c8, d3, e7, f4, g2, h5 (a1 und d3 sind vorgegeben)",8:"1. Kf3–f4! (König vor den Bauern), danach weiter mit Gewinnzügen",
     F:"Passwort ENDSPIEL · Matt in 3: 1. Sd5–e7+ Kh8 2. Dh5xh7+!! Kxh7 3. Td3–h3# (Anastasias Matt)"};
   $("#lead").innerHTML=`<div style="height:3vh"></div><div class="panel">
     <span class="kicker">Spielleitung</span><h2 style="margin:.4em 0">NEMESIS · Der Schach-Hack</h2>
