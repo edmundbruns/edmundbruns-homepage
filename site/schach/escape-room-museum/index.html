@@ -174,17 +174,32 @@ h1,h2,h3,.cz{font-family:Cinzel,Georgia,serif}
 .hall.done{opacity:.9;border-color:#6ab187}.hall.cur{opacity:1;border-color:var(--gold);box-shadow:0 0 12px rgba(212,170,85,.5)}
 .iconbtn{height:36px;min-width:36px;padding:0 10px;border-radius:999px;border:1px solid rgba(212,170,85,.35);background:rgba(212,170,85,.08);color:var(--ink);font-weight:800;white-space:nowrap}
 .stagewrap{flex:1 1 auto;position:relative;overflow:hidden;background:#000}
-.scroller{position:absolute;inset:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+.scroller{position:absolute;inset:0;overflow:hidden}
 .scroller::-webkit-scrollbar{display:none}
-#scene{position:relative;height:100%;aspect-ratio:3/2;margin:0 auto;background-size:cover;background-position:center}
+#scene{min-width:0;position:relative;margin:0 auto;background-size:100% 100%;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.backdrop{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(18px) brightness(.35)}
+.rotatehint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:3;background:rgba(0,0,0,.6);color:#f3d991;font-weight:800;font-size:.85rem;padding:6px 12px;border-radius:999px;pointer-events:none;white-space:nowrap;display:none}
+@media (orientation:portrait) and (max-width:700px){.rotatehint{display:block}}
+@media (max-height:460px){.hud{padding:3px 8px}.iconbtn{height:30px;min-width:30px}.clock{font-size:.95rem;padding:2px 10px}.hall{padding:3px 6px}.bar{padding:4px 8px}.chip{padding:4px 10px!important;font-size:.78rem!important}}
+#layer{position:absolute;left:0;top:0;width:1536px;height:1024px;transform-origin:0 0}
+.cvwrap{position:absolute;pointer-events:none}
+.cv{position:relative;background:radial-gradient(ellipse at 50% 35%,#1d2230,#0b0d13 75%);overflow:hidden;box-shadow:inset 0 0 30px rgba(0,0,0,.9)}
+.cvb{position:absolute;box-shadow:0 0 0 3px #3a2d18,0 6px 14px rgba(0,0,0,.6)}
+.cvb .board{max-width:none;width:100%;margin:0;border-radius:0;box-shadow:none;filter:sepia(.25) saturate(.85) brightness(.82) contrast(1.05)}
+.cvb .co{display:none}
+.cvb .sq.l{background:#d9ccab}.cvb .sq.d{background:#8a6d4b}
+.cvg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,226,160,.28),transparent 60%),linear-gradient(115deg,transparent 40%,rgba(255,255,255,.07) 48%,transparent 56%);pointer-events:none}
+.cvt{position:absolute;left:0;right:0;top:14px;text-align:center;font-family:Cinzel;font-weight:900;font-size:17px;letter-spacing:.06em;color:#d4aa55}
+.doorsign{position:absolute;transform:translateX(-50%);pointer-events:none;white-space:nowrap;font-family:Cinzel;font-weight:900;font-size:21px;color:#2a1c05;background:linear-gradient(180deg,#f3d991,#c79b3e 60%,#8c6522);padding:8px 16px;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.6);text-align:center;line-height:1.15}
+.doorsign small{display:block;font-size:15px;color:#7a1c22}.doorsign.open small{color:#1f6a3a}
 .hs{position:absolute;border-radius:10px;cursor:pointer;transition:background .2s,box-shadow .2s}
 .hs:hover{background:rgba(255,236,170,.08);box-shadow:inset 0 0 0 2px rgba(255,236,170,.5)}
 .showhs .hs{box-shadow:inset 0 0 0 2px rgba(255,236,170,.8);background:rgba(255,236,170,.08)}
-.hs .solvedmark{position:absolute;right:6%;top:6%;background:#1f6a3a;color:#fff;border-radius:999px;font-size:clamp(9px,1.2vw,14px);font-weight:900;padding:2px 7px;box-shadow:0 0 10px rgba(74,222,128,.6)}
+.hs .solvedmark{position:absolute;right:6%;top:6%;background:#1f6a3a;color:#fff;border-radius:999px;font-size:26px;font-weight:900;padding:2px 7px;box-shadow:0 0 10px rgba(74,222,128,.6)}
 .mini{position:absolute;pointer-events:none}
 .mini .board{max-width:none;width:100%;box-shadow:none;border-radius:2px;filter:brightness(.88) contrast(1.05)}
 .mini .co{display:none}
-.plaque{position:absolute;pointer-events:none;display:grid;place-items:center;font-family:Cinzel;font-weight:900;color:#2a1c05;font-size:clamp(9px,1.4vw,18px)}
+.plaque{position:absolute;pointer-events:none;display:grid;place-items:center;font-family:Cinzel;font-weight:900;color:#2a1c05;font-size:15px}
 .capt{position:absolute;pointer-events:none;color:#f3e7cc;font-family:Cinzel;text-align:center;font-size:clamp(8px,1.1vw,15px);text-shadow:0 1px 3px #000}
 .lockdigits{position:absolute;pointer-events:none;display:flex;justify-content:center;gap:4%;align-items:center;font-family:"Courier New",monospace;font-weight:900;color:#2a1c05;font-size:clamp(8px,1.2vw,16px)}
 .bar{flex:0 0 auto;background:linear-gradient(180deg,#140f08,#0d0a05);border-top:1px solid rgba(212,170,85,.25);padding:8px 10px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
@@ -231,7 +246,7 @@ h1,h2,h3,.cz{font-family:Cinzel,Georgia,serif}
 
 <section class="screen" id="game">
   <div class="hud"><div class="clock" id="clock">⏳ 25:00</div><div class="halls" id="halls"></div><button class="iconbtn" id="bHint" title="Hinweis (+1 Minute)">💡</button><button class="iconbtn" id="bShow">🔍</button><button class="iconbtn" id="bMenu">☰</button></div>
-  <div class="stagewrap"><div class="scroller" id="scroller"><div id="scene"></div></div><div class="swipehint" id="swipehint">← Saal seitlich wischen →</div></div>
+  <div class="stagewrap"><div class="backdrop" id="backdrop"></div><div class="rotatehint" id="rotatehint">📱↻ Quer halten für große Ansicht</div><div class="scroller" id="scroller"><div id="scene"></div></div></div>
   <div class="bar"><div class="chips" id="chips"></div></div>
 </section>
 <section class="screen" id="win"></section>
@@ -2368,34 +2383,34 @@ const DEp=s=>s.replace(/Q/g,"D").replace(/R/g,"T").replace(/B/g,"L").replace(/N/
 const W=1536,H=1024, pct=(x,y,w,h)=>`left:${x/W*100}%;top:${y/H*100}%;width:${w/W*100}%;height:${h/H*100}%`;
 /* Ausstellungsstücke. frame: Rechteck des Rahmens; board: Fläche fürs Mini-Diagramm */
 const HALLS=[
- {id:"eingang",name:"Eingangshalle",img:"eingang",door:{x:1185,y:250,w:351,h:450,label:"Durchgang zur Galerie"},exit:{x:590,y:95,w:410,h:620},
+ {id:"eingang",name:"Saal 1 · Eingangshalle",img:"eingang",door:{x:1185,y:250,w:351,h:450,label:"Durchgang zu Saal 2"},exit:{x:590,y:95,w:410,h:620},
   items:[
-   {id:"e1",kind:"m1",name:"Die Eintrittskarte",frame:{x:40,y:40,w:265,h:560},board:{x:78,y:175,s:190},pz:{id:"09K3K",fen:"2r5/pp3p1p/4p3/1N2kp2/2P5/1P1K2P1/P2B3P/8 b - - 1 26",moves:"a7a6 d2c3",rating:1776},
+   {id:"e1",kind:"m1",name:"Die Eintrittskarte",frame:{x:40,y:40,w:265,h:560},canvas:{quad:[[70,75],[297,177],[297,543],[70,580]],w:300,h:420,shape:"rect",title:"EINTRITT NUR FÜR MATT-KUNDIGE"},pz:{id:"09K3K",fen:"2r5/pp3p1p/4p3/1N2kp2/2P5/1P1K2P1/P2B3P/8 b - - 1 26",moves:"a7a6 d2c3",rating:1776},
     d:"Auf der Informationstafel steht: „Eintritt nur für Matt-Kundige.“ Weiß am Zug setzt matt.",h:["Der schwarze König auf e5 hat kaum Fluchtfelder. Welche weiße Figur steht noch ungenutzt?","Ein stiller Läuferzug: Lc3 matt. Der Springer b5 deckt d4 und d6."]},
    {id:"e2",kind:"info",name:"Die Holzfigur in der Vitrine",frame:{x:462,y:315,w:256,h:335},text:"Ein schlichter König aus Nussbaumholz, gedrechselt um 1850. Das Schild sagt: „Der König ist die schwächste und die wichtigste Figur zugleich.“"}
   ]},
- {id:"probleme",name:"Saal der Mattprobleme",img:"saal-probleme",door:{x:1385,y:170,w:151,h:570,label:"Tür zum Partiensaal"},
+ {id:"probleme",name:"Saal 2 · Mattprobleme",img:"saal-probleme",door:{x:1385,y:170,w:151,h:570,label:"Durchgang zu Saal 3"},
   items:[
-   {id:"p1",kind:"m2",name:"Problem I",frame:{x:205,y:193,w:270,h:317},board:{x:225,y:233,s:230},fen:"k2K4/8/6N1/8/8/8/4Qn1p/8 w - - 0 1",key:"d8c7",d:"Matt in zwei Zügen. Der Schlüsselzug gibt kein Schach.",h:["Der weiße König selbst macht den ersten Zug.","Kc7! Was Schwarz auch zieht, die Dame setzt auf a2 matt, oft auch auf a6."]},
-   {id:"p2",kind:"m2",name:"Problem II",frame:{x:525,y:203,w:255,h:307},board:{x:540,y:240,s:225},fen:"1k6/8/3R4/5K2/8/8/N1R5/8 w - - 0 1",key:"d6d7",d:"Matt in zwei Zügen. Der Schlüsselzug ist still.",h:["Ein Turm sperrt die siebte Reihe.","Td7! Schwarz hat nur noch Ka8, dann folgt Tc8 matt."]},
-   {id:"p3",kind:"m2",name:"Problem III",frame:{x:825,y:213,w:238,h:297},board:{x:838,y:250,s:212},fen:"8/8/2K5/Q7/7k/4pR2/8/8 w - - 0 1",key:"a5f5",d:"Matt in zwei Zügen. Die Dame macht einen stillen Zug.",h:["Die Dame muss dem König h4 die Felder g4, g5 und h5 nehmen, ohne Schach zu geben.","Df5! Schwarz bleibt nur e3-e2, dann setzt Th3 matt."]},
-   {id:"p4",kind:"m2",name:"Problem IV",frame:{x:1105,y:223,w:220,h:287},board:{x:1117,y:262,s:196},fen:"8/8/8/2R4Q/8/1K6/8/4k3 w - - 0 1",key:"c5c2",d:"Matt in zwei Zügen. Ein Turmzug ohne Schach.",h:["Der Turm schneidet dem König e1 die zweite Reihe ab.","Tc2! Schwarz hat nur Kf1, dann folgt Dh1 oder Dd1 matt."]}
+   {id:"p1",kind:"m2",name:"Problem I",frame:{x:205,y:193,w:270,h:317},canvas:{x:226,y:217,w:226,h:271,shape:"rect"},fen:"k2K4/8/6N1/8/8/8/4Qn1p/8 w - - 0 1",key:"d8c7",d:"Matt in zwei Zügen. Der Schlüsselzug gibt kein Schach.",h:["Der weiße König selbst macht den ersten Zug.","Kc7! Was Schwarz auch zieht, die Dame setzt auf a2 matt, oft auch auf a6."]},
+   {id:"p2",kind:"m2",name:"Problem II",frame:{x:525,y:203,w:255,h:307},canvas:{x:546,y:226,w:212,h:262,shape:"rect"},fen:"1k6/8/3R4/5K2/8/8/N1R5/8 w - - 0 1",key:"d6d7",d:"Matt in zwei Zügen. Der Schlüsselzug ist still.",h:["Ein Turm sperrt die siebte Reihe.","Td7! Schwarz hat nur noch Ka8, dann folgt Tc8 matt."]},
+   {id:"p3",kind:"m2",name:"Problem III",frame:{x:825,y:213,w:238,h:297},canvas:{x:846,y:236,w:197,h:252,shape:"rect"},fen:"8/8/2K5/Q7/7k/4pR2/8/8 w - - 0 1",key:"a5f5",d:"Matt in zwei Zügen. Die Dame macht einen stillen Zug.",h:["Die Dame muss dem König h4 die Felder g4, g5 und h5 nehmen, ohne Schach zu geben.","Df5! Schwarz bleibt nur e3-e2, dann setzt Th3 matt."]},
+   {id:"p4",kind:"m2",name:"Problem IV",frame:{x:1105,y:223,w:220,h:287},canvas:{x:1125,y:236,w:194,h:253,shape:"rect"},fen:"8/8/8/2R4Q/8/1K6/8/4k3 w - - 0 1",key:"c5c2",d:"Matt in zwei Zügen. Ein Turmzug ohne Schach.",h:["Der Turm schneidet dem König e1 die zweite Reihe ab.","Tc2! Schwarz hat nur Kf1, dann folgt Dh1 oder Dd1 matt."]}
   ]},
- {id:"partien",name:"Saal der großen Partien",img:"saal-partien",door:{x:1405,y:185,w:131,h:595,label:"Tür zum Kabinett"},
+ {id:"partien",name:"Saal 3 · Große Partien",img:"saal-partien",door:{x:1405,y:185,w:131,h:595,label:"Durchgang zu Saal 4"},
   items:[
-   {id:"g1",kind:"line",game:"legal",name:"Légals Matt, Paris 1750",frame:{x:175,y:143,w:243,h:267},board:{x:193,y:160,s:205},d:"Légal hat Weiß. Er opfert die Dame und setzt mit Leichtfiguren matt. Findet seine drei Züge.",h:["Der Springer f3 ist gefesselt, aber er zieht trotzdem.","5. Sxe5! Lxd1 6. Lxf7+ Ke7 7. Sd5#."]},
-   {id:"g2",kind:"line",game:"unsterbliche",name:"Die Unsterbliche, London 1851",frame:{x:505,y:148,w:230,h:264},board:{x:522,y:165,s:196},d:"Anderssen hat Weiß und schon beide Türme geopfert. Jetzt gibt er auch noch die Dame. Zwei Züge bis zum Matt.",h:["Die Dame gibt auf f6 Schach.","22. Df6+! Sxf6 23. Le7#."]},
-   {id:"g3",kind:"line",game:"immergruen",name:"Die Immergrüne, Berlin 1852",frame:{x:823,y:155,w:222,h:257},board:{x:838,y:170,s:192},d:"Anderssen hat Weiß. Ein Damenopfer, ein Doppelschach und zwei Läuferzüge bis zum Matt.",h:["Die Dame schlägt auf d7 mit Schach.","21. Dxd7+! Kxd7 22. Lf5++ Ke8 23. Ld7+ Kf8 24. Lxe7#."]},
-   {id:"g4",kind:"line",game:"reti",name:"Réti gegen Tartakower, Wien 1910",frame:{x:1112,y:162,w:210,h:252},board:{x:1126,y:177,s:182},d:"Réti hat Weiß und lang rochiert. Ein Damenopfer auf d8 führt zum Matt in drei Zügen.",h:["Die Dame opfert sich auf d8 mit Schach.","9. Dd8+! Kxd8 10. Lg5++ Kc7 11. Ld8#."]}
+   {id:"g1",kind:"line",game:"legal",name:"Légals Matt, Paris 1750",frame:{x:175,y:143,w:243,h:267},canvas:{x:196,y:161,w:203,h:231,shape:"rect"},d:"Légal hat Weiß. Er opfert die Dame und setzt mit Leichtfiguren matt. Findet seine drei Züge.",h:["Der Springer f3 ist gefesselt, aber er zieht trotzdem.","5. Sxe5! Lxd1 6. Lxf7+ Ke7 7. Sd5#."]},
+   {id:"g2",kind:"line",game:"unsterbliche",name:"Die Unsterbliche, London 1851",frame:{x:505,y:148,w:230,h:264},canvas:{x:524,y:168,w:192,h:225,shape:"rect"},d:"Anderssen hat Weiß und schon beide Türme geopfert. Jetzt gibt er auch noch die Dame. Zwei Züge bis zum Matt.",h:["Die Dame gibt auf f6 Schach.","22. Df6+! Sxf6 23. Le7#."]},
+   {id:"g3",kind:"line",game:"immergruen",name:"Die Immergrüne, Berlin 1852",frame:{x:823,y:155,w:222,h:257},canvas:{x:842,y:175,w:184,h:219,shape:"rect"},d:"Anderssen hat Weiß. Ein Damenopfer, ein Doppelschach und zwei Läuferzüge bis zum Matt.",h:["Die Dame schlägt auf d7 mit Schach.","21. Dxd7+! Kxd7 22. Lf5++ Ke8 23. Ld7+ Kf8 24. Lxe7#."]},
+   {id:"g4",kind:"line",game:"reti",name:"Réti gegen Tartakower, Wien 1910",frame:{x:1112,y:162,w:210,h:252},canvas:{x:1131,y:173,w:185,h:223,shape:"rect"},d:"Réti hat Weiß und lang rochiert. Ein Damenopfer auf d8 führt zum Matt in drei Zügen.",h:["Die Dame opfert sich auf d8 mit Schach.","9. Dd8+! Kxd8 10. Lg5++ Kc7 11. Ld8#."]}
   ]},
- {id:"kabinett",name:"Kuriositätenkabinett",img:"kabinett",door:{x:1250,y:130,w:270,h:870,label:"Tür mit Zahlenschloss"},
+ {id:"kabinett",name:"Saal 4 · Kuriositätenkabinett",img:"kabinett",door:{x:1250,y:130,w:270,h:870,label:"Durchgang zu Saal 5"},
   items:[
-   {id:"k1",kind:"h2",name:"Das Hilfsmatt (runder Rahmen)",frame:{x:325,y:80,w:275,h:320},board:{x:368,y:143,s:190},fen:"2B5/k4p2/n1K5/8/2N5/8/8/8 b - - 0 1",sol:["a7a8","c6b6","a6b8","c8b7"],digit:"7",d:"Hilfsmatt in 2: Schwarz beginnt und hilft mit. Beide Seiten arbeiten zusammen, bis Weiß im zweiten Zug mattsetzt. Ihr zieht für beide Farben.",h:["Der schwarze König geht in die Ecke, der schwarze Springer verstellt ein Fluchtfeld.","1. … Ka8 2. Kb6 Sb8 3. Lb7#."]},
-   {id:"k2",kind:"s1",name:"Das Selbstmatt (ovaler Rahmen)",frame:{x:640,y:55,w:250,h:445},board:{x:672,y:185,s:186},fen:"8/8/1q6/8/B7/8/Q7/K1k5 w - - 0 1",key:"a2b2",digit:"2",d:"Selbstmatt in 1: Weiß zieht und zwingt Schwarz, Weiß mattzusetzen. Schwarz will das eigentlich nicht.",h:["Weiß gibt Schach, und Schwarz hat nur einen einzigen legalen Zug.","Db2+! Schwarz muss Dxb2 spielen, und das ist matt."]},
-   {id:"k3",kind:"retro",name:"Die Retro-Aufgabe (sechseckiger Rahmen)",frame:{x:918,y:120,w:310,h:285},board:{x:990,y:170,s:165},fen:"r3k2r/ppp2ppp/8/1B6/8/8/PPP2PPP/4R1K1 b kq - 0 1",answer:"e2",digit:"2",d:"Schwarz steht im Doppelschach durch Turm und Läufer. Weiß hat zuletzt gezogen. Von welchem Feld kam der weiße Läufer?",h:["Ein Doppelschach mit Turm und Läufer entsteht nur durch einen Abzug.","Der Läufer stand auf der e-Linie vor dem Turm, also auf e2."]},
+   {id:"k1",kind:"h2",name:"Das Hilfsmatt (runder Rahmen)",frame:{x:325,y:80,w:275,h:320},canvas:{x:345,y:132,w:233,h:235,shape:"circle"},fen:"2B5/k4p2/n1K5/8/2N5/8/8/8 b - - 0 1",sol:["a7a8","c6b6","a6b8","c8b7"],digit:"7",d:"Hilfsmatt in 2: Schwarz beginnt und hilft mit. Beide Seiten arbeiten zusammen, bis Weiß im zweiten Zug mattsetzt. Ihr zieht für beide Farben.",h:["Der schwarze König geht in die Ecke, der schwarze Springer verstellt ein Fluchtfeld.","1. … Ka8 2. Kb6 Sb8 3. Lb7#."]},
+   {id:"k2",kind:"s1",name:"Das Selbstmatt (ovaler Rahmen)",frame:{x:640,y:55,w:250,h:445},canvas:{x:661,y:108,w:211,h:336,shape:"oval"},fen:"8/8/1q6/8/B7/8/Q7/K1k5 w - - 0 1",key:"a2b2",digit:"2",d:"Selbstmatt in 1: Weiß zieht und zwingt Schwarz, Weiß mattzusetzen. Schwarz will das eigentlich nicht.",h:["Weiß gibt Schach, und Schwarz hat nur einen einzigen legalen Zug.","Db2+! Schwarz muss Dxb2 spielen, und das ist matt."]},
+   {id:"k3",kind:"retro",name:"Die Retro-Aufgabe (sechseckiger Rahmen)",frame:{x:918,y:120,w:310,h:285},canvas:{x:942,y:133,w:276,h:251,shape:"hex"},fen:"r3k2r/ppp2ppp/8/1B6/8/8/PPP2PPP/4R1K1 b kq - 0 1",answer:"e2",digit:"2",d:"Schwarz steht im Doppelschach durch Turm und Läufer. Weiß hat zuletzt gezogen. Von welchem Feld kam der weiße Läufer?",h:["Ein Doppelschach mit Turm und Läufer entsteht nur durch einen Abzug.","Der Läufer stand auf der e-Linie vor dem Turm, also auf e2."]},
    {id:"k4",kind:"quiz",name:"Die alte Schachuhr",frame:{x:435,y:400,w:205,h:150},answer:"3",digit:"3",d:"Auf dem Zifferblatt ist eingraviert: „Ein König in der Ecke, das Brett sonst leer: Auf wie viele Felder kann er ziehen?“",h:["Zählt die Nachbarfelder von a1.","a2, b1 und b2: drei Felder."]}
   ]},
- {id:"schatz",name:"Schatzkammer",img:"schatzkammer",items:[{id:"t1",kind:"final",name:"Der goldene König",frame:{x:680,y:230,w:210,h:290}}]}
+ {id:"schatz",name:"Saal 5 · Schatzkammer",img:"schatzkammer",items:[{id:"t1",kind:"final",name:"Der goldene König",frame:{x:680,y:230,w:210,h:290}}]}
 ];
 const STORY={
   i1:{who:"k",text:"Guten Abend. Ich bin die Kustodin dieses Museums. Sie haben die letzte Durchsage überhört, und nun sind alle Türen verschlossen."},
@@ -2419,30 +2434,44 @@ function fenPieces(fen){ const P={}; fen.split(" ")[0].split("/").forEach((row,r
 function itemFen(it){ if(it.kind==="m1"){ const g=new Chess(it.pz.fen); const u=it.pz.moves.split(" ")[0]; g.move({from:u.slice(0,2),to:u.slice(2,4)}); return g.fen(); } if(it.kind==="line") return GAMES[it.game].fen; return it.fen; }
 const solved=id=>!!S.solved[id];
 const hallDone=h=>HALLS[h].items.filter(i=>i.kind!=="info"&&i.kind!=="final").every(i=>solved(i.id));
+function homography(w,h,q){ // Rechteck (0,0,w,h) auf Viereck q abbilden -> CSS matrix3d
+  const src=[[0,0],[w,0],[w,h],[0,h]], A=[], B=[];
+  for(let i=0;i<4;i++){ const [x,y]=src[i], [u,v]=q[i]; A.push([x,y,1,0,0,0,-u*x,-u*y]); B.push(u); A.push([0,0,0,x,y,1,-v*x,-v*y]); B.push(v); }
+  for(let c=0;c<8;c++){ let p=c; for(let r=c+1;r<8;r++) if(Math.abs(A[r][c])>Math.abs(A[p][c])) p=r; [A[c],A[p]]=[A[p],A[c]]; [B[c],B[p]]=[B[p],B[c]];
+    for(let r=0;r<8;r++){ if(r===c) continue; const f=A[r][c]/A[c][c]; for(let k=c;k<8;k++) A[r][k]-=f*A[c][k]; B[r]-=f*B[c]; } }
+  const x=B.map((v,i)=>v/A[i][i]); return `matrix3d(${x[0]},${x[3]},0,${x[6]},${x[1]},${x[4]},0,${x[7]},0,0,1,0,${x[2]},${x[5]},0,1)`;
+}
+function canvasHTML(it){
+  const c=it.canvas, P=fenPieces(itemFen(it)); const w=c.w, h=c.h;
+  let side; if(c.shape==="circle") side=Math.min(w,h)/Math.SQRT2*.96; else if(c.shape==="oval"){ const A=w/2,Bh=h/2; side=2*A*Bh/Math.sqrt(A*A+Bh*Bh)*.96; } else if(c.shape==="hex") side=Math.min(h*.78,w*.62); else side=Math.min(w*.86,h*.74);
+  const clip={circle:"ellipse(50% 50% at 50% 50%)",oval:"ellipse(50% 50% at 50% 50%)",hex:"polygon(25% 2%,75% 2%,99% 50%,75% 98%,25% 98%,1% 50%)",rect:"none"}[c.shape];
+  const inner=`<div class="cv" style="width:${w}px;height:${h}px;clip-path:${clip}">${c.title?`<div class="cvt">${c.title}</div>`:""}<div class="cvb" style="width:${side}px;height:${side}px;left:${(w-side)/2}px;top:${(h-side)/2+(c.title?12:0)}px">${boardHTML({content:sq=>P[sq]?pimg(P[sq]):""})}</div><div class="cvg"></div></div>`;
+  if(c.quad) return `<div class="cvwrap" style="left:0;top:0;transform-origin:0 0;transform:${homography(w,h,c.quad)}">${inner}</div>`;
+  return `<div class="cvwrap" style="left:${c.x}px;top:${c.y}px">${inner}</div>`;
+}
 function renderScene(){
-  const h=HALLS[S.hall], sc=$("#scene"); sc.style.backgroundImage=`url(img/${h.img}.webp)`;
+  const h=HALLS[S.hall], sc=$("#scene"); sc.style.backgroundImage=`url(img/${h.img}.webp)`; $("#backdrop").style.backgroundImage=`url(img/${h.img}.webp)`;
   let html="";
-  h.items.forEach(it=>{
-    if(it.board){ const P=fenPieces(itemFen(it)); html+=`<div class="mini" style="${pct(it.board.x,it.board.y,it.board.s,it.board.s)}">${boardHTML({content:sq=>P[sq]?pimg(P[sq]):""})}</div>`; }
-    html+=`<div class="hs" data-it="${it.id}" title="${esc(it.name)}" style="${pct(it.frame.x,it.frame.y,it.frame.w,it.frame.h)}">${solved(it.id)?`<span class="solvedmark">✓${it.digit?" "+it.digit:""}</span>`:""}</div>`;
-  });
-  if(h.id==="probleme") h.items.forEach((it,i)=>{ const pl=[[308,530],[625,532],[915,532],[1188,532]][i]; html+=`<div class="plaque" style="${pct(pl[0],pl[1],62,20)}">${solved(it.id)?"MATT":""}</div>`; });
-  if(h.door) html+=`<div class="hs" data-door="1" title="${esc(h.door.label)}" style="${pct(h.door.x,h.door.y,h.door.w,h.door.h)}"></div>`;
-  if(h.exit) html+=`<div class="hs" data-exit="1" title="Ausgang" style="${pct(h.exit.x,h.exit.y,h.exit.w,h.exit.h)}"></div>`;
-  sc.innerHTML=html;
+  h.items.forEach(it=>{ if(it.canvas) html+=canvasHTML(it); });
+  h.items.forEach(it=>{ const f=it.frame; html+=`<div class="hs" data-it="${it.id}" title="${esc(it.name)}" style="left:${f.x}px;top:${f.y}px;width:${f.w}px;height:${f.h}px">${solved(it.id)?`<span class="solvedmark">✓${it.digit?" "+it.digit:""}</span>`:""}</div>`; });
+  if(h.id==="probleme") h.items.forEach((it,i)=>{ const pl=[[308,530],[625,532],[915,532],[1188,532]][i]; html+=`<div class="plaque" style="left:${pl[0]}px;top:${pl[1]}px;width:62px;height:20px">${solved(it.id)?"MATT":""}</div>`; });
+  if(h.door){ const d=h.door, open=hallDone(S.hall); const cx=d.x+d.w/2, pos=d.w<200?`right:${Math.max(4,1536-(d.x+d.w)-4)}px;transform:none;`:`left:${cx}px;`; html+=`<div class="doorsign ${open?"open":""}" style="${pos}top:${d.y+Math.min(90,d.h*.18)}px">${esc(d.label).replace(" zu ","<br>zu ")}<small>${open?"offen":"verschlossen"}</small></div>`;
+    html+=`<div class="hs" data-door="1" title="${esc(d.label)}" style="left:${d.x}px;top:${d.y}px;width:${d.w}px;height:${d.h}px"></div>`; }
+  if(h.exit) html+=`<div class="hs" data-exit="1" title="Ausgang" style="left:${h.exit.x}px;top:${h.exit.y}px;width:${h.exit.w}px;height:${h.exit.h}px"></div>`;
+  sc.innerHTML=`<div id="layer">${html}</div>`; fitScene();
   $$("#scene [data-it]").forEach(e=>e.onclick=()=>openItem(e.dataset.it));
   $$("#scene [data-door]").forEach(e=>e.onclick=openDoor);
-  $$("#scene [data-exit]").forEach(e=>e.onclick=()=>openCard("Die Ausgangstür","Verschlossen",`<p class="desc">Schwere Flügeltüren aus Eiche. Ein Schild: „Ausgang nur über die Schatzkammer.“</p>`));
+  $$("#scene [data-exit]").forEach(e=>e.onclick=()=>openCard("Die Ausgangstür","Verschlossen",`<p class="desc">Schwere Flügeltüren aus Eiche. Ein Schild: „Ausgang nur über die Schatzkammer in Saal 5.“</p>`));
   renderBar();
 }
 function renderBar(){
-  $("#halls").innerHTML=HALLS.map((x,i)=>`<span class="hall ${i<S.hall?"done":i===S.hall?"cur":""}">${x.name.replace("Saal der ","")}</span>`).join("");
+  $("#halls").innerHTML=HALLS.map((x,i)=>`<span class="hall ${i<S.hall?"done":i===S.hall?"cur":""}">${x.name.split(" · ")[1]}</span>`).join("");
   const h=HALLS[S.hall];
   $("#chips").innerHTML=h.items.map(it=>`<button class="chip ${solved(it.id)?"done":""}" data-it="${it.id}">${solved(it.id)?"✓ ":""}${esc(it.name)}</button>`).join("")+(h.door?`<button class="chip" data-door="1">🚪 ${esc(h.door.label)}</button>`:"");
   $$("#chips [data-it]").forEach(e=>e.onclick=()=>openItem(e.dataset.it)); $$("#chips [data-door]").forEach(e=>e.onclick=openDoor);
   const c=$("#halls .cur"); if(c) c.scrollIntoView({inline:"center",block:"nearest"});
 }
-function fitScene(){ const st=$(".stagewrap"); if(!st) return; const w=st.clientWidth, h=st.clientHeight; const sw=Math.max(w,h*1.5); $("#scene").style.width=sw+"px"; $("#scene").style.height=sw/1.5+"px"; $("#scene").style.marginTop=Math.max(0,(h-sw/1.5)/2)+"px"; }
+function fitScene(){ const st=$(".stagewrap"); if(!st) return; const w=st.clientWidth, h=st.clientHeight; const sw=Math.min(w,h*1.5); $("#scene").style.width=sw+"px"; $("#scene").style.height=sw/1.5+"px"; $("#scene").style.marginTop=Math.max(0,(h-sw/1.5)/2)+"px"; const L=$("#layer"); if(L) L.style.transform=`scale(${sw/1536})`; }
 window.addEventListener("resize",fitScene);
 
 /* ---------- Türen ---------- */
@@ -2486,18 +2515,18 @@ function openItem(id){
   });
 }
 $("#bHint").onclick=()=>{ const h=HALLS[S.hall]; const open=h.items.filter(i=>i.kind!=="info"&&i.kind!=="final"&&!solved(i.id)); let t;
-  if(h.id==="schatz") t="Tippt auf den goldenen König unter der Glasglocke."; else if(!open.length) t=`Alle Stücke sind gelöst. Tippt auf die ${h.door.label}.`; else t=`Noch offen: ${open.map(i=>i.name).join(", ")}. Jedes Stück hat eigene Tipps.`;
+  if(h.id==="schatz") t="Tippt auf den goldenen König unter der Glasglocke."; else if(!open.length) t=`Alle Stücke sind gelöst. Tippt auf den ${h.door.label}.`; else t=`Noch offen: ${open.map(i=>i.name).join(", ")}. Jedes Stück hat eigene Tipps.`;
   openCard("Hinweis","Kostenlos",`<p class="desc">${esc(t)}</p>`); };
 $("#bShow").onclick=()=>$("#scene").classList.toggle("showhs");
 
 /* ---------- Ablauf ---------- */
 function enterGame(){ show("game"); $("#game").classList.add("on"); renderScene(); fitScene(); startTimer();
-  const sc=$("#scroller"); setTimeout(()=>{ if(sc.scrollWidth>sc.clientWidth+20){ sc.scrollLeft=(sc.scrollWidth-sc.clientWidth)/2; const hh=$("#swipehint"); hh.style.display="block"; setTimeout(()=>hh.style.display="none",3500); } },60); }
+ }
 function finish(){ if(S.end) return showWin(); S.end=Date.now(); save(); clearInterval(timerInt); tick(); SND.win(); confetti(); setTimeout(()=>narrate([STORY.o1],showWin),900); }
 function rankTitle(){ const used=(S.end-S.start)/1000+S.penalty; if(S.err<=2&&used<=CONFIG.MINUTES*60) return "Ehrenkustoden"; if(S.err<=8) return "Kenner der Sammlung"; return "Treue Museumsgäste"; }
 function certSVG(){
   const used=(S.end-S.start)/1000+S.penalty, hints=Object.values(S.hints).reduce((a,b)=>a+b,0), d=new Date(S.end), team=S.team, ts=Math.min(130,Math.floor(1600/Math.max(6,team.length*.65)));
-  const halls=HALLS.slice(0,4).map((h,i)=>`<g transform="translate(${360+i*460} 1560)"><rect x="-170" y="-110" width="340" height="220" rx="10" fill="#1b1309" stroke="#d4aa55" stroke-width="6"/><text y="-10" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="64" fill="#d4aa55">✓</text><text y="60" text-anchor="middle" font-family="Cinzel" font-weight="700" font-size="30" fill="#f3e7cc">${esc(h.name.replace("Saal der ",""))}</text></g>`).join("");
+  const halls=HALLS.slice(0,4).map((h,i)=>`<g transform="translate(${360+i*460} 1560)"><rect x="-170" y="-110" width="340" height="220" rx="10" fill="#1b1309" stroke="#d4aa55" stroke-width="6"/><text y="-10" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="64" fill="#d4aa55">✓</text><text y="60" text-anchor="middle" font-family="Cinzel" font-weight="700" font-size="30" fill="#f3e7cc">${esc(h.name.split(" · ")[1])}</text></g>`).join("");
   return `<svg viewBox="0 0 2100 2970" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff2c8"/><stop offset=".5" stop-color="#d4aa55"/><stop offset="1" stop-color="#8a6420"/></linearGradient><radialGradient id="cb" cx=".5" cy=".35" r=".8"><stop offset="0" stop-color="#2b1f12"/><stop offset="1" stop-color="#0c0906"/></radialGradient>
    <pattern id="chk" width="160" height="160" patternUnits="userSpaceOnUse"><rect width="80" height="80" fill="#d4aa55" opacity=".05"/><rect x="80" y="80" width="80" height="80" fill="#d4aa55" opacity=".05"/></pattern></defs>
    <rect width="2100" height="2970" fill="url(#cb)"/><rect width="2100" height="2970" fill="url(#chk)"/>
