@@ -1,0 +1,20 @@
+name: Schach-Duell-Server veröffentlichen
+on:
+  push:
+    branches: [main]
+    paths: ['workers/**', '.github/workflows/workers-deploy.yml']
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Worker schach-duell veröffentlichen
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 480e351e75c5fbf638b262039af377a1
+          workingDirectory: workers/schach-duell
+          command: deploy
