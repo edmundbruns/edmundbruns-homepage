@@ -129,3 +129,26 @@ MATERIALS.push(
  {t:'Schachbegriffe Teil 2',topic:'Schach',aud:['Schüler:innen','Lehrkräfte'],year:'',type:'Sammlung',format:'Online',time:'bis 30 Minuten',d:'Bauernumwandlung, Patt, Notation, Remis und Zeitüberschreitung mit Diagrammen und Fragen.',u:'/schach/einsteiger/begriffe/'},
  {t:'Mittelspiel und Strategie',topic:'Schach',aud:['Schüler:innen','Lehrkräfte'],year:'',type:'Sammlung',format:'Online',time:'30–60 Minuten',d:'Acht strategische Grundsätze mit Leitfragen, Beispieldiagramm und Plan-Checkliste.',u:'/schach/fortgeschrittene/mittelspiel/'}
 );
+
+/* Ergänzungen November 2026: Praxiswerkzeuge Schulsozialarbeit */
+MATERIALS.push(
+ {t:'Absentismus-Ampel',topic:'Schulsozialarbeit',aud:['Schulsozialarbeit','Lehrkräfte'],year:'',type:'Praxistool',format:'Online',time:'15–30 Min.',d:'Fehlzeiten einordnen, Wochentagsmuster erkennen und nächste Schritte nach Wenn-dann-Logik planen.',u:'https://edmundbruns.github.io/absentismus/'},
+ {t:'Fallarbeit Niedersachsen',topic:'Schulsozialarbeit',aud:['Schulsozialarbeit','Studium'],year:'',type:'Training',format:'Online',time:'30–45 Min.',d:'Erfundene Fälle analysieren, Entscheidungen begründen und Folgen im Fallverlauf nachvollziehen.',u:'https://edmundbruns.github.io/faelleneu/'},
+ {t:'Vorlagen-Bibliothek',topic:'Schulsozialarbeit',aud:['Schulsozialarbeit','Lehrkräfte'],year:'',type:'Sammlung',format:'Online',time:'variabel',d:'Ausfüllbare Praxisvorlagen für Gespräche, Vereinbarungen, Dokumentation und Kooperation.',u:'https://edmundbruns.github.io/vorlagen/'},
+ {t:'Methodenkoffer Schulsozialarbeit',topic:'Schulsozialarbeit',aud:['Schulsozialarbeit','Lehrkräfte'],year:'',type:'Sammlung',format:'Online',time:'variabel',d:'Methoden für Einzelarbeit, Gruppen und Klassen, nach Ziel und Anlass ausgewählt.',u:'https://edmundbruns.github.io/methoden1/'},
+ {t:'SozialWerkstatt',topic:'Soziales Lernen',aud:['Schulsozialarbeit','Lehrkräfte'],year:'',type:'Sammlung',format:'Online',time:'mehrere Stunden',d:'Trainingsreihen zum sozial-emotionalen Lernen für Grundschule und Oberschule.',u:'https://edmundbruns.github.io/sozialwerkstatt/'}
+);
+
+/* Fallanlässe: Zugang nach konkreter Situation (Materialfinder, Filter „Fallanlass“) */
+const FALLANLAESSE={
+ fehlzeiten:{l:'Ein Kind fehlt häufig',hint:'Maßgeblich ist das Verfahren deiner Schule. Die Schwellen der Absentismus-Ampel sind ein Orientierungsmodell und keine Landesvorgabe.',m:['Absentismus-Ampel','2.4 ','3.3 ','Elterngespräch-Trainer','8.1 ','9.1 ','Vorlagen-Bibliothek']},
+ kinderschutz:{l:'Sorge um das Wohl eines Kindes',hint:'Bei akuter Gefahr sofort die Schulleitung informieren und dem Schutzkonzept folgen. Bei Gefahr für Leib und Leben: Notruf 110. Für die Einschätzung steht die Beratung durch eine insoweit erfahrene Fachkraft zur Verfügung (§ 8b SGB VIII, § 4 KKG).',m:['2.3 ','Kinderschutz in der Schulsozialarbeit','4.2 ','4.3 ','4.4 ','Schweigepflicht und Datenschutz','8.2 ','9.1 ']},
+ mobbing:{l:'Verdacht auf Mobbing',hint:'Bei Gewalt oder Bedrohung die Schulleitung informieren und das Schutzkonzept beachten.',m:['5.3 ','5.4 ','5.1 ','Pausenhof-Trainer','SozialWerkstatt','Klassenrat-Praxisheft','Methodenkoffer']},
+ konflikt:{l:'Konflikte oder Gewalt',hint:'Bei Gewalt oder Bedrohung die Schulleitung informieren und das Schutzkonzept beachten.',m:['5.1 ','5.2 ','5.4 ','Pausenhof-Trainer','Klassenrat-Praxisheft','Kooperative Kurzimpulse','SozialWerkstatt']},
+ eltern:{l:'Ein schwieriges Elterngespräch',hint:'',m:['3.3 ','3.4 ','3.2 ','Elterngespräch-Trainer','Vorlagen-Bibliothek']},
+ beratung:{l:'Ein Kind sucht Rat',hint:'Vertraulichkeit hat Grenzen. Kläre früh, was du für dich behalten kannst und was nicht.',m:['Grundlagen professioneller Beratung','3.2 ','Türöffner-Sammlung','Schweigepflicht und Datenschutz','Gefühle wahrnehmen','Methodenkoffer']},
+ klasse:{l:'Klassenklima stärken',hint:'',m:['Klassenrat-Praxisheft','SozialWerkstatt','Kooperative Kurzimpulse','SOL Soziales Lernen','6.1 ','6.2 ','Methodenkoffer']},
+ kooperation:{l:'Hilfen vermitteln und kooperieren',hint:'',m:['8.1 ','8.2 ','8.3 ','2.4 ','7.2 ','7.3 ','Fallarbeit Niedersachsen']},
+ doku:{l:'Dokumentation und Datenschutz',hint:'',m:['Schweigepflicht und Datenschutz','9.1 ','Dokumentation der Schulsozialarbeit','Vorlagen-Bibliothek','2.1 ']}
+};
+MATERIALS.forEach(m=>{m.fa=Object.keys(FALLANLAESSE).filter(k=>FALLANLAESSE[k].m.some(p=>m.t.startsWith(p)))});
