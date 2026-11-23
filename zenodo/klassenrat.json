@@ -1,0 +1,14 @@
+{
+  "titel": "Der Klassenrat von Klasse 1 bis 10",
+  "untertitel": "Praxisheft für Niedersachsen",
+  "ressourcentyp": "Unterrichtsmaterial (Lesson)",
+  "veroeffentlichungsdatum": "2026-10",
+  "autor": {"name": "Bruns, Edmund", "titel": "Dr. phil.", "orcid": "falls vorhanden eintragen"},
+  "sprache": "Deutsch (deu)",
+  "lizenz": "Creative Commons Attribution Non Commercial 4.0 International (cc-by-nc-4.0)",
+  "beschreibung": "Praxisheft für Niedersachsen mit Rechtsrahmen, Sitzungsablauf, Rollen, Schutzregeln, drei Fällen aus dem Schulalltag, sieben Kopiervorlagen (A bis G) und einem Materialpaket für Klasse 1 bis 4. 26 Seiten, als PDF und als anpassbare Word-Datei.",
+  "schlagwoerter": ["Klassenrat", "Demokratiebildung", "Schulsozialarbeit", "Partizipation", "Niedersachsen", "Grundschule", "Sekundarstufe I", "Kopiervorlagen"],
+  "dateien": ["site/downloads/klassenrat-praxisheft.pdf", "site/downloads/klassenrat-praxisheft.docx"],
+  "verwandte_adresse": {"beziehung": "ist identisch mit (is identical to)", "url": "https://www.edmundbruns.com/schulsozialarbeit/klassenrat/"},
+  "verlag": "Selbstverlag, www.edmundbruns.com"
+}

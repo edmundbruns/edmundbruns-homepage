@@ -48,3 +48,22 @@ document.querySelectorAll('img[data-fallback]').forEach(img => {
     img.src = img.getAttribute('data-fallback');
   }, { once: true });
 });
+
+/* Neu-Markierungen laufen automatisch ab.
+   Element mit data-neu="JJJJ-MM-TT" (Erscheinungsdatum). Nach 30 Tagen
+   (oder data-neu-tage) verschwindet "Neu" aus dem Text, ein reines
+   "Neu"-Etikett wird ausgeblendet. */
+(function () {
+  try {
+    var heute = Date.now();
+    document.querySelectorAll('[data-neu]').forEach(function (el) {
+      var d = new Date(el.getAttribute('data-neu') + 'T00:00:00');
+      var tage = parseInt(el.getAttribute('data-neu-tage') || '30', 10);
+      if (isNaN(d) || (heute - d) / 864e5 <= tage) return;
+      var t = el.textContent.trim();
+      if (/^Neu( im .*)?$/.test(t)) { el.style.display = "none"; return; }
+      var rest = t.replace(/^Neu\s*·\s*/, '').replace(/\s*·\s*Neu$/, '');
+      if (rest) el.textContent = rest; else el.style.display = "none";
+    });
+  } catch (e) {}
+})();

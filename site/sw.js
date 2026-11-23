@@ -1,5 +1,5 @@
 /* Service Worker: Offline-Cache fuer bruns-homepage */
-const VERSION = 'eb-v87-2026-11-23';
+const VERSION = 'eb-v88-2026-11-23';
 const CORE = [
   '/',
   '/materialfinder/',
@@ -21,6 +21,8 @@ const CORE = [
   '/geschichte/klasse-8/',
   '/geschichte/klasse-9/',
   '/geschichte/klasse-10/',
+  '/lehrkraefte/',
+  '/schach/escape-rooms/',
   '/mathe/',
   '/mathe/klasse-5/',
   '/mathe/klasse-6/',
