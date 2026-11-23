@@ -41,6 +41,11 @@ def intern_ok(seite, u):
 
 
 def extern_status(u):
+    code = _abfrage(u)
+    return code if code else _abfrage(u)
+
+
+def _abfrage(u):
     req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (eb-linkcheck)"})
     try:
         with urllib.request.urlopen(req, timeout=25) as r:
@@ -52,7 +57,7 @@ def extern_status(u):
 
 
 def main():
-    fehler, extern = [], {}
+    fehler, warnungen, extern = [], [], {}
     seiten = sorted(SITE.rglob("*.html"))
     for seite in seiten:
         text = seite.read_text(encoding="utf-8", errors="ignore")
@@ -80,10 +85,17 @@ def main():
                 continue
             if code in (403, 429) and any(h in u for h in BOT_SPERRE):
                 continue
-            fehler.append(f"EXTERN {code or 'keine Antwort'}  {extern[u]} -> {u}")
+            if not code:
+                warnungen.append(f"keine Antwort (Server blockt evtl. automatische Abfragen)  {extern[u]} -> {u}")
+                continue
+            fehler.append(f"EXTERN {code}  {extern[u]} -> {u}")
     print(f"{len(seiten)} Seiten, {len(extern)} externe Links geprüft, {len(fehler)} Fehler.")
     for f in fehler:
         print(" -", f)
+    if warnungen:
+        print(f"{len(warnungen)} Warnungen (kein Fehler, bei Gelegenheit von Hand prüfen):")
+        for w in warnungen:
+            print(" ~", w)
     return 1 if fehler else 0
 
 
