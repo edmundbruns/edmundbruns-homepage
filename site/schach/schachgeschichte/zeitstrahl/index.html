@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <script>try{var d=document.documentElement,s=localStorage;if(s.getItem('eb-theme')==='dark')d.dataset.theme='dark';if(s.getItem('eb-reading')==='easy')d.dataset.reading='easy';}catch(e){}</script>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="../../../assets/icon-180.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zeitstrahl der Schachgeschichte | Dr. Edmund Bruns</title>
+  <meta name="description" content="Interaktiver Zeitstrahl: 1500 Jahre Schachgeschichte in sieben Epochen, von Chaturanga bis Gukesh. Mit Filter, Suche, Videos und Escape-Rooms.">
+  <link rel="canonical" href="https://www.edmundbruns.com/schach/schachgeschichte/zeitstrahl/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dr. Edmund Bruns">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Zeitstrahl der Schachgeschichte">
+  <meta property="og:description" content="Interaktiver Zeitstrahl: 1500 Jahre Schachgeschichte in sieben Epochen, von Chaturanga bis Gukesh. Mit Filter, Suche, Videos und Escape-Rooms.">
+  <meta property="og:url" content="https://www.edmundbruns.com/schach/schachgeschichte/zeitstrahl/">
+  <meta property="og:image" content="https://www.edmundbruns.com/assets/og/og-schach.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Schachgeschichte | Dr. Edmund Bruns">
+  <meta name="twitter:description" content="Schachgeschichte: kurzer Überblick, interaktive Angebote und eine Videoreihe zur Kulturgeschichte des Schachs.">
+  <meta name="twitter:image" content="https://www.edmundbruns.com/assets/og-image.png">
+  <meta name="theme-color" content="#14292c">
+  <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../../assets/site.css">
+  <link rel="stylesheet" href="../../../assets/schach-pets.css">
+  <style>:root{ --accent:#355d75; --accent-soft:#dce8ee; }</style>
+
+  <style>
+    .zs-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0 4px}
+    .zs-chip{border:1px solid var(--line);background:var(--cream,#fff);border-radius:999px;padding:8px 14px;font:inherit;font-weight:700;font-size:.92rem;cursor:pointer;color:inherit}
+    .zs-chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+    .zs-search{flex:1 1 220px;min-width:0;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font:inherit;background:var(--cream,#fff);color:inherit}
+    .zs-count{font-size:.9rem;opacity:.75;margin:6px 0 0}
+    .zs-epoch{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:24px;align-items:center}
+    .zs-epoch img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block}
+    .zs-epoch .zs-years{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;color:var(--accent)}
+    .zs-epoch h2{margin:.2em 0 .3em}
+    .zs-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .zs-links a{font-size:.88rem;font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--accent);background:var(--cream,#fff)}
+    .zs-links a:hover{border-color:var(--accent)}
+    .zs-line{list-style:none;margin:22px 0 0;padding:0 0 0 30px;position:relative}
+    .zs-line::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;border-radius:3px;background:linear-gradient(var(--accent),#c9a24f)}
+    .zs-ev{position:relative;margin:0 0 16px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:var(--cream,#fff);transition:box-shadow .3s,transform .3s}
+    .zs-ev::before{content:"";position:absolute;left:-27px;top:20px;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid var(--accent)}
+    .zs-ev[data-kat="turniere"]::before{border-color:#c9a24f}
+    .zs-ev[data-kat="kultur"]::before{border-color:#a4533a}
+    .zs-ev[data-kat="technik"]::before{border-color:#2f8f8a}
+    .zs-ev .zs-year{font-family:Georgia,serif;font-weight:800;font-size:1.05rem;color:var(--accent);margin-right:8px}
+    .zs-ev h3{display:inline;font-size:1.08rem;margin:0}
+    .zs-ev p{margin:.45em 0 0;line-height:1.6}
+    .zs-ev .zs-kat{display:inline-block;margin-top:8px;font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:.7}
+    .zs-ev .zs-more{margin-left:10px;font-size:.85rem;font-weight:700}
+    .zs-ev.zs-hit{box-shadow:0 0 0 3px #c9a24f;transform:scale(1.01)}
+    .zs-hidden{display:none}
+    .zs-empty{padding:18px;border:1px dashed var(--line);border-radius:14px;text-align:center}
+    .zs-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.85rem;margin-top:10px;opacity:.85}
+    .zs-legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;border:3px solid var(--c);margin-right:6px;vertical-align:-1px}
+    @media (max-width:760px){.zs-epoch{grid-template-columns:1fr}.zs-epoch img{max-width:440px}}
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav shell" aria-label="Hauptnavigation">
+      <a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true">EB</span><span>Dr. Edmund Bruns</span></a>
+      <a class="nav-home" href="../../../index.html"><svg class="home-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Startseite</span></a>
+    </nav>
+  </header>
+
+  <main id="inhalt">
+    <section class="page-hero shell">
+      <div class="eyebrow"><a href="../index.html">Schachgeschichte</a> · Zeitstrahl</div>
+      <h1>1500 Jahre Schach <em>zum Entdecken.</em></h1>
+      <p class="lead">Vom indischen Chaturanga bis zum jüngsten Weltmeister der Geschichte: 48 Stationen in sieben Epochen, mit Videos, Escape-Rooms und Weltmeister-Porträts zum Weiterlesen.</p>
+      <div class="tags" style="margin-top:22px"><span class="tag" data-neu="2026-11-24">Neu · November 2026</span><span class="tag">Alle Niveaus</span><span class="tag">ab Klasse 5</span></div>
+    </section>
+
+    <nav class="chipnav" aria-label="Epochen">
+      <div class="chipnav-inner shell">
+        <a href="#ursprung">Die Ursprünge</a>
+        <a href="#mittelalter">Mittelalter</a>
+        <a href="#neuzeit">Neuzeit und Aufklärung</a>
+        <a href="#romantik">Romantik und erste Turniere</a>
+        <a href="#umbruch">Neue Ideen und dunkle Jahre</a>
+        <a href="#kalterkrieg">Schach im Kalten Krieg</a>
+        <a href="#gegenwart">Computer, Internet, neue Generation</a>
+      </div>
+    </nav>
+
+    <section class="section tight">
+      <div class="shell">
+        <article class="card accent-top">
+          <h3 style="margin-top:0">Stöbern, filtern, suchen</h3>
+          <div class="zs-tools" role="group" aria-label="Nach Thema filtern">
+            <button class="zs-chip" type="button" data-filter="alle" aria-pressed="true">Alle</button>
+            <button class="zs-chip" type="button" data-filter="regeln" aria-pressed="false">Spiel und Regeln</button>
+            <button class="zs-chip" type="button" data-filter="turniere" aria-pressed="false">Turniere und Meister</button>
+            <button class="zs-chip" type="button" data-filter="kultur" aria-pressed="false">Kultur und Gesellschaft</button>
+            <button class="zs-chip" type="button" data-filter="technik" aria-pressed="false">Technik</button>
+          </div>
+          <div class="zs-tools">
+            <input class="zs-search" type="search" id="zsSearch" placeholder="Suchen, z. B. Dame, Morphy, Computer …" aria-label="Zeitstrahl durchsuchen">
+            <button class="btn" type="button" id="zsRandom">Überrasch mich</button>
+          </div>
+          <div class="zs-legend" aria-hidden="true"><span style="--c:var(--accent)">Spiel und Regeln</span><span style="--c:#c9a24f">Turniere und Meister</span><span style="--c:#a4533a">Kultur und Gesellschaft</span><span style="--c:#2f8f8a">Technik</span></div>
+          <p class="zs-count" id="zsCount" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tight zs-sec" id="ursprung">
+      <div class="shell">
+        <article class="card accent-top">
+          <div class="zs-epoch">
+            <img src="../../../assets/img/schachgeschichte/reise-raum-zeit.svg" alt="" width="800" height="420" loading="lazy">
+            <div>
+              <div class="zs-years">6. bis 9. Jahrhundert</div>
+              <h2>Die Ursprünge</h2>
+              <p>Aus einem indischen Kriegsspiel wird über Persien und die arabische Welt das Spiel, das wir heute kennen.</p>
+              <div class="zs-links"><a href="https://app.lumi.education/run/IgoA7G" target="_blank" rel="noopener">Reise durch Raum und Zeit</a></div>
+            </div>
+          </div>
+          <ol class="zs-line">
+            <li class="zs-ev" data-kat="regeln"><span class="zs-year">um 600</span><h3>Chaturanga in Indien</h3><p>Im Norden Indiens entsteht ein Brettspiel mit vier Truppenteilen eines Heeres: Fußsoldaten, Reiter, Elefanten und Streitwagen. Es gilt als ältester sicherer Vorläufer des Schachs.</p><span class="zs-kat">Spiel und Regeln</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">um 600</span><h3>Schatrandsch in Persien</h3><p>Persische Texte erwähnen das Spiel unter dem Namen Schatrandsch. Aus dem persischen Wort „Schah“ für König stammt unser Wort Schach, aus „Schah mat“ das Schachmatt: Der König ist hilflos.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">7. bis 9. Jh.</span><h3>Siegeszug in der arabischen Welt</h3><p>Nach der arabischen Eroberung Persiens verbreitet sich das Spiel bis nach Nordafrika und Spanien. Bagdad wird zu einem Zentrum, an dem Meisterspieler am Kalifenhof auftreten.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="regeln"><span class="zs-year">10. Jh.</span><h3>As-Suli, der erste Schachstar</h3><p>Der Spieler und Gelehrte as-Suli gilt als stärkster Spieler seiner Zeit. Er schreibt Bücher über Strategie, und eine seiner Aufgaben beschäftigte Schachfreunde über tausend Jahre.</p><span class="zs-kat">Spiel und Regeln</span></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tight zs-sec" id="mittelalter">
+      <div class="shell">
+        <article class="card accent-top">
+          <div class="zs-epoch">
+            <img src="../../../assets/img/schachgeschichte/escape-dame.svg" alt="" width="800" height="420" loading="lazy">
+            <div>
+              <div class="zs-years">10. bis 15. Jahrhundert</div>
+              <h2>Mittelalter</h2>
+              <p>Schach erreicht Europa, wird Teil der höfischen Bildung und ändert seine Regeln. Am Ende steht die neue, starke Dame.</p>
+              <div class="zs-links"><a href="https://app.lumi.education/run/CqGumJ" target="_blank" rel="noopener">Escape-Room: Reise durch Zeit, Kulturen und Gleichstellung</a><a href="../../escape-room-zeitreise/index.html">Escape-Room: Die Reise der Dame</a></div>
+            </div>
+          </div>
+          <ol class="zs-line">
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">um 1000</span><h3>Die Einsiedler Verse</h3><p>Im Kloster Einsiedeln in der Schweiz entsteht ein lateinisches Gedicht über Schach. Es ist der älteste bekannte europäische Text zum Spiel und nennt erstmals eine Königin und ein zweifarbiges Brett.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">11. und 12. Jh.</span><h3>Schach an Europas Höfen</h3><p>Über Spanien, Italien und Byzanz verbreitet sich das Spiel in ganz Europa. Es gehört bald zu den Fertigkeiten, die ein Ritter beherrschen sollte.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">12. Jh.</span><h3>Die Lewis-Schachfiguren</h3><p>Aus Walross-Elfenbein geschnitzte Figuren, vermutlich in Norwegen gefertigt. Gefunden wurden sie 1831 auf der schottischen Insel Lewis. Berühmt sind die Krieger, die grimmig in ihre Schilde beißen.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">1283</span><h3>Das Buch der Spiele</h3><p>König Alfons X. von Kastilien lässt ein prachtvoll bebildertes Buch über Schach, Würfel- und Brettspiele anfertigen, mit über hundert Schachaufgaben.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="regeln"><span class="zs-year">13. und 14. Jh.</span><h3>Neue Bauernregeln</h3><p>Bauern dürfen nun beim ersten Zug zwei Felder vorrücken. Etwas später kommt das Schlagen „en passant“ hinzu.</p><span class="zs-kat">Spiel und Regeln</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">um 1300</span><h3>Schach als Spiegel der Gesellschaft</h3><p>Der Dominikaner Jacobus de Cessolis deutet jede Figur als Stand der Gesellschaft, vom König bis zum Bauern. Sein Buch wird zu einem der meistgelesenen des Mittelalters. Eine englische Fassung von 1474 gehört zu den ersten gedruckten Büchern in englischer Sprache.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="regeln"><span class="zs-year">um 1475 bis 1497</span><h3>Die Geburt der modernen Dame</h3><p>In Spanien und Italien wird aus der schwachen Ratgeberfigur die mächtige Dame, auch der Läufer zieht nun weit. Lucenas Buch von 1497 ist das älteste erhaltene gedruckte Schachbuch mit den neuen Regeln.</p><span class="zs-kat">Spiel und Regeln</span></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tight zs-sec" id="neuzeit">
+      <div class="shell">
+        <article class="card accent-top">
+          <div class="zs-epoch">
+            <img src="../../../assets/img/schachgeschichte/neuzeit-aufklaerung.svg" alt="" width="800" height="420" loading="lazy">
+            <div>
+              <div class="zs-years">16. bis 18. Jahrhundert</div>
+              <h2>Neuzeit und Aufklärung</h2>
+              <p>Schach wird gedruckt, studiert und analysiert. In Kaffeehäusern trifft sich die Schachwelt, und ein Automat verblüfft Europa.</p>
+              
+            </div>
+          </div>
+          <ol class="zs-line">
+            <li class="zs-ev" data-kat="regeln"><span class="zs-year">1561</span><h3>Ruy López und das Gambit</h3><p>Der spanische Priester Ruy López veröffentlicht ein einflussreiches Lehrbuch und prägt das Wort Gambit. Die Spanische Partie trägt bis heute im Englischen seinen Namen.</p><span class="zs-kat">Spiel und Regeln</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1575</span><h3>Wettkampf am spanischen Hof</h3><p>Am Hof König Philipps II. in Madrid treten italienische und spanische Meister gegeneinander an. Der Italiener Leonardo da Cutri gewinnt. Das Treffen gilt oft als erstes internationales Turnier.</p><span class="zs-kat">Turniere und Meister</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">1616</span><h3>Das erste große deutsche Schachbuch</h3><p>Herzog August der Jüngere von Braunschweig-Lüneburg veröffentlicht unter dem Namen Gustavus Selenus „Das Schach- oder König-Spiel“.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="regeln"><span class="zs-year">um 1620</span><h3>Gioachino Greco</h3><p>Der Italiener verdient sein Geld mit Schach an europäischen Höfen. Seine kurzen, eleganten Musterpartien werden bis heute zum Lernen genutzt.</p><span class="zs-kat">Spiel und Regeln</span></li>
+            <li class="zs-ev" data-kat="regeln"><span class="zs-year">1749</span><h3>Philidor: Die Bauern sind die Seele</h3><p>Der Franzose François-André Danican Philidor, auch Komponist, erklärt erstmals die Bedeutung der Bauernstruktur. Sein Buch prägt das Schachdenken für ein Jahrhundert.</p><span class="zs-kat">Spiel und Regeln</span></li>
+            <li class="zs-ev" data-kat="technik"><span class="zs-year">1770</span><h3>Der Schachtürke</h3><p>Wolfgang von Kempelen präsentiert am Wiener Hof einen scheinbar denkenden Schachautomaten. In Wahrheit sitzt ein Mensch darin. Der Automat tourt Jahrzehnte durch Europa und Amerika und verbrennt 1854 in Philadelphia.</p><span class="zs-kat">Technik</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">18. Jh.</span><h3>Das Café de la Régence</h3><p>Das Pariser Kaffeehaus wird zum Mittelpunkt der Schachwelt. Hier spielen Philidor und später viele große Meister des 19. Jahrhunderts.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tight zs-sec" id="romantik">
+      <div class="shell">
+        <article class="card accent-top">
+          <div class="zs-epoch">
+            <img src="../../../assets/img/schachgeschichte/romantik.svg" alt="" width="800" height="420" loading="lazy">
+            <div>
+              <div class="zs-years">19. Jahrhundert</div>
+              <h2>Romantik und erste Turniere</h2>
+              <p>Opfer, Angriff, Leidenschaft: Das romantische Schach begeistert. Gleichzeitig entstehen Turniere, Vereine, Zeitschriften und der Weltmeistertitel.</p>
+              <div class="zs-links"><a href="https://app.lumi.education/run/kAkGo1" target="_blank" rel="noopener">Video: Romantik und Schach</a><a href="../../escape-room-museum/index.html">Escape-Room: Das Schach-Museum</a></div>
+            </div>
+          </div>
+          <ol class="zs-line">
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1834</span><h3>La Bourdonnais gegen McDonnell</h3><p>Der Franzose und der Ire spielen in London eine Serie von über achtzig Partien. Sie werden ausführlich veröffentlicht und begeistern eine breite Leserschaft.</p><span class="zs-kat">Turniere und Meister</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">1836</span><h3>Die erste Schachzeitschrift</h3><p>In Paris erscheint „Le Palamède“, die erste Zeitschrift, die sich nur dem Schach widmet.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">1849</span><h3>Die Staunton-Figuren</h3><p>Ein Londoner Hersteller bringt die schlichten, gut unterscheidbaren Figuren heraus, benannt nach dem Meister Howard Staunton. Sie sind bis heute Turnierstandard.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1851</span><h3>London: Das erste internationale Turnier</h3><p>Während der Weltausstellung findet in London das erste große internationale Turnier statt. Es gewinnt Adolf Anderssen aus Breslau, der im selben Jahr die „Unsterbliche Partie“ spielt.</p><span class="zs-kat">Turniere und Meister</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1858</span><h3>Morphy in der Oper</h3><p>Der Amerikaner Paul Morphy besiegt in einer Pariser Opernloge den Herzog von Braunschweig und einen Grafen in einer Partie, die bis heute als Lehrstück für schnelle Entwicklung gilt.</p><span class="zs-kat">Turniere und Meister</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">1877</span><h3>Gründung des Deutschen Schachbunds</h3><p>In Leipzig schließen sich Vereine zum Deutschen Schachbund zusammen. Er richtet regelmäßig große Turniere aus.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="technik"><span class="zs-year">1883</span><h3>Die Schachuhr</h3><p>Beim Turnier in London wird erstmals eine Doppeluhr eingesetzt. Wer seine Zeit überschreitet, verliert. Vorher wurden teils Sanduhren benutzt.</p><span class="zs-kat">Technik</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1886</span><h3>Die erste offizielle Weltmeisterschaft</h3><p>Wilhelm Steinitz besiegt Johannes Zukertort und wird erster offizieller Weltmeister. Steinitz begründet das positionelle Denken: erst Vorteile sammeln, dann angreifen.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tight zs-sec" id="umbruch">
+      <div class="shell">
+        <article class="card accent-top">
+          <div class="zs-epoch">
+            <img src="../../../assets/img/schachgeschichte/duchamp-weltkrieg.svg" alt="" width="800" height="420" loading="lazy">
+            <div>
+              <div class="zs-years">1890 bis 1945</div>
+              <h2>Neue Ideen und dunkle Jahre</h2>
+              <p>Hypermoderne Ideen, internationale Verbände und Schach als Bildungsbewegung. Dann Ausgrenzung, Verfolgung und Krieg.</p>
+              <div class="zs-links"><a href="https://app.lumi.education/run/lzK-1v" target="_blank" rel="noopener">Video: 1. Weltkrieg, Duchamp und neue Ideen</a><a href="https://app.lumi.education/run/z1Qch2" target="_blank" rel="noopener">Video: Kontrolle statt Besetzung</a><a href="https://app.lumi.education/run/IHeNC9" target="_blank" rel="noopener">Video: Arbeiterschach</a><a href="https://app.lumi.education/run/NgZV6T" target="_blank" rel="noopener">Video: Antisemitismus auf dem Schachbrett</a></div>
+            </div>
+          </div>
+          <ol class="zs-line">
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1894</span><h3>Emanuel Lasker wird Weltmeister</h3><p>Der Mathematiker und Philosoph aus Berlinchen hält den Titel 27 Jahre lang, länger als jeder andere.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">1912</span><h3>Der Deutsche Arbeiter-Schachbund</h3><p>In Nürnberg wird der Arbeiter-Schachbund gegründet. Schach soll die Bildung der Arbeiterschaft fördern. Zeitweise hat die Bewegung mehr Mitglieder als der bürgerliche Schachbund.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1914</span><h3>Turnier im Krieg</h3><p>Beim Turnier des Deutschen Schachbunds in Mannheim bricht der Erste Weltkrieg aus. Das Turnier wird abgebrochen, russische Teilnehmer werden interniert.</p><span class="zs-kat">Turniere und Meister</span></li>
+            <li class="zs-ev" data-kat="regeln"><span class="zs-year">1920er</span><h3>Die Hypermodernen</h3><p>Réti und Nimzowitsch stellen alte Lehrsätze in Frage: Man muss das Zentrum nicht besetzen, man kann es aus der Ferne kontrollieren. Nimzowitschs „Mein System“ erscheint 1925.</p><span class="zs-kat">Spiel und Regeln</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1924</span><h3>Gründung der FIDE</h3><p>In Paris wird der Weltschachbund FIDE gegründet. Sein Motto lautet „Gens una sumus“: Wir sind eine Familie.</p><span class="zs-kat">Turniere und Meister</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1927</span><h3>Vera Menchik und Aljechin</h3><p>Vera Menchik wird in London erste Weltmeisterin. Im selben Jahr besiegt Alexander Aljechin in Buenos Aires den als unbesiegbar geltenden Capablanca.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">ab 1933</span><h3>Ausgrenzung und Verbot</h3><p>Im Nationalsozialismus werden jüdische Spielerinnen und Spieler aus den Vereinen gedrängt, die Arbeiterschachvereine verboten. Emanuel Lasker verlässt Deutschland.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1939</span><h3>Olympiade am Kriegsbeginn</h3><p>Während der Schacholympiade in Buenos Aires beginnt der Zweite Weltkrieg. Viele Spieler kehren nicht nach Europa zurück, darunter Miguel Najdorf.</p><span class="zs-kat">Turniere und Meister</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">1939 bis 1945</span><h3>Schach in Lagern und Ghettos</h3><p>Auch unter unmenschlichen Bedingungen spielten Häftlinge Schach, oft mit selbstgeschnitzten Figuren. Das Spiel konnte ein Stück Würde und Selbstbehauptung bedeuten.</p><span class="zs-kat">Kultur und Gesellschaft</span><a class="zs-more" href="../../../publikationen/index.html#kulturgeschichte">Mehr dazu →</a></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tight zs-sec" id="kalterkrieg">
+      <div class="shell">
+        <article class="card accent-top">
+          <div class="zs-epoch">
+            <img src="../../../assets/img/schachgeschichte/kalter-krieg.svg" alt="" width="800" height="420" loading="lazy">
+            <div>
+              <div class="zs-years">1945 bis 1991</div>
+              <h2>Schach im Kalten Krieg</h2>
+              <p>Die Sowjetunion macht Schach zur Staatssache. Am Brett spiegeln sich die großen politischen Gegensätze der Zeit.</p>
+              <div class="zs-links"><a href="https://app.lumi.education/run/Q6N-j2" target="_blank" rel="noopener">Video: Der Kalte Krieg auf dem Schachbrett</a><a href="../../escape-room-partie/index.html">Escape-Room: Die Partie des Jahrhunderts</a></div>
+            </div>
+          </div>
+          <ol class="zs-line">
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1948</span><h3>Botwinnik und die sowjetische Schule</h3><p>Michail Botwinnik gewinnt das WM-Turnier. Bis 1972 stellt die Sowjetunion ohne Unterbrechung den Weltmeister.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+            <li class="zs-ev" data-kat="technik"><span class="zs-year">1950</span><h3>Großmeistertitel und erste Computertheorie</h3><p>Die FIDE vergibt erstmals offiziell den Großmeistertitel. Im selben Jahr beschreibt der Mathematiker Claude Shannon, wie ein Computer Schach spielen könnte.</p><span class="zs-kat">Technik</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1970</span><h3>Die Elo-Zahl</h3><p>Die FIDE übernimmt das Wertungssystem des Physikers Arpad Elo. Seitdem lässt sich die Spielstärke in einer Zahl ausdrücken.</p><span class="zs-kat">Turniere und Meister</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1972</span><h3>Fischer gegen Spasski</h3><p>In Reykjavík besiegt der Amerikaner Bobby Fischer den sowjetischen Weltmeister Boris Spasski. Das Match wird weltweit als Duell der Systeme verfolgt.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">1978</span><h3>Karpow gegen Kortschnoi</h3><p>Der Weltmeister trifft auf den in den Westen emigrierten Herausforderer. Das Match in Baguio ist von Misstrauen, Protesten und Streit um einen Parapsychologen geprägt.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1985</span><h3>Kasparow wird Weltmeister</h3><p>Mit 22 Jahren besiegt Garri Kasparow Anatoli Karpow und wird damals jüngster Weltmeister.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1991</span><h3>Judit Polgár und Xie Jun</h3><p>Judit Polgár wird mit 15 Jahren Großmeisterin, jünger als einst Bobby Fischer. Xie Jun wird erste chinesische Weltmeisterin.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tight zs-sec" id="gegenwart">
+      <div class="shell">
+        <article class="card accent-top">
+          <div class="zs-epoch">
+            <img src="../../../assets/img/schachgeschichte/ki-und-schach.svg" alt="" width="800" height="420" loading="lazy">
+            <div>
+              <div class="zs-years">seit 1991</div>
+              <h2>Computer, Internet, neue Generation</h2>
+              <p>Maschinen schlagen Menschen, Programme werden zu Trainern, und Schach erlebt online einen nie dagewesenen Boom.</p>
+              <div class="zs-links"><a href="https://app.lumi.education/run/BswEn8" target="_blank" rel="noopener">Video: KI und Schach</a><a href="https://app.lumi.education/run/HTXFmj" target="_blank" rel="noopener">Video: Wie Schach intelligent wurde</a><a href="https://app.lumi.education/run/yeNIlk" target="_blank" rel="noopener">EduBreakout: Eine kulturgeschichtliche Reise</a></div>
+            </div>
+          </div>
+          <ol class="zs-line">
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">1993</span><h3>Zwei Weltmeister</h3><p>Kasparow und Short spielen ihr WM-Match außerhalb der FIDE. Bis 2006 gibt es zwei Weltmeistertitel, dann vereint Wladimir Kramnik sie wieder.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+            <li class="zs-ev" data-kat="technik"><span class="zs-year">1997</span><h3>Deep Blue schlägt Kasparow</h3><p>Der IBM-Rechner gewinnt in New York einen Wettkampf über sechs Partien gegen den amtierenden Weltmeister. Ein Wendepunkt im Verhältnis von Mensch und Maschine.</p><span class="zs-kat">Technik</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">2013</span><h3>Magnus Carlsen</h3><p>Der Norweger wird Weltmeister und prägt das Schach für ein Jahrzehnt. 2023 verzichtet er auf die Titelverteidigung.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+            <li class="zs-ev" data-kat="technik"><span class="zs-year">2017</span><h3>AlphaZero</h3><p>Ein Programm lernt Schach nur aus den Regeln, indem es gegen sich selbst spielt. Nach wenigen Stunden ist es stärker als die besten herkömmlichen Programme.</p><span class="zs-kat">Technik</span></li>
+            <li class="zs-ev" data-kat="kultur"><span class="zs-year">2020</span><h3>Der Schachboom</h3><p>In der Pandemie spielen Millionen Menschen online. Die Serie „Das Damengambit“ weckt zusätzlich weltweit Interesse am Spiel.</p><span class="zs-kat">Kultur und Gesellschaft</span></li>
+            <li class="zs-ev" data-kat="turniere"><span class="zs-year">2024</span><h3>Gukesh, jüngster Weltmeister</h3><p>Der Inder Dommaraju Gukesh besiegt Ding Liren und wird mit 18 Jahren jüngster Weltmeister der Geschichte.</p><span class="zs-kat">Turniere und Meister</span><a class="zs-more" href="../../schachweltmeister/index.html">Zu den Weltmeister-Porträts →</a></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="shell">
+        <p class="zs-empty zs-hidden" id="zsEmpty">Keine Treffer. Probier einen anderen Suchbegriff oder wähle „Alle“.</p>
+        <article class="card accent-top">
+          <h3 style="margin-top:0">Und jetzt du</h3>
+          <p>Kannst du die Ereignisse auch ohne Hilfe in die richtige Reihenfolge bringen? Teste dich im Sortierspiel oder im Quiz „Wer war's?“.</p>
+          <div class="links"><a class="btn" href="https://edmundbruns.github.io/zeitstrahl/" target="_blank" rel="noopener">Sortierspiel</a> <a class="btn secondary" href="https://edmundbruns.github.io/weristes/" target="_blank" rel="noopener">Quiz „Wer war's?“</a> <a class="btn secondary" href="../index.html">Zurück zur Schachgeschichte</a></div>
+        </article>
+        <p class="mini" style="margin-top:18px">© Dr. Edmund Bruns, 2026. Texte: CC BY-NC 4.0. Jahreszahlen der frühen Epochen sind Näherungswerte, da die Quellenlage unsicher ist.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid shell">
+      <div>
+        <div class="footer-title">Denken in Zügen.</div>
+        <div class="footer-note">Kostenlose Schachmaterialien. Externe Übungen, Videos und Downloads öffnen in einem neuen Tab.</div>
+      </div>
+      <div class="footer-links">
+        <a href="../../../index.html">Start</a>
+        <a href="../../../kontakt/index.html">Kontakt</a>
+        <a href="../../../impressum/index.html">Impressum</a>
+        <a href="../../../datenschutz/index.html">Datenschutz</a>
+      </div>
+    </div>
+    <div class="copyright shell">
+      <span>© <span data-year></span> Dr. Edmund Bruns</span>
+      <span>Soweit nicht anders angegeben: CC BY-NC 4.0</span>
+    </div>
+  </footer>
+
+  <a class="backtop" href="#top" aria-label="Nach oben">↑</a>
+  <script src="../../../assets/site.js"></script>
+  <script src="../../../assets/schach-pets.js" defer></script>
+  <script defer src="../../../assets/search.js"></script>
+  <script defer src="../../../assets/ux.js"></script>
+
+  <script>
+  (function(){
+    var evs=[].slice.call(document.querySelectorAll('.zs-ev')),secs=[].slice.call(document.querySelectorAll('.zs-sec')),
+        chips=[].slice.call(document.querySelectorAll('.zs-chip')),q=document.getElementById('zsSearch'),
+        cnt=document.getElementById('zsCount'),empty=document.getElementById('zsEmpty'),kat='alle';
+    function norm(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+    evs.forEach(function(e){e.dataset.txt=norm(e.textContent);});
+    function apply(){
+      var t=norm(q.value.trim()),n=0;
+      evs.forEach(function(e){var ok=(kat==='alle'||e.dataset.kat===kat)&&(!t||e.dataset.txt.indexOf(t)>-1);e.classList.toggle('zs-hidden',!ok);if(ok)n++;});
+      secs.forEach(function(s){s.classList.toggle('zs-hidden',!s.querySelector('.zs-ev:not(.zs-hidden)'));});
+      cnt.textContent=n+' von '+evs.length+' Ereignissen';
+      empty.classList.toggle('zs-hidden',n>0);
+    }
+    chips.forEach(function(c){c.addEventListener('click',function(){kat=c.dataset.filter;chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});apply();});});
+    q.addEventListener('input',apply);
+    document.getElementById('zsRandom').addEventListener('click',function(){
+      var vis=evs.filter(function(e){return !e.classList.contains('zs-hidden');});if(!vis.length)return;
+      var e=vis[Math.floor(Math.random()*vis.length)];
+      evs.forEach(function(x){x.classList.remove('zs-hit');});
+      e.classList.add('zs-hit');e.scrollIntoView({behavior:'smooth',block:'center'});
+      setTimeout(function(){e.classList.remove('zs-hit');},2600);
+    });
+    apply();
+  })();
+  </script>
+</body>
+
+</html>
