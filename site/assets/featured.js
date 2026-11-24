@@ -23,6 +23,13 @@ window.EB_CURATED = [
     description: 'Digitaler Lernweg in drei Stufen: Bronze, Silber, Gold. Am Ende steht ein Abschlusstest.',
     url: 'https://ludgerus-schachdiplom.netlify.app/',
     linkText: 'Diplom starten →'
+  },
+  {
+    label: 'Neues Buch · Oktober 2026',
+    title: 'Gut dokumentieren in der Schulsozialarbeit',
+    description: 'Zwölf Grundsätze, sechs erfundene Fälle und konkrete Anforderungen an Dokumentationssoftware.',
+    url: '/publikationen/#schulsozialarbeit',
+    linkText: 'Buch ansehen →'
   }
 ];
 
