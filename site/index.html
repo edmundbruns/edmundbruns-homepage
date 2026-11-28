@@ -1274,7 +1274,14 @@
     </section>
 
     <section class="pathways shell" aria-label="Material finden">
-      <div class="finder-callout"><div><h2>Material gezielt finden</h2><p>Filtere nach Fallanlass, Zielgruppe, Thema, Jahrgang, Materialart und Format.</p></div><a href="materialfinder/index.html">Materialfinder öffnen →</a></div>
+      <div class="finder-callout"><div><h2>Material gezielt finden</h2><p>Filtere nach Fallanlass, Zielgruppe, Thema, Klasse, Materialart und Format.</p></div><a href="materialfinder/index.html">Materialfinder öffnen →</a>
+        <nav class="klassen-schnell" aria-label="Material nach Klasse"><span>Direkt zur Klasse</span><a href="materialfinder/index.html?jahrgang=1">1</a><a href="materialfinder/index.html?jahrgang=2">2</a><a href="materialfinder/index.html?jahrgang=3">3</a><a href="materialfinder/index.html?jahrgang=4">4</a><a href="materialfinder/index.html?jahrgang=5">5</a><a href="materialfinder/index.html?jahrgang=6">6</a><a href="materialfinder/index.html?jahrgang=7">7</a><a href="materialfinder/index.html?jahrgang=8">8</a><a href="materialfinder/index.html?jahrgang=9">9</a><a href="materialfinder/index.html?jahrgang=10">10</a></nav></div>
+    </section>
+<section class="curated shell saison-feature" aria-labelledby="saison-title" data-saison>
+      <style>.klassen-schnell{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18)}.klassen-schnell span{margin-right:6px;font-weight:800;color:rgba(255,255,255,.8)}.finder-callout .klassen-schnell a{min-width:42px;padding:8px 12px;text-align:center;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25)}.finder-callout .klassen-schnell a:hover{background:var(--gold);color:#172f2b}.saison-feature .saison-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}@media(max-width:1000px){.saison-feature .saison-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.saison-feature .saison-grid{grid-template-columns:1fr}}.saison-feature .curated-card h2{font-size:1.15rem}.saison-feature .curated-card img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:14px;margin:0 0 14px}.saison-feature .saison-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:16px;font-weight:800}</style>
+      <p class="section-kicker">Gerade passend</p><h2 id="saison-title" data-saison-titel>Gerade passend</h2><p class="mini" style="margin:-6px 0 16px" data-saison-text></p>
+      <div class="saison-grid" data-saison-karten></div>
+      <div class="saison-links"><a href="bildschirmfrei/index.html">Bildschirmfrei lernen: Werkstatt, Bewegung und Papier →</a><a href="materialfinder/index.html?status=tafel">Materialien mit Tafelbildern →</a></div>
     </section>
 
     <section class="curated shell escape-feature" aria-labelledby="escape-title">
@@ -1419,6 +1426,8 @@
   })();
   </script>
   <script defer src="assets/featured.js?v=20261124"></script>
+<script defer src="assets/materials.js?v=20261128"></script>
+<script defer src="assets/saison.js?v=20261128"></script>
   <script defer src="assets/search.js"></script>
   <script defer src="assets/ux.js"></script>
 </body>
