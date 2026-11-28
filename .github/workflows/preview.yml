@@ -1,0 +1,28 @@
+name: Vorschau veröffentlichen
+# Jeder andere Zweig als main wird als Vorschau auf Cloudflare Pages veröffentlicht.
+# Die Live-Seite bleibt unberührt. Adresse: https://<zweigname>.bruns-homepage.pages.dev
+
+on:
+  push:
+    branches-ignore: [main]
+    paths: ['site/**', '.github/workflows/preview.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: pages-preview-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vorschau auf Cloudflare Pages (Projekt bruns-homepage)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 480e351e75c5fbf638b262039af377a1
+          command: pages deploy site --project-name=bruns-homepage --branch=${{ github.ref_name }} --commit-dirty=true

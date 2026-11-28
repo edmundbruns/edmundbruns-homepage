@@ -1,5 +1,5 @@
 /* Service Worker: Offline-Cache fuer bruns-homepage */
-const VERSION = 'eb-v88-2026-11-23';
+const VERSION = 'eb-v89-2026-11-28';
 const CORE = [
   '/',
   '/materialfinder/',
